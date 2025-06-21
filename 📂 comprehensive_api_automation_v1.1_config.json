@@ -1,0 +1,71 @@
+{
+  "protocol_name": "COMPREHENSIVE_API_AUTOMATION_V1.1",
+  "activated_on": "2025-06-20",
+  "enabled": true,
+  "refresh_interval_minutes": 15,
+
+  "data_feeds": {
+    "player_stats": {
+      "source": "https://api.fangraphs.com/mlb/stats",
+      "method": "GET",
+      "auth": "api_key",
+      "storage_path": "./data/player_stats/",
+      "format": "json",
+      "normalize": true
+    },
+    "live_odds": {
+      "source": "https://api.onyx.io/odds",
+      "method": "GET",
+      "books": ["Pinnacle", "Fliff", "Onyx", "DraftKings"],
+      "storage_path": "./data/live_odds/",
+      "alert_on_edge": true,
+      "edge_threshold_percent": 5
+    },
+    "lineups": {
+      "source": "https://api.rotowire.com/mlb/lineups",
+      "method": "GET",
+      "storage_path": "./data/lineups/",
+      "update_on_change": true
+    },
+    "weather_umpires": {
+      "source": "https://api.weather.com/mlb_conditions",
+      "method": "GET",
+      "fields": ["temperature", "wind_speed", "wind_direction", "umpire_name", "umpire_zone_rating"],
+      "storage_path": "./data/environment/",
+      "overlay_into_simulation": true
+    },
+    "box_scores": {
+      "source": "https://api.mlb.com/game_results",
+      "method": "GET",
+      "storage_path": "./data/results/",
+      "trigger_postmortem_log": true
+    }
+  },
+
+  "model_hooks": {
+    "simulation_refresh": {
+      "trigger_on": ["odds_change", "lineup_update", "pitcher_swap"],
+      "recalculate_threshold": 0.07,
+      "apply_to_models": ["mlb_main_sim", "prop_lab_sim"]
+    },
+    "edge_detection": {
+      "enabled": true,
+      "min_edge_prob": 0.58,
+      "send_to_dashboard": true
+    }
+  },
+
+  "logging": {
+    "enable_performance_tracking": true,
+    "link_to_protocol": "MODEL_PERFORMANCE_TRACKING_V1.0",
+    "output_format": "csv",
+    "log_path": "./logs/api_ingestion_log/"
+  },
+
+  "system_options": {
+    "auto_clean_expired_data": true,
+    "backup_frequency_days": 1,
+    "notify_on_failure": true,
+    "visual_dashboard_enabled": true
+  }
+}
