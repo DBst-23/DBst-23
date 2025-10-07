@@ -1,0 +1,24 @@
+name: charlotte_update
+
+on:
+  workflow_dispatch:
+  issue_comment:
+    types: [created]
+
+jobs:
+  update_runner:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Run update script
+        run: |
+          echo "Running Charlotte update..."
+          python scripts/apply_template.py
