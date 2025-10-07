@@ -1,0 +1,27 @@
+name: api_pipeline
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "15 * * * *"  # runs hourly at :15
+
+jobs:
+  run_apis:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          pip install -r templates/api_runner/requirements.txt
+
+      - name: Run API jobs
+        run: |
+          python templates/api_runner/runner.py
