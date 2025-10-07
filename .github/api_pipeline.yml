@@ -1,0 +1,27 @@
+name: SharpEdge API Runner
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "15 * * * *"  # Runs hourly at :15
+
+jobs:
+  run_api:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install -r templates/api_runner/requirements.txt
+
+      - name: Run automation
+        run: |
+          python scripts/apply_template.py
+
+          Create api_pipeline.yml
