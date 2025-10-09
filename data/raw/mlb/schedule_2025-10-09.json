@@ -1,0 +1,165 @@
+{
+  "copyright": "Copyright 2025 MLB Advanced Media, L.P.  Use of any content on this page acknowledges agreement to the terms posted here http://gdx.mlb.com/components/copyright.txt",
+  "totalItems": 2,
+  "totalEvents": 0,
+  "totalGames": 2,
+  "totalGamesInProgress": 0,
+  "dates": [
+    {
+      "date": "2025-10-09",
+      "totalItems": 2,
+      "totalEvents": 0,
+      "totalGames": 2,
+      "totalGamesInProgress": 0,
+      "games": [
+        {
+          "gamePk": 813042,
+          "gameGuid": "2bcad792-e701-47b6-be24-c454f12aff13",
+          "link": "/api/v1.1/game/813042/feed/live",
+          "gameType": "D",
+          "season": "2025",
+          "gameDate": "2025-10-09T22:08:00Z",
+          "officialDate": "2025-10-09",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "S",
+            "detailedState": "Scheduled",
+            "statusCode": "S",
+            "startTimeTBD": false,
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "wins": 1,
+                "losses": 2,
+                "pct": ".333"
+              },
+              "team": {
+                "id": 143,
+                "name": "Philadelphia Phillies",
+                "link": "/api/v1/teams/143"
+              },
+              "splitSquad": false,
+              "seriesNumber": 4
+            },
+            "home": {
+              "leagueRecord": {
+                "wins": 2,
+                "losses": 1,
+                "pct": ".667"
+              },
+              "team": {
+                "id": 119,
+                "name": "Los Angeles Dodgers",
+                "link": "/api/v1/teams/119"
+              },
+              "splitSquad": false,
+              "seriesNumber": 4
+            }
+          },
+          "venue": {
+            "id": 22,
+            "name": "Dodger Stadium",
+            "link": "/api/v1/venues/22"
+          },
+          "content": {
+            "link": "/api/v1/game/813042/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-813042-2025-10-09",
+          "seasonDisplay": "2025",
+          "dayNight": "day",
+          "description": "NLDS 'B' Game 4",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 175,
+          "gamesInSeries": 5,
+          "seriesGameNumber": 4,
+          "seriesDescription": "Division Series",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 813050,
+          "gameGuid": "f25593f9-5bc2-4bbb-8238-f3edb7b184bd",
+          "link": "/api/v1.1/game/813050/feed/live",
+          "gameType": "D",
+          "season": "2025",
+          "gameDate": "2025-10-10T01:08:00Z",
+          "officialDate": "2025-10-09",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "S",
+            "detailedState": "Scheduled",
+            "statusCode": "S",
+            "startTimeTBD": false,
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "wins": 2,
+                "losses": 1,
+                "pct": ".667"
+              },
+              "team": {
+                "id": 158,
+                "name": "Milwaukee Brewers",
+                "link": "/api/v1/teams/158"
+              },
+              "splitSquad": false,
+              "seriesNumber": 3
+            },
+            "home": {
+              "leagueRecord": {
+                "wins": 1,
+                "losses": 2,
+                "pct": ".333"
+              },
+              "team": {
+                "id": 112,
+                "name": "Chicago Cubs",
+                "link": "/api/v1/teams/112"
+              },
+              "splitSquad": false,
+              "seriesNumber": 3
+            }
+          },
+          "venue": {
+            "id": 17,
+            "name": "Wrigley Field",
+            "link": "/api/v1/venues/17"
+          },
+          "content": {
+            "link": "/api/v1/game/813050/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-813050-2025-10-09",
+          "seasonDisplay": "2025",
+          "dayNight": "night",
+          "description": "NLDS 'A' Game 4 ",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 175,
+          "gamesInSeries": 5,
+          "seriesGameNumber": 4,
+          "seriesDescription": "Division Series",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        }
+      ],
+      "events": []
+    }
+  ]
+}
