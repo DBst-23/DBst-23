@@ -1,4 +1,4 @@
-name: Charlotte Control Bridge
+n bname: Charlotte Control Bridge
 
 on:
   # Manual button
@@ -126,68 +126,41 @@ jobs:
       ## Usage in comment: /charlotte odds fetch <league> <market>
       ## Example:         /charlotte odds fetch nba totals
       ####################################################################
-      - name: Odds fetch (stub)
+     - name: Odds fetch (stub)
         if: contains(github.event.comment.body, '/charlotte odds fetch')
-        env:
-          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }} # optional; if absent we log a stub file
         shell: bash
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}  # optional
         run: |
           set -e
           COMMENT="${{ github.event.comment.body }}"
-          # Extract args after the command
           ARGS="${COMMENT#*'/charlotte odds fetch '}"
           LEAGUE=$(echo "$ARGS" | awk '{print tolower($1)}')
-          MARKET=$(echo "$ARGS"  | awk '{print tolower($2)}')
+          MARKET=$(echo "$ARGS" | awk '{print tolower($2)}')
+          export LEAGUE MARKET
 
           python - <<'PY'
-          import os, json, os, sys
-          league = os.environ.get("LEAGUE")
-          market = os.environ.get("MARKET")
+          import os, json, datetime as dt, pathlib
+          league = os.environ.get("LEAGUE") or "unknown"
+          market = os.environ.get("MARKET") or "all"
           key    = os.environ.get("ODDS_API_KEY")
-          os.makedirs("data/raw/odds", exist_ok=True)
-          out = f"data/raw/odds/{league}_{market or 'all'}_latest.json"
 
-          if not league:
-              print("No league parsed; writing stub.")
-              league = "unknown"
+          outdir = pathlib.Path("data/raw/odds")
+          outdir.mkdir(parents=True, exist_ok=True)
+          out = outdir / f"{league}_{market}_latest.json"
 
           payload = {
               "league": league,
-              "market": market or "all",
-              "fetched_at_utc": __import__("datetime").datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
-              "note": "Stub created (no API call) because ODDS_API_KEY is not set."
+              "market": market,
+              "fetched_at_utc": dt.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+              "note": "Stub created (no provider call)."
           }
-
           if key:
-              # Place your real fetch here (keep it safe for now)
-              # Example provider endpoint shown as a placeholder:
-              # import requests
-              # url = f"https://api.the-odds-api.com/v4/sports/{league}/odds?markets={market}&apiKey={key}"
-              # r = requests.get(url, timeout=60); r.raise_for_status()
-              # payload = r.json()
               payload["note"] = "Real provider call goes here once ODDS_API_KEY is configured."
 
-          with open(out, "w") as f: json.dump(payload, f, indent=2)
+          out.write_text(json.dumps(payload, indent=2))
           print("Wrote", out)
-          PY
-        env:
-          LEAGUE: ${{ steps.parse-args.outputs.league }}
-          MARKET: ${{ steps.parse-args.outputs.market }}
-        continue-on-error: false
-
-      - name: Commit odds data (if any)
-        if: contains(github.event.comment.body, '/charlotte odds fetch')
-        shell: bash
-        run: |
-          if ! git diff --quiet; then
-            git add -A
-            git commit -m "chore(data): odds fetch $(date -u +'%Y-%m-%dT%H:%M:%SZ')" || echo "No odds changes"
-            git push origin HEAD:${{ github.ref_name }}
-          else
-            echo "No odds changes to commit."
-          fi
-
-      ####################################################################
+          PY      ####################################################################
       ## LOG MANUAL EDGE (paste JSON after '/charlotte log ')
       ####################################################################
       - name: Log manual edge
