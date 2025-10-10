@@ -1,132 +1,98 @@
-n bname: Charlotte Control Bridge
+name: Charlotte Control Bridge
 
 on:
-  # Manual button
   workflow_dispatch:
-  # Comment on issues (your “control console” issue)
   issue_comment:
     types: [created]
 
-# Needed so the bot can push commits or open/update PRs
+# Bot needs write to push files created by steps below
 permissions:
   contents: write
   pull-requests: write
   issues: write
 
-concurrency:
-  group: charlotte-bridge
-  cancel-in-progress: false
-
 jobs:
   route:
-    # Only run on manual dispatch OR when a comment starts with "/charlotte "
-    if: |
-      github.event_name == 'workflow_dispatch' ||
-      startsWith(github.event.comment.body, '/charlotte ')
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte ')
     runs-on: ubuntu-latest
-    timeout-minutes: 15
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          persist-credentials: true
-
-      - name: Configure Git
-        run: |
-          git config --global user.name  "sharpedge-bot"
-          git config --global user.email "sharpedge-bot@users.noreply.github.com"
-          git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
       - name: Show command
         run: |
           echo "Actor: ${{ github.actor }}"
+          echo "Event: ${{ github.event_name }}"
           echo "Comment: ${{ github.event.comment.body || 'manual-dispatch' }}"
 
-      ####################################################################
-      ## NBA PULL (BallDontLie)
-      ####################################################################
+      #######################################################################
+      # NBA PULL — /charlotte nba pull
+      #######################################################################
       - name: NBA pull
-        if: |
-          github.event_name == 'workflow_dispatch' ||
-          contains(github.event.comment.body, '/charlotte nba pull')
+        if: github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte nba pull')
         shell: bash
         run: |
           set -e
           python - <<'PY'
-          import os, json, requests
-          from datetime import date
-          today = date.today().isoformat()
+          import os, json, datetime as dt, pathlib, urllib.request
+          today = dt.date.today().isoformat()
           url = f"https://www.balldontlie.io/api/v1/games?dates[]={today}"
-          r = requests.get(url, timeout=60)
-          r.raise_for_status()
-          data = r.json()
-          os.makedirs("data/raw/nba", exist_ok=True)
-          out = f"data/raw/nba/games_{today}.json"
-          with open(out, "w") as f: json.dump(data, f, indent=2)
-          print(f"Wrote {out}")
+          with urllib.request.urlopen(url, timeout=60) as r:
+              data = json.load(r)
+          outdir = pathlib.Path("data/raw/nba")
+          outdir.mkdir(parents=True, exist_ok=True)
+          out = outdir / f"games_{today}.json"
+          out.write_text(json.dumps(data, indent=2))
+          print("Wrote", out)
           PY
 
-      - name: Commit NBA data (if any)
-        if: |
-          github.event_name == 'workflow_dispatch' ||
-          contains(github.event.comment.body, '/charlotte nba pull')
+      - name: Commit NBA data
+        if: github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte nba pull')
         shell: bash
         run: |
-          if ! git diff --quiet; then
-            git add -A
-            git commit -m "chore(data): NBA auto-pull $(date -u +'%Y-%m-%dT%H:%M:%SZ')" || echo "No NBA changes"
-            git push origin HEAD:${{ github.ref_name }}
-          else
-            echo "No NBA changes to commit."
-          fi
+          git config user.name  "sharpedge-bot"
+          git config user.email "sharpedge-bot@users.noreply.github.com"
+          git add data/raw/nba/*.json || true
+          git commit -m "chore(data): nba auto-pull" || echo "No NBA changes to commit"
+          git push
 
-      ####################################################################
-      ## NFL PULL (weekly schedule snapshot; public nflfastR game data)
-      ####################################################################
-      - name: NFL pull (weekly schedule)
-        if: contains(github.event.comment.body, '/charlotte nfl pull')
+      #######################################################################
+      # MANUAL EDGE LOG — /charlotte log { json ... }
+      #######################################################################
+      - name: Log manual edge (JSON block in comment)
+        if: contains(github.event.comment.body, '/charlotte log ')
         shell: bash
         run: |
-          set -e
           python - <<'PY'
-          import os, json, datetime, requests
-          # Snapshot of the master games file from nflfastR-data (public)
-          # You can point this to your own API later.
-          url = "https://raw.githubusercontent.com/nflverse/nflfastR-data/master/games.json.gz"
-          r = requests.get(url, timeout=60)
-          r.raise_for_status()
-          os.makedirs("data/raw/nfl", exist_ok=True)
-          # Save the raw artifact (gz) plus a tiny index .json for quick reads
-          raw_path = "data/raw/nfl/games_master.json.gz"
-          with open(raw_path, "wb") as f: f.write(r.content)
-
-          # Write a small stamp file so commits happen even if the master file is unchanged locally
-          stamp = datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
-          idx = {"source": "nflverse games.json.gz", "fetched_at_utc": stamp}
-          with open("data/raw/nfl/_last_pull.json", "w") as f: json.dump(idx, f, indent=2)
-          print("NFL snapshot saved:", raw_path)
+          import re, json, pathlib, datetime as dt, sys
+          body = """${{ github.event.comment.body }}"""
+          m = re.search(r'\{[\s\S]*\}', body)
+          if not m:
+              print("No JSON object found in comment; expected /charlotte log { ... }")
+              sys.exit(0)
+          data = json.loads(m.group(0))
+          outdir = pathlib.Path("Manual_Edge_Logbook")
+          outdir.mkdir(exist_ok=True)
+          stamp = dt.datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+          entry = (data.get("entry_id") or "manual_edge") + "_" + stamp + ".json"
+          (outdir / entry).write_text(json.dumps(data, indent=2))
+          print("Wrote", outdir / entry)
           PY
 
-      - name: Commit NFL data (if any)
-        if: contains(github.event.comment.body, '/charlotte nfl pull')
+      - name: Commit manual edge
+        if: contains(github.event.comment.body, '/charlotte log ')
         shell: bash
         run: |
-          if ! git diff --quiet; then
-            git add -A
-            git commit -m "chore(data): NFL schedule snapshot $(date -u +'%Y-%m-%dT%H:%M:%SZ')" || echo "No NFL changes"
-            git push origin HEAD:${{ github.ref_name }}
-          else
-            echo "No NFL changes to commit."
-          fi
+          git config user.name  "sharpedge-bot"
+          git config user.email "sharpedge-bot@users.noreply.github.com"
+          git add Manual_Edge_Logbook/*.json || true
+          git commit -m "chore(log): manual edge entry from issue comment" || echo "No log changes to commit"
+          git push
 
-      ####################################################################
-      ## ODDS FETCH (stub) — demonstrates parameter capture + safe no-op
-      ## Usage in comment: /charlotte odds fetch <league> <market>
-      ## Example:         /charlotte odds fetch nba totals
-      ####################################################################
-     - name: Odds fetch (stub)
+      #######################################################################
+      # ODDS FETCH STUB — /charlotte odds fetch <league> <market>
+      #######################################################################
+      - name: Odds fetch (stub)
         if: contains(github.event.comment.body, '/charlotte odds fetch')
         shell: bash
         env:
@@ -137,74 +103,27 @@ jobs:
           ARGS="${COMMENT#*'/charlotte odds fetch '}"
           LEAGUE=$(echo "$ARGS" | awk '{print tolower($1)}')
           MARKET=$(echo "$ARGS" | awk '{print tolower($2)}')
-          export LEAGUE MARKET
-
           python - <<'PY'
           import os, json, datetime as dt, pathlib
           league = os.environ.get("LEAGUE") or "unknown"
           market = os.environ.get("MARKET") or "all"
-          key    = os.environ.get("ODDS_API_KEY")
-
-          outdir = pathlib.Path("data/raw/odds")
-          outdir.mkdir(parents=True, exist_ok=True)
+          outdir = pathlib.Path("data/raw/odds"); outdir.mkdir(parents=True, exist_ok=True)
           out = outdir / f"{league}_{market}_latest.json"
-
-          payload = {
-              "league": league,
-              "market": market,
-              "fetched_at_utc": dt.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
-              "note": "Stub created (no provider call)."
-          }
-          if key:
-              payload["note"] = "Real provider call goes here once ODDS_API_KEY is configured."
-
+          payload = {"league": league, "market": market,
+                     "fetched_at_utc": dt.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+                     "note": "Stub created (no provider call)."}
           out.write_text(json.dumps(payload, indent=2))
           print("Wrote", out)
-          PY      ####################################################################
-      ## LOG MANUAL EDGE (paste JSON after '/charlotte log ')
-      ####################################################################
-      - name: Log manual edge
-        if: contains(github.event.comment.body, '/charlotte log ')
-        shell: bash
-        run: |
-          set -e
-          python - <<'PY'
-          import os, json, re, sys, datetime as dt
-          body = """${{ github.event.comment.body }}"""
-          m = re.search(r'json\s*(```json|`)?\s*(\{[\s\S]*?\})\s*(```)?', body, re.IGNORECASE)
-          if not m:
-              print("No JSON found. Use: /charlotte log json { ... }")
-              sys.exit(0)
-          data = json.loads(m.group(2))
-          os.makedirs("Manual_Edge_Logbook", exist_ok=True)
-          stamp = dt.datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
-          entry_id = (data.get("entry_id") or "manual_edge") + "_" + stamp
-          path = f"Manual_Edge_Logbook/{entry_id}.json"
-          with open(path, "w") as f: json.dump(data, f, indent=2)
-          print("Wrote", path)
           PY
 
-      - name: Commit manual edge
-        if: contains(github.event.comment.body, '/charlotte log ')
-        shell: bash
-        run: |
-          if ! git diff --quiet; then
-            git add Manual_Edge_Logbook/*.json || true
-            git commit -m "chore(log): manual edge entry from issue comment" || echo "No log changes"
-            git push origin HEAD:${{ github.ref_name }}
-          else
-            echo "No manual edge changes to commit."
-          fi
-
-      ####################################################################
-      ## HELP
-      ####################################################################
+      #######################################################################
+      # HELP — /charlotte help
+      #######################################################################
       - name: Help
         if: contains(github.event.comment.body, '/charlotte help')
         run: |
-          echo "::notice::Commands:
-          /charlotte nba pull
-          /charlotte nfl pull
-          /charlotte odds fetch <league> <market>
-          /charlotte log json { ... }
-          /charlotte help"
+          echo "::notice::Commands:"
+          echo "/charlotte nba pull"
+          echo "/charlotte log { ... }"
+          echo "/charlotte odds fetch <league> <market>"
+          echo "/charlotte help"
