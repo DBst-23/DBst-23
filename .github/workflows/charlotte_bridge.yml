@@ -29,24 +29,34 @@ jobs:
       # NBA PULL — /charlotte nba pull
       #######################################################################
       - name: NBA pull
-        if: github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte nba pull')
-        shell: bash
-        run: |
-          set -e
-          python - <<'PY'
-          import os, json, datetime as dt, pathlib, urllib.request
-          today = dt.date.today().isoformat()
-          url = f"https://www.balldontlie.io/api/v1/games?dates[]={today}"
-          with urllib.request.urlopen(url, timeout=60) as r:
-              data = json.load(r)
-          outdir = pathlib.Path("data/raw/nba")
-          outdir.mkdir(parents=True, exist_ok=True)
-          out = outdir / f"games_{today}.json"
-          out.write_text(json.dumps(data, indent=2))
-          print("Wrote", out)
-          PY
+  if: github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte nba pull')
+  shell: bash
+  run: |
+    set -e
+    python - <<'PY'
+    import os, json, datetime as dt, pathlib, urllib.request
 
-      - name: Commit NBA data
+    today = dt.date.today().isoformat()
+    url = f"https://api.balldontlie.io/v1/games?dates[]={today}"
+    headers = {"Authorization": f"Bearer {os.environ.get('BALLDONTLIE_API_KEY', '')}"}
+
+    req = urllib.request.Request(url, headers=headers)
+    print(f"Fetching {url}")
+    try:
+        with urllib.request.urlopen(req, timeout=60) as r:
+            data = json.load(r)
+            print(f"Fetched {len(data.get('data', []))} games.")
+except Exception as e:
+    print("Error fetching data:", e)
+    data = {"error": str(e)}
+
+outdir = pathlib.Path("data/raw/nba")
+outdir.mkdir(parents=True, exist_ok=True)
+out = outdir / f"games_{today}.json"
+out.write_text(json.dumps(data, indent=2))
+print("Wrote", out)
+PY
+- name: Commit NBA data
         if: github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte nba pull')
         shell: bash
         run: |
