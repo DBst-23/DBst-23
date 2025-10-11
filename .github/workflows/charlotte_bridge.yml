@@ -16,24 +16,24 @@ concurrency:
 
 jobs:
   route:
-    # Only run if manually dispatched OR a comment starting with "/charlotte " is posted
-    if: github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte ')
+    if: ${{ github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte ') }}
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Show command
         run: |
-          echo "Event: ${{ github.event_name }}"
-          echo "Comment: '${{ github.event.comment.body || '' }}'"
+          echo "::notice::Event: ${{ github.event_name }}"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "::notice::Manual run triggered."
+          else
+            echo "::notice::Comment: ${{ github.event.comment.body }}"
+          fi
 
-      # =========================
-      # NBA pull
-      # =========================
+      # ===== NBA pull =====
       - name: NBA pull
-        if: github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte nba pull')
+        if: ${{ github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte nba pull') }}
         shell: bash
         run: |
           set -e
@@ -41,12 +41,7 @@ jobs:
           import os, json, datetime as dt, pathlib, urllib.request
           today = dt.date.today().isoformat()
           url = f"https://api.balldontlie.io/v1/games?dates[]={today}"
-
-          headers = {}
-          key = os.environ.get('BALLDONTLIE_API_KEY', '')
-          if key:
-              headers["Authorization"] = f"Bearer {key}"
-
+          headers = {"Authorization": f"Bearer {os.environ.get('BALLDONTLIE_API_KEY','')}"}
           req = urllib.request.Request(url, headers=headers)
           try:
               with urllib.request.urlopen(req, timeout=60) as r:
@@ -55,7 +50,6 @@ jobs:
           except Exception as e:
               print("Error fetching data:", e)
               data = {"error": str(e)}
-
           outdir = pathlib.Path("data/raw/nba")
           outdir.mkdir(parents=True, exist_ok=True)
           out = outdir / f"games_{today}.json"
@@ -64,38 +58,56 @@ jobs:
           PY
 
       - name: Commit NBA data
-        if: github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte nba pull')
-        shell: bash
-        run: |
-          git config user.name "sharpedge-bot"
-          git config user.email "sharpedge-bot@users.noreply.github.com"
-          git add data/raw/nba/*.json || true
-          git commit -m "chore(data): NBA auto-pull" || echo "No NBA changes to commit"
-          git push
-
-      # =========================
-      # Manual log helper (optional)
-/*    - name: Commit manual edge
-        if: contains(github.event.comment.body, '/charlotte log ')
+        if: ${{ github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte nba pull') }}
         shell: bash
         run: |
           set -e
-          if ! git diff --quiet; then
-            git add Manual_Edge_Logbook/*.json || true
-            git commit -m "chore(log): manual edge entry from issue comment" || echo "No log changes"
-            git push origin HEAD:${{ github.ref_name }}
+          if git diff --quiet -- data/raw/nba/*.json 2>/dev/null; then
+            echo "No NBA changes to commit"
           else
-            echo "No manual edge changes to commit."
+            git config user.name "sharpedge-bot"
+            git config user.email "sharpedge-bot@users.noreply.github.com"
+            git add data/raw/nba/*.json
+            git commit -m "chore(data): NBA auto-pull"
+            git push
           fi
-*/
-      # =========================
-      # Help
-      # =========================
+
+      # ===== Manual edge logger =====
+      - name: Commit manual edge
+        if: ${{ contains(github.event.comment.body, '/charlotte log ') }}
+        shell: bash
+        env:
+          BODY: ${{ github.event.comment.body }}
+        run: |
+          set -e
+          python - <<'PY'
+          import os, json, datetime as dt, pathlib
+          body = os.environ.get('BODY','')
+          entry = body.split('/charlotte log',1)[-1].strip() or '{}'
+          stamp = dt.datetime.utcnow().strftime('%Y%m%dT%H%M%SZ')
+          outdir = pathlib.Path("Manual_Edge_Logbook")
+          outdir.mkdir(exist_ok=True)
+          path = outdir / f"{stamp}.json"
+          doc = {"entry": entry, "created_at_utc": stamp}
+          path.write_text(json.dumps(doc, indent=2))
+          print("Wrote", path)
+          PY
+          if git diff --quiet; then
+            echo "No manual edge changes to commit."
+          else
+            git config user.name "sharpedge-bot"
+            git config user.email "sharpedge-bot@users.noreply.github.com"
+            git add Manual_Edge_Logbook/*.json || true
+            git commit -m "chore(log): manual edge entry"
+            git push
+          fi
+
+      # ===== Help =====
       - name: Help
-        if: contains(github.event.comment.body, '/charlotte help')
+        if: ${{ contains(github.event.comment.body, '/charlotte help') }}
+        shell: bash
         run: |
           echo "::notice::Commands:"
           echo "/charlotte nba pull"
-          echo "/charlotte log json { ... }"
-          echo "/charlotte odds fetch <league> <market>"
+          echo "/charlotte log { ... }"
           echo "/charlotte help"
