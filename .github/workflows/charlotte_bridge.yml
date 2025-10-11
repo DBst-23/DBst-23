@@ -178,7 +178,19 @@ jobs:
           git add data/raw/nfl/*.json || true
           git commit -m "chore(data): NFL auto-pull" || echo "No NFL changes to commit"
           git push
-
+      ###########################################
+      # STABLE RELEASE TAG
+      ###########################################
+      - name: Stable Release
+      if: github.event_name == 'workflow_dispatch'
+      shell: bash
+      run: |
+        set -euo pipefail
+        VERSION_TAG="v$(date +'%Y.%m.%d-%H%M')"
+        echo "Creating new stable release tag: ${VERSION_TAG}"
+        git tag -a "${VERSION_TAG}" -m "Stable Release: ${VERSION_TAG}"
+        git push origin "${VERSION_TAG}"
+        echo "::notice title=Release::Published ${VERSION_TAG}"
       ########################################################################
       # HELP
       ########################################################################
