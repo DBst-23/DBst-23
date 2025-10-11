@@ -5,135 +5,97 @@ on:
   issue_comment:
     types: [created]
 
-# Bot needs write to push files created by steps below
 permissions:
   contents: write
   pull-requests: write
   issues: write
 
+concurrency:
+  group: charlotte-bridge
+  cancel-in-progress: false
+
 jobs:
   route:
+    # Only run if manually dispatched OR a comment starting with "/charlotte " is posted
     if: github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte ')
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Show command
         run: |
-          echo "Actor: ${{ github.actor }}"
           echo "Event: ${{ github.event_name }}"
-          echo "Comment: ${{ github.event.comment.body || 'manual-dispatch' }}"
+          echo "Comment: '${{ github.event.comment.body || '' }}'"
 
-      #######################################################################
-      # NBA PULL — /charlotte nba pull
-      #######################################################################
+      # =========================
+      # NBA pull
+      # =========================
       - name: NBA pull
-  if: github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte nba pull')
-  shell: bash
-  run: |
-    set -e
-    python - <<'PY'
-    import os, json, datetime as dt, pathlib, urllib.request
-
-    today = dt.date.today().isoformat()
-    url = f"https://api.balldontlie.io/v1/games?dates[]={today}"
-    headers = {"Authorization": f"Bearer {os.environ.get('BALLDONTLIE_API_KEY', '')}"}
-
-    req = urllib.request.Request(url, headers=headers)
-    print(f"Fetching {url}")
-    try:
-        with urllib.request.urlopen(req, timeout=60) as r:
-            data = json.load(r)
-            print(f"Fetched {len(data.get('data', []))} games.")
-except Exception as e:
-    print("Error fetching data:", e)
-    data = {"error": str(e)}
-
-outdir = pathlib.Path("data/raw/nba")
-outdir.mkdir(parents=True, exist_ok=True)
-out = outdir / f"games_{today}.json"
-out.write_text(json.dumps(data, indent=2))
-print("Wrote", out)
-PY
-- name: Commit NBA data
         if: github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte nba pull')
         shell: bash
         run: |
-          git config user.name  "sharpedge-bot"
-          git config user.email "sharpedge-bot@users.noreply.github.com"
-          git add data/raw/nba/*.json || true
-          git commit -m "chore(data): nba auto-pull" || echo "No NBA changes to commit"
-          git push
-
-      #######################################################################
-      # MANUAL EDGE LOG — /charlotte log { json ... }
-      #######################################################################
-      - name: Log manual edge (JSON block in comment)
-        if: contains(github.event.comment.body, '/charlotte log ')
-        shell: bash
-        run: |
-          python - <<'PY'
-          import re, json, pathlib, datetime as dt, sys
-          body = """${{ github.event.comment.body }}"""
-          m = re.search(r'\{[\s\S]*\}', body)
-          if not m:
-              print("No JSON object found in comment; expected /charlotte log { ... }")
-              sys.exit(0)
-          data = json.loads(m.group(0))
-          outdir = pathlib.Path("Manual_Edge_Logbook")
-          outdir.mkdir(exist_ok=True)
-          stamp = dt.datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
-          entry = (data.get("entry_id") or "manual_edge") + "_" + stamp + ".json"
-          (outdir / entry).write_text(json.dumps(data, indent=2))
-          print("Wrote", outdir / entry)
-          PY
-
-      - name: Commit manual edge
-        if: contains(github.event.comment.body, '/charlotte log ')
-        shell: bash
-        run: |
-          git config user.name  "sharpedge-bot"
-          git config user.email "sharpedge-bot@users.noreply.github.com"
-          git add Manual_Edge_Logbook/*.json || true
-          git commit -m "chore(log): manual edge entry from issue comment" || echo "No log changes to commit"
-          git push
-
-      #######################################################################
-      # ODDS FETCH STUB — /charlotte odds fetch <league> <market>
-      #######################################################################
-      - name: Odds fetch (stub)
-        if: contains(github.event.comment.body, '/charlotte odds fetch')
-        shell: bash
-        env:
-          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}  # optional
-        run: |
           set -e
-          COMMENT="${{ github.event.comment.body }}"
-          ARGS="${COMMENT#*'/charlotte odds fetch '}"
-          LEAGUE=$(echo "$ARGS" | awk '{print tolower($1)}')
-          MARKET=$(echo "$ARGS" | awk '{print tolower($2)}')
           python - <<'PY'
-          import os, json, datetime as dt, pathlib
-          league = os.environ.get("LEAGUE") or "unknown"
-          market = os.environ.get("MARKET") or "all"
-          outdir = pathlib.Path("data/raw/odds"); outdir.mkdir(parents=True, exist_ok=True)
-          out = outdir / f"{league}_{market}_latest.json"
-          payload = {"league": league, "market": market,
-                     "fetched_at_utc": dt.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
-                     "note": "Stub created (no provider call)."}
-          out.write_text(json.dumps(payload, indent=2))
+          import os, json, datetime as dt, pathlib, urllib.request
+          today = dt.date.today().isoformat()
+          url = f"https://api.balldontlie.io/v1/games?dates[]={today}"
+
+          headers = {}
+          key = os.environ.get('BALLDONTLIE_API_KEY', '')
+          if key:
+              headers["Authorization"] = f"Bearer {key}"
+
+          req = urllib.request.Request(url, headers=headers)
+          try:
+              with urllib.request.urlopen(req, timeout=60) as r:
+                  data = json.load(r)
+                  print(f"Fetched {len(data.get('data', []))} games.")
+          except Exception as e:
+              print("Error fetching data:", e)
+              data = {"error": str(e)}
+
+          outdir = pathlib.Path("data/raw/nba")
+          outdir.mkdir(parents=True, exist_ok=True)
+          out = outdir / f"games_{today}.json"
+          out.write_text(json.dumps(data, indent=2))
           print("Wrote", out)
           PY
 
-      #######################################################################
-      # HELP — /charlotte help
-      #######################################################################
+      - name: Commit NBA data
+        if: github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte nba pull')
+        shell: bash
+        run: |
+          git config user.name "sharpedge-bot"
+          git config user.email "sharpedge-bot@users.noreply.github.com"
+          git add data/raw/nba/*.json || true
+          git commit -m "chore(data): NBA auto-pull" || echo "No NBA changes to commit"
+          git push
+
+      # =========================
+      # Manual log helper (optional)
+/*    - name: Commit manual edge
+        if: contains(github.event.comment.body, '/charlotte log ')
+        shell: bash
+        run: |
+          set -e
+          if ! git diff --quiet; then
+            git add Manual_Edge_Logbook/*.json || true
+            git commit -m "chore(log): manual edge entry from issue comment" || echo "No log changes"
+            git push origin HEAD:${{ github.ref_name }}
+          else
+            echo "No manual edge changes to commit."
+          fi
+*/
+      # =========================
+      # Help
+      # =========================
       - name: Help
         if: contains(github.event.comment.body, '/charlotte help')
         run: |
           echo "::notice::Commands:"
           echo "/charlotte nba pull"
-          echo "/charlotte log { ... }"
+          echo "/charlotte log json { ... }"
           echo "/charlotte odds fetch <league> <market>"
           echo "/charlotte help"
