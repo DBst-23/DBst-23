@@ -1,4 +1,4 @@
- name: Charlotte Control Bridge
+name: Charlotte Control Bridge
 
 on:
   workflow_dispatch:
@@ -14,9 +14,16 @@ concurrency:
   group: charlotte-bridge
   cancel-in-progress: false
 
+env:
+  ALLOWED_ACTOR: "DBst-23"    # <-- your GitHub username
+
 jobs:
   route:
-    if: github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte')
+    if: >
+      (github.event_name == 'workflow_dispatch' && github.actor == env.ALLOWED_ACTOR)
+      || (github.event_name == 'issue_comment'
+          && github.actor == env.ALLOWED_ACTOR
+          && contains(github.event.comment.body, '/charlotte'))
     runs-on: ubuntu-latest
     steps:
 
