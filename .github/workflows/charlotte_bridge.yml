@@ -14,19 +14,18 @@ concurrency:
   group: charlotte-bridge
   cancel-in-progress: false
 
+# Only allow your account to trigger runs
 env:
-  ALLOWED_ACTOR: "DBst-23"    # <-- your GitHub username
+  ALLOWED_ACTOR: "DBst-23"
 
 jobs:
   route:
+    # allow-list guard (manual run or "/charlotte ..." comment from your account)
     if: >
       (github.event_name == 'workflow_dispatch' && github.actor == env.ALLOWED_ACTOR)
-      || (github.event_name == 'issue_comment'
-          && github.actor == env.ALLOWED_ACTOR
-          && contains(github.event.comment.body, '/charlotte'))
+      || (github.event_name == 'issue_comment' && github.actor == env.ALLOWED_ACTOR && contains(github.event.comment.body, '/charlotte'))
     runs-on: ubuntu-latest
     steps:
-
       - name: Set up job
         run: echo "Charlotte bridge starting..."
 
@@ -35,23 +34,22 @@ jobs:
 
       - name: Show command
         run: |
-          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "::notice title=Trigger::Manual run"
           else
             echo "::notice title=Comment::${{ github.event.comment.body }}"
           fi
 
       ##########################################################
-      # NBA PULL
+      # NBA PULL (placeholder writes a sample file)
       ##########################################################
       - name: NBA pull
         if: github.event_name == 'workflow_dispatch'
         shell: bash
         run: |
           set -euo pipefail
-          echo "Pulling NBA data..."
           mkdir -p data/raw/nba
-          echo '{"status":"ok","league":"NBA"}' > data/raw/nba/sample.json
+          echo '{"status":"ok","league":"NBA","source":"placeholder"}' > data/raw/nba/sample.json
           echo "NBA data written."
 
       - name: Commit NBA data
@@ -59,14 +57,14 @@ jobs:
         shell: bash
         run: |
           set -e
-          git config user.name "sharpedge-bot"
+          git config user.name  "sharpedge-bot"
           git config user.email "sharpedge-bot@users.noreply.github.com"
           git add data/raw/nba/*.json || true
           git commit -m "chore(data): NBA auto-pull" || echo "Nothing to commit."
           git push
 
       ##########################################################
-      # MLB PULL
+      # MLB PULL (public endpoint; API key optional)
       ##########################################################
       - name: MLB pull
         if: github.event_name == 'workflow_dispatch'
@@ -77,27 +75,21 @@ jobs:
           set -euo pipefail
           python - <<'PY'
           import os, json, datetime as dt, urllib.request, pathlib
-
           today = dt.date.today().isoformat()
           url = f"https://statsapi.mlb.com/api/v1/schedule?sportId=1&date={today}"
           headers = {}
           key = os.environ.get("MLB_API_KEY", "")
           if key:
               headers["Authorization"] = f"Bearer {key}"
-
           req = urllib.request.Request(url, headers=headers)
           try:
               with urllib.request.urlopen(req, timeout=20) as r:
-                  data = json.load(r)`
-                  print(f"Fetched {len(data.get('dates', []))} MLB data entries")
+                  data = json.load(r)
           except Exception as e:
-              print("Error fetching MLB data:", e)
               data = {"error": str(e), "url": url}
-          outdir = pathlib.Path("data/raw/mlb")
-          outdir.mkdir(parents=True, exist_ok=True)
-          out = outdir / f"games_{today}.json"
-          out.write_text(json.dumps(data, indent=2))
-          print("Wrote", out)
+          outdir = pathlib.Path("data/raw/mlb"); outdir.mkdir(parents=True, exist_ok=True)
+          (outdir / f"games_{today}.json").write_text(json.dumps(data, indent=2))
+          print("Wrote", outdir / f"games_{today}.json")
           PY
 
       - name: Commit MLB data
@@ -105,14 +97,14 @@ jobs:
         shell: bash
         run: |
           set -e
-          git config user.name "sharpedge-bot"
+          git config user.name  "sharpedge-bot"
           git config user.email "sharpedge-bot@users.noreply.github.com"
           git add data/raw/mlb/*.json || true
           git commit -m "chore(data): MLB auto-pull" || echo "Nothing to commit."
           git push
 
       ##########################################################
-      # NFL PULL
+      # NFL PULL (public ESPN scoreboard; API key optional)
       ##########################################################
       - name: NFL pull
         if: github.event_name == 'workflow_dispatch'
@@ -123,28 +115,21 @@ jobs:
           set -euo pipefail
           python - <<'PY'
           import os, json, datetime as dt, urllib.request, pathlib
-
           today = dt.date.today().isoformat()
           url = f"https://site.api.espn.com/apis/v2/sports/football/nfl/scoreboard?dates={today}"
           headers = {}
           key = os.environ.get("NFL_API_KEY", "")
           if key:
               headers["Authorization"] = f"Bearer {key}"
-
           req = urllib.request.Request(url, headers=headers)
           try:
               with urllib.request.urlopen(req, timeout=20) as r:
                   data = json.load(r)
-                  events = data.get("events", [])
-                  print(f"Fetched {len(events)} NFL games")
           except Exception as e:
-              print("Error fetching NFL data:", e)
               data = {"error": str(e), "url": url}
-          outdir = pathlib.Path("data/raw/nfl")
-          outdir.mkdir(parents=True, exist_ok=True)
-          out = outdir / f"games_{today}.json"
-          out.write_text(json.dumps(data, indent=2))
-          print("Wrote", out)
+          outdir = pathlib.Path("data/raw/nfl"); outdir.mkdir(parents=True, exist_ok=True)
+          (outdir / f"games_{today}.json").write_text(json.dumps(data, indent=2))
+          print("Wrote", outdir / f"games_{today}.json")
           PY
 
       - name: Commit NFL data
@@ -152,7 +137,7 @@ jobs:
         shell: bash
         run: |
           set -e
-          git config user.name "sharpedge-bot"
+          git config user.name  "sharpedge-bot"
           git config user.email "sharpedge-bot@users.noreply.github.com"
           git add data/raw/nfl/*.json || true
           git commit -m "chore(data): NFL auto-pull" || echo "Nothing to commit."
@@ -173,7 +158,7 @@ jobs:
           echo "::notice title=Release::Published ${VERSION_TAG}"
 
       ##########################################################
-      # HELP COMMANDS
+      # HELP (issue comment: /charlotte help)
       ##########################################################
       - name: Help
         if: contains(github.event.comment.body, '/charlotte help')
@@ -185,7 +170,7 @@ jobs:
           echo "/charlotte help"
 
       ##########################################################
-      # COMPLETE JOB
+      # COMPLETE
       ##########################################################
       - name: Complete job
         run: echo "Charlotte bridge completed successfully."
