@@ -3,7 +3,7 @@ name: Charlotte Control Bridge
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 */12 * * *"  # every 12 hours (UTC)
+    - cron: "0 */12 * * *"   # every 12 hours (UTC)
   issue_comment:
     types: [created]
 
@@ -16,16 +16,13 @@ concurrency:
   group: charlotte-bridge
   cancel-in-progress: false
 
-env:
-  ALLOWED_ACTOR: "DBst-23"  # change if you want to allow more actors later
-
 jobs:
   route:
-    # Only allow your account to run this (manually or via '/charlotte' comments)
-    if: ${{ github.actor == env.ALLOWED_ACTOR && (
+    # Only allow your account to run this (manual or via comment)
+    if: ${{ github.actor == 'DBst-23' && (
             github.event_name == 'workflow_dispatch' ||
             (github.event_name == 'issue_comment' && contains(github.event.comment.body, '/charlotte'))
-          ) }}
+          ) }}    
     runs-on: ubuntu-latest
 
     steps:
