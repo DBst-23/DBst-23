@@ -27,11 +27,6 @@ jobs:
        shell: bash
        run: echo "Charlotte bridge starting..."
 
-    steps:
-      - name: Set up job
-        shell: bash
-        run: echo "Charlotte bridge starting..."
-
       - name: Checkout
         uses: actions/checkout@v4
 
