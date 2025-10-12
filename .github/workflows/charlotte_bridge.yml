@@ -138,3 +138,177 @@ jobs:
       - name: Complete job
         shell: bash
         run: echo "Charlotte bridge completed successfully."
+
+        ##########################################################
+      # NBA PULL (placeholder demo)
+      ##########################################################
+      - name: NBA pull
+        if: ${{ github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte nba pull') }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "Pulling NBA data (demo)…"
+          mkdir -p data/raw/nba
+          printf '{"status":"ok","league":"NBA","ts":"%s"}\n' "$(date -u +%FT%TZ)" > data/raw/nba/sample.json
+          echo "NBA data written to data/raw/nba/sample.json"
+
+      - name: Commit NBA data
+        if: ${{ github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte nba pull') }}
+        shell: bash
+        run: |
+          set -e
+          git config user.name  "sharpedge-bot"
+          git config user.email "sharpedge-bot@users.noreply.github.com"
+          git add data/raw/nba/*.json || true
+          git commit -m "chore(data): NBA auto-pull" || echo "Nothing to commit."
+          git push
+
+      ##########################################################
+      # MLB PULL (public endpoint)
+      ##########################################################
+      - name: MLB pull
+        if: ${{ github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte mlb pull') }}
+        shell: bash
+        env:
+          MLB_API_KEY: ${{ secrets.MLB_API_KEY }}  # optional
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import os, json, datetime as dt, urllib.request, pathlib
+          today = dt.date.today().isoformat()
+          url = f"https://statsapi.mlb.com/api/v1/schedule?sportId=1&date={today}"
+          headers = {}
+          key = os.environ.get("MLB_API_KEY", "")
+          if key:
+              headers["Authorization"] = f"Bearer {key}"
+          req = urllib.request.Request(url, headers=headers)
+          try:
+              with urllib.request.urlopen(req, timeout=20) as r:
+                  data = json.load(r)
+                  print(f"Fetched {len(data.get('dates', []))} MLB date entries")
+          except Exception as e:
+              print("MLB fetch error:", e)
+              data = {"error": str(e), "url": url}
+          outdir = pathlib.Path("data/raw/mlb"); outdir.mkdir(parents=True, exist_ok=True)
+          out = outdir / f"games_{today}.json"
+          out.write_text(json.dumps(data, indent=2))
+          print("Wrote", out)
+          PY
+
+      - name: Commit MLB data
+        if: ${{ github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte mlb pull') }}
+        shell: bash
+        run: |
+          set -e
+          git config user.name  "sharpedge-bot"
+          git config user.email "sharpedge-bot@users.noreply.github.com"
+          git add data/raw/mlb/*.json || true
+          git commit -m "chore(data): MLB auto-pull" || echo "Nothing to commit."
+          git push
+
+      ##########################################################
+      # NFL PULL (public scoreboard-like)
+      ##########################################################
+      - name: NFL pull
+        if: ${{ github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte nfl pull') }}
+        shell: bash
+        env:
+          NFL_API_KEY: ${{ secrets.NFL_API_KEY }}  # optional
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import os, json, datetime as dt, urllib.request, pathlib
+          today = dt.date.today().isoformat()
+          url = f"https://site.api.espn.com/apis/v2/sports/football/nfl/scoreboard?dates={today}"
+          headers = {}
+          key = os.environ.get("NFL_API_KEY", "")
+          if key:
+              headers["Authorization"] = f"Bearer {key}"
+          req = urllib.request.Request(url, headers=headers)
+          try:
+              with urllib.request.urlopen(req, timeout=20) as r:
+                  data = json.load(r)
+                  events = data.get("events", [])
+                  print(f"Fetched {len(events)} NFL games")
+          except Exception as e:
+              print("NFL fetch error:", e)
+              data = {"error": str(e), "url": url}
+          outdir = pathlib.Path("data/raw/nfl"); outdir.mkdir(parents=True, exist_ok=True)
+          out = outdir / f"games_{today}.json"
+          out.write_text(json.dumps(data, indent=2))
+          print("Wrote", out)
+          PY
+
+      - name: Commit NFL data
+        if: ${{ github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte nfl pull') }}
+        shell: bash
+        run: |
+          set -e
+          git config user.name  "sharpedge-bot"
+          git config user.email "sharpedge-bot@users.noreply.github.com"
+          git add data/raw/nfl/*.json || true
+          git commit -m "chore(data): NFL auto-pull" || echo "Nothing to commit."
+          git push
+
+      ##########################################################
+      # PREGAME BATCH (starter)
+      ##########################################################
+      - name: Build pregame batch (starter)
+        if: ${{ github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte batch starter') }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import csv, json, pathlib, datetime as dt
+          today = dt.date.today().isoformat()
+          root = pathlib.Path("data"); mlb = root/"raw"/"mlb"/f"games_{today}.json"; nfl = root/"raw"/"nfl"/f"games_{today}.json"
+          rows = []
+          def add_rows(src, league):
+              try:
+                  d = json.loads(pathlib.Path(src).read_text())
+              except FileNotFoundError:
+                  return
+              if league == "MLB":
+                  for day in d.get("dates", []):
+                      for g in day.get("games", []):
+                          rows.append([league, g.get("gameDate",""), g.get("teams",{}).get("away",{}).get("team",{}).get("name",""),
+                                       g.get("teams",{}).get("home",{}).get("team",{}).get("name","")])
+              else:
+                  for e in d.get("events", []):
+                      comp = e.get("competitions",[{}])[0]
+                      away = comp.get("competitors",[{},{}])[1].get("team",{}).get("displayName","")
+                      home = comp.get("competitors",[{},{}])[0].get("team",{}).get("displayName","")
+                      rows.append([league, e.get("date",""), away, home])
+          add_rows(mlb, "MLB"); add_rows(nfl, "NFL")
+          outdir = pathlib.Path("data/batches"); outdir.mkdir(parents=True, exist_ok=True)
+          out = outdir / f"pregame_starter_{today}.csv"
+          with out.open("w", newline="") as f:
+              w = csv.writer(f)
+              w.writerow(["league","start_time","away","home"])
+              w.writerows(rows)
+          print("Wrote", out, f"({len(rows)} rows)")
+          PY
+
+      - name: Commit pregame batch (starter)
+        if: ${{ github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte batch starter') }}
+        shell: bash
+        run: |
+          set -e
+          git config user.name  "sharpedge-bot"
+          git config user.email "sharpedge-bot@users.noreply.github.com"
+          git add data/batches/*.csv || true
+          git commit -m "chore(batch): pregame starter CSVs" || echo "No batch changes to commit."
+          git push
+
+      ##########################################################
+      # HELP
+      ##########################################################
+      - name: Help
+        if: ${{ contains(github.event.comment.body, '/charlotte help') }}
+        run: |
+          echo "::notice title=Commands::"
+          echo "/charlotte nba pull"
+          echo "/charlotte mlb pull"
+          echo "/charlotte nfl pull"
+          echo "/charlotte batch starter    - build lightweight NBA+MLB CSVs"
+          echo "/charlotte help"
