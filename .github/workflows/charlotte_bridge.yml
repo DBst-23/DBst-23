@@ -14,25 +14,29 @@ concurrency:
   group: charlotte-bridge
   cancel-in-progress: false
 
-# Only allow your account to trigger runs
+# Only you can trigger this workflow (manual or via issue comments)
 env:
   ALLOWED_ACTOR: "DBst-23"
 
 jobs:
   route:
-    # allow-list guard (manual run or "/charlotte ..." comment from your account)
     if: >
       (github.event_name == 'workflow_dispatch' && github.actor == env.ALLOWED_ACTOR)
-      || (github.event_name == 'issue_comment' && github.actor == env.ALLOWED_ACTOR && contains(github.event.comment.body, '/charlotte'))
+      || (github.event_name == 'issue_comment'
+          && github.actor == env.ALLOWED_ACTOR
+          && contains(github.event.comment.body, '/charlotte'))
     runs-on: ubuntu-latest
+
     steps:
       - name: Set up job
+        shell: bash
         run: echo "Charlotte bridge starting..."
 
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Show command
+        shell: bash
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "::notice title=Trigger::Manual run"
@@ -41,19 +45,19 @@ jobs:
           fi
 
       ##########################################################
-      # NBA PULL (placeholder writes a sample file)
+      # NBA PULL (placeholder)
       ##########################################################
       - name: NBA pull
-        if: github.event_name == 'workflow_dispatch'
+        if: github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte nba pull')
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p data/raw/nba
-          echo '{"status":"ok","league":"NBA","source":"placeholder"}' > data/raw/nba/sample.json
+          echo '{"status":"ok","league":"NBA","note":"placeholder"}' > data/raw/nba/sample.json
           echo "NBA data written."
 
       - name: Commit NBA data
-        if: github.event_name == 'workflow_dispatch'
+        if: github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte nba pull')
         shell: bash
         run: |
           set -e
@@ -64,10 +68,10 @@ jobs:
           git push
 
       ##########################################################
-      # MLB PULL (public endpoint; API key optional)
+      # MLB PULL (public demo endpoint; replace later)
       ##########################################################
       - name: MLB pull
-        if: github.event_name == 'workflow_dispatch'
+        if: github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte mlb pull')
         shell: bash
         env:
           MLB_API_KEY: ${{ secrets.MLB_API_KEY }}
@@ -86,14 +90,16 @@ jobs:
               with urllib.request.urlopen(req, timeout=20) as r:
                   data = json.load(r)
           except Exception as e:
+              print("Error fetching MLB data:", e)
               data = {"error": str(e), "url": url}
           outdir = pathlib.Path("data/raw/mlb"); outdir.mkdir(parents=True, exist_ok=True)
-          (outdir / f"games_{today}.json").write_text(json.dumps(data, indent=2))
-          print("Wrote", outdir / f"games_{today}.json")
+          out = outdir / f"games_{today}.json"
+          out.write_text(json.dumps(data, indent=2))
+          print("Wrote", out)
           PY
 
       - name: Commit MLB data
-        if: github.event_name == 'workflow_dispatch'
+        if: github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte mlb pull')
         shell: bash
         run: |
           set -e
@@ -104,10 +110,10 @@ jobs:
           git push
 
       ##########################################################
-      # NFL PULL (public ESPN scoreboard; API key optional)
+      # NFL PULL (public demo endpoint; replace later)
       ##########################################################
       - name: NFL pull
-        if: github.event_name == 'workflow_dispatch'
+        if: github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte nfl pull')
         shell: bash
         env:
           NFL_API_KEY: ${{ secrets.NFL_API_KEY }}
@@ -126,14 +132,16 @@ jobs:
               with urllib.request.urlopen(req, timeout=20) as r:
                   data = json.load(r)
           except Exception as e:
+              print("Error fetching NFL data:", e)
               data = {"error": str(e), "url": url}
           outdir = pathlib.Path("data/raw/nfl"); outdir.mkdir(parents=True, exist_ok=True)
-          (outdir / f"games_{today}.json").write_text(json.dumps(data, indent=2))
-          print("Wrote", outdir / f"games_{today}.json")
+          out = outdir / f"games_{today}.json"
+          out.write_text(json.dumps(data, indent=2))
+          print("Wrote", out)
           PY
 
       - name: Commit NFL data
-        if: github.event_name == 'workflow_dispatch'
+        if: github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte nfl pull')
         shell: bash
         run: |
           set -e
@@ -144,7 +152,40 @@ jobs:
           git push
 
       ##########################################################
-      # STABLE RELEASE TAG
+      # PREGAME BATCH STARTER (NBA + MLB lightweight CSVs)
+      ##########################################################
+      - name: Build pregame batch (starter)
+        if: github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte batch starter')
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import csv, datetime as dt, pathlib, json
+          today = dt.datetime.utcnow().strftime("%Y%m%d")
+          batch_dir = pathlib.Path("data/batches")/today
+          batch_dir.mkdir(parents=True, exist_ok=True)
+          for league in ("nba","mlb"):
+              fp = batch_dir/f"{league}_starter.csv"
+              with fp.open("w", newline="") as f:
+                  w = csv.writer(f)
+                  w.writerow(["league","game_id","home","away","note"])
+                  w.writerow([league,"demo001","HOME","AWAY","starter placeholder"])
+              print("Wrote", fp)
+          PY
+
+      - name: Commit pregame batch (starter)
+        if: github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte batch starter')
+        shell: bash
+        run: |
+          set -e
+          git config user.name  "sharpedge-bot"
+          git config user.email "sharpedge-bot@users.noreply.github.com"
+          git add data/batches/*/*.csv || true
+          git commit -m "chore(batch): pregame starter CSVs" || echo "No batch changes to commit"
+          git push
+
+      ##########################################################
+      # STABLE RELEASE TAG (manual runs only)
       ##########################################################
       - name: Stable Release
         if: github.event_name == 'workflow_dispatch'
@@ -158,19 +199,22 @@ jobs:
           echo "::notice title=Release::Published ${VERSION_TAG}"
 
       ##########################################################
-      # HELP (issue comment: /charlotte help)
+      # HELP
       ##########################################################
       - name: Help
         if: contains(github.event.comment.body, '/charlotte help')
+        shell: bash
         run: |
           echo "::notice title=Commands::"
           echo "/charlotte nba pull"
           echo "/charlotte mlb pull"
           echo "/charlotte nfl pull"
+          echo "/charlotte batch starter"
           echo "/charlotte help"
 
       ##########################################################
       # COMPLETE
       ##########################################################
       - name: Complete job
+        shell: bash
         run: echo "Charlotte bridge completed successfully."
