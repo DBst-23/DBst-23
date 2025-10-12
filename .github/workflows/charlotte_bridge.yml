@@ -224,3 +224,41 @@ jobs:
       - name: Complete job
         shell: bash
         run: echo "Charlotte bridge completed successfully."
+
+        ##########################################################
+      # AUTO-CLEANUP + VALIDATION (MAINTENANCE BLOCK)
+      ##########################################################
+      - name: Auto-cleanup & JSON validation
+        if: github.event_name == 'workflow_dispatch'
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "::notice title=Maintenance::Running auto-cleanup + schema validation"
+
+          # Clean old log files (keep latest 5 only)
+          find data/logs -type f -name "*.json" -printf "%T@ %p\n" 2>/dev/null \
+            | sort -n \
+            | head -n -5 \
+            | cut -d' ' -f2- \
+            | xargs -r rm -f || true
+
+          # Validate all JSONs in data/raw/
+          for f in $(find data/raw -type f -name "*.json" 2>/dev/null); do
+            if ! python -m json.tool "$f" > /dev/null 2>&1; then
+              echo "::warning file=$f::Invalid JSON detected"
+            fi
+          done
+
+          # Log heartbeat
+          echo "{\"status\": \"ok\", \"time\": \"$(date -u +"%Y-%m-%dT%H:%M:%SZ")\"}" > data/logs/heartbeat.json
+
+      - name: Commit maintenance heartbeat
+        if: github.event_name == 'workflow_dispatch'
+        shell: bash
+        run: |
+          set -e
+          git config user.name "sharpedge-bot"
+          git config user.email "sharpedge-bot@users.noreply.github.com"
+          git add data/logs/heartbeat.json || true
+          git commit -m "chore(maintenance): auto-cleanup + validation heartbeat" || echo "Nothing to commit"
+          git push
