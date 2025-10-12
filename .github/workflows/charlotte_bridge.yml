@@ -192,20 +192,24 @@ jobs:
           git push origin "${VERSION_TAG}"
           echo "::notice title=Release::Published ${VERSION_TAG}"
 
-      ##########################################################
-      # HELP (comment: /charlotte help)
-      ##########################################################
-      - name: Help
-        if: ${{ github.event_name == 'issue_comment' && contains(github.event.comment.body, '/charlotte help') }}
+          # =====================================================
+      # =====================================================
+      # MLB PREGAME SIMULATION
+      # =====================================================
+      - name: MLB Pregame Simulation
+        if: ${{ github.event_name == 'issue_comment' && contains(github.event.comment.body, '/charlotte mlb sim pregame') }}
         shell: bash
         run: |
-          echo "::notice title=Commands::"
-          echo "/charlotte nba pull"
-          echo "/charlotte mlb pull"
-          echo "/charlotte nfl pull"
-          echo "/charlotte batch starter"
-          echo "/charlotte help"
+          echo "🎯 Running MLB Pregame Simulation..."
+          mkdir -p data/models/mlb/sims
+          python3 simulate_ev_edges.py --config data/batches/pregame_sim_config.json
+          echo "✅ Simulation complete. Results saved to data/models/mlb/sims/"
 
+          git config user.name "sharpedge-bot"
+          git config user.email "sharpedgebot@users.noreply.github.com"
+          git add data/models/mlb/sims/*.json || echo "No new sim outputs"
+          git commit -m "chore(sim): add MLB pregame sim results" || echo "No sim results to commit"
+          git push
       ##########################################################
       # LOG TIMESTAMP OF SUCCESSFUL RUN
       ##########################################################
