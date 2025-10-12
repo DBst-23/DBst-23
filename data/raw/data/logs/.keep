@@ -1,0 +1,10 @@
+- name: Log timestamp of successful bridge run
+    shell: bash
+    run: |
+      mkdir -p data/logs
+      echo "Bridge run completed at $(date -u '+%Y-%m-%dT%H:%M:%SZ')" > "data/logs/run_$(date -u '+%Y-%m-%dT%H-%M-%SZ').log"
+      git config user.name "sharpeedge-bot"
+      git config user.email "sharpeedge-bot@example.com"
+      git add data/logs/*.log
+      git commit -m "Log bridge run timestamp"
+      git push
