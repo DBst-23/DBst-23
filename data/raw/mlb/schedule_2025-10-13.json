@@ -3,14 +3,14 @@
   "totalItems": 2,
   "totalEvents": 0,
   "totalGames": 2,
-  "totalGamesInProgress": 0,
+  "totalGamesInProgress": 1,
   "dates": [
     {
       "date": "2025-10-13",
       "totalItems": 2,
       "totalEvents": 0,
       "totalGames": 2,
-      "totalGamesInProgress": 0,
+      "totalGamesInProgress": 1,
       "games": [
         {
           "gamePk": 813044,
@@ -21,12 +21,12 @@
           "gameDate": "2025-10-13T21:03:00Z",
           "officialDate": "2025-10-13",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -35,7 +35,7 @@
                 "losses": 0,
                 "pct": "1.000"
               },
-              "score": 0,
+              "score": 3,
               "team": {
                 "id": 136,
                 "name": "Seattle Mariners",
@@ -97,9 +97,9 @@
           "officialDate": "2025-10-13",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -110,6 +110,7 @@
                 "losses": 0,
                 "pct": ".000"
               },
+              "score": 0,
               "team": {
                 "id": 119,
                 "name": "Los Angeles Dodgers",
@@ -124,6 +125,7 @@
                 "losses": 0,
                 "pct": ".000"
               },
+              "score": 0,
               "team": {
                 "id": 158,
                 "name": "Milwaukee Brewers",
