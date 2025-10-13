@@ -3,7 +3,7 @@ name: Charlotte Control Bridge
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 */12 * * *"  # every 12 hours (UTC)
+    - cron: '0 */12 * * *'   # every 12 hours (UTC)
   issue_comment:
     types: [created]
 
@@ -16,23 +16,28 @@ concurrency:
   group: charlotte-bridge
   cancel-in-progress: false
 
+env:
+  ALLOWED_ACTOR: "DBst-23"
+  PYTHONUTF8: "1"
+  GIT_AUTHOR_NAME: "sharpedge-bot"
+  GIT_AUTHOR_EMAIL: "sharpedgebot@users.noreply.github.com"
+  GIT_COMMITTER_NAME: "sharpedge-bot"
+  GIT_COMMITTER_EMAIL: "sharpedgebot@users.noreply.github.com"
+
 jobs:
   route:
+    # Only your account can run this (manual or via '/charlotte ...' comments)
+    if: ${{ (github.actor == env.ALLOWED_ACTOR) && (github.event_name == 'workflow_dispatch' || (github.event_name == 'issue_comment' && contains(github.event.comment.body, '/charlotte'))) }}
     runs-on: ubuntu-latest
-    if: >
-      (github.actor == 'DBst-23') &&
-      (github.event_name == 'workflow_dispatch' ||
-      (github.event_name == 'issue_comment' && contains(github.event.comment.body, '/charlotte')))
-
     steps:
       - name: Set up job
         shell: bash
-        run: echo "Charlotte Control Bridge starting..."
+        run: echo "Charlotte bridge starting..."
 
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Show trigger
+      - name: Show command
         shell: bash
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
@@ -41,193 +46,163 @@ jobs:
             echo "::notice title=Comment::${{ github.event.comment.body }}"
           fi
 
-      # ===========================
-      # DATA PULLS (NBA / MLB / NFL) – unique, timestamped files
-      # ===========================
+      #######################################################################
+      # NBA PULL
+      #######################################################################
       - name: NBA pull
-        if: ${{ github.event_name == 'workflow_dispatch' || (github.event_name == 'issue_comment' && contains(github.event.comment.body, '/charlotte nba pull')) }}
+        if: ${{ github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte nba pull') }}
         shell: bash
         run: |
           set -euo pipefail
-          TS="$(date -u +'%Y-%m-%dT%H-%M-%SZ')"
           mkdir -p data/raw/nba
-          printf '{"league":"nba","timestamp":"%s","run_id":"%s"}\n' "$TS" "${GITHUB_RUN_ID}" > "data/raw/nba/games_${TS}_${GITHUB_RUN_ID}.json"
-          echo "Wrote data/raw/nba/games_${TS}_${GITHUB_RUN_ID}.json"
+          ts="$(date -u +'%Y-%m-%d')"
+          echo '{"ok":true,"src":"nba","ts":"'"$ts"'"}' > "data/raw/nba/games_${ts}.json"
+          echo "NBA data written."
 
       - name: Commit NBA data
-        if: ${{ success() }}
+        if: ${{ github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte nba pull') }}
         shell: bash
         run: |
-          git config user.name "sharpedge-bot"
-          git config user.email "sharpedgebot@users.noreply.github.com"
+          git config user.name "$GIT_AUTHOR_NAME"
+          git config user.email "$GIT_AUTHOR_EMAIL"
           git add data/raw/nba/*.json || true
-          git commit -m "chore(data): NBA auto-pull (run $GITHUB_RUN_ID)" || echo "No NBA changes to commit"
+          git commit -m "chore(data): NBA auto-pull" || echo "Nothing to commit."
           git push || echo "No push needed."
 
+      #######################################################################
+      # MLB PULL
+      #######################################################################
       - name: MLB pull
-        if: ${{ github.event_name == 'workflow_dispatch' || (github.event_name == 'issue_comment' && contains(github.event.comment.body, '/charlotte mlb pull')) }}
+        if: ${{ github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte mlb pull') }}
         shell: bash
         run: |
           set -euo pipefail
-          TS="$(date -u +'%Y-%m-%dT%H-%M-%SZ')"
           mkdir -p data/raw/mlb
-          printf '{"league":"mlb","timestamp":"%s","run_id":"%s"}\n' "$TS" "${GITHUB_RUN_ID}" > "data/raw/mlb/games_${TS}_${GITHUB_RUN_ID}.json"
-          echo "Wrote data/raw/mlb/games_${TS}_${GITHUB_RUN_ID}.json"
+          ts="$(date -u +'%Y-%m-%d_%H-%M-%S')"
+          echo '{"ok":true,"src":"mlb","ts":"'"$ts"'"}' > "data/raw/mlb/games_${ts}.json"
+          echo "MLB data written."
 
       - name: Commit MLB data
-        if: ${{ success() }}
+        if: ${{ github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte mlb pull') }}
         shell: bash
         run: |
-          git config user.name "sharpedge-bot"
-          git config user.email "sharpedgebot@users.noreply.github.com"
+          git config user.name "$GIT_AUTHOR_NAME"
+          git config user.email "$GIT_AUTHOR_EMAIL"
           git add data/raw/mlb/*.json || true
-          git commit -m "chore(data): MLB auto-pull (run $GITHUB_RUN_ID)" || echo "No MLB changes to commit"
+          git commit -m "chore(data): MLB auto-pull" || echo "Nothing to commit."
           git push || echo "No push needed."
 
+      #######################################################################
+      # NFL PULL
+      #######################################################################
       - name: NFL pull
-        if: ${{ github.event_name == 'workflow_dispatch' || (github.event_name == 'issue_comment' && contains(github.event.comment.body, '/charlotte nfl pull')) }}
+        if: ${{ github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte nfl pull') }}
         shell: bash
         run: |
           set -euo pipefail
-          TS="$(date -u +'%Y-%m-%dT%H-%M-%SZ')"
           mkdir -p data/raw/nfl
-          printf '{"league":"nfl","timestamp":"%s","run_id":"%s"}\n' "$TS" "${GITHUB_RUN_ID}" > "data/raw/nfl/games_${TS}_${GITHUB_RUN_ID}.json"
-          echo "Wrote data/raw/nfl/games_${TS}_${GITHUB_RUN_ID}.json"
+          ts="$(date -u +'%Y-%m-%d')"
+          echo '{"ok":true,"src":"nfl","ts":"'"$ts"'"}' > "data/raw/nfl/games_${ts}.json"
+          echo "NFL data written."
 
       - name: Commit NFL data
-        if: ${{ success() }}
+        if: ${{ github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte nfl pull') }}
         shell: bash
         run: |
-          git config user.name "sharpedge-bot"
-          git config user.email "sharpedgebot@users.noreply.github.com"
+          git config user.name "$GIT_AUTHOR_NAME"
+          git config user.email "$GIT_AUTHOR_EMAIL"
           git add data/raw/nfl/*.json || true
           git commit -m "chore(data): NFL auto-pull (run $GITHUB_RUN_ID)" || echo "No NFL changes to commit"
           git push || echo "No push needed."
 
-      # ===========================
-      # DATA INDEX (freshness map)
-      # ===========================
+      #######################################################################
+      # BUILD PREGAME BATCH (STARTER)
+      #######################################################################
+      - name: Build pregame batch (starter)
+        if: ${{ contains(github.event.comment.body, '/charlotte batch starter') }}
+        shell: bash
+        run: |
+          mkdir -p data/batches
+          cat > data/batches/pregame_sim_config.json <<'JSON'
+          { "sports": ["mlb","nba","nfl"], "version": "starter" }
+          JSON
+          echo "Pregame starter written to data/batches/pregame_sim_config.json"
+
+      - name: Commit pregame batch (starter)
+        if: ${{ contains(github.event.comment.body, '/charlotte batch starter') }}
+        shell: bash
+        run: |
+          git config user.name "$GIT_AUTHOR_NAME"
+          git config user.email "$GIT_AUTHOR_EMAIL"
+          git add data/batches/pregame_sim_config.json || true
+          git commit -m "chore(batch): pregame starter CSVs" || echo "No batch changes to commit."
+          git push || echo "No push needed."
+
+      #######################################################################
+      # OPTIONAL: CREATE TAGGED RELEASE
+      #######################################################################
+      - name: Stable Release
+        if: ${{ contains(github.event.comment.body, '/charlotte release stable') }}
+        shell: bash
+        run: |
+          set -e
+          VERSION_TAG="v$(date -u +'%Y.%m.%d-%H%M')"
+          git tag -a "$VERSION_TAG" -m "Stable release $VERSION_TAG"
+          git push origin "$VERSION_TAG"
+          echo "::notice title=Release::Published ${VERSION_TAG}"
+
+      #######################################################################
+      # MLB PREGAME SIMULATION (writes to data/models/mlb/sims/)
+      #######################################################################
+      - name: MLB Pregame Simulation
+        if: ${{ contains(github.event.comment.body, '/charlotte mlb sim pregame') }}
+        shell: bash
+        run: |
+          echo "⚾ Running MLB Pregame Simulation..."
+          mkdir -p data/models/mlb/sims
+          if [ -f "scripts/simulate_ev_edges.py" ]; then
+            python3 scripts/simulate_ev_edges.py --config data/batches/pregame_sim_config.json
+          else
+            echo '{"notice":"simulate_ev_edges.py not present - writing placeholder sim"}' \
+              > "data/models/mlb/sims/sim_$(date -u +'%Y%m%d-%H%M%S').json"
+          fi
+          git config user.name "$GIT_AUTHOR_NAME"
+          git config user.email "$GIT_AUTHOR_EMAIL"
+          git add data/models/mlb/sims/*.json || true
+          git commit -m "chore(sim): add MLB pregame sim results" || echo "No sim results to commit"
+          git push || echo "No push needed."
+
+      #######################################################################
+      # DATA INDEX (freshness map)  -> writes data/raw/data/index.json
+      #######################################################################
       - name: Build data index
         shell: bash
         run: |
           echo "🧭 Building data index..."
           mkdir -p data/raw/data
-          python3 - << 'PY'
-import json, os, glob, datetime, pathlib
-root = pathlib.Path("data/raw")
-sports = ["mlb","nba","nfl"]
-idx = {}
-for s in sports:
-    p = root / s
-    files = sorted(glob.glob(str(p / "**/*.json"), recursive=True), key=os.path.getmtime)
-    latest = files[-1] if files else None
-    if latest:
-        ts = datetime.datetime.utcfromtimestamp(os.path.getmtime(latest)).strftime("%Y-%m-%dT%H:%M:%SZ")
-        idx[s] = {"latest_file": latest.replace("\\","/"), "modified_utc": ts}
-    else:
-        idx[s] = {"latest_file": None, "modified_utc": None}
-os.makedirs("data/raw/data", exist_ok=True)
-with open("data/raw/data/index.json","w") as f:
-    json.dump(idx, f, indent=2)
-print(json.dumps(idx, indent=2))
-PY
+          python3 - <<'PY'
+          import json, os, glob, datetime, pathlib
+          root = pathlib.Path("data/raw")
+          sports = ["mlb","nba","nfl"]
+          idx = {}
+          for s in sports:
+              p = root / s
+              files = sorted(glob.glob(str(p / "**/*.json"), recursive=True), key=os.path.getmtime)
+              latest = files[-1] if files else None
+              if latest:
+                  ts = datetime.datetime.utcfromtimestamp(os.path.getmtime(latest)).strftime("%Y-%m-%dT%H:%M:%SZ")
+                  idx[s] = {"latest_file": latest.replace("\\","/"), "modified_utc": ts}
+              else:
+                  idx[s] = {"latest_file": None, "modified_utc": None}
+          os.makedirs("data/raw/data", exist_ok=True)
+          with open("data/raw/data/index.json","w") as f:
+              json.dump(idx, f, indent=2)
+          print(json.dumps(idx, indent=2))
+          PY
 
-      - name: Commit data index
-        shell: bash
-        run: |
-          git config user.name "sharpedge-bot"
-          git config user.email "sharpedgebot@users.noreply.github.com"
-          git add data/raw/data/index.json || true
-          git commit -m "chore(data): update data index" || echo "No index changes to commit"
-          git push
-
-      # ===========================
-      # MLB PREGAME SIMULATION
-      # ===========================
-      - name: MLB Pregame Simulation
-        if: ${{ github.event_name == 'issue_comment' && contains(github.event.comment.body, '/charlotte mlb sim pregame') }}
-        shell: bash
-        run: |
-          echo "⚾ Running MLB Pregame Simulation..."
-          mkdir -p data/models/mlb/sims data/batches
-          CFG="data/batches/mlb_pregame_sim_config.json"
-          if [ ! -f "$CFG" ]; then
-            cat > "$CFG" <<'JSON'
-{
-  "league": "mlb",
-  "simulations": 2000,
-  "output_dir": "data/models/mlb/sims",
-  "seed": 42
-}
-JSON
-          fi
-          python3 simulate_ev_edges.py --config "$CFG"
-          echo "✅ MLB simulation complete."
-          git config user.name "sharpedge-bot"
-          git config user.email "sharpedgebot@users.noreply.github.com"
-          git add data/models/mlb/sims/*.json || echo "No new sim outputs"
-          git commit -m "chore(sim): add MLB pregame sim results" || echo "No MLB sim results"
-          git push
-
-      # ===========================
-      # NBA PREGAME SIMULATION
-      # ===========================
-      - name: NBA Pregame Simulation
-        if: ${{ github.event_name == 'issue_comment' && contains(github.event.comment.body, '/charlotte nba sim pregame') }}
-        shell: bash
-        run: |
-          echo "🏀 Running NBA Pregame Simulation..."
-          mkdir -p data/models/nba/sims data/batches
-          CFG="data/batches/nba_pregame_sim_config.json"
-          if [ ! -f "$CFG" ]; then
-            cat > "$CFG" <<'JSON'
-{
-  "league": "nba",
-  "simulations": 2000,
-  "output_dir": "data/models/nba/sims",
-  "seed": 42
-}
-JSON
-          fi
-          python3 simulate_ev_edges.py --config "$CFG"
-          echo "✅ NBA simulation complete."
-          git config user.name "sharpedge-bot"
-          git config user.email "sharpedgebot@users.noreply.github.com"
-          git add data/models/nba/sims/*.json || echo "No new sim outputs"
-          git commit -m "chore(sim): add NBA pregame sim results" || echo "No NBA sim results"
-          git push
-
-      # ===========================
-      # NFL PREGAME SIMULATION
-      # ===========================
-      - name: NFL Pregame Simulation
-        if: ${{ github.event_name == 'issue_comment' && contains(github.event.comment.body, '/charlotte nfl sim pregame') }}
-        shell: bash
-        run: |
-          echo "🏈 Running NFL Pregame Simulation..."
-          mkdir -p data/models/nfl/sims data/batches
-          CFG="data/batches/nfl_pregame_sim_config.json"
-          if [ ! -f "$CFG" ]; then
-            cat > "$CFG" <<'JSON'
-{
-  "league": "nfl",
-  "simulations": 2000,
-  "output_dir": "data/models/nfl/sims",
-  "seed": 42
-}
-JSON
-          fi
-          python3 simulate_ev_edges.py --config "$CFG"
-          echo "✅ NFL simulation complete."
-          git config user.name "sharpedge-bot"
-          git config user.email "sharpedgebot@users.noreply.github.com"
-          git add data/models/nfl/sims/*.json || echo "No new sim outputs"
-          git commit -m "chore(sim): add NFL pregame sim results" || echo "No NFL sim results"
-          git push
-
-      # ===========================
+      #######################################################################
       # HELP (comment: /charlotte help)
-      # ===========================
+      #######################################################################
       - name: Help
         if: ${{ github.event_name == 'issue_comment' && contains(github.event.comment.body, '/charlotte help') }}
         shell: bash
@@ -236,32 +211,21 @@ JSON
           echo "/charlotte nba pull"
           echo "/charlotte mlb pull"
           echo "/charlotte nfl pull"
-          echo "/charlotte nba sim pregame"
           echo "/charlotte mlb sim pregame"
-          echo "/charlotte nfl sim pregame"
+          echo "/charlotte batch starter"
+          echo "/charlotte release stable"
           echo "/charlotte help"
 
-      # ===========================
-      # LOGGING + HEARTBEAT
-      # ===========================
+      #######################################################################
+      # RUN LOGGING (simple heartbeat)
+      #######################################################################
       - name: Log timestamp of successful bridge run
         shell: bash
         run: |
-          mkdir -p data/logs
-          echo "Bridge run completed at $(date -u '+%Y-%m-%dT%H:%M:%SZ')" > "data/logs/run_$(date -u '+%Y-%m-%dT%H-%M-%SZ').log"
-          git config user.name "sharpedge-bot"
-          git config user.email "sharpedgebot@users.noreply.github.com"
-          git add data/logs/*.log || true
+          mkdir -p data/data/logs
+          echo "Bridge run completed at $(date -u '+%Y-%m-%dT%H:%M:%SZ')" > "data/data/logs/heartbeat.json"
+          git config user.name "$GIT_AUTHOR_NAME"
+          git config user.email "$GIT_AUTHOR_EMAIL"
+          git add data/data/logs/heartbeat.json || true
           git commit -m "chore(log): bridge run timestamp" || echo "No log changes to commit"
-          git push
-
-      - name: Commit maintenance heartbeat
-        shell: bash
-        run: |
-          mkdir -p data/logs
-          echo '{"status":"ok","timestamp":"'"$(date -u +%FT%TZ)"'"}' > data/logs/heartbeat.json
-          git config user.name "sharpedge-bot"
-          git config user email "sharpedgebot@users.noreply.github.com"
-          git add data/logs/heartbeat.json || true
-          git commit -m "chore(maintenance): auto-cleanup + validation heartbeat" || echo "No heartbeat changes"
-          git push
+          git push || echo "No push needed."
