@@ -1,21 +1,8 @@
 {
-  "sport": "mlb",
-  "as_of": "utc-now",
-  "runs": 25000,
+  "version": "0.1",
+  "sports": ["mlb"],
   "inputs": {
-    "games_csv": "data/batches/mlb_games_pregame.csv",
-    "teams_csv": "data/batches/mlb_teams_pregame.csv"
+    "mlb_latest": "data/raw/mlb"
   },
-  "model": {
-    "name": "mlb_model_v1_1_5_alpha",
-    "params": {
-      "home_edge": 0.012,
-      "park_adjustments": true,
-      "bullpen_blend": 0.65
-    }
-  },
-  "outputs": {
-    "dir": "data/models/mlb/sims",
-    "prefix": "pregame"
-  }
+  "output_dir": "data/models/mlb/sims"
 }
