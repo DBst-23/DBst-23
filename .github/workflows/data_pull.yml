@@ -54,3 +54,21 @@ jobs:
           git add data/raw/mlb/*.json || true
           git commit -m "chore(data): mlb schedule auto-pull" || echo "No changes to commit"
           git push
+
+  pull_daily_stats:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pandas
+        run: pip install pandas lxml html5lib
+      - name: Pull Baseball-Reference + FanGraphs data
+        run: python scripts/pull_daily_stats.py
+      - name: Commit and push
+        run: |
+          git add data/raw/mlb/
+          git commit -m "data: add Baseball-Reference and FanGraphs daily stats"
+          git push
