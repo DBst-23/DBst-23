@@ -273,3 +273,26 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+# ---- quick one-click MLB sim launcher ---------------------------------------
+import os, sys, subprocess
+
+def run_mil_at_lad_verify():
+    cfg = os.path.join("config", "inputs.sample.json")         # you already edited this
+    out = os.path.join("outputs", "verify_MIL_at_LAD")         # results folder
+    cmd = [
+        sys.executable, os.path.join("sim", "run_sims.py"),
+        "--game", "MIL@LAD",
+        "--sport", "mlb",
+        "--mode", "V001_FULL_GAME_EDGES",
+        "--inputs_file", cfg,
+        "--freeze_feeds", "true",
+        "--sims", "25000",
+        "--outputs_dir", out,
+        "--explain_inputs",
+    ]
+    print("Running:", " ".join(cmd))
+    subprocess.run(cmd, check=True)
+
+if __name__ == "__main__":
+    run_mil_at_lad_verify()
