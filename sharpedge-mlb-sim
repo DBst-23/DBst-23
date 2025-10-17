@@ -1,0 +1,30 @@
+import json
+from pathlib import Path
+from sim.mlb_stabilizer import apply_static_stabilizers
+
+def load_inputs(path):
+    with open(path, "r") as f:
+        return json.load(f)
+
+def main():
+    config_path = "config/model.defaults.json"
+    inputs_path = "config/inputs.sample.json"
+
+    # load base context
+    ctx = load_inputs(inputs_path)
+    ctx["config_path"] = config_path
+
+    # apply static stabilizers
+    ctx = apply_static_stabilizers(ctx)
+
+    # write output
+    output_dir = Path("outputs")
+    output_dir.mkdir(exist_ok=True)
+    output_file = output_dir / "sim_results.json"
+    with open(output_file, "w") as f:
+        json.dump(ctx, f, indent=2)
+
+    print(f"✅ Simulation complete — results saved to {output_file}")
+
+if __name__ == "__main__":
+    main()
