@@ -1,0 +1,40 @@
+{
+  "version": "MLB_MODEL_V1.1.6",
+  "stabilizer": {
+    "enabled": true,
+    "inning_cluster_dampener": {
+      "enabled": true,
+      "quantile_floor": 0.08,
+      "quantile_cap": 0.92,
+      "max_delta_runs": 1.1
+    },
+    "relief_chain_normalizer": {
+      "enabled": true,
+      "fatigue_halflife_innings": 3.2,
+      "role_bounds": {
+        "closer": { "min_ip": 0.3, "max_ip": 1.2 },
+        "setup": { "min_ip": 0.2, "max_ip": 1.5 },
+        "mid": { "min_ip": 0.1, "max_ip": 2.0 },
+        "long": { "min_ip": 0.0, "max_ip": 3.0 }
+      },
+      "ip_conservation_tolerance": 0.05
+    },
+    "hr_spike_flag": {
+      "enabled": true,
+      "trigger_z": 1.1,
+      "regress_strength": 0.45,
+      "max_total_runs_delta": 0.6
+    },
+    "umpire_bounds": {
+      "enabled": true,
+      "k_rate_delta_cap": 0.015,
+      "bb_rate_delta_cap": 0.010
+    },
+    "lineup_uncertainty": {
+      "enabled": true,
+      "inactive_prob_default": 0.06,
+      "star_player_boost": 0.5,
+      "totals_variance_cap": 0.35
+    }
+  }
+}
