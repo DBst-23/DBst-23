@@ -1,0 +1,92 @@
+{
+  "copyright": "Copyright 2025 MLB Advanced Media, L.P.  Use of any content on this page acknowledges agreement to the terms posted here http://gdx.mlb.com/components/copyright.txt",
+  "totalItems": 1,
+  "totalEvents": 0,
+  "totalGames": 1,
+  "totalGamesInProgress": 0,
+  "dates": [
+    {
+      "date": "2025-10-18",
+      "totalItems": 1,
+      "totalEvents": 0,
+      "totalGames": 1,
+      "totalGamesInProgress": 0,
+      "games": [
+        {
+          "gamePk": 813030,
+          "gameGuid": "b02b63b7-a625-4fc7-bf3e-fbaf4c4628d1",
+          "link": "/api/v1.1/game/813030/feed/live",
+          "gameType": "L",
+          "season": "2025",
+          "gameDate": "2025-10-19T00:08:00Z",
+          "officialDate": "2025-10-18",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "S",
+            "detailedState": "Scheduled",
+            "statusCode": "S",
+            "startTimeTBD": false,
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "wins": 0,
+                "losses": 3,
+                "pct": ".000"
+              },
+              "team": {
+                "id": 158,
+                "name": "Milwaukee Brewers",
+                "link": "/api/v1/teams/158"
+              },
+              "splitSquad": false,
+              "seriesNumber": 2
+            },
+            "home": {
+              "leagueRecord": {
+                "wins": 3,
+                "losses": 0,
+                "pct": "1.000"
+              },
+              "team": {
+                "id": 119,
+                "name": "Los Angeles Dodgers",
+                "link": "/api/v1/teams/119"
+              },
+              "splitSquad": false,
+              "seriesNumber": 2
+            }
+          },
+          "venue": {
+            "id": 22,
+            "name": "Dodger Stadium",
+            "link": "/api/v1/venues/22"
+          },
+          "content": {
+            "link": "/api/v1/game/813030/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-813030-2025-10-18",
+          "seasonDisplay": "2025",
+          "dayNight": "night",
+          "description": "NLCS Game 5",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 175,
+          "gamesInSeries": 7,
+          "seriesGameNumber": 5,
+          "seriesDescription": "League Championship Series",
+          "recordSource": "S",
+          "ifNecessary": "Y",
+          "ifNecessaryDescription": "If Necessary Game"
+        }
+      ],
+      "events": []
+    }
+  ]
+}
