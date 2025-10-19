@@ -1,0 +1,65 @@
+name: Run LiveFlow + Backtest Controller
+
+on:
+  workflow_dispatch: {}               # manual run button
+  schedule:
+    - cron: "20 02 * * *"            # nightly @ 02:20 UTC (adjust if you want)
+  push:
+    branches: [ main ]
+    paths:
+      - "LiveFlow_Backtest_Controller.py"
+      - "sample_slate.json"
+      - "sample_overlays.json"
+      - ".github/workflows/run-controller.yml"
+
+jobs:
+  run-controller:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps (if you later add requirements.txt)
+        run: |
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          else
+            python -V
+          fi
+
+      - name: Ensure output/log folders
+        run: |
+          mkdir -p output logs
+
+      - name: Run LiveFlow
+        run: |
+          python LiveFlow_Backtest_Controller.py \
+            --mode liveflow \
+            --slate sample_slate.json \
+            --overlays sample_overlays.json \
+            --out output \
+            --logs logs
+
+      - name: Run Backtest
+        run: |
+          python LiveFlow_Backtest_Controller.py \
+            --mode backtest \
+            --slate sample_slate.json \
+            --overlays sample_overlays.json \
+            --out output \
+            --logs logs
+
+      - name: Archive outputs (per-game + aggregate)
+        uses: actions/upload-artifact@v4
+        with:
+          name: sim-output-${{ github.run_id }}
+          path: |
+            output/**
+            logs/**
+          if-no-files-found: warn
