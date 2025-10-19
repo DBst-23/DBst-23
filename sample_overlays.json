@@ -1,0 +1,15 @@
+{
+  "ORACLE_SHADOW_BLIND_ZONE_ACTIVE": {
+    "conditions": {
+      "venue": "Oracle Park",
+      "season_window": ["07-01", "08-31"],
+      "start_time_pt_window": ["18:00", "19:15"],
+      "weather": ["clear", "partly_cloudy"]
+    },
+    "effects": {
+      "pitcher_K_median_boost": 0.5,
+      "batter_contact_regression": 0.03,
+      "game_total_under_bias": 0.2
+    }
+  }
+}
