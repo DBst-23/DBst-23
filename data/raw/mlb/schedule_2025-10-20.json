@@ -1,0 +1,92 @@
+{
+  "copyright": "Copyright 2025 MLB Advanced Media, L.P.  Use of any content on this page acknowledges agreement to the terms posted here http://gdx.mlb.com/components/copyright.txt",
+  "totalItems": 1,
+  "totalEvents": 0,
+  "totalGames": 1,
+  "totalGamesInProgress": 0,
+  "dates": [
+    {
+      "date": "2025-10-20",
+      "totalItems": 1,
+      "totalEvents": 0,
+      "totalGames": 1,
+      "totalGamesInProgress": 0,
+      "games": [
+        {
+          "gamePk": 813037,
+          "gameGuid": "11233358-74ad-47ae-828d-3f025199e34a",
+          "link": "/api/v1.1/game/813037/feed/live",
+          "gameType": "L",
+          "season": "2025",
+          "gameDate": "2025-10-21T00:08:00Z",
+          "officialDate": "2025-10-20",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "S",
+            "detailedState": "Scheduled",
+            "statusCode": "S",
+            "startTimeTBD": false,
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "wins": 3,
+                "losses": 2,
+                "pct": ".600"
+              },
+              "team": {
+                "id": 136,
+                "name": "Seattle Mariners",
+                "link": "/api/v1/teams/136"
+              },
+              "splitSquad": false,
+              "seriesNumber": 1
+            },
+            "home": {
+              "leagueRecord": {
+                "wins": 2,
+                "losses": 3,
+                "pct": ".400"
+              },
+              "team": {
+                "id": 141,
+                "name": "Toronto Blue Jays",
+                "link": "/api/v1/teams/141"
+              },
+              "splitSquad": false,
+              "seriesNumber": 1
+            }
+          },
+          "venue": {
+            "id": 14,
+            "name": "Rogers Centre",
+            "link": "/api/v1/venues/14"
+          },
+          "content": {
+            "link": "/api/v1/game/813037/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-813037-2025-10-20",
+          "seasonDisplay": "2025",
+          "dayNight": "night",
+          "description": "ALCS Game 7",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 175,
+          "gamesInSeries": 7,
+          "seriesGameNumber": 7,
+          "seriesDescription": "League Championship Series",
+          "recordSource": "S",
+          "ifNecessary": "Y",
+          "ifNecessaryDescription": "If Necessary Game"
+        }
+      ],
+      "events": []
+    }
+  ]
+}
