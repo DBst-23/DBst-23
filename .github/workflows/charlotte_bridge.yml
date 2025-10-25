@@ -277,11 +277,15 @@ jobs:
           git commit -m "chore(maintenance): auto-cleanup + validation heartbeat" || echo "No heartbeat changes to commit"
           git push || echo "No push needed."
 
-      - name: Ensure output/log folders
-        if: always()
-        run: |
-          mkdir -p output logs
-
+      - name: Create artifact placeholders
+            if: always()
+            shell: bash
+            run: |
+              set -e
+              mkdir -p output logs
+              echo "run_id=${GITHUB_RUN_ID}" > output/summary.txt
+              echo '{"heartbeat":"ok","run_id":"'${GITHUB_RUN_ID}'"}' > logs/keep.json
+    
       - name: Upload sim outputs
             if: always()
             continue-on-error: true
