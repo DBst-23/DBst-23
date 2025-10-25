@@ -290,4 +290,5 @@ jobs:
           path: |
             output/**
             logs/**
-          if-no-files-found: warn
+          include-hidden-files: true
+          if-no-files-found: upload
