@@ -276,3 +276,18 @@ jobs:
           git add data/data/logs/heartbeat.json || true
           git commit -m "chore(maintenance): auto-cleanup + validation heartbeat" || echo "No heartbeat changes to commit"
           git push || echo "No push needed."
+
+            - name: Ensure output/log folders
+        if: always()
+        run: |
+          mkdir -p output logs
+
+      - name: Upload sim outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sim-output-${{ github.run_id }}
+          path: |
+            output/**
+            logs/**
+          if-no-files-found: warn
