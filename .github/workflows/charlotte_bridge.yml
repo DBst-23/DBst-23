@@ -1,49 +1,29 @@
 name: Charlotte Bridge
 
 on:
-  push:
-    paths:
-      - ".github/workflows/charlotte_bridge.yml"
-      - "scripts/**"
   workflow_dispatch:
-
-permissions:
-  contents: read
-
-concurrency:
-  group: charlotte-bridge-${{ github.ref }}
-  cancel-in-progress: true
 
 jobs:
   run:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
 
       - name: Setup Python (optional)
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: '3.11'
 
       - name: Install deps (optional)
         run: |
+          python -m pip install --upgrade pip
           pip install -r requirements.txt || true
 
       - name: Prepare output folders
-        if: always()
         run: |
-          set -euxo pipefail
           mkdir -p output logs
-          date -u +"%Y-%m-%dT%H:%M:%SZ" | tee logs/start_time.txt
-          echo "run_id=${GITHUB_RUN_ID}" | tee output/summary.txt
-          printf '{"heartbeat":"ok","run_id":"%s","sha":"%s"}\n' "${GITHUB_RUN_ID}" "${GITHUB_SHA}" > logs/keep.json
 
       - name: Run job / simulation
         run: |
@@ -57,6 +37,14 @@ jobs:
           dmesg | tail -n 200 > logs/dmesg_tail.txt || true
           journalctl -n 200 --no-pager > logs/journal_tail.txt || true
 
+      # ✅ Create placeholder so upload never fails
+      - name: Create artifact placeholders
+        if: always()
+        run: |
+          mkdir -p output logs
+          echo "ok" > logs/keep.json
+
+      # ✅ Upload artifacts (fixed version)
       - name: Upload sim outputs
         if: always()
         uses: actions/upload-artifact@v4
@@ -66,7 +54,7 @@ jobs:
             output/**
             logs/**
           include-hidden-files: true
-          if-no-files-found: upload
+          if-no-files-found: ignore
           retention-days: 7
 
       - name: Post to Slack (optional)
@@ -75,9 +63,9 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
           curl -sS -X POST -H 'Content-type: application/json' \
-          --data "{\"text\":\"Charlotte Bridge run ${GITHUB_RUN_ID} finished with status: ${{ job.status }}\"}" \
-          "$SLACK_WEBHOOK_URL" || true
-       
+            --data "{\"text\":\"Charlotte Bridge run ${{ github.run_id }} finished with status: ${{ job.status }}\"}" \
+            "$SLACK_WEBHOOK_URL" || true
+
 
 
       
