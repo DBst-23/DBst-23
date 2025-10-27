@@ -1,0 +1,92 @@
+{
+  "copyright": "Copyright 2025 MLB Advanced Media, L.P.  Use of any content on this page acknowledges agreement to the terms posted here http://gdx.mlb.com/components/copyright.txt",
+  "totalItems": 1,
+  "totalEvents": 0,
+  "totalGames": 1,
+  "totalGamesInProgress": 0,
+  "dates": [
+    {
+      "date": "2025-10-27",
+      "totalItems": 1,
+      "totalEvents": 0,
+      "totalGames": 1,
+      "totalGamesInProgress": 0,
+      "games": [
+        {
+          "gamePk": 813032,
+          "gameGuid": "d56cab71-5839-4a2c-ab4e-ecfbcb55721c",
+          "link": "/api/v1.1/game/813032/feed/live",
+          "gameType": "W",
+          "season": "2025",
+          "gameDate": "2025-10-28T00:00:00Z",
+          "officialDate": "2025-10-27",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "S",
+            "detailedState": "Scheduled",
+            "statusCode": "S",
+            "startTimeTBD": false,
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "wins": 1,
+                "losses": 1,
+                "pct": ".500"
+              },
+              "team": {
+                "id": 141,
+                "name": "Toronto Blue Jays",
+                "link": "/api/v1/teams/141"
+              },
+              "splitSquad": false,
+              "seriesNumber": 1
+            },
+            "home": {
+              "leagueRecord": {
+                "wins": 1,
+                "losses": 1,
+                "pct": ".500"
+              },
+              "team": {
+                "id": 119,
+                "name": "Los Angeles Dodgers",
+                "link": "/api/v1/teams/119"
+              },
+              "splitSquad": false,
+              "seriesNumber": 1
+            }
+          },
+          "venue": {
+            "id": 22,
+            "name": "Dodger Stadium",
+            "link": "/api/v1/venues/22"
+          },
+          "content": {
+            "link": "/api/v1/game/813032/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-813032-2025-10-27",
+          "seasonDisplay": "2025",
+          "dayNight": "day",
+          "description": "World Series Game 3",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 175,
+          "gamesInSeries": 7,
+          "seriesGameNumber": 3,
+          "seriesDescription": "World Series",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        }
+      ],
+      "events": []
+    }
+  ]
+}
