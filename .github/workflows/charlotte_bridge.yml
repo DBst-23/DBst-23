@@ -54,7 +54,7 @@ jobs:
             output/**
             logs/**
           include-hidden-files: true
-          if-no-files-found: ignore
+          if-no-files-found: warn  
           retention-days: 7
 
       - name: Post to Slack (optional)
