@@ -18,4 +18,4 @@ def simulate_calibration(samples=50):
     print(f"Calibration complete: mean={mean_val:.4f}, median={median_val:.4f}, samples={samples}")
 
 if __name__ == "__main__":
-    simulate_calibration()
+    simulate_calibration() 
