@@ -16,4 +16,4 @@ def dynamic_reb_chances(base_chances, poss_per_team, long_reb_share, foul_gate_o
     pace_ratio = (poss_per_team / cfg.PACE_REF) ** cfg.PACE_ELASTICITY
     mix_boost = 1.0 + cfg.SHOT_MIX_WEIGHT * (long_reb_share - 0.35)
     foul_damp = (1.0 - cfg.FOUL_RISK_DAMP) if foul_gate_on else 1.0
-    return base_chances * pace_ratio * mix_boost * foul_damp
+    return base_chances * pace_ratio * mix_boost * foul_damp 
