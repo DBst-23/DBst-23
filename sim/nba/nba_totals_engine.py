@@ -1,3 +1,9 @@
+from .nba_pace_model import (
+    predict_pace,
+    GamePaceInputs,
+    TeamPaceProfile,
+    PaceContext
+)
 from dataclasses import dataclass
 from .transition_patch import compute_transition_delta
 
@@ -27,8 +33,17 @@ class NBATotalsEngine:
         - transition patch overlay
         """
 
-        # 1) Base possessions estimate
-        base_pace = (inputs.home.pace + inputs.away.pace) / 2
+        # 1) Base possessions estimate (pace) using pace model
+        naive_pace = (inputs.home.pace + inputs.away.pace) / 2.0
+
+        base_pace = predict_pace(
+            home_pace=inputs.home.pace,
+            away_pace=inputs.away.pace,
+            naive_pace=naive_pace,
+            spread=getattr(inputs.home, "spread", 0.0),
+            home_b2b=getattr(inputs.home, "is_b2b", False),
+            away_b2b=getattr(inputs.away, "is_b2b", False),
+        )
 
         # 2) Base offensive expectation (points per possession)
         home_ppp = (inputs.home.off_rating + inputs.away.def_rating) / 200
