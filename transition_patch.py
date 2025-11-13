@@ -57,4 +57,4 @@ def transition_pace_multiplier(
     # Clamp to keep sims realistic.
     lower = 1.0 - cfg.MAX_PACE_DELTA
     upper = 1.0 + cfg.MAX_PACE_DELTA
-    return max(lower, min(upper, raw_multiplier))
+    return max(lower, min(upper, raw_multiplier)) 
