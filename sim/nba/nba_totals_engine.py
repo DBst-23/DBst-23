@@ -19,8 +19,38 @@ class TeamProfile:
 
 @dataclass
 class GameInputs:
-    home: TeamProfile
-    away: TeamProfile
+    def compute_ceiling_guardrail(inputs: GameInputs, raw_total: float) -> float:
+    """
+    Ceiling Guardrail v1.0
+
+    Small positive adjustment that protects against under-projecting totals
+    when offensive edges vs opposing defenses are strong.
+    """
+
+    # Safe off/def ratings with fallbacks
+    home_off = float(getattr(inputs.home, "off_rating", 115.0))
+    away_off = float(getattr(inputs.away, "off_rating", 115.0))
+    home_def = float(getattr(inputs.home, "def_rating", 115.0))
+    away_def = float(getattr(inputs.away, "def_rating", 115.0))
+
+    # Offensive edge vs opposing defense (only positive edges)
+    home_edge = max(home_off - away_def, 0.0)
+    away_edge = max(away_off - home_def, 0.0)
+    combined_edge = home_edge + away_edge
+
+    # Turn edge into a small points boost (typical 0–5 range)
+    edge_boost = combined_edge * 0.06  # e.g. 20 edge → +1.2 pts
+
+    # Clamp so it never goes crazy
+    edge_boost = max(0.0, min(edge_boost, 7.0))
+
+    # If the raw total is already very high, dampen the boost
+    if raw_total >= 240:
+        edge_boost *= 0.3
+    elif raw_total >= 230:
+        edge_boost *= 0.6
+
+    return edge_boost
 
 class NBATotalsEngine:
 
