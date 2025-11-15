@@ -1,11 +1,15 @@
+from dataclasses import dataclass
+from typing import Optional, Dict, Any
+
 from .nba_pace_model import (
     predict_pace,
     GamePaceInputs,
     TeamPaceProfile,
-    PaceContext
+    PaceContext,
 )
-from dataclasses import dataclass
 from .transition_patch import compute_transition_delta
+from .hv_totals_guardrail import HVInputs, compute_hv_guardrail, hv_to_dict
+
 
 @dataclass
 class TeamProfile:
@@ -17,50 +21,28 @@ class TeamProfile:
     def_trans_freq: float     # allowed transition freq
     def_trans_eff: float      # allowed transition eff
 
+    # Optional extras (won't break if not provided)
+    spread: float = 0.0
+    is_b2b: bool = False
+
+
 @dataclass
 class GameInputs:
-    def compute_ceiling_guardrail(inputs: GameInputs, raw_total: float) -> float:
-    """
-    Ceiling Guardrail v1.0
+    home: TeamProfile
+    away: TeamProfile
+    hv_inputs: Optional[HVInputs] = None  # <- NEW: high-volatility context (optional)
 
-    Small positive adjustment that protects against under-projecting totals
-    when offensive edges vs opposing defenses are strong.
-    """
-
-    # Safe off/def ratings with fallbacks
-    home_off = float(getattr(inputs.home, "off_rating", 115.0))
-    away_off = float(getattr(inputs.away, "off_rating", 115.0))
-    home_def = float(getattr(inputs.home, "def_rating", 115.0))
-    away_def = float(getattr(inputs.away, "def_rating", 115.0))
-
-    # Offensive edge vs opposing defense (only positive edges)
-    home_edge = max(home_off - away_def, 0.0)
-    away_edge = max(away_off - home_def, 0.0)
-    combined_edge = home_edge + away_edge
-
-    # Turn edge into a small points boost (typical 0–5 range)
-    edge_boost = combined_edge * 0.06  # e.g. 20 edge → +1.2 pts
-
-    # Clamp so it never goes crazy
-    edge_boost = max(0.0, min(edge_boost, 7.0))
-
-    # If the raw total is already very high, dampen the boost
-    if raw_total >= 240:
-        edge_boost *= 0.3
-    elif raw_total >= 230:
-        edge_boost *= 0.6
-
-    return edge_boost
 
 class NBATotalsEngine:
 
     @staticmethod
-    def simulate_total(inputs: GameInputs):
+    def simulate_total(inputs: GameInputs) -> Dict[str, Any]:
         """
         Main NBA totals projection using:
         - pace
         - offensive + defensive ratings
         - transition patch overlay
+        - high-volatility totals guardrail (HV-TGM)
         """
 
         # 1) Base possessions estimate (pace) using pace model
@@ -76,24 +58,34 @@ class NBATotalsEngine:
         )
 
         # 2) Base offensive expectation (points per possession)
-        home_ppp = (inputs.home.off_rating + inputs.away.def_rating) / 200
-        away_ppp = (inputs.away.off_rating + inputs.home.def_rating) / 200
+        home_ppp = (inputs.home.off_rating + inputs.away.def_rating) / 200.0
+        away_ppp = (inputs.away.off_rating + inputs.home.def_rating) / 200.0
 
-        # 3) Apply transition patch
+        # 3) Apply transition patch (this adjusts for CTG transition edges)
         transition_delta = compute_transition_delta(inputs)
 
         # 4) Raw total before modifiers
         raw_total = (home_ppp + away_ppp) * base_pace
 
-        # 5) Final total
-        final_total = raw_total + transition_delta
+        # 5) Apply HV-TGM guardrail (volatility-aware adjustment)
+        hv_result = compute_hv_guardrail(raw_total, inputs.hv_inputs)
+        guarded_total = raw_total + transition_delta + hv_result.volatility_boost
 
-        return {
+        # 6) Final outputs (mean/median and metadata)
+        final_mean = guarded_total
+        final_median = guarded_total * 0.98  # keep median slightly lower than mean
+
+        output: Dict[str, Any] = {
             "pace": base_pace,
             "home_ppp": home_ppp,
             "away_ppp": away_ppp,
             "transition_delta": transition_delta,
             "raw_total": raw_total,
-            "final_total_mean": final_total,
-            "final_total_median": final_total * 0.98,   # median slightly lower
+            "final_total_mean": final_mean,
+            "final_total_median": final_median,
         }
+
+        # Add HV diagnostics
+        output.update(hv_to_dict(hv_result))
+
+        return output
