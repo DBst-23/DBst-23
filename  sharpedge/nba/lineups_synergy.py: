@@ -1,0 +1,120 @@
+from pathlib import Path
+import pandas as pd
+
+
+LINEUP_KEY = ["Team", "PG", "SG", "SF", "PF", "C"]
+
+
+def _clean_pct(series: pd.Series) -> pd.Series:
+    """Convert '45.3%' -> 0.453 floats; leave NaN alone."""
+    return (
+        series.astype(str)
+        .str.replace("%", "", regex=False)
+        .replace("nan", pd.NA)
+        .astype(float)
+        / 100.0
+    )
+
+
+def build_lineup_synergy_table(data_dir: Path, season: str = "2025-26") -> pd.DataFrame:
+    """
+    Merge Cleaning The Glass lineup CSVs into one wide synergy table.
+
+    Returns a DataFrame with one row per 5-man lineup and both offense/defense metrics.
+    """
+
+    def load(name: str) -> pd.DataFrame:
+        df = pd.read_csv(data_dir / name)
+        # Drop league averages row
+        df = df[df["Team"] != "League Averages"].copy()
+        return df
+
+    off_freq  = load("lineups_offense_shooting_frequency_11_27_2025.csv")
+    off_acc   = load("lineups_offense_shooting_accuracy_11_27_2025.csv")
+    off_hc    = load("lineups_offense_halfcourt_and_putbacks_11_27_2025.csv")
+    off_trans = load("lineups_offense_transition_11_27_2025.csv")
+
+    def_freq  = load("lineups_defense_shooting_frequency_11_27_2025 (1).csv")
+    def_acc   = load("lineups_defense_shooting_accuracy_11_27_2025.csv")
+    def_hc    = load("lineups_defense_halfcourt_and_putbacks_11_27_2025.csv")
+    def_trans = load("lineups_defense_transition_11_27_2025.csv")
+
+    # Rename percentage columns to standardized snake_case + off/def prefix
+    def prefix_cols(df: pd.DataFrame, prefix: str, drop_rank=True) -> pd.DataFrame:
+        out = df.copy()
+        if drop_rank:
+            out = out[[c for c in out.columns if "Rank" not in c]]
+        rename = {}
+        for c in out.columns:
+            if c in LINEUP_KEY or c == "Poss" or c == "Pts/Poss":
+                continue
+            base = (
+                c.lower()
+                .replace(":", "")
+                .replace(" ", "_")
+                .replace("%", "_pct")
+                .replace("/", "_per_")
+            )
+            rename[c] = f"{prefix}_{base}"
+        out = out.rename(columns=rename)
+        return out
+
+    off_freq  = prefix_cols(off_freq,  "off")
+    off_acc   = prefix_cols(off_acc,   "off")
+    off_hc    = prefix_cols(off_hc,    "off")
+    off_trans = prefix_cols(off_trans, "off")
+
+    def_freq  = prefix_cols(def_freq,  "def")
+    def_acc   = prefix_cols(def_acc,   "def")
+    def_hc    = prefix_cols(def_hc,    "def")
+    def_trans = prefix_cols(def_trans, "def")
+
+    # Merge all tables on lineup key
+    df = (
+        off_freq
+        .merge(off_acc,   on=LINEUP_KEY + ["Poss"], how="inner")
+        .merge(off_hc,    on=LINEUP_KEY + ["Poss"], how="inner", suffixes=("", "_hc"))
+        .merge(off_trans, on=LINEUP_KEY + ["Poss"], how="inner", suffixes=("", "_trans"))
+        .merge(def_freq,  on=LINEUP_KEY,            how="inner")
+        .merge(def_acc,   on=LINEUP_KEY,            how="inner", suffixes=("", "_defacc"))
+        .merge(def_hc,    on=LINEUP_KEY,            how="inner", suffixes=("", "_defhc"))
+        .merge(def_trans, on=LINEUP_KEY,            how="inner", suffixes=("", "_deftrans"))
+    )
+
+    # Rename Poss / Pts/Poss
+    df = df.rename(
+        columns={
+            "Poss": "poss_off",
+            "Pts/Poss": "off_pts_per_poss",
+        }
+    )
+    if "Pts/Poss_def" in df.columns:
+        df = df.rename(columns={"Pts/Poss_def": "def_pts_per_poss"})
+
+    # Convert any percentage-looking columns to floats
+    for c in df.columns:
+        if df[c].dtype == object and df[c].astype(str).str.contains("%").any():
+            df[c] = _clean_pct(df[c])
+
+    df["season"] = season
+    df["lineup_id"] = (
+        df["Team"]
+        + "|"
+        + df["PG"] + "-" + df["SG"] + "-" + df["SF"] + "-" + df["PF"] + "-" + df["C"]
+    )
+
+    # Quick net rating
+    if "def_pts_per_poss" in df.columns:
+        df["net_rating"] = (df["off_pts_per_poss"] - df["def_pts_per_poss"])
+
+    # Reorder columns a bit
+    front_cols = [
+        "season", "team", "lineup_id",
+        "PG", "SG", "SF", "PF", "C",
+        "poss_off", "off_pts_per_poss",
+    ]
+    existing_front = [c for c in front_cols if c in df.columns]
+    df = df.rename(columns={"Team": "team"})
+    df = df[existing_front + [c for c in df.columns if c not in existing_front]]
+
+    return df
