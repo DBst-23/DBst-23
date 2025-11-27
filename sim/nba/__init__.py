@@ -1,1 +1,1 @@
- 
+from .lineups_synergy import build_lineup_synergy_table 
