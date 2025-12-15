@@ -9,7 +9,11 @@ def _get_path(obj: Dict[str, Any], path: str) -> Any:
         cur = cur[part]
     return cur
 
-def gate_check(payload: Dict[str, Any], required_paths: List[str], pass_ratio: float = 0.65) -> Tuple[bool, float, List[str]]:
+def gate_check(
+    payload: Dict[str, Any],
+    required_paths: List[str],
+    pass_ratio: float = 0.65
+) -> Tuple[bool, float, List[str]]:
     missing: List[str] = []
     present = 0
 
