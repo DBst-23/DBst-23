@@ -1,0 +1,56 @@
+V001_FULL_GAME_EDGES:
+  required:
+    - game
+    - sport
+    - mode
+
+    # context
+    - context.park
+    - context.roof_closed
+    - context.weather.temp_f
+    - context.weather.wind_mph
+    - context.weather.wind_dir
+    - context.weather.z_hr_env
+    - context.umpire.name
+    - context.umpire.k_rate_delta
+    - context.umpire.bb_rate_delta
+
+    # pitchers.away (core)
+    - pitchers.away.name
+    - pitchers.away.hand
+    - pitchers.away.ip
+    - pitchers.away.era
+    - pitchers.away.whip
+    - pitchers.away.k_per9
+    - pitchers.away.bb_per9
+    - pitchers.away.hr_per9
+    - pitchers.away.hits_per9
+    - pitchers.away.outs_mean
+
+    # pitchers.home (core)
+    - pitchers.home.name
+    - pitchers.home.hand
+    - pitchers.home.ip
+    - pitchers.home.era
+    - pitchers.home.whip
+    - pitchers.home.k_per9
+    - pitchers.home.bb_per9
+    - pitchers.home.hr_per9
+    - pitchers.home.hits_per9
+    - pitchers.home.outs_mean
+
+  optional:
+    # splits are optional (nice-to-have)
+    - pitchers.away.splits.vsLHB.oba
+    - pitchers.away.splits.vsLHB.k9
+    - pitchers.away.splits.vsLHB.hr9
+    - pitchers.away.splits.vsRHB.oba
+    - pitchers.away.splits.vsRHB.k9
+    - pitchers.away.splits.vsRHB.hr9
+
+    - pitchers.home.splits.vsLHB.oba
+    - pitchers.home.splits.vsLHB.k9
+    - pitchers.home.splits.vsLHB.hr9
+    - pitchers.home.splits.vsRHB.oba
+    - pitchers.home.splits.vsRHB.k9
+    - pitchers.home.splits.vsRHB.hr9
