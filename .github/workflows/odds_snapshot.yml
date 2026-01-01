@@ -28,4 +28,4 @@ jobs:
           AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
           AIRTABLE_ODDS_TABLE_ID: ${{ secrets.AIRTABLE_ODDS_TABLE_ID }}
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
-        run: python scripts/odds/pull_odds.py
+        run: python scripts/scripts/odds/pull_odds.py
