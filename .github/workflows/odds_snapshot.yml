@@ -1,0 +1,31 @@
+name: Odds Snapshot Engine
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"        # every 30 minutes all day
+    - cron: "*/5 16-23 * * *"     # aggressive pull pre-tip (PT)
+  workflow_dispatch:
+
+jobs:
+  pull-odds:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests pytz python-dateutil
+
+      - name: Run Odds Snapshot
+        env:
+          AIRTABLE_API_KEY: ${{ secrets.AIRTABLE_API_KEY }}
+          AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
+          AIRTABLE_ODDS_TABLE_ID: ${{ secrets.AIRTABLE_ODDS_TABLE_ID }}
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python scripts/odds/pull_odds.py
