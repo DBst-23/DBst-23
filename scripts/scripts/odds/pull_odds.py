@@ -210,6 +210,9 @@ def airtable_create_records(rows: List[Dict[str, Any]]) -> Dict[str, Any]:
         batch = rows[i : i + batch_size]
         payload = {"records": batch}
         resp = requests.post(url, headers=headers, json=payload, timeout=25)
+        
+        print("Airtable status:", resp.status_code)
+        print("Airtable response:", resp.text[:500])
 
         if resp.status_code not in (200, 201):
             errors.append(
