@@ -1,3 +1,4 @@
+import importlib
 from DataValidator import validate_dataset
 from datetime import datetime
 import json
@@ -39,17 +40,21 @@ def try_import_sim_engine():
     """
     engine = None
     errors = []
-    candidates = [
-        "mlb_prop_simulator",          # user's main simulator
-        "simulate_ev_edges",           # EV edge simulator
-        "live_edge_alert_system",      # live alert system
-    ]
-    for name in candidates:
-        try:
-            engine = __import__(name)
-            return engine, None
-        except Exception as e:
-            errors.append(f"{name}: {e}")
+candidates = [
+    "scripts.mlb_prop_simulator",
+    "scripts.simulate_ev_edges",
+    "scripts.live_edge_alert_system",
+    "sim.mlb_prop_simulator",
+    "sim.simulate_ev_edges",
+    "sim.live_edge_alert_system",
+]
+
+for name in candidates:
+    try:
+        engine = importlib.import_module(name)
+        return engine, None
+    except Exception as e:
+        errors.append(f"{name}: {e}")
 
     # Fallback stub so the pipeline still runs
     class StubEngine:
