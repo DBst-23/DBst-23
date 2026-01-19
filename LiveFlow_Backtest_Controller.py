@@ -40,26 +40,32 @@ def try_import_sim_engine():
     """
     engine = None
     errors = []
-candidates = [
-    "scripts.mlb_prop_simulator",
-    "scripts.simulate_ev_edges",
-    "scripts.live_edge_alert_system",
-    "sim.mlb_prop_simulator",
-    "sim.simulate_ev_edges",
-    "sim.live_edge_alert_system",
-]
 
-for name in candidates:
-    try:
-        engine = importlib.import_module(name)
-        print(f"[ENGINE VERIFY] Loaded simulation engine: {engine.__name__}")
-        return engine, None
-    except Exception as e:
-        errors.append(f"{name}: {e}")
+    candidates = [
+        "scripts.mlb_prop_simulator",
+        "scripts.simulate_ev_edges",
+        "scripts.live_edge_alert_system",
+        "sim.mlb_prop_simulator",
+        "sim.simulate_ev_edges",
+        "sim.live_edge_alert_system",
+    ]
+
+    for name in candidates:
+        try:
+            engine = importlib.import_module(name)
+            print(f"[ENGINE VERIFY] Loaded simulation engine: {name}")
+            return engine, None
+        except Exception as e:
+            errors.append(f"{name}: {e}")
 
     # Fallback stub so the pipeline still runs
     class StubEngine:
-        def run_simulation(self, games: List[Dict[str, Any]], mode: str = "liveflow", overlays: Optional[Dict[str, Any]] = None) -> List[Dict[str, Any]]:
+        def run_simulation(
+            self,
+            games: List[Dict[str, Any]],
+            mode: str = "liveflow",
+            overlays: Optional[Dict[str, Any]] = None
+        ) -> List[Dict[str, Any]]:
             results = []
             for g in games:
                 gid = g.get("game_id") or f"{g.get('team_1','?')}_vs_{g.get('team_2','?')}"
@@ -73,7 +79,11 @@ for name in candidates:
                 })
             return results
 
-    return StubEngine(), "\n".join(errors)
+    print("[ENGINE VERIFY] WARNING: Using StubEngine. Import errors:")
+    for err in errors:
+        print(" -", err)
+
+    return StubEngine(), errors
 
 # --------- Validation Layer (lightweight) --------- #
 
