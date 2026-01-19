@@ -43,7 +43,6 @@ def try_import_sim_engine():
         "mlb_prop_simulator",          # user's main simulator
         "simulate_ev_edges",           # EV edge simulator
         "live_edge_alert_system",      # live alert system
-        "Download mlb_model_v1_1_5_alpha"  # legacy filename with spaces
     ]
     for name in candidates:
         try:
