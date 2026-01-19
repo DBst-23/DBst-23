@@ -52,6 +52,7 @@ candidates = [
 for name in candidates:
     try:
         engine = importlib.import_module(name)
+        print(f"[ENGINE VERIFY] Loaded simulation engine: {engine.__name__}")
         return engine, None
     except Exception as e:
         errors.append(f"{name}: {e}")
