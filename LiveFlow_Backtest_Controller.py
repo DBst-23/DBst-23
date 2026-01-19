@@ -244,26 +244,3 @@ def cli():
 
 if __name__ == "__main__":
     cli()
-    if __name__ == "__main__":
-    from sharpedge import ReboundPropInput, evaluate_rebound_prop
-
-    test = ReboundPropInput(
-        player="TEST_BIG",
-        team="TEST",
-        market="REB",
-        side="OVER",
-        line=8.5,
-        odds_american=-110,
-        mean=9.2,
-        median=8.9,
-        win_prob=0.66,
-        edge=0.02,
-        tags_active=["STARTER_BIG_MINUTES_CAP"],
-        projected_minutes=28.0,
-        is_starter_big=True,
-        bench_big_candidate=False
-    )
-
-    decision = evaluate_rebound_prop(test, mode="LIVEFLOW")
-    print(decision)
-    
