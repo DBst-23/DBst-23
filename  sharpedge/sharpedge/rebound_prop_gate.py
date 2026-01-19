@@ -216,4 +216,4 @@ def decision_to_log_dict(inp: ReboundPropInput, decision: ReboundPropDecision) -
         "tags_active": inp.tags_active,
         "decision": asdict(decision),
     }
-    return d
+    return d 
