@@ -36,7 +36,7 @@ def save_json(path: str, data: Any) -> None:
 def try_import_sim_engine():
     """
     Attempts to import user's simulation engine(s).
-    We try several known filenames from the project and provide a minimal stub if none are found.
+    We try several known module paths from the repo and provide a minimal stub if none are found.
     """
     engine = None
     errors = []
@@ -53,10 +53,12 @@ def try_import_sim_engine():
     for name in candidates:
         try:
             engine = importlib.import_module(name)
-            print(f"[ENGINE VERIFY] Loaded simulation engine: {name}")
+            print(f"[ENGINE VERIFY] Loaded simulation engine module: {engine.__name__}")
             return engine, None
         except Exception as e:
             errors.append(f"{name}: {e}")
+
+    return None, errors
 
     # Fallback stub so the pipeline still runs
     class StubEngine:
@@ -232,25 +234,63 @@ def run_controller(
 def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     p = argparse.ArgumentParser(description="SharpEdge LiveFlow + Backtest unified runner")
     p.add_argument("--date", required=False, default=datetime.utcnow().strftime("%Y-%m-%d"), help="Slate date (YYYY-MM-DD)")
-    p.add_argument("--mode", required=False, default="both", choices=["liveflow","backtest","both"], help="Execution mode")
+    p.add_argument(
+        "--mode",
+        required=False,
+        default="both",
+        choices=["liveflow", "backtest", "both", "engine_verify"],
+        help="Execution mode"
+    )
     p.add_argument("--slate", required=False, help="Path to slate JSON (list of games or {'games': [...]})")
     p.add_argument("--overlays", required=False, help="Path to volatility overlays JSON")
     p.add_argument("--out", required=False, default=DEFAULT_OUTPUT_DIR, help="Output dir")
     p.add_argument("--logs", required=False, default=DEFAULT_LOG_DIR, help="Log dir")
     p.add_argument("--tag", required=False, help="Optional tag for this run")
+
+    # Aliases for GitHub Action compatibility
+    p.add_argument("--date-str", dest="date", required=False, help="Alias for --date")
+    p.add_argument("--slate-path", dest="slate", required=False, help="Alias for --slate")
+    p.add_argument("--overlays-path", dest="overlays", required=False, help="Alias for --overlays")
+
     return p.parse_args(argv)
+
 
 def cli():
     args = parse_args()
     date_str = args.date
+
     ensure_dir(args.out)
     ensure_dir(args.logs)
 
+    if args.mode == "engine_verify":
+        engine, err = try_import_sim_engine()
+        if engine is None:
+            raise RuntimeError("ENGINE_VERIFY failed: " + "; ".join(err or []))
+        print("[ENGINE VERIFY] OK")
+        return
+
     if args.mode in ("liveflow", "both"):
-        run_controller(date_str=date_str, mode="liveflow", slate_path=args.slate, overlays_path=args.overlays, out_dir=args.out, log_dir=args.logs, tag=args.tag)
+        run_controller(
+            date_str=date_str,
+            mode="liveflow",
+            slate_path=args.slate,
+            overlays_path=args.overlays,
+            out_dir=args.out,
+            log_dir=args.logs,
+            tag=args.tag,
+        )
 
     if args.mode in ("backtest", "both"):
-        run_controller(date_str=date_str, mode="backtest", slate_path=args.slate, overlays_path=args.overlays, out_dir=args.out, log_dir=args.logs, tag=args.tag)
+        run_controller(
+            date_str=date_str,
+            mode="backtest",
+            slate_path=args.slate,
+            overlays_path=args.overlays,
+            out_dir=args.out,
+            log_dir=args.logs,
+            tag=args.tag,
+        )
+
 
 if __name__ == "__main__":
     cli()
