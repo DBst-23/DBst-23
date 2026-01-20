@@ -231,7 +231,6 @@ def run_controller(
         "summary": summary
     }
 
-
 def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     p = argparse.ArgumentParser(
         description="SharpEdge LiveFlow + Backtest unified runner"
@@ -252,37 +251,11 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
         help="Execution mode"
     )
 
-    p.add_argument(
-        "--slate",
-        required=False,
-        help="Path to slate JSON"
-    )
-
-    p.add_argument(
-        "--overlays",
-        required=False,
-        help="Path to volatility overlays JSON"
-    )
-
-    p.add_argument(
-        "--out",
-        required=False,
-        default=DEFAULT_OUTPUT_DIR,
-        help="Output dir"
-    )
-
-    p.add_argument(
-        "--logs",
-        required=False,
-        default=DEFAULT_LOG_DIR,
-        help="Log dir"
-    )
-
-    p.add_argument(
-        "--tag",
-        required=False,
-        help="Optional tag for this run"
-    )
+    p.add_argument("--slate", required=False, help="Path to slate JSON")
+    p.add_argument("--overlays", required=False, help="Path to overlays JSON")
+    p.add_argument("--out", required=False, default=DEFAULT_OUTPUT_DIR)
+    p.add_argument("--logs", required=False, default=DEFAULT_LOG_DIR)
+    p.add_argument("--tag", required=False)
 
     # GitHub Actions aliases
     p.add_argument("--date-str", dest="date", required=False)
@@ -291,42 +264,43 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
 
     return p.parse_args(argv)
 
-
 def cli():
     args = parse_args()
+    date_str = args.date
 
     ensure_dir(args.out)
     ensure_dir(args.logs)
 
+    # ---------- ENGINE VERIFY (ISOLATED MODE) ----------
     if args.mode == "engine_verify":
         engine, err = try_import_sim_engine()
         if engine is None:
-            raise RuntimeError(
-                "ENGINE_VERIFY failed: " + "; ".join(err or [])
-            )
+            raise RuntimeError("ENGINE_VERIFY failed: " + "; ".join(err or []))
         print("[ENGINE VERIFY] OK")
         return
 
+    # ---------- LIVEFLOW ----------
     if args.mode in ("liveflow", "both"):
         run_controller(
-            date_str=args.date,
+            date_str=date_str,
             mode="liveflow",
             slate_path=args.slate,
             overlays_path=args.overlays,
             out_dir=args.out,
             log_dir=args.logs,
-            tag=args.tag
+            tag=args.tag,
         )
 
+    # ---------- BACKTEST ----------
     if args.mode in ("backtest", "both"):
         run_controller(
-            date_str=args.date,
+            date_str=date_str,
             mode="backtest",
             slate_path=args.slate,
             overlays_path=args.overlays,
             out_dir=args.out,
             log_dir=args.logs,
-            tag=args.tag
+            tag=args.tag,
         )
 
 
