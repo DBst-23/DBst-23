@@ -266,17 +266,27 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
 
 def cli():
     args = parse_args()
-    date_str = args.date
 
+    # GitHub Actions sometimes passes empty strings for optional inputs
+    if not args.date:
+        args.date = datetime.utcnow().strftime("%Y-%m-%d")
+    if args.slate == "":
+        args.slate = None
+    if args.overlays == "":
+        args.overlays = None
+
+    date_str = args.date
     ensure_dir(args.out)
     ensure_dir(args.logs)
 
-    # ---------- ENGINE VERIFY (ISOLATED MODE) ----------
+    # ---------- ENGINE VERIFY (isolated mode) ----------
     if args.mode == "engine_verify":
-        engine, err = try_import_sim_engine()
+        engine, errs = try_import_sim_engine()
         if engine is None:
-            raise RuntimeError("ENGINE_VERIFY failed: " + "; ".join(err or []))
-        print("[ENGINE VERIFY] OK")
+            details = "\n".join(errs or [])
+            raise RuntimeError("ENGINE_VERIFY failed:\n" + details)
+
+        print(f"[ENGINE VERIFY] OK -> {engine.__name__}")
         return
 
     # ---------- LIVEFLOW ----------
