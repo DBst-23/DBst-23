@@ -323,13 +323,11 @@ def cli():
 
     # ---------- ENGINE VERIFY (isolated mode) ----------
     if args.mode == "engine_verify":
-        engine, errs = try_import_sim_engine()
-        if engine is None:
-            details = "\n".join(errs or [])
-            raise RuntimeError("ENGINE_VERIFY failed:\n" + details)
-
-        print(f"[ENGINE VERIFY] OK -> {engine.__name__}")
-        return
+    engine, err = try_import_sim_engine()
+    if engine is None:
+        raise RuntimeError("ENGINE_VERIFY failed: " + "; ".join(err or []))
+    print("[ENGINE VERIFY] OK")
+    return
 
     # ---------- LIVEFLOW ----------
     if args.mode in ("liveflow", "both"):
