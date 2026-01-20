@@ -1,10 +1,11 @@
 import importlib
-from DataValidator import validate_dataset
-from datetime import datetime
+import importlib.util
 import json
 import os
+import sys
 import argparse
 import uuid
+from datetime import datetime
 from typing import Any, Dict, List, Optional, Tuple
 
 BANNER = """
@@ -19,6 +20,8 @@ DEFAULT_OUTPUT_DIR = "output"
 # --------- Utilities --------- #
 
 def ensure_dir(path: str) -> None:
+    if not path:
+        return
     os.makedirs(path, exist_ok=True)
 
 def timestamp() -> str:
@@ -29,80 +32,78 @@ def load_json(path: str) -> Any:
         return json.load(f)
 
 def save_json(path: str, data: Any) -> None:
-    ensure_dir(os.path.dirname(path))
+    dir_ = os.path.dirname(path)
+    if dir_:
+        ensure_dir(dir_)
     with open(path, "w") as f:
         json.dump(data, f, indent=2)
 
-def try_import_sim_engine():
+# --------- Engine Import / Verification --------- #
+
+def try_import_sim_engine() -> Tuple[Optional[Any], List[str]]:
     """
     Engine Verification Mode:
     - Try importing known engine modules
-    - If packages aren't set up (no __init__.py), fall back to importing by file path
+    - If packages aren't set up, fall back to importing by file path
+    Returns: (engine_or_module_or_instance, errors_list)
     """
-    import importlib
-    import importlib.util
-    import os
-    import sys
+    errors: List[str] = []
 
-    engine = None
-    errors = []
-
-    # 1) Try common module paths (must exist as real modules/packages)
-    candidates = [
-        # likely packages
+    # From your repo screenshots:
+    # /sim contains: mlb_stabilizer.py, nba_totals_engine.py
+    # Root contains: sharpedge/ (package folder)
+    module_candidates = [
+        # If sharpedge is a package and contains engines (only works if those modules exist)
         "sharpedge.mlb_prop_simulator",
         "sharpedge.simulate_ev_edges",
         "sharpedge.live_edge_alert_system",
 
-        # what you ACTUALLY have in /sim from your screenshot
+        # These DO exist from your screenshot
         "sim.mlb_stabilizer",
         "sim.nba_totals_engine",
     ]
 
-    for name in candidates:
+    for name in module_candidates:
         try:
-            engine = importlib.import_module(name)
-            print(f"[ENGINE VERIFY] Loaded module: {engine.__name__}")
-            return engine, None
+            mod = importlib.import_module(name)
+            print(f"[ENGINE VERIFY] Loaded module: {mod.__name__}")
+            return mod, []
         except Exception as e:
             errors.append(f"{name}: {e}")
 
-    # 2) File-path fallback (handles non-package folders like scripts/scripts/*)
+    # File-path fallback (works even if folders aren't packages)
     here = os.path.dirname(os.path.abspath(__file__))
-
     file_candidates = [
+        os.path.join(here, "mlb_prop_simulator.py"),
+        os.path.join(here, "simulate_ev_edges.py"),
+        os.path.join(here, "live_edge_alert_system.py"),
+
         os.path.join(here, "scripts", "mlb_prop_simulator.py"),
         os.path.join(here, "scripts", "simulate_ev_edges.py"),
         os.path.join(here, "scripts", "live_edge_alert_system.py"),
 
-        os.path.join(here, "scripts", "scripts", "mlb_prop_simulator.py"),
-        os.path.join(here, "scripts", "scripts", "simulate_ev_edges.py"),
-        os.path.join(here, "scripts", "scripts", "live_edge_alert_system.py"),
+        os.path.join(here, "scripts", "scripts", "odds", "pull_odds.py"),  # just in case
 
-        os.path.join(here, "sim", "mlb_prop_simulator.py"),
-        os.path.join(here, "sim", "simulate_ev_edges.py"),
-        os.path.join(here, "sim", "live_edge_alert_system.py"),
+        os.path.join(here, "sim", "mlb_stabilizer.py"),
+        os.path.join(here, "sim", "nba_totals_engine.py"),
     ]
 
     for path in file_candidates:
         try:
             if not os.path.exists(path):
                 continue
-
             mod_name = f"_engine_{os.path.splitext(os.path.basename(path))[0]}"
             spec = importlib.util.spec_from_file_location(mod_name, path)
             if spec and spec.loader:
                 mod = importlib.util.module_from_spec(spec)
                 sys.modules[mod_name] = mod
                 spec.loader.exec_module(mod)
-                print(f"[ENGINE VERIFY] Loaded file engine: {path}")
-                return mod, None
+                print(f"[ENGINE VERIFY] Loaded file module: {path}")
+                return mod, []
         except Exception as e:
             errors.append(f"{path}: {e}")
 
-    return None, errors
-
-    # Fallback stub so the pipeline still runs
+    # Stub fallback so pipeline still runs
     class StubEngine:
         def run_simulation(
             self,
@@ -144,19 +145,17 @@ def validate_record(rec: Dict[str, Any]) -> Tuple[bool, List[str]]:
     for k in REQUIRED_FIELDS:
         if k not in rec:
             errs.append(f"missing field: {k}")
-    # basic checks
     try:
         if "date" in rec:
             datetime.strptime(rec["date"], "%Y-%m-%d")
     except Exception:
         errs.append(f"invalid date format: {rec.get('date')} (expected YYYY-MM-DD)")
-    for s in ("score_1","score_2"):
+    for s in ("score_1", "score_2"):
         if s in rec and isinstance(rec[s], (int, float)) and rec[s] < 0:
             errs.append(f"{s} must be >= 0")
-    if "outcome" in rec and rec["outcome"] not in (0,1):
+    if "outcome" in rec and rec["outcome"] not in (0, 1):
         errs.append("outcome must be 0 or 1")
-    ok = len(errs)==0
-    return ok, errs
+    return (len(errs) == 0), errs
 
 def validate_dataset(data: List[Dict[str, Any]]) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
     clean, bad = [], []
@@ -171,8 +170,10 @@ def validate_dataset(data: List[Dict[str, Any]]) -> Tuple[List[Dict[str, Any]], 
 # --------- Overlay Loader --------- #
 
 def load_overlays(path: Optional[str]) -> Dict[str, Any]:
-    if not path: return {}
-    if not os.path.exists(path): return {}
+    if not path:
+        return {}
+    if not os.path.exists(path):
+        return {}
     try:
         return load_json(path)
     except Exception:
@@ -196,19 +197,18 @@ def run_controller(
     ensure_dir(log_dir)
 
     # Load slate
+    games: List[Dict[str, Any]] = []
     if slate_path and os.path.exists(slate_path):
         raw = load_json(slate_path)
         if isinstance(raw, dict) and "games" in raw:
             games = raw["games"]
-        else:
-            games = raw if isinstance(raw, list) else []
-    else:
-        games = []
+        elif isinstance(raw, list):
+            games = raw
 
-    # Validate (lightweight)
+    # Validate
     clean, bad = validate_dataset(games)
 
-    # Prepare overlays
+    # Overlays
     overlays = load_overlays(overlays_path)
 
     # Import sim engine
@@ -222,40 +222,41 @@ def run_controller(
     else:
         raise RuntimeError("No compatible simulation function found. Expected run_simulation(games, mode, overlays).")
 
-    # Build log summary
+    # Summary
     run_id = f"{date_str}_{mode}_{uuid.uuid4().hex[:8]}"
     summary = {
         "run_id": run_id,
         "timestamp_utc": timestamp(),
         "date": date_str,
         "mode": mode,
+        "tag": tag,
         "games_ingested": len(games),
         "games_valid": len(clean),
         "games_invalid": len(bad),
         "overlays_loaded": list(overlays.keys()) if overlays else [],
         "engine_import_errors": import_errors,
-        "results_count": len(results)
+        "results_count": len(results),
     }
 
-    # Write invalid report
+    # Invalid report
     if bad:
         invalid_path = os.path.join(log_dir, f"{date_str}_{mode}_invalid_rows.json")
         save_json(invalid_path, bad)
 
-    # Write per-game results + aggregate
-    aggregate_edges = []
+    # Write per-game results + collect edges
+    aggregate_edges: List[Dict[str, Any]] = []
     for r in results:
         gid = r.get("game_id") or "unknown"
         game_id = gid if isinstance(gid, str) else f"{date_str}_{uuid.uuid4().hex[:6]}"
         game_path = os.path.join(day_folder, f"{game_id}_SIM_RESULT.json")
         save_json(game_path, r)
-        # collect edges if present
+
         for e in r.get("edges", []):
             ecopy = dict(e)
             ecopy["game_id"] = game_id
             aggregate_edges.append(ecopy)
 
-        # Aggregate summary
+    # Aggregate summary (NOTE: this is OUTSIDE the loop)
     agg_path = os.path.join(day_folder, f"{date_str}_{mode}_AGGREGATE.json")
     save_json(agg_path, {
         "summary": summary,
@@ -273,86 +274,76 @@ def run_controller(
         "summary": summary
     }
 
+# --------- CLI --------- #
+
 def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
-    p = argparse.ArgumentParser(
-        description="SharpEdge LiveFlow + Backtest unified runner"
-    )
+    p = argparse.ArgumentParser(description="SharpEdge LiveFlow + Backtest unified runner")
 
-    p.add_argument(
-        "--date",
-        required=False,
-        default=datetime.utcnow().strftime("%Y-%m-%d"),
-        help="Slate date (YYYY-MM-DD)"
-    )
+    p.add_argument("--date", required=False, default=datetime.utcnow().strftime("%Y-%m-%d"),
+                   help="Slate date (YYYY-MM-DD)")
+    p.add_argument("--mode", required=False, default="both",
+                   choices=["liveflow", "backtest", "both", "engine_verify"],
+                   help="Execution mode")
+    p.add_argument("--slate", required=False, default="",
+                   help="Path to slate JSON (list of games or {'games': [...]})")
+    p.add_argument("--overlays", required=False, default="",
+                   help="Path to volatility overlays JSON")
+    p.add_argument("--out", required=False, default=DEFAULT_OUTPUT_DIR, help="Output dir")
+    p.add_argument("--logs", required=False, default=DEFAULT_LOG_DIR, help="Log dir")
+    p.add_argument("--tag", required=False, default="", help="Optional tag for this run")
 
-    p.add_argument(
-        "--mode",
-        required=False,
-        default="both",
-        choices=["liveflow", "backtest", "both", "engine_verify"],
-        help="Execution mode"
-    )
-
-    p.add_argument("--slate", required=False, help="Path to slate JSON")
-    p.add_argument("--overlays", required=False, help="Path to overlays JSON")
-    p.add_argument("--out", required=False, default=DEFAULT_OUTPUT_DIR)
-    p.add_argument("--logs", required=False, default=DEFAULT_LOG_DIR)
-    p.add_argument("--tag", required=False)
-
-    # GitHub Actions aliases
-    p.add_argument("--date-str", dest="date", required=False)
-    p.add_argument("--slate-path", dest="slate", required=False)
-    p.add_argument("--overlays-path", dest="overlays", required=False)
+    # GitHub Action compatibility aliases
+    p.add_argument("--date-str", dest="date", required=False, help="Alias for --date")
+    p.add_argument("--slate-path", dest="slate", required=False, help="Alias for --slate")
+    p.add_argument("--overlays-path", dest="overlays", required=False, help="Alias for --overlays")
 
     return p.parse_args(argv)
 
-def cli():
+def cli() -> None:
     args = parse_args()
 
-    # GitHub Actions sometimes passes empty strings for optional inputs
+    # GitHub Actions sometimes passes "" (empty string). Normalize.
     if not args.date:
         args.date = datetime.utcnow().strftime("%Y-%m-%d")
-    if args.slate == "":
-        args.slate = None
-    if args.overlays == "":
-        args.overlays = None
 
-    date_str = args.date
+    slate_path = args.slate if args.slate else None
+    overlays_path = args.overlays if args.overlays else None
+    tag = args.tag if args.tag else None
+
     ensure_dir(args.out)
     ensure_dir(args.logs)
 
-    # ---------- ENGINE VERIFY (isolated mode) ----------
+    # ENGINE VERIFY (isolated)
     if args.mode == "engine_verify":
-    engine, err = try_import_sim_engine()
-    if engine is None:
-        raise RuntimeError("ENGINE_VERIFY failed: " + "; ".join(err or []))
-    print("[ENGINE VERIFY] OK")
-    return
+        engine, errs = try_import_sim_engine()
+        if engine is None:
+            raise RuntimeError("ENGINE_VERIFY failed: " + "; ".join(errs or []))
+        print("[ENGINE VERIFY] OK")
+        return
 
-    # ---------- LIVEFLOW ----------
+    # LIVEFLOW
     if args.mode in ("liveflow", "both"):
         run_controller(
-            date_str=date_str,
+            date_str=args.date,
             mode="liveflow",
-            slate_path=args.slate,
-            overlays_path=args.overlays,
+            slate_path=slate_path,
+            overlays_path=overlays_path,
             out_dir=args.out,
             log_dir=args.logs,
-            tag=args.tag,
+            tag=tag,
         )
 
-    # ---------- BACKTEST ----------
+    # BACKTEST
     if args.mode in ("backtest", "both"):
         run_controller(
-            date_str=date_str,
+            date_str=args.date,
             mode="backtest",
-            slate_path=args.slate,
-            overlays_path=args.overlays,
+            slate_path=slate_path,
+            overlays_path=overlays_path,
             out_dir=args.out,
             log_dir=args.logs,
-            tag=args.tag,
+            tag=tag,
         )
-
 
 if __name__ == "__main__":
     cli()
