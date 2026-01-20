@@ -35,28 +35,70 @@ def save_json(path: str, data: Any) -> None:
 
 def try_import_sim_engine():
     """
-    Attempts to import user's simulation engine(s).
-    We try several known module paths from the repo and provide a minimal stub if none are found.
+    Engine Verification Mode:
+    - Try importing known engine modules
+    - If packages aren't set up (no __init__.py), fall back to importing by file path
     """
+    import importlib
+    import importlib.util
+    import os
+    import sys
+
     engine = None
     errors = []
 
+    # 1) Try common module paths (must exist as real modules/packages)
     candidates = [
-        "scripts.mlb_prop_simulator",
-        "scripts.simulate_ev_edges",
-        "scripts.live_edge_alert_system",
-        "sim.mlb_prop_simulator",
-        "sim.simulate_ev_edges",
-        "sim.live_edge_alert_system",
+        # likely packages
+        "sharpedge.mlb_prop_simulator",
+        "sharpedge.simulate_ev_edges",
+        "sharpedge.live_edge_alert_system",
+
+        # what you ACTUALLY have in /sim from your screenshot
+        "sim.mlb_stabilizer",
+        "sim.nba_totals_engine",
     ]
 
     for name in candidates:
         try:
             engine = importlib.import_module(name)
-            print(f"[ENGINE VERIFY] Loaded simulation engine module: {engine.__name__}")
+            print(f"[ENGINE VERIFY] Loaded module: {engine.__name__}")
             return engine, None
         except Exception as e:
             errors.append(f"{name}: {e}")
+
+    # 2) File-path fallback (handles non-package folders like scripts/scripts/*)
+    here = os.path.dirname(os.path.abspath(__file__))
+
+    file_candidates = [
+        os.path.join(here, "scripts", "mlb_prop_simulator.py"),
+        os.path.join(here, "scripts", "simulate_ev_edges.py"),
+        os.path.join(here, "scripts", "live_edge_alert_system.py"),
+
+        os.path.join(here, "scripts", "scripts", "mlb_prop_simulator.py"),
+        os.path.join(here, "scripts", "scripts", "simulate_ev_edges.py"),
+        os.path.join(here, "scripts", "scripts", "live_edge_alert_system.py"),
+
+        os.path.join(here, "sim", "mlb_prop_simulator.py"),
+        os.path.join(here, "sim", "simulate_ev_edges.py"),
+        os.path.join(here, "sim", "live_edge_alert_system.py"),
+    ]
+
+    for path in file_candidates:
+        try:
+            if not os.path.exists(path):
+                continue
+
+            mod_name = f"_engine_{os.path.splitext(os.path.basename(path))[0]}"
+            spec = importlib.util.spec_from_file_location(mod_name, path)
+            if spec and spec.loader:
+                mod = importlib.util.module_from_spec(spec)
+                sys.modules[mod_name] = mod
+                spec.loader.exec_module(mod)
+                print(f"[ENGINE VERIFY] Loaded file engine: {path}")
+                return mod, None
+        except Exception as e:
+            errors.append(f"{path}: {e}")
 
     return None, errors
 
