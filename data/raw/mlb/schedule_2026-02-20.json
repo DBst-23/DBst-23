@@ -3,14 +3,14 @@
   "totalItems": 7,
   "totalEvents": 0,
   "totalGames": 7,
-  "totalGamesInProgress": 0,
+  "totalGamesInProgress": 2,
   "dates": [
     {
       "date": "2026-02-20",
       "totalItems": 7,
       "totalEvents": 0,
       "totalGames": 7,
-      "totalGamesInProgress": 0,
+      "totalGamesInProgress": 2,
       "games": [
         {
           "gamePk": 832034,
@@ -22,9 +22,9 @@
           "officialDate": "2026-02-20",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "P",
-            "detailedState": "Warmup",
-            "statusCode": "PW",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
             "abstractGameCode": "L"
           },
@@ -95,12 +95,12 @@
           "gameDate": "2026-02-20T18:05:00Z",
           "officialDate": "2026-02-20",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -114,7 +114,7 @@
                 "losses": 0,
                 "pct": ".000"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false
             },
             "home": {
