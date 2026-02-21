@@ -3,14 +3,14 @@
   "totalItems": 16,
   "totalEvents": 0,
   "totalGames": 16,
-  "totalGamesInProgress": 8,
+  "totalGamesInProgress": 7,
   "dates": [
     {
       "date": "2026-02-21",
       "totalItems": 16,
       "totalEvents": 0,
       "totalGames": 16,
-      "totalGamesInProgress": 8,
+      "totalGamesInProgress": 7,
       "games": [
         {
           "gamePk": 831598,
@@ -637,12 +637,12 @@
           "gameDate": "2026-02-21T20:05:00Z",
           "officialDate": "2026-02-21",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "O",
+            "detailedState": "Game Over",
+            "statusCode": "O",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -653,10 +653,11 @@
               },
               "leagueRecord": {
                 "wins": 0,
-                "losses": 0,
+                "losses": 1,
                 "pct": ".000"
               },
               "score": 2,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 1
             },
@@ -667,11 +668,12 @@
                 "link": "/api/v1/teams/114"
               },
               "leagueRecord": {
-                "wins": 0,
+                "wins": 1,
                 "losses": 0,
-                "pct": ".000"
+                "pct": "1.000"
               },
               "score": 4,
+              "isWinner": true,
               "splitSquad": true,
               "seriesNumber": 1
             }
@@ -684,6 +686,7 @@
           "content": {
             "link": "/api/v1/game/831900/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
@@ -730,7 +733,7 @@
                 "losses": 1,
                 "pct": ".000"
               },
-              "score": 4,
+              "score": 6,
               "splitSquad": false,
               "seriesNumber": 2
             },
@@ -893,7 +896,7 @@
                 "losses": 0,
                 "pct": "1.000"
               },
-              "score": 5,
+              "score": 8,
               "splitSquad": false,
               "seriesNumber": 2
             }
@@ -967,7 +970,7 @@
                 "losses": 0,
                 "pct": "1.000"
               },
-              "score": 1,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 1
             }
@@ -1026,7 +1029,7 @@
                 "losses": 0,
                 "pct": ".000"
               },
-              "score": 10,
+              "score": 11,
               "splitSquad": false,
               "seriesNumber": 1
             },
@@ -1100,7 +1103,7 @@
                 "losses": 0,
                 "pct": ".000"
               },
-              "score": 5,
+              "score": 7,
               "splitSquad": false,
               "seriesNumber": 1
             },
@@ -1170,11 +1173,11 @@
                 "link": "/api/v1/teams/114"
               },
               "leagueRecord": {
-                "wins": 0,
+                "wins": 1,
                 "losses": 0,
-                "pct": ".000"
+                "pct": "1.000"
               },
-              "score": 6,
+              "score": 9,
               "splitSquad": true,
               "seriesNumber": 2
             },
