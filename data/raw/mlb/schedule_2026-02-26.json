@@ -3,14 +3,14 @@
   "totalItems": 16,
   "totalEvents": 0,
   "totalGames": 16,
-  "totalGamesInProgress": 1,
+  "totalGamesInProgress": 0,
   "dates": [
     {
       "date": "2026-02-26",
       "totalItems": 16,
       "totalEvents": 0,
       "totalGames": 16,
-      "totalGamesInProgress": 1,
+      "totalGamesInProgress": 0,
       "games": [
         {
           "gamePk": 831644,
@@ -637,12 +637,12 @@
           "gameDate": "2026-02-26T20:05:00Z",
           "officialDate": "2026-02-26",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -653,10 +653,11 @@
               },
               "leagueRecord": {
                 "wins": 3,
-                "losses": 3,
-                "pct": ".500"
+                "losses": 4,
+                "pct": ".429"
               },
               "score": 10,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 7
             },
@@ -667,11 +668,12 @@
                 "link": "/api/v1/teams/113"
               },
               "leagueRecord": {
-                "wins": 2,
+                "wins": 3,
                 "losses": 2,
-                "pct": ".500"
+                "pct": ".600"
               },
               "score": 11,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 5
             }
@@ -684,6 +686,7 @@
           "content": {
             "link": "/api/v1/game/831773/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
