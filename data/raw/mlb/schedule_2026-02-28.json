@@ -3,14 +3,14 @@
   "totalItems": 16,
   "totalEvents": 0,
   "totalGames": 16,
-  "totalGamesInProgress": 2,
+  "totalGamesInProgress": 0,
   "dates": [
     {
       "date": "2026-02-28",
       "totalItems": 16,
       "totalEvents": 0,
       "totalGames": 16,
-      "totalGamesInProgress": 2,
+      "totalGamesInProgress": 0,
       "games": [
         {
           "gamePk": 831526,
@@ -793,9 +793,9 @@
           "officialDate": "2026-02-28",
           "status": {
             "abstractGameState": "Final",
-            "codedGameState": "O",
-            "detailedState": "Game Over",
-            "statusCode": "O",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
             "abstractGameCode": "F"
           },
@@ -946,12 +946,12 @@
           "gameDate": "2026-02-28T20:10:00Z",
           "officialDate": "2026-02-28",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -961,11 +961,12 @@
                 "link": "/api/v1/teams/109"
               },
               "leagueRecord": {
-                "wins": 4,
+                "wins": 5,
                 "losses": 4,
-                "pct": ".500"
+                "pct": ".556"
               },
               "score": 8,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 8
             },
@@ -977,10 +978,11 @@
               },
               "leagueRecord": {
                 "wins": 3,
-                "losses": 5,
-                "pct": ".375"
+                "losses": 6,
+                "pct": ".333"
               },
               "score": 5,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 9
             }
@@ -993,6 +995,7 @@
           "content": {
             "link": "/api/v1/game/831957/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
@@ -1020,12 +1023,12 @@
           "gameDate": "2026-02-28T20:10:00Z",
           "officialDate": "2026-02-28",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -1035,11 +1038,12 @@
                 "link": "/api/v1/teams/118"
               },
               "leagueRecord": {
-                "wins": 3,
+                "wins": 4,
                 "losses": 4,
-                "pct": ".429"
+                "pct": ".500"
               },
               "score": 16,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 9
             },
@@ -1051,10 +1055,11 @@
               },
               "leagueRecord": {
                 "wins": 6,
-                "losses": 2,
-                "pct": ".750"
+                "losses": 3,
+                "pct": ".667"
               },
               "score": 3,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 8
             }
@@ -1067,6 +1072,7 @@
           "content": {
             "link": "/api/v1/game/831845/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
@@ -1172,9 +1178,9 @@
           "officialDate": "2026-02-28",
           "status": {
             "abstractGameState": "Final",
-            "codedGameState": "O",
-            "detailedState": "Game Over",
-            "statusCode": "O",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
             "abstractGameCode": "F"
           },
