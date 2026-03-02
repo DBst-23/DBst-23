@@ -22,7 +22,10 @@ def _gt_one(x) -> bool:
         return False
 
 def _nonneg_int(x) -> bool:
-    return isinstance(x, int) and x >= 0
+    try:
+        return int(x) >= 0 and str(x).strip() != ""
+    except Exception:
+        return False
 
 def _nonneg_num(x) -> bool:
     try:
