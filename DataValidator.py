@@ -1,6 +1,7 @@
 from __future__ import annotations
 from typing import Dict, Any, List, Tuple
 from datetime import datetime
+from DataValidator import validate_dataset
 
 REQUIRED = [
     "date","team_1","team_2","score_1","score_2",
