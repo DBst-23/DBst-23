@@ -130,42 +130,22 @@ def try_import_sim_engine() -> Tuple[Optional[Any], List[str]]:
 
     return StubEngine(), errors
 
-# --------- Validation Layer (lightweight) --------- #
+# --------- Validation Layer (canonical) --------- #
+"""
+Validation is delegated to DataValidator.py to prevent schema drift.
+Keep the controller thin: it should orchestrate, not define rules.
+"""
 
-REQUIRED_FIELDS = [
-    "date", "team_1", "team_2",
-    "score_1", "score_2",
-    "odds_open_team_1", "odds_open_team_2",
-    "odds_close_team_1", "odds_close_team_2",
-    "line_movement", "outcome"
-]
-
-def validate_record(rec: Dict[str, Any]) -> Tuple[bool, List[str]]:
-    errs = []
-    for k in REQUIRED_FIELDS:
-        if k not in rec:
-            errs.append(f"missing field: {k}")
-    try:
-        if "date" in rec:
-            datetime.strptime(rec["date"], "%Y-%m-%d")
-    except Exception:
-        errs.append(f"invalid date format: {rec.get('date')} (expected YYYY-MM-DD)")
-    for s in ("score_1", "score_2"):
-        if s in rec and isinstance(rec[s], (int, float)) and rec[s] < 0:
-            errs.append(f"{s} must be >= 0")
-    if "outcome" in rec and rec["outcome"] not in (0, 1):
-        errs.append("outcome must be 0 or 1")
-    return (len(errs) == 0), errs
-
-def validate_dataset(data: List[Dict[str, Any]]) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
-    clean, bad = [], []
-    for i, rec in enumerate(data, start=1):
-        ok, errs = validate_record(rec)
-        if ok:
-            clean.append(rec)
-        else:
-            bad.append({"row": i, "errors": errs, "record": rec})
-    return clean, bad
+try:
+    # Canonical validator (single source of truth)
+    from DataValidator import validate_dataset  # type: ignore
+except Exception as e:
+    # Hard fail if the canonical validator isn't available
+    def validate_dataset(data: List[Dict[str, Any]]):  # type: ignore
+        raise ImportError(
+            "DataValidator.py could not be imported. "
+            "Make sure DataValidator.py is in the same directory as LiveFlow_Backtest_Controller.py."
+        ) from e
 
 # --------- Overlay Loader --------- #
 
