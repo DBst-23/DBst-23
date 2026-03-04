@@ -3,14 +3,14 @@
   "totalItems": 20,
   "totalEvents": 0,
   "totalGames": 20,
-  "totalGamesInProgress": 2,
+  "totalGamesInProgress": 1,
   "dates": [
     {
       "date": "2026-03-04",
       "totalItems": 20,
       "totalEvents": 0,
       "totalGames": 20,
-      "totalGamesInProgress": 2,
+      "totalGamesInProgress": 1,
       "games": [
         {
           "gamePk": 831642,
@@ -1008,12 +1008,12 @@
           "gameDate": "2026-03-04T20:05:00Z",
           "officialDate": "2026-03-04",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -1024,10 +1024,11 @@
               },
               "leagueRecord": {
                 "wins": 1,
-                "losses": 0,
-                "pct": "1.000"
+                "losses": 1,
+                "pct": ".500"
               },
               "score": 5,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 1
             },
@@ -1038,11 +1039,12 @@
                 "link": "/api/v1/teams/119"
               },
               "leagueRecord": {
-                "wins": 0,
+                "wins": 1,
                 "losses": 0,
-                "pct": ".000"
+                "pct": "1.000"
               },
               "score": 7,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 13
             }
@@ -1055,6 +1057,7 @@
           "content": {
             "link": "/api/v1/game/831799/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
@@ -1315,9 +1318,9 @@
             "abstractGameState": "Final",
             "codedGameState": "F",
             "detailedState": "Completed Early",
-            "statusCode": "FV",
+            "statusCode": "FM",
             "startTimeTBD": false,
-            "reason": "Venue",
+            "reason": "Mercy",
             "abstractGameCode": "F"
           },
           "teams": {
@@ -1423,7 +1426,7 @@
                 "losses": 0,
                 "pct": ".000"
               },
-              "score": 0,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 12
             }
