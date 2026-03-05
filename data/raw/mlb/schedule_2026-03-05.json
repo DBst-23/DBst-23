@@ -3,14 +3,14 @@
   "totalItems": 14,
   "totalEvents": 0,
   "totalGames": 14,
-  "totalGamesInProgress": 7,
+  "totalGamesInProgress": 12,
   "dates": [
     {
       "date": "2026-03-05",
       "totalItems": 14,
       "totalEvents": 0,
       "totalGames": 14,
-      "totalGamesInProgress": 7,
+      "totalGamesInProgress": 12,
       "games": [
         {
           "gamePk": 831479,
@@ -55,7 +55,7 @@
                 "losses": 3,
                 "pct": ".625"
               },
-              "score": 6,
+              "score": 7,
               "splitSquad": false,
               "seriesNumber": 12
             }
@@ -262,7 +262,7 @@
                 "losses": 5,
                 "pct": ".545"
               },
-              "score": 0,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 12
             },
@@ -277,7 +277,7 @@
                 "losses": 7,
                 "pct": ".300"
               },
-              "score": 5,
+              "score": 6,
               "splitSquad": false,
               "seriesNumber": 12
             }
@@ -351,7 +351,7 @@
                 "losses": 2,
                 "pct": ".800"
               },
-              "score": 3,
+              "score": 6,
               "splitSquad": false,
               "seriesNumber": 12
             }
@@ -410,7 +410,7 @@
                 "losses": 8,
                 "pct": ".200"
               },
-              "score": 9,
+              "score": 12,
               "splitSquad": false,
               "seriesNumber": 13
             },
@@ -499,7 +499,7 @@
                 "losses": 6,
                 "pct": ".400"
               },
-              "score": 1,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 11
             }
@@ -540,9 +540,9 @@
           "officialDate": "2026-03-05",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "P",
-            "detailedState": "Warmup",
-            "statusCode": "PW",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
             "abstractGameCode": "L"
           },
@@ -614,9 +614,9 @@
           "officialDate": "2026-03-05",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "P",
-            "detailedState": "Warmup",
-            "statusCode": "PW",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
             "abstractGameCode": "L"
           },
@@ -687,12 +687,12 @@
           "gameDate": "2026-03-05T20:10:00Z",
           "officialDate": "2026-03-05",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -762,9 +762,9 @@
           "officialDate": "2026-03-05",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "P",
-            "detailedState": "Warmup",
-            "statusCode": "PW",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
             "abstractGameCode": "L"
           },
@@ -835,12 +835,12 @@
           "gameDate": "2026-03-05T20:10:00Z",
           "officialDate": "2026-03-05",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -854,7 +854,7 @@
                 "losses": 7,
                 "pct": ".364"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 12
             },
@@ -928,6 +928,7 @@
                 "losses": 5,
                 "pct": ".583"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 13
             },
@@ -942,6 +943,7 @@
                 "losses": 5,
                 "pct": ".500"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 12
             }
