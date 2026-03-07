@@ -3,14 +3,14 @@
   "totalItems": 17,
   "totalEvents": 0,
   "totalGames": 17,
-  "totalGamesInProgress": 7,
+  "totalGamesInProgress": 8,
   "dates": [
     {
       "date": "2026-03-07",
       "totalItems": 17,
       "totalEvents": 0,
       "totalGames": 17,
-      "totalGamesInProgress": 7,
+      "totalGamesInProgress": 8,
       "games": [
         {
           "gamePk": 831523,
@@ -40,7 +40,7 @@
                 "losses": 6,
                 "pct": ".500"
               },
-              "score": 3,
+              "score": 4,
               "splitSquad": false,
               "seriesNumber": 13
             },
@@ -114,7 +114,7 @@
                 "losses": 5,
                 "pct": ".643"
               },
-              "score": 3,
+              "score": 4,
               "splitSquad": false,
               "seriesNumber": 15
             },
@@ -188,7 +188,7 @@
                 "losses": 5,
                 "pct": ".500"
               },
-              "score": 1,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 12
             },
@@ -243,12 +243,13 @@
           "gameDate": "2026-03-07T18:05:00Z",
           "officialDate": "2026-03-07",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "O",
+            "detailedState": "Completed Early",
+            "statusCode": "OR",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "reason": "Rain",
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -259,10 +260,11 @@
               },
               "leagueRecord": {
                 "wins": 5,
-                "losses": 9,
-                "pct": ".357"
+                "losses": 10,
+                "pct": ".333"
               },
               "score": 0,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 16
             },
@@ -273,11 +275,12 @@
                 "link": "/api/v1/teams/111"
               },
               "leagueRecord": {
-                "wins": 6,
+                "wins": 7,
                 "losses": 7,
-                "pct": ".462"
+                "pct": ".500"
               },
               "score": 2,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 14
             }
@@ -290,6 +293,7 @@
           "content": {
             "link": "/api/v1/game/831629/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
@@ -351,7 +355,7 @@
                 "losses": 6,
                 "pct": ".500"
               },
-              "score": 2,
+              "score": 3,
               "splitSquad": true,
               "seriesNumber": 14
             }
@@ -410,7 +414,7 @@
                 "losses": 8,
                 "pct": ".273"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 15
             },
@@ -499,7 +503,7 @@
                 "losses": 2,
                 "pct": ".833"
               },
-              "score": 0,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 14
             }
@@ -539,12 +543,12 @@
           "gameDate": "2026-03-07T20:05:00Z",
           "officialDate": "2026-03-07",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -613,12 +617,12 @@
           "gameDate": "2026-03-07T20:05:00Z",
           "officialDate": "2026-03-07",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -687,12 +691,12 @@
           "gameDate": "2026-03-07T20:05:00Z",
           "officialDate": "2026-03-07",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -761,12 +765,12 @@
           "gameDate": "2026-03-07T20:05:00Z",
           "officialDate": "2026-03-07",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -835,12 +839,12 @@
           "gameDate": "2026-03-07T20:10:00Z",
           "officialDate": "2026-03-07",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -909,12 +913,12 @@
           "gameDate": "2026-03-07T20:10:00Z",
           "officialDate": "2026-03-07",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -983,12 +987,12 @@
           "gameDate": "2026-03-07T20:10:00Z",
           "officialDate": "2026-03-07",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
