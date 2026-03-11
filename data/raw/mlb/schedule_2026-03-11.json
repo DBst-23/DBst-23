@@ -422,10 +422,10 @@
               },
               "leagueRecord": {
                 "wins": 6,
-                "losses": 10,
-                "pct": ".375"
+                "losses": 11,
+                "pct": ".353"
               },
-              "score": 6,
+              "score": 7,
               "splitSquad": true,
               "seriesNumber": 19
             },
@@ -480,12 +480,12 @@
           "gameDate": "2026-03-11T20:05:00Z",
           "officialDate": "2026-03-11",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -495,11 +495,12 @@
                 "link": "/api/v1/teams/137"
               },
               "leagueRecord": {
-                "wins": 14,
+                "wins": 15,
                 "losses": 3,
-                "pct": ".824"
+                "pct": ".833"
               },
               "score": 5,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 18
             },
@@ -511,10 +512,11 @@
               },
               "leagueRecord": {
                 "wins": 6,
-                "losses": 10,
-                "pct": ".375"
+                "losses": 11,
+                "pct": ".353"
               },
-              "score": 1,
+              "score": 2,
+              "isWinner": false,
               "splitSquad": true,
               "seriesNumber": 18
             }
@@ -527,6 +529,7 @@
           "content": {
             "link": "/api/v1/game/831762/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
@@ -573,7 +576,7 @@
                 "losses": 12,
                 "pct": ".400"
               },
-              "score": 5,
+              "score": 7,
               "splitSquad": false,
               "seriesNumber": 21
             },
@@ -662,7 +665,7 @@
                 "losses": 8,
                 "pct": ".500"
               },
-              "score": 5,
+              "score": 6,
               "splitSquad": false,
               "seriesNumber": 17
             }
@@ -721,7 +724,7 @@
                 "losses": 10,
                 "pct": ".444"
               },
-              "score": 11,
+              "score": 13,
               "splitSquad": false,
               "seriesNumber": 19
             },
@@ -795,7 +798,7 @@
                 "losses": 8,
                 "pct": ".500"
               },
-              "score": 4,
+              "score": 9,
               "splitSquad": false,
               "seriesNumber": 17
             },
@@ -810,7 +813,7 @@
                 "losses": 12,
                 "pct": ".294"
               },
-              "score": 5,
+              "score": 7,
               "splitSquad": false,
               "seriesNumber": 19
             }
@@ -850,12 +853,12 @@
           "gameDate": "2026-03-11T22:35:00Z",
           "officialDate": "2026-03-11",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
