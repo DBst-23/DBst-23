@@ -3,14 +3,14 @@
   "totalItems": 13,
   "totalEvents": 0,
   "totalGames": 13,
-  "totalGamesInProgress": 3,
+  "totalGamesInProgress": 4,
   "dates": [
     {
       "date": "2026-03-12",
       "totalItems": 13,
       "totalEvents": 0,
       "totalGames": 13,
-      "totalGamesInProgress": 3,
+      "totalGamesInProgress": 4,
       "games": [
         {
           "gamePk": 831472,
@@ -364,7 +364,7 @@
                 "losses": 10,
                 "pct": ".444"
               },
-              "score": 3,
+              "score": 4,
               "splitSquad": false,
               "seriesNumber": 19
             }
@@ -423,7 +423,7 @@
                 "losses": 10,
                 "pct": ".474"
               },
-              "score": 4,
+              "score": 5,
               "splitSquad": false,
               "seriesNumber": 20
             },
@@ -497,7 +497,7 @@
                 "losses": 8,
                 "pct": ".529"
               },
-              "score": 4,
+              "score": 11,
               "splitSquad": false,
               "seriesNumber": 18
             },
@@ -554,9 +554,10 @@
           "status": {
             "abstractGameState": "Preview",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Delayed Start",
+            "statusCode": "PG",
             "startTimeTBD": false,
+            "reason": "Wet Grounds",
             "abstractGameCode": "P"
           },
           "teams": {
@@ -626,12 +627,12 @@
           "gameDate": "2026-03-12T22:05:00Z",
           "officialDate": "2026-03-12",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -701,9 +702,9 @@
           "officialDate": "2026-03-12",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -719,6 +720,7 @@
                 "losses": 8,
                 "pct": ".529"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 18
             },
@@ -733,6 +735,7 @@
                 "losses": 6,
                 "pct": ".667"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 19
             }
@@ -865,6 +868,7 @@
                 "losses": 9,
                 "pct": ".471"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 19
             },
@@ -879,6 +883,7 @@
                 "losses": 9,
                 "pct": ".500"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 20
             }
