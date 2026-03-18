@@ -3,14 +3,14 @@
   "totalItems": 13,
   "totalEvents": 0,
   "totalGames": 13,
-  "totalGamesInProgress": 6,
+  "totalGamesInProgress": 7,
   "dates": [
     {
       "date": "2026-03-18",
       "totalItems": 13,
       "totalEvents": 0,
       "totalGames": 13,
-      "totalGamesInProgress": 6,
+      "totalGamesInProgress": 7,
       "games": [
         {
           "gamePk": 831556,
@@ -348,7 +348,7 @@
                 "losses": 12,
                 "pct": ".478"
               },
-              "score": 1,
+              "score": 3,
               "splitSquad": false,
               "seriesNumber": 24
             },
@@ -363,7 +363,7 @@
                 "losses": 12,
                 "pct": ".500"
               },
-              "score": 4,
+              "score": 6,
               "splitSquad": true,
               "seriesNumber": 24
             }
@@ -422,7 +422,7 @@
                 "losses": 7,
                 "pct": ".696"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 24
             },
@@ -437,7 +437,7 @@
                 "losses": 8,
                 "pct": ".680"
               },
-              "score": 3,
+              "score": 5,
               "splitSquad": false,
               "seriesNumber": 26
             }
@@ -511,7 +511,7 @@
                 "losses": 12,
                 "pct": ".478"
               },
-              "score": 8,
+              "score": 14,
               "splitSquad": false,
               "seriesNumber": 24
             }
@@ -570,7 +570,7 @@
                 "losses": 12,
                 "pct": ".500"
               },
-              "score": 1,
+              "score": 3,
               "splitSquad": true,
               "seriesNumber": 25
             },
@@ -585,7 +585,7 @@
                 "losses": 14,
                 "pct": ".462"
               },
-              "score": 2,
+              "score": 3,
               "splitSquad": true,
               "seriesNumber": 28
             }
@@ -659,7 +659,7 @@
                 "losses": 12,
                 "pct": ".455"
               },
-              "score": 1,
+              "score": 2,
               "splitSquad": true,
               "seriesNumber": 23
             }
@@ -773,12 +773,12 @@
           "gameDate": "2026-03-18T22:05:00Z",
           "officialDate": "2026-03-18",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -826,80 +826,6 @@
           "gamedayType": "E",
           "tiebreaker": "N",
           "calendarEventID": "14-831558-2026-03-18",
-          "seasonDisplay": "2026",
-          "dayNight": "night",
-          "scheduledInnings": 9,
-          "reverseHomeAwayStatus": false,
-          "inningBreakLength": 120,
-          "gamesInSeries": 1,
-          "seriesGameNumber": 1,
-          "seriesDescription": "Spring Training",
-          "recordSource": "S",
-          "ifNecessary": "N",
-          "ifNecessaryDescription": "Normal Game"
-        },
-        {
-          "gamePk": 831455,
-          "gameGuid": "e2613b9d-f5cb-44b2-9113-3003b775d1f3",
-          "link": "/api/v1.1/game/831455/feed/live",
-          "gameType": "S",
-          "season": "2026",
-          "gameDate": "2026-03-18T22:05:00Z",
-          "officialDate": "2026-03-18",
-          "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
-            "startTimeTBD": false,
-            "abstractGameCode": "P"
-          },
-          "teams": {
-            "away": {
-              "team": {
-                "id": 146,
-                "name": "Miami Marlins",
-                "link": "/api/v1/teams/146"
-              },
-              "leagueRecord": {
-                "wins": 8,
-                "losses": 12,
-                "pct": ".400"
-              },
-              "score": 0,
-              "splitSquad": false,
-              "seriesNumber": 24
-            },
-            "home": {
-              "team": {
-                "id": 120,
-                "name": "Washington Nationals",
-                "link": "/api/v1/teams/120"
-              },
-              "leagueRecord": {
-                "wins": 13,
-                "losses": 7,
-                "pct": ".650"
-              },
-              "score": 0,
-              "splitSquad": false,
-              "seriesNumber": 24
-            }
-          },
-          "venue": {
-            "id": 5000,
-            "name": "CACTI Park of the Palm Beaches",
-            "link": "/api/v1/venues/5000"
-          },
-          "content": {
-            "link": "/api/v1/game/831455/content"
-          },
-          "gameNumber": 1,
-          "publicFacing": true,
-          "doubleHeader": "N",
-          "gamedayType": "E",
-          "tiebreaker": "N",
-          "calendarEventID": "14-831455-2026-03-18",
           "seasonDisplay": "2026",
           "dayNight": "night",
           "scheduledInnings": 9,
@@ -974,6 +900,79 @@
           "gamedayType": "E",
           "tiebreaker": "N",
           "calendarEventID": "14-831833-2026-03-18",
+          "seasonDisplay": "2026",
+          "dayNight": "night",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
+          "gamesInSeries": 1,
+          "seriesGameNumber": 1,
+          "seriesDescription": "Spring Training",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 831455,
+          "gameGuid": "e2613b9d-f5cb-44b2-9113-3003b775d1f3",
+          "link": "/api/v1.1/game/831455/feed/live",
+          "gameType": "S",
+          "season": "2026",
+          "gameDate": "2026-03-18T22:05:00Z",
+          "officialDate": "2026-03-18",
+          "status": {
+            "abstractGameState": "Final",
+            "codedGameState": "C",
+            "detailedState": "Cancelled",
+            "statusCode": "CG",
+            "startTimeTBD": false,
+            "reason": "Wet Grounds",
+            "abstractGameCode": "F"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 146,
+                "name": "Miami Marlins",
+                "link": "/api/v1/teams/146"
+              },
+              "leagueRecord": {
+                "wins": 8,
+                "losses": 12,
+                "pct": ".400"
+              },
+              "splitSquad": false,
+              "seriesNumber": 24
+            },
+            "home": {
+              "team": {
+                "id": 120,
+                "name": "Washington Nationals",
+                "link": "/api/v1/teams/120"
+              },
+              "leagueRecord": {
+                "wins": 13,
+                "losses": 7,
+                "pct": ".650"
+              },
+              "splitSquad": false,
+              "seriesNumber": 24
+            }
+          },
+          "venue": {
+            "id": 5000,
+            "name": "CACTI Park of the Palm Beaches",
+            "link": "/api/v1/venues/5000"
+          },
+          "content": {
+            "link": "/api/v1/game/831455/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "E",
+          "tiebreaker": "N",
+          "calendarEventID": "14-831455-2026-03-18",
           "seasonDisplay": "2026",
           "dayNight": "night",
           "scheduledInnings": 9,
