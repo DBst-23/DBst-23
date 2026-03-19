@@ -96,11 +96,10 @@
           "officialDate": "2026-03-19",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "M",
-            "detailedState": "Player challenge",
-            "statusCode": "MJ",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "reason": "Pitch Result",
             "abstractGameCode": "L"
           },
           "teams": {
@@ -130,7 +129,7 @@
                 "losses": 14,
                 "pct": ".391"
               },
-              "score": 5,
+              "score": 8,
               "splitSquad": false,
               "seriesNumber": 25
             }
@@ -278,7 +277,7 @@
                 "losses": 13,
                 "pct": ".409"
               },
-              "score": 7,
+              "score": 11,
               "splitSquad": false,
               "seriesNumber": 26
             }
@@ -391,9 +390,9 @@
           "officialDate": "2026-03-19",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -409,6 +408,7 @@
                 "losses": 9,
                 "pct": ".640"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 26
             },
@@ -423,6 +423,7 @@
                 "losses": 11,
                 "pct": ".450"
               },
+              "score": 0,
               "splitSquad": true,
               "seriesNumber": 27
             }
