@@ -1,0 +1,119 @@
+{
+  "postmortem_id": "POSTMORTEM_2026_03_19_TRI_CARD_WEMBY_MOBLEY_PORTIS_LOSS",
+  "date": "2026-03-19",
+  "sport": "NBA",
+  "mode": "Pregame",
+  "platform": "Underdog",
+  "card_type": "Champions 3-pick",
+  "boost": true,
+  "result": "LOSS",
+  "stake": 10.0,
+  "payout": 0.0,
+  "profit": -10.0,
+  "legs": [
+    {
+      "player": "Victor Wembanyama",
+      "team": "SAS",
+      "market": "Rebounds",
+      "side": "Higher",
+      "line": 11.5,
+      "final_stat": 12,
+      "result": "WIN",
+      "delta": 0.5
+    },
+    {
+      "player": "Evan Mobley",
+      "team": "CLE",
+      "market": "Rebounds",
+      "side": "Higher",
+      "line": 10.5,
+      "final_stat": 14,
+      "result": "WIN",
+      "delta": 3.5
+    },
+    {
+      "player": "Bobby Portis",
+      "team": "MIL",
+      "market": "Rebounds",
+      "side": "Higher",
+      "line": 6.5,
+      "final_stat": 6,
+      "result": "LOSS",
+      "delta": -0.5
+    }
+  ],
+  "games": {
+    "PHX_SAS": {
+      "final_score": {"PHX": 100, "SAS": 101},
+      "team_rebounds": {"PHX": 47, "SAS": 42},
+      "team_off_rebounds": {"PHX": 10, "SAS": 9},
+      "notes": [
+        "Wembanyama cleared in a one-point game with stable star minutes.",
+        "Phoenix actually won the total rebound battle 47-42, but Wembanyama still reached 12 through role concentration and elite star usage."
+      ]
+    },
+    "CLE_CHI": {
+      "final_score": {"CLE": 115, "CHI": 110},
+      "team_rebounds": {"CLE": 54, "CHI": 47},
+      "team_off_rebounds": {"CLE": 16, "CHI": 12},
+      "notes": [
+        "Mobley smashed with 14 rebounds.",
+        "Jarrett Allen absence plus Cleveland glass control validated the anchor-big thesis."
+      ]
+    },
+    "MIL_UTA": {
+      "final_score": {"MIL": 96, "UTA": 128},
+      "team_rebounds": {"MIL": 35, "UTA": 47},
+      "team_off_rebounds": {"MIL": 8, "UTA": 12},
+      "notes": [
+        "Portis missed by hook with 6 rebounds in 24 minutes.",
+        "Milwaukee frontcourt never controlled the game or the glass.",
+        "Utah won by 32 and created a hostile environment for Portis rebound accumulation."
+      ]
+    }
+  },
+  "phase_analysis": {
+    "phase_1_game_flow": [
+      "Wembanyama and Mobley both behaved like protected anchor-big overs.",
+      "Portis required a stable Milwaukee possession environment that never arrived.",
+      "Milwaukee collapse turned the weakest leg into the card failure point."
+    ],
+    "phase_2_pivotal_moments": [
+      "Wembanyama finished with 12 and cleared late in a competitive game.",
+      "Mobley reached 14 in a Cleveland-controlled rebound ecosystem.",
+      "Portis stalled at 6 while Utah stretched the game and controlled rebound share."
+    ],
+    "phase_3_defensive_psychological_variables": [
+      "Mobley and Wembanyama had clean central rebounding roles with less cannibalization.",
+      "Portis remained a conditional rebound leg vulnerable to blowout script and minute flattening.",
+      "Utah's pace, energy, and transition edge amplified Milwaukee's environment failure."
+    ],
+    "phase_4_model_relevance_summary": {
+      "what_worked": [
+        "Anchor-big identification was correct.",
+        "Mobley and Wembanyama both cleared with role-based support.",
+        "Laddering Portis down reduced the miss to a hook burn."
+      ],
+      "what_failed": [
+        "Portis was treated too closely to the anchor-big tier in card construction.",
+        "Milwaukee environment quality was overstated.",
+        "A fragile conditional leg was placed into a boosted 3-leg build."
+      ],
+      "tags": [
+        "PREGAME_LOSS",
+        "TWO_OF_THREE_HIT",
+        "HOOK_BURN",
+        "ANCHOR_BIG_OVER_WIN",
+        "CONDITIONAL_OVER_FAIL",
+        "MIL_ENVIRONMENT_COLLAPSE",
+        "EDGE_CALL_ACTIVE",
+        "MISS_REGISTERED"
+      ],
+      "lessons": [
+        "Keep anchor-big overs as boosted card cores.",
+        "Treat Portis-style rebound overs as conditional add-ons or singles.",
+        "Require cleaner team-control outlook before combining a conditional big with two anchor overs in a boosted build."
+      ]
+    }
+  }
+}
