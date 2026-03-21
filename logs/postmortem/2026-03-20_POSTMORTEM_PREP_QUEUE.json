@@ -1,0 +1,80 @@
+{
+  "date": "2026-03-20",
+  "status": "POSTMORTEM_PREP_ACTIVE",
+  "project": "SharpEdge NBA LiveFlow",
+  "phase": "Queue built before next-slate prep",
+  "cards_logged": [
+    {
+      "label": "PREGAME_CARD_1",
+      "legs": [
+        "Jakob Poeltl Higher 8.5 Rebounds",
+        "Julius Randle Higher 6.5 Rebounds"
+      ],
+      "entry": 10,
+      "boost": "30% NBA Boost"
+    },
+    {
+      "label": "PREGAME_CARD_2",
+      "legs": [
+        "Deni Avdija Higher 5.5 Rebounds",
+        "Nikola Jokic Higher 11.5 Rebounds"
+      ],
+      "entry": 10,
+      "boost": "30% NBA Boost"
+    },
+    {
+      "label": "LIVEFLOW_CARD_GSW_DET",
+      "legs": [
+        "Draymond Green Higher 6.5 Rebounds",
+        "Daniss Jenkins Higher 5.5 Rebounds"
+      ],
+      "entry": 10,
+      "boost": null
+    },
+    {
+      "label": "LIVEFLOW_CARD_TOR_DEN",
+      "legs": [
+        "Scottie Barnes Higher 8.5 Rebounds",
+        "Christian Braun Higher 6.5 Rebounds",
+        "Nikola Jokic Lower 10.5 Rebounds"
+      ],
+      "entry": 5,
+      "boost": "40% Boost"
+    },
+    {
+      "label": "LIVEFLOW_NO_BET_NYK_BKN",
+      "decision": "NO_BET",
+      "tag": "NO_BET_ZONE"
+    }
+  ],
+  "postmortem_queue": [
+    "POR @ MIN",
+    "TOR @ DEN",
+    "GSW @ DET",
+    "NYK @ BKN (no-bet audit only)"
+  ],
+  "league_wide_refresh_plan": {
+    "scope": "ALL_NBA_TEAMS",
+    "datasets": [
+      "box_outs",
+      "team_rebounds",
+      "player_rebound_tracking",
+      "team_shooting_efficiency",
+      "opponent_shooting_efficiency",
+      "team_offensive_rebound_rate",
+      "team_defensive_rebound_rate",
+      "opponent_fg_pct",
+      "opponent_3p_pct",
+      "rebound_chances_allowed"
+    ],
+    "status": "PENDING_REFRESH_BEFORE_NEXT_SLATE"
+  },
+  "workflow_order_for_next_session": [
+    "1. Finalize box scores for all tracked games",
+    "2. Run postmortem on pregame cards first",
+    "3. Run postmortem on LiveFlow cards",
+    "4. Run no-bet audit on NYK-BKN",
+    "5. Refresh league-wide datasets",
+    "6. Attack next slate using refreshed environment tables"
+  ]
+}
