@@ -1,0 +1,101 @@
+{
+  "date": "2026-03-20",
+  "label": "INVESTED_MATCHUPS_POSTMORTEM_V1",
+  "status": "FINALIZED_PENDING_NYK_BKN_AUDIT",
+  "tracked_games": [
+    {
+      "game": "GSW @ DET",
+      "final_score": {"GSW": 101, "DET": 115},
+      "liveflow_card": {
+        "entry": 10,
+        "legs": [
+          {"player": "Daniss Jenkins", "side": "Higher", "line": 5.5, "result": 7, "outcome": "WIN"},
+          {"player": "Draymond Green", "side": "Higher", "line": 6.5, "result": 5, "outcome": "LOSS"}
+        ],
+        "card_outcome": "LOSS"
+      },
+      "team_rebounds": {"GSW": 38, "DET": 35},
+      "notes": [
+        "Jenkins converted second-half role and minutes into a clean over.",
+        "Draymond stalled at 5 rebounds despite competitive script and 22 minutes.",
+        "Warriors rebound tree widened late with Santos, Podziemski, Spencer and Yurtseven all absorbing boards."
+      ],
+      "tags": ["LIVEFLOW", "HALFTIME_OVER", "OWNERSHIP_DRIFT", "MISS_REGISTERED"]
+    },
+    {
+      "game": "POR @ MIN",
+      "final_score": {"POR": 108, "MIN": 104},
+      "pregame_card_1_leg": {
+        "player": "Julius Randle",
+        "side": "Higher",
+        "line": 6.5,
+        "result": 5,
+        "outcome": "LOSS"
+      },
+      "pregame_card_2_leg": {
+        "player": "Deni Avdija",
+        "side": "Higher",
+        "line": 5.5,
+        "result": 7,
+        "outcome": "WIN"
+      },
+      "team_rebounds": {"POR": 51, "MIN": 43},
+      "notes": [
+        "Naz Reid absence did not flow to Randle rebound share as expected.",
+        "Gobert and Dosunmu captured more of Minnesota's glass than projected.",
+        "Portland offensive rebound pressure and Robert Williams bench surge distorted the ownership map."
+      ],
+      "tags": ["PREGAME", "OWNERSHIP_MODEL_MISS", "REBOUND_SHARE_FAILURE", "MISS_REGISTERED", "WIN_REGISTERED"]
+    },
+    {
+      "game": "TOR @ DEN",
+      "final_score": {"TOR": 115, "DEN": 121},
+      "pregame_card_1_leg": {
+        "player": "Jakob Poeltl",
+        "side": "Higher",
+        "line": 8.5,
+        "result": 11,
+        "outcome": "WIN"
+      },
+      "pregame_card_2_leg": {
+        "player": "Nikola Jokic",
+        "side": "Higher",
+        "line": 11.5,
+        "result": 8,
+        "outcome": "LOSS"
+      },
+      "liveflow_card": {
+        "entry": 5,
+        "legs": [
+          {"player": "Scottie Barnes", "side": "Higher", "line": 8.5, "result": 8, "outcome": "LOSS"},
+          {"player": "Christian Braun", "side": "Higher", "line": 6.5, "result": 4, "outcome": "LOSS"},
+          {"player": "Nikola Jokic", "side": "Lower", "line": 10.5, "result": 8, "outcome": "WIN"}
+        ],
+        "card_outcome": "LOSS"
+      },
+      "team_rebounds": {"TOR": 40, "DEN": 38},
+      "notes": [
+        "Poeltl remained the cleanest anchor read and cleared comfortably.",
+        "Jokic never approached pregame over line and validated the halftime under pivot.",
+        "Barnes and Braun both stalled below liveflow over thresholds as rebound ownership flattened across both teams."
+      ],
+      "tags": ["PREGAME", "LIVEFLOW", "ANCHOR_HIT", "UNDER_PIVOT_CORRECT", "BOOST_TRAP_CONFIRMED"]
+    }
+  ],
+  "session_summary": {
+    "pregame_record": "2 wins / 2 losses by leg",
+    "liveflow_record": "2 wins / 4 losses by leg",
+    "key_takeaways": [
+      "Poeltl and Avdija validated as strong pregame ownership targets.",
+      "Randle miss exposed a rebound share projection gap after Naz Reid absence.",
+      "Jokic over was a bad pregame ceiling chase but Jokic halftime under was the correct adaptation.",
+      "3-leg boosted LiveFlow structure underperformed versus 2-leg discipline thesis."
+    ],
+    "system_actions": [
+      "Reinforce 2-leg precision protocol for LiveFlow.",
+      "Downgrade non-anchor secondary rebound overs when ownership map is not dominant.",
+      "Upgrade adaptive ownership learning around replacement-minute environments.",
+      "Preserve halftime under leverage when anchor rebounding share is visibly suppressed."
+    ]
+  }
+}
