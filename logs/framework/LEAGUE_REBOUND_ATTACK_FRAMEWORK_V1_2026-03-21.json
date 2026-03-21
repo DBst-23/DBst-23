@@ -1,0 +1,107 @@
+{
+  "date": "2026-03-21",
+  "label": "LEAGUE_REBOUND_ATTACK_FRAMEWORK_V1",
+  "window": "2026-03-06 to 2026-03-21",
+  "status": "ACTIVE_FOR_NEXT_SLATE_SCAN",
+  "core_modules": {
+    "anchor_big_boost": {
+      "description": "Boost true center/PF rebound overs when interior stability, rim-miss support, and rebound concentration are present.",
+      "signals": [
+        "high paint-touch efficiency or volume",
+        "strong contested rebound profile",
+        "opponent weak rim finishing or high OREB allowed",
+        "team defensive finish integrity"
+      ]
+    },
+    "long_rebound_chaos": {
+      "description": "Flag teams creating long-miss, wing/guard rebound volatility.",
+      "signals": [
+        "high 3FG frequency",
+        "sub-35% 3FG efficiency",
+        "high opponent 3PA allowed",
+        "weak box-out integrity"
+      ]
+    },
+    "shared_tree_risk": {
+      "description": "Downgrade individual overs when team rebound success is distributed across multiple viable rebound owners.",
+      "signals": [
+        "strong team REB without strong box-out concentration",
+        "multiple 18+ minute rebound-capable players",
+        "long-miss environment",
+        "no clear anchor ownership edge"
+      ]
+    },
+    "opponent_rebound_leak": {
+      "description": "Identify teams leaking opponent rebound volume.",
+      "signals": [
+        "opp_reb above 33.5 per 36",
+        "opp_oreb above 8.8 per 36",
+        "weak defensive box-outs",
+        "poor defensive rebound finishing"
+      ]
+    },
+    "no_bet_zone": {
+      "description": "Stand-down flag when volume exists but ownership is too flat to trust.",
+      "signals": [
+        "3+ realistic rebound owners within same game tree",
+        "inflated first-half miss volume",
+        "non-anchor over with thin edge",
+        "boost temptation without structural support"
+      ]
+    }
+  },
+  "team_buckets": {
+    "anchor_big_boost_teams": [
+      "Portland Trail Blazers opponents",
+      "Utah Jazz opponents",
+      "Memphis Grizzlies opponents",
+      "Milwaukee Bucks opponents",
+      "Houston Rockets interior matchups",
+      "Toronto Raptors anchor-big spots"
+    ],
+    "long_rebound_chaos_teams": [
+      "Golden State Warriors",
+      "Boston Celtics",
+      "Charlotte Hornets",
+      "Phoenix Suns",
+      "Portland Trail Blazers"
+    ],
+    "shared_tree_risk_teams": [
+      "New York Knicks",
+      "Golden State Warriors",
+      "Denver Nuggets",
+      "Portland Trail Blazers",
+      "Oklahoma City Thunder"
+    ],
+    "disciplined_board_control_teams": [
+      "Boston Celtics",
+      "New York Knicks",
+      "Orlando Magic",
+      "Phoenix Suns",
+      "Miami Heat",
+      "San Antonio Spurs"
+    ],
+    "chaos_without_boxout_control": [
+      "Washington Wizards",
+      "Memphis Grizzlies",
+      "Milwaukee Bucks",
+      "Atlanta Hawks",
+      "Philadelphia 76ers"
+    ]
+  },
+  "locked_rules": [
+    "2-leg precision protocol stays active",
+    "non-anchor over blocker stays active",
+    "upgrade halftime under pivots when anchor share is visibly suppressed",
+    "downgrade overs in long-rebound chaos environments unless player is true anchor",
+    "replacement-minute boosts require rebound ownership proof, not just vacant minutes",
+    "if 3+ viable rebound owners sit within the same game tree, classify as NO_BET_ZONE"
+  ],
+  "slate_scan_order": [
+    "1. Check opponent rebound leak + box-out weakness",
+    "2. Check team miss profile and long-rebound chaos",
+    "3. Check anchor ownership vs shared-tree risk",
+    "4. Approve only 2-leg core builds unless all legs grade A or better",
+    "5. Prefer anchor overs or halftime unders over fragile secondary overs"
+  ]
+}
