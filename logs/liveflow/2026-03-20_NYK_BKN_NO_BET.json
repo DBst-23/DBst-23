@@ -1,0 +1,39 @@
+{
+  "date": "2026-03-20",
+  "game": "NYK @ BKN",
+  "mode": "LIVE-FLOW",
+  "decision": "NO_BET",
+  "status": "SharpEdge decision",
+  "market": "Rebounds",
+  "halftime_score": {
+    "NYK": 44,
+    "BKN": 50
+  },
+  "candidates_reviewed": [
+    {
+      "player": "Karl-Anthony Towns",
+      "line": 15.5,
+      "halftime_rebounds": 9,
+      "grade": "B-"
+    },
+    {
+      "player": "Mitchell Robinson",
+      "line": 12.5,
+      "halftime_rebounds": 8,
+      "grade": "B"
+    },
+    {
+      "player": "Nic Claxton",
+      "line": 8.5,
+      "halftime_rebounds": 6,
+      "grade": "B-"
+    }
+  ],
+  "reasoning": [
+    "Knicks rebound margin was being driven by elevated first-half miss volume rather than stable rebound ownership.",
+    "No candidate cleared the threshold for a clean LIVE-FLOW rebound edge.",
+    "Mitchell Robinson was the closest playable option, but edge remained too thin to justify execution."
+  ],
+  "final_call": "Stand down. No bet.",
+  "tag": "NO_BET_ZONE"
+}
