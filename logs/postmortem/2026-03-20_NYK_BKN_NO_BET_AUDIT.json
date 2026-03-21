@@ -1,0 +1,27 @@
+{
+  "date": "2026-03-20",
+  "game": "NYK @ BKN",
+  "mode": "LIVE-FLOW",
+  "decision": "NO_BET_AUDIT_FINAL",
+  "final_score": {"NYK": 93, "BKN": 92},
+  "halftime_context": {
+    "score": {"NYK": 44, "BKN": 50},
+    "candidates_reviewed": [
+      {"player": "Karl-Anthony Towns", "line": 15.5, "halftime_rebounds": 9},
+      {"player": "Mitchell Robinson", "line": 12.5, "halftime_rebounds": 8},
+      {"player": "Nic Claxton", "line": 8.5, "halftime_rebounds": 6}
+    ]
+  },
+  "final_results": [
+    {"player": "Karl-Anthony Towns", "line": 15.5, "final_rebounds": 15, "would_have": "WIN_LOWER"},
+    {"player": "Mitchell Robinson", "line": 12.5, "final_rebounds": 10, "would_have": "WIN_LOWER"},
+    {"player": "Nic Claxton", "line": 8.5, "final_rebounds": 7, "would_have": "WIN_LOWER"}
+  ],
+  "audit_result": "NO_BET_DECISION_CORRECT",
+  "notes": [
+    "Halftime over candidates all failed to clear their posted rebound lines.",
+    "Shared rebound environment and inflated first-half miss volume correctly signaled a stand-down zone.",
+    "No-bet discipline prevented forcing into a fake rebound edge."
+  ],
+  "tags": ["NO_BET_ZONE", "AUDIT_PASS", "FAKE_EDGE_AVOIDED"]
+}
