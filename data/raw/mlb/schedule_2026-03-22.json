@@ -1,0 +1,1026 @@
+{
+  "copyright": "Copyright 2026 MLB Advanced Media, L.P.  Use of any content on this page acknowledges agreement to the terms posted here http://gdx.mlb.com/components/copyright.txt",
+  "totalItems": 14,
+  "totalEvents": 0,
+  "totalGames": 14,
+  "totalGamesInProgress": 0,
+  "dates": [
+    {
+      "date": "2026-03-22",
+      "totalItems": 14,
+      "totalEvents": 0,
+      "totalGames": 14,
+      "totalGamesInProgress": 0,
+      "games": [
+        {
+          "gamePk": 831496,
+          "gameGuid": "fba3c3d0-b65d-4ca5-853b-5a1f9bd8c8c3",
+          "link": "/api/v1.1/game/831496/feed/live",
+          "gameType": "S",
+          "season": "2026",
+          "gameDate": "2026-03-22T16:05:00Z",
+          "officialDate": "2026-03-22",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "S",
+            "detailedState": "Scheduled",
+            "statusCode": "S",
+            "startTimeTBD": false,
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 138,
+                "name": "St. Louis Cardinals",
+                "link": "/api/v1/teams/138"
+              },
+              "leagueRecord": {
+                "wins": 16,
+                "losses": 9,
+                "pct": ".640"
+              },
+              "splitSquad": false,
+              "seriesNumber": 27
+            },
+            "home": {
+              "team": {
+                "id": 117,
+                "name": "Houston Astros",
+                "link": "/api/v1/teams/117"
+              },
+              "leagueRecord": {
+                "wins": 11,
+                "losses": 13,
+                "pct": ".458"
+              },
+              "splitSquad": false,
+              "seriesNumber": 28
+            }
+          },
+          "venue": {
+            "id": 5000,
+            "name": "CACTI Park of the Palm Beaches",
+            "link": "/api/v1/venues/5000"
+          },
+          "content": {
+            "link": "/api/v1/game/831496/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "E",
+          "tiebreaker": "N",
+          "calendarEventID": "14-831496-2026-03-22",
+          "seasonDisplay": "2026",
+          "dayNight": "day",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
+          "gamesInSeries": 1,
+          "seriesGameNumber": 1,
+          "seriesDescription": "Spring Training",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 831552,
+          "gameGuid": "62182ece-ba69-4ee4-ab27-29fa3e728235",
+          "link": "/api/v1.1/game/831552/feed/live",
+          "gameType": "S",
+          "season": "2026",
+          "gameDate": "2026-03-22T17:05:00Z",
+          "officialDate": "2026-03-22",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "S",
+            "detailedState": "Scheduled",
+            "statusCode": "S",
+            "startTimeTBD": false,
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 111,
+                "name": "Boston Red Sox",
+                "link": "/api/v1/teams/111"
+              },
+              "leagueRecord": {
+                "wins": 12,
+                "losses": 14,
+                "pct": ".462"
+              },
+              "splitSquad": false,
+              "seriesNumber": 28
+            },
+            "home": {
+              "team": {
+                "id": 134,
+                "name": "Pittsburgh Pirates",
+                "link": "/api/v1/teams/134"
+              },
+              "leagueRecord": {
+                "wins": 17,
+                "losses": 11,
+                "pct": ".607"
+              },
+              "splitSquad": false,
+              "seriesNumber": 29
+            }
+          },
+          "venue": {
+            "id": 2526,
+            "name": "LECOM Park",
+            "link": "/api/v1/venues/2526"
+          },
+          "content": {
+            "link": "/api/v1/game/831552/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "E",
+          "tiebreaker": "N",
+          "calendarEventID": "14-831552-2026-03-22",
+          "seasonDisplay": "2026",
+          "dayNight": "day",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
+          "gamesInSeries": 1,
+          "seriesGameNumber": 1,
+          "seriesDescription": "Spring Training",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 831492,
+          "gameGuid": "06ce060e-2472-4a51-beec-e88be4534550",
+          "link": "/api/v1.1/game/831492/feed/live",
+          "gameType": "S",
+          "season": "2026",
+          "gameDate": "2026-03-22T17:05:00Z",
+          "officialDate": "2026-03-22",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "S",
+            "detailedState": "Scheduled",
+            "statusCode": "S",
+            "startTimeTBD": false,
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 144,
+                "name": "Atlanta Braves",
+                "link": "/api/v1/teams/144"
+              },
+              "leagueRecord": {
+                "wins": 19,
+                "losses": 6,
+                "pct": ".760"
+              },
+              "splitSquad": false,
+              "seriesNumber": 28
+            },
+            "home": {
+              "team": {
+                "id": 142,
+                "name": "Minnesota Twins",
+                "link": "/api/v1/teams/142"
+              },
+              "leagueRecord": {
+                "wins": 8,
+                "losses": 18,
+                "pct": ".308"
+              },
+              "splitSquad": false,
+              "seriesNumber": 28
+            }
+          },
+          "venue": {
+            "id": 2862,
+            "name": "Lee Health Sports Complex",
+            "link": "/api/v1/venues/2862"
+          },
+          "content": {
+            "link": "/api/v1/game/831492/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "E",
+          "tiebreaker": "N",
+          "calendarEventID": "14-831492-2026-03-22",
+          "seasonDisplay": "2026",
+          "dayNight": "day",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
+          "gamesInSeries": 1,
+          "seriesGameNumber": 1,
+          "seriesDescription": "Spring Training",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 831493,
+          "gameGuid": "5d42dd0f-cc42-4a9a-90aa-149b93853a26",
+          "link": "/api/v1.1/game/831493/feed/live",
+          "gameType": "S",
+          "season": "2026",
+          "gameDate": "2026-03-22T17:05:00Z",
+          "officialDate": "2026-03-22",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "S",
+            "detailedState": "Scheduled",
+            "statusCode": "S",
+            "startTimeTBD": false,
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 143,
+                "name": "Philadelphia Phillies",
+                "link": "/api/v1/teams/143"
+              },
+              "leagueRecord": {
+                "wins": 10,
+                "losses": 15,
+                "pct": ".400"
+              },
+              "splitSquad": false,
+              "seriesNumber": 28
+            },
+            "home": {
+              "team": {
+                "id": 147,
+                "name": "New York Yankees",
+                "link": "/api/v1/teams/147"
+              },
+              "leagueRecord": {
+                "wins": 17,
+                "losses": 11,
+                "pct": ".607"
+              },
+              "splitSquad": false,
+              "seriesNumber": 30
+            }
+          },
+          "venue": {
+            "id": 2523,
+            "name": "George M. Steinbrenner Field",
+            "link": "/api/v1/venues/2523"
+          },
+          "content": {
+            "link": "/api/v1/game/831493/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "E",
+          "tiebreaker": "N",
+          "calendarEventID": "14-831493-2026-03-22",
+          "seasonDisplay": "2026",
+          "dayNight": "day",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
+          "gamesInSeries": 1,
+          "seriesGameNumber": 1,
+          "seriesDescription": "Spring Training",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 831592,
+          "gameGuid": "fefe988d-d0f2-451b-9b55-51eda972cfac",
+          "link": "/api/v1.1/game/831592/feed/live",
+          "gameType": "S",
+          "season": "2026",
+          "gameDate": "2026-03-22T17:07:00Z",
+          "officialDate": "2026-03-22",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "S",
+            "detailedState": "Scheduled",
+            "statusCode": "S",
+            "startTimeTBD": false,
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 139,
+                "name": "Tampa Bay Rays",
+                "link": "/api/v1/teams/139"
+              },
+              "leagueRecord": {
+                "wins": 10,
+                "losses": 16,
+                "pct": ".385"
+              },
+              "splitSquad": false,
+              "seriesNumber": 29
+            },
+            "home": {
+              "team": {
+                "id": 141,
+                "name": "Toronto Blue Jays",
+                "link": "/api/v1/teams/141"
+              },
+              "leagueRecord": {
+                "wins": 11,
+                "losses": 14,
+                "pct": ".440"
+              },
+              "splitSquad": false,
+              "seriesNumber": 29
+            }
+          },
+          "venue": {
+            "id": 2536,
+            "name": "TD Ballpark",
+            "link": "/api/v1/venues/2536"
+          },
+          "content": {
+            "link": "/api/v1/game/831592/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "E",
+          "tiebreaker": "N",
+          "calendarEventID": "14-831592-2026-03-22",
+          "seasonDisplay": "2026",
+          "dayNight": "day",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
+          "gamesInSeries": 1,
+          "seriesGameNumber": 1,
+          "seriesDescription": "Spring Training",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 831446,
+          "gameGuid": "2f8643b2-2d74-41b3-b7b7-f32cbb6ec12c",
+          "link": "/api/v1.1/game/831446/feed/live",
+          "gameType": "S",
+          "season": "2026",
+          "gameDate": "2026-03-22T17:10:00Z",
+          "officialDate": "2026-03-22",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "S",
+            "detailedState": "Scheduled",
+            "statusCode": "S",
+            "startTimeTBD": false,
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 121,
+                "name": "New York Mets",
+                "link": "/api/v1/teams/121"
+              },
+              "leagueRecord": {
+                "wins": 12,
+                "losses": 12,
+                "pct": ".500"
+              },
+              "splitSquad": false,
+              "seriesNumber": 26
+            },
+            "home": {
+              "team": {
+                "id": 146,
+                "name": "Miami Marlins",
+                "link": "/api/v1/teams/146"
+              },
+              "leagueRecord": {
+                "wins": 10,
+                "losses": 13,
+                "pct": ".435"
+              },
+              "splitSquad": false,
+              "seriesNumber": 28
+            }
+          },
+          "venue": {
+            "id": 2520,
+            "name": "Roger Dean Chevrolet Stadium",
+            "link": "/api/v1/venues/2520"
+          },
+          "content": {
+            "link": "/api/v1/game/831446/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "E",
+          "tiebreaker": "N",
+          "calendarEventID": "14-831446-2026-03-22",
+          "seasonDisplay": "2026",
+          "dayNight": "day",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
+          "gamesInSeries": 1,
+          "seriesGameNumber": 1,
+          "seriesDescription": "Spring Training",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 831503,
+          "gameGuid": "e5289b24-e5ff-4795-b28b-c49fffb8d569",
+          "link": "/api/v1.1/game/831503/feed/live",
+          "gameType": "S",
+          "season": "2026",
+          "gameDate": "2026-03-22T17:35:00Z",
+          "officialDate": "2026-03-22",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "S",
+            "detailedState": "Scheduled",
+            "statusCode": "S",
+            "startTimeTBD": false,
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 120,
+                "name": "Washington Nationals",
+                "link": "/api/v1/teams/120"
+              },
+              "leagueRecord": {
+                "wins": 14,
+                "losses": 9,
+                "pct": ".609"
+              },
+              "splitSquad": false,
+              "seriesNumber": 28
+            },
+            "home": {
+              "team": {
+                "id": 110,
+                "name": "Baltimore Orioles",
+                "link": "/api/v1/teams/110"
+              },
+              "leagueRecord": {
+                "wins": 11,
+                "losses": 13,
+                "pct": ".458"
+              },
+              "splitSquad": false,
+              "seriesNumber": 30
+            }
+          },
+          "venue": {
+            "id": 2,
+            "name": "Oriole Park at Camden Yards",
+            "link": "/api/v1/venues/2"
+          },
+          "content": {
+            "link": "/api/v1/game/831503/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-831503-2026-03-22",
+          "seasonDisplay": "2026",
+          "dayNight": "day",
+          "description": "at Camden Yards",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
+          "gamesInSeries": 2,
+          "seriesGameNumber": 1,
+          "seriesDescription": "Spring Training",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 831896,
+          "gameGuid": "1d0d6892-8a50-4224-aeb1-1a708fea28f0",
+          "link": "/api/v1.1/game/831896/feed/live",
+          "gameType": "S",
+          "season": "2026",
+          "gameDate": "2026-03-22T19:05:00Z",
+          "officialDate": "2026-03-22",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "S",
+            "detailedState": "Scheduled",
+            "statusCode": "S",
+            "startTimeTBD": false,
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 113,
+                "name": "Cincinnati Reds",
+                "link": "/api/v1/teams/113"
+              },
+              "leagueRecord": {
+                "wins": 13,
+                "losses": 14,
+                "pct": ".481"
+              },
+              "splitSquad": false,
+              "seriesNumber": 28
+            },
+            "home": {
+              "team": {
+                "id": 114,
+                "name": "Cleveland Guardians",
+                "link": "/api/v1/teams/114"
+              },
+              "leagueRecord": {
+                "wins": 13,
+                "losses": 14,
+                "pct": ".481"
+              },
+              "splitSquad": false,
+              "seriesNumber": 29
+            }
+          },
+          "venue": {
+            "id": 3834,
+            "name": "Goodyear Ballpark",
+            "link": "/api/v1/venues/3834"
+          },
+          "content": {
+            "link": "/api/v1/game/831896/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "E",
+          "tiebreaker": "N",
+          "calendarEventID": "14-831896-2026-03-22",
+          "seasonDisplay": "2026",
+          "dayNight": "day",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
+          "gamesInSeries": 1,
+          "seriesGameNumber": 1,
+          "seriesDescription": "Spring Training",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 831789,
+          "gameGuid": "21a7b457-ec7b-4ec7-a17d-9d497922476b",
+          "link": "/api/v1.1/game/831789/feed/live",
+          "gameType": "S",
+          "season": "2026",
+          "gameDate": "2026-03-22T19:05:00Z",
+          "officialDate": "2026-03-22",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "S",
+            "detailedState": "Scheduled",
+            "statusCode": "S",
+            "startTimeTBD": false,
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 158,
+                "name": "Milwaukee Brewers",
+                "link": "/api/v1/teams/158"
+              },
+              "leagueRecord": {
+                "wins": 12,
+                "losses": 15,
+                "pct": ".444"
+              },
+              "splitSquad": false,
+              "seriesNumber": 28
+            },
+            "home": {
+              "team": {
+                "id": 112,
+                "name": "Chicago Cubs",
+                "link": "/api/v1/teams/112"
+              },
+              "leagueRecord": {
+                "wins": 11,
+                "losses": 16,
+                "pct": ".407"
+              },
+              "splitSquad": false,
+              "seriesNumber": 29
+            }
+          },
+          "venue": {
+            "id": 4629,
+            "name": "Sloan Park",
+            "link": "/api/v1/venues/4629"
+          },
+          "content": {
+            "link": "/api/v1/game/831789/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "E",
+          "tiebreaker": "N",
+          "calendarEventID": "14-831789-2026-03-22",
+          "seasonDisplay": "2026",
+          "dayNight": "day",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
+          "gamesInSeries": 1,
+          "seriesGameNumber": 1,
+          "seriesDescription": "Spring Training",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 831945,
+          "gameGuid": "160fd0da-f8b2-49c3-b19a-4e5cfd434bb8",
+          "link": "/api/v1.1/game/831945/feed/live",
+          "gameType": "S",
+          "season": "2026",
+          "gameDate": "2026-03-22T20:10:00Z",
+          "officialDate": "2026-03-22",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "S",
+            "detailedState": "Scheduled",
+            "statusCode": "S",
+            "startTimeTBD": false,
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 133,
+                "name": "Athletics",
+                "link": "/api/v1/teams/133"
+              },
+              "leagueRecord": {
+                "wins": 13,
+                "losses": 15,
+                "pct": ".464"
+              },
+              "splitSquad": false,
+              "seriesNumber": 30
+            },
+            "home": {
+              "team": {
+                "id": 115,
+                "name": "Colorado Rockies",
+                "link": "/api/v1/teams/115"
+              },
+              "leagueRecord": {
+                "wins": 13,
+                "losses": 14,
+                "pct": ".481"
+              },
+              "splitSquad": false,
+              "seriesNumber": 28
+            }
+          },
+          "venue": {
+            "id": 4249,
+            "name": "Salt River Fields at Talking Stick",
+            "link": "/api/v1/venues/4249"
+          },
+          "content": {
+            "link": "/api/v1/game/831945/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "E",
+          "tiebreaker": "N",
+          "calendarEventID": "14-831945-2026-03-22",
+          "seasonDisplay": "2026",
+          "dayNight": "day",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
+          "gamesInSeries": 1,
+          "seriesGameNumber": 1,
+          "seriesDescription": "Spring Training",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 831752,
+          "gameGuid": "c935fded-4dd4-41de-85b9-c4a1fe06ed4a",
+          "link": "/api/v1.1/game/831752/feed/live",
+          "gameType": "E",
+          "season": "2026",
+          "gameDate": "2026-03-23T00:07:00Z",
+          "officialDate": "2026-03-22",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "S",
+            "detailedState": "Scheduled",
+            "statusCode": "S",
+            "startTimeTBD": false,
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 137,
+                "name": "San Francisco Giants",
+                "link": "/api/v1/teams/137"
+              },
+              "leagueRecord": {
+                "wins": 0,
+                "losses": 1,
+                "pct": ".000"
+              },
+              "splitSquad": false
+            },
+            "home": {
+              "team": {
+                "id": 105,
+                "name": "Sacramento River Cats",
+                "link": "/api/v1/teams/105"
+              },
+              "leagueRecord": {
+                "wins": 0,
+                "losses": 0,
+                "pct": ".000"
+              },
+              "splitSquad": false
+            }
+          },
+          "venue": {
+            "id": 2529,
+            "name": "Sutter Health Park",
+            "link": "/api/v1/venues/2529"
+          },
+          "content": {
+            "link": "/api/v1/game/831752/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-831752-2026-03-22",
+          "seasonDisplay": "2026",
+          "dayNight": "night",
+          "description": "at Sutter Health Park",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
+          "seriesDescription": "Exhibition Game",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 831746,
+          "gameGuid": "f022b912-9aa7-4e26-a0b0-a871844ee658",
+          "link": "/api/v1.1/game/831746/feed/live",
+          "gameType": "S",
+          "season": "2026",
+          "gameDate": "2026-03-23T01:05:00Z",
+          "officialDate": "2026-03-22",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "S",
+            "detailedState": "Scheduled",
+            "statusCode": "S",
+            "startTimeTBD": false,
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 136,
+                "name": "Seattle Mariners",
+                "link": "/api/v1/teams/136"
+              },
+              "leagueRecord": {
+                "wins": 10,
+                "losses": 17,
+                "pct": ".370"
+              },
+              "splitSquad": false,
+              "seriesNumber": 30
+            },
+            "home": {
+              "team": {
+                "id": 145,
+                "name": "Chicago White Sox",
+                "link": "/api/v1/teams/145"
+              },
+              "leagueRecord": {
+                "wins": 15,
+                "losses": 13,
+                "pct": ".536"
+              },
+              "splitSquad": false,
+              "seriesNumber": 31
+            }
+          },
+          "venue": {
+            "id": 3809,
+            "name": "Camelback Ranch",
+            "link": "/api/v1/venues/3809"
+          },
+          "content": {
+            "link": "/api/v1/game/831746/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "E",
+          "tiebreaker": "N",
+          "calendarEventID": "14-831746-2026-03-22",
+          "seasonDisplay": "2026",
+          "dayNight": "night",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
+          "gamesInSeries": 1,
+          "seriesGameNumber": 1,
+          "seriesDescription": "Spring Training",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 831804,
+          "gameGuid": "27554c0e-a84c-4bc6-9243-af5d20847c47",
+          "link": "/api/v1.1/game/831804/feed/live",
+          "gameType": "S",
+          "season": "2026",
+          "gameDate": "2026-03-23T01:07:00Z",
+          "officialDate": "2026-03-22",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "S",
+            "detailedState": "Scheduled",
+            "statusCode": "S",
+            "startTimeTBD": false,
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 119,
+                "name": "Los Angeles Dodgers",
+                "link": "/api/v1/teams/119"
+              },
+              "leagueRecord": {
+                "wins": 19,
+                "losses": 8,
+                "pct": ".704"
+              },
+              "splitSquad": false,
+              "seriesNumber": 29
+            },
+            "home": {
+              "team": {
+                "id": 108,
+                "name": "Los Angeles Angels",
+                "link": "/api/v1/teams/108"
+              },
+              "leagueRecord": {
+                "wins": 16,
+                "losses": 14,
+                "pct": ".533"
+              },
+              "splitSquad": false,
+              "seriesNumber": 31
+            }
+          },
+          "venue": {
+            "id": 1,
+            "name": "Angel Stadium",
+            "link": "/api/v1/venues/1"
+          },
+          "content": {
+            "link": "/api/v1/game/831804/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-831804-2026-03-22",
+          "seasonDisplay": "2026",
+          "dayNight": "night",
+          "description": "at Angel Stadium",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
+          "gamesInSeries": 3,
+          "seriesGameNumber": 1,
+          "seriesDescription": "Spring Training",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 831947,
+          "gameGuid": "3f65932f-af92-43bc-999c-9b9da2b27085",
+          "link": "/api/v1.1/game/831947/feed/live",
+          "gameType": "S",
+          "season": "2026",
+          "gameDate": "2026-03-23T01:10:00Z",
+          "officialDate": "2026-03-22",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "S",
+            "detailedState": "Scheduled",
+            "statusCode": "S",
+            "startTimeTBD": false,
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 109,
+                "name": "Arizona Diamondbacks",
+                "link": "/api/v1/teams/109"
+              },
+              "leagueRecord": {
+                "wins": 14,
+                "losses": 13,
+                "pct": ".519"
+              },
+              "splitSquad": false,
+              "seriesNumber": 28
+            },
+            "home": {
+              "team": {
+                "id": 135,
+                "name": "San Diego Padres",
+                "link": "/api/v1/teams/135"
+              },
+              "leagueRecord": {
+                "wins": 14,
+                "losses": 14,
+                "pct": ".500"
+              },
+              "splitSquad": false,
+              "seriesNumber": 30
+            }
+          },
+          "venue": {
+            "id": 2530,
+            "name": "Peoria Stadium",
+            "link": "/api/v1/venues/2530"
+          },
+          "content": {
+            "link": "/api/v1/game/831947/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "E",
+          "tiebreaker": "N",
+          "calendarEventID": "14-831947-2026-03-22",
+          "seasonDisplay": "2026",
+          "dayNight": "night",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
+          "gamesInSeries": 1,
+          "seriesGameNumber": 1,
+          "seriesDescription": "Spring Training",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        }
+      ],
+      "events": []
+    }
+  ]
+}
