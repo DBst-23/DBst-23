@@ -99,9 +99,9 @@
           "officialDate": "2026-03-22",
           "status": {
             "abstractGameState": "Final",
-            "codedGameState": "O",
-            "detailedState": "Game Over",
-            "statusCode": "O",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
             "abstractGameCode": "F"
           },
@@ -595,7 +595,7 @@
                 "losses": 14,
                 "pct": ".481"
               },
-              "score": 7,
+              "score": 8,
               "splitSquad": false,
               "seriesNumber": 29
             }
@@ -669,7 +669,7 @@
                 "losses": 16,
                 "pct": ".429"
               },
-              "score": 9,
+              "score": 11,
               "splitSquad": false,
               "seriesNumber": 29
             }
@@ -728,7 +728,7 @@
                 "losses": 15,
                 "pct": ".464"
               },
-              "score": 2,
+              "score": 4,
               "splitSquad": false,
               "seriesNumber": 30
             },
@@ -743,7 +743,7 @@
                 "losses": 14,
                 "pct": ".481"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 28
             }
@@ -853,9 +853,9 @@
           "officialDate": "2026-03-22",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -871,6 +871,7 @@
                 "losses": 18,
                 "pct": ".357"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 30
             },
@@ -885,6 +886,7 @@
                 "losses": 14,
                 "pct": ".517"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 31
             }
