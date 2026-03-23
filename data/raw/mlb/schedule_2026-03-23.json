@@ -3,14 +3,14 @@
   "totalItems": 15,
   "totalEvents": 0,
   "totalGames": 15,
-  "totalGamesInProgress": 4,
+  "totalGamesInProgress": 3,
   "dates": [
     {
       "date": "2026-03-23",
       "totalItems": 15,
       "totalEvents": 0,
       "totalGames": 15,
-      "totalGamesInProgress": 4,
+      "totalGamesInProgress": 3,
       "games": [
         {
           "gamePk": 831547,
@@ -176,12 +176,12 @@
           "gameDate": "2026-03-23T17:05:00Z",
           "officialDate": "2026-03-23",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -191,11 +191,12 @@
                 "link": "/api/v1/teams/142"
               },
               "leagueRecord": {
-                "wins": 9,
+                "wins": 10,
                 "losses": 18,
-                "pct": ".333"
+                "pct": ".357"
               },
               "score": 9,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 28
             },
@@ -207,10 +208,11 @@
               },
               "leagueRecord": {
                 "wins": 13,
-                "losses": 14,
-                "pct": ".481"
+                "losses": 15,
+                "pct": ".464"
               },
               "score": 6,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 29
             }
@@ -223,6 +225,7 @@
           "content": {
             "link": "/api/v1/game/832036/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
@@ -346,7 +349,7 @@
                 "losses": 15,
                 "pct": ".500"
               },
-              "score": 7,
+              "score": 8,
               "splitSquad": false,
               "seriesNumber": 32
             },
@@ -420,7 +423,7 @@
                 "losses": 11,
                 "pct": ".621"
               },
-              "score": 1,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 31
             },
@@ -435,7 +438,7 @@
                 "losses": 16,
                 "pct": ".448"
               },
-              "score": 7,
+              "score": 10,
               "splitSquad": false,
               "seriesNumber": 30
             }
@@ -509,7 +512,7 @@
                 "losses": 15,
                 "pct": ".483"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 31
             }
@@ -637,6 +640,7 @@
                 "losses": 15,
                 "pct": ".483"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 29
             },
@@ -651,6 +655,7 @@
                 "losses": 16,
                 "pct": ".429"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 29
             }
