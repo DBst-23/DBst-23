@@ -1,0 +1,32 @@
+{
+  "game": "GSW @ DAL",
+  "date": "2026-03-23",
+  "final_score": {
+    "GSW": 137,
+    "DAL": 131
+  },
+  "bets": [
+    {
+      "market": "Spread",
+      "selection": "GSW +3.5",
+      "result": "WIN"
+    },
+    {
+      "market": "Total",
+      "line": 255.5,
+      "actual": 268,
+      "result": "LOSS"
+    }
+  ],
+  "model_notes": {
+    "game_script": "High pace, offensive efficiency spike, late-game scoring surge",
+    "pace": "Fast",
+    "edge_summary": "Spread edge correctly identified; total underestimated due to late-game variance and FT spike"
+  },
+  "tags": [
+    "SPREAD_EDGE_CONFIRMED",
+    "TOTAL_UNDERSHOT_VARIANCE",
+    "LATE_GAME_SURGE",
+    "PACE_SPIKE_EVENT"
+  ]
+}
