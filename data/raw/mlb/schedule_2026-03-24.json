@@ -3,14 +3,14 @@
   "totalItems": 10,
   "totalEvents": 0,
   "totalGames": 10,
-  "totalGamesInProgress": 3,
+  "totalGamesInProgress": 2,
   "dates": [
     {
       "date": "2026-03-24",
       "totalItems": 10,
       "totalEvents": 0,
       "totalGames": 10,
-      "totalGamesInProgress": 3,
+      "totalGamesInProgress": 2,
       "games": [
         {
           "gamePk": 831545,
@@ -21,12 +21,12 @@
           "gameDate": "2026-03-24T16:05:00Z",
           "officialDate": "2026-03-24",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -37,10 +37,11 @@
               },
               "leagueRecord": {
                 "wins": 11,
-                "losses": 17,
-                "pct": ".393"
+                "losses": 18,
+                "pct": ".379"
               },
               "score": 2,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 31
             },
@@ -51,11 +52,12 @@
                 "link": "/api/v1/teams/144"
               },
               "leagueRecord": {
-                "wins": 20,
+                "wins": 21,
                 "losses": 7,
-                "pct": ".741"
+                "pct": ".750"
               },
               "score": 3,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 30
             }
@@ -68,6 +70,7 @@
           "content": {
             "link": "/api/v1/game/831545/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
@@ -114,7 +117,7 @@
                 "losses": 15,
                 "pct": ".464"
               },
-              "score": 5,
+              "score": 6,
               "splitSquad": false,
               "seriesNumber": 29
             },
@@ -129,7 +132,7 @@
                 "losses": 18,
                 "pct": ".357"
               },
-              "score": 4,
+              "score": 9,
               "splitSquad": false,
               "seriesNumber": 28
             }
@@ -203,7 +206,7 @@
                 "losses": 12,
                 "pct": ".586"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 29
             }
@@ -244,12 +247,12 @@
           "gameDate": "2026-03-24T19:05:00Z",
           "officialDate": "2026-03-24",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
