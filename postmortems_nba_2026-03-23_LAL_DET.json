@@ -1,0 +1,49 @@
+{
+  "game": "LAL @ DET",
+  "date": "2026-03-23",
+  "final_score": {
+    "LAL": 110,
+    "DET": 113
+  },
+  "bets": [
+    {
+      "player": "Deandre Ayton",
+      "prop": "Rebounds",
+      "line": 7.5,
+      "result": 10,
+      "outcome": "WIN"
+    },
+    {
+      "player": "Jalen Duren",
+      "prop": "Rebounds",
+      "line": 10.5,
+      "result": 11,
+      "outcome": "WIN"
+    },
+    {
+      "player": "Ausar Thompson",
+      "prop": "Rebounds",
+      "line": 3.5,
+      "result": 5,
+      "outcome": "WIN"
+    },
+    {
+      "player": "Luka Doncic",
+      "prop": "Rebounds",
+      "line": 7.5,
+      "result": 7,
+      "outcome": "LOSS"
+    }
+  ],
+  "team_stats": {
+    "LAL_rebounds": 39,
+    "DET_rebounds": 37
+  },
+  "diagnostic_tags": [
+    "CENTER_USAGE_CORRECT",
+    "REBOUND_DISTRIBUTION_SPLIT",
+    "GUARD_REBOUND_VOLATILITY",
+    "LUKA_HOOK_VARIANCE"
+  ],
+  "summary": "Strong performance on center rebound edges; Luka miss due to distribution + variance."
+}
