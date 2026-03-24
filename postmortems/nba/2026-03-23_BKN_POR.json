@@ -1,0 +1,33 @@
+{
+  "game": "BKN @ POR",
+  "date": "2026-03-23",
+  "final_score": {
+    "BKN": 99,
+    "POR": 134
+  },
+  "bets": [
+    {
+      "player": "Nic Claxton",
+      "line": 4.5,
+      "actual": 4,
+      "result": "LOSS"
+    },
+    {
+      "player": "Donovan Clingan",
+      "line": 15.5,
+      "actual": 15,
+      "result": "LOSS"
+    }
+  ],
+  "model_notes": {
+    "rebound_environment": "Blowout skew, dominant Portland interior control",
+    "pace": "Fast with one-sided possession control",
+    "edge_summary": "Correct archetype targeting (centers), but line inflation + blowout variance reduced ceiling outcomes"
+  },
+  "tags": [
+    "CENTER_EDGE_MISSED_BY_HOOK",
+    "BLOWOUT_SCRIPT",
+    "LINE_INFLATION_TRAP",
+    "REBOUND_VOLUME_DISTRIBUTION_SHIFT"
+  ]
+}
