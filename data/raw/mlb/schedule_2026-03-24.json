@@ -3,14 +3,14 @@
   "totalItems": 10,
   "totalEvents": 0,
   "totalGames": 10,
-  "totalGamesInProgress": 1,
+  "totalGamesInProgress": 0,
   "dates": [
     {
       "date": "2026-03-24",
       "totalItems": 10,
       "totalEvents": 0,
       "totalGames": 10,
-      "totalGamesInProgress": 1,
+      "totalGamesInProgress": 0,
       "games": [
         {
           "gamePk": 831545,
@@ -485,12 +485,12 @@
           "gameDate": "2026-03-24T21:10:00Z",
           "officialDate": "2026-03-24",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -501,10 +501,11 @@
               },
               "leagueRecord": {
                 "wins": 14,
-                "losses": 16,
-                "pct": ".467"
+                "losses": 17,
+                "pct": ".452"
               },
               "score": 1,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 29
             },
@@ -515,11 +516,12 @@
                 "link": "/api/v1/teams/158"
               },
               "leagueRecord": {
-                "wins": 13,
+                "wins": 14,
                 "losses": 16,
-                "pct": ".448"
+                "pct": ".467"
               },
               "score": 4,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 29
             }
@@ -532,6 +534,7 @@
           "content": {
             "link": "/api/v1/game/832077/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
