@@ -1,0 +1,38 @@
+{
+  "game": "LAL @ DET",
+  "date": "2026-03-23",
+  "final_score": {
+    "LAL": 110,
+    "DET": 113
+  },
+  "bets": [
+    {
+      "player": "Deandre Ayton",
+      "line": 7.5,
+      "actual": 9,
+      "result": "WIN"
+    },
+    {
+      "player": "Jalen Duren",
+      "line": 10.5,
+      "actual": 11,
+      "result": "WIN"
+    },
+    {
+      "player": "Luka Doncic",
+      "line": 7.5,
+      "actual": 7,
+      "result": "LOSS"
+    }
+  ],
+  "model_notes": {
+    "rebound_environment": "High volume, both teams strong in paint",
+    "pace": "Moderate",
+    "edge_summary": "Center rebound edges confirmed; guard rebound variance flagged"
+  },
+  "tags": [
+    "CENTER_EDGE_CONFIRMED",
+    "GUARD_REBOUND_VARIANCE",
+    "DUAL_BIG_HIT"
+  ]
+}
