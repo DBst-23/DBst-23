@@ -1,0 +1,33 @@
+{
+  "game": "OKC @ PHI",
+  "date": "2026-03-23",
+  "final_score": {
+    "OKC": 123,
+    "PHI": 103
+  },
+  "bets": [
+    {
+      "player": "Isaiah Hartenstein",
+      "line": 7.5,
+      "actual": 12,
+      "result": "WIN"
+    },
+    {
+      "player": "Chet Holmgren",
+      "line": 7.5,
+      "actual": 9,
+      "result": "WIN"
+    }
+  ],
+  "model_notes": {
+    "rebound_environment": "Strong dual-big control for OKC against depleted Philadelphia frontcourt",
+    "pace": "Moderate-fast with OKC possession control",
+    "edge_summary": "Correct frontcourt targeting; OKC size, block pressure, and weak opposing center rotation supported both rebound overs"
+  },
+  "tags": [
+    "DOUBLE_BIG_EDGE_CONFIRMED",
+    "FRONTCOURT_MISMATCH",
+    "REBOUND_ENVIRONMENT_HIT",
+    "PREGAME_FILTER_VALIDATION"
+  ]
+}
