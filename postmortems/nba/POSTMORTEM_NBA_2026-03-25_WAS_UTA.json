@@ -1,0 +1,131 @@
+{
+  "postmortem_id": "POSTMORTEM_NBA_2026-03-25_WAS_UTA",
+  "sport": "NBA",
+  "game_date": "2026-03-25",
+  "matchup": "WAS @ UTA",
+  "final_score": {
+    "WAS": 133,
+    "UTA": 110
+  },
+  "market_context": {
+    "tracked_cards": [
+      {
+        "card_name": "Mobley_Konchar",
+        "note": "Only Konchar leg belongs to this game.",
+        "legs": [
+          {
+            "player": "John Konchar",
+            "team": "UTA",
+            "market": "rebounds",
+            "line": 5.5,
+            "pick": "over",
+            "result": 14,
+            "outcome": "win"
+          }
+        ]
+      },
+      {
+        "card_name": "Adebayo_Coulibaly",
+        "note": "Only Coulibaly leg belongs to this game.",
+        "legs": [
+          {
+            "player": "Bilal Coulibaly",
+            "team": "WAS",
+            "market": "rebounds",
+            "line": 5.5,
+            "pick": "under",
+            "result": 2,
+            "outcome": "win"
+          }
+        ]
+      }
+    ],
+    "diagnostic_focus": "wing rebound suppression vs unexpected role-player rebound spike"
+  },
+  "phase_1_game_phase_analysis": {
+    "summary": "Washington dominated the glass 56-40 and won comfortably by 23. The Wizards' interior and secondary rebounders overwhelmed Utah, while Utah's lone major rebound winner was John Konchar, who far exceeded expectation with 14 boards.",
+    "team_rebounds": {
+      "WAS": 56,
+      "UTA": 40
+    },
+    "key_distribution_notes": [
+      "Washington rebound production was concentrated in frontcourt and utility bodies: Julian Reese 17, Will Riley 10, Leaky Black 7, Jamir Watkins 6, Anthony Gill 6.",
+      "Bilal Coulibaly finished with only 2 rebounds in 19 minutes, validating the under despite Washington's huge team total on the glass.",
+      "Utah's rebounding was highly uneven: Konchar posted 14 while Tshiebwe had 8 in only 17 minutes and most others stayed modest."
+    ]
+  },
+  "phase_2_pivotal_moments": {
+    "notes": [
+      "Julian Reese's 17 rebounds and Will Riley's 10 soaked up a massive share of Washington's available boards, keeping Coulibaly far below his line.",
+      "Konchar logged 38 minutes and captured 14 rebounds, clearing 5.5 with ease and acting as Utah's main stabilizer on the glass.",
+      "The game script never required Coulibaly to serve as a cleanup rebounder because Washington's bigs and hybrid forwards controlled the environment."
+    ]
+  },
+  "phase_3_defensive_psychological_variables": {
+    "notes": [
+      "Washington's stripped-down roster created a role redistribution where bigger utility pieces were prioritized on the glass.",
+      "Coulibaly's activity showed up more in stocks and transition influence than in rebound capture.",
+      "Utah's injury-thinned environment increased random role-player volatility, which favored Konchar's minutes and board access."
+    ]
+  },
+  "phase_4_model_relevance_summary": {
+    "hits": [
+      "Bilal Coulibaly under 5.5 rebounds was an excellent read and cashed comfortably at 2 rebounds.",
+      "John Konchar over 5.5 rebounds was correct and smashed, finishing with 14.",
+      "Wing under logic held even inside a high-total team rebound environment because rebound share flowed to frontcourt teammates instead."
+    ],
+    "misses": [],
+    "recommended_tags": [
+      "COULIBALY_REBOUND_CAP_ACTIVE",
+      "UTILITY_BIG_REBOUND_REDIRECT_ON",
+      "KONCHAR_MINUTES_SPIKE_EDGE",
+      "EDGE_HIT_COULIBALY_UNDER",
+      "EDGE_HIT_KONCHAR_OVER"
+    ],
+    "patch_recommendations": [
+      "Do not confuse team rebound strength with individual wing over value when larger teammates are absorbing first-contact board share.",
+      "Boost role-player rebound overs when injuries create a minutes-stability spike plus low line exposure.",
+      "Track frontcourt usage compression more aggressively in short-handed environments to identify which wings are actually boxed out of the rebound tree."
+    ]
+  },
+  "box_score_highlights": {
+    "WAS": {
+      "Julian Reese": {
+        "points": 26,
+        "rebounds": 17,
+        "assists": 0
+      },
+      "Will Riley": {
+        "points": 19,
+        "rebounds": 10,
+        "assists": 5
+      },
+      "Bilal Coulibaly": {
+        "points": 11,
+        "rebounds": 2,
+        "assists": 3
+      }
+    },
+    "UTA": {
+      "John Konchar": {
+        "points": 8,
+        "rebounds": 14,
+        "assists": 5
+      },
+      "Oscar Tshiebwe": {
+        "points": 7,
+        "rebounds": 8,
+        "assists": 4
+      },
+      "Ace Bailey": {
+        "points": 15,
+        "rebounds": 5,
+        "assists": 3
+      }
+    }
+  },
+  "final_verdict": {
+    "overall": "Clean two-for-two rebound read on this matchup.",
+    "confidence_takeaway": "This game confirms that role allocation matters more than raw team rebound environment. Coulibaly was the wrong vessel for Wizards board volume, while Konchar inherited a rebound-friendly role and crushed the over."
+  }
+}
