@@ -1,0 +1,126 @@
+{
+  "postmortem_id": "POSTMORTEM_NBA_2026-03-25_HOU_MIN",
+  "sport": "NBA",
+  "game_date": "2026-03-25",
+  "matchup": "HOU @ MIN",
+  "final_score": {
+    "HOU": 108,
+    "MIN": 110
+  },
+  "market_context": {
+    "tracked_legs": [
+      {
+        "player": "Amen Thompson",
+        "team": "HOU",
+        "market": "rebounds",
+        "line": 7.5,
+        "pick": "over",
+        "result": 9,
+        "outcome": "win"
+      },
+      {
+        "player": "Julius Randle",
+        "team": "MIN",
+        "market": "rebounds",
+        "line": 6.5,
+        "pick": "over",
+        "result": 6,
+        "outcome": "loss"
+      }
+    ],
+    "card_result": "split_loss",
+    "diagnostic_focus": "rebound environment, frontcourt competition, and minute-to-board conversion"
+  },
+  "phase_1_game_phase_analysis": {
+    "summary": "Overtime-level minutes and heavy miss volume created a strong overall rebound environment, but Minnesota's board share split more toward Gobert and Naz Reid than Julius Randle. Houston's wing-glass path for Amen remained active throughout.",
+    "team_rebounds": {
+      "HOU": 54,
+      "MIN": 49
+    },
+    "offensive_rebounds": {
+      "HOU": 17,
+      "MIN": 16
+    },
+    "key_distribution_notes": [
+      "Houston rebounds distributed across Amen Thompson (9), Jabari Smith Jr. (12), Tari Eason (8), Reed Sheppard (8), and Sengun (6).",
+      "Minnesota rebound concentration leaned into Rudy Gobert (14) and Naz Reid (13), reducing Julius Randle access.",
+      "Randle logged 42 minutes but still finished with only 6 rebounds, signaling role-share suppression rather than simple minute loss."
+    ]
+  },
+  "phase_2_pivotal_moments": {
+    "notes": [
+      "Gobert posted 14 rebounds with 7 offensive boards, absorbing a major share of Minnesota's center-lane opportunities.",
+      "Naz Reid's 13 rebounds off the bench created an additional frontcourt siphon effect on Randle's ceiling.",
+      "Amen Thompson maintained elite glass activity with 6 offensive rebounds, validating the high-motor wing rebound pathway."
+    ]
+  },
+  "phase_3_defensive_psychological_variables": {
+    "notes": [
+      "Minnesota's size rotation created internal competition for rebounds, especially in a game with Gobert and Reid both highly active on the glass.",
+      "Randle's offensive volume was strong, but his rebound role was secondary to the true bigs in this specific environment.",
+      "Amen's transition activity, motor, and weak-side crashing remained live despite Houston's balanced frontcourt usage."
+    ]
+  },
+  "phase_4_model_relevance_summary": {
+    "hits": [
+      "Amen Thompson over 7.5 rebounds was a correct environmental and archetype-based read.",
+      "Houston wing rebound upside remained strong in a high-miss, high-minute game."
+    ],
+    "misses": [
+      "Julius Randle over 6.5 rebounds missed due to Gobert-Reid rebound crowding.",
+      "Model likely overweighted minutes and underweighted same-team frontcourt competition."
+    ],
+    "recommended_tags": [
+      "AMEN_WING_GLASS_ACTIVE",
+      "RANDLE_FRONTCOURT_CROWDING_ON",
+      "DOUBLE_BIG_REBOUND_SUPPRESSION",
+      "EDGE_HIT_AMEN_OVER",
+      "MISS_REGISTERED_RANDLE_ROLE_SHARE"
+    ],
+    "patch_recommendations": [
+      "Downgrade PF rebound overs when paired with an elite center plus an active rebounding bench big.",
+      "Add same-team frontcourt crowding logic when two teammates project for 10+ rebound chances each.",
+      "Boost versatile crash wings like Amen when game environment supports extra offensive rebounding volume."
+    ]
+  },
+  "box_score_highlights": {
+    "HOU": {
+      "Amen Thompson": {
+        "points": 11,
+        "rebounds": 9,
+        "assists": 10
+      },
+      "Jabari Smith Jr.": {
+        "points": 16,
+        "rebounds": 12,
+        "assists": 1
+      },
+      "Tari Eason": {
+        "points": 3,
+        "rebounds": 8,
+        "assists": 0
+      }
+    },
+    "MIN": {
+      "Julius Randle": {
+        "points": 24,
+        "rebounds": 6,
+        "assists": 6
+      },
+      "Rudy Gobert": {
+        "points": 14,
+        "rebounds": 14,
+        "assists": 1
+      },
+      "Naz Reid": {
+        "points": 14,
+        "rebounds": 13,
+        "assists": 1
+      }
+    }
+  },
+  "final_verdict": {
+    "overall": "Good environment read, but incomplete role-share adjustment on the Minnesota side.",
+    "confidence_takeaway": "Keep leaning into Amen rebound overs in high-chaos environments, but be more careful with Randle overs when Gobert and Naz Reid are both active and projecting strong board share."
+  }
+}
