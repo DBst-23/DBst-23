@@ -1,0 +1,63 @@
+{
+  "sport": "NBA",
+  "game_date": "2026-03-26",
+  "matchup": "SAC @ ORL",
+  "source_snapshot": {
+    "underdog": {
+      "spread": {
+        "away_team": "Sacramento Kings",
+        "away_line": "+15.5",
+        "away_odds": "-113",
+        "home_team": "Orlando Magic",
+        "home_line": "-15.5",
+        "home_odds": "-113"
+      },
+      "total": {
+        "line": 229.5,
+        "over_odds": "-134",
+        "under_odds": "+104"
+      },
+      "moneyline": {
+        "away_team": "Sacramento Kings",
+        "away_odds": "+733",
+        "home_team": "Orlando Magic",
+        "home_odds": "-1250"
+      }
+    },
+    "lineups": {
+      "spread": {
+        "away_team": "Sacramento Kings",
+        "away_line": "+15.5",
+        "away_odds": "-115",
+        "home_team": "Orlando Magic",
+        "home_line": "-15.5",
+        "home_odds": "-105"
+      },
+      "total": {
+        "open": 228.5,
+        "current": 230.5
+      },
+      "moneyline": {
+        "away_team": "Sacramento Kings",
+        "away_odds": "+750",
+        "home_team": "Orlando Magic",
+        "home_odds": "-1200"
+      }
+    }
+  },
+  "consensus_close": {
+    "spread": "ORL -15.5 / SAC +15.5",
+    "total_range": "229.5-230.5",
+    "moneyline_range": {
+      "sac": "+733 to +750",
+      "orl": "-1200 to -1250"
+    }
+  },
+  "workflow_tag": "CLOSING_LINE_CAPTURE",
+  "notes": [
+    "Logged pregame close for halftime LIVE-FLOW comparison.",
+    "Spread fully aligned across sources at ORL -15.5.",
+    "Total split by 1.0 point across sources.",
+    "Moneyline close clustered in the same range across both sources."
+  ]
+}
