@@ -1,0 +1,121 @@
+{
+  "postmortem_id": "POSTMORTEM_NBA_2026-03-25_DAL_DEN",
+  "sport": "NBA",
+  "game_date": "2026-03-25",
+  "matchup": "DAL @ DEN",
+  "final_score": {
+    "DAL": 135,
+    "DEN": 142
+  },
+  "market_context": {
+    "tracked_legs": [
+      {
+        "player": "P.J. Washington",
+        "team": "DAL",
+        "market": "rebounds",
+        "line": 6.5,
+        "pick": "over",
+        "result": 8,
+        "outcome": "win"
+      },
+      {
+        "player": "Christian Braun",
+        "team": "DEN",
+        "market": "rebounds",
+        "line": 4.5,
+        "pick": "over",
+        "result": 3,
+        "outcome": "loss"
+      }
+    ],
+    "card_result": "split_loss",
+    "diagnostic_focus": "rebound environment and role distribution"
+  },
+  "phase_1_game_phase_analysis": {
+    "summary": "High-scoring competitive environment with efficient offense on both sides. Dallas generated enough misses and minutes volume for frontcourt rebound opportunity, while Denver's offense became heavily concentrated through Jokic and Murray, suppressing secondary rebound share.",
+    "team_rebounds": {
+      "DAL": 42,
+      "DEN": 45
+    },
+    "offensive_rebounds": {
+      "DAL": 10,
+      "DEN": 5
+    },
+    "key_distribution_notes": [
+      "Dallas frontcourt rebound share concentrated heavily through P.J. Washington (15) and Cooper Flagg (8).",
+      "Denver rebound share concentrated overwhelmingly through Nikola Jokic (21), leaving limited spillover for Christian Braun.",
+      "Game stayed competitive enough for starters to log meaningful minutes, so minute loss was not the primary reason for Braun miss."
+    ]
+  },
+  "phase_2_pivotal_moments": {
+    "notes": [
+      "Jokic captured 21 rebounds on 45 Denver team rebounds, an extreme concentration event that consumed the available defensive board pool.",
+      "Aaron Gordon being out increased potential theoretical wing/guard spillover, but Jokic dominance more than offset that opening.",
+      "P.J. Washington benefited from Dallas needing size and glass work throughout a close, high-possession game, clearing 6.5 comfortably with 15 boards."
+    ]
+  },
+  "phase_3_defensive_psychological_variables": {
+    "notes": [
+      "Denver played through its central hub, and Jokic's rebounding floor/ceiling expanded in a no-Gordon setup.",
+      "Dallas maintained rebound access through longer possessions and missed volume, but that access was concentrated among larger bodies rather than guards/wings.",
+      "Braun's role remained active, but his rebound lane access was structurally capped by Jokic's vacuum effect."
+    ]
+  },
+  "phase_4_model_relevance_summary": {
+    "hits": [
+      "P.J. Washington over 6.5 rebounds was correctly identified as a live environment edge.",
+      "Dallas frontcourt opportunity expanded as expected versus Denver in a high-event game."
+    ],
+    "misses": [
+      "Christian Braun over 4.5 rebounds missed because Denver rebound distribution over-concentrated into Jokic.",
+      "Model likely overestimated secondary rebound spillover from Gordon absence."
+    ],
+    "recommended_tags": [
+      "JOKIC_REBOUND_VACUUM_ON",
+      "SECONDARY_REBOUNDER_SUPPRESSION_ON",
+      "PRIMARY_BIG_CONCENTRATION_SPIKE",
+      "EDGE_HIT_PJ_WASHINGTON_OVER",
+      "MISS_REGISTERED_BRAUN_ROLE_CAP"
+    ],
+    "patch_recommendations": [
+      "When Jokic projects for 20+ rebound chances, reduce Denver secondary rebound overs by a suppression factor.",
+      "Do not assume injured frontcourt usage automatically spills to wings if a dominant rebound hub remains active.",
+      "Add a central-rebounder concentration gate for elite rebound monopolizers in short-handed frontcourts."
+    ]
+  },
+  "box_score_highlights": {
+    "DAL": {
+      "P.J. Washington": {
+        "points": 19,
+        "rebounds": 15,
+        "assists": 1
+      },
+      "Cooper Flagg": {
+        "points": 26,
+        "rebounds": 8,
+        "assists": 7
+      }
+    },
+    "DEN": {
+      "Nikola Jokic": {
+        "points": 23,
+        "rebounds": 21,
+        "assists": 19
+      },
+      "Jamal Murray": {
+        "points": 53,
+        "rebounds": 6,
+        "assists": 4
+      },
+      "Christian Braun": {
+        "points": 11,
+        "rebounds": 3,
+        "assists": 4
+      }
+    }
+  },
+  "final_verdict": {
+    "overall": "Mixed result with one strong environmental read and one structural miss.",
+    "confidence_takeaway": "Continue trusting opponent-size and role-based Dallas rebound overs, but tighten Denver secondary rebound overs whenever Jokic remains the dominant glass controller."
+  }
+}
