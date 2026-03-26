@@ -1,0 +1,142 @@
+{
+  "postmortem_id": "POSTMORTEM_NBA_2026-03-25_MIA_CLE",
+  "sport": "NBA",
+  "game_date": "2026-03-25",
+  "matchup": "MIA @ CLE",
+  "final_score": {
+    "MIA": 120,
+    "CLE": 103
+  },
+  "market_context": {
+    "tracked_cards": [
+      {
+        "card_name": "Mobley_Konchar",
+        "legs": [
+          {
+            "player": "Evan Mobley",
+            "team": "CLE",
+            "market": "rebounds",
+            "line": 9.5,
+            "pick": "over",
+            "result": 5,
+            "outcome": "loss"
+          },
+          {
+            "player": "John Konchar",
+            "team": "UTA",
+            "market": "rebounds",
+            "line": 5.5,
+            "pick": "over",
+            "result": 10,
+            "outcome": "win"
+          }
+        ],
+        "card_outcome": "split_loss"
+      },
+      {
+        "card_name": "Adebayo_Coulibaly",
+        "legs": [
+          {
+            "player": "Bam Adebayo",
+            "team": "MIA",
+            "market": "rebounds",
+            "line": 10.5,
+            "pick": "under",
+            "result": 10,
+            "outcome": "win"
+          }
+        ],
+        "card_outcome": "win"
+      }
+    ],
+    "diagnostic_focus": "center rebound hierarchy, bench-big siphon risk, and blowout-induced minute distortion"
+  },
+  "phase_1_game_phase_analysis": {
+    "summary": "Miami controlled the game and won by 17. Cleveland never established a stable interior rebound hierarchy, while Miami split center-board volume between Bam Adebayo and Kel'el Ware. The result punished Mobley over and preserved Bam under by hook.",
+    "team_rebounds": {
+      "MIA": 40,
+      "CLE": 40
+    },
+    "key_distribution_notes": [
+      "Miami rebounding was split between Bam Adebayo (10) and Kel'el Ware (11) with Pelle Larsson adding 5.",
+      "Cleveland boards were fragmented: James Harden 9, Donovan Mitchell 6, Dennis Schroder 6, Thomas Bryant 5, Evan Mobley only 5.",
+      "Mobley did not function as the dominant rebound vacuum despite Jarrett Allen being out."
+    ]
+  },
+  "phase_2_pivotal_moments": {
+    "notes": [
+      "Kel'el Ware posted 11 rebounds in only 20 minutes, immediately capping Bam's ceiling and protecting the Bam under.",
+      "Cleveland's backcourt rebound share surged, especially via Harden (9) and Donovan Mitchell (6), removing the expected Mobley concentration.",
+      "Miami's efficiency and control reduced the kind of chaotic extended miss environment Mobley needed to reach double digits."
+    ]
+  },
+  "phase_3_defensive_psychological_variables": {
+    "notes": [
+      "Bam's role remained strong, but Ware's bench presence created same-team center competition.",
+      "Mobley was active defensively but did not convert that into rebound capture due to shared team distribution and game flow loss.",
+      "Cleveland trailed for long stretches and had to play through scoring response sequences instead of channeling every possession through Mobley on the glass."
+    ]
+  },
+  "phase_4_model_relevance_summary": {
+    "hits": [
+      "Bam Adebayo under 10.5 rebounds was correct and won by hook.",
+      "Bench big siphon risk on Bam was real and should remain an active under modifier when Ware is involved."
+    ],
+    "misses": [
+      "Evan Mobley over 9.5 rebounds failed badly, finishing with only 5.",
+      "Model appears to have over-assumed Jarrett Allen's absence would automatically consolidate rebounds to Mobley."
+    ],
+    "recommended_tags": [
+      "WARE_CENTER_SPLIT_ON",
+      "MOBLEY_FALSE_CONSOLIDATION_ALERT",
+      "BACKCOURT_REBOUND_DRAIN_ACTIVE",
+      "EDGE_HIT_BAM_UNDER",
+      "MISS_REGISTERED_MOBLEY_OVER"
+    ],
+    "patch_recommendations": [
+      "Do not auto-upgrade Mobley rebound overs solely off Jarrett Allen absence without validating actual rebound concentration pattern.",
+      "Apply a bench-big siphon modifier when Miami uses Kel'el Ware in a live rebounding role.",
+      "Downgrade center overs in games where opponent wing and guard rebound share are elevated enough to flatten positional board capture."
+    ]
+  },
+  "box_score_highlights": {
+    "MIA": {
+      "Bam Adebayo": {
+        "points": 17,
+        "rebounds": 10,
+        "assists": 7
+      },
+      "Kel'el Ware": {
+        "points": 13,
+        "rebounds": 11,
+        "assists": 4
+      },
+      "Pelle Larsson": {
+        "points": 14,
+        "rebounds": 5,
+        "assists": 2
+      }
+    },
+    "CLE": {
+      "Evan Mobley": {
+        "points": 8,
+        "rebounds": 5,
+        "assists": 4
+      },
+      "James Harden": {
+        "points": 18,
+        "rebounds": 9,
+        "assists": 7
+      },
+      "Donovan Mitchell": {
+        "points": 28,
+        "rebounds": 6,
+        "assists": 4
+      }
+    }
+  },
+  "final_verdict": {
+    "overall": "Correct read on Bam under, incorrect consolidation assumption on Mobley over.",
+    "confidence_takeaway": "Absence-based center boosts need stricter validation. If the rebound ecosystem remains distributed or guard-heavy, avoid force-playing the center over."
+  }
+}
