@@ -170,12 +170,12 @@
           "gameDate": "2026-03-27T23:10:00Z",
           "officialDate": "2026-03-27",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -413,6 +413,7 @@
                 "losses": 0,
                 "pct": "1.000"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 1
             },
@@ -427,6 +428,7 @@
                 "losses": 1,
                 "pct": ".000"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 1
             }
