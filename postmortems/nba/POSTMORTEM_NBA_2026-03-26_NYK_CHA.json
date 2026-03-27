@@ -1,0 +1,119 @@
+{
+  "postmortem_id": "POSTMORTEM_NBA_2026-03-26_NYK_CHA",
+  "sport": "NBA",
+  "game_date": "2026-03-26",
+  "matchup": "NYK @ CHA",
+  "final_score": {
+    "NYK": 103,
+    "CHA": 114
+  },
+  "market_context": {
+    "tracked_legs": [
+      {
+        "player": "Miles Bridges",
+        "team": "CHA",
+        "market": "rebounds",
+        "line": 4.5,
+        "pick": "over",
+        "result": 5,
+        "outcome": "win"
+      },
+      {
+        "player": "Josh Hart",
+        "team": "NYK",
+        "market": "rebounds",
+        "line": 6.5,
+        "pick": "over",
+        "result": 7,
+        "outcome": "win"
+      }
+    ],
+    "card_result": "win",
+    "diagnostic_focus": "wing-forward rebound environment and team glass imbalance"
+  },
+  "phase_1_game_phase_analysis": {
+    "summary": "Charlotte controlled the glass from start to finish and finished plus-19 on rebounds, creating a strong wing-forward board environment. New York failed to generate normal center-level rebound volume, which pushed more rebound access toward Josh Hart, while Charlotte's length and activity created enough total miss volume for Miles Bridges to clear his small number cleanly.",
+    "team_rebounds": {
+      "NYK": 24,
+      "CHA": 43
+    },
+    "offensive_rebounds": {
+      "NYK": 5,
+      "CHA": 12
+    },
+    "key_distribution_notes": [
+      "Charlotte rebound share was spread across Knueppel (11), Brandon Miller (8), LaMelo Ball (5), Miles Bridges (5), Diabate (5), and Kalkbrenner (4).",
+      "Karl-Anthony Towns was held to just 3 rebounds in 22 minutes, materially shifting New York's usable rebound share outward.",
+      "Josh Hart again functioned as a cleanup rebounder and led the Knicks with 7 boards in 39 minutes."
+    ]
+  },
+  "phase_2_pivotal_moments": {
+    "notes": [
+      "Charlotte's plus-7 offensive rebounding edge and plus-19 total rebounding edge drove the environment we wanted to attack.",
+      "Knueppel's unexpected 11 rebounds amplified Charlotte's team-glass dominance and validated the broad rebound availability on the Hornets side.",
+      "Towns' suppressed minutes and rebound total reduced competition for Hart's board path, allowing Hart to get there despite the Knicks losing badly on the glass overall."
+    ]
+  },
+  "phase_3_defensive_psychological_variables": {
+    "notes": [
+      "Charlotte played with more energy and won the possession battle through second chances and cleaner defensive rebounding.",
+      "New York's frontcourt stability was weaker than expected in practice, forcing Hart into a familiar high-activity support role on the glass.",
+      "Miles Bridges did not need a spike game; the line was simply low enough for his normal role to clear in a positive team rebounding environment."
+    ]
+  },
+  "phase_4_model_relevance_summary": {
+    "hits": [
+      "Miles Bridges over 4.5 rebounds was correctly priced as a modest but live wing-forward edge.",
+      "Josh Hart over 6.5 rebounds remained viable because his role insulates him from center volatility on the Knicks side.",
+      "Hornets-vs-Knicks matchup correctly flagged as a favorable rebound environment for secondary rebounders."
+    ],
+    "misses": [],
+    "recommended_tags": [
+      "EDGE_HIT_MILES_BRIDGES_OVER",
+      "EDGE_HIT_JOSH_HART_OVER",
+      "CENTER_REBOUND_FAILURE_NYK",
+      "WING_REBOUND_SPILLOVER_ON",
+      "HORNETS_GLASS_CONTROL_ON"
+    ],
+    "patch_recommendations": [
+      "Keep Hart protected by role-based rebound stability when Towns/Robinson minute or rebound concentration looks fragile.",
+      "Continue targeting low wing-forward lines in Charlotte games when team rebound distribution is broad rather than center-locked.",
+      "Add a team-glass imbalance trigger when one side projects to win the rebound battle by 8+ and the market prices secondary players too conservatively."
+    ]
+  },
+  "box_score_highlights": {
+    "NYK": {
+      "Josh Hart": {
+        "points": 16,
+        "rebounds": 7,
+        "assists": 4
+      },
+      "Karl-Anthony Towns": {
+        "points": 13,
+        "rebounds": 3,
+        "assists": 2
+      }
+    },
+    "CHA": {
+      "Miles Bridges": {
+        "points": 17,
+        "rebounds": 5,
+        "assists": 3
+      },
+      "Brandon Miller": {
+        "points": 21,
+        "rebounds": 8,
+        "assists": 3
+      },
+      "Kon Knueppel": {
+        "points": 26,
+        "rebounds": 11,
+        "assists": 8
+      }
+    }
+  },
+  "final_verdict": {
+    "overall": "Clean two-leg rebound card win driven by correct environment read and proper role weighting.",
+    "confidence_takeaway": "Trust wing-forward rebound overs more aggressively when Charlotte's distributed glass profile meets a Knicks setup where Hart can inherit cleanup work from unstable center production."
+  }
+}
