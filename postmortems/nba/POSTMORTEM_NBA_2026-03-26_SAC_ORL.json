@@ -1,0 +1,123 @@
+{
+  "postmortem_id": "POSTMORTEM_NBA_2026-03-26_SAC_ORL",
+  "sport": "NBA",
+  "game_date": "2026-03-26",
+  "matchup": "SAC @ ORL",
+  "final_score": {
+    "SAC": 117,
+    "ORL": 121
+  },
+  "market_context": {
+    "tracked_legs": [
+      {
+        "player": "Wendell Carter Jr.",
+        "team": "ORL",
+        "market": "rebounds",
+        "line": 11.5,
+        "pick": "over",
+        "result": 11,
+        "outcome": "loss"
+      },
+      {
+        "player": "Maxime Raynaud",
+        "team": "SAC",
+        "market": "rebounds",
+        "line": 8.5,
+        "pick": "over",
+        "result": 7,
+        "outcome": "loss"
+      }
+    ],
+    "card_result": "double_loss",
+    "diagnostic_focus": "live-flow rebound continuation versus closing market efficiency"
+  },
+  "phase_1_game_phase_analysis": {
+    "summary": "The rebound environment finished nearly neutral at team level, which was the core reason the live-flow continuation failed. Orlando won the game, but not the glass in dominant fashion, while Sacramento's frontcourt rebound share fragmented between Achiuwa, Raynaud, DeRozan and bench support instead of concentrating into Raynaud.",
+    "team_rebounds": {
+      "SAC": 35,
+      "ORL": 36
+    },
+    "offensive_rebounds": {
+      "SAC": 9,
+      "ORL": 7
+    },
+    "key_distribution_notes": [
+      "Sacramento rebound share spread across Achiuwa (9), Raynaud (7), DeRozan (6), Cardwell (5), and DeRozan's unusually strong support role on the glass.",
+      "Orlando rebound share spread across Carter Jr. (11), Banchero (9), Cain (5), Suggs (4), and bench support rather than continuing to funnel exclusively through Carter.",
+      "At halftime Carter had 8 and Raynaud had 5, but second-half continuation rate was not strong enough to clear elevated live numbers."
+    ]
+  },
+  "phase_2_pivotal_moments": {
+    "notes": [
+      "The live-flow entry came after a hot first-half rebound pace, but the market had already moved to reflect that acceleration.",
+      "Wendell Carter Jr. landed exactly one short at 11 on an 11.5 live number, showing how thin the edge became after halftime repricing.",
+      "Maxime Raynaud finished at 7 because Sacramento's second-half rebound access redistributed toward Achiuwa and ancillary pieces instead of consolidating through him."
+    ]
+  },
+  "phase_3_defensive_psychological_variables": {
+    "notes": [
+      "This was not a failed effort game; it was a distribution problem and a pricing problem.",
+      "Orlando did not need Carter to monopolize the glass because Banchero and secondary wings helped finish possessions.",
+      "Sacramento stayed competitive enough that multiple players remained involved, but that same competitiveness diluted Raynaud's rebound ceiling rather than raising it."
+    ]
+  },
+  "phase_4_model_relevance_summary": {
+    "hits": [
+      "First-half rebound activity correctly identified both players as being live inside the environment.",
+      "Carter's closing market support was real; he still finished with 11 and remained near the threshold."
+    ],
+    "misses": [
+      "Live-flow continuation on Carter over 11.5 was too aggressive once the market had already fully repriced the first-half pace.",
+      "Raynaud over 8.5 overstated his second-half consolidation probability in a shared Sacramento frontcourt environment.",
+      "The card failed because the live number, not the raw player activity, became the dominant variable."
+    ],
+    "recommended_tags": [
+      "LIVEFLOW_HOOK_BURN_WCJ",
+      "LIVEFLOW_REPRICE_TRAP_ON",
+      "RAYNAUD_SHARE_DILUTION_ON",
+      "HALFTIME_EDGE_EROSION_ON",
+      "CLOSING_MARKET_EFFICIENCY_CONFIRMED"
+    ],
+    "patch_recommendations": [
+      "When a live rebound number has already moved 1.5 to 2.0 boards from pregame expectation, require stronger consolidation evidence before firing the over.",
+      "Penalize live rebound overs when the player's team shows multi-body glass distribution rather than a single rebound hub.",
+      "Add a halftime continuation filter that distinguishes first-half pace from second-half role certainty.",
+      "Respect sharp closing market confirmation as a warning sign when the live number is now materially worse than the best pregame line."
+    ]
+  },
+  "box_score_highlights": {
+    "SAC": {
+      "Precious Achiuwa": {
+        "points": 14,
+        "rebounds": 9,
+        "assists": 2
+      },
+      "Maxime Raynaud": {
+        "points": 10,
+        "rebounds": 7,
+        "assists": 3
+      },
+      "DeMar DeRozan": {
+        "points": 33,
+        "rebounds": 6,
+        "assists": 11
+      }
+    },
+    "ORL": {
+      "Wendell Carter Jr.": {
+        "points": 10,
+        "rebounds": 11,
+        "assists": 0
+      },
+      "Paolo Banchero": {
+        "points": 30,
+        "rebounds": 9,
+        "assists": 7
+      }
+    }
+  },
+  "final_verdict": {
+    "overall": "Clear live-flow pricing loss rather than a completely wrong environment read.",
+    "confidence_takeaway": "The lesson is not to abandon first-half rebound detection. The lesson is to stop paying inflated halftime prices unless the rebound share is truly monopolized and unlikely to diffuse in the second half."
+  }
+}
