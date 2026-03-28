@@ -3,14 +3,14 @@
   "totalItems": 15,
   "totalEvents": 0,
   "totalGames": 15,
-  "totalGamesInProgress": 2,
+  "totalGamesInProgress": 3,
   "dates": [
     {
       "date": "2026-03-28",
       "totalItems": 15,
       "totalEvents": 0,
       "totalGames": 15,
-      "totalGamesInProgress": 2,
+      "totalGamesInProgress": 3,
       "games": [
         {
           "gamePk": 823082,
@@ -114,7 +114,7 @@
                 "losses": 0,
                 "pct": "1.000"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 1
             },
@@ -129,7 +129,7 @@
                 "losses": 1,
                 "pct": ".000"
               },
-              "score": 1,
+              "score": 4,
               "splitSquad": false,
               "seriesNumber": 1
             }
@@ -170,9 +170,9 @@
           "officialDate": "2026-03-28",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "P",
-            "detailedState": "Warmup",
-            "statusCode": "PW",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
             "abstractGameCode": "L"
           },
@@ -614,9 +614,9 @@
           "officialDate": "2026-03-28",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -632,6 +632,7 @@
                 "losses": 0,
                 "pct": "1.000"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 1
             },
@@ -646,6 +647,7 @@
                 "losses": 2,
                 "pct": ".000"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 1
             }
@@ -686,9 +688,9 @@
           "officialDate": "2026-03-28",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
