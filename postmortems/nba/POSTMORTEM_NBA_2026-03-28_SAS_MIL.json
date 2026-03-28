@@ -1,0 +1,80 @@
+{
+  "file_type": "nba_postmortem",
+  "date": "2026-03-28",
+  "game": {
+    "away_team": "SAS",
+    "home_team": "MIL",
+    "final_score": {
+      "SAS": 127,
+      "MIL": 95
+    }
+  },
+  "market_context": {
+    "pregame_spread": "SAS -18.5",
+    "liveflow_spread_entry": "SAS -27.5",
+    "liveflow_rebound_card": [
+      {
+        "player": "Victor Wembanyama",
+        "market": "rebounds",
+        "line": 7.5,
+        "pick": "over",
+        "result": 13,
+        "outcome": "win"
+      },
+      {
+        "player": "Pete Nance",
+        "market": "rebounds",
+        "line": 5.5,
+        "pick": "over",
+        "result": 5,
+        "outcome": "loss"
+      }
+    ]
+  },
+  "postmortem": {
+    "summary": "LiveFlow rebound card finished 1-1. Wembanyama cleared comfortably and validated the big-board environment. Nance missed by one rebound in a diluted Bucks rebound distribution during a blowout loss.",
+    "winning_leg_analysis": {
+      "player": "Victor Wembanyama",
+      "reasoning": [
+        "Stable primary rebound anchor",
+        "Strong rebound environment",
+        "Cleared despite blowout conditions",
+        "31 minutes was sufficient to crush the number"
+      ],
+      "tags": [
+        "HIT_REGISTERED",
+        "EDGE_CALL_ACTIVE",
+        "BIG_BOARD_VALIDATION"
+      ]
+    },
+    "losing_leg_analysis": {
+      "player": "Pete Nance",
+      "reasoning": [
+        "Hook miss at 5 rebounds on a 5.5 line",
+        "Minutes were sufficient but rebound share was diluted",
+        "Turner, Dieng, and Sims absorbed too much of the available board volume",
+        "Blowout distribution widened secondary rebound outcomes"
+      ],
+      "tags": [
+        "MISS_REGISTERED",
+        "HOOK_BURN",
+        "SPILLOVER_DILUTION",
+        "BLOWOUT_DISTRIBUTION_RISK"
+      ]
+    },
+    "team_rebound_distribution": {
+      "SAS_total_rebounds": 41,
+      "MIL_total_rebounds": 37,
+      "notable_players": {
+        "Victor Wembanyama": 13,
+        "Stephon Castle": 10,
+        "Pete Nance": 5,
+        "Myles Turner": 6,
+        "Ousmane Dieng": 6,
+        "Jericho Sims": 10
+      }
+    },
+    "model_takeaway": "Secondary rebound overs on weak underdogs should be downgraded when rebound share is not tightly consolidated. Primary rebound anchors remain strongest in big-board environments, even in blowouts.",
+    "suggested_new_rule": "Apply a secondary rebound dilution penalty when underdog frontcourt rebound share projects across three or more players with credible board access."
+  }
+}
