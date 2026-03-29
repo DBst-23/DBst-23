@@ -1,0 +1,50 @@
+{
+  "postmortem_id": "POSTMORTEM_NBA_2026-03-28_CHI_MEM_REBOUND_AUDIT",
+  "sport": "NBA",
+  "game_date": "2026-03-28",
+  "matchup": "CHI @ MEM",
+  "final_score": {
+    "CHI": 124,
+    "MEM": 125
+  },
+  "bets_logged": [
+    {
+      "market": "Rebounds",
+      "selection": "Josh Giddey over 9.5",
+      "result": "win",
+      "actual": 13,
+      "tag": "ANCHOR"
+    },
+    {
+      "market": "Rebounds",
+      "selection": "Rayan Rupert over 4.5",
+      "result": "loss",
+      "actual": 4,
+      "tag": "STRONG_SECONDARY"
+    }
+  ],
+  "model_performance": {
+    "wins": 1,
+    "losses": 1,
+    "accuracy": 0.5,
+    "grade": "B-"
+  },
+  "team_rebound_totals": {
+    "CHI": 53,
+    "MEM": 37,
+    "CHI_oreb": 10,
+    "MEM_oreb": 10
+  },
+  "takeaways": [
+    "Giddey remained the cleanest board magnet and cleared with room.",
+    "Rupert was correctly identified as live, but finished one rebound short of the number.",
+    "The ON/OFF tool was strongest on primary usage and role-stable rebound anchors, but weaker on thinner secondary wing rebound lifts.",
+    "This matchup supports separating anchor-grade board funnels from lower-confidence spillover wing candidates."
+  ],
+  "diagnostic_tags": [
+    "ANCHOR_HIT",
+    "SECONDARY_HOOK_LOSS",
+    "ON_OFF_PRIMARY_SIGNAL_STRONG",
+    "WING_REBOUND_LIFT_VOLATILE"
+  ]
+}
