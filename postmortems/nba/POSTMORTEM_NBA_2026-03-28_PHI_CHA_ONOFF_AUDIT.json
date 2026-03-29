@@ -1,0 +1,105 @@
+{
+  "postmortem_id": "POSTMORTEM_NBA_2026-03-28_PHI_CHA_ONOFF_AUDIT",
+  "sport": "NBA",
+  "game_date": "2026-03-28",
+  "matchup": "PHI @ CHA",
+  "final_score": {
+    "PHI": 118,
+    "CHA": 114
+  },
+  "bets_logged": [
+    {
+      "market": "Spread",
+      "selection": "CHA -8.5 live",
+      "result": "loss",
+      "tag": "TRAP"
+    },
+    {
+      "market": "Rebounds",
+      "selection": "Joel Embiid over 7.5",
+      "result": "loss",
+      "actual": 6,
+      "tag": "TRAP"
+    },
+    {
+      "market": "Rebounds",
+      "selection": "Kon Knueppel under 8.5",
+      "result": "loss",
+      "actual": 11,
+      "tag": "TRAP"
+    },
+    {
+      "market": "Rebounds",
+      "selection": "Kon Knueppel under 4.5",
+      "result": "loss",
+      "actual": 11,
+      "tag": "TRAP"
+    },
+    {
+      "market": "Rebounds",
+      "selection": "Joel Embiid over 6.5",
+      "result": "loss",
+      "actual": 6,
+      "tag": "TRAP"
+    },
+    {
+      "market": "Rebounds",
+      "selection": "Brandon Miller over 5.5",
+      "result": "win",
+      "actual": 8,
+      "tag": "ANCHOR"
+    }
+  ],
+  "team_rebound_totals": {
+    "PHI": 41,
+    "CHA": 53,
+    "PHI_oreb": 7,
+    "CHA_oreb": 21
+  },
+  "halftime_context": {
+    "score": {
+      "PHI": 64,
+      "CHA": 69
+    },
+    "rebound_edge": "CHA led 23-15 at half and held structural OREB advantage throughout"
+  },
+  "on_off_tool_audit": {
+    "summary": "ON/OFF tool misidentified Knueppel and Embiid rebound paths, but correctly supported Miller as the cleaner rebound-over profile.",
+    "hits": [
+      "Brandon Miller over 5.5 rebounds cashed with 8"
+    ],
+    "misses": [
+      "Knueppel rebound under was invalidated by role/minute stability plus game-long board volume",
+      "Embiid over failed despite scoring role because rebound share was siphoned by Paul George and Maxey on long-miss environment",
+      "Live CHA -8.5 failed because Philadelphia shotmaking variance flipped the game despite CHA rebound dominance"
+    ]
+  },
+  "diagnostic_flags": [
+    "LONG_MISS_WING_REBOUND_SPIKE",
+    "CENTER_USAGE_NOT_EQUAL_REBOUND_FLOOR",
+    "OREB_ENVIRONMENT_FAVORED_CHA_BUT_DID_NOT GUARANTEE_SPREAD_HOLD",
+    "KNUEPPEL_ROLE_STABILITY_OVERRIDE_NEEDED"
+  ],
+  "confidence_ladder_review": {
+    "anchor": [
+      "Brandon Miller over 5.5 rebounds"
+    ],
+    "strong_secondary": [],
+    "spillover": [],
+    "trap": [
+      "Joel Embiid rebound overs",
+      "Kon Knueppel rebound unders",
+      "CHA -8.5 live"
+    ]
+  },
+  "patch_recommendations": [
+    "Add wing-long-miss rebound escalation when opponent launches 50+ threes or game projects high perimeter volume",
+    "Downgrade center rebound overs when co-star forwards/guards show elevated glass share and offense is pull-up heavy",
+    "Add live spread caution when team owns rebound edge but opponent shooting efficiency remains elite"
+  ],
+  "model_grade": {
+    "wins": 1,
+    "losses": 5,
+    "summary": "Poor read overall; only Miller rebound over held. ON/OFF signal required stronger separation between true anchor and false-trap reads."
+  }
+}
