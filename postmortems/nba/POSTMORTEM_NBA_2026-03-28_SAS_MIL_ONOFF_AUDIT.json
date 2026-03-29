@@ -1,0 +1,108 @@
+{
+  "postmortem_id": "POSTMORTEM_NBA_2026-03-28_SAS_MIL_ONOFF_AUDIT",
+  "sport": "NBA",
+  "game_date": "2026-03-28",
+  "matchup": {
+    "away_team": "San Antonio Spurs",
+    "home_team": "Milwaukee Bucks",
+    "final_score": {
+      "Spurs": 127,
+      "Bucks": 95
+    }
+  },
+  "tracked_bets": [
+    {
+      "market": "Live Spread",
+      "selection": "Spurs -27.5",
+      "result": "WIN",
+      "confidence_tag": "LIVEFLOW_GAMELINE_EDGE"
+    },
+    {
+      "market": "Rebounds",
+      "selection": "Victor Wembanyama Over 7.5",
+      "result": "WIN",
+      "actual": 13,
+      "tag": "ANCHOR"
+    },
+    {
+      "market": "Rebounds",
+      "selection": "Pete Nance Over 5.5",
+      "result": "LOSS",
+      "actual": 5,
+      "tag": "SPILLOVER"
+    }
+  ],
+  "team_box_score_summary": {
+    "Spurs": {
+      "points": 127,
+      "rebounds": 41,
+      "offensive_rebounds": 9,
+      "assists": 35,
+      "turnovers": 11,
+      "fg": "49-89",
+      "three_pt": "14-35",
+      "ft": "15-20"
+    },
+    "Bucks": {
+      "points": 95,
+      "rebounds": 37,
+      "offensive_rebounds": 9,
+      "assists": 22,
+      "turnovers": 18,
+      "fg": "38-87",
+      "three_pt": "14-46",
+      "ft": "5-6"
+    }
+  },
+  "player_outcome_notes": {
+    "Victor Wembanyama": {
+      "minutes": 31,
+      "rebounds": 15,
+      "offensive_rebounds": 4,
+      "assessment": "Clear anchor hit. Elite board access held throughout, role remained concentrated, and blowout did not damage the rebound path enough to matter."
+    },
+    "Pete Nance": {
+      "minutes": 30,
+      "rebounds": 5,
+      "offensive_rebounds": 1,
+      "assessment": "Directional read was close but failed by hook. Board share diluted across Turner, Dieng, and especially Sims, who finished with 10 rebounds in 22 minutes."
+    }
+  },
+  "phase_analysis": {
+    "phase_1": "San Antonio seized control early and built a 22-point halftime lead. Live spread inflation still remained exploitable because Milwaukee's offensive structure deteriorated rather than stabilizing.",
+    "phase_2": "The Spurs' stars and primary creators continued to generate efficient offense while Milwaukee's starters failed to recover possession control or half-court efficiency.",
+    "phase_3": "Milwaukee's rebound economy widened in the non-anchor tier. Nance remained involved but did not dominate enough secondary boards to clear 5.5.",
+    "phase_4": "Blowout script favored the true anchor on the strong team and hurt the fragile secondary big on the trailing side."
+  },
+  "on_off_tool_audit": {
+    "summary": "The ON/OFF tool added strong value for identifying Wembanyama as an anchor play. It provided only partial value on Nance because the rebound environment was not fully consolidated.",
+    "anchor_validation": [
+      "Wembanyama remained the primary rebound hub and cleared comfortably.",
+      "The tool correctly highlighted concentrated board access on the Spurs side."
+    ],
+    "failure_flags": [
+      "Secondary rebound dilution was underestimated on Milwaukee.",
+      "Jericho Sims' rebound share created hidden competition.",
+      "Trailing underdog frontcourt overs require stronger dilution penalties when 3+ viable rebounders are active."
+    ]
+  },
+  "model_verdict": {
+    "gameline": "PASS WITH LIVEFLOW SUCCESS",
+    "rebound_anchor_reads": "STRONG",
+    "rebound_secondary_reads": "MIXED",
+    "overall_grade": "B+"
+  },
+  "patch_recommendations": [
+    "Add SECONDARY_BIG_DILUTION_PENALTY when underdog frontcourt contains 3+ viable rebounders.",
+    "Increase SPILLOVER hook-risk warning when projection edge is under 1.0 rebound from line.",
+    "Prioritize anchor-class overs over secondary-big overs in blowout-prone environments."
+  ],
+  "tags": [
+    "NBA_POSTMORTEM",
+    "ONOFF_AUDIT",
+    "ANCHOR_HIT",
+    "SPILLOVER_HOOK_MISS",
+    "LIVEFLOW_GAMELINE_WIN",
+    "SECONDARY_BIG_DILUTION"
+  ]
+}
