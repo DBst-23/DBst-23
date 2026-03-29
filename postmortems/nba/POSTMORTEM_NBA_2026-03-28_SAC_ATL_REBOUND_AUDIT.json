@@ -1,0 +1,50 @@
+{
+  "postmortem_id": "POSTMORTEM_NBA_2026-03-28_SAC_ATL_REBOUND_AUDIT",
+  "sport": "NBA",
+  "game_date": "2026-03-28",
+  "matchup": "SAC @ ATL",
+  "final_score": {
+    "SAC": 113,
+    "ATL": 123
+  },
+  "bets_logged": [
+    {
+      "market": "Rebounds",
+      "selection": "Jock Landale over 10.5",
+      "result": "win",
+      "actual": 13,
+      "tag": "ANCHOR"
+    },
+    {
+      "market": "Rebounds",
+      "selection": "Maxime Raynaud over 7.5",
+      "result": "win",
+      "actual": 10,
+      "tag": "ANCHOR"
+    }
+  ],
+  "model_performance": {
+    "wins": 2,
+    "losses": 0,
+    "accuracy": 1.0,
+    "grade": "A"
+  },
+  "team_rebound_totals": {
+    "SAC": 42,
+    "ATL": 40,
+    "SAC_oreb": 16,
+    "ATL_oreb": 13
+  },
+  "takeaways": [
+    "Dual starting big environment stayed intact from live read through final.",
+    "Landale remained a stable rebound anchor and cleared comfortably.",
+    "Raynaud maintained enough minutes and board access to clear his live line.",
+    "ON/OFF rebound workflow correctly identified the strongest interior rebound pathways."
+  ],
+  "diagnostic_tags": [
+    "ANCHOR_HIT",
+    "DUAL_BIG_ENVIRONMENT_CONFIRMED",
+    "ON_OFF_ALIGNMENT_SUCCESS",
+    "STARTER_BIG_MINUTES_HELD"
+  ]
+}
