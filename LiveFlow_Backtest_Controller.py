@@ -8,6 +8,8 @@ import uuid
 from datetime import datetime
 from typing import Any, Dict, List, Optional, Tuple
 
+from modules.live_edge_system_v1 import LiveEdgeCandidate, scan_live_edges
+
 BANNER = """
 ====================================================
  SharpEdge LiveFlow + Backtest Controller (v1.0)
@@ -236,14 +238,46 @@ def run_controller(
             ecopy["game_id"] = game_id
             aggregate_edges.append(ecopy)
 
+    # --------- Live Edge Scan (INSERTED HERE) --------- #
+    current_time = timestamp()
+    live_candidates: List[LiveEdgeCandidate] = []
+
+    for edge in aggregate_edges:
+        line = edge.get("line")
+        if line is None:
+            continue
+
+        model_line = edge.get("median_projection", edge.get("model_line", line))
+        win_probability = edge.get("win_probability", 0.50)
+        score = edge.get("score", 50.0)
+
+        candidate = LiveEdgeCandidate(
+            player=edge.get("player", "UNKNOWN"),
+            stat=edge.get("stat", edge.get("market", "UNKNOWN")),
+            market=edge.get("market", "UNKNOWN"),
+            game=edge.get("game_id", "UNKNOWN"),
+            side=edge.get("side", "OVER"),
+            line=float(line),
+            model_line=float(model_line),
+            win_probability=float(win_probability),
+            score=float(score),
+            market_timestamp=current_time,
+            book=edge.get("book", "FLIFF")
+        )
+        live_candidates.append(candidate)
+
+    live_results = scan_live_edges(live_candidates)
+
     # Aggregate summary (NOTE: this is OUTSIDE the loop)
     agg_path = os.path.join(day_folder, f"{date_str}_{mode}_AGGREGATE.json")
     save_json(agg_path, {
         "summary": summary,
-        "aggregate_edges": aggregate_edges
+        "aggregate_edges": aggregate_edges,
+        "live_edge_scan": live_results
     })
 
     print(f"[OK] Results written to: {day_folder}")
+    print(f"[LIVE EDGE] Actionable edges: {live_results['actionable_count']}")
     if bad:
         print(f"[WARN] Invalid rows logged: {os.path.join(log_dir, f'{date_str}_{mode}_invalid_rows.json')}")
 
@@ -251,7 +285,8 @@ def run_controller(
         "output_dir": day_folder,
         "aggregate_file": agg_path,
         "invalid_file": os.path.join(log_dir, f"{date_str}_{mode}_invalid_rows.json") if bad else None,
-        "summary": summary
+        "summary": summary,
+        "live_edge_scan": live_results
     }
 
 # --------- CLI --------- #
