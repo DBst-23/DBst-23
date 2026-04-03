@@ -3,14 +3,14 @@
   "totalItems": 15,
   "totalEvents": 0,
   "totalGames": 15,
-  "totalGamesInProgress": 3,
+  "totalGamesInProgress": 4,
   "dates": [
     {
       "date": "2026-04-03",
       "totalItems": 15,
       "totalEvents": 0,
       "totalGames": 15,
-      "totalGamesInProgress": 3,
+      "totalGamesInProgress": 4,
       "games": [
         {
           "gamePk": 822758,
@@ -40,7 +40,7 @@
                 "losses": 2,
                 "pct": ".667"
               },
-              "score": 3,
+              "score": 7,
               "splitSquad": false,
               "seriesNumber": 3
             },
@@ -55,7 +55,7 @@
                 "losses": 3,
                 "pct": ".500"
               },
-              "score": 3,
+              "score": 4,
               "splitSquad": false,
               "seriesNumber": 3
             }
@@ -190,7 +190,7 @@
                 "losses": 1,
                 "pct": ".833"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 3
             },
@@ -205,7 +205,7 @@
                 "losses": 1,
                 "pct": ".833"
               },
-              "score": 0,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 3
             }
@@ -248,9 +248,10 @@
           "status": {
             "abstractGameState": "Preview",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Delayed Start",
+            "statusCode": "PY",
             "startTimeTBD": false,
+            "reason": "Ceremony",
             "abstractGameCode": "P"
           },
           "teams": {
@@ -324,9 +325,9 @@
           "rescheduledFromDate": "2026-04-02",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "P",
-            "detailedState": "Warmup",
-            "statusCode": "PW",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
             "abstractGameCode": "L"
           },
