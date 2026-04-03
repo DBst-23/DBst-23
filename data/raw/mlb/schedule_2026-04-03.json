@@ -3,14 +3,14 @@
   "totalItems": 15,
   "totalEvents": 0,
   "totalGames": 15,
-  "totalGamesInProgress": 4,
+  "totalGamesInProgress": 5,
   "dates": [
     {
       "date": "2026-04-03",
       "totalItems": 15,
       "totalEvents": 0,
       "totalGames": 15,
-      "totalGamesInProgress": 4,
+      "totalGamesInProgress": 5,
       "games": [
         {
           "gamePk": 822758,
@@ -40,7 +40,7 @@
                 "losses": 2,
                 "pct": ".667"
               },
-              "score": 7,
+              "score": 11,
               "splitSquad": false,
               "seriesNumber": 3
             },
@@ -130,7 +130,7 @@
                 "losses": 4,
                 "pct": ".333"
               },
-              "score": 0,
+              "score": 3,
               "splitSquad": false,
               "seriesNumber": 3
             }
@@ -205,7 +205,7 @@
                 "losses": 1,
                 "pct": ".833"
               },
-              "score": 2,
+              "score": 4,
               "splitSquad": false,
               "seriesNumber": 3
             }
@@ -246,13 +246,12 @@
           "gameDate": "2026-04-03T18:10:00Z",
           "officialDate": "2026-04-03",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Delayed Start",
-            "statusCode": "PY",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "reason": "Ceremony",
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -343,7 +342,7 @@
                 "losses": 2,
                 "pct": ".667"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 3
             },
@@ -358,7 +357,7 @@
                 "losses": 5,
                 "pct": ".167"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 3
             }
