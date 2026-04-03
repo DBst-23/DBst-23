@@ -55,7 +55,7 @@
                 "losses": 3,
                 "pct": ".500"
               },
-              "score": 4,
+              "score": 6,
               "splitSquad": false,
               "seriesNumber": 3
             }
@@ -205,7 +205,7 @@
                 "losses": 1,
                 "pct": ".833"
               },
-              "score": 4,
+              "score": 5,
               "splitSquad": false,
               "seriesNumber": 3
             }
@@ -265,7 +265,7 @@
                 "losses": 4,
                 "pct": ".333"
               },
-              "score": 0,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 3
             },
@@ -280,7 +280,7 @@
                 "losses": 5,
                 "pct": ".167"
               },
-              "score": 1,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 3
             }
@@ -398,12 +398,12 @@
           "gameDate": "2026-04-03T20:05:00Z",
           "officialDate": "2026-04-03",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -473,12 +473,12 @@
           "gameDate": "2026-04-03T20:10:00Z",
           "officialDate": "2026-04-03",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -550,9 +550,10 @@
           "status": {
             "abstractGameState": "Preview",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Delayed Start",
+            "statusCode": "PP",
             "startTimeTBD": false,
+            "reason": "Power",
             "abstractGameCode": "P"
           },
           "teams": {
@@ -623,12 +624,12 @@
           "gameDate": "2026-04-03T20:10:00Z",
           "officialDate": "2026-04-03",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -774,9 +775,9 @@
           "officialDate": "2026-04-03",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
