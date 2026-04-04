@@ -3,14 +3,14 @@
   "totalItems": 16,
   "totalEvents": 0,
   "totalGames": 16,
-  "totalGamesInProgress": 5,
+  "totalGamesInProgress": 4,
   "dates": [
     {
       "date": "2026-04-04",
       "totalItems": 16,
       "totalEvents": 0,
       "totalGames": 16,
-      "totalGamesInProgress": 5,
+      "totalGamesInProgress": 4,
       "games": [
         {
           "gamePk": 824295,
@@ -100,9 +100,9 @@
           "officialDate": "2026-04-04",
           "status": {
             "abstractGameState": "Final",
-            "codedGameState": "O",
-            "detailedState": "Game Over",
-            "statusCode": "O",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
             "abstractGameCode": "F"
           },
@@ -176,12 +176,12 @@
           "gameDate": "2026-04-04T18:10:00Z",
           "officialDate": "2026-04-04",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -191,11 +191,12 @@
                 "link": "/api/v1/teams/158"
               },
               "leagueRecord": {
-                "wins": 5,
+                "wins": 6,
                 "losses": 1,
-                "pct": ".833"
+                "pct": ".857"
               },
               "score": 5,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 3
             },
@@ -207,10 +208,11 @@
               },
               "leagueRecord": {
                 "wins": 3,
-                "losses": 3,
-                "pct": ".500"
+                "losses": 4,
+                "pct": ".429"
               },
               "score": 2,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 3
             }
@@ -223,6 +225,7 @@
           "content": {
             "link": "/api/v1/game/824132/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "S",
@@ -267,9 +270,9 @@
                 "link": "/api/v1/teams/158"
               },
               "leagueRecord": {
-                "wins": 5,
+                "wins": 6,
                 "losses": 1,
-                "pct": ".833"
+                "pct": ".857"
               },
               "splitSquad": false,
               "seriesNumber": 3
@@ -282,8 +285,8 @@
               },
               "leagueRecord": {
                 "wins": 3,
-                "losses": 3,
-                "pct": ".500"
+                "losses": 4,
+                "pct": ".429"
               },
               "splitSquad": false,
               "seriesNumber": 3
@@ -344,7 +347,7 @@
                 "losses": 2,
                 "pct": ".714"
               },
-              "score": 6,
+              "score": 9,
               "splitSquad": false,
               "seriesNumber": 3
             },
@@ -359,7 +362,7 @@
                 "losses": 4,
                 "pct": ".429"
               },
-              "score": 1,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 3
             }
@@ -418,7 +421,7 @@
                 "losses": 3,
                 "pct": ".625"
               },
-              "score": 4,
+              "score": 7,
               "splitSquad": false,
               "seriesNumber": 3
             },
@@ -507,7 +510,7 @@
                 "losses": 3,
                 "pct": ".571"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 3
             }
@@ -835,80 +838,6 @@
           "ifNecessaryDescription": "Normal Game"
         },
         {
-          "gamePk": 824460,
-          "gameGuid": "dac2fd4f-78d8-4b48-8ff2-79dc338ee7b9",
-          "link": "/api/v1.1/game/824460/feed/live",
-          "gameType": "R",
-          "season": "2026",
-          "gameDate": "2026-04-04T23:15:00Z",
-          "officialDate": "2026-04-04",
-          "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
-            "startTimeTBD": false,
-            "abstractGameCode": "P"
-          },
-          "teams": {
-            "away": {
-              "team": {
-                "id": 112,
-                "name": "Chicago Cubs",
-                "link": "/api/v1/teams/112"
-              },
-              "leagueRecord": {
-                "wins": 3,
-                "losses": 4,
-                "pct": ".429"
-              },
-              "score": 0,
-              "splitSquad": false,
-              "seriesNumber": 3
-            },
-            "home": {
-              "team": {
-                "id": 114,
-                "name": "Cleveland Guardians",
-                "link": "/api/v1/teams/114"
-              },
-              "leagueRecord": {
-                "wins": 5,
-                "losses": 3,
-                "pct": ".625"
-              },
-              "score": 0,
-              "splitSquad": false,
-              "seriesNumber": 3
-            }
-          },
-          "venue": {
-            "id": 5,
-            "name": "Progressive Field",
-            "link": "/api/v1/venues/5"
-          },
-          "content": {
-            "link": "/api/v1/game/824460/content"
-          },
-          "gameNumber": 1,
-          "publicFacing": true,
-          "doubleHeader": "N",
-          "gamedayType": "P",
-          "tiebreaker": "N",
-          "calendarEventID": "14-824460-2026-04-04",
-          "seasonDisplay": "2026",
-          "dayNight": "night",
-          "scheduledInnings": 9,
-          "reverseHomeAwayStatus": false,
-          "inningBreakLength": 145,
-          "gamesInSeries": 3,
-          "seriesGameNumber": 2,
-          "seriesDescription": "Regular Season",
-          "recordSource": "S",
-          "ifNecessary": "N",
-          "ifNecessaryDescription": "Normal Game"
-        },
-        {
           "gamePk": 825104,
           "gameGuid": "753f32bd-4a8f-4b0b-b593-e45c2b1c52f9",
           "link": "/api/v1.1/game/825104/feed/live",
@@ -1193,6 +1122,82 @@
           "scheduledInnings": 9,
           "reverseHomeAwayStatus": false,
           "inningBreakLength": 120,
+          "gamesInSeries": 3,
+          "seriesGameNumber": 2,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 824460,
+          "gameGuid": "dac2fd4f-78d8-4b48-8ff2-79dc338ee7b9",
+          "link": "/api/v1.1/game/824460/feed/live",
+          "gameType": "R",
+          "season": "2026",
+          "gameDate": "2026-04-04T23:15:00Z",
+          "officialDate": "2026-04-05",
+          "rescheduleDate": "2026-04-05T17:45:00Z",
+          "rescheduleGameDate": "2026-04-05",
+          "status": {
+            "abstractGameState": "Final",
+            "codedGameState": "D",
+            "detailedState": "Postponed",
+            "statusCode": "DR",
+            "startTimeTBD": false,
+            "reason": "Rain",
+            "abstractGameCode": "F"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 112,
+                "name": "Chicago Cubs",
+                "link": "/api/v1/teams/112"
+              },
+              "leagueRecord": {
+                "wins": 3,
+                "losses": 4,
+                "pct": ".429"
+              },
+              "splitSquad": false,
+              "seriesNumber": 3
+            },
+            "home": {
+              "team": {
+                "id": 114,
+                "name": "Cleveland Guardians",
+                "link": "/api/v1/teams/114"
+              },
+              "leagueRecord": {
+                "wins": 5,
+                "losses": 3,
+                "pct": ".625"
+              },
+              "splitSquad": false,
+              "seriesNumber": 3
+            }
+          },
+          "venue": {
+            "id": 5,
+            "name": "Progressive Field",
+            "link": "/api/v1/venues/5"
+          },
+          "content": {
+            "link": "/api/v1/game/824460/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-824460-2026-04-04",
+          "seasonDisplay": "2026",
+          "dayNight": "night",
+          "description": "Makeup on 4/5",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 145,
           "gamesInSeries": 3,
           "seriesGameNumber": 2,
           "seriesDescription": "Regular Season",
