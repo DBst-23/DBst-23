@@ -1,0 +1,163 @@
+{
+  "postmortem_id": "NBA_LIVEFLOW_POSTMORTEM_2026-04-09_LAL_GSW_GHOST_PICK",
+  "sport": "NBA",
+  "mode": "LIVE-FLOW",
+  "game_date": "2026-04-09",
+  "matchup": {
+    "away_team": "Los Angeles Lakers",
+    "home_team": "Golden State Warriors",
+    "final_score": {
+      "Los Angeles Lakers": 119,
+      "Golden State Warriors": 103
+    }
+  },
+  "pregame_market": {
+    "closing_spread": "GSW -2.5",
+    "closing_total": 221.5,
+    "closing_moneyline": {
+      "LAL": "+120",
+      "GSW": "-142"
+    }
+  },
+  "live_entry": {
+    "platform": "UD Predict",
+    "entry_type": "Single live spread",
+    "pick": "GSW +6.5",
+    "entry_amount": 4.59,
+    "payout_if_win": 9.0,
+    "timestamp_local": "2026-04-09 20:23 PT",
+    "game_state_at_entry": {
+      "quarter": 3,
+      "time_remaining": "11:01",
+      "score": {
+        "LAL": 58,
+        "GSW": 49
+      }
+    },
+    "result": "LOSS"
+  },
+  "live_market_snapshot": {
+    "spread": {
+      "LAL": "-3.5 (-134)",
+      "GSW": "+3.5 (+100)"
+    },
+    "total": 210.5,
+    "moneyline": {
+      "LAL": "-205",
+      "GSW": "+186"
+    }
+  },
+  "halftime_context": {
+    "score": {
+      "LAL": 53,
+      "GSW": 49
+    },
+    "signals": [
+      "GSW +11 rebound edge at half in offensive rebound pressure",
+      "LAL shooting 59.5% FG and 54.5% from three at half",
+      "GSW only down 4 at halftime despite poor perimeter efficiency",
+      "Live market later offered GSW +6.5 after early third-quarter Lakers push"
+    ]
+  },
+  "final_team_stats": {
+    "LAL": {
+      "points": 119,
+      "rebounds": 33,
+      "offensive_rebounds": 8,
+      "assists": 37,
+      "steals": 14,
+      "blocks": 3,
+      "turnovers": 19,
+      "fg_pct": 61.3,
+      "three_pct": 55.2
+    },
+    "GSW": {
+      "points": 103,
+      "rebounds": 38,
+      "offensive_rebounds": 15,
+      "assists": 24,
+      "steals": 8,
+      "blocks": 2,
+      "turnovers": 19,
+      "fg_pct": 50.6,
+      "three_pct": 30.0
+    }
+  },
+  "diagnostic_summary": {
+    "classification": "MISS_REGISTERED",
+    "miss_type": "Efficiency Avalanche / False Bounce Setup",
+    "primary_reason": "The live read overweighted Golden State's rebound edge and underweighted how unsustainably efficient the Lakers continued to be through the second half. Lakers finished at 61.3% FG and 55.2% from three while also generating 37 assists and 14 steals. GSW won the offensive glass battle but never converted it into enough half-court scoring pressure.",
+    "secondary_reason": "The spread cushion looked attractive at +6.5, but the pace and shot quality profile favored the side already scoring efficiently, not the side relying on second chances. This became a classic trap where possession edge did not translate into scoreboard compression."
+  },
+  "phase_analysis": {
+    "phase_1": {
+      "label": "Halftime read",
+      "summary": "GSW trailed by only 4 at the break and had a real offensive rebounding advantage. The instinct to expect natural mean reversion from Lakers shooting was understandable."
+    },
+    "phase_2": {
+      "label": "Entry point failure",
+      "summary": "At 11:01 of the 3Q, GSW +6.5 appeared to offer recovery margin, but the line was not wide enough against a Lakers team already in a rhythm with elite shotmaking and passing. The market had already adjusted, but not enough to create a true edge."
+    },
+    "phase_3": {
+      "label": "Why the comeback never arrived",
+      "summary": "Golden State's 15 offensive rebounds and 38 total boards were neutralized by poor perimeter conversion and inferior offensive efficiency. Lakers sustained elite offense from LeBron, Ayton, LaRavia, and Kennard, then widened the gap instead of regressing."
+    }
+  },
+  "player_notes": {
+    "LAL": {
+      "LeBron James": {
+        "points": 26,
+        "rebounds": 8,
+        "assists": 11,
+        "note": "Game control hub. His playmaking and efficiency destroyed the comeback case."
+      },
+      "Jake LaRavia": {
+        "points": 16,
+        "rebounds": 7,
+        "assists": 4,
+        "note": "High-leverage supporting production, especially as a connector and floor-spacer."
+      },
+      "Deandre Ayton": {
+        "points": 21,
+        "rebounds": 5,
+        "note": "Interior finishing punished GSW despite their own second-chance volume."
+      }
+    },
+    "GSW": {
+      "Charles Bassey": {
+        "points": 12,
+        "rebounds": 13,
+        "note": "Rebound engine validated the board edge, but it was not enough to swing game flow."
+      },
+      "Braeden Podziemski": {
+        "points": 17,
+        "rebounds": 1,
+        "note": "Shot volume was there, but overall offensive support profile was too thin."
+      },
+      "Pat Spencer": {
+        "points": 12,
+        "assists": 6,
+        "note": "Competent secondary creator, but not enough scoring pressure versus Lakers' efficiency."
+      }
+    }
+  },
+  "lessons": [
+    "Do not force a live spread fade solely because of offensive rebound edge when opponent eFG and assist profile remain elite.",
+    "When the leading team is shooting above 60% FG and creating assisted offense, require a larger live cushion before backing the trailing side.",
+    "Possession advantage without shotmaking does not equal comeback equity.",
+    "This was not a bad number hunt mechanically, but it failed the LIVEFLOW_STRIPPED_MODE quality threshold for true edge confirmation."
+  ],
+  "tags": [
+    "LIVEFLOW_STRIPPED_MODE_ACTIVE",
+    "MISS_REGISTERED",
+    "FALSE_COMEBACK_SIGNAL",
+    "EFFICIENCY_AVALANCHE",
+    "REBOUND_EDGE_FALSE_POSITIVE",
+    "GHOST_PICK_LOGGED"
+  ],
+  "workflow_status": {
+    "github_logged": true,
+    "finalized": true,
+    "ready_for_backtest_logbook": true
+  }
+}
