@@ -1,0 +1,147 @@
+{
+  "postmortem_id": "NBA_POSTMORTEM_2026-04-09_MIA_TOR_FINAL",
+  "sport": "NBA",
+  "game_date": "2026-04-09",
+  "matchup": {
+    "away_team": "Miami Heat",
+    "home_team": "Toronto Raptors",
+    "final_score": {
+      "Miami Heat": 114,
+      "Toronto Raptors": 128
+    }
+  },
+  "bet_log": {
+    "platform": "Underdog Fantasy",
+    "entry_type": "Champions 3-pick",
+    "boost": "30%",
+    "stake": 7.5,
+    "payout": 42.0,
+    "result": "WIN",
+    "legs": [
+      {
+        "player": "Davion Mitchell",
+        "market": "Points",
+        "pick": "Higher 7.5",
+        "result_value": 9,
+        "outcome": "WIN"
+      },
+      {
+        "player": "Andrew Wiggins",
+        "market": "Rebounds",
+        "pick": "Lower 4.5",
+        "result_value": 1,
+        "outcome": "WIN"
+      },
+      {
+        "player": "RJ Barrett",
+        "market": "Rebounds",
+        "pick": "Higher 5.5",
+        "result_value": 6,
+        "outcome": "WIN"
+      }
+    ]
+  },
+  "model_diagnostics": {
+    "tags": [
+      "EDGE_CALL_ACTIVE",
+      "HIT_REGISTERED",
+      "REBOUND_ENVIRONMENT_CORRECT",
+      "MARKET_ALIGNMENT_VALIDATED"
+    ],
+    "summary": "Clean 3/3 sweep. The rebound environment call held: Wiggins stayed well under despite starter minutes, while Barrett cleared with stable wing rebound share. Davion Mitchell points cleared with room and validated the reduced scoring threshold versus market. Toronto's control of turnovers and free throw volume widened the game script in favor of the read."
+  },
+  "phase_analysis": {
+    "phase_1": {
+      "label": "Opening control",
+      "summary": "Toronto established offensive stability early while Miami stayed attached through Bam interior scoring and guard creation. The rebound distribution initially stayed concentrated among primary frontcourt players rather than leaking to Wiggins."
+    },
+    "phase_2": {
+      "label": "Game separation",
+      "summary": "Toronto's bench and wing production expanded the margin. Collin Murray-Boyles' hyper-efficient 17 points and 8 rebounds in 22 minutes added hidden possession pressure. Miami's turnover issues limited extra rebound chances and hurt comeback equity."
+    },
+    "phase_3": {
+      "label": "Prop resolution zone",
+      "summary": "Davion Mitchell finished with 15 points and 11 assists, comfortably above the 7.5 points line. Andrew Wiggins never approached the 4.5 rebound threshold, finishing with 1 rebound in 22 minutes. RJ Barrett landed 6 rebounds, just over the 5.5 number, which confirms the wing-board environment was active on the Toronto side."
+    }
+  },
+  "player_notes": {
+    "Miami Heat": {
+      "Andrew Wiggins": {
+        "minutes": 22,
+        "points": 5,
+        "rebounds": 1,
+        "assists": 2,
+        "note": "Lower 4.5 rebounds was the sharpest board fade. Minimal board involvement and poor rebound share despite starting role."
+      },
+      "Davion Mitchell": {
+        "minutes": 37,
+        "points": 15,
+        "rebounds": 3,
+        "assists": 11,
+        "note": "Points ladder to 7.5 was justified. Cleared easily and benefited from high on-ball responsibility."
+      },
+      "Bam Adebayo": {
+        "minutes": 37,
+        "points": 24,
+        "rebounds": 11,
+        "assists": 8,
+        "note": "Primary interior engine. His board share remained strong, which further reduced Wiggins rebound ceiling."
+      }
+    },
+    "Toronto Raptors": {
+      "RJ Barrett": {
+        "minutes": 35,
+        "points": 22,
+        "rebounds": 6,
+        "assists": 3,
+        "note": "Higher 5.5 rebounds hit. Wing-board role remained active enough to clear despite balanced team distribution."
+      },
+      "Brandon Ingram": {
+        "minutes": 37,
+        "points": 38,
+        "rebounds": 7,
+        "assists": 7,
+        "note": "Primary offensive driver. Shotmaking and usage helped Toronto maintain scoreboard pressure all night."
+      },
+      "Collin Murray-Boyles": {
+        "minutes": 22,
+        "points": 17,
+        "rebounds": 8,
+        "assists": 1,
+        "note": "Massive bench efficiency spike; hidden driver of second-unit possession control."
+      }
+    }
+  },
+  "team_stats": {
+    "Miami Heat": {
+      "points": 114,
+      "rebounds": 34,
+      "offensive_rebounds": 6,
+      "assists": 35,
+      "turnovers": 15,
+      "three_pointers_made": 14,
+      "free_throws_made": 8
+    },
+    "Toronto Raptors": {
+      "points": 128,
+      "rebounds": 40,
+      "offensive_rebounds": 10,
+      "assists": 24,
+      "turnovers": 6,
+      "three_pointers_made": 13,
+      "free_throws_made": 27
+    }
+  },
+  "key_takeaways": [
+    "Toronto won the possession battle with +6 rebounds and only 6 turnovers.",
+    "Miami's 35 assists kept offense afloat, but turnover deficit and free throw gap killed overall leverage.",
+    "Wiggins rebound under was validated by role concentration around Bam plus low ancillary rebound share.",
+    "RJ Barrett over rebounds remained viable because Toronto wings still touched enough defensive board volume.",
+    "Davion Mitchell scoring threshold was too low relative to his role and market support."
+  ],
+  "workflow_status": {
+    "github_logged": true,
+    "finalized": true,
+    "ready_for_backtest_logbook": true
+  }
+}
