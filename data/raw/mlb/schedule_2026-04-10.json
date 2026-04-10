@@ -3,14 +3,14 @@
   "totalItems": 15,
   "totalEvents": 0,
   "totalGames": 15,
-  "totalGamesInProgress": 3,
+  "totalGamesInProgress": 6,
   "dates": [
     {
       "date": "2026-04-10",
       "totalItems": 15,
       "totalEvents": 0,
       "totalGames": 15,
-      "totalGamesInProgress": 3,
+      "totalGamesInProgress": 6,
       "games": [
         {
           "gamePk": 824695,
@@ -132,7 +132,7 @@
                 "losses": 6,
                 "pct": ".500"
               },
-              "score": 0,
+              "score": 4,
               "splitSquad": false,
               "seriesNumber": 5
             }
@@ -173,11 +173,10 @@
           "officialDate": "2026-04-10",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "M",
-            "detailedState": "Player challenge",
-            "statusCode": "MJ",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "reason": "Pitch Result",
             "abstractGameCode": "L"
           },
           "teams": {
@@ -207,7 +206,7 @@
                 "losses": 9,
                 "pct": ".308"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 5
             }
@@ -266,7 +265,7 @@
                 "losses": 7,
                 "pct": ".462"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 5
             },
@@ -322,9 +321,9 @@
           "officialDate": "2026-04-10",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "P",
-            "detailedState": "Warmup",
-            "statusCode": "PW",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
             "abstractGameCode": "L"
           },
@@ -395,12 +394,12 @@
           "gameDate": "2026-04-10T23:10:00Z",
           "officialDate": "2026-04-10",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -469,12 +468,12 @@
           "gameDate": "2026-04-10T23:10:00Z",
           "officialDate": "2026-04-10",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -543,12 +542,12 @@
           "gameDate": "2026-04-10T23:15:00Z",
           "officialDate": "2026-04-10",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -617,12 +616,12 @@
           "gameDate": "2026-04-10T23:15:00Z",
           "officialDate": "2026-04-10",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
