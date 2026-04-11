@@ -3,14 +3,14 @@
   "totalItems": 15,
   "totalEvents": 0,
   "totalGames": 15,
-  "totalGamesInProgress": 4,
+  "totalGamesInProgress": 3,
   "dates": [
     {
       "date": "2026-04-11",
       "totalItems": 15,
       "totalEvents": 0,
       "totalGames": 15,
-      "totalGamesInProgress": 4,
+      "totalGamesInProgress": 3,
       "games": [
         {
           "gamePk": 823480,
@@ -21,12 +21,12 @@
           "gameDate": "2026-04-11T17:05:00Z",
           "officialDate": "2026-04-11",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "O",
+            "detailedState": "Game Over",
+            "statusCode": "O",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -37,10 +37,11 @@
               },
               "leagueRecord": {
                 "wins": 8,
-                "losses": 6,
-                "pct": ".571"
+                "losses": 7,
+                "pct": ".533"
               },
-              "score": 2,
+              "score": 3,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 5
             },
@@ -51,11 +52,12 @@
                 "link": "/api/v1/teams/143"
               },
               "leagueRecord": {
-                "wins": 6,
+                "wins": 7,
                 "losses": 7,
-                "pct": ".462"
+                "pct": ".500"
               },
               "score": 4,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 5
             }
@@ -68,6 +70,7 @@
           "content": {
             "link": "/api/v1/game/823480/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
@@ -129,7 +132,7 @@
                 "losses": 9,
                 "pct": ".357"
               },
-              "score": 5,
+              "score": 6,
               "splitSquad": false,
               "seriesNumber": 5
             }
@@ -262,7 +265,7 @@
                 "losses": 7,
                 "pct": ".500"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 5
             },
@@ -277,7 +280,7 @@
                 "losses": 7,
                 "pct": ".462"
               },
-              "score": 0,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 5
             }
@@ -614,9 +617,9 @@
           "officialDate": "2026-04-11",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -776,6 +779,7 @@
                 "losses": 9,
                 "pct": ".308"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 5
             },
@@ -790,6 +794,7 @@
                 "losses": 5,
                 "pct": ".615"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 5
             }
