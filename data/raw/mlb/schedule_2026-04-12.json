@@ -3,14 +3,14 @@
   "totalItems": 15,
   "totalEvents": 0,
   "totalGames": 15,
-  "totalGamesInProgress": 7,
+  "totalGamesInProgress": 8,
   "dates": [
     {
       "date": "2026-04-12",
       "totalItems": 15,
       "totalEvents": 0,
       "totalGames": 15,
-      "totalGamesInProgress": 7,
+      "totalGamesInProgress": 8,
       "games": [
         {
           "gamePk": 824859,
@@ -55,7 +55,7 @@
                 "losses": 7,
                 "pct": ".500"
               },
-              "score": 0,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 5
             }
@@ -114,7 +114,7 @@
                 "losses": 7,
                 "pct": ".533"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 5
             },
@@ -188,7 +188,7 @@
                 "losses": 7,
                 "pct": ".533"
               },
-              "score": 0,
+              "score": 3,
               "splitSquad": false,
               "seriesNumber": 5
             },
@@ -203,7 +203,7 @@
                 "losses": 8,
                 "pct": ".429"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 5
             }
@@ -262,7 +262,7 @@
                 "losses": 8,
                 "pct": ".467"
               },
-              "score": 0,
+              "score": 5,
               "splitSquad": false,
               "seriesNumber": 5
             },
@@ -425,7 +425,7 @@
                 "losses": 9,
                 "pct": ".400"
               },
-              "score": 0,
+              "score": 3,
               "splitSquad": false,
               "seriesNumber": 5
             }
@@ -499,7 +499,7 @@
                 "losses": 7,
                 "pct": ".500"
               },
-              "score": 0,
+              "score": 3,
               "splitSquad": false,
               "seriesNumber": 5
             }
@@ -614,12 +614,12 @@
           "gameDate": "2026-04-12T18:10:00Z",
           "officialDate": "2026-04-12",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -688,12 +688,12 @@
           "gameDate": "2026-04-12T18:15:00Z",
           "officialDate": "2026-04-12",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -762,12 +762,12 @@
           "gameDate": "2026-04-12T18:20:00Z",
           "officialDate": "2026-04-12",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -929,6 +929,7 @@
                 "losses": 9,
                 "pct": ".400"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 5
             },
@@ -943,6 +944,7 @@
                 "losses": 9,
                 "pct": ".400"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 5
             }
