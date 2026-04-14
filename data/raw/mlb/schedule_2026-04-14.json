@@ -3,14 +3,14 @@
   "totalItems": 15,
   "totalEvents": 0,
   "totalGames": 15,
-  "totalGamesInProgress": 0,
+  "totalGamesInProgress": 4,
   "dates": [
     {
       "date": "2026-04-14",
       "totalItems": 15,
       "totalEvents": 0,
       "totalGames": 15,
-      "totalGamesInProgress": 0,
+      "totalGamesInProgress": 4,
       "games": [
         {
           "gamePk": 824853,
@@ -22,9 +22,9 @@
           "officialDate": "2026-04-14",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "P",
-            "detailedState": "Warmup",
-            "statusCode": "PW",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
             "abstractGameCode": "L"
           },
@@ -95,12 +95,12 @@
           "gameDate": "2026-04-14T22:40:00Z",
           "officialDate": "2026-04-14",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -169,12 +169,12 @@
           "gameDate": "2026-04-14T22:40:00Z",
           "officialDate": "2026-04-14",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -244,10 +244,11 @@
           "officialDate": "2026-04-14",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "P",
-            "detailedState": "Warmup",
-            "statusCode": "PW",
+            "codedGameState": "M",
+            "detailedState": "Manager challenge",
+            "statusCode": "MF",
             "startTimeTBD": false,
+            "reason": "Close play at 1st",
             "abstractGameCode": "L"
           },
           "teams": {
@@ -317,12 +318,12 @@
           "gameDate": "2026-04-14T22:40:00Z",
           "officialDate": "2026-04-14",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -391,12 +392,12 @@
           "gameDate": "2026-04-14T23:05:00Z",
           "officialDate": "2026-04-14",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -1002,6 +1003,7 @@
                 "losses": 7,
                 "pct": ".563"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 6
             },
@@ -1016,6 +1018,7 @@
                 "losses": 8,
                 "pct": ".500"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 6
             }
