@@ -1,0 +1,163 @@
+{
+  "log_type": "NBA_PREGAME_INVESTMENT_LOG",
+  "date": "2026-04-15",
+  "game": "ORL @ PHI",
+  "status": "locked_in",
+  "sportsbooks": [
+    "Underdog",
+    "HotStreak"
+  ],
+  "game_context": {
+    "market_lines": {
+      "moneyline": {
+        "orlando": "+114",
+        "philadelphia": "-124"
+      },
+      "spread": {
+        "orlando": "+2 to +2.5",
+        "philadelphia": "-2 to -2.5"
+      },
+      "total": "222 to 222.5"
+    },
+    "expected_lineups": {
+      "orlando": [
+        "Jalen Suggs",
+        "Desmond Bane",
+        "Franz Wagner",
+        "Paolo Banchero",
+        "Wendell Carter Jr."
+      ],
+      "philadelphia": [
+        "Tyrese Maxey",
+        "VJ Edgecombe",
+        "Kelly Oubre Jr.",
+        "Paul George",
+        "Adem Bona"
+      ]
+    },
+    "projected_minutes": {
+      "Paolo Banchero": 38,
+      "VJ Edgecombe": 39,
+      "Tyrese Maxey": 39,
+      "Paul George": 37,
+      "Kelly Oubre Jr.": 30,
+      "Wendell Carter Jr.": 31,
+      "Jalen Suggs": 34,
+      "Desmond Bane": 34,
+      "Franz Wagner": 28,
+      "Adem Bona": 19,
+      "Andre Drummond": 22
+    }
+  },
+  "model_notes": {
+    "rebounds_only_protocol": true,
+    "assist_market_hunt": false,
+    "thesis": [
+      "Paolo Banchero profiles as Orlando's strongest primary glass candidate in this matchup and projects with the cleanest path to 9+ rebounds.",
+      "VJ Edgecombe under 5.5 rebounds aligns with market pricing and role-based rebound share concerns despite heavy minutes.",
+      "Kelly Oubre rebound under showed strong market support, but was not part of the final locked cards.",
+      "Current on/off metrics show limited direct rebound boosts for Orlando starters, reinforcing selective rather than broad exposure."
+    ],
+    "on_off_takeaways": {
+      "philadelphia_lineup": {
+        "top_usage_differentials": {
+          "Paul George": 4.32,
+          "VJ Edgecombe": 2.81,
+          "Tyrese Maxey": null
+        },
+        "rebound_profile_notes": [
+          "Adem Bona REB% 14.51 in active lineup sample",
+          "VJ Edgecombe REB% 9.34 in active lineup sample",
+          "Paul George REB% 9.61 in active lineup sample",
+          "Kelly Oubre REB% 8.07 in active lineup sample"
+        ]
+      },
+      "orlando_lineup": {
+        "top_usage_differentials": {
+          "Jamal Cain": 0.64,
+          "Paolo Banchero": null,
+          "Wendell Carter Jr.": null
+        },
+        "rebound_profile_notes": [
+          "Paolo Banchero REB% 13.68 in active lineup sample",
+          "Wendell Carter Jr. REB% 14.14 in active lineup sample",
+          "Jalen Suggs REB% 8.32 in active lineup sample",
+          "Desmond Bane REB% 6.47 in active lineup sample"
+        ]
+      }
+    }
+  },
+  "market_validation": {
+    "Paolo_Banchero_8_5_rebounds": {
+      "underdog": "Over 8.5 priced to 1.03x / Under 0.88x",
+      "market_range": "Over -129 to -105, Under -122 to -106"
+    },
+    "VJ_Edgecombe_5_5_rebounds": {
+      "underdog": "Over 0.87x / Under 1.04x",
+      "market_range": "Over -159 to -118, Under +105 to -120"
+    },
+    "Kelly_Oubre_5_5_rebounds": {
+      "market_range": "Over +105 to +130, Under -143 to -187"
+    }
+  },
+  "investments": [
+    {
+      "card_name": "Max Cash 3-Pick",
+      "book": "HotStreak",
+      "stake": 10.0,
+      "multiplier": "5.61x",
+      "to_pay": 56.10,
+      "legs": [
+        {
+          "player": "Paolo Banchero",
+          "market": "Rebounds",
+          "line": 8.5,
+          "pick": "More"
+        },
+        {
+          "player": "VJ Edgecombe",
+          "market": "Rebounds",
+          "line": 5.5,
+          "pick": "Less"
+        },
+        {
+          "player": "Stephen Curry",
+          "market": "Points",
+          "line": 0.5,
+          "pick": "More",
+          "tag": "non_core_boost_leg"
+        }
+      ]
+    },
+    {
+      "card_name": "Champions 2-Pick",
+      "book": "Underdog",
+      "stake": 10.0,
+      "to_pay": 27.80,
+      "legs": [
+        {
+          "player": "Tyrese Maxey",
+          "market": "3-Pointers Made",
+          "line": 2.5,
+          "pick": "Higher",
+          "tag": "non_core_market"
+        },
+        {
+          "player": "Paolo Banchero",
+          "market": "Rebounds",
+          "line": 8.5,
+          "pick": "Higher"
+        }
+      ]
+    }
+  ],
+  "core_rebound_positions": [
+    "Paolo Banchero over 8.5 rebounds",
+    "VJ Edgecombe under 5.5 rebounds"
+  ],
+  "risk_notes": [
+    "Projected minutes are strong enough to support volume, but Philly's center rotation can still distort rebound distribution if Drummond closes over Bona.",
+    "This log preserves the user's directive that assist-market hunting is off for now.",
+    "One card includes a non-core Stephen Curry leg purely for payout structure and should be excluded from rebound-model grading."
+  ]
+}
