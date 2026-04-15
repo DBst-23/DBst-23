@@ -1,0 +1,165 @@
+{
+  "log_type": "NBA_PREGAME_INVESTMENT_LOG",
+  "date": "2026-04-15",
+  "game": "ORL @ PHI",
+  "status": "final_market_locked",
+  "market_window": "pre-tip final confirmation",
+  "focus_market": "rebounds",
+  "notes": [
+    "User confirmed assists are not part of the active hunt.",
+    "Final market screenshots were supplied for Maxey 3PM, VJ Edgecombe rebounds, Paolo Banchero rebounds, and Kelly Oubre rebounds.",
+    "Two investment cards were locked before tip-off."
+  ],
+  "game_lines": {
+    "moneyline": {
+      "orlando": "+105 to +114",
+      "philadelphia": "-124 to -135"
+    },
+    "spread": {
+      "orlando": "+2 to +2.5",
+      "philadelphia": "-2 to -2.5"
+    },
+    "total": "222 to 222.5"
+  },
+  "confirmed_lineups": {
+    "orlando": [
+      "Jalen Suggs",
+      "Desmond Bane",
+      "Franz Wagner",
+      "Paolo Banchero",
+      "Wendell Carter Jr."
+    ],
+    "philadelphia": [
+      "Tyrese Maxey",
+      "VJ Edgecombe",
+      "Kelly Oubre Jr.",
+      "Paul George",
+      "Adem Bona"
+    ]
+  },
+  "projected_minutes": {
+    "Tyrese Maxey": 39,
+    "VJ Edgecombe": 39,
+    "Paolo Banchero": 38,
+    "Paul George": 37,
+    "Desmond Bane": 34,
+    "Jalen Suggs": 34,
+    "Wendell Carter Jr.": 31,
+    "Kelly Oubre Jr.": 30,
+    "Franz Wagner": 28,
+    "Andre Drummond": 22,
+    "Adem Bona": 19
+  },
+  "model_positions": {
+    "core_rebound_edges": [
+      {
+        "player": "Paolo Banchero",
+        "pick": "Over 8.5 Rebounds",
+        "mean": 9.7,
+        "median": 9.0,
+        "win_probability": 0.60,
+        "edge_tier": "Tier 1"
+      },
+      {
+        "player": "VJ Edgecombe",
+        "pick": "Under 5.5 Rebounds",
+        "mean": 5.1,
+        "median": 5.0,
+        "win_probability": 0.545,
+        "edge_tier": "Tier 2"
+      }
+    ],
+    "non_core_notes": [
+      "Kelly Oubre rebound under carried market support but was not part of the final locked cards.",
+      "Tyrese Maxey 3PM over was used on one card but remains outside the core rebound-only process."
+    ]
+  },
+  "final_market_validation": {
+    "Tyrese_Maxey_3PM_2_5": {
+      "best_over": "-140 Pinnacle",
+      "best_under": "+130 Novig",
+      "underdog_price": "Higher 2.5 threes heavily juiced at -218 equivalent"
+    },
+    "VJ_Edgecombe_Rebounds_5_5": {
+      "best_over": "-107 ProphetX",
+      "best_under": "+105 Bovada",
+      "consensus": "Most books shaded over 5.5, but under available around -115 to +105 depending on book",
+      "underdog_price": "Lower 5.5 rebounds at -106 equivalent"
+    },
+    "Paolo_Banchero_Rebounds_8_5": {
+      "best_over": "+100 BallyBet / BetRivers / Unibet",
+      "best_under": "+100 Hard Rock / BetMGM / Borgata",
+      "consensus": "Widely lined 8.5 with near pick'em to modest over tax",
+      "underdog_price": "Higher 8.5 rebounds at -115 equivalent"
+    },
+    "Kelly_Oubre_Rebounds": {
+      "split_market": "Books split between 4.5 and 5.5",
+      "best_4_5_over": "-145 ProphetX",
+      "best_5_5_under": "-147 Bet105",
+      "underdog_reference": "Lower 5.5 rebounds at -187 equivalent"
+    }
+  },
+  "investments": [
+    {
+      "card_name": "Max Cash 3-Pick",
+      "book": "HotStreak",
+      "stake": 10.0,
+      "multiplier": "5.61x",
+      "to_pay": 56.10,
+      "legs": [
+        {
+          "player": "Paolo Banchero",
+          "market": "Rebounds",
+          "line": 8.5,
+          "pick": "More",
+          "core_model_leg": true
+        },
+        {
+          "player": "VJ Edgecombe",
+          "market": "Rebounds",
+          "line": 5.5,
+          "pick": "Less",
+          "core_model_leg": true
+        },
+        {
+          "player": "Stephen Curry",
+          "market": "Points",
+          "line": 0.5,
+          "pick": "More",
+          "core_model_leg": false,
+          "tag": "booster_leg"
+        }
+      ]
+    },
+    {
+      "card_name": "Champions 2-Pick",
+      "book": "Underdog",
+      "stake": 10.0,
+      "to_pay": 27.80,
+      "legs": [
+        {
+          "player": "Tyrese Maxey",
+          "market": "3-Pointers Made",
+          "line": 2.5,
+          "pick": "Higher",
+          "core_model_leg": false,
+          "tag": "non_core_market"
+        },
+        {
+          "player": "Paolo Banchero",
+          "market": "Rebounds",
+          "line": 8.5,
+          "pick": "Higher",
+          "core_model_leg": true
+        }
+      ]
+    }
+  ],
+  "execution_assessment": {
+    "portfolio_grade": "Positive EV stack with mixed market exposure",
+    "best_structural_card": "HotStreak Max Cash 3-Pick",
+    "highest_confidence_leg": "Paolo Banchero Over 8.5 Rebounds",
+    "main_variance_flag": "Tyrese Maxey 3PM volatility",
+    "discipline_grade": "Good - rebound hunt maintained with one optional non-core attachment"
+  }
+}
