@@ -3,14 +3,14 @@
   "totalItems": 15,
   "totalEvents": 0,
   "totalGames": 15,
-  "totalGamesInProgress": 6,
+  "totalGamesInProgress": 7,
   "dates": [
     {
       "date": "2026-04-15",
       "totalItems": 15,
       "totalEvents": 0,
       "totalGames": 15,
-      "totalGamesInProgress": 6,
+      "totalGamesInProgress": 7,
       "games": [
         {
           "gamePk": 824855,
@@ -289,7 +289,7 @@
                 "losses": 9,
                 "pct": ".471"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 6
             }
@@ -439,7 +439,7 @@
                 "losses": 7,
                 "pct": ".588"
               },
-              "score": 4,
+              "score": 7,
               "splitSquad": false,
               "seriesNumber": 6
             }
@@ -499,7 +499,7 @@
                 "losses": 9,
                 "pct": ".471"
               },
-              "score": 1,
+              "score": 3,
               "splitSquad": false,
               "seriesNumber": 6
             },
@@ -574,7 +574,7 @@
                 "losses": 9,
                 "pct": ".500"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 6
             },
@@ -589,7 +589,7 @@
                 "losses": 8,
                 "pct": ".529"
               },
-              "score": 0,
+              "score": 3,
               "splitSquad": false,
               "seriesNumber": 6
             }
@@ -664,7 +664,7 @@
                 "losses": 7,
                 "pct": ".611"
               },
-              "score": 0,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 6
             }
@@ -707,8 +707,8 @@
           "status": {
             "abstractGameState": "Preview",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Delayed Start",
+            "statusCode": "PO",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -781,9 +781,9 @@
           "officialDate": "2026-04-15",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "P",
-            "detailedState": "Warmup",
-            "statusCode": "PW",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
             "abstractGameCode": "L"
           },
