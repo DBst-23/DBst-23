@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "module": "LIVEFLOW_OUTAGE_TRACKER",
+  "description": "Tracks outage-mode rebound LiveFlow entries and passes under the SharpEdge tracking outage framework.",
+  "mode_tags": [
+    "TRACKING_OUTAGE_MODE_ACTIVE",
+    "REBOUND_PROTOCOL_FALLBACK",
+    "MINUTES_FIRST_MODE"
+  ],
+  "entries": [
+    {
+      "date": "",
+      "game": "",
+      "player": "",
+      "market": "rebounds",
+      "side": "",
+      "line": 0,
+      "entry_time": "",
+      "quarter": "",
+      "minutes_at_entry": 0,
+      "rebounds_at_entry": 0,
+      "fouls_at_entry": 0,
+      "team_rebounds_at_entry": 0,
+      "opponent_rebounds_at_entry": 0,
+      "trigger_type": "",
+      "confidence_grade": "",
+      "live_price": "",
+      "updated_fair_probability": 0,
+      "result": "",
+      "final_rebounds": 0,
+      "mpz_tag": "",
+      "notes": ""
+    }
+  ]
+}
