@@ -4,6 +4,7 @@ from collections import Counter, defaultdict
 from statistics import mean
 
 TRACKER_PATH = Path("sharpedge/LIVEFLOW_OUTAGE_TRACKER.json")
+SUMMARY_OUTPUT_PATH = Path("sharpedge/LIVEFLOW_OUTAGE_SUMMARY.json")
 
 
 def load_tracker(path: Path = TRACKER_PATH) -> dict:
@@ -11,6 +12,12 @@ def load_tracker(path: Path = TRACKER_PATH) -> dict:
         raise FileNotFoundError(f"Tracker file not found: {path}")
     with path.open("r", encoding="utf-8") as f:
         return json.load(f)
+
+
+def save_summary(summary: dict, path: Path = SUMMARY_OUTPUT_PATH) -> None:
+    with path.open("w", encoding="utf-8") as f:
+        json.dump(summary, f, indent=2)
+        f.write("\n")
 
 
 def _safe_pct(numerator: int, denominator: int) -> float:
@@ -55,10 +62,6 @@ def summarize_entries(entries: list[dict]) -> dict:
         confidence_counter[confidence_grade] += 1
         mpz_counter[mpz_tag] += 1
 
-        key = "passes" if normalized_result == "pass" else f"{normalized_result}s"
-        if key not in {"wins", "losses", "passes", "unknowns"}:
-            key = "unknown"
-
         if normalized_result == "win":
             trigger_results[trigger_type]["wins"] += 1
             confidence_results[confidence_grade]["wins"] += 1
@@ -90,6 +93,7 @@ def summarize_entries(entries: list[dict]) -> dict:
 
     summary = {
         "module": "LIVEFLOW_OUTAGE_SUMMARY_ENGINE",
+        "summary_output_path": str(SUMMARY_OUTPUT_PATH),
         "total_entries": len(entries),
         "graded_entries": graded,
         "wins": result_counter["win"],
@@ -142,6 +146,7 @@ def print_summary(summary: dict) -> None:
     print(f"Unknown: {summary['unknown']}")
     print(f"Overall hit rate: {summary['overall_hit_rate']}%")
     print(f"Average updated fair probability: {summary['average_updated_fair_probability']}")
+    print(f"Exported summary: {summary['summary_output_path']}")
     print()
 
     print("-- By Trigger --")
@@ -168,6 +173,7 @@ def main() -> None:
     tracker = load_tracker()
     entries = tracker.get("entries", [])
     summary = summarize_entries(entries)
+    save_summary(summary)
     print_summary(summary)
 
 
