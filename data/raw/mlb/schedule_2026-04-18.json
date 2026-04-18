@@ -22,9 +22,9 @@
           "officialDate": "2026-04-18",
           "status": {
             "abstractGameState": "Final",
-            "codedGameState": "O",
-            "detailedState": "Game Over",
-            "statusCode": "O",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
             "abstractGameCode": "F"
           },
@@ -117,7 +117,7 @@
                 "losses": 8,
                 "pct": ".600"
               },
-              "score": 2,
+              "score": 3,
               "splitSquad": false,
               "seriesNumber": 7
             },
@@ -191,7 +191,7 @@
                 "losses": 13,
                 "pct": ".350"
               },
-              "score": 1,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 7
             },
@@ -248,9 +248,10 @@
           "status": {
             "abstractGameState": "Live",
             "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "detailedState": "Delayed",
+            "statusCode": "IR",
             "startTimeTBD": false,
+            "reason": "Rain",
             "abstractGameCode": "L"
           },
           "teams": {
@@ -280,7 +281,7 @@
                 "losses": 8,
                 "pct": ".600"
               },
-              "score": 2,
+              "score": 4,
               "splitSquad": false,
               "seriesNumber": 7
             }
@@ -339,7 +340,7 @@
                 "losses": 12,
                 "pct": ".400"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 7
             },
@@ -354,7 +355,7 @@
                 "losses": 11,
                 "pct": ".450"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 7
             }
@@ -413,7 +414,7 @@
                 "losses": 13,
                 "pct": ".350"
               },
-              "score": 0,
+              "score": 5,
               "splitSquad": false,
               "seriesNumber": 7
             },
@@ -428,7 +429,7 @@
                 "losses": 10,
                 "pct": ".500"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 7
             }
@@ -487,7 +488,7 @@
                 "losses": 10,
                 "pct": ".500"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 7
             },
@@ -576,7 +577,7 @@
                 "losses": 11,
                 "pct": ".450"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 7
             }
