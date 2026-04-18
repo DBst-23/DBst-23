@@ -1,6 +1,8 @@
 # rebound_prop_gate.py
 from dataclasses import dataclass, asdict
 from typing import Dict, List, Optional, Tuple
+from pathlib import Path
+import json
 
 # -----------------------------
 # Confidence tiers (your system)
@@ -16,6 +18,21 @@ def base_confidence_tier(win_prob: float) -> str:
     if win_prob >= 0.50:
         return "TIER_50"
     return "NO_PLAY"
+
+ADJUSTMENTS_PATH = Path("sharpedge/LIVEFLOW_TRIGGER_ADJUSTMENTS.json")
+OUTAGE_MODE_TAGS = {
+    "TRACKING_OUTAGE_MODE_ACTIVE",
+    "REBOUND_PROTOCOL_FALLBACK",
+    "MINUTES_FIRST_MODE",
+}
+
+
+def load_liveflow_adjustments(path: Path = ADJUSTMENTS_PATH) -> dict:
+    if not path.exists():
+        return {"trigger_adjustments": {}, "confidence_adjustments": {}}
+    with path.open("r", encoding="utf-8") as f:
+        return json.load(f)
+
 
 @dataclass
 class ReboundPropInput:
@@ -33,6 +50,8 @@ class ReboundPropInput:
     projected_minutes: Optional[float] = None
     is_starter_big: Optional[bool] = None
     bench_big_candidate: Optional[bool] = None
+    trigger_type: Optional[str] = None
+    confidence_grade: Optional[str] = None
 
 @dataclass
 class ReboundPropDecision:
@@ -86,6 +105,52 @@ LIVEFLOW_BLOCKS = {
     "minutes_cap_extra_winprob": 0.03,            # +3% winprob requirement
 }
 
+
+def apply_auto_adjustments(
+    inp: ReboundPropInput,
+    adj_wp: float,
+    adj_edge: float,
+    notes: List[str],
+) -> Tuple[float, float, List[str]]:
+    adjustments = load_liveflow_adjustments()
+    trigger_adjustments = adjustments.get("trigger_adjustments", {})
+    confidence_adjustments = adjustments.get("confidence_adjustments", {})
+
+    if not OUTAGE_MODE_TAGS.intersection(set(inp.tags_active)):
+        return adj_wp, adj_edge, notes
+
+    trigger_name = inp.trigger_type or "UNSPECIFIED"
+    confidence_name = inp.confidence_grade or "UNSPECIFIED"
+
+    trigger_cfg = trigger_adjustments.get(trigger_name, {})
+    confidence_cfg = confidence_adjustments.get(confidence_name, {})
+
+    trigger_delta = float(trigger_cfg.get("weight_delta", 0.0) or 0.0)
+    confidence_delta = float(confidence_cfg.get("weight_delta", 0.0) or 0.0)
+    total_delta = trigger_delta + confidence_delta
+
+    if total_delta != 0.0:
+        adj_wp = max(0.01, min(0.99, adj_wp + total_delta))
+        adj_edge += total_delta * 0.25
+        notes.append(
+            f"AUTO_ADJUSTER_APPLIED: trigger={trigger_name} ({trigger_delta:+.3f}), "
+            f"confidence={confidence_name} ({confidence_delta:+.3f})"
+        )
+
+        trigger_action = trigger_cfg.get("action")
+        confidence_action = confidence_cfg.get("action")
+        if trigger_action == "freeze_or_downgrade":
+            notes.append(f"Trigger downgrade active for {trigger_name}.")
+        if confidence_action == "freeze_or_downgrade":
+            notes.append(f"Confidence downgrade active for {confidence_name}.")
+        if trigger_action == "promote":
+            notes.append(f"Trigger promotion active for {trigger_name}.")
+        if confidence_action == "promote":
+            notes.append(f"Confidence promotion active for {confidence_name}.")
+
+    return adj_wp, adj_edge, notes
+
+
 def apply_tag_penalties(inp: ReboundPropInput) -> Tuple[float, float, float, float, List[str]]:
     """
     Returns adjusted (mean, median, win_prob, edge) plus notes.
@@ -109,9 +174,12 @@ def apply_tag_penalties(inp: ReboundPropInput) -> Tuple[float, float, float, flo
             adj_edge += cfg["edge_delta"]
             notes.append(f"{tag}: {cfg['notes']}")
 
+    adj_wp, adj_edge, notes = apply_auto_adjustments(inp, adj_wp, adj_edge, notes)
+
     # Bound probability
     adj_wp = max(0.01, min(0.99, adj_wp))
     return adj_mean, adj_median, adj_wp, adj_edge, notes
+
 
 def confidence_override(base_tier: str, tags_active: List[str], side: str, is_starter_big: Optional[bool]) -> Tuple[str, bool, List[str]]:
     """
@@ -138,6 +206,7 @@ def confidence_override(base_tier: str, tags_active: List[str], side: str, is_st
 
     return tier, overridden, reasons
 
+
 def liveflow_execution_gate(inp: ReboundPropInput, adj_wp: float, adj_edge: float) -> Tuple[bool, List[str]]:
     """
     Returns (allowed, blocks).
@@ -159,15 +228,25 @@ def liveflow_execution_gate(inp: ReboundPropInput, adj_wp: float, adj_edge: floa
         if adj_edge < req_edge:
             blocks.append(f"LiveFlow block: adj_edge {adj_edge:.4f} < required {req_edge:.4f} for starter REB OVER w/ volatility tags.")
 
+    adjustments = load_liveflow_adjustments()
+    if OUTAGE_MODE_TAGS.intersection(set(inp.tags_active)):
+        trigger_action = adjustments.get("trigger_adjustments", {}).get(inp.trigger_type or "UNSPECIFIED", {}).get("action")
+        confidence_action = adjustments.get("confidence_adjustments", {}).get(inp.confidence_grade or "UNSPECIFIED", {}).get("action")
+
+        if trigger_action == "freeze_or_downgrade":
+            blocks.append(f"LiveFlow block: auto adjuster downgraded trigger {inp.trigger_type or 'UNSPECIFIED'}." )
+        if confidence_action == "freeze_or_downgrade":
+            blocks.append(f"LiveFlow block: auto adjuster downgraded confidence tier {inp.confidence_grade or 'UNSPECIFIED'}." )
+
     allowed = (len(blocks) == 0)
     return allowed, blocks
+
 
 def evaluate_rebound_prop(inp: ReboundPropInput, mode: str = "PREGAME") -> ReboundPropDecision:
     """
     mode: "PREGAME" | "LIVEFLOW"
     """
     blocks: List[str] = []
-    tag_notes: List[str] = []
 
     base_tier = base_confidence_tier(inp.win_prob)
 
@@ -198,8 +277,9 @@ def evaluate_rebound_prop(inp: ReboundPropInput, mode: str = "PREGAME") -> Rebou
         adj_edge=adj_edge,
         blocks=blocks,
         notes=notes,
-        tags_applied=[t for t in inp.tags_active if t in TAG_PENALTIES]
+        tags_applied=[t for t in inp.tags_active if t in TAG_PENALTIES or t in OUTAGE_MODE_TAGS]
     )
+
 
 def decision_to_log_dict(inp: ReboundPropInput, decision: ReboundPropDecision) -> Dict:
     d = {
@@ -214,6 +294,8 @@ def decision_to_log_dict(inp: ReboundPropInput, decision: ReboundPropDecision) -
         "base_win_prob": inp.win_prob,
         "base_edge": inp.edge,
         "tags_active": inp.tags_active,
+        "trigger_type": inp.trigger_type,
+        "confidence_grade": inp.confidence_grade,
         "decision": asdict(decision),
     }
-    return d 
+    return d
