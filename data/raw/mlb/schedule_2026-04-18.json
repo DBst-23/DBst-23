@@ -21,12 +21,12 @@
           "gameDate": "2026-04-18T17:35:00Z",
           "officialDate": "2026-04-18",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -235,6 +235,78 @@
           "ifNecessaryDescription": "Normal Game"
         },
         {
+          "gamePk": 823394,
+          "gameGuid": "80c9d2ee-ab9a-4513-859a-15cc4e467b22",
+          "link": "/api/v1.1/game/823394/feed/live",
+          "gameType": "R",
+          "season": "2026",
+          "gameDate": "2026-04-18T19:30:00Z",
+          "officialDate": "2026-04-18",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
+            "startTimeTBD": false,
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 139,
+                "name": "Tampa Bay Rays",
+                "link": "/api/v1/teams/139"
+              },
+              "leagueRecord": {
+                "wins": 11,
+                "losses": 8,
+                "pct": ".579"
+              },
+              "splitSquad": false,
+              "seriesNumber": 7
+            },
+            "home": {
+              "team": {
+                "id": 134,
+                "name": "Pittsburgh Pirates",
+                "link": "/api/v1/teams/134"
+              },
+              "leagueRecord": {
+                "wins": 12,
+                "losses": 8,
+                "pct": ".600"
+              },
+              "splitSquad": false,
+              "seriesNumber": 7
+            }
+          },
+          "venue": {
+            "id": 31,
+            "name": "PNC Park",
+            "link": "/api/v1/venues/31"
+          },
+          "content": {
+            "link": "/api/v1/game/823394/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-823394-2026-04-18",
+          "seasonDisplay": "2026",
+          "dayNight": "day",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
+          "gamesInSeries": 3,
+          "seriesGameNumber": 2,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
           "gamePk": 822751,
           "gameGuid": "64e4a5b3-44b4-4174-82ae-e93b487b2a49",
           "link": "/api/v1.1/game/822751/feed/live",
@@ -307,78 +379,6 @@
           "ifNecessaryDescription": "Normal Game"
         },
         {
-          "gamePk": 823394,
-          "gameGuid": "80c9d2ee-ab9a-4513-859a-15cc4e467b22",
-          "link": "/api/v1.1/game/823394/feed/live",
-          "gameType": "R",
-          "season": "2026",
-          "gameDate": "2026-04-18T20:05:00Z",
-          "officialDate": "2026-04-18",
-          "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
-            "startTimeTBD": false,
-            "abstractGameCode": "P"
-          },
-          "teams": {
-            "away": {
-              "team": {
-                "id": 139,
-                "name": "Tampa Bay Rays",
-                "link": "/api/v1/teams/139"
-              },
-              "leagueRecord": {
-                "wins": 11,
-                "losses": 8,
-                "pct": ".579"
-              },
-              "splitSquad": false,
-              "seriesNumber": 7
-            },
-            "home": {
-              "team": {
-                "id": 134,
-                "name": "Pittsburgh Pirates",
-                "link": "/api/v1/teams/134"
-              },
-              "leagueRecord": {
-                "wins": 12,
-                "losses": 8,
-                "pct": ".600"
-              },
-              "splitSquad": false,
-              "seriesNumber": 7
-            }
-          },
-          "venue": {
-            "id": 31,
-            "name": "PNC Park",
-            "link": "/api/v1/venues/31"
-          },
-          "content": {
-            "link": "/api/v1/game/823394/content"
-          },
-          "gameNumber": 1,
-          "publicFacing": true,
-          "doubleHeader": "N",
-          "gamedayType": "P",
-          "tiebreaker": "N",
-          "calendarEventID": "14-823394-2026-04-18",
-          "seasonDisplay": "2026",
-          "dayNight": "day",
-          "scheduledInnings": 9,
-          "reverseHomeAwayStatus": false,
-          "inningBreakLength": 120,
-          "gamesInSeries": 3,
-          "seriesGameNumber": 2,
-          "seriesDescription": "Regular Season",
-          "recordSource": "S",
-          "ifNecessary": "N",
-          "ifNecessaryDescription": "Normal Game"
-        },
-        {
           "gamePk": 825020,
           "gameGuid": "99831e5d-b0f2-436f-a41b-51b260d9d388",
           "link": "/api/v1.1/game/825020/feed/live",
@@ -388,9 +388,9 @@
           "officialDate": "2026-04-18",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -406,6 +406,7 @@
                 "losses": 13,
                 "pct": ".350"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 7
             },
@@ -420,6 +421,7 @@
                 "losses": 10,
                 "pct": ".500"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 7
             }
@@ -478,6 +480,7 @@
                 "losses": 10,
                 "pct": ".500"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 7
             },
@@ -492,6 +495,7 @@
                 "losses": 11,
                 "pct": ".421"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 7
             }
