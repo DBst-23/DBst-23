@@ -5,11 +5,19 @@ from statistics import mean
 
 TRACKER_PATH = Path("sharpedge/LIVEFLOW_OUTAGE_TRACKER.json")
 SUMMARY_OUTPUT_PATH = Path("sharpedge/LIVEFLOW_OUTAGE_SUMMARY.json")
+CLASSIFIER_OUTPUT_PATH = Path("modules/HALFTIME_CLASSIFIER_OUTPUTS.json")
 
 
 def load_tracker(path: Path = TRACKER_PATH) -> dict:
     if not path.exists():
         raise FileNotFoundError(f"Tracker file not found: {path}")
+    with path.open("r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def load_classifier_outputs(path: Path = CLASSIFIER_OUTPUT_PATH) -> dict:
+    if not path.exists():
+        return {"entries": []}
     with path.open("r", encoding="utf-8") as f:
         return json.load(f)
 
@@ -37,15 +45,18 @@ def _parse_result(result: str) -> str:
     return "unknown"
 
 
-def summarize_entries(entries: list[dict]) -> dict:
+def summarize_entries(entries: list[dict], classifier_entries: list[dict]) -> dict:
     result_counter = Counter()
     trigger_counter = Counter()
     confidence_counter = Counter()
     mpz_counter = Counter()
+    classifier_counter = Counter()
+    classifier_action_counter = Counter()
 
     trigger_results = defaultdict(lambda: {"wins": 0, "losses": 0, "passes": 0, "unknown": 0})
     confidence_results = defaultdict(lambda: {"wins": 0, "losses": 0, "passes": 0, "unknown": 0})
     player_results = defaultdict(lambda: {"wins": 0, "losses": 0, "passes": 0, "unknown": 0, "entries": 0})
+    classifier_results = defaultdict(lambda: {"entries": 0, "avg_confidence": 0.0, "notes": []})
 
     fair_probs = []
     live_prices = []
@@ -89,11 +100,23 @@ def summarize_entries(entries: list[dict]) -> dict:
         if isinstance(live_price, str) and live_price:
             live_prices.append(live_price)
 
+    for c in classifier_entries:
+        env = c.get("environment_type", "UNSPECIFIED")
+        action_bias = c.get("action_bias", "UNSPECIFIED")
+        confidence = float(c.get("confidence", 0.0) or 0.0)
+        classifier_counter[env] += 1
+        classifier_action_counter[action_bias] += 1
+        classifier_results[env]["entries"] += 1
+        classifier_results[env].setdefault("confidence_values", []).append(confidence)
+        for note in c.get("notes", []):
+            classifier_results[env]["notes"].append(note)
+
     graded = result_counter["win"] + result_counter["loss"]
 
     summary = {
         "module": "LIVEFLOW_OUTAGE_SUMMARY_ENGINE",
         "summary_output_path": str(SUMMARY_OUTPUT_PATH),
+        "classifier_output_path": str(CLASSIFIER_OUTPUT_PATH),
         "total_entries": len(entries),
         "graded_entries": graded,
         "wins": result_counter["win"],
@@ -106,6 +129,8 @@ def summarize_entries(entries: list[dict]) -> dict:
         "by_trigger": {},
         "by_confidence": {},
         "by_player": {},
+        "by_halftime_environment": {},
+        "halftime_action_bias_counts": dict(classifier_action_counter),
         "top_mpz_tags": mpz_counter.most_common(10),
     }
 
@@ -133,6 +158,14 @@ def summarize_entries(entries: list[dict]) -> dict:
             "graded_entries": graded_player,
         }
 
+    for env, stats in classifier_results.items():
+        conf_values = stats.pop("confidence_values", [])
+        summary["by_halftime_environment"][env] = {
+            "entries": stats["entries"],
+            "avg_confidence": round(mean(conf_values), 4) if conf_values else 0.0,
+            "sample_notes": stats["notes"][:5],
+        }
+
     return summary
 
 
@@ -147,6 +180,7 @@ def print_summary(summary: dict) -> None:
     print(f"Overall hit rate: {summary['overall_hit_rate']}%")
     print(f"Average updated fair probability: {summary['average_updated_fair_probability']}")
     print(f"Exported summary: {summary['summary_output_path']}")
+    print(f"Classifier source: {summary['classifier_output_path']}")
     print()
 
     print("-- By Trigger --")
@@ -164,6 +198,16 @@ def print_summary(summary: dict) -> None:
         print(f"{player}: {stats}")
     print()
 
+    print("-- By Halftime Environment --")
+    for env, stats in summary["by_halftime_environment"].items():
+        print(f"{env}: {stats}")
+    print()
+
+    print("-- Halftime Action Bias Counts --")
+    for bias, count in summary["halftime_action_bias_counts"].items():
+        print(f"{bias}: {count}")
+    print()
+
     print("-- Top MPZ Tags --")
     for tag, count in summary["top_mpz_tags"]:
         print(f"{tag}: {count}")
@@ -171,8 +215,10 @@ def print_summary(summary: dict) -> None:
 
 def main() -> None:
     tracker = load_tracker()
+    classifier_payload = load_classifier_outputs()
     entries = tracker.get("entries", [])
-    summary = summarize_entries(entries)
+    classifier_entries = classifier_payload.get("entries", [])
+    summary = summarize_entries(entries, classifier_entries)
     save_summary(summary)
     print_summary(summary)
 
