@@ -101,3 +101,61 @@ This file should be referenced when sharpening:
 - continuation vs regression classification
 - spread carry-through validation
 - team-total persistence filters
+
+---
+
+## Addendum — LiveFlow Bet Result: Toronto Team Total Under 114.5
+
+### Bet Details
+- **Bet:** Toronto Raptors Team Total Under 114.5
+- **Entry Timing:** LiveFlow, halftime range
+- **Result:** ✅ WIN
+- **Final Toronto Score:** 105
+- **Margin vs Line:** 9.5 points under
+
+### Why the Bet Won
+This under cashed despite Toronto finishing with:
+- **42 rebounds**
+- **12 offensive rebounds**
+- **19 second-chance points**
+- **50.6% FG**
+
+That matters because it confirms the original LiveFlow read was based on **true scoring ceiling**, not just possession count.
+
+Toronto generated extra possessions, but their half-court offense still lacked enough reliable top-end creation to threaten **115+**.
+
+### Key Drivers
+1. **Brandon Ingram scoring collapse**
+   - Finished with **7 points**
+   - Shot **3-15 FG**
+   - Added **5 turnovers**
+   - This removed a major scoring engine from Toronto’s team-total path
+
+2. **Second-chance pressure did not fully convert into ceiling scoring**
+   - Toronto posted **12 offensive rebounds**
+   - Toronto posted **19 second-chance points**
+   - Even with those boosts, they still finished only at **105**
+
+3. **Cleveland controlled game flow**
+   - Cleveland scored **115**
+   - Offensive efficiency stayed strong enough to keep Toronto chasing
+   - Toronto never built the stable multi-source creation needed to break through the number
+
+4. **The halftime requirement was simply too steep**
+   - At entry, Toronto needed a major second-half surge
+   - They fell short of that path and never seriously threatened the line late
+
+### Diagnostic Tags
+- `LIVEFLOW_WIN`
+- `TEAM_TOTAL_UNDER_CONFIRMED`
+- `PRIMARY_SCORER_FAILURE`
+- `SECOND_CHANCE_NOISE_OVERRIDDEN`
+- `HALFCOURT_CEILING_LIMIT`
+- `EDGE_CALL_ACTIVE`
+
+### Model Relevance
+This addendum should reinforce a specific LiveFlow principle:
+
+**Offensive rebounds and second-chance points alone do not invalidate a team-total under if the primary creators are unstable and the half-court ceiling remains capped.**
+
+Toronto had enough possession support to look dangerous, but not enough real creation quality to get near **115**.
