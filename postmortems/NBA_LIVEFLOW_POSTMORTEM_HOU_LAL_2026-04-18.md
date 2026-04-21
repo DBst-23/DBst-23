@@ -93,3 +93,69 @@ This game matters because it reinforces a core LiveFlow rule:
 This was not a blind over. It was a **market correction bet** on a falsely compressed total.
 
 That distinction should remain central in future LiveFlow reads.
+
+---
+
+## Addendum — LiveFlow Bet Result: Minnesota @ Denver Under 245.5
+
+### Bet Details
+- **Bet:** Full Game Under 245.5
+- **Game:** Minnesota Timberwolves @ Denver Nuggets
+- **Entry Timing:** Halftime, tied 64-64
+- **Result:** ✅ WIN
+- **Final Score:** Minnesota 119, Denver 114
+- **Final Total:** 233
+- **Margin vs Line:** 12.5 points under
+
+### Why the Bet Won
+The live under cashed because the halftime number was repriced too aggressively off first-half shotmaking.
+
+At the break, both teams had produced an extremely hot offensive half:
+- **Minnesota 11-22 from three (50.0%)**
+- **Denver 10-20 from three (50.0%)**
+- both teams above **64 TS%**
+- only **5 turnovers each**
+
+That environment was real enough to justify a high live total, but **245.5** priced in too much continued perfection.
+
+### Key Drivers
+1. **Three-point heat cooled enough in the second half**
+   - Minnesota finished **14-34 from three (41.2%)**
+   - Denver finished **15-41 from three (36.6%)**
+   - Both teams fell back toward a more sustainable conversion range
+
+2. **Shot volume stayed high, but not at elite enough efficiency to clear 246**
+   - Minnesota finished with **119**
+   - Denver finished with **114**
+   - Combined total reached only **233**
+
+3. **Denver offensive ceiling was lower than the halftime number implied**
+   - Denver needed a huge second-half scoring continuation to threaten the number
+   - They finished at **114**, well below the live expectation path attached to a 245.5 total
+
+4. **Minnesota’s offensive support was broad but not explosive enough to break the number alone**
+   - Randle: **24**
+   - Edwards: **30**
+   - DiVincenzo: **16**
+   - Naz Reid: **11**
+   - Ayo Dosunmu: **9**
+   - Bones Hyland: **13**
+   - Strong output, but still within an under-friendly final structure once the shooting normalized
+
+5. **The game was driven by first-half heat more than true unstoppable pace ecology**
+   - There was scoring quality, but not enough second-half continuation to justify 118 more points after halftime
+
+### Diagnostic Tags
+- `LIVEFLOW_WIN`
+- `HALFTIME_HEAT_FADE_CONFIRMED`
+- `LIVE_TOTAL_UNDER_VALIDATED`
+- `THREE_POINT_REGRESSION_HELD`
+- `NO_PERFECTION_CONTINUATION`
+- `EDGE_CALL_ACTIVE`
+
+### Model Relevance
+This addendum should reinforce a core LiveFlow rule:
+
+**When a halftime total is inflated mainly by elite first-half shooting rather than true possession-chaos ecology, the under becomes the better side if the new number requires continued perfection.**
+
+Minnesota @ Denver is now a clean example of a **halftime heat-fade under** that held comfortably once both teams regressed toward more sustainable shooting levels.
