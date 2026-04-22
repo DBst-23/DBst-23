@@ -6,5 +6,6 @@ def process_liveflow_signal(entry_line, updated_line, current_score, pace_factor
 
     if middle["middle_active"]:
         signal["middle_band"] = middle
+        signal["confidence_boost"] = 0.05
 
     return signal
