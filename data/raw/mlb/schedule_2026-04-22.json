@@ -253,10 +253,11 @@
           "officialDate": "2026-04-22",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "codedGameState": "M",
+            "detailedState": "Player challenge",
+            "statusCode": "MJ",
             "startTimeTBD": false,
+            "reason": "Pitch Result",
             "abstractGameCode": "L"
           },
           "teams": {
@@ -360,7 +361,7 @@
                 "losses": 14,
                 "pct": ".440"
               },
-              "score": 2,
+              "score": 3,
               "splitSquad": false,
               "seriesNumber": 8
             }
@@ -419,7 +420,7 @@
                 "losses": 11,
                 "pct": ".542"
               },
-              "score": 0,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 8
             },
@@ -434,7 +435,7 @@
                 "losses": 15,
                 "pct": ".400"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 8
             }
@@ -771,9 +772,9 @@
           "officialDate": "2026-04-22",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
