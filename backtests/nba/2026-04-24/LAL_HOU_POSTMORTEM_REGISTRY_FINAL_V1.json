@@ -1,0 +1,91 @@
+{
+  "registry_id": "LAL_HOU_POSTMORTEM_REGISTRY_FINAL_V1",
+  "sport": "NBA",
+  "season": "2025-26",
+  "season_type": "Playoffs",
+  "series": "Los Angeles Lakers vs Houston Rockets",
+  "formalized_at": "2026-04-24",
+  "status": "FINALIZED_POSTMORTEM_REGISTRY",
+  "source_context": "User-provided ESPN box scores, team stats, PBP Stats rebound tables, player tracking rebound data, team box-outs, on/off context, and market screenshots from LAL-HOU Games 1-2 with Game 3 prep.",
+  "games": [
+    {
+      "game_id": "LAL_HOU_G1_2026_04_18",
+      "date": "2026-04-18",
+      "final_score": {"HOU": 98, "LAL": 107},
+      "team_box_score": {
+        "HOU": {"rebounds": 44, "offensive_rebounds": 21, "defensive_rebounds": 23, "fg_pct": 37.6, "three_pt_pct": 33.3, "second_chance_points": 23},
+        "LAL": {"rebounds": 35, "offensive_rebounds": 3, "defensive_rebounds": 32, "fg_pct": 60.6, "three_pt_pct": 52.6, "second_chance_points": 6}
+      },
+      "rebound_environment": {
+        "total_rebounds": 79,
+        "hou_oreb_edge": 18,
+        "box_outs": {"LAL": {"total": 10, "defensive": 10}, "HOU": {"total": 3, "defensive": 3}},
+        "read": "Houston created extreme offensive rebound pressure despite Lakers box-out edge. LAL efficiency suppressed its own rebound volume."
+      },
+      "player_rebound_notes": {
+        "Deandre Ayton": "11 rebounds on 19 chances; strong Game 1 but later exposed by minutes volatility.",
+        "LeBron James": "8 rebounds on 13 chances; stable defensive rebound profile.",
+        "Jabari Smith Jr.": "12 rebounds on 14 chances; strong result but conversion-regression risk.",
+        "Tari Eason": "10 rebounds on 13 chances; elite per-minute activity.",
+        "Alperen Sengun": "8 rebounds on 16 chances; stable chance base with room for rebound growth."
+      }
+    },
+    {
+      "game_id": "LAL_HOU_G2_2026_04_21",
+      "date": "2026-04-21",
+      "final_score": {"HOU": 94, "LAL": 101},
+      "team_box_score": {
+        "HOU": {"rebounds": 42, "offensive_rebounds": 17, "defensive_rebounds": 25, "fg_pct": 40.4, "three_pt_pct": 24.1, "second_chance_points": 21},
+        "LAL": {"rebounds": 37, "offensive_rebounds": 9, "defensive_rebounds": 28, "fg_pct": 45.8, "three_pt_pct": 46.4, "second_chance_points": 17}
+      },
+      "rebound_environment": {
+        "total_rebounds": 79,
+        "hou_oreb_edge": 8,
+        "box_outs": {"HOU": {"total": 0}, "LAL": {"total": 5, "defensive": 5}},
+        "read": "Total rebound pool repeated exactly at 79. Houston offensive glass persisted despite zero recorded team box-outs."
+      },
+      "player_rebound_notes": {
+        "Alperen Sengun": "11 rebounds on 22 chances; strongest Game 2 chance profile.",
+        "Tari Eason": "8 rebounds on 10 chances; repeatable activity edge confirmed.",
+        "LeBron James": "8 rebounds on 14 chances; back-to-back 8-rebound output.",
+        "Deandre Ayton": "5 rebounds on 15 chances; minutes dropped from 35.1 to 26.6, triggering center displacement risk.",
+        "Kevin Durant": "6 rebounds on 10 chances; low-to-mid chance base but clean conversion.",
+        "Jabari Smith Jr.": "6 rebounds on 10 chances; Game 1 spike regressed."
+      }
+    }
+  ],
+  "series_level_findings": {
+    "rebound_pool": {"game_1_total_rebounds": 79, "game_2_total_rebounds": 79, "stability_signal": "Very strong two-game stability."},
+    "offensive_glass": {"HOU_game_1_oreb": 21, "HOU_game_2_oreb": 17, "takeaway": "Houston owns the offensive glass environment."},
+    "box_out_rule": "Team box-outs sharpen the read but are support variables only. Player tracking chances and PBP rebound zones carry more predictive weight.",
+    "repeatable_edges": [
+      {"player": "Tari Eason", "edge": "Over / ladder", "reason": "10 and 8 rebounds across Games 1-2 with elite activity.", "risk": "Needs 24+ minutes."},
+      {"player": "LeBron James", "edge": "8+ ladder / over 6.5 if available", "reason": "Back-to-back 8s with stable chances.", "risk": "Market can overprice name value."},
+      {"player": "Alperen Sengun", "edge": "Over if line <= 8.5/9.0", "reason": "22 chances in Game 2.", "risk": "Foul/rotation volatility."}
+    ],
+    "downgrades": [
+      {"player": "Deandre Ayton", "tag": "CENTER_DISPLACEMENT_RISK_ON", "reason": "Minutes and conversion collapsed in Game 2."},
+      {"player": "Jabari Smith Jr.", "tag": "CONVERSION_REGRESSION_ALERT", "reason": "Game 1 output was chance-conversion spike."}
+    ]
+  },
+  "game_3_projection_seed": {
+    "matchup": "LAL @ HOU Game 3",
+    "market_context": {"spread_range": "HOU -8.5 to -9.5", "total_range": "206.5 to 207.5"},
+    "edge_card": [
+      {"player": "Tari Eason", "market": "Over 5.5 rebounds / 6+", "mean_projection": 7.1, "median_projection": 7.0, "hit_probability": 0.66, "confidence_tier": "Strong"},
+      {"player": "LeBron James", "market": "8+ rebounds ladder", "mean_projection": 7.8, "median_projection": 8.0, "hit_probability": 0.56, "confidence_tier": "Moderate"},
+      {"player": "Alperen Sengun", "market": "9+ rebounds", "mean_projection": 9.7, "median_projection": 10.0, "hit_probability": 0.58, "confidence_tier": "Moderate"},
+      {"player": "Deandre Ayton", "market": "8+ rebounds", "mean_projection": 6.4, "median_projection": 6.0, "hit_probability": 0.38, "confidence_tier": "Fade"}
+    ]
+  },
+  "model_registry_updates": {
+    "tags_added": ["LAL_HOU_REBOUND_POOL_STABILITY", "HOU_OREB_PERSISTENCE", "BOX_OUTS_SUPPORT_NOT_PRIMARY", "EASON_ACTIVITY_EDGE", "LEBRON_STABLE_CHANCE_EDGE", "SENGUN_CHANCE_VOLUME_UPGRADE", "AYTON_CENTER_DISPLACEMENT_RISK", "JABARI_CONVERSION_REGRESSION_ALERT"],
+    "rules": [
+      "If total rebound pool repeats within +/-3 across consecutive playoff games, upgrade rebound-environment stability for Game 3.",
+      "If player rebound chances remain >=10 and adjusted chance conversion >=55% across consecutive games, permit ladder consideration.",
+      "If team offensive rebounds repeat at 15+ in consecutive playoff games, apply OREB persistence tag to active forwards/centers.",
+      "If center minutes drop by 8+ minutes between games, activate CENTER_DISPLACEMENT_RISK_ON for high rebound lines."
+    ]
+  },
+  "audit_result": {"registry_ready": true, "backtest_support_level": "Games 1-2 fully formalized from user-provided data; Game 3 projection seed attached.", "safe_to_use_for_future_projection": true}
+}
