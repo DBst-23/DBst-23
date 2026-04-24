@@ -1,0 +1,96 @@
+{
+  "log_id": "NBA_SLATE_HUNT_2026_04_24_INITIAL_READ",
+  "sport": "NBA",
+  "mode": "SLATE_HUNTING",
+  "date": "2026-04-24",
+  "source_context": "User-provided playoff adjustment notes and prop angles. Logged as initial qualitative slate context before market/lineup validation.",
+  "games": [
+    {
+      "matchup": "CLE@TOR",
+      "series_game": 3,
+      "initial_adjustments": [
+        "Toronto returns home with strong post-All-Star home scoring profile.",
+        "Brandon Ingram expected to become higher-usage focal point at home.",
+        "Cleveland still leans heavily on Donovan Mitchell usage and shot volume."
+      ],
+      "hunt_targets": [
+        {"market": "Brandon Ingram points", "lean": "OVER candidate", "status": "needs posted line and price"},
+        {"market": "Donovan Mitchell points", "lean": "OVER candidate", "status": "needs posted line and price"},
+        {"market": "Toronto team total", "lean": "possible OVER/home bump", "status": "needs current TT"}
+      ],
+      "risk_flags": ["Road-star tax on Mitchell prop", "Home-court narrative may already be priced", "Need injury/lineup confirmation"]
+    },
+    {
+      "matchup": "SAS@POR",
+      "series_game": 3,
+      "initial_adjustments": [
+        "Wembanyama status is the slate hinge point.",
+        "If Wembanyama sits or is limited, San Antonio usage redistributes to De'Aaron Fox, Stephon Castle, and Devin Vassell.",
+        "Portland home playoff energy creates upset/pace volatility."
+      ],
+      "hunt_targets": [
+        {"market": "De'Aaron Fox points/assists", "lean": "OVER candidate if Wembanyama limited", "status": "conditional"},
+        {"market": "Scoot Henderson points", "lean": "OVER candidate after Game 2 breakout", "status": "needs line"},
+        {"market": "Portland ML/spread", "lean": "only if Wembanyama out", "status": "conditional"}
+      ],
+      "risk_flags": ["Wembanyama questionable changes entire board", "Do not lock Spurs/POR market before official status", "Home-energy angle can inflate Portland pricing"]
+    },
+    {
+      "matchup": "NYK@ATL",
+      "series_game": 3,
+      "initial_adjustments": [
+        "Atlanta home environment after series split.",
+        "Dyson Daniels and Nickeil Alexander-Walker defensive pressure on Brunson remains key.",
+        "Recent SharpEdge rebound reads have been strong on Josh Hart/Dyson Daniels, but KAT rebound volatility remains dangerous."
+      ],
+      "hunt_targets": [
+        {"market": "Josh Hart rebounds", "lean": "OVER candidate if line <= 8.5", "status": "monitor"},
+        {"market": "Dyson Daniels rebounds", "lean": "OVER candidate if line <= 6.5", "status": "monitor"},
+        {"market": "Jalen Brunson points/assists", "lean": "fade/under only if inflated", "status": "needs price"}
+      ],
+      "risk_flags": ["KAT rebound under trap after 17 rebound spike", "Brunson suppression may flip into whistle-heavy scoring game", "Need live pace/shot quality read"]
+    },
+    {
+      "matchup": "BOS@PHI",
+      "series_game": 3,
+      "initial_adjustments": [
+        "Embiid out creates rim-protection downgrade for Philadelphia.",
+        "Boston can collapse paint and create kickout threes.",
+        "Derrick White expected to see more structured perimeter opportunities."
+      ],
+      "hunt_targets": [
+        {"market": "Boston spread", "lean": "BOS side candidate", "status": "needs number"},
+        {"market": "Derrick White 3PM", "lean": "OVER candidate", "status": "needs line"},
+        {"market": "Boston team total", "lean": "OVER candidate if PHI rim protection craters", "status": "needs TT"}
+      ],
+      "risk_flags": ["Boston blowout can cap starter minutes", "White 3PM lines can become overtaxed", "Need Maxey/PHI pace response"]
+    },
+    {
+      "matchup": "LAL@HOU",
+      "series_game": 3,
+      "initial_adjustments": [
+        "Houston young guards may struggle with playoff physicality.",
+        "Lakers likely continue half-court pressure and glass control emphasis.",
+        "Rui Hachimura mask/role note is tracked but not actionable without usage/minutes confirmation."
+      ],
+      "hunt_targets": [
+        {"market": "Full game total", "lean": "UNDER candidate", "status": "needs number"},
+        {"market": "LeBron rebounds", "lean": "OVER/ladder candidate if line favorable", "status": "monitor"},
+        {"market": "Tari Eason rebounds", "lean": "OVER candidate if minutes stable", "status": "monitor"}
+      ],
+      "risk_flags": ["Rebound market correlation if pairing same game", "Need starting lineup and player tracking from prior games", "Houston pace surge can break total under"]
+    }
+  ],
+  "execution_rules": [
+    "No lock without current line, price, injury confirmation, and lineup/minutes context.",
+    "Prioritize markets with a measurable model/market probability gap, not narrative only.",
+    "For LiveFlow, use stripped single-fire mode unless explicitly building a boosted card.",
+    "Avoid more than two correlated plays from the same segment or game cluster."
+  ],
+  "next_required_inputs": [
+    "Current gamelines and team totals for each target game.",
+    "Confirmed injury status for Embiid and Wembanyama.",
+    "Player prop boards for rebounds, points, assists, and 3PM on the named targets.",
+    "Projected minutes or confirmed rotations where available."
+  ]
+}
