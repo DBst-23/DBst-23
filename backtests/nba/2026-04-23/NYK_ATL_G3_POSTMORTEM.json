@@ -1,0 +1,165 @@
+{
+  "log_id": "NBA_POSTMORTEM_2026_04_23_NYK_ATL_G3",
+  "sport": "NBA",
+  "mode": "POSTMORTEM_GITHUB_WORKFLOW",
+  "game": {
+    "date": "2026-04-23",
+    "matchup": "NYK@ATL",
+    "series_game": 3,
+    "final_score": {
+      "NYK": 108,
+      "ATL": 109
+    },
+    "series_after_game": {
+      "NYK": 1,
+      "ATL": 2
+    }
+  },
+  "investments": [
+    {
+      "platform": "Kalshi",
+      "market": "OG Anunoby 6+ rebounds",
+      "side": "YES",
+      "entry_cost": 5.0,
+      "entry_probability": 0.48,
+      "payout": 10.05,
+      "result": "WIN",
+      "actual": 9
+    },
+    {
+      "platform": "Kalshi",
+      "market": "Josh Hart 8+ rebounds",
+      "side": "YES",
+      "entry_cost": 7.93,
+      "entry_probability": 0.65,
+      "payout": 11.9,
+      "result": "WIN",
+      "actual": 9
+    },
+    {
+      "platform": "Underdog Champions",
+      "market": "Josh Hart higher 8.5 rebounds + Dyson Daniels higher 6.5 rebounds",
+      "entry_cost": 8.12,
+      "payout": 34.67,
+      "boost": "30%",
+      "result": "WIN",
+      "legs": [
+        {"player": "Josh Hart", "line": 8.5, "side": "Higher", "actual": 9, "result": "WIN"},
+        {"player": "Dyson Daniels", "line": 6.5, "side": "Higher", "actual": 13, "result": "WIN"}
+      ]
+    },
+    {
+      "platform": "Underdog Champions",
+      "market": "Dyson Daniels higher 8.5 rebounds + Karl-Anthony Towns lower 14.5 rebounds",
+      "entry_cost": 7.5,
+      "boost": "20%",
+      "result": "LOSS",
+      "legs": [
+        {"player": "Dyson Daniels", "line": 8.5, "side": "Higher", "actual": 13, "result": "WIN"},
+        {"player": "Karl-Anthony Towns", "line": 14.5, "side": "Lower", "actual": 17, "result": "LOSS"}
+      ]
+    },
+    {
+      "platform": "Underdog Predict",
+      "market": "Total Points Lower 216.5",
+      "entry_cost": 3.22,
+      "actual_total": 217,
+      "result": "LOSS_BY_HOOK"
+    }
+  ],
+  "team_box_score": {
+    "NYK": {
+      "points": 108,
+      "rebounds": 46,
+      "offensive_rebounds": 14,
+      "defensive_rebounds": 32,
+      "assists": 19,
+      "steals": 10,
+      "blocks": 5,
+      "turnovers": 18,
+      "fg": "40-93",
+      "fg_pct": 43.0,
+      "three_pt": "10-35",
+      "three_pt_pct": 28.6,
+      "ft": "18-20",
+      "ft_pct": 90.0,
+      "points_in_paint": 56,
+      "second_chance_points": 21,
+      "fastbreak_points": 15
+    },
+    "ATL": {
+      "points": 109,
+      "rebounds": 45,
+      "offensive_rebounds": 13,
+      "defensive_rebounds": 32,
+      "assists": 19,
+      "steals": 10,
+      "blocks": 8,
+      "turnovers": 16,
+      "fg": "39-86",
+      "fg_pct": 45.3,
+      "three_pt": "13-33",
+      "three_pt_pct": 39.4,
+      "ft": "18-26",
+      "ft_pct": 69.2,
+      "points_in_paint": 40,
+      "second_chance_points": 17,
+      "fastbreak_points": 20
+    }
+  },
+  "player_rebound_results": {
+    "NYK": {
+      "OG Anunoby": {"minutes": 37, "rebounds": 9, "oreb": 4, "points": 29},
+      "Karl-Anthony Towns": {"minutes": 34, "rebounds": 17, "oreb": 4, "points": 21},
+      "Josh Hart": {"minutes": 40, "rebounds": 9, "oreb": 2, "points": 2},
+      "Jalen Brunson": {"minutes": 40, "rebounds": 3, "points": 26},
+      "Mitchell Robinson": {"minutes": 11, "rebounds": 4, "oreb": 2}
+    },
+    "ATL": {
+      "Jalen Johnson": {"minutes": 38, "rebounds": 10, "oreb": 1, "points": 24, "assists": 8},
+      "Onyeka Okongwu": {"minutes": 37, "rebounds": 7, "oreb": 2, "points": 9},
+      "Dyson Daniels": {"minutes": 33, "rebounds": 13, "oreb": 3, "points": 8, "assists": 6},
+      "CJ McCollum": {"minutes": 35, "rebounds": 5, "oreb": 3, "points": 23},
+      "Jonathan Kuminga": {"minutes": 28, "rebounds": 4, "oreb": 2, "points": 21}
+    }
+  },
+  "lineup_context": {
+    "NYK_best_lineup": {
+      "players": ["OG Anunoby", "Karl-Anthony Towns", "Jalen Brunson", "Miles McBride", "Josh Hart"],
+      "minutes": "14:18",
+      "plus_minus": 24,
+      "off_rtg": 136.7,
+      "def_rtg": 60.7,
+      "reb_pct": 53.3,
+      "oreb_pct": 46.2,
+      "dreb_pct": 58.8,
+      "score": "NYK 41-17 ATL"
+    },
+    "game_total_environment": {
+      "pace": 100,
+      "off_poss_each": 100,
+      "total_points": 217,
+      "hook_note": "UD Lower 216.5 lost by 0.5 point"
+    }
+  },
+  "diagnostic_tags": [
+    "REBOUND_EDGE_HIT",
+    "HART_REBOUND_STABILITY_CONFIRMED",
+    "OG_ANUNOBY_REBOUND_PLUS_ROLE_CONFIRMED",
+    "DYSON_DANIELS_BOARD_SPIKE_CONFIRMED",
+    "KAT_UNDER_VOLATILITY_FAIL",
+    "TOTAL_HOOK_BURN_216_5",
+    "KNICKS_OREB_SPIKE",
+    "LIVEFLOW_REBOUND_MODULE_VALIDATION"
+  ],
+  "model_notes": {
+    "summary": "Rebound hunting was the cleanest edge class. Hart, OG, and Dyson all validated through minutes, role, and live rebound positioning. KAT under failed because Knicks generated a high OREB environment and KAT retained interior access despite matchup assumptions.",
+    "next_game_adjustments": [
+      "Do not fade KAT rebounds below 15.5 when Robinson minutes are capped and Knicks OREB% remains above 30%.",
+      "Upgrade Hart 8+ and 8.5+ when projected minutes exceed 37 and Knicks are in competitive spread range.",
+      "Upgrade Dyson Daniels rebound overs when ATL uses him 33+ minutes with defensive wing rebounding role.",
+      "Treat OG 5.5/6+ as playable when opponent shot profile creates long rebound paths and OG projects 35+ minutes.",
+      "Avoid total unders within 1 possession of key number during late live-flow if both teams are at 100+ pace with OREB% above 28%."
+    ]
+  }
+}
