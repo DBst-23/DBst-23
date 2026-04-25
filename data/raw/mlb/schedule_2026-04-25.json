@@ -3,14 +3,14 @@
   "totalItems": 15,
   "totalEvents": 0,
   "totalGames": 15,
-  "totalGamesInProgress": 4,
+  "totalGamesInProgress": 3,
   "dates": [
     {
       "date": "2026-04-25",
       "totalItems": 15,
       "totalEvents": 0,
       "totalGames": 15,
-      "totalGamesInProgress": 4,
+      "totalGamesInProgress": 3,
       "games": [
         {
           "gamePk": 824851,
@@ -286,7 +286,7 @@
                 "losses": 15,
                 "pct": ".423"
               },
-              "score": 4,
+              "score": 5,
               "splitSquad": false,
               "seriesNumber": 9
             }
@@ -326,12 +326,12 @@
           "gameDate": "2026-04-25T20:10:00Z",
           "officialDate": "2026-04-25",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -342,10 +342,11 @@
               },
               "leagueRecord": {
                 "wins": 12,
-                "losses": 14,
-                "pct": ".462"
+                "losses": 15,
+                "pct": ".444"
               },
-              "score": 0,
+              "score": 1,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 9
             },
@@ -356,11 +357,12 @@
                 "link": "/api/v1/teams/139"
               },
               "leagueRecord": {
-                "wins": 14,
+                "wins": 15,
                 "losses": 11,
-                "pct": ".560"
+                "pct": ".577"
               },
-              "score": 5,
+              "score": 6,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 9
             }
@@ -373,6 +375,7 @@
           "content": {
             "link": "/api/v1/game/822989/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
@@ -434,7 +437,7 @@
                 "losses": 15,
                 "pct": ".423"
               },
-              "score": 0,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 9
             }
@@ -508,7 +511,7 @@
                 "losses": 11,
                 "pct": ".560"
               },
-              "score": 0,
+              "score": 4,
               "splitSquad": false,
               "seriesNumber": 9
             }
