@@ -301,78 +301,6 @@
           "ifNecessaryDescription": "Normal Game"
         },
         {
-          "gamePk": 823637,
-          "gameGuid": "630393f9-44dd-4b42-99ba-5d6d1c1f0caf",
-          "link": "/api/v1.1/game/823637/feed/live",
-          "gameType": "R",
-          "season": "2026",
-          "gameDate": "2026-04-25T20:10:00Z",
-          "officialDate": "2026-04-25",
-          "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
-            "startTimeTBD": false,
-            "abstractGameCode": "P"
-          },
-          "teams": {
-            "away": {
-              "team": {
-                "id": 115,
-                "name": "Colorado Rockies",
-                "link": "/api/v1/teams/115"
-              },
-              "leagueRecord": {
-                "wins": 11,
-                "losses": 16,
-                "pct": ".407"
-              },
-              "splitSquad": false,
-              "seriesNumber": 9
-            },
-            "home": {
-              "team": {
-                "id": 121,
-                "name": "New York Mets",
-                "link": "/api/v1/teams/121"
-              },
-              "leagueRecord": {
-                "wins": 9,
-                "losses": 17,
-                "pct": ".346"
-              },
-              "splitSquad": false,
-              "seriesNumber": 9
-            }
-          },
-          "venue": {
-            "id": 3289,
-            "name": "Citi Field",
-            "link": "/api/v1/venues/3289"
-          },
-          "content": {
-            "link": "/api/v1/game/823637/content"
-          },
-          "gameNumber": 1,
-          "publicFacing": true,
-          "doubleHeader": "N",
-          "gamedayType": "P",
-          "tiebreaker": "N",
-          "calendarEventID": "14-823637-2026-04-25",
-          "seasonDisplay": "2026",
-          "dayNight": "day",
-          "scheduledInnings": 9,
-          "reverseHomeAwayStatus": false,
-          "inningBreakLength": 120,
-          "gamesInSeries": 3,
-          "seriesGameNumber": 2,
-          "seriesDescription": "Regular Season",
-          "recordSource": "S",
-          "ifNecessary": "N",
-          "ifNecessaryDescription": "Normal Game"
-        },
-        {
           "gamePk": 822989,
           "gameGuid": "9da7b136-b9e2-406c-8cf7-38cded33e05e",
           "link": "/api/v1.1/game/822989/feed/live",
@@ -1083,6 +1011,81 @@
           "calendarEventID": "14-824933-2026-04-25",
           "seasonDisplay": "2026",
           "dayNight": "night",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
+          "gamesInSeries": 3,
+          "seriesGameNumber": 2,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 823637,
+          "gameGuid": "630393f9-44dd-4b42-99ba-5d6d1c1f0caf",
+          "link": "/api/v1.1/game/823637/feed/live",
+          "gameType": "R",
+          "season": "2026",
+          "gameDate": "2026-04-25T20:10:00Z",
+          "officialDate": "2026-04-26",
+          "rescheduleDate": "2026-04-26T17:45:00Z",
+          "rescheduleGameDate": "2026-04-26",
+          "status": {
+            "abstractGameState": "Final",
+            "codedGameState": "D",
+            "detailedState": "Postponed",
+            "statusCode": "DR",
+            "startTimeTBD": false,
+            "reason": "Rain",
+            "abstractGameCode": "F"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 115,
+                "name": "Colorado Rockies",
+                "link": "/api/v1/teams/115"
+              },
+              "leagueRecord": {
+                "wins": 11,
+                "losses": 16,
+                "pct": ".407"
+              },
+              "splitSquad": false,
+              "seriesNumber": 9
+            },
+            "home": {
+              "team": {
+                "id": 121,
+                "name": "New York Mets",
+                "link": "/api/v1/teams/121"
+              },
+              "leagueRecord": {
+                "wins": 9,
+                "losses": 17,
+                "pct": ".346"
+              },
+              "splitSquad": false,
+              "seriesNumber": 9
+            }
+          },
+          "venue": {
+            "id": 3289,
+            "name": "Citi Field",
+            "link": "/api/v1/venues/3289"
+          },
+          "content": {
+            "link": "/api/v1/game/823637/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-823637-2026-04-25",
+          "seasonDisplay": "2026",
+          "dayNight": "day",
           "scheduledInnings": 9,
           "reverseHomeAwayStatus": false,
           "inningBreakLength": 120,
