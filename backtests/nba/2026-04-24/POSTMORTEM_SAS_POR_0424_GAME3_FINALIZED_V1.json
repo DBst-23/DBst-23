@@ -1,0 +1,206 @@
+{
+  "registry_id": "POSTMORTEM_SAS_POR_0424_GAME3_FINALIZED_V1",
+  "sport": "NBA",
+  "workflow": "NBA_LiveFlow_SharpEdge",
+  "backtest_logbook_status": "REGISTERED_FINALIZED",
+  "game_date": "2026-04-24",
+  "matchup": "SAS@POR",
+  "game_type": "Game 3",
+  "final_score": {
+    "SAS": 120,
+    "POR": 108,
+    "total_points": 228,
+    "margin": "SAS by 12"
+  },
+  "investments": [
+    {
+      "market": "Moneyline / To Win",
+      "selection": "San Antonio Spurs To Win",
+      "entry": 4.8,
+      "multiplier": "4.17x",
+      "paid": 20,
+      "result": "WIN",
+      "classification": "CORRECT_EDGE_MONEYLINE_UNDERDOG",
+      "tags": [
+        "EDGE_CALL_ACTIVE",
+        "WIN_REGISTERED",
+        "SAS_ML_CORRECT_EDGE",
+        "UNDERDOG_PRICE_CAPTURED"
+      ]
+    },
+    {
+      "market": "Full Game Total",
+      "selection": "No - Over 229.5 Points Scored",
+      "entry": 10,
+      "entry_probability": "44%",
+      "actual_total": 228,
+      "max_payout": 21.86,
+      "result": "WIN",
+      "classification": "CORRECT_EDGE_TOTAL_NO_OVER_229_5",
+      "tags": [
+        "EDGE_CALL_ACTIVE",
+        "WIN_REGISTERED",
+        "TOTAL_UNDER_EDGE_CONFIRMED",
+        "HOOK_SIDE_CAPTURED"
+      ]
+    },
+    {
+      "market": "Full Game Total",
+      "selection": "No - Over 232.5 Points Scored",
+      "entry": 7.59,
+      "entry_probability": "54%",
+      "actual_total": 228,
+      "max_payout": 13.61,
+      "result": "WIN",
+      "classification": "CORRECT_EDGE_TOTAL_NO_OVER_232_5",
+      "tags": [
+        "EDGE_CALL_ACTIVE",
+        "WIN_REGISTERED",
+        "TOTAL_UNDER_EDGE_CONFIRMED",
+        "ALT_TOTAL_BUFFER_CONFIRMED"
+      ]
+    }
+  ],
+  "card_result": {
+    "wins": 3,
+    "losses": 0,
+    "hit_rate": 1.0,
+    "grade": "A+"
+  },
+  "team_box_score": {
+    "SAS": {
+      "points": 120,
+      "fg": "41-87",
+      "fg_pct": 47.1,
+      "three_pt": "16-33",
+      "three_pt_pct": 48.5,
+      "ft": "22-28",
+      "ft_pct": 78.6,
+      "rebounds": 50,
+      "offensive_rebounds": 14,
+      "defensive_rebounds": 36,
+      "assists": 27,
+      "steals": 6,
+      "blocks": 8,
+      "turnovers": 15,
+      "points_off_turnovers": 17,
+      "fastbreak_points": 15,
+      "points_in_paint": 42,
+      "second_chance_points": 22,
+      "true_shooting_pct": 60.4,
+      "biggest_lead": 15
+    },
+    "POR": {
+      "points": 108,
+      "fg": "37-90",
+      "fg_pct": 41.1,
+      "three_pt": "14-38",
+      "three_pt_pct": 36.8,
+      "ft": "20-29",
+      "ft_pct": 69.0,
+      "rebounds": 45,
+      "offensive_rebounds": 16,
+      "defensive_rebounds": 29,
+      "assists": 21,
+      "steals": 7,
+      "blocks": 4,
+      "turnovers": 11,
+      "points_off_turnovers": 23,
+      "fastbreak_points": 19,
+      "points_in_paint": 44,
+      "second_chance_points": 12,
+      "true_shooting_pct": 52.5,
+      "biggest_lead": 15
+    }
+  },
+  "key_player_results": {
+    "SAS": [
+      {"player": "Stephon Castle", "minutes": 34, "points": 33, "rebounds": 2, "assists": 5, "fg": "10-18", "three_pt": "3-4", "ft": "10-11", "ts_pct": 72.2},
+      {"player": "Dylan Harper", "minutes": 30, "points": 27, "rebounds": 10, "assists": 3, "fg": "9-12", "three_pt": "4-5", "ft": "5-6", "plus_minus": 25, "ts_pct": 92.2},
+      {"player": "Luke Kornet", "minutes": 30, "points": 14, "rebounds": 10, "offensive_rebounds": 5, "blocks": 2, "fg": "6-9", "ts_pct": 70.9},
+      {"player": "De'Aaron Fox", "minutes": 36, "points": 18, "rebounds": 4, "assists": 6, "fg": "7-16"}
+    ],
+    "POR": [
+      {"player": "Jrue Holiday", "minutes": 41, "points": 29, "rebounds": 6, "assists": 5, "steals": 4, "fg": "12-18", "three_pt": "5-9", "ts_pct": 80.6},
+      {"player": "Scoot Henderson", "minutes": 36, "points": 21, "rebounds": 2, "assists": 1, "fg": "8-18", "three_pt": "5-10"},
+      {"player": "Deni Avdija", "minutes": 37, "points": 19, "rebounds": 6, "assists": 9, "fg": "3-15", "ft": "12-16", "ts_pct": 43.1},
+      {"player": "Donovan Clingan", "minutes": 20, "points": 7, "rebounds": 11, "offensive_rebounds": 3},
+      {"player": "Robert Williams III", "minutes": 25, "points": 11, "rebounds": 9, "offensive_rebounds": 6}
+    ]
+  },
+  "player_tracking_rebound_diagnostics": {
+    "SAS": [
+      {"player": "Luke Kornet", "rebounds": 10, "rebound_chances": 19, "rebound_chance_pct": 52.6, "adjusted_rebound_chance_pct": 66.7, "note": "High-chance interior role; 5 offensive boards supported second-chance scoring."},
+      {"player": "Dylan Harper", "rebounds": 10, "rebound_chances": 16, "rebound_chance_pct": 62.5, "adjusted_rebound_chance_pct": 62.5, "note": "Guard/wing rebound spike plus elite scoring efficiency drove upset path."},
+      {"player": "Devin Vassell", "rebounds": 7, "rebound_chances": 9, "rebound_chance_pct": 77.8, "adjusted_rebound_chance_pct": 77.8, "note": "Efficient wing-board capture."},
+      {"player": "Stephon Castle", "rebounds": 2, "rebound_chances": 12, "rebound_chance_pct": 16.7, "adjusted_rebound_chance_pct": 22.2, "note": "Scoring usage displaced rebound capture."}
+    ],
+    "POR": [
+      {"player": "Donovan Clingan", "rebounds": 11, "rebound_chances": 21, "rebound_chance_pct": 52.4, "adjusted_rebound_chance_pct": 57.9, "note": "High rebound opportunity in limited minutes."},
+      {"player": "Robert Williams III", "rebounds": 9, "rebound_chances": 18, "rebound_chance_pct": 50.0, "adjusted_rebound_chance_pct": 56.3, "note": "Offensive glass spike with 6 offensive rebounds."},
+      {"player": "Jrue Holiday", "rebounds": 6, "rebound_chances": 9, "rebound_chance_pct": 66.7, "adjusted_rebound_chance_pct": 85.7, "note": "Long-board guard capture but not enough to offset POR efficiency gap."},
+      {"player": "Deni Avdija", "rebounds": 6, "rebound_chances": 10, "rebound_chance_pct": 60.0, "adjusted_rebound_chance_pct": 66.7, "note": "Strong all-around usage, but poor shooting suppressed POR scoring ceiling."}
+    ]
+  },
+  "game_flow_lineup_context": {
+    "summary": "San Antonio won 120-108 behind elite shot-making from Castle and Harper plus a strong glass advantage. Portland generated offensive boards and points off turnovers, but poor free throw efficiency, weaker field goal efficiency, and Avdija/Camara shooting drag kept the total below 229.5 and 232.5. Spurs ML was validated by higher shot quality, bench scoring punch, and a +5 rebound edge.",
+    "key_drivers": [
+      "SAS shot 48.5% from three on 33 attempts.",
+      "SAS won rebounds 50-45 and defensive rebounds 36-29.",
+      "SAS produced 22 second-chance points.",
+      "POR shot only 41.1% FG and 69.0% FT.",
+      "POR had 16 offensive rebounds but only 12 second-chance points.",
+      "Final total landed 228, below both No Over 229.5 and No Over 232.5 positions."
+    ]
+  },
+  "hit_miss_reason": {
+    "primary_win_reason": "Spurs ML hit because San Antonio had superior shot quality, elite guard/wing efficiency from Castle and Harper, stronger defensive rebounding, and enough second-chance creation to control the late game.",
+    "total_market_reason": "No Over positions hit because Portland efficiency drag and missed free throws offset pace, offensive rebounds, and transition production. The final landed at 228, creating clean buffer on 232.5 and hook-side value on 229.5.",
+    "model_assessment": "Correct edge with strong market discipline. No Over 232.5 was cleaner than No Over 229.5 due to added buffer; Spurs ML was a strong underdog price capture."
+  },
+  "variance_tags": [
+    "EDGE_CALL_ACTIVE",
+    "WIN_REGISTERED",
+    "SAS_ML_CORRECT_EDGE",
+    "UNDERDOG_PRICE_CAPTURED",
+    "TOTAL_UNDER_EDGE_CONFIRMED",
+    "NO_OVER_229_5_HOOK_SIDE_CAPTURED",
+    "NO_OVER_232_5_ALT_BUFFER_CONFIRMED",
+    "POR_EFFICIENCY_DRAG",
+    "POR_FREE_THROW_DRAG",
+    "SAS_SHOT_QUALITY_SPIKE",
+    "CASTLE_SCORING_SPIKE",
+    "HARPER_TWO_WAY_SPIKE",
+    "SAS_REBOUND_EDGE_CONFIRMED",
+    "POR_OFFENSIVE_REBOUND_LOW_CONVERSION"
+  ],
+  "model_patch_recommendations": [
+    {
+      "patch_id": "ALT_TOTAL_BUFFER_PRIORITY_V1",
+      "description": "When two No Over positions are available, prioritize the higher threshold if probability remains playable because buffer materially improves survival rate.",
+      "effect": "Route larger stake toward higher-alt total buffer; keep lower hook-side number as smaller exposure only."
+    },
+    {
+      "patch_id": "OFFENSIVE_REBOUND_CONVERSION_CHECK_V1",
+      "description": "Do not treat offensive rebounds as automatic over fuel when team second-chance conversion is weak or FT efficiency is poor.",
+      "effect": "Separate offensive rebound volume from actual scoring conversion in total projections."
+    },
+    {
+      "patch_id": "YOUNG_GUARD_SCORING_SPIKE_UNDERDOG_FLAG_V1",
+      "description": "Boost underdog ML upset probability when young high-usage guards/wings show efficient scoring path and opponent has defensive rotation stress.",
+      "effect": "Increase ML upset probability by 2-5% in matching profiles."
+    }
+  ],
+  "final_grade": {
+    "investment_result_grade": "A+",
+    "model_process_grade": "A",
+    "bet_quality_grade": "A",
+    "registry_grade": "FINALIZED_VALIDATED_WIN"
+  },
+  "github_registry": {
+    "target_folder": "backtests/nba/2026-04-24/",
+    "target_filename": "POSTMORTEM_SAS_POR_0424_GAME3_FINALIZED_V1.json",
+    "registered_under": "Backtest_Logbook",
+    "ready_for_commit": true
+  }
+}
