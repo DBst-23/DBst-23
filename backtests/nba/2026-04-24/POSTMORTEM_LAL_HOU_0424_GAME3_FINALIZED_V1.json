@@ -1,0 +1,167 @@
+{
+  "registry_id": "POSTMORTEM_LAL_HOU_0424_GAME3_FINALIZED_V1",
+  "sport": "NBA",
+  "workflow": "NBA_LiveFlow_SharpEdge",
+  "backtest_logbook_status": "REGISTERED_FINALIZED",
+  "game_date": "2026-04-24",
+  "matchup": "LAL@HOU",
+  "game_type": "Western Conference First Round Game 3",
+  "final_score": {
+    "LAL": 112,
+    "HOU": 108,
+    "total_points": 220,
+    "period": "OT"
+  },
+  "series_context": {
+    "game_number": 3,
+    "winner": "LAL",
+    "series_after_game": "LAL leads 3-0"
+  },
+  "investments": [
+    {
+      "market": "Full Game Total",
+      "selection": "Over 215.5",
+      "actual": 220,
+      "result": "WIN",
+      "tag": "CORRECT_EDGE_TOTAL_OVER",
+      "classification": "CORRECT_EDGE"
+    },
+    {
+      "market": "Player Rebounds",
+      "selection": "Tari Eason 6+ Rebounds",
+      "actual": 4,
+      "result": "LOSS",
+      "tag": "MISS_REGISTERED_ROLE_COMPRESSION_ERROR",
+      "classification": "MODEL_ROLE_ERROR"
+    },
+    {
+      "market": "Player Rebounds",
+      "selection": "Alperen Sengun 9+ Rebounds",
+      "actual": 16,
+      "result": "WIN",
+      "tag": "CORRECT_EDGE_SENGUN_REB",
+      "classification": "CORRECT_EDGE"
+    },
+    {
+      "market": "Player Rebounds",
+      "selection": "LeBron James 8+ Rebounds",
+      "actual": 13,
+      "result": "WIN",
+      "tag": "CORRECT_EDGE_LEBRON_PLAYOFF_REB",
+      "classification": "CORRECT_EDGE"
+    },
+    {
+      "market": "Player Rebounds",
+      "selection": "Deandre Ayton Under 8.5 Rebounds",
+      "actual": 2,
+      "result": "WIN",
+      "tag": "CORRECT_EDGE_AYTON_REB_UNDER",
+      "classification": "CORRECT_EDGE"
+    }
+  ],
+  "card_result": {
+    "wins": 4,
+    "losses": 1,
+    "hit_rate": 0.8,
+    "grade": "A-"
+  },
+  "model_projection_vs_outcome": {
+    "game_total": {
+      "selection": "Over 215.5",
+      "actual": 220,
+      "diagnosis": "Correct environment read; OT and late-game chaos helped final over clear."
+    },
+    "tari_eason_rebounds": {
+      "selection": "6+ Rebounds",
+      "actual": 4,
+      "diagnosis": "Miss due to wing rebound role compression and Houston rebound funnel toward Sengun plus Amen."
+    },
+    "sengun_rebounds": {
+      "selection": "9+ Rebounds",
+      "actual": 16,
+      "diagnosis": "Correct center-volume read and Houston interior dependency."
+    },
+    "lebron_rebounds": {
+      "selection": "8+ Rebounds",
+      "actual": 13,
+      "diagnosis": "Correct playoff-minute and leverage rebound boost."
+    },
+    "ayton_rebounds_under": {
+      "selection": "Under 8.5 Rebounds",
+      "actual": 2,
+      "diagnosis": "Correct role suppression and matchup funnel read."
+    }
+  },
+  "player_tracking_rebound_diagnostics": {
+    "sengun": {
+      "rebounds": 16,
+      "note": "Primary Houston rebound anchor. Volume validated the 9+ ladder."
+    },
+    "lebron_james": {
+      "rebounds": 13,
+      "note": "Playoff leverage rebound boost validated."
+    },
+    "tari_eason": {
+      "rebounds": 4,
+      "note": "Starter/role expectation overvalued; actual rebound pathway compressed by Sengun and Amen."
+    },
+    "deandre_ayton": {
+      "rebounds": 2,
+      "note": "Under profile validated through role suppression and matchup context."
+    }
+  },
+  "game_flow_lineup_context": {
+    "summary": "Lakers won in overtime after late-game chaos. Houston's rebounding concentrated through Sengun and Amen-type jumbo guard/center funnel, suppressing Tari Eason's rebound path. Lakers playoff leverage increased LeBron's defensive glass role while Ayton's board involvement was capped.",
+    "key_context_tags": [
+      "LATE_GAME_CHAOS_OVERTIME_BOOST",
+      "HOU_REBOUND_FUNNEL_TO_SENGUN_AMEN",
+      "PLAYOFF_LEVERAGE_REBOUND_BOOST",
+      "AYTON_ROLE_SUPPRESSION_CONFIRMED"
+    ]
+  },
+  "variance_tags": [
+    "CORRECT_EDGE_TOTAL_OVER",
+    "CORRECT_EDGE_SENGUN_REB",
+    "CORRECT_EDGE_LEBRON_PLAYOFF_REB",
+    "CORRECT_EDGE_AYTON_REB_UNDER",
+    "MISS_REGISTERED_TARI_EASON_REB",
+    "ROLE_COMPRESSION_ERROR",
+    "HOU_REBOUND_FUNNEL_TO_SENGUN_AMEN",
+    "LATE_GAME_CHAOS_OVERTIME_BOOST",
+    "PLAYOFF_LEVERAGE_REBOUND_BOOST"
+  ],
+  "model_patch_recommendations": [
+    {
+      "patch_id": "WING_REBOUND_STARTER_TAG_PENALTY_V1",
+      "description": "Downgrade rebound overs for wing/forward starters when actual rebound funnel is controlled by center plus jumbo guard.",
+      "effect": "Reduce wing rebound ladder probability by 3-6% when center/guard funnel is active."
+    },
+    {
+      "patch_id": "HOU_REBOUND_FUNNEL_RULE_V1",
+      "description": "Route Houston board equity toward Sengun and Amen-type jumbo handlers when traditional frontcourt/rotation absences compress rebound distribution.",
+      "effect": "Boost Sengun/Amen rebound share; reduce secondary forward board assumptions."
+    },
+    {
+      "patch_id": "LEBRON_PLAYOFF_REBOUND_BOOST_KEEP_ACTIVE",
+      "description": "Preserve LeBron playoff-minute leverage rebound boost in close postseason games.",
+      "effect": "Maintain elevated LeBron rebound median in high-leverage playoff game states."
+    },
+    {
+      "patch_id": "AYTON_ROLE_SUPPRESSION_UNDER_PROFILE_KEEP_ACTIVE",
+      "description": "Preserve Ayton rebound under profile when opposing center usage is high and Lakers close with smaller or redistributed board groups.",
+      "effect": "Continue downgrading Ayton rebound mean/median in similar role contexts."
+    }
+  ],
+  "final_grade": {
+    "investment_result_grade": "A-",
+    "model_process_grade": "A-",
+    "bet_quality_grade": "A-",
+    "registry_grade": "FINALIZED_VALIDATED"
+  },
+  "github_registry": {
+    "target_folder": "backtests/nba/2026-04-24/",
+    "target_filename": "POSTMORTEM_LAL_HOU_0424_GAME3_FINALIZED_V1.json",
+    "registered_under": "Backtest_Logbook",
+    "ready_for_commit": true
+  }
+}
