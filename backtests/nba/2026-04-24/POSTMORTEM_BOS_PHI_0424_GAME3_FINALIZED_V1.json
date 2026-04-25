@@ -1,0 +1,167 @@
+{
+  "registry_id": "POSTMORTEM_BOS_PHI_0424_GAME3_FINALIZED_V1",
+  "sport": "NBA",
+  "workflow": "NBA_LiveFlow_SharpEdge",
+  "backtest_logbook_status": "REGISTERED_FINALIZED",
+  "game_date": "2026-04-24",
+  "matchup": "BOS@PHI",
+  "series_context": {
+    "game_number": 3,
+    "series_result_after_game": "BOS leads 2-1"
+  },
+  "final_score": {
+    "BOS": 108,
+    "PHI": 100,
+    "total_points": 208,
+    "margin": "BOS by 8"
+  },
+  "primary_investments": [
+    {
+      "investment_id": "BOS_TT_OVER_108_5",
+      "market": "Team Total",
+      "selection": "Boston Celtics Over 108.5 Points",
+      "model_mean": 110.2,
+      "model_median": 110,
+      "model_probability": "56-58%",
+      "edge_grade": "B",
+      "actual": 108,
+      "result": "LOSS",
+      "miss_margin": -0.5,
+      "classification": "HOOK_LOSS_THRESHOLD_PRECISION_MISS",
+      "tags": [
+        "EDGE_CALL_ACTIVE",
+        "MISS_REGISTERED",
+        "HOOK_LOSS",
+        "MODEL_DIRECTION_CORRECT",
+        "TURNOVER_DRAG_SUPPRESSED_TEAM_TOTAL"
+      ]
+    }
+  ],
+  "other_model_projections": [
+    {
+      "market": "FG Under 206.5",
+      "model_mean": 207.8,
+      "model_median": 207,
+      "model_probability": "48-50%",
+      "edge_grade": "Pass",
+      "actual": 208,
+      "result": "NO_BET_CORRECT_PASS"
+    },
+    {
+      "market": "FG Over 206.5",
+      "model_mean": 207.8,
+      "model_median": 207,
+      "model_probability": "50-52%",
+      "edge_grade": "Thin / Pass",
+      "actual": 208,
+      "result": "THIN_LEAN_CORRECT_PASS"
+    },
+    {
+      "market": "PHI TT Under 103.5",
+      "model_mean": 100.8,
+      "model_median": 101,
+      "model_probability": "58-60%",
+      "edge_grade": "B+",
+      "actual": 100,
+      "result": "PROJECTION_HIT",
+      "tags": [
+        "CORRECT_EDGE",
+        "PHI_TEAM_TOTAL_UNDER_VALIDATED"
+      ]
+    },
+    {
+      "market": "BOS -10.5",
+      "model_projection": "BOS by 10.1",
+      "model_median": "BOS by 10",
+      "model_probability": "47-49%",
+      "edge_grade": "Pass",
+      "actual_margin": 8,
+      "result": "CORRECT_PASS"
+    },
+    {
+      "market": "BOS No -10.5",
+      "model_projection": "BOS by 10.1",
+      "model_median": "BOS by 10",
+      "model_probability": "51-53%",
+      "edge_grade": "Thin",
+      "actual_margin": 8,
+      "result": "THIN_LEAN_HIT"
+    }
+  ],
+  "team_box_score": {
+    "BOS": {
+      "points": 108,
+      "fg": "36-81",
+      "fg_pct": 44.4,
+      "three_pt": "20-47",
+      "three_pt_pct": 42.6,
+      "ft": "16-17",
+      "ft_pct": 94.1,
+      "rebounds": 45,
+      "offensive_rebounds": 15,
+      "defensive_rebounds": 30,
+      "assists": 21,
+      "turnovers": 17,
+      "points_off_turnovers": 14,
+      "points_in_paint": 26,
+      "second_chance_points": 22,
+      "true_shooting_pct": 61.0
+    },
+    "PHI": {
+      "points": 100,
+      "fg": "38-87",
+      "fg_pct": 43.7,
+      "three_pt": "12-35",
+      "three_pt_pct": 34.3,
+      "ft": "12-16",
+      "ft_pct": 75.0,
+      "rebounds": 37,
+      "offensive_rebounds": 13,
+      "defensive_rebounds": 24,
+      "assists": 18,
+      "turnovers": 11,
+      "points_off_turnovers": 21,
+      "points_in_paint": 42,
+      "second_chance_points": 17,
+      "true_shooting_pct": 53.2
+    }
+  },
+  "hit_miss_reason": {
+    "primary_miss_reason": "Boston team total over missed by 0.5 due to turnover drag and lack of late foul-extension points.",
+    "supporting_evidence": [
+      "Boston made 20 threes on 42.6% shooting.",
+      "Boston won rebounds 45-37 and produced 22 second-chance points.",
+      "Boston committed 17 turnovers.",
+      "Philadelphia scored 21 points off turnovers.",
+      "Boston finished with only 26 points in the paint."
+    ],
+    "model_assessment": "Directionally correct but threshold precision failed.",
+    "error_type": "LOW_SEVERITY_MODEL_ERROR_PLUS_VARIANCE_BURN"
+  },
+  "variance_tags": [
+    "EDGE_CALL_ACTIVE",
+    "MISS_REGISTERED",
+    "HOOK_LOSS",
+    "MODEL_DIRECTION_CORRECT",
+    "THRESHOLD_PRECISION_MISS",
+    "TURNOVER_DRAG_SUPPRESSED_TEAM_TOTAL",
+    "BOS_REBOUND_EDGE_CONFIRMED",
+    "BOS_SECOND_CHANCE_VOLUME_CONFIRMED",
+    "PHI_TEAM_TOTAL_UNDER_VALIDATED",
+    "NO_LATE_FOUL_EXTENSION",
+    "MARKET_LINE_EFFICIENT_ZONE",
+    "MODEL_ERROR_MINOR",
+    "VARIANCE_BURN_LOW_SEVERITY"
+  ],
+  "model_patch_recommendations": [
+    "TEAM_TOTAL_TURNOVER_VOL_GATE_V1",
+    "HOOK_ZONE_TEAM_TOTAL_FILTER_V1",
+    "BEST_EDGE_PRIORITY_ROUTER_V1"
+  ],
+  "github_registry": {
+    "target_folder": "backtests/nba/2026-04-24/",
+    "target_filename": "POSTMORTEM_BOS_PHI_0424_GAME3_FINALIZED_V1.json",
+    "registered_under": "Backtest_Logbook",
+    "ready_for_commit": true
+  }
+}
