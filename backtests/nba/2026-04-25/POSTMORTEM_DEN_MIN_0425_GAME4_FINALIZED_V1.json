@@ -1,0 +1,48 @@
+{
+  "registry_id": "POSTMORTEM_DEN_MIN_0425_GAME4_FINALIZED_V1",
+  "sport": "NBA",
+  "workflow": "NBA_LiveFlow_SharpEdge",
+  "backtest_logbook_status": "REGISTERED_FINALIZED",
+  "game_date": "2026-04-25",
+  "matchup": "DEN@MIN",
+  "series_game": 4,
+  "final_score": {"DEN": 96, "MIN": 112, "total_points": 208, "margin": "MIN by 16", "series_after_game": "MIN leads 3-1"},
+  "injury_context": {"Anthony Edwards": {"status": "injured early / helped to locker room", "minutes": 18, "impact": "Removed primary MIN self-creation and validated total suppression after live injury update."}, "Donte DiVincenzo": {"status": "injured early", "minutes": 1, "impact": "Reduced MIN normal guard/spacing rotation; forced Ayo Dosunmu into expanded role."}},
+  "investments": [
+    {"platform": "Kalshi", "market": "Total Points", "selection": "No - Over 220.5 points scored", "entry_cost": 15.0, "entry_probability": 0.55, "payout": 26.43, "result": "WIN", "actual_total": 208, "clearance": 12.5, "classification": "HIT_REGISTERED_INJURY_ADJUSTED_TOTAL_EDGE"},
+    {"platform": "Underdog Champions", "market": "3-pick 3PM card", "entry_cost": 2.50, "payout": 0.0, "boost": "30% extender", "result": "LOSS", "legs": [
+      {"player": "Anthony Edwards", "market": "3PM", "line": 4.5, "side": "Lower", "actual": 1, "result": "WIN"},
+      {"player": "Naz Reid", "market": "3PM", "line": 1.5, "side": "Higher", "actual": 1, "result": "LOSS"},
+      {"player": "Nikola Jokic", "market": "3PM", "line": 1.5, "side": "Higher", "actual": 0, "result": "LOSS"}
+    ], "classification": "MISS_REGISTERED_3PM_PARLAY_VARIANCE_AND_INJURY_CONTEXT"}
+  ],
+  "investment_grade": {"record": "1-1", "cash_result": "positive due to larger Kalshi total win", "process_grade": "B+", "overall_grade": "B+", "summary": "LiveFlow correctly adjusted to injury shock and captured the best edge on total suppression. 3PM parlay failed due to Denver perimeter collapse and Reid/Jokic misses."},
+  "halftime_liveflow_projection": {"halftime_score": {"DEN": 54, "MIN": 50}, "halftime_total": 104, "original_live_total": 217.5, "executed_total": 220.5, "post_injury_model_total_mean": "208-213", "post_injury_model_median": "211-212", "selection": "No Over 220.5", "model_probability": "61-65%"},
+  "actual_vs_model_delta": {"actual_total": 208, "delta_vs_post_injury_mean_low": 0, "delta_vs_post_injury_mean_high": -5, "spread_note": "Initial side read was invalidated by Edwards injury; total suppression became correct dominant edge.", "summary": "Post-injury total model was accurate. Full game landed at 208, inside the updated injury-adjusted band."},
+  "team_box_score": {
+    "DEN": {"points": 96, "rebounds": 38, "offensive_rebounds": 12, "defensive_rebounds": 26, "assists": 21, "steals": 7, "blocks": 7, "turnovers": 10, "fg": "33-87", "fg_pct": 37.9, "three_pt": "6-28", "three_pt_pct": 21.4, "ft": "24-28", "ft_pct": 85.7, "points_off_turnovers": 16, "points_in_paint": 42, "second_chance_points": 12, "fastbreak_points": 15, "true_shooting_pct": 48.3},
+    "MIN": {"points": 112, "rebounds": 50, "offensive_rebounds": 16, "defensive_rebounds": 34, "assists": 22, "steals": 6, "blocks": 5, "turnovers": 12, "fg": "39-89", "fg_pct": 43.8, "three_pt": "9-25", "three_pt_pct": 36.0, "ft": "25-26", "ft_pct": 96.2, "points_off_turnovers": 15, "points_in_paint": 54, "second_chance_points": 11, "fastbreak_points": 8, "true_shooting_pct": 55.8}
+  },
+  "player_diagnostics": {
+    "DEN": {"Nikola Jokic": {"minutes": 41, "points": 24, "rebounds": 15, "assists": 9, "three_pt": "0-3", "fg": "8-22", "note": "Volume remained, but shooting efficiency and 3PM leg failed."}, "Jamal Murray": {"minutes": 42, "points": 30, "rebounds": 5, "assists": 5, "three_pt": "3-7", "note": "Main Denver scorer; insufficient support."}, "Tim Hardaway Jr.": {"minutes": 28, "points": 10, "three_pt": "0-6", "note": "Major perimeter suppression contributor."}},
+    "MIN": {"Ayo Dosunmu": {"minutes": 42, "points": 43, "fg": "13-17", "three_pt": "5-5", "ft": "12-12", "ts_pct": 96.5, "note": "Injury replacement explosion; primary reason MIN still reached 112 without full Edwards/DiVincenzo."}, "Anthony Edwards": {"minutes": 18, "points": 5, "three_pt": "1-3", "note": "Early injury validated lower 4.5 3PM but changed all live offensive assumptions."}, "Naz Reid": {"minutes": 28, "points": 17, "rebounds": 9, "three_pt": "1-5", "note": "Productive overall but missed 3PM ladder by one."}, "Rudy Gobert": {"minutes": 36, "rebounds": 15, "offensive_rebounds": 5, "note": "Rebound control anchor."}}
+  },
+  "lineup_context": {
+    "den_team_total": {"off_rtg": 102.1, "def_rtg": 120.4, "pace": 93.5, "ts_pct": 48.3, "efg_pct": 41.4, "reb_pct": 43.2, "oreb_pct": 26.1, "dreb_pct": 61.9},
+    "min_team_total": {"off_rtg": 120.4, "def_rtg": 102.1, "pace": 93.5, "ts_pct": 55.8, "efg_pct": 48.9, "reb_pct": 56.8, "oreb_pct": 38.1, "dreb_pct": 73.9},
+    "den_starting_lineup": {"players": ["Nikola Jokic", "Jamal Murray", "Christian Braun", "Cameron Johnson", "Aaron Gordon"], "minutes": "15:32", "plus_minus": -6, "off_rtg": 116.7, "def_rtg": 146.4, "note": "Starting group scored but could not defend MIN post-injury rotation."},
+    "min_replacement_lineup": {"players": ["Ayo Dosunmu", "Jaden McDaniels", "Rudy Gobert", "Mike Conley", "Julius Randle"], "minutes": "7:59", "off_rtg": 133.3, "note": "Post-injury replacement group stabilized offense and defense."}
+  },
+  "hit_miss_reason": {"no_over_220_5_win": "The injury shock correctly shifted the best edge from side protection to total suppression. Even though Dosunmu exploded, Denver's 37.9% FG and 21.4% 3PT shooting kept the game far below 220.5.", "3pm_parlay_loss": "Edwards lower hit because of injury/limited minutes, but Naz Reid and Jokic failed to clear 1.5 threes. Denver perimeter shot profile collapsed, making Jokic higher 1.5 a weak leg in retrospect.", "slate_patch_summary": "LiveFlow must separate injury-driven usage redistribution from total inflation. Injuries can suppress total, but replacement usage spikes can still preserve one team total."},
+  "variance_tags": ["EDGE_CALL_ACTIVE", "HIT_REGISTERED", "MISS_REGISTERED", "INJURY_SHOCK_OVERRIDE_ACTIVE", "ANT_EXIT_CREATION_DOWNGRADE", "DIVINCENZO_EXIT_ROTATION_SHIFT", "TOTAL_UNDER_EDGE_VALIDATED", "DEN_3PT_COLLAPSE", "JOKIC_3PM_LEG_FAIL", "NAZ_REID_HOOK_FAIL", "AYO_DOSUNMU_REPLACEMENT_SPIKE", "MIN_REBOUND_DOMINANCE", "DEN_OFFENSIVE_SUPPRESSION"],
+  "model_patch_recommendations": [
+    {"patch_id": "INJURY_SHOCK_TOTAL_SUPPRESSION_GATE_V1", "description": "When a primary creator exits mid-game, downgrade total immediately unless replacement usage shows proven high-efficiency continuation within same quarter."},
+    {"patch_id": "REPLACEMENT_USAGE_SPIKE_EXCEPTION_V1", "description": "Do not over-suppress the injured team total if one replacement player immediately absorbs usage with elite efficiency; keep full-game total lower but allow team-specific resilience."},
+    {"patch_id": "DEN_PERIMETER_COLLAPSE_3PM_PARLAY_FILTER_V1", "description": "Avoid multiple Denver 3PM overs in same card when team 3PT quality is unstable or opponent has length/rebound control."},
+    {"patch_id": "STAR_BIG_3PM_OVER_CAUTION_V1", "description": "Downgrade Jokic 1.5+ 3PM overs when matchup asks him to carry interior creation/rebounding instead of spacing volume."},
+    {"patch_id": "LIVEFLOW_SIDE_INVALIDATION_AFTER_STAR_INJURY_V1", "description": "Immediately invalidate side reads dependent on injured player's comeback/regression pathway and switch to totals/team-total framework."}
+  ],
+  "final_verdict": {"summary": "DEN@MIN Game 4 finalized the slate with a clean LiveFlow win on No Over 220.5. The key model improvement was the correct pivot after Edwards' injury: the side edge was invalidated, but the total under became strong. Denver's perimeter collapse and Minnesota's rebound dominance kept the game at 208 despite Ayo Dosunmu's replacement eruption. The slate patch is clear: injury shock requires immediate market reclassification, not static continuation of pre-injury side logic.", "backtest_value": "Very high for injury-adjusted LiveFlow and total modeling."},
+  "source_files": ["DEN@MIN Game#4.docx"],
+  "source_note": "Boxscore, lineup stats, and injury context supplied by user."
+}
