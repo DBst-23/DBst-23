@@ -22,9 +22,9 @@
           "officialDate": "2026-04-26",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -483,6 +483,7 @@
                 "losses": 15,
                 "pct": ".444"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 9
             },
@@ -497,6 +498,7 @@
                 "losses": 11,
                 "pct": ".577"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 9
             }
@@ -1043,6 +1045,78 @@
           "ifNecessaryDescription": "Normal Game"
         },
         {
+          "gamePk": 824122,
+          "gameGuid": "c38d9148-bff1-4647-8796-d68975277fbd",
+          "link": "/api/v1.1/game/824122/feed/live",
+          "gameType": "R",
+          "season": "2026",
+          "gameDate": "2026-04-26T20:10:00Z",
+          "officialDate": "2026-04-26",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "S",
+            "detailedState": "Scheduled",
+            "statusCode": "S",
+            "startTimeTBD": false,
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 108,
+                "name": "Los Angeles Angels",
+                "link": "/api/v1/teams/108"
+              },
+              "leagueRecord": {
+                "wins": 12,
+                "losses": 16,
+                "pct": ".429"
+              },
+              "splitSquad": false,
+              "seriesNumber": 9
+            },
+            "home": {
+              "team": {
+                "id": 118,
+                "name": "Kansas City Royals",
+                "link": "/api/v1/teams/118"
+              },
+              "leagueRecord": {
+                "wins": 10,
+                "losses": 17,
+                "pct": ".370"
+              },
+              "splitSquad": false,
+              "seriesNumber": 9
+            }
+          },
+          "venue": {
+            "id": 7,
+            "name": "Kauffman Stadium",
+            "link": "/api/v1/venues/7"
+          },
+          "content": {
+            "link": "/api/v1/game/824122/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-824122-2026-04-26",
+          "seasonDisplay": "2026",
+          "dayNight": "day",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 145,
+          "gamesInSeries": 3,
+          "seriesGameNumber": 3,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
           "gamePk": 823959,
           "gameGuid": "f58f7460-5181-4862-9d40-a4a31d2b3021",
           "link": "/api/v1.1/game/823959/feed/live",
@@ -1107,78 +1181,6 @@
           "scheduledInnings": 9,
           "reverseHomeAwayStatus": false,
           "inningBreakLength": 120,
-          "gamesInSeries": 3,
-          "seriesGameNumber": 3,
-          "seriesDescription": "Regular Season",
-          "recordSource": "S",
-          "ifNecessary": "N",
-          "ifNecessaryDescription": "Normal Game"
-        },
-        {
-          "gamePk": 824122,
-          "gameGuid": "c38d9148-bff1-4647-8796-d68975277fbd",
-          "link": "/api/v1.1/game/824122/feed/live",
-          "gameType": "R",
-          "season": "2026",
-          "gameDate": "2026-04-26T23:20:00Z",
-          "officialDate": "2026-04-26",
-          "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
-            "startTimeTBD": false,
-            "abstractGameCode": "P"
-          },
-          "teams": {
-            "away": {
-              "team": {
-                "id": 108,
-                "name": "Los Angeles Angels",
-                "link": "/api/v1/teams/108"
-              },
-              "leagueRecord": {
-                "wins": 12,
-                "losses": 16,
-                "pct": ".429"
-              },
-              "splitSquad": false,
-              "seriesNumber": 9
-            },
-            "home": {
-              "team": {
-                "id": 118,
-                "name": "Kansas City Royals",
-                "link": "/api/v1/teams/118"
-              },
-              "leagueRecord": {
-                "wins": 10,
-                "losses": 17,
-                "pct": ".370"
-              },
-              "splitSquad": false,
-              "seriesNumber": 9
-            }
-          },
-          "venue": {
-            "id": 7,
-            "name": "Kauffman Stadium",
-            "link": "/api/v1/venues/7"
-          },
-          "content": {
-            "link": "/api/v1/game/824122/content"
-          },
-          "gameNumber": 1,
-          "publicFacing": true,
-          "doubleHeader": "N",
-          "gamedayType": "P",
-          "tiebreaker": "N",
-          "calendarEventID": "14-824122-2026-04-26",
-          "seasonDisplay": "2026",
-          "dayNight": "night",
-          "scheduledInnings": 9,
-          "reverseHomeAwayStatus": false,
-          "inningBreakLength": 145,
           "gamesInSeries": 3,
           "seriesGameNumber": 3,
           "seriesDescription": "Regular Season",
