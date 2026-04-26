@@ -1,0 +1,39 @@
+{
+  "mpz_id": "MPZ_DET_ORL_0425_GAME3_CLASSIFICATION_V1",
+  "date": "2026-04-25",
+  "matchup": "DET@ORL",
+  "series_game": 3,
+  "linked_postmortem": "backtests/nba/2026-04-25/POSTMORTEM_DET_ORL_0425_GAME3_FINALIZED_V1.json",
+  "classification": "DUAL_MISS_STRUCTURAL_PLUS_HEDGE_FAILURE",
+  "investments": [
+    {
+      "selection": "Detroit Pistons To Win",
+      "entry": "+133",
+      "result": "LOSS",
+      "mpz_tag": "MODEL_STRUCTURAL_MISS",
+      "cause": "Model overvalued DET side and underweighted Cade Cunningham turnover volatility, Jalen Duren foul/minute fragility, and Orlando starter-unit possession control."
+    },
+    {
+      "selection": "No - Orlando wins by over 4.5 points",
+      "entry_probability": "51%",
+      "result": "LOSS",
+      "mpz_tag": "HEDGE_FAILURE_STRUCTURAL_LEAD_MISREAD",
+      "cause": "Live hedge faded Orlando margin even though the lead was supported by rebounding, FT pressure, Bane shotmaking, and DET primary-handler turnover drag."
+    }
+  ],
+  "root_tags": [
+    "CADE_TURNOVER_DRAG_EXTREME",
+    "ORL_STARTER_UNIT_DOMINANCE",
+    "WCJ_REBOUND_SPIKE_VALIDATED",
+    "BANE_3PT_SPIKE_VALIDATED",
+    "DUREN_FOUL_RISK_MINUTES_CAP",
+    "LIVE_HEDGE_STRUCTURAL_LEAD_FILTER_REQUIRED"
+  ],
+  "patches_to_carry_forward": [
+    "PRIMARY_BALLHANDLER_TURNOVER_DRAG_GATE_V1",
+    "CENTER_FOUL_RISK_SIDE_DOWNGRADE_V1",
+    "ORL_STARTER_UNIT_REBOUND_EFFICIENCY_BOOST_V1",
+    "LIVE_HEDGE_STRUCTURAL_LEAD_FILTER_V1"
+  ],
+  "status": "REGISTERED_FINALIZED"
+}
