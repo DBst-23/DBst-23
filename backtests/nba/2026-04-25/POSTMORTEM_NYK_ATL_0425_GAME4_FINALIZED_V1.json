@@ -1,0 +1,49 @@
+{
+  "registry_id": "POSTMORTEM_NYK_ATL_0425_GAME4_FINALIZED_V1",
+  "sport": "NBA",
+  "workflow": "NBA_LiveFlow_SharpEdge",
+  "backtest_logbook_status": "REGISTERED_FINALIZED",
+  "game_date": "2026-04-25",
+  "matchup": "NYK@ATL",
+  "series_game": 4,
+  "final_score": {"NYK": 114, "ATL": 98, "total_points": 212, "margin": "NYK by 16", "series_after_game": "Series tied 2-2"},
+  "investments": [
+    {"platform": "Kalshi", "market": "Total Points", "selection": "Over 205.5 points scored", "entry_cost": 4.91, "entry_probability": 0.49, "payout": 9.66, "result": "WIN", "actual_total": 212, "classification": "HIT_REGISTERED_CORRECT_TOTAL_EDGE"},
+    {"platform": "Kalshi", "market": "Spread", "selection": "No - New York wins by over 11.5 points", "entry_cost": 10.0, "entry_probability": 0.53, "max_payout": 18.26, "result": "LOSS", "actual_margin": "NYK by 16", "classification": "MISS_REGISTERED_SPREAD_INFLATION_FADE_FAILED"},
+    {"platform": "Underdog Champions", "market": "3-pick boosted rebound card", "entry_cost": 5.0, "payout": 38.11, "boost": "40%", "result": "WIN", "legs": [
+      {"player": "Dyson Daniels", "market": "Rebounds", "line": 6.5, "side": "Higher", "actual": 8, "result": "WIN"},
+      {"player": "OG Anunoby", "market": "Rebounds", "line": 5.5, "side": "Higher", "actual": 8, "result": "WIN"},
+      {"player": "Josh Hart", "market": "Rebounds", "line": 8.5, "side": "Higher", "actual": 9, "result": "WIN"}
+    ], "classification": "HIT_REGISTERED_REBOUND_ENVIRONMENT_CONFIRMED"}
+  ],
+  "investment_grade": {"record": "2-1", "primary_ticket": "Underdog boosted rebound card hit", "cash_result": "positive", "process_grade": "A-", "overall_grade": "A-"},
+  "pregame_model_projection": {"nyk_points_mean": 109.1, "nyk_points_median": 109, "atl_points_mean": 107.3, "atl_points_median": 107, "total_mean": 216.4, "total_median": 216, "spread_mean": "NYK by 1.8", "spread_median": "NYK by 2"},
+  "actual_vs_model_delta": {"nyk_points_delta_vs_mean": 4.9, "atl_points_delta_vs_mean": -9.3, "total_delta_vs_mean": -4.4, "spread_delta": "Model NYK by 1.8 vs actual NYK by 16", "summary": "Total stayed playable and cleared 205.5, but ATL offensive suppression caused the spread fade to fail badly."},
+  "team_box_score": {
+    "NYK": {"points": 114, "rebounds": 43, "offensive_rebounds": 12, "defensive_rebounds": 31, "assists": 23, "steals": 9, "blocks": 3, "turnovers": 14, "fg": "41-83", "fg_pct": 49.4, "three_pt": "14-31", "three_pt_pct": 45.2, "ft": "18-23", "ft_pct": 78.3, "points_off_turnovers": 21, "points_in_paint": 50, "second_chance_points": 15, "fastbreak_points": 8, "true_shooting_pct": 61.2},
+    "ATL": {"points": 98, "rebounds": 38, "offensive_rebounds": 12, "defensive_rebounds": 26, "assists": 20, "steals": 8, "blocks": 5, "turnovers": 18, "fg": "34-83", "fg_pct": 41.0, "three_pt": "10-41", "three_pt_pct": 24.4, "ft": "20-25", "ft_pct": 80.0, "points_off_turnovers": 14, "points_in_paint": 44, "second_chance_points": 17, "fastbreak_points": 7, "true_shooting_pct": 52.1}
+  },
+  "player_tracking_rebound_diagnostics": {
+    "NYK": {"OG Anunoby": {"minutes": 40, "rebounds_pdf": 10, "ticket_actual": 8, "line": 5.5, "result": "WIN", "note": "Ticket screen graded 8; official PDF shows 10. Either way, OG rebound role cleared comfortably."}, "Josh Hart": {"minutes": 31, "rebounds": 9, "line": 8.5, "result": "WIN", "note": "Series rebound stability confirmed again."}, "Karl-Anthony Towns": {"minutes": 29, "rebounds": 10, "assists": 10, "note": "Triple-double style connector game; KAT remained central without killing Hart/OG boards."}, "Mitchell Robinson": {"minutes": 15, "rebounds": 8, "offensive_rebounds": 5, "note": "Siphon risk remained real but environment was dense enough to support multiple Knicks rebounders."}},
+    "ATL": {"Dyson Daniels": {"minutes": 30, "rebounds_pdf": 9, "ticket_actual": 8, "line": 6.5, "result": "WIN", "note": "Wing-board spike confirmed again despite ATL loss."}, "Jalen Johnson": {"minutes": 35, "rebounds": 3, "note": "Underperformed boards relative to expectation; Dyson absorbed more wing rebound share."}, "Okongwu": {"minutes": 28, "rebounds": 6, "note": "Fair but not spike-level."}}
+  },
+  "lineup_context": {
+    "nyk_team_total": {"off_rtg": 122.6, "def_rtg": 105.4, "pace": 93, "ts_pct": 61.2, "efg_pct": 57.8, "reb_pct": 53.1, "oreb_pct": 31.6, "dreb_pct": 72.1, "tov_pct": 16.1},
+    "atl_team_total": {"off_rtg": 105.4, "def_rtg": 122.6, "pace": 93, "ts_pct": 52.1, "efg_pct": 47.0, "reb_pct": 46.9, "oreb_pct": 27.9, "dreb_pct": 68.4, "tov_pct": 20.4},
+    "nyk_starting_lineup": {"players": ["Karl-Anthony Towns", "OG Anunoby", "Josh Hart", "Mikal Bridges", "Jalen Brunson"], "minutes": "11:39", "plus_minus": 0, "off_rtg": 113.0, "def_rtg": 118.2, "pace": 92.7, "note": "Starting lineup was not the only driver; bench/rebound units changed game."},
+    "nyk_robinson_unit": {"players": ["OG Anunoby", "Mitchell Robinson", "Josh Hart", "Miles McBride", "Jalen Brunson"], "minutes": "7:55", "plus_minus": 5, "off_rtg": 143.8, "reb_pct": 77.8, "oreb_pct": 80.0, "note": "This was the game-breaking possession/rebound unit."},
+    "atl_main_lineup": {"players": ["Onyeka Okongwu", "Dyson Daniels", "CJ McCollum", "Jalen Johnson", "Nickeil Alexander-Walker"], "minutes": "14:50", "plus_minus": -4, "off_rtg": 116.1, "def_rtg": 129.0, "pace": 100.3, "note": "ATL main group scored decently but could not defend NYK efficiency."}
+  },
+  "hit_miss_reason": {"over_205_5_win": "The live over worked because 205.5 was below the true scoring floor even with ATL suppression. NYK efficiency, 3PT shooting, and paint scoring carried the total to 212.", "rebound_card_win": "The rebound card hit because series-confirmed board roles held: Hart and OG maintained NYK wing rebounding, Dyson retained ATL weak-side board access, and the total rebound environment stayed dense despite slower pace.", "no_nyk_11_5_loss": "The spread fade failed because NYK's lead was structural. ATL's 18 turnovers, poor 3PT shooting, and inability to contain NYK's rebound/bench units allowed NYK to extend from halftime control to a 16-point win."},
+  "variance_tags": ["EDGE_CALL_ACTIVE", "HIT_REGISTERED", "MISS_REGISTERED", "REBOUND_ENVIRONMENT_CONFIRMED", "HART_REBOUND_STABILITY_CONFIRMED", "OG_REBOUND_ROLE_CONFIRMED", "DYSON_DANIELS_BOARD_SPIKE_CONFIRMED", "MITCHELL_ROBINSON_SIPHON_PRESENT_BUT_NOT_FATAL", "NYK_BENCH_REBOUND_UNIT_SPIKE", "ATL_3PT_SUPPRESSION", "ATL_TURNOVER_DRAG", "SPREAD_INFLATION_FADE_FAILED", "TOTAL_OVER_DEFENSE_RESILIENT"],
+  "model_patch_recommendations": [
+    {"patch_id": "SERIES_REBOUND_ROLE_PERSISTENCE_V1", "description": "Upgrade rebound props when a player clears role/chance thresholds across 3+ games in same series, even if opponent adjusts."},
+    {"patch_id": "DYSON_DANIELS_WING_BOARD_SPIKE_LOCK_V1", "description": "Maintain Dyson rebound over eligibility at 6.5/7.5 when minutes project 30+ and ATL is using him as defensive wing rebounder."},
+    {"patch_id": "NYK_MULTI_REBOUNDER_ENVIRONMENT_V1", "description": "Do not auto-downgrade Hart/OG when Robinson is active unless Robinson projects 22+ minutes; Knicks can support multiple rebound overs in dense board games."},
+    {"patch_id": "LIVE_SPREAD_FADE_STRUCTURAL_CONTROL_FILTER_V2", "description": "Avoid No favorite-margin fades when the favorite's lead is supported by opponent turnovers, OREB pressure, and bench lineup dominance."},
+    {"patch_id": "ATL_TURNOVER_DRAG_OFFENSE_DOWNGRADE_V1", "description": "Downgrade ATL team total/spread comeback paths when ATL TOV% exceeds 18% and 3PT% is below 30%."}
+  ],
+  "final_verdict": {"summary": "NYK@ATL Game 4 was a strong rebound-model validation and a spread-fade lesson. The boosted Hart/Dyson/OG rebound card hit cleanly, and the live Over 205.5 also won. The only miss was the No NYK by over 11.5 position, which failed because NYK's control was structural rather than inflated. This game strengthens the series rebound module and adds a stricter live spread-fade filter.", "backtest_value": "Very high for rebound prop validation and live spread-fade discipline."},
+  "source_files": ["NYK@ATL Game#4.pdf"],
+  "source_note": "Boxscore and lineup stats supplied by user via PDF. Ticket outcomes supplied by user screenshots."
+}
