@@ -1,0 +1,142 @@
+{
+  "log_id": "NBA_POSTMORTEM_2026_04_26_CLE_TOR_G4",
+  "sport": "NBA",
+  "mode": "POSTMORTEM_GITHUB_WORKFLOW",
+  "status": "FINALIZED",
+  "registered_under": "Backtest_Logbook",
+  "game": {
+    "date": "2026-04-26",
+    "matchup": "CLE@TOR",
+    "series_game": 4,
+    "final_score": {"CLE": 89, "TOR": 93},
+    "series_after_game": {"CLE": 2, "TOR": 2}
+  },
+  "investments": [
+    {
+      "platform": "Kalshi",
+      "market": "Cavaliers at Raptors: Spread",
+      "selection": "No - Cleveland wins by over 3.5 points",
+      "entry_cost": 5.0,
+      "entry_probability": 0.57,
+      "payout": 8.51,
+      "result": "WIN",
+      "actual_margin": "TOR by 4",
+      "grade": "A",
+      "classification": "CORRECT_EDGE"
+    }
+  ],
+  "model_projection_vs_actual": {
+    "liveflow_halftime_call": {
+      "score_at_call": {"CLE": 36, "TOR": 38},
+      "market_line": "CLE by over 3.5",
+      "model_side": "NO",
+      "model_probability_range": "60-63%",
+      "market_probability": "56-57%",
+      "result": "HIT"
+    },
+    "actual_total": 182,
+    "actual_margin": "TOR +4"
+  },
+  "team_box_score": {
+    "CLE": {
+      "points": 89,
+      "rebounds": 56,
+      "offensive_rebounds": 16,
+      "defensive_rebounds": 40,
+      "assists": 15,
+      "steals": 5,
+      "blocks": 5,
+      "turnovers": 17,
+      "fg": "32-86",
+      "fg_pct": 37.2,
+      "three_pt": "10-39",
+      "three_pt_pct": 25.6,
+      "ft": "15-23",
+      "ft_pct": 65.2,
+      "points_in_paint": 38,
+      "second_chance_points": 7,
+      "fastbreak_points": 10
+    },
+    "TOR": {
+      "points": 93,
+      "rebounds": 59,
+      "offensive_rebounds": 21,
+      "defensive_rebounds": 38,
+      "assists": 19,
+      "steals": 11,
+      "blocks": 8,
+      "turnovers": 11,
+      "fg": "31-97",
+      "fg_pct": 32.0,
+      "three_pt": "4-30",
+      "three_pt_pct": 13.3,
+      "ft": "27-36",
+      "ft_pct": 75.0,
+      "points_in_paint": 50,
+      "second_chance_points": 19,
+      "fastbreak_points": 15
+    }
+  },
+  "player_tracking_summary": {
+    "CLE": {
+      "Jarrett Allen": {"minutes": 27, "points": 3, "rebounds": 15, "oreb": 6},
+      "Evan Mobley": {"minutes": 32, "points": 8, "rebounds": 9, "oreb": 4},
+      "Donovan Mitchell": {"minutes": 37, "points": 20, "rebounds": 6, "turnovers": 4},
+      "James Harden": {"minutes": 37, "points": 19, "assists": 8, "turnovers": 7},
+      "Max Strus": {"minutes": 21, "points": 1, "rebounds": 7, "oreb": 3}
+    },
+    "TOR": {
+      "Scottie Barnes": {"minutes": 41, "points": 23, "rebounds": 10, "oreb": 4, "assists": 6},
+      "Brandon Ingram": {"minutes": 36, "points": 23, "rebounds": 6, "oreb": 2},
+      "RJ Barrett": {"minutes": 39, "points": 18, "rebounds": 8, "oreb": 3},
+      "Collin Murray-Boyles": {"minutes": 26, "points": 15, "rebounds": 10, "oreb": 5},
+      "Sandro Mamukelashvili": {"minutes": 13, "points": 2, "rebounds": 8, "oreb": 3}
+    }
+  },
+  "lineup_context": {
+    "CLE_starting_lineup": {
+      "players": ["James Harden", "Evan Mobley", "Jarrett Allen", "Dean Wade", "Donovan Mitchell"],
+      "minutes": "11:21",
+      "plus_minus": 5,
+      "off_rtg": 100.0,
+      "def_rtg": 75.0,
+      "reb_pct": 53.3,
+      "oreb_pct": 30.8,
+      "dreb_pct": 70.6,
+      "score": "CLE 23-18 TOR"
+    },
+    "TOR_best_patch_lineup": {
+      "players": ["Scottie Barnes", "Collin Murray-Boyles", "Brandon Ingram", "RJ Barrett", "Jamal Shead"],
+      "minutes": "6:28",
+      "plus_minus": 10,
+      "off_rtg": 183.3,
+      "def_rtg": 92.3,
+      "reb_pct": 76.9,
+      "oreb_pct": 83.3,
+      "score": "TOR 22-12 CLE"
+    }
+  },
+  "diagnostic_tags": [
+    "EDGE_CALL_ACTIVE",
+    "HIT_REGISTERED",
+    "CORRECT_EDGE",
+    "LIVEFLOW_HALFTIME_SPREAD_EDGE_CONFIRMED",
+    "CLE_MARGIN_FADE_HIT",
+    "TOR_DEFENSIVE_DISRUPTION_CONFIRMED",
+    "TOR_OREB_SPIKE_21",
+    "CAVS_GUARD_TURNOVER_DRAG",
+    "FULL_GAME_UNDER_ENVIRONMENT",
+    "LOW_EFFICIENCY_PLAYOFF_GRIND",
+    "BARNES_MINUTES_ROLE_CONFIRMED",
+    "MURRAY_BOYLES_BOARD_SPIKE"
+  ],
+  "model_notes": {
+    "summary": "The halftime LiveFlow call was correct. Toronto's defensive disruption, offensive rebounding, and Cleveland guard turnover drag made CLE by 4+ structurally overpriced. The final validated the no-side spread investment as a clean correct-edge hit.",
+    "patch_recommendations": [
+      "Upgrade TOR spread/resistance when Barnes plays 40+ minutes and Toronto OREB rate is above 30% live.",
+      "Add CAVS_GUARD_TURNOVER_DRAG penalty when Harden and Mitchell combine for 7+ first-half turnovers or 10+ full-game turnovers.",
+      "Boost Toronto bench-big rebound allocation when Murray-Boyles and Mamukelashvili combine for 35+ minutes.",
+      "Treat Cleveland margin covers as fragile when Allen/Mobley rebound production is high but scoring efficiency remains below 45 TS%."
+    ]
+  }
+}
