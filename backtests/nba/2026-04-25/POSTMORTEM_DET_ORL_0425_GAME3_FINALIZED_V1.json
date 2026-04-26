@@ -1,0 +1,229 @@
+{
+  "registry_id": "POSTMORTEM_DET_ORL_0425_GAME3_FINALIZED_V1",
+  "sport": "NBA",
+  "workflow": "NBA_LiveFlow_SharpEdge",
+  "backtest_logbook_status": "REGISTERED_FINALIZED",
+  "game_date": "2026-04-25",
+  "matchup": "DET@ORL",
+  "series_game": 3,
+  "final_score": {
+    "DET": 105,
+    "ORL": 113,
+    "total_points": 218,
+    "margin": "ORL by 8",
+    "series_after_game": "ORL leads 2-1"
+  },
+  "market_closing_context": {
+    "pregame_reference": {
+      "det_ml_best_seen": "+133 Underdog entry",
+      "det_market_ml_range": "approximately -115 to -135 before tip across books shown",
+      "spread_range": "DET -1.5 to -2.5 / ORL +1.5 to +2.5",
+      "full_game_total_range": "214.5 to 215.5 mostly, with Kalshi 213.5"
+    },
+    "live_halftime_context": {
+      "halftime_score": "ORL 61, DET 54",
+      "live_spread_market": "ORL wins by over 4.5 at 49%, No at 51%",
+      "live_total_market": "Over 219.5 at 52%, No at 48%",
+      "team_totals": {
+        "ORL_over_114_5": "58% Yes",
+        "DET_over_113_5": "24% Yes"
+      }
+    }
+  },
+  "investments": [
+    {
+      "platform": "Underdog Predict",
+      "market": "Moneyline",
+      "selection": "Detroit Pistons To Win",
+      "entry_cost": 4.84,
+      "max_payout": 10.98,
+      "price_captured": "+133",
+      "pregame_model_probability": "59-61%",
+      "result": "LOSS",
+      "actual": "DET lost 105-113",
+      "classification": "MISS_REGISTERED_MODEL_ERROR_PLUS_TURNOVER_VOLATILITY",
+      "tags": ["EDGE_CALL_ACTIVE", "MISS_REGISTERED", "DET_ML_VALUE_CAPTURE_FAILED", "CADE_TURNOVER_DRAG", "ORL_SHOTMAKING_VALIDATED"]
+    },
+    {
+      "platform": "Kalshi",
+      "market": "Spread",
+      "selection": "No - Orlando wins by over 4.5 points",
+      "entry_cost": 5.0,
+      "entry_probability": 0.51,
+      "max_payout": 9.47,
+      "result": "LOSS",
+      "actual": "ORL won by 8",
+      "classification": "MISS_REGISTERED_HEDGE_FAILED",
+      "tags": ["LIVEFLOW_ACTIVE", "MISS_REGISTERED", "NO_ORL_4_5_HEDGE_FAILED", "ORL_MARGIN_EXTENDED"]
+    }
+  ],
+  "investment_grade": {
+    "record": "0-2",
+    "cash_result": "negative",
+    "process_grade": "C+",
+    "market_capture_grade": "B+ on DET price, C on hedge timing",
+    "overall_grade": "C"
+  },
+  "pregame_model_projection": {
+    "det_points_mean": 110.4,
+    "det_points_median": 110,
+    "orl_points_mean": 105.7,
+    "orl_points_median": 106,
+    "total_mean": 216.1,
+    "total_median": 216,
+    "spread_mean": "DET by 4.7",
+    "spread_median": "DET by 4",
+    "det_ml_probability": "59-61%"
+  },
+  "actual_vs_model_delta": {
+    "det_points_delta_vs_mean": -5.4,
+    "orl_points_delta_vs_mean": 7.3,
+    "total_delta_vs_mean": 1.9,
+    "spread_delta": "Model DET by 4.7 vs actual ORL by 8; directional miss of 12.7 points",
+    "primary_miss_reason": "Detroit side was mispriced by model because Cade turnover volatility and Orlando starter efficiency/rebounding dominance overwhelmed the projected Detroit shot-quality edge."
+  },
+  "team_box_score": {
+    "DET": {
+      "points": 105,
+      "rebounds": 42,
+      "offensive_rebounds": 10,
+      "defensive_rebounds": 32,
+      "assists": 24,
+      "steals": 6,
+      "blocks": 12,
+      "turnovers": 16,
+      "fg": "37-85",
+      "fg_pct": 43.5,
+      "three_pt": "11-32",
+      "three_pt_pct": 34.4,
+      "ft": "20-24",
+      "ft_pct": 83.3,
+      "points_off_turnovers": 19,
+      "points_in_paint": 40,
+      "second_chance_points": 17,
+      "fastbreak_points": 12,
+      "true_shooting_pct": 54.9
+    },
+    "ORL": {
+      "points": 113,
+      "rebounds": 48,
+      "offensive_rebounds": 14,
+      "defensive_rebounds": 34,
+      "assists": 22,
+      "steals": 8,
+      "blocks": 8,
+      "turnovers": 14,
+      "fg": "36-89",
+      "fg_pct": 40.4,
+      "three_pt": "15-33",
+      "three_pt_pct": 45.5,
+      "ft": "26-33",
+      "ft_pct": 78.8,
+      "points_off_turnovers": 24,
+      "points_in_paint": 36,
+      "second_chance_points": 19,
+      "fastbreak_points": 9,
+      "true_shooting_pct": 54.6
+    }
+  },
+  "player_tracking_diagnostics": {
+    "detroit_key_players": {
+      "Cade Cunningham": {"minutes": 41, "points": 27, "rebounds": 5, "assists": 9, "turnovers": 9, "fg": "8-23", "three_pt": "3-10", "note": "Primary failure node; usage stayed elite but 9 turnovers created live-ball and possession drag."},
+      "Ausar Thompson": {"minutes": 37, "points": 17, "rebounds": 8, "blocks": 5, "fg": "7-10", "note": "Strong defensive/event impact and rim efficiency; not enough to offset Cade turnover drag."},
+      "Jalen Duren": {"minutes": 27, "points": 8, "rebounds": 9, "blocks": 5, "fouls": 6, "note": "Foul pressure capped minutes and limited closing stability."},
+      "Tobias Harris": {"minutes": 38, "points": 23, "rebounds": 7, "fg": "8-16", "note": "Positive scoring support."}
+    },
+    "orlando_key_players": {
+      "Paolo Banchero": {"minutes": 38, "points": 25, "rebounds": 12, "assists": 9, "ft": "11-14", "note": "Primary all-around engine; created FT pressure and rebound stability."},
+      "Wendell Carter Jr.": {"minutes": 37, "points": 14, "rebounds": 17, "offensive_rebounds": 8, "note": "Biggest model miss in rebound/possession structure; ORL interior board advantage validated."},
+      "Desmond Bane": {"minutes": 38, "points": 25, "rebounds": 7, "three_pt": "7-9", "note": "Shotmaking spike sustained from halftime; key reason ORL margin cleared 4.5."},
+      "Jalen Suggs": {"minutes": 33, "points": 15, "turnovers": 5, "fouls": 5, "note": "Volatile but contributed pressure and scoring."},
+      "Franz Wagner": {"minutes": 34, "points": 17, "rebounds": 5, "assists": 6, "plus_minus": 19, "note": "Best plus-minus starter; stabilized ORL units."}
+    }
+  },
+  "lineup_context": {
+    "det_team_total_lineup_stats": {
+      "off_rtg": 110.5,
+      "def_rtg": 118.9,
+      "pace": 95,
+      "reb_pct": 46.7,
+      "oreb_pct": 22.7,
+      "dreb_pct": 69.6,
+      "tov_pct": 16.8
+    },
+    "det_starting_lineup": {
+      "players": ["Ausar Thompson", "Tobias Harris", "Cade Cunningham", "Duncan Robinson", "Jalen Duren"],
+      "minutes": "17:25",
+      "plus_minus": 6,
+      "off_rtg": 125.0,
+      "def_rtg": 114.7,
+      "pace": 96.5,
+      "note": "Starting group actually won its minutes, but non-starter and late-game volatility plus Cade turnovers broke the full-game side."
+    },
+    "orl_starting_lineup": {
+      "players": ["Paolo Banchero", "Desmond Bane", "Wendell Carter Jr.", "Franz Wagner", "Jalen Suggs"],
+      "minutes": "17:52",
+      "plus_minus": 9,
+      "off_rtg": 142.9,
+      "def_rtg": 120.6,
+      "pace": 92.7,
+      "ts_pct": 66.4,
+      "e_fg_pct": 62.9,
+      "reb_pct": 66.7,
+      "oreb_pct": 42.9,
+      "dreb_pct": 92.3,
+      "three_pt_pct": 57.1,
+      "note": "ORL starting lineup was a high-efficiency, high-rebound-possession engine."
+    }
+  },
+  "hit_miss_reason": {
+    "det_ml_loss": "The pregame DET ML edge failed because the model over-weighted Detroit recent form and shot-quality profile while under-weighting Cade Cunningham turnover volatility, Duren foul/minute risk, and Orlando's starter rebound/3PT ceiling.",
+    "no_orl_4_5_loss": "The live hedge failed because Orlando's halftime edge was more structural than temporary: Bane's shooting remained impactful, Paolo/WCJ controlled possessions, and Orlando won the glass by 6 with 14 offensive rebounds.",
+    "total_read": "Pregame total projection was accurate directionally. Model mean 216.1 vs actual 218. The total was not the failure point; side/margin was."
+  },
+  "variance_tags": [
+    "EDGE_CALL_ACTIVE",
+    "MISS_REGISTERED",
+    "DET_ML_MISS",
+    "LIVE_HEDGE_MISS",
+    "CADE_TURNOVER_DRAG_EXTREME",
+    "ORL_STARTER_UNIT_DOMINANCE",
+    "BANE_3PT_SPIKE_VALIDATED",
+    "WCJ_REBOUND_SPIKE_VALIDATED",
+    "PAOLO_FT_REBOUND_CREATION_ENGINE",
+    "DUREN_FOUL_RISK_MINUTES_CAP",
+    "DET_SHOT_QUALITY_EDGE_OVERRIDDEN",
+    "SIDE_MODEL_ERROR",
+    "TOTAL_MODEL_STABLE"
+  ],
+  "model_patch_recommendations": [
+    {
+      "patch_id": "PRIMARY_BALLHANDLER_TURNOVER_DRAG_GATE_V1",
+      "description": "Downgrade side/ML confidence when a high-usage primary creator shows elevated turnover risk against strong point-of-attack pressure.",
+      "trigger": "Primary ballhandler projected usage high and opponent has multiple pressure defenders; in-game threshold 4+ TO by halftime or pregame volatility flag."
+    },
+    {
+      "patch_id": "CENTER_FOUL_RISK_SIDE_DOWNGRADE_V1",
+      "description": "Downgrade team side when center rebound/rim-protection edge depends on a player with foul-risk matchup against a high-FT pressure frontcourt.",
+      "trigger": "Center projected 30+ minutes but matchup opponent draws fouls through PF/C actions."
+    },
+    {
+      "patch_id": "ORL_STARTER_UNIT_REBOUND_EFFICIENCY_BOOST_V1",
+      "description": "Upgrade Orlando side/team total/rebound markets when Banchero-Bane-WCJ-Franz-Suggs unit projects stable minutes and Jonathan Isaac absence does not reduce core starter minutes.",
+      "trigger": "ORL starters confirmed with WCJ 34+ minute path and Bane/Paolo 36+ minute path."
+    },
+    {
+      "patch_id": "LIVE_HEDGE_STRUCTURAL_LEAD_FILTER_V1",
+      "description": "Do not hedge against a favorite/leader solely on spread inflation if the halftime lead is supported by rebounding, FT pressure, and sustained lineup efficiency rather than pure shooting noise.",
+      "trigger": "Halftime leader has positive rebound margin, OREB advantage, and opponent primary creator has 5+ turnovers."
+    }
+  ],
+  "final_verdict": {
+    "summary": "DET@ORL Game 3 was a side-model miss, not a total-model miss. Detroit captured a good market price pregame but the model failed to properly penalize Cade turnover volatility, Duren foul risk, and Orlando's starter-group rebounding/shotmaking ceiling. Orlando's 113-105 win validated starter-unit dominance, WCJ possession control, Paolo creation, and Bane shooting volatility.",
+    "backtest_value": "High. This game should train the model to avoid overconfident ML exposure when primary ballhandler turnover risk and opponent starter-unit possession dominance are active."
+  },
+  "source_files": [
+    "text 5.txt",
+    "DET@ORL Lineup stats.pdf"
+  ]
+}
