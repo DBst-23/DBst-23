@@ -1,0 +1,50 @@
+{
+  "registry_id": "POSTMORTEM_OKC_PHX_0425_GAME3_FINALIZED_V1",
+  "sport": "NBA",
+  "workflow": "NBA_LiveFlow_SharpEdge",
+  "backtest_logbook_status": "REGISTERED_FINALIZED",
+  "game_date": "2026-04-25",
+  "matchup": "OKC@PHX",
+  "series_game": 3,
+  "final_score": {"OKC": 121, "PHX": 109, "total_points": 230, "margin": "OKC by 12", "series_after_game": "OKC leads 3-0"},
+  "investment_results": [
+    {"platform": "Kalshi", "market": "Total Points", "selection": "No - Over 223.5 points scored", "entry_cost": 5.0, "entry_probability": 0.54, "max_payout": 8.97, "result": "LOSS", "actual_total": 230, "miss_margin": 6.5, "classification": "MISS_REGISTERED_TOTAL_MODEL_ERROR"}
+  ],
+  "investment_grade": {"record": "0-1", "process_grade": "C", "market_capture_grade": "B", "overall_grade": "C-", "summary": "The halftime under thesis was logical from efficiency regression, but the model underweighted OKC's low-turnover control and SGA's sustained ceiling."},
+  "halftime_liveflow_projection": {"halftime_score": {"OKC": 62, "PHX": 53}, "halftime_total": 115, "market_line": 223.5, "selection": "No Over 223.5", "model_total_mean": 220.8, "model_total_median": 221, "model_probability": "56-58%"},
+  "actual_vs_model_delta": {"actual_total": 230, "delta_vs_mean": 9.2, "delta_vs_median": 9.0, "second_half_points_needed_for_over": 109, "actual_second_half_points": 115, "miss_reason": "Second half scoring did not regress enough. OKC maintained elite offensive efficiency through SGA and bench units, and PHX contributed enough shot volume/FT efficiency to push total past 223.5."},
+  "team_box_score": {
+    "OKC": {"points": 121, "rebounds": 43, "offensive_rebounds": 8, "defensive_rebounds": 35, "assists": 23, "steals": 6, "blocks": 6, "turnovers": 7, "fg": "45-91", "fg_pct": 49.5, "three_pt": "12-37", "three_pt_pct": 32.4, "ft": "19-21", "ft_pct": 90.5, "points_in_paint": 50, "second_chance_points": 17, "fastbreak_points": 7, "true_shooting_pct": 60.4},
+    "PHX": {"points": 109, "rebounds": 39, "offensive_rebounds": 9, "defensive_rebounds": 30, "assists": 25, "steals": 2, "blocks": 2, "turnovers": 11, "fg": "38-87", "fg_pct": 43.7, "three_pt": "13-41", "three_pt_pct": 31.7, "ft": "20-23", "ft_pct": 87.0, "points_in_paint": 30, "second_chance_points": 11, "fastbreak_points": 7, "true_shooting_pct": 56.1}
+  },
+  "player_diagnostics": {
+    "OKC": {
+      "Shai Gilgeous-Alexander": {"minutes": 38, "points": 42, "rebounds": 4, "assists": 8, "fg": "15-18", "ft": "11-12", "ts_pct": 90.2, "note": "Primary model miss. SGA's perfect-ish efficiency sustained beyond expected halftime regression."},
+      "Alex Caruso": {"minutes": 22, "points": 13, "rebounds": 5, "fg": "5-9", "three_pt": "3-6", "plus_minus": 16, "note": "Bench unit stabilization and spacing contributor."},
+      "Jalen Williams": {"minutes": 21, "points": 8, "rebounds": 6, "plus_minus": 17, "note": "Positive bench/connector impact."}
+    },
+    "PHX": {
+      "Dillon Brooks": {"minutes": 37, "points": 33, "rebounds": 7, "fg": "11-21", "ft": "7-7", "ts_pct": 68.5, "note": "Sustained PHX scoring and helped over survive."},
+      "Devin Booker": {"minutes": 39, "points": 16, "assists": 7, "fg": "6-16", "plus_minus": -14, "note": "Below primary scoring expectation, but PHX still reached 109 through Brooks/Green."},
+      "Jalen Green": {"minutes": 39, "points": 26, "assists": 6, "fg": "8-19", "ft": "7-8", "note": "Secondary scoring kept team total alive."},
+      "Collin Gillespie": {"minutes": 33, "rebounds": 10, "assists": 5, "note": "Unexpected support through boards and facilitation."}
+    }
+  },
+  "lineup_context": {
+    "okc_team_total": {"off_rtg": 124.7, "def_rtg": 112.4, "pace": 97, "tov_pct": 8.2, "ts_pct": 60.4, "e_fg_pct": 56.0, "reb_pct": 52.4},
+    "okc_best_live_unit": {"players": ["Shai Gilgeous-Alexander", "Alex Caruso", "Jalen Williams", "Cason Wallace", "Aaron Wiggins"], "minutes": "8:03", "plus_minus": 12, "off_rtg": 152.9, "def_rtg": 87.5, "three_pt_pct": 55.6, "note": "Bench/small unit created separation and undercut under thesis."},
+    "phx_team_total": {"off_rtg": 112.4, "def_rtg": 124.7, "pace": 97, "ts_pct": 56.1, "three_pt_rate": 47.1, "tov_pct": 11.3},
+    "phx_starting_lineup": {"players": ["Dillon Brooks", "Jalen Green", "Oso Ighodaro", "Devin Booker", "Collin Gillespie"], "minutes": "19:51", "plus_minus": 5, "off_rtg": 155.0, "def_rtg": 132.6, "pace": 100.4, "ts_pct": 70.7, "note": "PHX starting lineup was offensively good enough, but could not defend OKC."}
+  },
+  "hit_miss_reason": {"primary": "The under lost because OKC's offensive process was not merely hot shooting; it was low-turnover, SGA-driven rim/FT efficiency plus productive bench spacing. PHX also did not collapse offensively, reaching 109 with Brooks and Green carrying scoring.", "market_error": "The 223.5 line at halftime did not sufficiently account for SGA ceiling and PHX contribution through FT efficiency.", "model_error": "Regression gate was too aggressive and did not identify OKC low-turnover control as sustainable enough."},
+  "variance_tags": ["MISS_REGISTERED", "TOTAL_MODEL_ERROR", "SGA_SUPERSTAR_EFFICIENCY_SUSTAINED", "OKC_LOW_TURNOVER_CONTROL_VALIDATED", "PHX_SECONDARY_SCORING_SUPPORT", "HALFTIME_UNDER_REGRESSION_FAIL", "BENCH_UNIT_SPACING_SPIKE", "TOTAL_OVER_ACTUAL_230"],
+  "model_patch_recommendations": [
+    {"patch_id": "SUPERSTAR_EFFICIENCY_SUSTAINABILITY_GATE_V1", "description": "Do not aggressively fade first-half efficiency when a high-usage superstar has rim/FT control, low turnovers, and clean support spacing.", "trigger": "Primary star TS% extreme with team TOV% below 10 and lead/control maintained."},
+    {"patch_id": "LOW_TURNOVER_OVER_SUSTAINABILITY_PATCH_V1", "description": "Upgrade second-half total projection when one team has elite ball security and no pace crash.", "trigger": "Team TOV% <= 9%, pace >= 96, and primary offense remains on-court 36+ minutes."},
+    {"patch_id": "BENCH_SPACING_UNIT_TOTAL_BOOST_V1", "description": "Raise total floor when bench/small units create high ORTG spacing bursts without sacrificing pace.", "trigger": "Non-starting unit posts 145+ ORTG for 7+ minutes with positive plus-minus."},
+    {"patch_id": "PHX_SECONDARY_SCORER_TOTAL_SUPPORT_V1", "description": "Do not downgrade PHX team total too hard when Booker is muted but Brooks/Green are carrying scoring efficiently.", "trigger": "Two secondary scorers combine for 45+ projected points by halftime/final trend."}
+  ],
+  "final_verdict": {"summary": "OKC@PHX Game 3 was a live total model miss. The halftime no-over position underestimated OKC's sustainable offensive control through SGA and low turnovers. The game finished 230, clearing the 223.5 line by 6.5 points. This creates a key patch: do not treat all first-half efficiency spikes as regression candidates when superstar control, low turnovers, and spacing units are intact.", "backtest_value": "High for LiveFlow total calibration."},
+  "source_files": ["OKC@PHX Postmortem.docx"],
+  "source_note": "Boxscore and team stats supplied by user; lineup stats supplied directly in chat."
+}
