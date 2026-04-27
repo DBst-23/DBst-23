@@ -1,0 +1,89 @@
+{
+  "schema_version": "B.003-liveflow-lock-v1",
+  "created_at_pt": "2026-04-27T16:56:00-07:00",
+  "sport": "NBA",
+  "phase": "playoffs",
+  "game_id": "DET_ORL_G4_2026-04-27",
+  "matchup": "Detroit Pistons @ Orlando Magic",
+  "series_context": {
+    "game_number": 4,
+    "series_sample_games_completed": 3,
+    "notes": "Card locked using three-game series sample plus current market screen, expected lineups, rebound market, projected minutes, and playoff shot/scoring dataset inputs supplied by user."
+  },
+  "market_snapshot": {
+    "full_game_total": {
+      "line_locked": 212.5,
+      "side": "under",
+      "market_note": "User noted total at 212.5 with Under +102 before lock. Screenshot also showed Kalshi No Over 214.5 at 52% for small separate exposure."
+    },
+    "spread_context": {
+      "detroit_spread_range": "DET -3.5 / -4.5 depending book",
+      "moneyline_context": "Detroit favored in market screen"
+    }
+  },
+  "model_projection": {
+    "total_mean_range": [210.5, 211.2],
+    "total_median": 210.0,
+    "under_212_5_probability_range": [0.525, 0.535],
+    "under_212_5_break_even_at_plus_102": 0.495,
+    "edge_estimate_range": [0.03, 0.04],
+    "environment_tags": [
+      "PLAYOFF_HALFCOURT_DENSITY",
+      "SERIES_SAMPLE_3G_ACTIVE",
+      "REBOUND_HEAVY_MISS_PROFILE",
+      "UNDER_PRICE_BACKED_PLUS_MONEY",
+      "NO_OVER_214_5_MICRO_EXPOSURE"
+    ]
+  },
+  "locked_card": {
+    "platform": "Underdog + Kalshi",
+    "entry": 4.50,
+    "max_payout": 29.29,
+    "boost": "30%",
+    "legs": [
+      {
+        "type": "prediction",
+        "market": "DET @ ORL total points",
+        "selection": "Lower 212.5",
+        "status": "locked",
+        "model_probability_range": [0.525, 0.535],
+        "mean": 210.8,
+        "median": 210.0
+      },
+      {
+        "type": "fantasy_prop",
+        "player": "Paolo Banchero",
+        "team": "ORL",
+        "market": "rebounds",
+        "selection": "Higher 8.5",
+        "status": "locked",
+        "role": "required ORL player leg",
+        "notes": "Best Orlando-side rebound candidate after correcting away from non-matchup players."
+      },
+      {
+        "type": "fantasy_prop",
+        "player": "Cade Cunningham",
+        "team": "DET",
+        "market": "rebounds",
+        "selection": "Higher 5.5",
+        "status": "locked",
+        "notes": "Primary prop edge; correlated with miss-heavy under script."
+      }
+    ]
+  },
+  "secondary_micro_exposure": {
+    "platform": "Kalshi",
+    "market": "Pistons at Magic total points",
+    "selection": "No Over 214.5",
+    "probability_shown": 0.52,
+    "cost": 2.00,
+    "max_payout": 3.72,
+    "bought_at_pt": "2026-04-27T16:56:00-07:00",
+    "notes": "Separate small exposure with better number than 212.5 under."
+  },
+  "quality_control": {
+    "correction_logged": "Removed Sengun/Smith references; they were from prior LAL-HOU context and not part of DET-ORL.",
+    "sample_correction": "Series sample corrected to 3 completed games before Game 4, not 2.",
+    "risk_note": "3-leg card exceeds preferred stripped single-fire discipline but was user-locked as boosted card. Track as card-level outcome and leg-level diagnostics."
+  }
+}
