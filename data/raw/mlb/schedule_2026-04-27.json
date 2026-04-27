@@ -3,14 +3,14 @@
   "totalItems": 8,
   "totalEvents": 0,
   "totalGames": 8,
-  "totalGamesInProgress": 2,
+  "totalGamesInProgress": 3,
   "dates": [
     {
       "date": "2026-04-27",
       "totalItems": 8,
       "totalEvents": 0,
       "totalGames": 8,
-      "totalGamesInProgress": 2,
+      "totalGamesInProgress": 3,
       "games": [
         {
           "gamePk": 824446,
@@ -55,7 +55,7 @@
                 "losses": 14,
                 "pct": ".517"
               },
-              "score": 0,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 10
             }
@@ -129,7 +129,7 @@
                 "losses": 12,
                 "pct": ".571"
               },
-              "score": 0,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 10
             }
@@ -170,9 +170,9 @@
           "officialDate": "2026-04-27",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "P",
-            "detailedState": "Warmup",
-            "statusCode": "PW",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
             "abstractGameCode": "L"
           },
@@ -243,12 +243,12 @@
           "gameDate": "2026-04-27T23:40:00Z",
           "officialDate": "2026-04-27",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -319,9 +319,10 @@
           "status": {
             "abstractGameState": "Preview",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Delayed Start",
+            "statusCode": "PR",
             "startTimeTBD": false,
+            "reason": "Rain",
             "abstractGameCode": "P"
           },
           "teams": {
