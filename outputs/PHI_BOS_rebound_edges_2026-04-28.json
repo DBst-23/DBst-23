@@ -1,0 +1,130 @@
+[
+  {
+    "confidence_tier": "B",
+    "player": "Jayson Tatum",
+    "team": "BOS",
+    "opponent": "PHI",
+    "side": "over",
+    "line": 10.5,
+    "mean": 11.3,
+    "median": 10.9,
+    "hit_probability": 0.589,
+    "edge_score": 0.8,
+    "risk_tags": [
+      "BLOWOUT_MINUTES_TAIL",
+      "LONG_REBOUND_WING_BOOST",
+      "SERIES_REBOUND_DOMINANCE"
+    ],
+    "notes": [
+      "Projected minutes: 40",
+      "BOS high 3PA environment creates wing rebound paths.",
+      "Works in competitive and moderate blowout scripts."
+    ]
+  },
+  {
+    "confidence_tier": "B",
+    "player": "Joel Embiid",
+    "team": "PHI",
+    "opponent": "BOS",
+    "side": "over",
+    "line": 8.5,
+    "mean": 9.4,
+    "median": 9.0,
+    "hit_probability": 0.584,
+    "edge_score": 0.9,
+    "risk_tags": [
+      "CENTER_USAGE_STABLE",
+      "PACE_SUPPRESSION_POSITIVE",
+      "BLOWOUT_FOUL_MINUTES_RISK"
+    ],
+    "notes": [
+      "Projected minutes: 34",
+      "PHI miss volume supports Embiid defensive boards.",
+      "Best PHI-side player for 2-leg construction."
+    ]
+  },
+  {
+    "confidence_tier": "Lean",
+    "player": "Neemias Queta",
+    "team": "BOS",
+    "opponent": "PHI",
+    "side": "under",
+    "line": 6.5,
+    "mean": 6.1,
+    "median": 5.8,
+    "hit_probability": 0.541,
+    "edge_score": 0.4,
+    "risk_tags": [
+      "MINUTES_CAP_RISK",
+      "CENTER_SPLIT_WITH_VUCEVIC",
+      "THIN_EDGE"
+    ],
+    "notes": [
+      "Projected minutes: 24",
+      "Tatum/Brown absorb wing boards.",
+      "Not preferred over Tatum."
+    ]
+  },
+  {
+    "confidence_tier": "Lean",
+    "player": "Jaylen Brown",
+    "team": "BOS",
+    "opponent": "PHI",
+    "side": "over",
+    "line": 6.5,
+    "mean": 6.6,
+    "median": 6.2,
+    "hit_probability": 0.514,
+    "edge_score": 0.1,
+    "risk_tags": [
+      "THIN_EDGE",
+      "NO_CALL_ZONE"
+    ],
+    "notes": [
+      "Projected minutes: 38",
+      "Viable but weaker than Tatum due to rebound share overlap."
+    ]
+  },
+  {
+    "confidence_tier": "No Bet",
+    "player": "Paul George",
+    "team": "PHI",
+    "opponent": "BOS",
+    "side": "over",
+    "line": 4.5,
+    "mean": 4.4,
+    "median": 4.1,
+    "hit_probability": 0.489,
+    "edge_score": -0.1,
+    "risk_tags": [
+      "NO_CALL_ZONE",
+      "ROLE_VOLATILITY",
+      "PHI_WING_REBOUND_SUPPRESSION"
+    ],
+    "notes": [
+      "Projected minutes: 36",
+      "Usage does not equal rebound edge in this environment."
+    ]
+  },
+  {
+    "confidence_tier": "No Bet",
+    "player": "Kelly Oubre Jr.",
+    "team": "PHI",
+    "opponent": "BOS",
+    "side": "over",
+    "line": 4.5,
+    "mean": 4.0,
+    "median": 3.8,
+    "hit_probability": 0.462,
+    "edge_score": -0.5,
+    "risk_tags": [
+      "LONG_REBOUND_DEPENDENT",
+      "NO_CALL_ZONE",
+      "ROLE_VOLATILITY"
+    ],
+    "notes": [
+      "Projected minutes: 35",
+      "Avoid as PHI player anchor."
+    ]
+  }
+]
