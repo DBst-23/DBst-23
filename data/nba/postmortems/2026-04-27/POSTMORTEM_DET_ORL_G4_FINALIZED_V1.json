@@ -1,0 +1,209 @@
+{
+  "schema_version": "B.003-nba-postmortem-v1",
+  "registry_id": "POSTMORTEM_DET_ORL_G4_FINALIZED_V1",
+  "game_id": "DET_ORL_G4_2026-04-27",
+  "date": "2026-04-27",
+  "matchup": "Detroit Pistons @ Orlando Magic",
+  "series_context": {
+    "game_number": 4,
+    "series_sample_prior_to_game": 3,
+    "result_series_note": "Orlando won Game 4 and the low-total environment continued."
+  },
+  "final_score": {
+    "DET": 88,
+    "ORL": 94,
+    "total_points": 182,
+    "margin": "ORL by 6"
+  },
+  "investment_results": [
+    {
+      "platform": "Underdog",
+      "card_type": "Champions 3 picks",
+      "entry": 4.50,
+      "boost": "30%",
+      "max_payout": 29.29,
+      "result": "LOSS",
+      "record": "2-1",
+      "legs": [
+        {
+          "selection": "DET @ ORL Lower 212.5 total points",
+          "line": 212.5,
+          "actual": 182,
+          "result": "WIN",
+          "tag": "CORRECT_EDGE_UNDER_ENVIRONMENT"
+        },
+        {
+          "selection": "Cade Cunningham Higher 5.5 rebounds",
+          "line": 5.5,
+          "actual": 9,
+          "result": "WIN",
+          "tag": "CORRECT_EDGE_REBOUND_SPILLOVER"
+        },
+        {
+          "selection": "Paolo Banchero Higher 8.5 rebounds",
+          "line": 8.5,
+          "actual": 8,
+          "result": "LOSS",
+          "tag": "HOOK_MISS_REBOUND_ALLOCATION"
+        }
+      ]
+    },
+    {
+      "platform": "Kalshi",
+      "market": "Pistons at Magic total points",
+      "selection": "No Over 214.5",
+      "cost": 2.00,
+      "payout": 3.72,
+      "probability_at_entry": 0.52,
+      "actual_total": 182,
+      "result": "WIN",
+      "tag": "CORRECT_EDGE_ALT_TOTAL_BUFFER"
+    }
+  ],
+  "model_projection_vs_outcome": {
+    "pre_game_total_mean_range": [210.5, 211.2],
+    "pre_game_total_median": 210.0,
+    "actual_total": 182,
+    "delta_vs_mean_midpoint": -28.85,
+    "directional_call": "UNDER",
+    "directional_result": "HIT",
+    "note": "Model correctly identified under direction, but actual environment was much lower than projected due to extreme shooting inefficiency and turnover/empty-trip drag."
+  },
+  "team_box_score": {
+    "DET": {
+      "points": 88,
+      "rebounds": 49,
+      "offensive_rebounds": 12,
+      "assists": 18,
+      "steals": 5,
+      "blocks": 18,
+      "turnovers": 20,
+      "field_goals": "31-82",
+      "fg_pct": 37.8,
+      "three_pointers": "6-30",
+      "three_pct": 20.0,
+      "free_throws": "20-28",
+      "true_shooting_pct": 46.6,
+      "points_off_turnovers": 11,
+      "fastbreak_points": 11,
+      "points_in_paint": 44,
+      "second_chance_points": 11,
+      "fouls": 29
+    },
+    "ORL": {
+      "points": 94,
+      "rebounds": 52,
+      "offensive_rebounds": 16,
+      "assists": 15,
+      "steals": 8,
+      "blocks": 6,
+      "turnovers": 12,
+      "field_goals": "30-92",
+      "fg_pct": 32.6,
+      "three_pointers": "9-35",
+      "three_pct": 25.7,
+      "free_throws": "25-34",
+      "true_shooting_pct": 43.9,
+      "points_off_turnovers": 23,
+      "fastbreak_points": 13,
+      "points_in_paint": 34,
+      "second_chance_points": 16,
+      "fouls": 25
+    }
+  },
+  "player_diagnostics": {
+    "DET": {
+      "Cade Cunningham": {
+        "minutes": 39,
+        "points": 25,
+        "rebounds": 9,
+        "assists": 6,
+        "turnovers": 8,
+        "fg": "7-23",
+        "three_pt": "3-11",
+        "tag": "USAGE_REBOUND_SPILLOVER_HIT"
+      },
+      "Ausar Thompson": {
+        "minutes": 32,
+        "points": 6,
+        "rebounds": 9,
+        "off_rebounds": 4,
+        "tag": "WING_CRASH_REBOUND_SPIKE"
+      },
+      "Jalen Duren": {
+        "minutes": 31,
+        "points": 12,
+        "rebounds": 8,
+        "fouls": 5,
+        "tag": "CENTER_FOUL_CAP_REBOUND_SUPPRESSION"
+      }
+    },
+    "ORL": {
+      "Paolo Banchero": {
+        "minutes": 40,
+        "points": 18,
+        "rebounds": 8,
+        "assists": 4,
+        "fg": "4-18",
+        "free_throws": "10-13",
+        "tag": "HOOK_MISS_DESPITE_MINUTES"
+      },
+      "Wendell Carter Jr.": {
+        "minutes": 35,
+        "points": 12,
+        "rebounds": 11,
+        "off_rebounds": 5,
+        "tag": "CENTER_REBOUND_CAPTURE_WINNER"
+      },
+      "Jamal Cain": {
+        "minutes": 24,
+        "points": 8,
+        "rebounds": 9,
+        "off_rebounds": 3,
+        "tag": "BENCH_WING_REBOUND_SPIKE"
+      },
+      "Desmond Bane": {
+        "minutes": 37,
+        "points": 22,
+        "rebounds": 5,
+        "three_pt": "5-10",
+        "tag": "PRIMARY_SPACING_SCORING_ENGINE"
+      }
+    }
+  },
+  "variance_tags": [
+    "UNDER_ENVIRONMENT_CONFIRMED",
+    "EXTREME_SHOOTING_SUPPRESSION",
+    "REBOUND_VOLUME_SPIKE",
+    "PAOLO_HOOK_MISS",
+    "ORL_CENTER_WING_REBOUND_REDISTRIBUTION",
+    "DET_TURNOVER_DRAG",
+    "CADE_REBOUND_EDGE_CONFIRMED",
+    "KALSHI_ALT_TOTAL_EDGE_HIT"
+  ],
+  "model_patch_recommendations": [
+    {
+      "patch": "ORL_REBOUND_ALLOCATION_SPLIT_V1",
+      "description": "When Carter Jr. projects 32+ minutes and bench wing Cain/Goga are active, reduce Paolo rebound over confidence by 3-5 percentage points above 8.5 lines."
+    },
+    {
+      "patch": "PLAYOFF_LOW_EFFICIENCY_UNDER_BOOST_V1",
+      "description": "For series Game 4+ when both teams show sub-45 TS% risk and high offensive rebound rates, allow under mean to shift down an extra 3-5 points."
+    },
+    {
+      "patch": "HIGH_USAGE_GUARD_REBOUND_SPILLOVER_V1",
+      "description": "Cade-type high-minute lead guards remain rebound-over candidates when team shooting is poor and opponent forces long possessions."
+    }
+  ],
+  "backtest_logbook_registration": {
+    "status": "FINALIZED",
+    "registered_under": "Backtest_Logbook",
+    "tags": [
+      "NBA_PLAYOFFS_2026",
+      "DET_ORL_SERIES",
+      "GAME_4",
+      "EDGE_CALL_ACTIVE",
+      "POSTMORTEM_FINALIZED"
+    ]
+  }
+}
