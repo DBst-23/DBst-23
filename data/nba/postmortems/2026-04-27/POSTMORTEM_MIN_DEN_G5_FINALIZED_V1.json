@@ -1,0 +1,250 @@
+{
+  "schema_version": "B.003-nba-postmortem-v1",
+  "registry_id": "POSTMORTEM_MIN_DEN_G5_FINALIZED_V1",
+  "game_id": "MIN_DEN_G5_2026-04-27",
+  "date": "2026-04-27",
+  "matchup": "Minnesota Timberwolves @ Denver Nuggets",
+  "series_context": {
+    "game_number": 5,
+    "injury_notes": [
+      "Anthony Edwards OUT",
+      "Donte DiVincenzo OUT",
+      "Aaron Gordon OUT",
+      "Peyton Watson OUT"
+    ],
+    "pre_game_context": "Minnesota entered with major guard/wing absences; Denver confirmed a home-favorite setup with Jokic/Murray as primary engines."
+  },
+  "final_score": {
+    "MIN": 113,
+    "DEN": 125,
+    "total_points": 238,
+    "margin": "DEN by 12"
+  },
+  "investment_results": [
+    {
+      "platform": "Underdog",
+      "card_type": "Champions 3 picks",
+      "result": "LOSS",
+      "record": "1-2",
+      "legs": [
+        {
+          "selection": "MIN @ DEN Lower 227.5 total points",
+          "line": 227.5,
+          "actual": 238,
+          "result": "LOSS",
+          "tag": "TOTAL_MISS_DEN_OFFENSIVE_SURGE"
+        },
+        {
+          "selection": "Cam Johnson Higher 3.5 rebounds",
+          "line": 3.5,
+          "actual": 6,
+          "result": "WIN",
+          "tag": "CAM_JOHNSON_REBOUND_EDGE_CONFIRMED"
+        },
+        {
+          "selection": "Jaden McDaniels Higher 4.5 rebounds",
+          "line": 4.5,
+          "actual": 3,
+          "result": "LOSS",
+          "tag": "MCDANIELS_REBOUND_SUPPRESSION_FOUL_SCOREBOARD"
+        }
+      ]
+    },
+    {
+      "platform": "Underdog",
+      "card_type": "Champions 4 picks",
+      "boost": "75% extender",
+      "result": "LOSS",
+      "record": "2-2",
+      "legs": [
+        {
+          "selection": "MIN +11.5 spread",
+          "line": 11.5,
+          "actual_margin": "DEN by 12",
+          "result": "LOSS",
+          "tag": "SPREAD_HOOK_MISS"
+        },
+        {
+          "selection": "Naz Reid Higher 5.5 rebounds",
+          "line": 5.5,
+          "actual": 8,
+          "result": "WIN",
+          "tag": "NAZ_REID_REBOUND_EDGE_CONFIRMED"
+        },
+        {
+          "selection": "Cam Johnson Higher 3.5 rebounds",
+          "line": 3.5,
+          "actual": 6,
+          "result": "WIN",
+          "tag": "CAM_JOHNSON_REBOUND_EDGE_CONFIRMED"
+        },
+        {
+          "selection": "Ayo Dosunmu Higher 4.5 rebounds",
+          "line": 4.5,
+          "actual": 3,
+          "result": "LOSS",
+          "tag": "AYO_REBOUND_MISS_ROLE_REDISTRIBUTION"
+        }
+      ]
+    }
+  ],
+  "model_projection_vs_outcome": {
+    "pre_game_total_lean": "Under 224.5/227.5 zone",
+    "actual_total": 238,
+    "directional_call": "UNDER",
+    "directional_result": "MISS",
+    "spread_call": "MIN +11.5",
+    "spread_result": "MISS by 0.5",
+    "prop_edges_confirmed": [
+      "Naz Reid over rebounds",
+      "Cam Johnson over rebounds"
+    ],
+    "note": "Primary failure was macro environment. Denver shot 56.6% from the field with 35 assists and 35 points off turnovers, pushing the game above the under script."
+  },
+  "team_box_score": {
+    "MIN": {
+      "points": 113,
+      "rebounds": 38,
+      "offensive_rebounds": 9,
+      "assists": 26,
+      "steals": 6,
+      "blocks": 2,
+      "turnovers": 25,
+      "field_goals": "41-81",
+      "fg_pct": 50.6,
+      "three_pointers": "12-28",
+      "three_pct": 42.9,
+      "free_throws": "19-23",
+      "true_shooting_pct": 62.0,
+      "points_off_turnovers": 21,
+      "fastbreak_points": 13,
+      "points_in_paint": 50,
+      "second_chance_points": 19,
+      "fouls": 27
+    },
+    "DEN": {
+      "points": 125,
+      "rebounds": 29,
+      "offensive_rebounds": 5,
+      "assists": 35,
+      "steals": 16,
+      "blocks": 6,
+      "turnovers": 16,
+      "field_goals": "47-83",
+      "fg_pct": 56.6,
+      "three_pointers": "11-29",
+      "three_pct": 37.9,
+      "free_throws": "20-25",
+      "true_shooting_pct": 66.5,
+      "points_off_turnovers": 35,
+      "fastbreak_points": 23,
+      "points_in_paint": 62,
+      "second_chance_points": 12,
+      "fouls": 29
+    }
+  },
+  "player_diagnostics": {
+    "MIN": {
+      "Julius Randle": {
+        "minutes": 32,
+        "points": 27,
+        "rebounds": 9,
+        "assists": 6,
+        "turnovers": 5,
+        "tag": "PRIMARY_USAGE_SPIKE_WITH_TURNOVER_DRAG"
+      },
+      "Jaden McDaniels": {
+        "minutes": 27,
+        "points": 13,
+        "rebounds": 3,
+        "fouls": 5,
+        "plus_minus": -25,
+        "tag": "REBOUND_OVER_MISS_FOUL_SCOREBOARD_SUPPRESSION"
+      },
+      "Naz Reid": {
+        "minutes": 24,
+        "points": 12,
+        "rebounds": 8,
+        "result_tag": "REBOUND_EDGE_CONFIRMED"
+      },
+      "Ayo Dosunmu": {
+        "minutes": 38,
+        "points": 18,
+        "rebounds": 3,
+        "assists": 4,
+        "tag": "MINUTES_HIT_REBOUND_MISS"
+      }
+    },
+    "DEN": {
+      "Nikola Jokic": {
+        "minutes": 38,
+        "points": 27,
+        "rebounds": 12,
+        "assists": 16,
+        "tag": "JOKIC_PLAYMAKING_CEILING_ACTIVE"
+      },
+      "Cam Johnson": {
+        "minutes": 36,
+        "points": 18,
+        "rebounds": 6,
+        "assists": 5,
+        "tag": "DEN_WING_REBOUND_EDGE_CONFIRMED"
+      },
+      "Spencer Jones": {
+        "minutes": 37,
+        "points": 20,
+        "rebounds": 3,
+        "stocks": 6,
+        "tag": "DEN_ROLE_PLAYER_SCORING_SPIKE"
+      },
+      "Jamal Murray": {
+        "minutes": 39,
+        "points": 24,
+        "rebounds": 4,
+        "assists": 7,
+        "tag": "SECONDARY_CREATION_CONFIRMED"
+      }
+    }
+  },
+  "variance_tags": [
+    "DEN_HOME_OFFENSIVE_SURGE",
+    "TOTAL_MISS_OVER_SPIKE",
+    "SPREAD_HOOK_MISS",
+    "MIN_TURNOVER_COLLAPSE_25",
+    "DEN_POINTS_OFF_TURNOVERS_35",
+    "CAM_JOHNSON_REBOUND_EDGE_CONFIRMED",
+    "NAZ_REID_REBOUND_EDGE_CONFIRMED",
+    "MCDANIELS_FOUL_SCOREBOARD_SUPPRESSION",
+    "AYO_REBOUND_ROLE_MISS",
+    "CORRELATED_CARD_RISK"
+  ],
+  "model_patch_recommendations": [
+    {
+      "patch": "DEN_HOME_OFFENSIVE_SURGE_OVERRIDE_V1",
+      "description": "At Denver home with Jokic/Murray both 38+ projected minutes, reduce under confidence when opponent is missing primary perimeter creators and turnover risk rises."
+    },
+    {
+      "patch": "SPREAD_HOOK_PROTECTION_V1",
+      "description": "When model edge is within 1.5 points of live/posted spread, avoid using spread inside boosted correlated cards unless price/value is clearly superior."
+    },
+    {
+      "patch": "WING_REBOUND_FOUL_SUPPRESSION_V1",
+      "description": "Downgrade wing rebound overs when foul risk plus scoreboard deficit can cut second-half minutes or defensive rebounding position."
+    },
+    {
+      "patch": "CONFIRMED_REBOUND_EDGE_KEEPER_V1",
+      "description": "Naz Reid and Cam Johnson rebound overs validated under injury-redistribution logic and should remain in future matchup watchlists."
+    }
+  ],
+  "backtest_logbook_registration": {
+    "status": "FINALIZED",
+    "registered_under": "Backtest_Logbook",
+    "tags": [
+      "NBA_PLAYOFFS_2026",
+      "MIN_DEN_SERIES",
+      "GAME_5",
+      "EDGE_CALL_ACTIVE",
+      "POSTMORTEM_FINALIZED"
+    ]
+  }
+}
