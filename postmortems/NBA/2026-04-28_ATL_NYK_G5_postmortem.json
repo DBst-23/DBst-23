@@ -1,0 +1,120 @@
+{
+  "schema_version": "B.003-postmortem-v1",
+  "log_id": "NBA_POSTMORTEM_20260428_ATL_NYK_G5",
+  "created_at": "2026-04-28",
+  "matchup": "ATL @ NYK",
+  "final_score": {
+    "ATL": 97,
+    "NYK": 126,
+    "margin": "NYK +29",
+    "total_points": 223
+  },
+  "team_box_score": {
+    "ATL": {
+      "points": 97,
+      "rebounds": 27,
+      "offensive_rebounds": 5,
+      "defensive_rebounds": 22,
+      "assists": 25,
+      "steals": 7,
+      "blocks": 2,
+      "turnovers": 10,
+      "fg": "37-83",
+      "fg_pct": 44.6,
+      "three_pt": "13-42",
+      "three_pt_pct": 31.0,
+      "ft": "10-17",
+      "ft_pct": 58.8,
+      "ts_pct": 53.6,
+      "points_in_paint": 42,
+      "second_chance_points": 9,
+      "fastbreak_points": 4,
+      "biggest_lead": 2
+    },
+    "NYK": {
+      "points": 126,
+      "rebounds": 48,
+      "offensive_rebounds": 8,
+      "defensive_rebounds": 40,
+      "assists": 26,
+      "steals": 6,
+      "blocks": 6,
+      "turnovers": 11,
+      "fg": "45-79",
+      "fg_pct": 57.0,
+      "three_pt": "11-26",
+      "three_pt_pct": 42.3,
+      "ft": "25-34",
+      "ft_pct": 73.5,
+      "ts_pct": 67.0,
+      "points_in_paint": 60,
+      "second_chance_points": 20,
+      "fastbreak_points": 13,
+      "biggest_lead": 32
+    }
+  },
+  "tracked_rebound_context": {
+    "Karl-Anthony Towns": {
+      "line": 11.5,
+      "side": "Higher",
+      "actual_rebounds": 14,
+      "result": "WIN",
+      "minutes": 34,
+      "note": "Elite center/local rebound profile validated. Towns combined stable minutes, high efficiency, and dominant team rebound share."
+    },
+    "Josh Hart": {
+      "line": 8.5,
+      "side": "Higher",
+      "actual_rebounds": 5,
+      "result": "LOSS",
+      "minutes": 30,
+      "note": "Hart failed because Knicks rebound distribution consolidated toward Towns, OG, and Robinson while blowout reduced late urgency."
+    },
+    "Jalen Johnson": {
+      "actual_rebounds": 10,
+      "minutes": 35,
+      "note": "ATL primary wing/big rebounder was the only Hawk with a strong board profile; team total rebounds collapsed overall."
+    },
+    "OG Anunoby": {
+      "actual_rebounds": 10,
+      "minutes": 35,
+      "note": "Secondary NYK wing rebound spike. Long misses and ATL low conversion helped OG collect defensive boards."
+    },
+    "Mitchell Robinson": {
+      "actual_rebounds": 6,
+      "minutes": 16,
+      "note": "High per-minute center rebound presence; contributed to Hart suppression."
+    }
+  },
+  "diagnostic_findings": [
+    "NYK dominated glass 48-27, creating a clear rebound imbalance that supported center/forward overs on NYK but crushed ATL secondary rebound opportunities.",
+    "Towns over 11.5 was structurally correct: 34 minutes, 14 rebounds, 6 assists, and NYK controlled defensive glass with 40 defensive rebounds.",
+    "Hart over 8.5 was a poor fit after patch logic: his rebounds were cannibalized by Towns 14, OG 10, Robinson 6, and McBride 3.",
+    "ATL attempted 42 threes and shot only 31.0%, but NYK’s rebound collection was concentrated with big/forward bodies rather than Hart.",
+    "ATL’s team rebound total was extremely weak at 27 despite Jalen Johnson reaching 10. Avoid broad ATL rebound exposure unless targeting Johnson-type primary rebound role."
+  ],
+  "model_lessons": {
+    "winning_archetype": "Primary center rebounder on team with dominant glass edge",
+    "losing_archetype": "High-line guard/wing rebound over when frontcourt and secondary forwards have stronger collection lanes",
+    "environment": "NYK blowout with efficient offense and one-sided rebounding control",
+    "execution_takeaway": "Towns was an A-tier single/2-leg anchor; Hart should have been downgraded under congestion/distribution logic."
+  },
+  "patch_recommendations": [
+    {
+      "patch_id": "TEAM_REBOUND_DOMINANCE_CENTER_PRIORITY_V1",
+      "trigger": "Team projects +8 or greater rebound advantage and primary center has stable 30+ minutes",
+      "effect": "Upgrade primary center rebound overs by +0.4 to +0.9 median and raise single eligibility."
+    },
+    {
+      "patch_id": "WING_REBOUND_CANNIBALIZATION_BY_BIGS_V1",
+      "trigger": "Wing/guard rebound line >= 8.5 while team has primary center plus secondary forward/big rebound threats active",
+      "effect": "Downgrade wing/guard rebound over by -0.8 to -1.4 median unless player has elite rebound chance share."
+    },
+    {
+      "patch_id": "BLOWOUT_REBOUND_URGENCY_SUPPRESSOR_V1",
+      "trigger": "Favorite projects or creates 20+ point margin and prop player is not center-local rebound anchor",
+      "effect": "Reduce secondary rebound over probability by 3-6 percentage points."
+    }
+  ],
+  "status": "FINAL_POSTMORTEM_FROM_2026_04_28_LOGGED_READY_FOR_NEXT_SLATE"
+}
