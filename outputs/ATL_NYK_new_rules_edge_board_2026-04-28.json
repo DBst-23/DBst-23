@@ -1,0 +1,113 @@
+{
+  "schema_version": "B.003-new-rules-edge-board-v1",
+  "date": "2026-04-28",
+  "matchup": "ATL @ NYK",
+  "execution_mode": "CA_SINGLE_ACCESS_CONSTRAINT_V1",
+  "platform_rules": {
+    "kalshi": "Preferred for clean single-position gameline edges when available.",
+    "underdog": "Only use if 2+ legs independently clear thresholds; no filler rebound legs."
+  },
+  "market_context": {
+    "spread_screen": "NYK favored around -6.5",
+    "rebound_market_screen": "Primary rebound lines include KAT, Hart, OG, Jalen Johnson, Okongwu, Dyson Daniels."
+  },
+  "series_environment": {
+    "classification": "Knicks control vs Hawks pace variance",
+    "nyk_profile": "Concentrated rebound funnels through KAT/Hart/OG with halfcourt control.",
+    "atl_profile": "Distributed rebound ecology; pace and 3PT volume create opportunity but low individual stability.",
+    "risk_note": "ATL rebound legs require extra threshold due to fragmented distribution."
+  },
+  "kalshi_single_candidates": [
+    {
+      "market": "NYK spread",
+      "line_reference": -6.5,
+      "model_projection": -8.2,
+      "edge_points": 1.7,
+      "probability_range": [0.555, 0.575],
+      "grade": "B-",
+      "action": "Playable only if clean single price is fair; not stronger than top rebound edge."
+    }
+  ],
+  "underdog_rebound_detector_board": [
+    {
+      "rank": 1,
+      "player": "Karl-Anthony Towns",
+      "team": "NYK",
+      "market": "rebounds",
+      "line": 11.5,
+      "side": "over",
+      "mean": 12.3,
+      "median": 11.8,
+      "hit_probability": 0.608,
+      "confidence_tier": "B",
+      "status": "APPROVED",
+      "tags": ["NYK_REBOUND_FUNNEL", "CENTER_USAGE_STABLE", "ATL_INTERIOR_GLASS_SUPPRESSION"]
+    },
+    {
+      "rank": 2,
+      "player": "Josh Hart",
+      "team": "NYK",
+      "market": "rebounds",
+      "line": 8.5,
+      "side": "over",
+      "mean": 9.1,
+      "median": 8.7,
+      "hit_probability": 0.572,
+      "confidence_tier": "C+",
+      "status": "CONDITIONAL",
+      "tags": ["HIGH_MINUTES", "WING_REBOUND_ENGINE", "THIN_EDGE_BELOW_58"]
+    },
+    {
+      "rank": 3,
+      "player": "OG Anunoby",
+      "team": "NYK",
+      "market": "rebounds",
+      "line": 6.5,
+      "side": "over",
+      "mean": 7.0,
+      "median": 6.7,
+      "hit_probability": 0.555,
+      "confidence_tier": "C",
+      "status": "NO_2LEG_FILLER",
+      "tags": ["THIN_EDGE", "ROLE_DEPENDENT"]
+    },
+    {
+      "rank": 4,
+      "player": "Jalen Johnson",
+      "team": "ATL",
+      "market": "rebounds",
+      "line": 9.5,
+      "side": "over",
+      "mean": 9.2,
+      "median": 8.9,
+      "hit_probability": 0.496,
+      "confidence_tier": "No Bet",
+      "status": "REJECTED",
+      "tags": ["ATL_DISTRIBUTED_REBOUNDS", "NYK_FRONTCOURT_SUPPRESSION"]
+    },
+    {
+      "rank": 5,
+      "player": "Onyeka Okongwu",
+      "team": "ATL",
+      "market": "rebounds",
+      "line": 7.5,
+      "side": "over",
+      "mean": 7.1,
+      "median": 6.8,
+      "hit_probability": 0.488,
+      "confidence_tier": "No Bet",
+      "status": "REJECTED",
+      "tags": ["CENTER_COLLISION", "KAT_ROBINSON_SPLIT_PRESSURE"]
+    }
+  ],
+  "new_rules_decision": {
+    "best_single": "KAT over 11.5 rebounds if platform allows single; otherwise NYK spread on Kalshi if fair.",
+    "best_2_leg": "No clean 2-leg under strict rules because only KAT clears 58%+; Hart is close but below threshold.",
+    "pass_note": "Do not force a second leg. Under CA single-access rules, this is a Kalshi single or KAT-only spot, not an Underdog forced parlay spot."
+  },
+  "final_recommendation": {
+    "primary": "KAT O11.5 REB as single if available",
+    "secondary": "NYK -6.5 single if Kalshi price is favorable",
+    "avoid": ["Jalen Johnson rebounds", "Okongwu rebounds", "Dyson Daniels rebounds", "forced 2-leg construction"]
+  }
+}
