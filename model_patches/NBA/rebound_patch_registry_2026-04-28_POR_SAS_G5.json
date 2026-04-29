@@ -1,0 +1,111 @@
+{
+  "schema_version": "B.003-rebound-patch-registry-v1",
+  "created_at": "2026-04-28",
+  "source_postmortem": "NBA_POSTMORTEM_20260428_POR_SAS_G5",
+  "matchup_source": "POR @ SAS Game 5",
+  "patches_applied": [
+    {
+      "patch_id": "POR_FRONTCOURT_REBOUND_CONGESTION_V1",
+      "status": "ACTIVE",
+      "category": "rebound_projection_adjustment",
+      "trigger": {
+        "team_context": "Portland or similar roster construction",
+        "conditions": [
+          "3 or more rebound-capable frontcourt/wing players active",
+          "At least 2 players projected for 20+ minutes among C/PF/SF rebound roles",
+          "Wing rebound prop line is near or above recent median"
+        ]
+      },
+      "effect": {
+        "primary_action": "downgrade wing rebound overs",
+        "median_adjustment": "-0.8 to -1.3 rebounds",
+        "confidence_adjustment": "reduce by one tier unless individual rebound chances remain dominant",
+        "card_rule": "no parlay inclusion unless post-adjusted hit probability is >= 60%"
+      },
+      "reason": "Deni Avdija projected 7.4 mean / 7.1 median but finished with 3 rebounds as Camara, Clingan, Robert Williams, and Cissoko absorbed board volume."
+    },
+    {
+      "patch_id": "LOW_MIN_BENCH_BIG_HOOK_RISK_V1",
+      "status": "ACTIVE",
+      "category": "price_and_minutes_safety_gate",
+      "trigger": {
+        "conditions": [
+          "Bench big projected under 16 minutes",
+          "Rebound line >= 3.5",
+          "Price worse than -130",
+          "Role is dependent on blowout/rotation pattern"
+        ]
+      },
+      "effect": {
+        "primary_action": "move from approved to lean-only or no-bet",
+        "hard_rule": "do not classify as primary edge at -130 or worse unless projected minutes >= 16 or mean clears line by >= 1.5 rebounds",
+        "risk_tag": "HOOK_BURN_RISK"
+      },
+      "reason": "Luke Kornet over 3.5 missed by hook with 3 rebounds in 13 minutes despite prior projection edge. Heavy -159 price made the risk unacceptable."
+    },
+    {
+      "patch_id": "ELIMINATION_GAME_ROLE_DISTRIBUTION_V1",
+      "status": "ACTIVE",
+      "category": "game_context_volatility",
+      "trigger": {
+        "conditions": [
+          "Team facing elimination",
+          "Series rotation has shown expansion or instability",
+          "Projected margin >= 8 points",
+          "Multiple secondary rebound props under consideration"
+        ]
+      },
+      "effect": {
+        "primary_action": "increase secondary prop volatility",
+        "rotation_adjustment": "redistribute 0.5 to 1.0 rebounds from secondary wings to bench/hustle/frontcourt players",
+        "card_rule": "prefer primary single or gameline over multi-player rebound cards"
+      },
+      "reason": "Portland used a fragmented rebound profile in an elimination setting; secondary props carried more volatility than pregame median suggested."
+    },
+    {
+      "patch_id": "CENTER_LOCAL_REBOUND_PRIORITY_V1",
+      "status": "CONFIRMED_ACTIVE",
+      "category": "positive_edge_confirmation",
+      "trigger": {
+        "conditions": [
+          "Stable center minutes >= 30",
+          "High rebound chance volume",
+          "Low average rebound distance or contested board role",
+          "Line within 0.5 to 1.0 of recent median"
+        ]
+      },
+      "effect": {
+        "primary_action": "allow single-bet priority classification",
+        "confidence_adjustment": "+0.5 tier when minutes and role are stable",
+        "card_rule": "preferred single under California execution constraints"
+      },
+      "reason": "Victor Wembanyama projected 12.7 mean / 12.2 median and finished with 14 rebounds in stable 34 minutes."
+    },
+    {
+      "patch_id": "TEAM_TOTAL_BRICK_PROFILE_SUPPRESSOR_V1",
+      "status": "ACTIVE",
+      "category": "gameline_total_adjustment",
+      "trigger": {
+        "conditions": [
+          "Opponent projects high 3PA rate",
+          "Opponent series efficiency is below league-average playoff baseline",
+          "Favorite has rim protection or shot quality suppression edge",
+          "Team total market remains above model median"
+        ]
+      },
+      "effect": {
+        "primary_action": "upgrade opposing team total under",
+        "mean_adjustment": "-1.5 to -3.5 team points when brick profile confirms",
+        "confidence_adjustment": "thin to playable if line remains >= model median + 1.5"
+      },
+      "reason": "POR finished with 95 points on 35.1% FG and 23.4% from three after attempting 47 threes. POR TT under 101.5 hit despite being labeled thin."
+    }
+  ],
+  "global_execution_rules_updated": {
+    "secondary_rebound_props": "must clear >= 60% post-patch probability or remain lean-only",
+    "bench_big_rebounds": "price worse than -130 requires stronger minutes or mean clearance",
+    "multi_leg_cards": "avoid stacking correlated rebound overs when team rebound distribution is congested",
+    "preferred_california_execution": "single-bet priority on clean center-local rebound or team total edge"
+  },
+  "status": "PATCHES_APPLIED_AND_READY_FOR_NEXT_POSTMORTEM"
+}
