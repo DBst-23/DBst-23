@@ -3,14 +3,14 @@
   "totalItems": 15,
   "totalEvents": 0,
   "totalGames": 15,
-  "totalGamesInProgress": 2,
+  "totalGamesInProgress": 4,
   "dates": [
     {
       "date": "2026-04-29",
       "totalItems": 15,
       "totalEvents": 0,
       "totalGames": 15,
-      "totalGamesInProgress": 2,
+      "totalGamesInProgress": 4,
       "games": [
         {
           "gamePk": 824445,
@@ -21,13 +21,12 @@
           "gameDate": "2026-04-29T17:10:00Z",
           "officialDate": "2026-04-29",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Delayed Start",
-            "statusCode": "PR",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "reason": "Rain",
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -115,7 +114,7 @@
                 "losses": 19,
                 "pct": ".387"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 10
             },
@@ -130,7 +129,7 @@
                 "losses": 17,
                 "pct": ".433"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 10
             }
@@ -189,7 +188,7 @@
                 "losses": 16,
                 "pct": ".484"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 10
             },
@@ -244,12 +243,12 @@
           "gameDate": "2026-04-29T18:35:00Z",
           "officialDate": "2026-04-29",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -392,12 +391,12 @@
           "gameDate": "2026-04-29T19:10:00Z",
           "officialDate": "2026-04-29",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -532,70 +531,70 @@
           "ifNecessaryDescription": "Normal Game"
         },
         {
-          "gamePk": 824850,
-          "gameGuid": "85e9c7b4-a708-4c6a-b43a-3662ab374bd6",
-          "link": "/api/v1.1/game/824850/feed/live",
+          "gamePk": 823471,
+          "gameGuid": "280c9390-aeee-420a-8619-18bfc123b2be",
+          "link": "/api/v1.1/game/823471/feed/live",
           "gameType": "R",
           "season": "2026",
-          "gameDate": "2026-04-29T22:35:00Z",
+          "gameDate": "2026-04-29T22:10:00Z",
           "officialDate": "2026-04-29",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
           "teams": {
             "away": {
               "team": {
-                "id": 117,
-                "name": "Houston Astros",
-                "link": "/api/v1/teams/117"
+                "id": 137,
+                "name": "San Francisco Giants",
+                "link": "/api/v1/teams/137"
               },
               "leagueRecord": {
-                "wins": 11,
-                "losses": 19,
-                "pct": ".367"
+                "wins": 13,
+                "losses": 16,
+                "pct": ".448"
               },
               "splitSquad": false,
               "seriesNumber": 10
             },
             "home": {
               "team": {
-                "id": 110,
-                "name": "Baltimore Orioles",
-                "link": "/api/v1/teams/110"
+                "id": 143,
+                "name": "Philadelphia Phillies",
+                "link": "/api/v1/teams/143"
               },
               "leagueRecord": {
-                "wins": 14,
-                "losses": 15,
-                "pct": ".483"
+                "wins": 10,
+                "losses": 19,
+                "pct": ".345"
               },
               "splitSquad": false,
               "seriesNumber": 10
             }
           },
           "venue": {
-            "id": 2,
-            "name": "Oriole Park at Camden Yards",
-            "link": "/api/v1/venues/2"
+            "id": 2681,
+            "name": "Citizens Bank Park",
+            "link": "/api/v1/venues/2681"
           },
           "content": {
-            "link": "/api/v1/game/824850/content"
+            "link": "/api/v1/game/823471/content"
           },
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
           "gamedayType": "P",
           "tiebreaker": "N",
-          "calendarEventID": "14-824850-2026-04-29",
+          "calendarEventID": "14-823471-2026-04-29",
           "seasonDisplay": "2026",
           "dayNight": "night",
           "scheduledInnings": 9,
           "reverseHomeAwayStatus": false,
-          "inningBreakLength": 120,
+          "inningBreakLength": 145,
           "gamesInSeries": 3,
           "seriesGameNumber": 2,
           "seriesDescription": "Regular Season",
@@ -631,6 +630,7 @@
                 "losses": 17,
                 "pct": ".433"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 10
             },
@@ -645,6 +645,7 @@
                 "losses": 10,
                 "pct": ".655"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 10
             }
@@ -742,78 +743,6 @@
           "inningBreakLength": 120,
           "gamesInSeries": 4,
           "seriesGameNumber": 3,
-          "seriesDescription": "Regular Season",
-          "recordSource": "S",
-          "ifNecessary": "N",
-          "ifNecessaryDescription": "Normal Game"
-        },
-        {
-          "gamePk": 823471,
-          "gameGuid": "280c9390-aeee-420a-8619-18bfc123b2be",
-          "link": "/api/v1.1/game/823471/feed/live",
-          "gameType": "R",
-          "season": "2026",
-          "gameDate": "2026-04-29T22:40:00Z",
-          "officialDate": "2026-04-29",
-          "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
-            "startTimeTBD": false,
-            "abstractGameCode": "P"
-          },
-          "teams": {
-            "away": {
-              "team": {
-                "id": 137,
-                "name": "San Francisco Giants",
-                "link": "/api/v1/teams/137"
-              },
-              "leagueRecord": {
-                "wins": 13,
-                "losses": 16,
-                "pct": ".448"
-              },
-              "splitSquad": false,
-              "seriesNumber": 10
-            },
-            "home": {
-              "team": {
-                "id": 143,
-                "name": "Philadelphia Phillies",
-                "link": "/api/v1/teams/143"
-              },
-              "leagueRecord": {
-                "wins": 10,
-                "losses": 19,
-                "pct": ".345"
-              },
-              "splitSquad": false,
-              "seriesNumber": 10
-            }
-          },
-          "venue": {
-            "id": 2681,
-            "name": "Citizens Bank Park",
-            "link": "/api/v1/venues/2681"
-          },
-          "content": {
-            "link": "/api/v1/game/823471/content"
-          },
-          "gameNumber": 1,
-          "publicFacing": true,
-          "doubleHeader": "N",
-          "gamedayType": "P",
-          "tiebreaker": "N",
-          "calendarEventID": "14-823471-2026-04-29",
-          "seasonDisplay": "2026",
-          "dayNight": "night",
-          "scheduledInnings": 9,
-          "reverseHomeAwayStatus": false,
-          "inningBreakLength": 145,
-          "gamesInSeries": 3,
-          "seriesGameNumber": 2,
           "seriesDescription": "Regular Season",
           "recordSource": "S",
           "ifNecessary": "N",
@@ -1095,6 +1024,81 @@
           "gamedayType": "P",
           "tiebreaker": "N",
           "calendarEventID": "14-825015-2026-04-29",
+          "seasonDisplay": "2026",
+          "dayNight": "night",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
+          "gamesInSeries": 3,
+          "seriesGameNumber": 2,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 824850,
+          "gameGuid": "85e9c7b4-a708-4c6a-b43a-3662ab374bd6",
+          "link": "/api/v1.1/game/824850/feed/live",
+          "gameType": "R",
+          "season": "2026",
+          "gameDate": "2026-04-29T22:35:00Z",
+          "officialDate": "2026-04-30",
+          "rescheduleDate": "2026-04-30T16:40:00Z",
+          "rescheduleGameDate": "2026-04-30",
+          "status": {
+            "abstractGameState": "Final",
+            "codedGameState": "D",
+            "detailedState": "Postponed",
+            "statusCode": "DR",
+            "startTimeTBD": false,
+            "reason": "Rain",
+            "abstractGameCode": "F"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 117,
+                "name": "Houston Astros",
+                "link": "/api/v1/teams/117"
+              },
+              "leagueRecord": {
+                "wins": 11,
+                "losses": 19,
+                "pct": ".367"
+              },
+              "splitSquad": false,
+              "seriesNumber": 10
+            },
+            "home": {
+              "team": {
+                "id": 110,
+                "name": "Baltimore Orioles",
+                "link": "/api/v1/teams/110"
+              },
+              "leagueRecord": {
+                "wins": 14,
+                "losses": 15,
+                "pct": ".483"
+              },
+              "splitSquad": false,
+              "seriesNumber": 10
+            }
+          },
+          "venue": {
+            "id": 2,
+            "name": "Oriole Park at Camden Yards",
+            "link": "/api/v1/venues/2"
+          },
+          "content": {
+            "link": "/api/v1/game/824850/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-824850-2026-04-29",
           "seasonDisplay": "2026",
           "dayNight": "night",
           "scheduledInnings": 9,
