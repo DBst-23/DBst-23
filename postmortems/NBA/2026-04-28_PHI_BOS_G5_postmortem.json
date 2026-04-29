@@ -1,0 +1,187 @@
+{
+  "schema_version": "B.003-postmortem-v1",
+  "log_id": "NBA_POSTMORTEM_20260428_PHI_BOS_G5",
+  "created_at": "2026-04-28",
+  "matchup": "PHI @ BOS",
+  "final_score": {
+    "PHI": 113,
+    "BOS": 97,
+    "margin": "PHI +16",
+    "total_points": 210
+  },
+  "tracked_cards": [
+    {
+      "card_type": "2-leg champions",
+      "players": ["Jayson Tatum", "Karl-Anthony Towns"],
+      "entry": 5,
+      "payout": 15.17,
+      "result": "WIN",
+      "legs": [
+        {
+          "market": "Jayson Tatum rebounds",
+          "side": "Higher 9.5",
+          "actual": 12,
+          "result": "WIN",
+          "game": "PHI 113 @ BOS 97"
+        },
+        {
+          "market": "Karl-Anthony Towns rebounds",
+          "side": "Higher 11.5",
+          "actual": 13,
+          "result": "WIN",
+          "game": "ATL 97 @ NYK 126"
+        }
+      ]
+    },
+    {
+      "card_type": "2-leg champions",
+      "players": ["Joel Embiid", "Josh Hart"],
+      "entry": 5,
+      "payout": 0,
+      "result": "LOSS",
+      "legs": [
+        {
+          "market": "Joel Embiid rebounds",
+          "side": "Higher 8.5",
+          "actual": 4,
+          "result": "LOSS",
+          "game": "PHI 113 @ BOS 97"
+        },
+        {
+          "market": "Josh Hart rebounds",
+          "side": "Higher 8.5",
+          "actual": 5,
+          "result": "LOSS",
+          "game": "ATL 97 @ NYK 126"
+        }
+      ]
+    }
+  ],
+  "box_score": {
+    "PHI": {
+      "points": 113,
+      "rebounds": 47,
+      "offensive_rebounds": 5,
+      "defensive_rebounds": 42,
+      "assists": 24,
+      "steals": 5,
+      "blocks": 3,
+      "turnovers": 10,
+      "fg": "39-78",
+      "fg_pct": 50.0,
+      "three_pt": "15-42",
+      "three_pt_pct": 35.7,
+      "ft": "20-23",
+      "ft_pct": 87.0,
+      "ts_pct": 64.1,
+      "points_in_paint": 34,
+      "second_chance_points": 9,
+      "fastbreak_points": 5
+    },
+    "BOS": {
+      "points": 97,
+      "rebounds": 49,
+      "offensive_rebounds": 15,
+      "defensive_rebounds": 34,
+      "assists": 25,
+      "steals": 6,
+      "blocks": 0,
+      "turnovers": 12,
+      "fg": "36-89",
+      "fg_pct": 40.4,
+      "three_pt": "11-39",
+      "three_pt_pct": 28.2,
+      "ft": "14-23",
+      "ft_pct": 60.9,
+      "ts_pct": 48.9,
+      "points_in_paint": 40,
+      "second_chance_points": 10,
+      "fastbreak_points": 9
+    }
+  },
+  "player_focus": {
+    "Jayson Tatum": {
+      "minutes": 41,
+      "points": 24,
+      "rebounds": 16,
+      "offensive_rebounds": 3,
+      "assists": 4,
+      "fg": "8-19",
+      "three_pt": "4-12",
+      "result_vs_rebound_line_9_5": "WIN",
+      "diagnosis": "Primary wing rebound over validated. Tatum played full playoff minutes and absorbed BOS missed-shot rebound volume in a negative shooting environment."
+    },
+    "Joel Embiid": {
+      "minutes": 39,
+      "points": 33,
+      "rebounds": 4,
+      "offensive_rebounds": 1,
+      "assists": 8,
+      "fg": "12-23",
+      "result_vs_rebound_line_8_5": "LOSS",
+      "diagnosis": "Scoring/creation load replaced rebounding role. PHI defensive rebounds dispersed to Maxey, George, Edgecombe, Oubre, and bench bigs. Embiid rebound over failed despite minutes stability."
+    },
+    "Neemias Queta": {
+      "minutes": 26,
+      "rebounds": 14,
+      "offensive_rebounds": 5,
+      "diagnosis": "Unexpected major BOS board spike. Center-local rebound role was much stronger than market likely priced."
+    },
+    "Tyrese Maxey": {
+      "minutes": 43,
+      "rebounds": 10,
+      "diagnosis": "Guard rebound spike from long-miss environment; important signal for 3PA-heavy games."
+    },
+    "Paul George": {
+      "minutes": 43,
+      "rebounds": 9,
+      "diagnosis": "Secondary wing rebound absorption hurt Embiid overs."
+    },
+    "VJ Edgecombe": {
+      "minutes": 40,
+      "rebounds": 7,
+      "diagnosis": "Guard/wing rebound distribution remained elevated and reduced Embiid's ceiling."
+    }
+  },
+  "model_vs_actual_summary": {
+    "known_rebound_legs_from_screenshots": 4,
+    "wins": 2,
+    "losses": 2,
+    "hit_rate": 0.5,
+    "best_call": "Jayson Tatum Higher 9.5 rebounds",
+    "worst_call": "Joel Embiid Higher 8.5 rebounds",
+    "key_environment_read": "Boston missed enough shots to fuel Tatum and Queta rebounds, while PHI's defensive rebound share was fragmented away from Embiid."
+  },
+  "diagnostic_findings": [
+    "Tatum over 9.5 rebounds was structurally strong because BOS played him 41 minutes and their own poor shooting/negative game script kept him active on glass.",
+    "Embiid over 8.5 was a trap under scoring-load conditions. He had 33 points and 8 assists but only 4 rebounds.",
+    "PHI rebound distribution was wide: Maxey 10, George 9, Edgecombe 7, Oubre 6, Embiid 4, Drummond 4, Barlow 3.",
+    "BOS center rebound line deserved more attention: Queta posted 14 rebounds in 26 minutes with 5 offensive boards.",
+    "High team 3PA environment created guard/wing rebound spikes, especially Maxey and Tatum."
+  ],
+  "patch_recommendations": [
+    {
+      "patch_id": "CENTER_SCORING_LOAD_REBOUND_SUPPRESSOR_V1",
+      "trigger": "High-usage center projects 30+ points or heavy on-ball creation while teammates have elevated defensive rebound rates",
+      "effect": "Downgrade center rebound over by 0.8 to 1.5 rebounds; require stronger margin over line before parlay inclusion.",
+      "source_player": "Joel Embiid"
+    },
+    {
+      "patch_id": "LONG_MISS_GUARD_WING_REBOUND_BOOST_V1",
+      "trigger": "Game projects 75+ combined 3PA or one team has 38+ 3PA with below-average efficiency",
+      "effect": "Boost high-minute wings/guards with strong floor positioning by 0.4 to 0.9 rebounds.",
+      "source_players": ["Jayson Tatum", "Tyrese Maxey", "Paul George", "VJ Edgecombe"]
+    },
+    {
+      "patch_id": "CENTER_LOCAL_REBOUND_SPIKE_SCAN_V1",
+      "trigger": "Center projected 24+ minutes with opponent high miss volume and weak finishing efficiency",
+      "effect": "Scan center rebound overs before secondary wing overs; flag as potential single/2-leg candidate if median clears line by >= 0.8.",
+      "source_player": "Neemias Queta"
+    }
+  ],
+  "execution_notes": {
+    "winning_structure": "Two-leg card with one PHI/BOS player plus one cross-game center/primary rebounder won cleanly.",
+    "losing_structure": "Stacking Embiid and Hart rebound overs failed because both had suppressed rebound distribution versus role expectation.",
+    "workflow_status": "Logged and ready for patch application."
+  }
+}
