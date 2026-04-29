@@ -1,0 +1,167 @@
+{
+  "schema_version": "B.003-new-rules-edge-board-v1",
+  "date": "2026-04-28",
+  "matchup": "POR @ SAS",
+  "game_number": 5,
+  "series_state": "SAS leads 3-1",
+  "execution_mode": "CA_SINGLE_ACCESS_CONSTRAINT_V1",
+  "market_context": {
+    "consensus_total_range": "219 to 220.5",
+    "spread_range": "SAS -11 to -12",
+    "sas_team_total": 114.5,
+    "por_team_total_range": "101.5 to 103.5",
+    "major_rebound_lines": {
+      "Victor Wembanyama": 11.5,
+      "Deni Avdija": "6.5/7.5 split",
+      "Robert Williams III": 7.5,
+      "Jrue Holiday": 4.5,
+      "Luke Kornet": "3.5/4.5 split"
+    }
+  },
+  "minutes_inputs": {
+    "POR": {
+      "Jrue Holiday": 39,
+      "Deni Avdija": 38,
+      "Toumani Camara": 33,
+      "Scoot Henderson": 32,
+      "Jerami Grant": 28,
+      "Robert Williams III": 25,
+      "Donovan Clingan": 23
+    },
+    "SAS": {
+      "Victor Wembanyama": 34,
+      "DeAaron Fox": 36,
+      "Stephon Castle": 34,
+      "Devin Vassell": 33,
+      "Julian Champagnie": 27,
+      "Luke Kornet": 14
+    }
+  },
+  "environment": {
+    "classification": "Spurs control / Portland elimination volatility",
+    "pace_projection": 97.0,
+    "expected_score_mean": "SAS 115.8, POR 102.7",
+    "expected_score_median": "SAS 115, POR 102",
+    "total_mean": 218.5,
+    "total_median": 217.5,
+    "spread_mean": "SAS -13.1",
+    "spread_median": "SAS -12.5",
+    "notes": [
+      "Market total at 219-220.5 is slightly higher than model mean but not enough for a full-strength under unless 220.5+ appears with fair price.",
+      "SAS team total 114.5 is close to model mean; no strong edge at current price.",
+      "POR team total under 103.5 is the best gameline derivative if available; 101.5 is much thinner."
+    ]
+  },
+  "rebound_detector_board": [
+    {
+      "rank": 1,
+      "player": "Victor Wembanyama",
+      "team": "SAS",
+      "market": "rebounds",
+      "line": 11.5,
+      "side": "over",
+      "mean": 12.7,
+      "median": 12.2,
+      "hit_probability": 0.615,
+      "confidence_tier": "B+",
+      "status": "APPROVED_SINGLE",
+      "notes": "Best clean player edge. Recent postmortem: 12 rebounds on 19 chances, 5 contested, 63.2% chance conversion. Center-local profile remains stable."
+    },
+    {
+      "rank": 2,
+      "player": "Deni Avdija",
+      "team": "POR",
+      "market": "rebounds",
+      "line": 6.5,
+      "side": "over",
+      "mean": 7.4,
+      "median": 7.1,
+      "hit_probability": 0.59,
+      "confidence_tier": "B-",
+      "status": "APPROVED_AT_6.5",
+      "notes": "Viable only at 6.5. At 7.5 the probability drops below threshold; plus-money 7.5 is not the same edge."
+    },
+    {
+      "rank": 3,
+      "player": "Jrue Holiday",
+      "team": "POR",
+      "market": "rebounds",
+      "line": 4.5,
+      "side": "over",
+      "mean": 5.3,
+      "median": 5.0,
+      "hit_probability": 0.585,
+      "confidence_tier": "B-",
+      "status": "APPROVED_BUT_JUICE_HEAVY",
+      "notes": "Line at 4.5 is soft versus 39 projected minutes and prior 6-rebound result. Over is heavily juiced, so value depends on platform payout structure."
+    },
+    {
+      "rank": 4,
+      "player": "Luke Kornet",
+      "team": "SAS",
+      "market": "rebounds",
+      "line": 3.5,
+      "side": "over",
+      "mean": 4.6,
+      "median": 4.2,
+      "hit_probability": 0.605,
+      "confidence_tier": "B",
+      "status": "APPROVED_AT_3.5_ONLY",
+      "notes": "At 3.5 this clears. At 4.5 it becomes thin/no-bet due to 14 projected minutes and blowout substitution uncertainty."
+    },
+    {
+      "rank": 5,
+      "player": "Robert Williams III",
+      "team": "POR",
+      "market": "rebounds",
+      "line": 7.5,
+      "side": "under",
+      "mean": 6.8,
+      "median": 6.5,
+      "hit_probability": 0.565,
+      "confidence_tier": "C+",
+      "status": "LEAN_ONLY",
+      "notes": "Under is slightly preferred at 7.5, but not strong enough for card construction. Minutes can expand if POR leans big."
+    }
+  ],
+  "gameline_board": [
+    {
+      "market": "POR team total under",
+      "target_line": 103.5,
+      "model_mean": 102.7,
+      "model_median": 102.0,
+      "hit_probability": 0.565,
+      "status": "BEST_GAMELINE_DERIVATIVE"
+    },
+    {
+      "market": "Full game under",
+      "target_line": 220.5,
+      "model_mean": 218.5,
+      "model_median": 217.5,
+      "hit_probability": 0.555,
+      "status": "PLAYABLE_ONLY_AT_220.5_PLUS"
+    },
+    {
+      "market": "SAS spread",
+      "target_line": -11.0,
+      "model_mean": -13.1,
+      "model_median": -12.5,
+      "hit_probability": 0.552,
+      "status": "LEAN_NOT_PRIMARY"
+    },
+    {
+      "market": "SAS team total over",
+      "target_line": 114.5,
+      "model_mean": 115.8,
+      "model_median": 115.0,
+      "hit_probability": 0.535,
+      "status": "NO_BET_THIN"
+    }
+  ],
+  "new_rules_decision": {
+    "best_single": "Victor Wembanyama over 11.5 rebounds",
+    "best_2_leg_if_required": ["Victor Wembanyama over 11.5 rebounds", "Deni Avdija over 6.5 rebounds"],
+    "conditional_2_leg_alt": ["Victor Wembanyama over 11.5 rebounds", "Jrue Holiday over 4.5 rebounds"],
+    "avoid": ["Robert Williams over 7.5", "Deni Avdija over 7.5", "Luke Kornet over 4.5", "SAS team total over 114.5 as primary"]
+  }
+}
