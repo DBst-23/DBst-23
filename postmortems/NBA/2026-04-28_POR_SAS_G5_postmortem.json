@@ -1,0 +1,176 @@
+{
+  "schema_version": "B.003-postmortem-v1",
+  "log_id": "NBA_POSTMORTEM_20260428_POR_SAS_G5",
+  "created_at": "2026-04-28",
+  "matchup": "POR @ SAS",
+  "game_number": 5,
+  "series_state_pre": "SAS led 3-1",
+  "final_score": {
+    "POR": 95,
+    "SAS": 114,
+    "margin": "SAS +19",
+    "total_points": 209
+  },
+  "ghost_bet_results": [
+    {
+      "market": "SAS spread",
+      "side": "SAS -11.5",
+      "price": -110,
+      "result": "WIN",
+      "actual_margin": 19,
+      "model_status_pre": "LEAN_NOT_PRIMARY",
+      "projection_delta": "Covered by 7.5 points"
+    },
+    {
+      "market": "POR team total",
+      "side": "Under 101.5",
+      "price": -111,
+      "result": "WIN",
+      "actual": 95,
+      "model_mean": 102.7,
+      "model_median": 102.0,
+      "projection_delta": -7.7,
+      "note": "Model preferred POR TT under at 103.5 and labeled 101.5 thin. Actual validated suppressive environment more strongly than median." 
+    },
+    {
+      "market": "Robert Williams rebounds",
+      "side": "Under 7.5",
+      "price": -122,
+      "result": "WIN",
+      "actual": 7,
+      "model_mean": 6.8,
+      "model_median": 6.5,
+      "hit_probability": 0.565,
+      "note": "Lean only, but accurate. Minutes dropped to 17 vs projected 25, yet rebound rate remained dangerous. Under survived by hook." 
+    },
+    {
+      "market": "Luke Kornet rebounds",
+      "side": "Over 3.5",
+      "price": -159,
+      "result": "LOSS",
+      "actual": 3,
+      "model_mean": 4.6,
+      "model_median": 4.2,
+      "hit_probability": 0.605,
+      "note": "Miss by hook. Projection correctly flagged minutes/rotation volatility. Actual 13 minutes and only 3 rebounds. This should be downgraded from approved-at-3.5 to thin/avoid if price is worse than -130." 
+    },
+    {
+      "market": "Jrue Holiday rebounds",
+      "side": "Over 4.5",
+      "price": -165,
+      "result": "WIN",
+      "actual": 6,
+      "model_mean": 5.3,
+      "model_median": 5.0,
+      "hit_probability": 0.585,
+      "note": "Projection direction hit. Pricing concern was correct because -165 reduced EV, but role/minutes read was sharp: 40 minutes and 6 rebounds." 
+    },
+    {
+      "market": "Deni Avdija rebounds",
+      "side": "Over 6.5",
+      "price": -145,
+      "result": "LOSS",
+      "actual": 3,
+      "model_mean": 7.4,
+      "model_median": 7.1,
+      "hit_probability": 0.59,
+      "note": "Major miss. Deni played 32 minutes but finished with only 3 rebounds. Rebound share leaked to Camara, Clingan, Robert Williams, and offensive rebounding clusters. Patch needed: POR frontcourt congestion + foul/defensive role drag." 
+    },
+    {
+      "market": "Victor Wembanyama rebounds",
+      "side": "Over 11.5",
+      "price": -116,
+      "result": "WIN",
+      "actual": 14,
+      "model_mean": 12.7,
+      "model_median": 12.2,
+      "hit_probability": 0.615,
+      "note": "Primary single validated cleanly. Minutes exactly stable at 34. Result exceeded mean by +1.3 rebounds." 
+    }
+  ],
+  "projection_accuracy_summary": {
+    "tracked_markets": 7,
+    "wins": 5,
+    "losses": 2,
+    "hit_rate": 0.714,
+    "primary_single_result": "WIN",
+    "player_prop_record": "3-2",
+    "gameline_record": "2-0",
+    "best_call": "Victor Wembanyama over 11.5 rebounds",
+    "worst_call": "Deni Avdija over 6.5 rebounds"
+  },
+  "team_box_score": {
+    "POR": {
+      "points": 95,
+      "rebounds": 38,
+      "offensive_rebounds": 14,
+      "defensive_rebounds": 24,
+      "assists": 24,
+      "turnovers": 9,
+      "fg": "33-94",
+      "fg_pct": 35.1,
+      "three_pt": "11-47",
+      "three_pt_pct": 23.4,
+      "ft": "18-23",
+      "ts_pct": 45.6,
+      "second_chance_points": 21,
+      "fastbreak_points": 12,
+      "points_in_paint": 38
+    },
+    "SAS": {
+      "points": 114,
+      "rebounds": 42,
+      "offensive_rebounds": 7,
+      "defensive_rebounds": 35,
+      "assists": 27,
+      "turnovers": 17,
+      "fg": "41-75",
+      "fg_pct": 54.7,
+      "three_pt": "12-30",
+      "three_pt_pct": 40.0,
+      "ft": "20-29",
+      "ts_pct": 64.9,
+      "second_chance_points": 9,
+      "fastbreak_points": 16,
+      "points_in_paint": 44
+    }
+  },
+  "player_actuals_focus": {
+    "Victor Wembanyama": {"minutes": 34, "rebounds": 14, "projection_mean": 12.7, "delta": 1.3},
+    "Deni Avdija": {"minutes": 32, "rebounds": 3, "projection_mean": 7.4, "delta": -4.4},
+    "Jrue Holiday": {"minutes": 40, "rebounds": 6, "projection_mean": 5.3, "delta": 0.7},
+    "Robert Williams III": {"minutes": 17, "rebounds": 7, "projection_mean": 6.8, "delta": 0.2},
+    "Luke Kornet": {"minutes": 13, "rebounds": 3, "projection_mean": 4.6, "delta": -1.6}
+  },
+  "diagnostic_findings": [
+    "Primary Wembanyama center-local rebound model remains strong and should stay priority eligible in similar profiles.",
+    "POR team total under was sharper than initially graded. SAS defensive control plus POR 47 three-point attempts created low-efficiency volume and suppressive scoring environment.",
+    "Deni Avdija rebound projection failed because POR rebound distribution became frontcourt-fragmented: Camara 8, Clingan 5, Robert Williams 7, Cissoko 4, with Deni only 3.",
+    "Robert Williams under was directionally right, but his 7 boards in 17 minutes indicates very high per-minute rebound volatility. Do not over-grade the under as safe next time.",
+    "Kornet over 3.5 missed despite clean 13-minute role. Hook miss plus heavy -159 price confirms rule: low-minute bench rebound overs need stronger price and/or 16+ projected minutes."
+  ],
+  "patch_recommendations": [
+    {
+      "patch_id": "POR_FRONTCOURT_REBOUND_CONGESTION_V1",
+      "trigger": "POR has Avdija + Camara + Clingan + Robert Williams active with 20+ projected minutes for two or more frontcourt rebounders",
+      "effect": "Downgrade Avdija rebound median by 0.8 to 1.3 when frontcourt rebound competition is high."
+    },
+    {
+      "patch_id": "LOW_MIN_BENCH_BIG_HOOK_RISK_V1",
+      "trigger": "Bench big projected under 16 minutes with rebound line 3.5 or higher and price worse than -130",
+      "effect": "Move from approved to lean-only unless rebound chances per projected minute exceed elite threshold."
+    },
+    {
+      "patch_id": "ELIMINATION_GAME_ROLE_DISTRIBUTION_V1",
+      "trigger": "Elimination game with underdog trailing series and expanded rotation appearing in prior games",
+      "effect": "Increase volatility on secondary rebound overs and redistribute 0.5-1.0 boards to hustle wings/bench frontcourt."
+    }
+  ],
+  "new_rules_grade": {
+    "single_bet_accuracy": "PASS",
+    "multi_edge_selectivity": "MIXED",
+    "gameline_read": "PASS",
+    "avoid_list_quality": "PARTIAL_PASS",
+    "overall_grade": "B+"
+  }
+}
