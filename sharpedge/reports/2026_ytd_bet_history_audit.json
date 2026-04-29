@@ -1,0 +1,33 @@
+{
+  "summary": {
+    "rows": 458,
+    "unique_bets": 231,
+    "total_wagered": 1535.43,
+    "net": 64.64,
+    "roi": 4.21,
+    "wins": 78,
+    "losses": 148,
+    "push_other": 5,
+    "hit_rate": 34.51,
+    "avg_risk": 6.65,
+    "max_win": 58.46,
+    "max_loss": -25.54
+  },
+  "by_sportsbook": [
+    {"sportsbook": "Kalshi", "bets": 43, "risk": 257.79, "net": 27.65},
+    {"sportsbook": "Underdog", "bets": 188, "risk": 1277.64, "net": 36.99}
+  ],
+  "by_legs": [
+    {"number_of_legs": 1, "bets": 66, "risk": 383.25, "net": 71.79, "wins": 39},
+    {"number_of_legs": 2, "bets": 105, "risk": 745.87, "net": -152.10, "wins": 26},
+    {"number_of_legs": 3, "bets": 58, "risk": 393.81, "net": 157.45, "wins": 13},
+    {"number_of_legs": 4, "bets": 2, "risk": 12.50, "net": -12.50, "wins": 0}
+  ],
+  "core_read": "Singles are carrying the system. Two-leg cards are the main leak. Three-leg cards are profitable in this sample, but likely boosted by larger payout hits and should be treated as high variance until sample grows.",
+  "patch_recommendations": [
+    "Keep single-bet LiveFlow as default.",
+    "Cap two-leg cards unless both legs clear 58%+ and low correlation.",
+    "Three-leg cards require at least one gameline anchor or two A/B-tier detector outputs.",
+    "Add tags to every logged bet: MARKET_TYPE, LEG_COUNT, EDGE_SOURCE, MODEL_VERSION, VARIANCE_TAG, CONFIDENCE_TIER."
+  ]
+}
