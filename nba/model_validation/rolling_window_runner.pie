@@ -1,0 +1,115 @@
+import pandas as pd
+import numpy as np
+
+# -----------------------------
+# LOAD DATA
+# -----------------------------
+df = pd.read_json("data/predictions_log.json")  # your stored predictions
+
+df['date'] = pd.to_datetime(df['prediction_date'])
+df = df.sort_values('date')
+
+# -----------------------------
+# EXPANDING WINDOW SPLIT
+# -----------------------------
+def expanding_window_backtest(df, start_date):
+    results = []
+
+    unique_dates = sorted(df['date'].unique())
+
+    for current_date in unique_dates:
+        if current_date <= pd.to_datetime(start_date):
+            continue
+
+        train = df[df['date'] < current_date]
+        test = df[df['date'] == current_date]
+
+        if len(train) < 50:
+            continue
+
+        # Example: baseline model = historical hit rate by player
+        player_stats = train.groupby('player')['hit'].mean()
+
+        for _, row in test.iterrows():
+            pred_prob = player_stats.get(row['player'], 0.5)
+
+            results.append({
+                "date": current_date,
+                "player": row['player'],
+                "actual": row['hit'],
+                "predicted_prob": pred_prob
+            })
+
+    return pd.DataFrame(results)
+
+# -----------------------------
+# RUN BACKTEST
+# -----------------------------
+results = expanding_window_backtest(df, "2026-03-01")
+
+# -----------------------------
+# EVALUATION
+# -----------------------------
+def evaluate(results):
+    results['predicted'] = results['predicted_prob'] > 0.5
+
+    accuracy = (results['predicted'] == results['actual']).mean()
+    brier = np.mean((results['predicted_prob'] - results['actual'])**2)
+
+    return {
+        "accuracy": accuracy,
+        "brier_score": brier,
+        "total_samples": len(results)
+    }
+
+metrics = evaluate(results)
+
+print("Evaluation Metrics:")
+print(metrics)
+
+# -----------------------------
+# SHARPEDGE FEATURE LAYER
+# -----------------------------
+def sharpedge_weighted_probability(row):
+    """
+    Hybrid SharpEdge probability blend.
+
+    Required optional columns:
+    - season_baseline_prob
+    - last10_prob
+    - h2h_prob
+    - postmortem_adjustment
+
+    If a column is missing, the runner falls back to neutral 0.50
+    so the script can still run on early datasets.
+    """
+    season_baseline_prob = row.get('season_baseline_prob', 0.50)
+    last10_prob = row.get('last10_prob', 0.50)
+    h2h_prob = row.get('h2h_prob', 0.50)
+    postmortem_adjustment = row.get('postmortem_adjustment', 0.00)
+
+    pred_prob = (
+        0.45 * season_baseline_prob +
+        0.30 * last10_prob +
+        0.15 * h2h_prob +
+        0.10 * postmortem_adjustment
+    )
+
+    return float(np.clip(pred_prob, 0.01, 0.99))
+
+if not df.empty:
+    df['sharpedge_prob'] = df.apply(sharpedge_weighted_probability, axis=1)
+
+    print("\nSharpEdge Feature Layer Preview:")
+    preview_cols = [
+        col for col in [
+            'prediction_date',
+            'player',
+            'market',
+            'line',
+            'side',
+            'sharpedge_prob',
+            'hit'
+        ] if col in df.columns
+    ]
+    print(df[preview_cols].tail(10))
