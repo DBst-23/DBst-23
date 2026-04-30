@@ -15,6 +15,69 @@ df['date'] = pd.to_datetime(df['prediction_date'])
 df = df.sort_values('date')
 
 # -----------------------------
+# ODDS + BANKROLL HELPERS
+# -----------------------------
+def american_to_decimal(odds):
+    if odds is None or pd.isna(odds):
+        return np.nan
+    odds = float(odds)
+    if odds > 0:
+        return 1 + odds / 100
+    if odds < 0:
+        return 1 + 100 / abs(odds)
+    return np.nan
+
+
+def simulate_bankroll(results, starting_bankroll=1000.0, flat_unit=10.0, active_only=True):
+    sim = results.copy().sort_values('date')
+
+    if active_only and 'skip_bet' in sim.columns:
+        sim = sim[sim['skip_bet'] == False]
+
+    if sim.empty:
+        return sim, {
+            'starting_bankroll': starting_bankroll,
+            'ending_bankroll': starting_bankroll,
+            'profit': 0.0,
+            'roi': np.nan,
+            'max_drawdown': 0.0,
+            'bets': 0
+        }
+
+    if 'market_price' not in sim.columns:
+        sim['market_price'] = -110
+
+    sim['decimal_odds'] = sim['market_price'].apply(american_to_decimal).fillna(1.91)
+    sim['stake'] = flat_unit
+    sim['profit'] = np.where(
+        sim['actual'] == 1,
+        sim['stake'] * (sim['decimal_odds'] - 1),
+        -sim['stake']
+    )
+
+    sim['bankroll'] = starting_bankroll + sim['profit'].cumsum()
+    sim['peak_bankroll'] = sim['bankroll'].cummax()
+    sim['drawdown'] = sim['bankroll'] - sim['peak_bankroll']
+
+    total_staked = sim['stake'].sum()
+    total_profit = sim['profit'].sum()
+
+    summary = {
+        'starting_bankroll': float(starting_bankroll),
+        'ending_bankroll': float(sim['bankroll'].iloc[-1]),
+        'profit': float(total_profit),
+        'roi': float(total_profit / total_staked) if total_staked else np.nan,
+        'max_drawdown': float(sim['drawdown'].min()),
+        'bets': int(len(sim)),
+        'wins': int((sim['actual'] == 1).sum()),
+        'losses': int((sim['actual'] == 0).sum()),
+        'hit_rate': float((sim['actual'] == 1).mean()),
+        'total_staked': float(total_staked)
+    }
+
+    return sim, summary
+
+# -----------------------------
 # SAFETY FILTER HELPERS
 # -----------------------------
 def apply_b003_filters_to_row(row):
@@ -74,6 +137,7 @@ def expanding_window_backtest(df, start_date, use_filtered=True):
                 "baseline_prob": baseline_prob,
                 "predicted_prob": pred_prob,
                 "skip_bet": skip_bet,
+                "market_price": row.get('market_price', -110),
                 "safety_filter_tags": row.get('safety_filter_tags', '')
             })
 
@@ -162,6 +226,24 @@ print(filtered_metrics_all)
 
 print("\nFiltered Evaluation Metrics (active only, skip_bet removed):")
 print(filtered_metrics_active)
+
+# -----------------------------
+# BANKROLL SIMULATION
+# -----------------------------
+raw_bankroll, raw_bankroll_summary = simulate_bankroll(raw_results, starting_bankroll=1000.0, flat_unit=10.0, active_only=False)
+filtered_bankroll, filtered_bankroll_summary = simulate_bankroll(filtered_results, starting_bankroll=1000.0, flat_unit=10.0, active_only=True)
+
+print("\nBankroll Simulation — Raw Model:")
+print(raw_bankroll_summary)
+
+print("\nBankroll Simulation — Filtered Active Bets:")
+print(filtered_bankroll_summary)
+
+if not raw_bankroll.empty:
+    raw_bankroll.to_csv("outputs/model_validation/bankroll_raw_model.csv", index=False)
+
+if not filtered_bankroll.empty:
+    filtered_bankroll.to_csv("outputs/model_validation/bankroll_filtered_active.csv", index=False)
 
 if not df.empty:
     print("\nSharpEdge Feature Layer Preview:")
