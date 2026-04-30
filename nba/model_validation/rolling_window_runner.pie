@@ -28,6 +28,29 @@ def american_to_decimal(odds):
     return np.nan
 
 
+def kelly_fraction(probability, decimal_odds):
+    if probability is None or pd.isna(probability) or decimal_odds is None or pd.isna(decimal_odds):
+        return 0.0
+    b = decimal_odds - 1.0
+    p = float(probability)
+    q = 1.0 - p
+    if b <= 0:
+        return 0.0
+    frac = (b * p - q) / b
+    return max(0.0, frac)
+
+
+def unit_scaled_stake(bankroll, probability, decimal_odds, base_unit=10.0, kelly_multiplier=0.25, max_unit_multiple=2.0, min_unit=0.0):
+    full_kelly = kelly_fraction(probability, decimal_odds)
+    fractional_kelly = full_kelly * kelly_multiplier
+    raw_stake = bankroll * fractional_kelly
+    max_stake = base_unit * max_unit_multiple
+    stake = min(raw_stake, max_stake)
+    if stake < min_unit:
+        stake = 0.0
+    return float(stake), float(full_kelly), float(fractional_kelly)
+
+
 def simulate_bankroll(results, starting_bankroll=1000.0, flat_unit=10.0, active_only=True):
     sim = results.copy().sort_values('date')
 
@@ -76,6 +99,86 @@ def simulate_bankroll(results, starting_bankroll=1000.0, flat_unit=10.0, active_
     }
 
     return sim, summary
+
+
+def simulate_kelly_bankroll(results, starting_bankroll=1000.0, base_unit=10.0, kelly_multiplier=0.25, max_unit_multiple=2.0, active_only=True):
+    sim = results.copy().sort_values('date')
+
+    if active_only and 'skip_bet' in sim.columns:
+        sim = sim[sim['skip_bet'] == False]
+
+    if sim.empty:
+        return sim, {
+            'starting_bankroll': starting_bankroll,
+            'ending_bankroll': starting_bankroll,
+            'profit': 0.0,
+            'roi': np.nan,
+            'max_drawdown': 0.0,
+            'bets': 0
+        }
+
+    if 'market_price' not in sim.columns:
+        sim['market_price'] = -110
+
+    sim['decimal_odds'] = sim['market_price'].apply(american_to_decimal).fillna(1.91)
+
+    bankroll = float(starting_bankroll)
+    rows = []
+
+    for _, row in sim.iterrows():
+        prob = row.get('predicted_prob', row.get('model_probability', 0.50))
+        decimal_odds = row.get('decimal_odds', 1.91)
+        stake, full_kelly, fractional_kelly = unit_scaled_stake(
+            bankroll=bankroll,
+            probability=prob,
+            decimal_odds=decimal_odds,
+            base_unit=base_unit,
+            kelly_multiplier=kelly_multiplier,
+            max_unit_multiple=max_unit_multiple,
+            min_unit=0.0
+        )
+
+        if row['actual'] == 1:
+            profit = stake * (decimal_odds - 1)
+        else:
+            profit = -stake
+
+        bankroll += profit
+
+        enriched = row.to_dict()
+        enriched.update({
+            'kelly_full_fraction': full_kelly,
+            'kelly_fractional_fraction': fractional_kelly,
+            'stake': stake,
+            'profit': profit,
+            'bankroll': bankroll
+        })
+        rows.append(enriched)
+
+    out = pd.DataFrame(rows)
+    out['peak_bankroll'] = out['bankroll'].cummax()
+    out['drawdown'] = out['bankroll'] - out['peak_bankroll']
+
+    total_staked = out['stake'].sum()
+    total_profit = out['profit'].sum()
+
+    summary = {
+        'starting_bankroll': float(starting_bankroll),
+        'ending_bankroll': float(out['bankroll'].iloc[-1]),
+        'profit': float(total_profit),
+        'roi': float(total_profit / total_staked) if total_staked else np.nan,
+        'max_drawdown': float(out['drawdown'].min()),
+        'bets': int(len(out)),
+        'wins': int((out['actual'] == 1).sum()),
+        'losses': int((out['actual'] == 0).sum()),
+        'hit_rate': float((out['actual'] == 1).mean()),
+        'total_staked': float(total_staked),
+        'kelly_multiplier': float(kelly_multiplier),
+        'max_unit_multiple': float(max_unit_multiple),
+        'base_unit': float(base_unit)
+    }
+
+    return out, summary
 
 # -----------------------------
 # SAFETY FILTER HELPERS
@@ -232,6 +335,14 @@ print(filtered_metrics_active)
 # -----------------------------
 raw_bankroll, raw_bankroll_summary = simulate_bankroll(raw_results, starting_bankroll=1000.0, flat_unit=10.0, active_only=False)
 filtered_bankroll, filtered_bankroll_summary = simulate_bankroll(filtered_results, starting_bankroll=1000.0, flat_unit=10.0, active_only=True)
+kelly_bankroll, kelly_bankroll_summary = simulate_kelly_bankroll(
+    filtered_results,
+    starting_bankroll=1000.0,
+    base_unit=10.0,
+    kelly_multiplier=0.25,
+    max_unit_multiple=2.0,
+    active_only=True
+)
 
 print("\nBankroll Simulation — Raw Model:")
 print(raw_bankroll_summary)
@@ -239,11 +350,17 @@ print(raw_bankroll_summary)
 print("\nBankroll Simulation — Filtered Active Bets:")
 print(filtered_bankroll_summary)
 
+print("\nBankroll Simulation — Fractional Kelly Active Bets:")
+print(kelly_bankroll_summary)
+
 if not raw_bankroll.empty:
     raw_bankroll.to_csv("outputs/model_validation/bankroll_raw_model.csv", index=False)
 
 if not filtered_bankroll.empty:
     filtered_bankroll.to_csv("outputs/model_validation/bankroll_filtered_active.csv", index=False)
+
+if not kelly_bankroll.empty:
+    kelly_bankroll.to_csv("outputs/model_validation/bankroll_kelly_active.csv", index=False)
 
 if not df.empty:
     print("\nSharpEdge Feature Layer Preview:")
