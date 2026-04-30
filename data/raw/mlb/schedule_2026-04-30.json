@@ -3,14 +3,14 @@
   "totalItems": 11,
   "totalEvents": 0,
   "totalGames": 11,
-  "totalGamesInProgress": 2,
+  "totalGamesInProgress": 1,
   "dates": [
     {
       "date": "2026-04-30",
       "totalItems": 11,
       "totalEvents": 0,
       "totalGames": 11,
-      "totalGamesInProgress": 2,
+      "totalGamesInProgress": 1,
       "games": [
         {
           "gamePk": 824929,
@@ -177,12 +177,12 @@
           "rescheduledFrom": "2026-04-29T22:35:00Z",
           "rescheduledFromDate": "2026-04-29",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": true,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -192,11 +192,12 @@
                 "link": "/api/v1/teams/117"
               },
               "leagueRecord": {
-                "wins": 11,
+                "wins": 12,
                 "losses": 20,
-                "pct": ".355"
+                "pct": ".375"
               },
               "score": 11,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 10
             },
@@ -208,10 +209,11 @@
               },
               "leagueRecord": {
                 "wins": 15,
-                "losses": 15,
-                "pct": ".500"
+                "losses": 16,
+                "pct": ".484"
               },
-              "score": 4,
+              "score": 5,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 10
             }
@@ -224,6 +226,7 @@
           "content": {
             "link": "/api/v1/game/824850/content"
           },
+          "isTie": false,
           "gameNumber": 2,
           "publicFacing": true,
           "doubleHeader": "Y",
@@ -427,7 +430,7 @@
                 "losses": 17,
                 "pct": ".433"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 10
             },
