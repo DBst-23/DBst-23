@@ -1,6 +1,11 @@
 import pandas as pd
 import numpy as np
 
+try:
+    from nba.model_validation.probability_safety_filters_b003 import apply_probability_safety_filters
+except ModuleNotFoundError:
+    from probability_safety_filters_b003 import apply_probability_safety_filters
+
 # -----------------------------
 # LOAD DATA
 # -----------------------------
@@ -10,9 +15,28 @@ df['date'] = pd.to_datetime(df['prediction_date'])
 df = df.sort_values('date')
 
 # -----------------------------
+# SAFETY FILTER HELPERS
+# -----------------------------
+def apply_b003_filters_to_row(row):
+    row_dict = row.to_dict()
+    row_dict['pred_prob'] = row_dict.get('sharpedge_prob', row_dict.get('model_probability', 0.50))
+    row_dict['rebound_prob'] = row_dict.get('rebound_prob', row_dict['pred_prob'])
+
+    result = apply_probability_safety_filters(row_dict)
+
+    return pd.Series({
+        'sharpedge_prob_filtered': result.pred_prob,
+        'rebound_prob_filtered': result.rebound_prob,
+        'downgrade_prob_filtered': result.downgrade_prob,
+        'skip_bet': result.skip_bet,
+        'safety_filter_tags': '|'.join(result.tags),
+        'safety_filter_notes': '|'.join(result.notes)
+    })
+
+# -----------------------------
 # EXPANDING WINDOW SPLIT
 # -----------------------------
-def expanding_window_backtest(df, start_date):
+def expanding_window_backtest(df, start_date, use_filtered=True):
     results = []
 
     unique_dates = sorted(df['date'].unique())
@@ -27,45 +51,33 @@ def expanding_window_backtest(df, start_date):
         if len(train) < 50:
             continue
 
-        # Example: baseline model = historical hit rate by player
+        # Baseline model = historical hit rate by player.
         player_stats = train.groupby('player')['hit'].mean()
 
         for _, row in test.iterrows():
-            pred_prob = player_stats.get(row['player'], 0.5)
+            baseline_prob = player_stats.get(row['player'], 0.5)
+
+            if use_filtered and 'sharpedge_prob_filtered' in row.index:
+                pred_prob = row.get('sharpedge_prob_filtered', baseline_prob)
+                skip_bet = bool(row.get('skip_bet', False))
+            elif 'sharpedge_prob' in row.index:
+                pred_prob = row.get('sharpedge_prob', baseline_prob)
+                skip_bet = False
+            else:
+                pred_prob = baseline_prob
+                skip_bet = False
 
             results.append({
                 "date": current_date,
                 "player": row['player'],
                 "actual": row['hit'],
-                "predicted_prob": pred_prob
+                "baseline_prob": baseline_prob,
+                "predicted_prob": pred_prob,
+                "skip_bet": skip_bet,
+                "safety_filter_tags": row.get('safety_filter_tags', '')
             })
 
     return pd.DataFrame(results)
-
-# -----------------------------
-# RUN BACKTEST
-# -----------------------------
-results = expanding_window_backtest(df, "2026-03-01")
-
-# -----------------------------
-# EVALUATION
-# -----------------------------
-def evaluate(results):
-    results['predicted'] = results['predicted_prob'] > 0.5
-
-    accuracy = (results['predicted'] == results['actual']).mean()
-    brier = np.mean((results['predicted_prob'] - results['actual'])**2)
-
-    return {
-        "accuracy": accuracy,
-        "brier_score": brier,
-        "total_samples": len(results)
-    }
-
-metrics = evaluate(results)
-
-print("Evaluation Metrics:")
-print(metrics)
 
 # -----------------------------
 # SHARPEDGE FEATURE LAYER
@@ -100,6 +112,58 @@ def sharpedge_weighted_probability(row):
 if not df.empty:
     df['sharpedge_prob'] = df.apply(sharpedge_weighted_probability, axis=1)
 
+    filter_columns = df.apply(apply_b003_filters_to_row, axis=1)
+    df = pd.concat([df, filter_columns], axis=1)
+
+# -----------------------------
+# RUN BACKTESTS
+# -----------------------------
+raw_results = expanding_window_backtest(df, "2026-03-01", use_filtered=False)
+filtered_results = expanding_window_backtest(df, "2026-03-01", use_filtered=True)
+
+# -----------------------------
+# EVALUATION
+# -----------------------------
+def evaluate(results, active_only=False):
+    eval_df = results.copy()
+
+    if active_only and 'skip_bet' in eval_df.columns:
+        eval_df = eval_df[eval_df['skip_bet'] == False]
+
+    if eval_df.empty:
+        return {
+            "accuracy": np.nan,
+            "brier_score": np.nan,
+            "total_samples": 0,
+            "skipped_samples": int(results['skip_bet'].sum()) if 'skip_bet' in results.columns else 0
+        }
+
+    eval_df['predicted'] = eval_df['predicted_prob'] > 0.5
+
+    accuracy = (eval_df['predicted'] == eval_df['actual']).mean()
+    brier = np.mean((eval_df['predicted_prob'] - eval_df['actual'])**2)
+
+    return {
+        "accuracy": accuracy,
+        "brier_score": brier,
+        "total_samples": len(eval_df),
+        "skipped_samples": int(results['skip_bet'].sum()) if 'skip_bet' in results.columns else 0
+    }
+
+raw_metrics = evaluate(raw_results, active_only=False)
+filtered_metrics_all = evaluate(filtered_results, active_only=False)
+filtered_metrics_active = evaluate(filtered_results, active_only=True)
+
+print("Raw Evaluation Metrics:")
+print(raw_metrics)
+
+print("\nFiltered Evaluation Metrics (all rows, adjusted probabilities):")
+print(filtered_metrics_all)
+
+print("\nFiltered Evaluation Metrics (active only, skip_bet removed):")
+print(filtered_metrics_active)
+
+if not df.empty:
     print("\nSharpEdge Feature Layer Preview:")
     preview_cols = [
         col for col in [
@@ -109,7 +173,14 @@ if not df.empty:
             'line',
             'side',
             'sharpedge_prob',
+            'sharpedge_prob_filtered',
+            'skip_bet',
+            'safety_filter_tags',
             'hit'
         ] if col in df.columns
     ]
     print(df[preview_cols].tail(10))
+
+    output_path = "outputs/model_validation/rolling_window_filtered_predictions.csv"
+    df.to_csv(output_path, index=False)
+    print(f"\nSaved filtered predictions to: {output_path}")
