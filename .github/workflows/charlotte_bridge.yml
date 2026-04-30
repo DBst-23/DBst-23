@@ -10,6 +10,7 @@ on:
         type: choice
         options:
           - mlb_sim
+          - nba_sim
           - status
           - list
           - help
@@ -68,6 +69,9 @@ jobs:
           echo "raw_command=${RAW_COMMAND}" | tee -a logs/charlotte_command.log
 
           case "$RAW_COMMAND" in
+            *"/charlotte nba sim pregame"*|*"/charlotte nba liveflow"*|*"/charlotte nba validate b003"*|"nba_sim")
+              echo "mode=nba_sim" >> "$GITHUB_OUTPUT"
+              ;;
             *"/charlotte mlb sim pregame"*|"mlb_sim")
               echo "mode=mlb_sim" >> "$GITHUB_OUTPUT"
               ;;
@@ -107,6 +111,7 @@ jobs:
           summary = {
               "status": "completed",
               "engine": "SharpEdge",
+              "sport": "mlb",
               "runner": "sim/sim/runner.py",
               "timestamp_utc": datetime.now(timezone.utc).isoformat(),
               "expected_output": "outputs/_wire_test/full_game_edges.json",
@@ -122,6 +127,38 @@ jobs:
 
           Path("logs").mkdir(exist_ok=True)
           Path("logs/sharpedge_run_summary.json").write_text(json.dumps(summary, indent=2))
+          PY
+
+      - name: Run SharpEdge NBA simulation
+        if: steps.resolve.outputs.mode == 'nba_sim'
+        run: |
+          echo "Starting SharpEdge NBA simulation via sim/nba_runner.py" | tee logs/sharpedge_nba_run.log
+          python sim/nba_runner.py 2>&1 | tee -a logs/sharpedge_nba_run.log
+
+          python - <<'PY'
+          import json
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          summary = {
+              "status": "completed",
+              "engine": "SharpEdge",
+              "sport": "nba",
+              "runner": "sim/nba_runner.py",
+              "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+              "expected_output": "outputs/nba/_wire_test/nba_full_game_edges.json",
+              "artifact_paths": ["outputs/**", "output/**", "logs/**"],
+          }
+
+          output_path = Path("outputs/nba/_wire_test/nba_full_game_edges.json")
+          if output_path.exists():
+              summary["output_found"] = True
+              summary["output_preview"] = json.loads(output_path.read_text())
+          else:
+              summary["output_found"] = False
+
+          Path("logs").mkdir(exist_ok=True)
+          Path("logs/sharpedge_nba_run_summary.json").write_text(json.dumps(summary, indent=2))
           PY
 
       - name: Collect diagnostics on failure
