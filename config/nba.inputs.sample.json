@@ -1,0 +1,55 @@
+{
+  "game": "SAS@POR",
+  "sport": "nba",
+  "mode": "B003_NBA_TOTALS_PREFLIGHT",
+  "market": {
+    "total_line": 222.5,
+    "home_spread": -2.5,
+    "home_moneyline_implied": 0.54
+  },
+  "context": {
+    "playoff_intensity": true,
+    "altitude_game": false,
+    "projected_close_spread": 2.5,
+    "home_b2b": false,
+    "away_b2b": false
+  },
+  "teams": {
+    "home": {
+      "name": "Portland Trail Blazers",
+      "pace": 98.7,
+      "last10_pace": 99.6,
+      "off_rating": 114.2,
+      "def_rating": 116.1,
+      "transition_freq": 0.165,
+      "transition_eff": 1.18,
+      "def_transition_freq": 0.172,
+      "def_transition_eff": 1.21,
+      "three_rate": 0.412,
+      "oreb_rate": 0.286
+    },
+    "away": {
+      "name": "San Antonio Spurs",
+      "pace": 100.2,
+      "last10_pace": 101.1,
+      "off_rating": 115.1,
+      "def_rating": 115.4,
+      "transition_freq": 0.174,
+      "transition_eff": 1.22,
+      "def_transition_freq": 0.168,
+      "def_transition_eff": 1.19,
+      "three_rate": 0.389,
+      "oreb_rate": 0.301
+    }
+  },
+  "volatility": {
+    "high_shot_makers": true,
+    "high_transition_risk": true,
+    "low_tov_environment": false,
+    "high_three_volume_matchup": true,
+    "recent_extreme_overs": 1,
+    "pace_tier": 0.72,
+    "halfcourt_offense_tier": 0.68,
+    "halfcourt_defense_weak_tier": 0.64
+  }
+}
