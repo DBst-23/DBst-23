@@ -413,9 +413,10 @@
           "status": {
             "abstractGameState": "Live",
             "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "detailedState": "Delayed",
+            "statusCode": "IR",
             "startTimeTBD": false,
+            "reason": "Rain",
             "abstractGameCode": "L"
           },
           "teams": {
@@ -430,7 +431,7 @@
                 "losses": 17,
                 "pct": ".433"
               },
-              "score": 1,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 10
             },
@@ -445,7 +446,7 @@
                 "losses": 19,
                 "pct": ".367"
               },
-              "score": 2,
+              "score": 4,
               "splitSquad": false,
               "seriesNumber": 10
             }
@@ -794,12 +795,12 @@
           "gameDate": "2026-04-30T23:40:00Z",
           "officialDate": "2026-04-30",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
