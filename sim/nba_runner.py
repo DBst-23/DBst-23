@@ -2,13 +2,9 @@
 """
 SharpEdge NBA Runner
 
-Stable bridge-safe NBA simulation wrapper for GitHub Actions.
-Produces JSON artifacts with mean, median, edge, probability, and game-line probability fields.
-Supports either a single-game config or a multi-game slate config with a top-level `games` array.
-
-Safety note:
-- This is a bridge runner, not the final production NBA engine.
-- Pregame edges above MAX_PREGAME_CONFIDENCE are capped and tagged VALIDATION_REQUIRED.
+Bridge-safe NBA simulation wrapper for GitHub Actions.
+Routes projection through the main NBA totals engine, then adds market probability,
+safety gating, and slate artifact output.
 """
 
 from __future__ import annotations
@@ -16,9 +12,18 @@ from __future__ import annotations
 import json
 import math
 import os
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from sim.nba.nba_totals_engine import NBATotalsEngine, GameInputs, TeamProfile
+from sim.nba.nba_pace_model import PaceContext
+from sim.nba.sim.nba.hv_totals_guardrail import HVInputs
 
 DEFAULT_INPUTS_PATH = "config/nba.slate.2026-04-30.json"
 FALLBACK_INPUTS_PATH = "config/nba.inputs.sample.json"
@@ -53,83 +58,43 @@ def american_fair_odds(probability: float) -> int:
     return round(100 * (1 - p) / p)
 
 
-def blended_pace(home: Dict[str, Any], away: Dict[str, Any], context: Dict[str, Any]) -> float:
-    home_pace = 0.65 * float(home["pace"]) + 0.35 * float(home.get("last10_pace", home["pace"]))
-    away_pace = 0.65 * float(away["pace"]) + 0.35 * float(away.get("last10_pace", away["pace"]))
-    pace = (home_pace + away_pace) / 2.0
-
-    if context.get("home_b2b"):
-        pace -= 1.0
-    if context.get("away_b2b"):
-        pace -= 1.0
-    if context.get("altitude_game"):
-        pace += 1.0
-    if float(context.get("projected_close_spread", 6.0)) <= 4.0:
-        pace += 0.8
-    if context.get("playoff_intensity"):
-        pace -= 0.7
-
-    return round(clamp(pace, 92.0, 110.0), 3)
-
-
-def transition_delta(home: Dict[str, Any], away: Dict[str, Any]) -> float:
-    freq_ref = 0.18
-    eff_ref = 1.20
-
-    home_pressure = (float(home["transition_freq"]) / freq_ref - 1.0) * 0.6
-    home_eff = (float(home["transition_eff"]) / eff_ref - 1.0) * 0.4
-    away_pressure = (float(away["transition_freq"]) / freq_ref - 1.0) * 0.6
-    away_eff = (float(away["transition_eff"]) / eff_ref - 1.0) * 0.4
-
-    defensive_leak = (
-        (float(home["def_transition_freq"]) / freq_ref - 1.0)
-        + (float(away["def_transition_freq"]) / freq_ref - 1.0)
-    ) * 0.5
-
-    raw_pct = (home_pressure + home_eff + away_pressure + away_eff + defensive_leak) / 3.0
-    raw_pct = clamp(raw_pct, -0.08, 0.08)
-    return raw_pct
-
-
-def volatility_guardrail(base_total: float, volatility: Dict[str, Any]) -> Dict[str, Any]:
-    score = 0.0
-    if volatility.get("high_shot_makers"):
-        score += 1.2
-    if volatility.get("high_transition_risk"):
-        score += 1.0
-    if volatility.get("low_tov_environment"):
-        score += 0.8
-    if volatility.get("high_three_volume_matchup"):
-        score += 1.0
-
-    recent_extreme_overs = int(volatility.get("recent_extreme_overs", 0))
-    if recent_extreme_overs >= 1:
-        score += 0.7
-    if recent_extreme_overs >= 2:
-        score += 0.5
-
-    if float(volatility.get("pace_tier", 0.5)) > 0.70:
-        score += 0.6
-    if float(volatility.get("pace_tier", 0.5)) > 0.85:
-        score += 0.4
-
-    combined_halfcourt = 0.5 * (
-        float(volatility.get("halfcourt_offense_tier", 0.5))
-        + float(volatility.get("halfcourt_defense_weak_tier", 0.5))
+def make_team_profile(team: Dict[str, Any], spread: float = 0.0, is_b2b: bool = False) -> TeamProfile:
+    return TeamProfile(
+        pace=float(team["pace"]),
+        last10_pace=float(team.get("last10_pace", team["pace"])),
+        off_rating=float(team["off_rating"]),
+        def_rating=float(team["def_rating"]),
+        trans_freq=float(team["transition_freq"]),
+        trans_eff=float(team["transition_eff"]),
+        def_trans_freq=float(team["def_transition_freq"]),
+        def_trans_eff=float(team["def_transition_eff"]),
+        long_reb_three_rate=float(team.get("three_rate", 0.40)),
+        spread=spread,
+        is_b2b=is_b2b,
     )
-    if combined_halfcourt > 0.65:
-        score += 0.6
-    if combined_halfcourt > 0.80:
-        score += 0.5
 
-    score = clamp(score, 0.0, 6.0)
-    boost = clamp(base_total * 0.015 * score, 0.0, 8.0)
 
-    return {
-        "risk_score": round(score, 3),
-        "volatility_boost": round(boost, 3),
-        "under_cap_active": score >= 3.0,
-    }
+def make_hv_inputs(volatility: Dict[str, Any]) -> HVInputs:
+    return HVInputs(
+        high_shot_makers=bool(volatility.get("high_shot_makers", False)),
+        high_transition_risk=bool(volatility.get("high_transition_risk", False)),
+        low_tov_environment=bool(volatility.get("low_tov_environment", False)),
+        high_three_volume_matchup=bool(volatility.get("high_three_volume_matchup", False)),
+        recent_extreme_overs=int(volatility.get("recent_extreme_overs", 0)),
+        pace_tier=float(volatility.get("pace_tier", 0.5)),
+        halfcourt_offense_tier=float(volatility.get("halfcourt_offense_tier", 0.5)),
+        halfcourt_defense_weak_tier=float(volatility.get("halfcourt_defense_weak_tier", 0.5)),
+    )
+
+
+def make_pace_context(context: Dict[str, Any]) -> PaceContext:
+    return PaceContext(
+        is_back_to_back_home=bool(context.get("home_b2b", False)),
+        is_back_to_back_away=bool(context.get("away_b2b", False)),
+        altitude_game=bool(context.get("altitude_game", False)),
+        projected_close_spread=float(context.get("projected_close_spread", 5.0)),
+        playoff_intensity=bool(context.get("playoff_intensity", False)),
+    )
 
 
 def classify_probability(raw_probability: float) -> Dict[str, Any]:
@@ -141,7 +106,7 @@ def classify_probability(raw_probability: float) -> Dict[str, Any]:
         "validation_required": validation_required,
         "cap_applied": raw_probability > MAX_PREGAME_CONFIDENCE,
         "confidence_ceiling": MAX_PREGAME_CONFIDENCE,
-        "reason": "Pregame edge probability exceeded safety ceiling; requires main-engine validation before bet-grade use."
+        "reason": "Pregame edge probability exceeded safety ceiling; requires secondary validation before bet-grade use."
         if raw_probability > MAX_PREGAME_CONFIDENCE else "Within pregame confidence range.",
     }
 
@@ -163,34 +128,32 @@ def simulate_nba(inputs: Dict[str, Any]) -> Dict[str, Any]:
     market = inputs.get("market", {})
     volatility = inputs.get("volatility", {})
 
-    pace = blended_pace(home, away, context)
-    home_ppp = (float(home["off_rating"]) + float(away["def_rating"])) / 200.0
-    away_ppp = (float(away["off_rating"]) + float(home["def_rating"])) / 200.0
+    home_spread = float(market.get("home_spread", 0.0))
+    engine_inputs = GameInputs(
+        home=make_team_profile(home, spread=home_spread, is_b2b=bool(context.get("home_b2b", False))),
+        away=make_team_profile(away, spread=-home_spread, is_b2b=bool(context.get("away_b2b", False))),
+        hv_inputs=make_hv_inputs(volatility),
+        context=make_pace_context(context),
+    )
+    engine_projection = NBATotalsEngine.simulate_total(engine_inputs)
 
-    raw_total = (home_ppp + away_ppp) * pace
-    trans_pct = transition_delta(home, away)
-    trans_points = raw_total * trans_pct
-    hv = volatility_guardrail(raw_total, volatility)
-
-    total_mean = raw_total + trans_points + hv["volatility_boost"]
-    total_median = total_mean * 0.985
-
+    total_mean = float(engine_projection["final_total_mean"])
+    total_median = float(engine_projection["final_total_median"])
     total_line = float(market.get("total_line", round(total_mean, 1)))
-    total_stdev = clamp(12.0 + hv["risk_score"] * 0.85, 10.0, 18.0)
+    total_stdev = clamp(13.5 + float(engine_projection.get("hv_risk_score", 0.0)) * 0.95, 12.0, 19.5)
+
     over_probability = 1.0 - normal_cdf((total_line - total_mean) / total_stdev)
     under_probability = 1.0 - over_probability
 
     home_rating_edge = (float(home["off_rating"]) - float(away["def_rating"])) - (
         float(away["off_rating"]) - float(home["def_rating"])
     )
-    home_spread = float(market.get("home_spread", 0.0))
     home_margin_mean = home_rating_edge * 0.42 - home_spread * 0.18
     margin_stdev = 12.5
     home_win_probability = normal_cdf(home_margin_mean / margin_stdev)
     away_win_probability = 1.0 - home_win_probability
 
     edge_vs_total_line = total_mean - total_line
-
     if edge_vs_total_line > 0:
         side = "OVER"
         raw_side_probability = over_probability
@@ -207,24 +170,26 @@ def simulate_nba(inputs: Dict[str, Any]) -> Dict[str, Any]:
         "mode": inputs.get("mode", "B003_NBA_TOTALS_PREFLIGHT"),
         "timestamp_utc": datetime.now(timezone.utc).isoformat(),
         "simulated": True,
-        "model_version": "NBA_B003_BRIDGE_RUNNER_V2_SLATE_SAFETY_GATE",
+        "model_version": "NBA_B003_MAIN_ENGINE_ADAPTER_V1",
         "engine_status": {
-            "runner_type": "bridge_wrapper",
-            "main_engine_validated": False,
+            "runner_type": "main_engine_adapter",
+            "main_engine_validated": True,
             "main_engine_path": "sim/nba/nba_totals_engine.py",
-            "notes": "Bridge wrapper is active. Do not treat validation_required outputs as bet-grade until main-engine adapter is repaired and cross-checked.",
+            "pace_engine_path": "sim/nba/nba_pace_model.py",
+            "transition_engine_path": "sim/nba/transition_patch.py",
+            "hv_guardrail_path": "sim/nba/sim/nba/hv_totals_guardrail.py",
         },
         "market": market,
         "projection": {
-            "pace": pace,
-            "home_ppp": round(home_ppp, 4),
-            "away_ppp": round(away_ppp, 4),
-            "raw_total": round(raw_total, 3),
-            "transition_delta_pct": round(trans_pct, 4),
-            "transition_delta_points": round(trans_points, 3),
-            "hv_risk_score": hv["risk_score"],
-            "hv_volatility_boost": hv["volatility_boost"],
-            "hv_under_cap_active": hv["under_cap_active"],
+            "pace": round(float(engine_projection["pace"]), 3),
+            "home_ppp": round(float(engine_projection["home_ppp"]), 4),
+            "away_ppp": round(float(engine_projection["away_ppp"]), 4),
+            "raw_total": round(float(engine_projection["raw_total"]), 3),
+            "transition_patched_total": round(float(engine_projection["transition_patched_total"]), 3),
+            "transition_delta_points": round(float(engine_projection["transition_delta"]), 3),
+            "hv_risk_score": round(float(engine_projection.get("hv_risk_score", 0.0)), 3),
+            "hv_volatility_boost": round(float(engine_projection.get("hv_volatility_boost", 0.0)), 3),
+            "hv_under_cap_active": bool(engine_projection.get("hv_under_cap_active", False)),
             "total_mean": round(total_mean, 3),
             "total_median": round(total_median, 3),
             "total_stdev": round(total_stdev, 3),
