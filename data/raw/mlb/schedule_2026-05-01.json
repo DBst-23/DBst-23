@@ -22,9 +22,9 @@
           "officialDate": "2026-05-01",
           "status": {
             "abstractGameState": "Final",
-            "codedGameState": "O",
-            "detailedState": "Game Over",
-            "statusCode": "O",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
             "abstractGameCode": "F"
           },
@@ -911,9 +911,9 @@
           "officialDate": "2026-05-01",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -929,6 +929,7 @@
                 "losses": 16,
                 "pct": ".500"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 11
             },
@@ -943,6 +944,7 @@
                 "losses": 14,
                 "pct": ".548"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 11
             }
@@ -1073,6 +1075,7 @@
                 "losses": 19,
                 "pct": ".387"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 11
             },
@@ -1087,6 +1090,7 @@
                 "losses": 16,
                 "pct": ".500"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 11
             }
