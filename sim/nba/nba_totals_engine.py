@@ -7,8 +7,8 @@ from .nba_pace_model import (
     TeamPaceProfile,
     PaceContext,
 )
-from .transition_patch import compute_transition_delta
-from .hv_totals_guardrail import HVInputs, compute_hv_guardrail, hv_to_dict
+from .transition_patch import apply_transition_total_patch
+from .sim.nba.hv_totals_guardrail import HVInputs, compute_hv_guardrail, hv_to_dict
 
 
 @dataclass
@@ -16,12 +16,14 @@ class TeamProfile:
     pace: float               # possessions per game
     off_rating: float         # points per 100 poss
     def_rating: float         # points allowed per 100 poss
-    trans_freq: float         # transition frequency (0–1)
-    trans_eff: float          # transition pts/poss (relative)
-    def_trans_freq: float     # allowed transition freq
-    def_trans_eff: float      # allowed transition eff
+    trans_freq: float         # transition frequency (0-1)
+    trans_eff: float          # transition pts/poss or relative efficiency
+    def_trans_freq: float     # allowed transition frequency
+    def_trans_eff: float      # allowed transition efficiency
 
-    # Optional extras (won't break if not provided)
+    last10_pace: Optional[float] = None
+    long_reb_three_rate: float = 0.40
+    home_away_adj: float = 0.0
     spread: float = 0.0
     is_b2b: bool = False
 
@@ -30,62 +32,76 @@ class TeamProfile:
 class GameInputs:
     home: TeamProfile
     away: TeamProfile
-    hv_inputs: Optional[HVInputs] = None  # <- NEW: high-volatility context (optional)
+    hv_inputs: Optional[HVInputs] = None
+    context: Optional[PaceContext] = None
 
 
 class NBATotalsEngine:
+    """
+    Main NBA totals projection engine.
+
+    Uses:
+    - structured pace model (`GamePaceInputs`)
+    - offensive/defensive efficiency blend
+    - transition total patch
+    - high-volatility totals guardrail
+    """
+
+    @staticmethod
+    def _to_pace_profile(team: TeamProfile) -> TeamPaceProfile:
+        return TeamPaceProfile(
+            base_pace=team.pace,
+            last10_pace=team.last10_pace if team.last10_pace is not None else team.pace,
+            home_away_adj=team.home_away_adj,
+            transition_freq_off=team.trans_freq,
+            transition_eff_off=team.trans_eff,
+            transition_freq_def=team.def_trans_freq,
+            transition_eff_def=team.def_trans_eff,
+            long_reb_three_rate=team.long_reb_three_rate,
+        )
 
     @staticmethod
     def simulate_total(inputs: GameInputs) -> Dict[str, Any]:
-        """
-        Main NBA totals projection using:
-        - pace
-        - offensive + defensive ratings
-        - transition patch overlay
-        - high-volatility totals guardrail (HV-TGM)
-        """
-
-        # 1) Base possessions estimate (pace) using pace model
-        naive_pace = (inputs.home.pace + inputs.away.pace) / 2.0
-
-        base_pace = predict_pace(
-            home_pace=inputs.home.pace,
-            away_pace=inputs.away.pace,
-            naive_pace=naive_pace,
-            spread=getattr(inputs.home, "spread", 0.0),
-            home_b2b=getattr(inputs.home, "is_b2b", False),
-            away_b2b=getattr(inputs.away, "is_b2b", False),
+        context = inputs.context or PaceContext(
+            is_back_to_back_home=inputs.home.is_b2b,
+            is_back_to_back_away=inputs.away.is_b2b,
+            projected_close_spread=abs(inputs.home.spread),
         )
 
-        # 2) Base offensive expectation (points per possession)
+        pace_inputs = GamePaceInputs(
+            home=NBATotalsEngine._to_pace_profile(inputs.home),
+            away=NBATotalsEngine._to_pace_profile(inputs.away),
+            context=context,
+        )
+
+        base_pace = predict_pace(pace_inputs)
+
         home_ppp = (inputs.home.off_rating + inputs.away.def_rating) / 200.0
         away_ppp = (inputs.away.off_rating + inputs.home.def_rating) / 200.0
-
-        # 3) Apply transition patch (this adjusts for CTG transition edges)
-        transition_delta = compute_transition_delta(inputs)
-
-        # 4) Raw total before modifiers
         raw_total = (home_ppp + away_ppp) * base_pace
 
-        # 5) Apply HV-TGM guardrail (volatility-aware adjustment)
-        hv_result = compute_hv_guardrail(raw_total, inputs.hv_inputs)
-        guarded_total = raw_total + transition_delta + hv_result.volatility_boost
+        transition_patched_total = apply_transition_total_patch(
+            base_total=raw_total,
+            off_freq=inputs.home.trans_freq,
+            off_eff=inputs.home.trans_eff,
+            def_freq=inputs.away.def_trans_freq,
+            def_eff=inputs.away.def_trans_eff,
+        )
+        transition_delta = transition_patched_total - raw_total
 
-        # 6) Final outputs (mean/median and metadata)
-        final_mean = guarded_total
-        final_median = guarded_total * 0.98  # keep median slightly lower than mean
+        hv_result = compute_hv_guardrail(transition_patched_total, inputs.hv_inputs)
+        final_mean = transition_patched_total + hv_result.volatility_boost
+        final_median = final_mean * 0.98
 
         output: Dict[str, Any] = {
             "pace": base_pace,
             "home_ppp": home_ppp,
             "away_ppp": away_ppp,
-            "transition_delta": transition_delta,
             "raw_total": raw_total,
+            "transition_patched_total": transition_patched_total,
+            "transition_delta": transition_delta,
             "final_total_mean": final_mean,
             "final_total_median": final_median,
         }
-
-        # Add HV diagnostics
         output.update(hv_to_dict(hv_result))
-
         return output
