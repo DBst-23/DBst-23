@@ -1,8 +1,8 @@
 {
   "slate_date": "2026-04-30",
   "sport": "nba",
-  "mode": "B003_NBA_3_GAME_SLATE_PREFLIGHT",
-  "data_quality_note": "Preflight slate scaffold. Replace market totals/spreads and team metrics with live market + same-day injury-adjusted values before final staking.",
+  "mode": "B003_NBA_3_GAME_SLATE_LIVE_MARKET_PATCH",
+  "data_quality_note": "Live market patch from user screenshots. BOS/PHI and DEN/MIN lines updated from Onyx/odds-screen screenshots. NYK/ATL remains preflight until live screen is supplied.",
   "games": [
     {
       "game": "NYK@ATL",
@@ -11,7 +11,8 @@
       "market": {
         "total_line": 224.5,
         "home_spread": 2.5,
-        "home_moneyline_implied": 0.46
+        "home_moneyline_implied": 0.46,
+        "market_status": "prefight_placeholder"
       },
       "context": {
         "playoff_intensity": true,
@@ -62,16 +63,28 @@
     {
       "game": "BOS@PHI",
       "sport": "nba",
-      "mode": "B003_NBA_TOTALS_PREFLIGHT",
+      "mode": "B003_NBA_TOTALS_LIVE_MARKET_PATCH",
       "market": {
-        "total_line": 219.5,
-        "home_spread": 4.5,
-        "home_moneyline_implied": 0.42
+        "total_line": 212.5,
+        "total_over_odds": -126,
+        "total_under_odds": 105,
+        "home_spread": 7.5,
+        "away_spread": -7.5,
+        "away_spread_yes_odds": 109,
+        "home_spread_no_odds": -137,
+        "home_team_total_line": 105.5,
+        "home_team_total_over_odds": 109,
+        "home_team_total_under_odds": -149,
+        "away_team_total_line": 111.5,
+        "away_team_total_over_odds": 109,
+        "away_team_total_under_odds": -143,
+        "home_moneyline_implied": 0.42,
+        "market_status": "live_screenshot_patch"
       },
       "context": {
         "playoff_intensity": true,
         "altitude_game": false,
-        "projected_close_spread": 4.5,
+        "projected_close_spread": 7.5,
         "home_b2b": false,
         "away_b2b": false
       },
@@ -117,16 +130,28 @@
     {
       "game": "DEN@MIN",
       "sport": "nba",
-      "mode": "B003_NBA_TOTALS_PREFLIGHT",
+      "mode": "B003_NBA_TOTALS_LIVE_MARKET_PATCH",
       "market": {
-        "total_line": 214.5,
-        "home_spread": -1.5,
-        "home_moneyline_implied": 0.53
+        "total_line": 225.5,
+        "total_over_odds": 101,
+        "total_under_odds": -121,
+        "home_spread": 6.5,
+        "away_spread": -6.5,
+        "away_spread_yes_odds": -121,
+        "home_spread_no_odds": 101,
+        "home_team_total_line": 109.5,
+        "home_team_total_over_odds": -108,
+        "home_team_total_under_odds": -117,
+        "away_team_total_line": 115.5,
+        "away_team_total_over_odds": -117,
+        "away_team_total_under_odds": -117,
+        "home_moneyline_implied": 0.31,
+        "market_status": "live_screenshot_patch"
       },
       "context": {
         "playoff_intensity": true,
         "altitude_game": false,
-        "projected_close_spread": 1.5,
+        "projected_close_spread": 6.5,
         "home_b2b": false,
         "away_b2b": false
       },
