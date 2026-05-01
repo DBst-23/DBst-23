@@ -4,6 +4,7 @@ SharpEdge NBA Runner
 
 Stable bridge-safe NBA simulation wrapper for GitHub Actions.
 Produces JSON artifacts with mean, median, edge, probability, and game-line probability fields.
+Supports either a single-game config or a multi-game slate config with a top-level `games` array.
 """
 
 from __future__ import annotations
@@ -13,9 +14,10 @@ import math
 import os
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any, Dict, List
 
-DEFAULT_INPUTS_PATH = "config/nba.inputs.sample.json"
+DEFAULT_INPUTS_PATH = "config/nba.slate.2026-04-30.json"
+FALLBACK_INPUTS_PATH = "config/nba.inputs.sample.json"
 DEFAULT_OUTPUTS_DIR = "outputs/nba/_wire_test"
 
 
@@ -148,7 +150,6 @@ def simulate_nba(inputs: Dict[str, Any]) -> Dict[str, Any]:
     over_probability = 1.0 - normal_cdf((total_line - total_mean) / total_stdev)
     under_probability = 1.0 - over_probability
 
-    # Basic game-line probability from projected rating differential plus spread context.
     home_rating_edge = (float(home["off_rating"]) - float(away["def_rating"])) - (
         float(away["off_rating"]) - float(home["def_rating"])
     )
@@ -173,7 +174,7 @@ def simulate_nba(inputs: Dict[str, Any]) -> Dict[str, Any]:
         "mode": inputs.get("mode", "B003_NBA_TOTALS_PREFLIGHT"),
         "timestamp_utc": datetime.now(timezone.utc).isoformat(),
         "simulated": True,
-        "model_version": "NBA_B003_BRIDGE_RUNNER_V1",
+        "model_version": "NBA_B003_BRIDGE_RUNNER_V2_SLATE",
         "market": market,
         "projection": {
             "pace": pace,
@@ -212,10 +213,44 @@ def simulate_nba(inputs: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 
-def run_simulation() -> None:
-    inputs = load_json(DEFAULT_INPUTS_PATH)
-    result = simulate_nba(inputs)
+def summarize_slate(results: List[Dict[str, Any]]) -> Dict[str, Any]:
+    ranked = sorted(results, key=lambda row: row["edge"]["probability"], reverse=True)
+    return {
+        "game_count": len(results),
+        "top_edge": ranked[0]["game"] if ranked else None,
+        "top_edge_side": ranked[0]["edge"]["side"] if ranked else None,
+        "top_edge_probability": ranked[0]["edge"]["probability"] if ranked else None,
+        "actionable_count": sum(1 for row in results if row["edge"]["tier"] in {"actionable", "strong"}),
+        "strong_count": sum(1 for row in results if row["edge"]["tier"] == "strong"),
+    }
 
+
+def run_simulation() -> None:
+    input_path = DEFAULT_INPUTS_PATH if Path(DEFAULT_INPUTS_PATH).exists() else FALLBACK_INPUTS_PATH
+    inputs = load_json(input_path)
+
+    if "games" in inputs:
+        results = [simulate_nba(game) for game in inputs["games"]]
+        payload = {
+            "slate_date": inputs.get("slate_date"),
+            "sport": "nba",
+            "mode": inputs.get("mode", "B003_NBA_SLATE_PREFLIGHT"),
+            "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+            "data_quality_note": inputs.get("data_quality_note"),
+            "summary": summarize_slate(results),
+            "results": results,
+        }
+
+        print("Loaded NBA slate:", payload["slate_date"])
+        print("Games:", payload["summary"]["game_count"])
+        print("Top edge:", payload["summary"]["top_edge"], payload["summary"]["top_edge_side"], payload["summary"]["top_edge_probability"])
+
+        output_path = os.path.join(DEFAULT_OUTPUTS_DIR, "nba_slate_edges.json")
+        save_json(payload, output_path)
+        print(f"✅ NBA slate simulation complete. Output saved to {output_path}")
+        return
+
+    result = simulate_nba(inputs)
     print("Loaded NBA game:", result["game"])
     print("Mode:", result["mode"])
     print("Mean:", result["projection"]["total_mean"])
