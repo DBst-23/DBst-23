@@ -5,6 +5,10 @@ SharpEdge NBA Runner
 Stable bridge-safe NBA simulation wrapper for GitHub Actions.
 Produces JSON artifacts with mean, median, edge, probability, and game-line probability fields.
 Supports either a single-game config or a multi-game slate config with a top-level `games` array.
+
+Safety note:
+- This is a bridge runner, not the final production NBA engine.
+- Pregame edges above MAX_PREGAME_CONFIDENCE are capped and tagged VALIDATION_REQUIRED.
 """
 
 from __future__ import annotations
@@ -19,6 +23,8 @@ from typing import Any, Dict, List
 DEFAULT_INPUTS_PATH = "config/nba.slate.2026-04-30.json"
 FALLBACK_INPUTS_PATH = "config/nba.inputs.sample.json"
 DEFAULT_OUTPUTS_DIR = "outputs/nba/_wire_test"
+MAX_PREGAME_CONFIDENCE = 0.74
+VALIDATION_SPIKE_THRESHOLD = 0.80
 
 
 def load_json(path: str) -> Dict[str, Any]:
@@ -126,6 +132,30 @@ def volatility_guardrail(base_total: float, volatility: Dict[str, Any]) -> Dict[
     }
 
 
+def classify_probability(raw_probability: float) -> Dict[str, Any]:
+    validation_required = raw_probability >= VALIDATION_SPIKE_THRESHOLD
+    capped_probability = min(raw_probability, MAX_PREGAME_CONFIDENCE)
+    return {
+        "raw_probability": round(raw_probability, 4),
+        "display_probability": round(capped_probability, 4),
+        "validation_required": validation_required,
+        "cap_applied": raw_probability > MAX_PREGAME_CONFIDENCE,
+        "confidence_ceiling": MAX_PREGAME_CONFIDENCE,
+        "reason": "Pregame edge probability exceeded safety ceiling; requires main-engine validation before bet-grade use."
+        if raw_probability > MAX_PREGAME_CONFIDENCE else "Within pregame confidence range.",
+    }
+
+
+def tier_from_probability(probability: float, validation_required: bool) -> str:
+    if validation_required:
+        return "validation_required"
+    if probability < 0.57:
+        return "watch"
+    if probability < 0.65:
+        return "actionable"
+    return "strong"
+
+
 def simulate_nba(inputs: Dict[str, Any]) -> Dict[str, Any]:
     home = inputs["teams"]["home"]
     away = inputs["teams"]["away"]
@@ -163,10 +193,13 @@ def simulate_nba(inputs: Dict[str, Any]) -> Dict[str, Any]:
 
     if edge_vs_total_line > 0:
         side = "OVER"
-        side_probability = over_probability
+        raw_side_probability = over_probability
     else:
         side = "UNDER"
-        side_probability = under_probability
+        raw_side_probability = under_probability
+
+    safety = classify_probability(raw_side_probability)
+    display_probability = safety["display_probability"]
 
     return {
         "game": inputs["game"],
@@ -174,7 +207,13 @@ def simulate_nba(inputs: Dict[str, Any]) -> Dict[str, Any]:
         "mode": inputs.get("mode", "B003_NBA_TOTALS_PREFLIGHT"),
         "timestamp_utc": datetime.now(timezone.utc).isoformat(),
         "simulated": True,
-        "model_version": "NBA_B003_BRIDGE_RUNNER_V2_SLATE",
+        "model_version": "NBA_B003_BRIDGE_RUNNER_V2_SLATE_SAFETY_GATE",
+        "engine_status": {
+            "runner_type": "bridge_wrapper",
+            "main_engine_validated": False,
+            "main_engine_path": "sim/nba/nba_totals_engine.py",
+            "notes": "Bridge wrapper is active. Do not treat validation_required outputs as bet-grade until main-engine adapter is repaired and cross-checked.",
+        },
         "market": market,
         "projection": {
             "pace": pace,
@@ -205,23 +244,27 @@ def simulate_nba(inputs: Dict[str, Any]) -> Dict[str, Any]:
         },
         "edge": {
             "side": side,
-            "probability": round(side_probability, 4),
-            "fair_american_odds": american_fair_odds(side_probability),
+            "raw_probability": safety["raw_probability"],
+            "probability": display_probability,
+            "fair_american_odds": american_fair_odds(display_probability),
             "edge_points": round(abs(edge_vs_total_line), 3),
-            "tier": "watch" if side_probability < 0.57 else "actionable" if side_probability < 0.65 else "strong",
+            "tier": tier_from_probability(display_probability, safety["validation_required"]),
+            "safety_gate": safety,
         },
     }
 
 
 def summarize_slate(results: List[Dict[str, Any]]) -> Dict[str, Any]:
-    ranked = sorted(results, key=lambda row: row["edge"]["probability"], reverse=True)
+    ranked = sorted(results, key=lambda row: row["edge"]["raw_probability"], reverse=True)
     return {
         "game_count": len(results),
         "top_edge": ranked[0]["game"] if ranked else None,
         "top_edge_side": ranked[0]["edge"]["side"] if ranked else None,
-        "top_edge_probability": ranked[0]["edge"]["probability"] if ranked else None,
+        "top_edge_raw_probability": ranked[0]["edge"]["raw_probability"] if ranked else None,
+        "top_edge_display_probability": ranked[0]["edge"]["probability"] if ranked else None,
         "actionable_count": sum(1 for row in results if row["edge"]["tier"] in {"actionable", "strong"}),
         "strong_count": sum(1 for row in results if row["edge"]["tier"] == "strong"),
+        "validation_required_count": sum(1 for row in results if row["edge"]["tier"] == "validation_required"),
     }
 
 
@@ -243,7 +286,8 @@ def run_simulation() -> None:
 
         print("Loaded NBA slate:", payload["slate_date"])
         print("Games:", payload["summary"]["game_count"])
-        print("Top edge:", payload["summary"]["top_edge"], payload["summary"]["top_edge_side"], payload["summary"]["top_edge_probability"])
+        print("Top edge:", payload["summary"]["top_edge"], payload["summary"]["top_edge_side"], payload["summary"]["top_edge_raw_probability"])
+        print("Validation required:", payload["summary"]["validation_required_count"])
 
         output_path = os.path.join(DEFAULT_OUTPUTS_DIR, "nba_slate_edges.json")
         save_json(payload, output_path)
