@@ -1,0 +1,173 @@
+{
+  "slate_date": "2026-04-30",
+  "sport": "nba",
+  "mode": "B003_NBA_3_GAME_SLATE_PREFLIGHT",
+  "data_quality_note": "Preflight slate scaffold. Replace market totals/spreads and team metrics with live market + same-day injury-adjusted values before final staking.",
+  "games": [
+    {
+      "game": "NYK@ATL",
+      "sport": "nba",
+      "mode": "B003_NBA_TOTALS_PREFLIGHT",
+      "market": {
+        "total_line": 224.5,
+        "home_spread": 2.5,
+        "home_moneyline_implied": 0.46
+      },
+      "context": {
+        "playoff_intensity": true,
+        "altitude_game": false,
+        "projected_close_spread": 2.5,
+        "home_b2b": false,
+        "away_b2b": false
+      },
+      "teams": {
+        "home": {
+          "name": "Atlanta Hawks",
+          "pace": 101.2,
+          "last10_pace": 100.8,
+          "off_rating": 116.0,
+          "def_rating": 118.4,
+          "transition_freq": 0.184,
+          "transition_eff": 1.21,
+          "def_transition_freq": 0.188,
+          "def_transition_eff": 1.23,
+          "three_rate": 0.405,
+          "oreb_rate": 0.276
+        },
+        "away": {
+          "name": "New York Knicks",
+          "pace": 96.4,
+          "last10_pace": 95.9,
+          "off_rating": 117.8,
+          "def_rating": 113.1,
+          "transition_freq": 0.145,
+          "transition_eff": 1.16,
+          "def_transition_freq": 0.151,
+          "def_transition_eff": 1.14,
+          "three_rate": 0.383,
+          "oreb_rate": 0.321
+        }
+      },
+      "volatility": {
+        "high_shot_makers": true,
+        "high_transition_risk": true,
+        "low_tov_environment": false,
+        "high_three_volume_matchup": true,
+        "recent_extreme_overs": 0,
+        "pace_tier": 0.62,
+        "halfcourt_offense_tier": 0.72,
+        "halfcourt_defense_weak_tier": 0.66
+      }
+    },
+    {
+      "game": "BOS@PHI",
+      "sport": "nba",
+      "mode": "B003_NBA_TOTALS_PREFLIGHT",
+      "market": {
+        "total_line": 219.5,
+        "home_spread": 4.5,
+        "home_moneyline_implied": 0.42
+      },
+      "context": {
+        "playoff_intensity": true,
+        "altitude_game": false,
+        "projected_close_spread": 4.5,
+        "home_b2b": false,
+        "away_b2b": false
+      },
+      "teams": {
+        "home": {
+          "name": "Philadelphia 76ers",
+          "pace": 97.1,
+          "last10_pace": 96.8,
+          "off_rating": 115.0,
+          "def_rating": 115.9,
+          "transition_freq": 0.158,
+          "transition_eff": 1.18,
+          "def_transition_freq": 0.162,
+          "def_transition_eff": 1.17,
+          "three_rate": 0.371,
+          "oreb_rate": 0.292
+        },
+        "away": {
+          "name": "Boston Celtics",
+          "pace": 98.2,
+          "last10_pace": 97.6,
+          "off_rating": 119.0,
+          "def_rating": 111.8,
+          "transition_freq": 0.164,
+          "transition_eff": 1.24,
+          "def_transition_freq": 0.149,
+          "def_transition_eff": 1.13,
+          "three_rate": 0.461,
+          "oreb_rate": 0.271
+        }
+      },
+      "volatility": {
+        "high_shot_makers": true,
+        "high_transition_risk": false,
+        "low_tov_environment": true,
+        "high_three_volume_matchup": true,
+        "recent_extreme_overs": 0,
+        "pace_tier": 0.48,
+        "halfcourt_offense_tier": 0.78,
+        "halfcourt_defense_weak_tier": 0.54
+      }
+    },
+    {
+      "game": "DEN@MIN",
+      "sport": "nba",
+      "mode": "B003_NBA_TOTALS_PREFLIGHT",
+      "market": {
+        "total_line": 214.5,
+        "home_spread": -1.5,
+        "home_moneyline_implied": 0.53
+      },
+      "context": {
+        "playoff_intensity": true,
+        "altitude_game": false,
+        "projected_close_spread": 1.5,
+        "home_b2b": false,
+        "away_b2b": false
+      },
+      "teams": {
+        "home": {
+          "name": "Minnesota Timberwolves",
+          "pace": 96.8,
+          "last10_pace": 95.7,
+          "off_rating": 114.8,
+          "def_rating": 110.5,
+          "transition_freq": 0.155,
+          "transition_eff": 1.17,
+          "def_transition_freq": 0.148,
+          "def_transition_eff": 1.12,
+          "three_rate": 0.392,
+          "oreb_rate": 0.284
+        },
+        "away": {
+          "name": "Denver Nuggets",
+          "pace": 95.9,
+          "last10_pace": 95.1,
+          "off_rating": 118.4,
+          "def_rating": 113.6,
+          "transition_freq": 0.139,
+          "transition_eff": 1.20,
+          "def_transition_freq": 0.153,
+          "def_transition_eff": 1.14,
+          "three_rate": 0.356,
+          "oreb_rate": 0.296
+        }
+      },
+      "volatility": {
+        "high_shot_makers": true,
+        "high_transition_risk": false,
+        "low_tov_environment": true,
+        "high_three_volume_matchup": false,
+        "recent_extreme_overs": 0,
+        "pace_tier": 0.38,
+        "halfcourt_offense_tier": 0.75,
+        "halfcourt_defense_weak_tier": 0.41
+      }
+    }
+  ]
+}
