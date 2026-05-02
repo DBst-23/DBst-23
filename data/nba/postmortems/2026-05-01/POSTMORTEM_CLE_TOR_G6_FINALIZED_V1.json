@@ -1,0 +1,295 @@
+{
+  "schema_version": "B.003-nba-postmortem-v1",
+  "registry_id": "POSTMORTEM_CLE_TOR_G6_FINALIZED_V1",
+  "game_id": "CLE_TOR_G6_2026-05-01",
+  "date": "2026-05-01",
+  "matchup": "Cleveland Cavaliers @ Toronto Raptors",
+  "competition": "NBA Playoffs 2026 - East First Round",
+  "venue": "Scotiabank Arena, Toronto, ON",
+  "source_files_consulted": [
+    "20260501_CLETOR_book (2).pdf",
+    "current_chat_series_context_and_AP_recap",
+    "series scoreboard screenshot - CLE/TOR tied 3-3"
+  ],
+  "series_context": {
+    "game_number": 6,
+    "series_status_after_game": "Series tied 3-3",
+    "next_game": "Game 7 at Cleveland on 2026-05-03",
+    "home_court_note": "Home team won all first six games in the series.",
+    "investment_context": "No investment. Postmortem logged per playoff protocol."
+  },
+  "final_score": {
+    "CLE": 110,
+    "TOR": 112,
+    "total_points": 222,
+    "margin": "TOR by 2 in overtime"
+  },
+  "investment_results": [],
+  "model_projection_vs_outcome": {
+    "available_projection_data": "No actionable investment and no formal model projection was recorded for this matchup in the current chat window.",
+    "directional_read": "Series/roster profile only. Toronto forced pace off turnovers and transition while Cleveland controlled the glass but lost the possession-value battle through turnovers.",
+    "actual_result": {
+      "winner": "TOR",
+      "game_total": 222,
+      "regulation_score": "104-104",
+      "overtime_score": "TOR 8 - CLE 6",
+      "grading_status": "PROFILE_ONLY_NO_EDGE_CALL"
+    }
+  },
+  "team_box_score": {
+    "CLE": {
+      "points": 110,
+      "rebounds": 52,
+      "offensive_rebounds": 19,
+      "defensive_rebounds": 33,
+      "assists": 23,
+      "steals": 8,
+      "blocks": 4,
+      "turnovers": 18,
+      "points_off_turnovers_allowed": 25,
+      "field_goals": "40-93",
+      "fg_pct": 43.0,
+      "three_pointers": "11-41",
+      "three_pct": 26.8,
+      "free_throws": "19-27",
+      "free_throw_pct": 70.4,
+      "points_in_paint": 54,
+      "second_chance_points": 22,
+      "fastbreak_points": 6,
+      "biggest_lead": 6
+    },
+    "TOR": {
+      "points": 112,
+      "rebounds": 38,
+      "offensive_rebounds": 10,
+      "defensive_rebounds": 28,
+      "assists": 27,
+      "steals": 13,
+      "blocks": 9,
+      "turnovers": 16,
+      "points_off_turnovers_allowed": 17,
+      "field_goals": "40-87",
+      "fg_pct": 46.0,
+      "three_pointers": "13-36",
+      "three_pct": 36.1,
+      "free_throws": "19-23",
+      "free_throw_pct": 82.6,
+      "points_in_paint": 48,
+      "second_chance_points": 10,
+      "fastbreak_points": 20,
+      "biggest_lead": 15
+    }
+  },
+  "quarter_breakdown": {
+    "Q1": {"CLE": 32, "TOR": 32, "note": "High efficiency opening quarter; both teams scored 32. Toronto had 9 assists and only 1 turnover."},
+    "Q2": {"CLE": 19, "TOR": 29, "note": "Toronto built separation with 5 made threes, 7 assists, and forced Cleveland into 31.8% shooting."},
+    "Q3": {"CLE": 30, "TOR": 31, "note": "Toronto pushed lead to 15 behind Barnes orchestration and Murray-Boyles pressure, but Cleveland's second-chance volume kept them within range."},
+    "Q4": {"CLE": 23, "TOR": 12, "note": "Toronto nearly collapsed: 4-17 FG, 1-7 from three, 5 turnovers. Cleveland tied the game at 104 with 11.6 seconds left."},
+    "OT1": {"CLE": 6, "TOR": 8, "note": "RJ Barrett hit the winning 29-foot three with 1.2 seconds left; Mobley missed final three-point attempt."},
+    "first_half": {"CLE": 51, "TOR": 61, "note": "Scottie Barnes had 14 points and 10 assists by halftime; Toronto led by 10."},
+    "regulation": {"CLE": 104, "TOR": 104, "note": "Cleveland erased an 11-point fourth-quarter deficit to force overtime."}
+  },
+  "player_diagnostics": {
+    "TOR": {
+      "Scottie Barnes": {
+        "minutes": "47:57",
+        "points": 25,
+        "rebounds": 7,
+        "assists": 14,
+        "steals": 3,
+        "blocks": 3,
+        "turnovers": 3,
+        "fg": "11-21",
+        "three_pt": "0-2",
+        "tag": "POINT_FORWARD_ENGINE_PLAYOFF_LOAD"
+      },
+      "RJ Barrett": {
+        "minutes": "43:22",
+        "points": 24,
+        "rebounds": 9,
+        "assists": 3,
+        "fg": "8-21",
+        "three_pt": "4-12",
+        "turnovers": 5,
+        "plus_minus": 9,
+        "tag": "LATE_SHOTMAKER_HIGH_VARIANCE_WING"
+      },
+      "Ja'Kobe Walter": {
+        "minutes": "43:00",
+        "points": 24,
+        "rebounds": 5,
+        "steals": 3,
+        "fg": "7-13",
+        "three_pt": "4-9",
+        "free_throws": "6-6",
+        "tag": "ROOKIE_SPACING_AND_DEFLECTION_SPIKE"
+      },
+      "Collin Murray-Boyles": {
+        "minutes": "39:54",
+        "points": 17,
+        "rebounds": 7,
+        "offensive_rebounds": 4,
+        "blocks": 3,
+        "steals": 2,
+        "fg": "6-10",
+        "tag": "HYBRID_BIG_ACTIVITY_PRESSURE"
+      },
+      "Jamal Shead": {
+        "minutes": "33:21",
+        "points": 7,
+        "assists": 6,
+        "tag": "LOW_USAGE_TABLE_SETTER_LATE_FT_PRESSURE"
+      }
+    },
+    "CLE": {
+      "Evan Mobley": {
+        "minutes": "41:12",
+        "points": 26,
+        "rebounds": 14,
+        "offensive_rebounds": 4,
+        "assists": 3,
+        "fg": "9-15",
+        "three_pt": "3-7",
+        "free_throws": "5-8",
+        "tag": "TWIN_TOWER_PRIMARY_GLASS_SCORER"
+      },
+      "Donovan Mitchell": {
+        "minutes": "40:58",
+        "points": 24,
+        "rebounds": 5,
+        "assists": 2,
+        "fg": "11-26",
+        "three_pt": "2-10",
+        "tag": "HIGH_USAGE_LATE_RALLY_CREATOR"
+      },
+      "James Harden": {
+        "minutes": "44:00",
+        "points": 16,
+        "rebounds": 9,
+        "offensive_rebounds": 5,
+        "assists": 9,
+        "steals": 2,
+        "turnovers": 4,
+        "fg": "5-14",
+        "three_pt": "1-4",
+        "plus_minus": 11,
+        "tag": "CONTROL_GUARD_WITH_TURNOVER_DRAG"
+      },
+      "Jarrett Allen": {
+        "minutes": "33:49",
+        "points": 14,
+        "rebounds": 7,
+        "offensive_rebounds": 3,
+        "blocks": 2,
+        "fg": "6-8",
+        "free_throws": "2-6",
+        "tag": "INTERIOR_EFFICIENCY_FT_DRAG"
+      },
+      "Dean Wade": {
+        "minutes": "28:07",
+        "points": 10,
+        "rebounds": 5,
+        "three_pt": "2-6",
+        "plus_minus": 10,
+        "tag": "SPACING_BIG_POSITIVE_STINT"
+      }
+    }
+  },
+  "game_flow_analysis": {
+    "primary_swing": "Toronto won the transition/turnover battle while Cleveland won the glass. Toronto generated 25 points off Cleveland's 18 turnovers and a 20-6 fastbreak edge.",
+    "cleveland_recovery": "Cleveland's fourth-quarter defense and offensive rebounding erased an 11-point deficit; Toronto scored only 12 in Q4 on 23.5% shooting.",
+    "final_sequence": "In overtime, Cleveland led 110-109 with under 11 seconds left after Toronto intentionally fouled. Evan Mobley lost the ball out of bounds at 10.9 seconds. RJ Barrett then hit a 29-foot three with 1.2 seconds left. Mobley's final three missed.",
+    "deciding_edge": "Toronto's extra pressure events and perimeter shotmaking outweighed Cleveland's +14 total rebound edge and +12 second-chance point edge."
+  },
+  "rebound_environment_analysis": {
+    "cleveland_edge": "+14 total rebounds, +9 offensive rebounds, 22 second-chance points",
+    "toronto_profile": "Toronto did not win the glass, but created enough transition and turnover pressure to neutralize Cleveland's twin-tower rebounding edge.",
+    "funnel_notes": [
+      "Mobley 14 rebounds with 4 offensive rebounds confirms primary Cleveland glass funnel.",
+      "Harden added 5 offensive rebounds from guard/long-miss positioning, a hidden possession extender.",
+      "Barrett's 9 rebounds and Murray-Boyles' 4 offensive rebounds were Toronto's key counterweights.",
+      "Poeltl played only 21:31, so Toronto's rebound survival relied on Barnes/Barrett/Murray-Boyles rather than traditional center anchoring."
+    ],
+    "classification": "CLE_GLASS_EDGE_CONFIRMED_BUT_TOR_TURNOVER_TRANSITION_EDGE_SUPERSEDED"
+  },
+  "rotation_and_injury_notes": {
+    "TOR": [
+      "Brandon Ingram was inactive with right heel inflammation.",
+      "Immanuel Quickley was inactive with right hamstring strain.",
+      "Barnes played 47:57 and functioned as the primary initiator.",
+      "Walter and Barrett both logged 43+ minutes, confirming shortened playoff wing rotation."
+    ],
+    "CLE": [
+      "Harden played 44:00 and handled major creation responsibility.",
+      "Mobley played 41:12 and was the main two-way frontcourt engine.",
+      "Mitchell played 40:58 with high shot burden but inefficient from three."
+    ]
+  },
+  "patch_evaluation": {
+    "retain": [
+      "TOR_POINT_FORWARD_BARNES_ENGINE_V1",
+      "TOR_TURNOVER_TO_TRANSITION_PRESSURE_V1",
+      "CLE_TWIN_TOWER_REBOUND_FUNNEL_V1",
+      "PLAYOFF_HOME_COURT_SERIES_HOLD_V1"
+    ],
+    "modify": [
+      {
+        "patch": "CLE_SPREAD_PNR_EFFICIENCY_V1",
+        "reason": "Cleveland generated rim/paint production and rebounding, but 18 turnovers and 26.8% from three suppressed total possession value."
+      },
+      {
+        "patch": "TOR_LATE_GAME_PROTECTION_V1",
+        "reason": "Toronto nearly gave away an 11-point fourth-quarter lead with a 12-point Q4 and 5 turnovers; add late-game pressure penalty when primary handler load exceeds 45 minutes."
+      },
+      {
+        "patch": "RJ_BARRETT_CLUTCH_VARIANCE_V1",
+        "reason": "Barrett had 5 turnovers and was scoreless in Q4 but hit the OT winner; retain high-variance shotmaking but widen distribution tails."
+      }
+    ],
+    "revert": []
+  },
+  "variance_tags": [
+    "NO_INVESTMENT_PROFILE_ONLY",
+    "TOR_FORCES_GAME_7",
+    "BARRETT_OT_GAME_WINNER",
+    "BARNES_POINT_FORWARD_ENGINE",
+    "TOR_TRANSITION_EDGE_20_TO_6",
+    "CLE_TURNOVER_BURN_18_TO_25_POINTS_ALLOWED",
+    "CLE_GLASS_EDGE_NOT_ENOUGH",
+    "MOBLEY_TWIN_TOWER_REBOUND_CONFIRMED",
+    "TOR_Q4_COLLAPSE_WARNING",
+    "HOME_TEAM_SERIES_HOLD_CONTINUES"
+  ],
+  "retraining_flags": [
+    {
+      "flag": "TURNOVER_POINTS_SUPERSEDE_REBOUND_EDGE",
+      "description": "Cleveland won rebounds 52-38 and second-chance points 22-10, but lost due to 18 turnovers leading to 25 Toronto points and a 20-6 fastbreak deficit."
+    },
+    {
+      "flag": "BARNES_PRIMARY_INITIATOR_PLAYOFF_LOAD",
+      "description": "Barnes produced 25 points and 14 assists in 47:57 with Ingram and Quickley out. Maintain high usage and assist projection when Toronto is short on creators."
+    },
+    {
+      "flag": "TOR_LATE_GAME_OFFENSE_FRAGILITY",
+      "description": "Toronto scored only 12 points in Q4 on 4-17 shooting and 5 turnovers. Apply late-game fragility when lead-protection mode appears and shot creation narrows."
+    },
+    {
+      "flag": "CLE_OFFENSIVE_REBOUND_FLOOR_UP",
+      "description": "Cleveland collected 19 offensive rebounds and 22 second-chance points. Mobley/Allen/Harden offensive board roles deserve elevated Game 7 rebounding inputs."
+    }
+  ],
+  "backtest_logbook_registration": {
+    "status": "FINALIZED",
+    "registered_under": "Backtest_Logbook",
+    "tags": [
+      "NBA_PLAYOFFS_2026",
+      "CLE_TOR_SERIES",
+      "GAME_6",
+      "NO_ACTION_POSTMORTEM",
+      "POSTMORTEM_FINALIZED",
+      "GAME7_PREP_SIGNAL"
+    ]
+  },
+  "confidence_level": "HIGH",
+  "final_status": "MODIFY"
+}
