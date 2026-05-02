@@ -5,12 +5,12 @@
 - Game: Los Angeles Lakers @ Houston Rockets
 - Date: 2026-05-01
 - Venue: Toyota Center, Houston, TX
-- Source: NBA Official Scorer's Report / Official Play-by-Play
-- Segment ingested: 1st Quarter through 3rd Quarter 06:02
+- Source: NBA Official Scorer's Report / Official Play-by-Play + Kalshi live market screenshot
+- Segment ingested: 1st Quarter through 3rd Quarter 06:02, plus live market checkpoint at LAL 67 - HOU 47
 - Officials: Scott Foster, Curtis Blair, Karl Lane, Kevin Cutler
 - Mode: LIVE-FLOW ingestion / model training / postgame validation
 
-## Current Score State — 3Q 06:02
+## Current Score State — 3Q 06:02 Official Book
 
 | Team | Q1 | Q2 | 3Q to 06:02 | Total |
 |---|---:|---:|---:|---:|
@@ -21,6 +21,25 @@
 - Current total: 102
 - Biggest Lakers lead: 25
 - Attendance: 18,055 sellout
+
+## Live Market Checkpoint — User Screen
+
+- Score shown: LAL 67 - HOU 47
+- Margin: Lakers +20
+- Current total: 114
+
+### Kalshi live lines shown
+
+| Market | Line | Yes | No | LiveFlow Read |
+|---|---:|---:|---:|---|
+| Lakers spread | LAL by over 16.5 | +113 | -143 | Lean yes, but volatility/bench risk present |
+| Full-game total | Over 176.5 | -112 | -108 | No clean edge; total has repriced into fair zone |
+| Houston team total | Over 101.5 | +943 | Bid | Avoid over; structural under remains |
+| Lakers team total | Over 97.5 | -108 | -117 | Strong path, but not a premium entry at price |
+
+### Market interpretation
+
+The market reacted correctly to the 8-point Houston mini-recovery from the official 63-39 checkpoint to 67-47. The Lakers margin compressed from +24 to +20, while the total climbed to 176.5. Houston still needed 55+ more points to clear 101.5, which remains an extreme recovery requirement given the official-book creation profile: 26.9% FG, 20.0% 3PT, and only 7 assists through 3Q 06:02.
 
 ## Availability / Inactive Players
 
@@ -187,9 +206,14 @@ The updated 3Q checkpoint confirms the first-half read. Houston cleaned up turno
 ```yaml
 liveflow_ingestion:
   game: LAL_HOU_2026_05_01
-  segment: through_3Q_06_02
-  score: LAL_63_HOU_39
-  primary_signal: HOU_CREATION_TREE_COLLAPSE_CONFIRMED
+  segment: live_market_checkpoint_LAL_67_HOU_47
+  score: LAL_67_HOU_47
+  primary_signal: HOU_CREATION_TREE_COLLAPSE_CONFIRMED_WITH_MARKET_REPRICE
+  live_lines:
+    lakers_spread_16_5_yes: +113
+    full_game_total_176_5_over: -112
+    houston_tt_101_5_over: +943
+    lakers_tt_97_5_over: -108
   lakers_edge:
     - transition
     - defensive_pressure
@@ -205,10 +229,10 @@ liveflow_ingestion:
     - Sheppard_creation_inefficiency
   model_tags:
     - LIVEFLOW_INGESTED
-    - THIRD_QUARTER_CHECKPOINT
+    - LIVE_MARKET_CHECKPOINT
     - HOU_CREATION_DEPLETION_ACTIVE
-    - HOU_3Q_SHOT_QUALITY_FAILURE_CONTINUES
-    - LAL_TRANSITION_RUNOUT_EDGE
+    - HOU_TEAM_TOTAL_OVER_BLOCKED
+    - LAL_SPREAD_LEAN_WITH_BENCH_RISK
     - AYTON_REBOUND_ANCHOR
     - SENGUN_HUB_STRESS_TEST
 ```
