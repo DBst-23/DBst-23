@@ -1,0 +1,293 @@
+{
+  "schema_version": "B.003-nba-postmortem-v1",
+  "registry_id": "POSTMORTEM_LAL_HOU_G6_FINALIZED_V1",
+  "game_id": "LAL_HOU_G6_2026-05-01",
+  "date": "2026-05-01",
+  "matchup": "Los Angeles Lakers @ Houston Rockets",
+  "competition": "NBA Playoffs 2026 - West First Round",
+  "venue": "Toyota Center, Houston, TX",
+  "source_files_consulted": [
+    "20260501_LALHOU_book (5).pdf",
+    "current_chat_liveflow_and_pregame_notes",
+    "Kalshi position screenshot - LAL team total over 94.5"
+  ],
+  "series_context": {
+    "game_number": 6,
+    "series_status_after_game": "LAL wins series 4-2",
+    "next_round": "Lakers advance to face Oklahoma City Thunder",
+    "closeout_context": "Houston entered with two straight wins after trailing 0-3, but missing Kevin Durant, Fred VanVleet and Steven Adams."
+  },
+  "final_score": {
+    "LAL": 98,
+    "HOU": 78,
+    "total_points": 176,
+    "margin": "LAL by 20"
+  },
+  "investment_results": [
+    {
+      "platform": "Kalshi",
+      "market": "Lakers at Rockets team total",
+      "selection": "Yes - Los Angeles Lakers over 94.5 points",
+      "line": 94.5,
+      "price": 123,
+      "stake": 5.0,
+      "actual": 98,
+      "result": "WIN",
+      "estimated_payout": 11.18,
+      "estimated_profit": 6.18,
+      "tag": "LAL_TEAM_TOTAL_OVER_HIT"
+    }
+  ],
+  "model_projection_vs_outcome": {
+    "available_projection_data": "No formal pregame sim mean/median recorded in chat for this game. LiveFlow identified LAL TT over 94.5 as an actionable in-game edge at +123.",
+    "liveflow_entry_context": {
+      "score_at_lock": "LAL 81 - HOU 62, 4Q 6:28",
+      "required_points_after_lock": 14,
+      "actual_points_after_lock": 17,
+      "entry_result": "WIN"
+    },
+    "qualitative_model_read": {
+      "lakers_scoring_direction": "OVER 94.5 live team total",
+      "houston_scoring_direction": "Suppression / under environment",
+      "drivers": [
+        "Houston shot creation depleted by Durant and VanVleet inactive",
+        "Lakers controlled defensive glass and transition",
+        "LeBron usage and Rui spacing created stable LAL scoring floor",
+        "Houston perimeter shooting failure created one-sided game script"
+      ]
+    },
+    "actual_result": {
+      "lakers_team_points": 98,
+      "houston_team_points": 78,
+      "directional_accuracy": "1-for-1 on actionable position"
+    }
+  },
+  "team_box_score": {
+    "LAL": {
+      "points": 98,
+      "rebounds": 54,
+      "offensive_rebounds": 15,
+      "defensive_rebounds": 39,
+      "assists": 19,
+      "steals": 4,
+      "blocks": 9,
+      "turnovers": 11,
+      "field_goals": "36-89",
+      "fg_pct": 40.4,
+      "three_pointers": "12-28",
+      "three_pct": 42.9,
+      "free_throws": "14-24",
+      "free_throw_pct": 58.3,
+      "points_in_paint": 46,
+      "second_chance_points": 7,
+      "fastbreak_points": 19,
+      "biggest_lead": 29
+    },
+    "HOU": {
+      "points": 78,
+      "rebounds": 45,
+      "offensive_rebounds": 8,
+      "defensive_rebounds": 37,
+      "assists": 13,
+      "steals": 6,
+      "blocks": 9,
+      "turnovers": 14,
+      "field_goals": "28-80",
+      "fg_pct": 35.0,
+      "three_pointers": "5-28",
+      "three_pct": 17.9,
+      "free_throws": "17-24",
+      "free_throw_pct": 70.8,
+      "points_in_paint": 44,
+      "second_chance_points": 9,
+      "fastbreak_points": 8,
+      "biggest_lead": 5
+    }
+  },
+  "quarter_breakdown": {
+    "Q1": {"LAL": 23, "HOU": 18, "note": "LAL survived early Houston energy and took control late in quarter."},
+    "Q2": {"LAL": 26, "HOU": 13, "note": "Decisive quarter. Houston shot 5-22 FG, 0-4 from three, and committed 6 turnovers."},
+    "Q3": {"LAL": 22, "HOU": 24, "note": "Houston stabilized with free throws, but still entered Q4 down 16."},
+    "Q4": {"LAL": 27, "HOU": 23, "note": "LAL reopened control with a 10-3 start and cashed the live team total."},
+    "first_half": {"LAL": 49, "HOU": 31, "note": "LAL held Houston to 29.3% FG and 18.2% from three before halftime."}
+  },
+  "player_diagnostics": {
+    "LAL": {
+      "LeBron James": {
+        "minutes": "37:07",
+        "points": 28,
+        "rebounds": 7,
+        "assists": 8,
+        "fg": "10-25",
+        "three_pt": "2-5",
+        "free_throws": "6-8",
+        "plus_minus": 26,
+        "tag": "CLOSEOUT_TONE_SETTER_USAGE_ENGINE"
+      },
+      "Rui Hachimura": {
+        "minutes": "34:44",
+        "points": 21,
+        "rebounds": 6,
+        "three_pt": "5-7",
+        "plus_minus": 20,
+        "tag": "SPACING_PUNISHER_SERIES_CLOSEOUT"
+      },
+      "Deandre Ayton": {
+        "minutes": "28:10",
+        "points": 7,
+        "rebounds": 16,
+        "offensive_rebounds": 3,
+        "defensive_rebounds": 13,
+        "blocks": 1,
+        "fouls": 5,
+        "tag": "DEFENSIVE_GLASS_ANCHOR"
+      },
+      "Austin Reaves": {
+        "minutes": "30:41",
+        "points": 15,
+        "rebounds": 3,
+        "assists": 2,
+        "blocks": 3,
+        "fg": "7-14",
+        "tag": "RETURNING_SECONDARY_CREATION_STABILIZER"
+      },
+      "Marcus Smart": {
+        "minutes": "34:53",
+        "points": 7,
+        "rebounds": 7,
+        "steals": 2,
+        "blocks": 2,
+        "plus_minus": 25,
+        "tag": "DEFENSIVE_PRESSURE_CONNECTOR"
+      }
+    },
+    "HOU": {
+      "Amen Thompson": {
+        "minutes": "44:33",
+        "points": 18,
+        "rebounds": 8,
+        "assists": 3,
+        "blocks": 3,
+        "fg": "7-14",
+        "fouls": 5,
+        "plus_minus": -26,
+        "tag": "HIGH_MINUTE_ATHLETIC_PRESSURE_BUT_OFFENSE_LIMITED"
+      },
+      "Alperen Sengun": {
+        "minutes": "37:35",
+        "points": 17,
+        "rebounds": 11,
+        "assists": 1,
+        "fg": "5-12",
+        "turnovers": 4,
+        "plus_minus": -27,
+        "tag": "CENTER_PRODUCTION_WITH_CREATION_BURDEN"
+      },
+      "Jabari Smith Jr.": {
+        "minutes": "41:59",
+        "points": 9,
+        "rebounds": 12,
+        "fg": "3-11",
+        "three_pt": "1-6",
+        "plus_minus": -24,
+        "tag": "LONG_REBOUND_BENEFICIARY_OFFENSIVE_INEFFICIENCY"
+      },
+      "Reed Sheppard": {
+        "minutes": "36:29",
+        "points": 10,
+        "rebounds": 0,
+        "fg": "4-19",
+        "three_pt": "1-10",
+        "plus_minus": -24,
+        "tag": "PERIMETER_CREATION_FAILURE"
+      },
+      "Tari Eason": {
+        "minutes": "36:59",
+        "points": 14,
+        "rebounds": 5,
+        "steals": 3,
+        "fg": "5-14",
+        "three_pt": "2-7",
+        "tag": "EFFORT_WING_NOT_ENOUGH_SPACING"
+      }
+    }
+  },
+  "rebound_environment_analysis": {
+    "lakers_rebound_edge": "+9 total rebounds, +7 offensive rebounds",
+    "key_signal": "LAL won the glass 54-45 despite Houston's big frontcourt minutes. Ayton controlled the defensive glass with 13 defensive rebounds and 16 total rebounds.",
+    "houston_issue": "Houston's miss volume was massive, but their offensive rebounding did not scale: only 8 offensive rebounds on 52 missed FG/FT events and 9 second-chance points.",
+    "miss_profile": "Houston's 5-28 three-point shooting created long-miss volume, but LAL guard/wing gang rebounding and Ayton's interior positioning prevented a Rockets crash avalanche.",
+    "classification": "signal_confirmed_for_LAL_defensive_glass_and_HOU_perimeter_suppression; signal_weakened_for_HOU_offensive_rebound_identity_without_Adams/Durant/VanVleet"
+  },
+  "rotation_and_fatigue_notes": {
+    "LAL": [
+      "LeBron logged 37:07 with +26 and controlled tempo through the closeout stretch.",
+      "Ayton played only 28:10 due to foul count but still produced 16 rebounds.",
+      "Rui played 34:44 and hit 5 of 7 threes, creating spacing that Houston could not punish."
+    ],
+    "HOU": [
+      "Amen played 44:33 and Jabari 41:59; usage burden was high due to Durant and VanVleet inactive.",
+      "Sengun played 37:35 but had 4 turnovers and limited assist creation.",
+      "Reed Sheppard was forced into 36:29 and shot 1-10 from three, a major offensive failure point."
+    ]
+  },
+  "patch_evaluation": {
+    "retain": [
+      "PLAYOFF_CREATOR_ABSENCE_UNDER_BOOST_V1",
+      "LAL_CLOSEOUT_DEFENSIVE_GLASS_LOCK_V1",
+      "LIVEFLOW_TEAM_TOTAL_ENTRY_V1",
+      "HOU_PERIMETER_VARIANCE_SUPPRESSION_V1"
+    ],
+    "modify": [
+      {
+        "patch": "HOU_OFFENSIVE_REBOUND_POWER_PROFILE_V1",
+        "reason": "Houston's regular offensive-glass identity did not fully translate without Steven Adams and with Durant/VanVleet absent; offensive boards dropped to 8 despite massive miss volume."
+      },
+      {
+        "patch": "ROCKETS_YOUNG_GUARD_CREATION_FLOOR_V1",
+        "reason": "Reed Sheppard's 1-10 three-point shooting and 0 rebounds show high fragility when elevated into major playoff creation minutes."
+      }
+    ],
+    "revert": []
+  },
+  "variance_tags": [
+    "LAL_SERIES_CLOSEOUT_WIN",
+    "LAL_TEAM_TOTAL_OVER_HIT",
+    "HOU_SEASON_LOW_POINTS_REPORTED",
+    "HOU_PERIMETER_COLLAPSE_5_FOR_28_THREE",
+    "LAL_27_3_RUN_REPORTED",
+    "AYTON_DEFENSIVE_GLASS_ANCHOR",
+    "RUI_SPACING_SPIKE",
+    "LEBRON_CLOSEOUT_TONE_SETTER",
+    "ROCKETS_CREATOR_ABSENCE_SUPPRESSION",
+    "HOU_OFFENSIVE_REBOUND_IDENTITY_WEAKENED"
+  ],
+  "retraining_flags": [
+    {
+      "flag": "LIVEFLOW_TT_OVER_LATE_ENTRY_VALIDATION",
+      "description": "LAL over 94.5 team total at +123 was locked at 81 points with 6:28 left and cashed at 98; validate late-entry TT overs when team has stable half-court initiator plus defensive control."
+    },
+    {
+      "flag": "CREATOR_ABSENCE_TEAM_TOTAL_UNDER_ENVIRONMENT",
+      "description": "Houston without Durant and VanVleet produced only 78 points, 13 assists, and 5 made threes; missing top creators should apply stronger playoff scoring suppression."
+    },
+    {
+      "flag": "OFFENSIVE_REBOUND_IDENTITY_CONTEXT_DEPENDENT",
+      "description": "Houston's offensive rebounding profile weakened without Adams and with heavy defensive attention on Sengun/Amen. Do not auto-carry regular-season OREB dominance into depleted playoff rotations."
+    }
+  ],
+  "backtest_logbook_registration": {
+    "status": "FINALIZED",
+    "registered_under": "Backtest_Logbook",
+    "tags": [
+      "NBA_PLAYOFFS_2026",
+      "LAL_HOU_SERIES",
+      "GAME_6",
+      "EDGE_CALL_ACTIVE",
+      "POSTMORTEM_FINALIZED",
+      "LIVEFLOW_INGESTION_READY"
+    ]
+  },
+  "confidence_level": "HIGH",
+  "final_status": "MODIFY"
+}
