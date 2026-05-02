@@ -1,0 +1,293 @@
+{
+  "schema_version": "B.003-nba-postmortem-v1",
+  "registry_id": "POSTMORTEM_DET_ORL_G6_FINALIZED_V1",
+  "game_id": "DET_ORL_G6_2026-05-01",
+  "date": "2026-05-01",
+  "matchup": "Detroit Pistons @ Orlando Magic",
+  "competition": "NBA Playoffs 2026 - East First Round",
+  "source_files_consulted": [
+    "20260501_DETORL_book (1).pdf",
+    "data/nba/postmortems/2026-04-27/POSTMORTEM_DET_ORL_G4_FINALIZED_V1.json",
+    "current_chat_liveflow_and_pregame_notes"
+  ],
+  "series_context": {
+    "game_number": 6,
+    "series_status_after_game": "Series tied 3-3; Game 7 at Detroit",
+    "closeout_context": "Orlando had a chance to eliminate Detroit at home and led by 24 before collapsing."
+  },
+  "final_score": {
+    "DET": 93,
+    "ORL": 79,
+    "total_points": 172,
+    "margin": "DET by 14"
+  },
+  "investment_results": [
+    {
+      "platform": "Kalshi",
+      "market": "Pistons at Magic team total",
+      "selection": "No - Orlando over 103.5 points",
+      "line": 103.5,
+      "price": -108,
+      "stake": 1.5,
+      "actual": 79,
+      "result": "WIN",
+      "estimated_payout": 2.89,
+      "estimated_profit": 1.39,
+      "tag": "ORL_TEAM_TOTAL_UNDER_HIT"
+    },
+    {
+      "platform": "Kalshi",
+      "market": "Pistons at Magic rebounds",
+      "selection": "Ausar Thompson 8+ rebounds",
+      "line": 8,
+      "price": 101,
+      "stake": 1.5,
+      "actual": 10,
+      "result": "WIN",
+      "estimated_payout": 3.02,
+      "estimated_profit": 1.52,
+      "tag": "AUSAR_REBOUND_OVER_HIT"
+    }
+  ],
+  "model_projection_vs_outcome": {
+    "available_projection_data": "No formal pregame sim mean/median recorded in chat for this game. Only actionable pregame locks and qualitative lineup/rebound tags were available.",
+    "qualitative_pre_game_read": {
+      "orlando_team_total_direction": "UNDER",
+      "ausar_rebound_direction": "OVER",
+      "drivers": [
+        "Orlando missing Franz Wagner and Jonathan Isaac",
+        "High projected minutes for Ausar Thompson",
+        "Detroit rebound/defense comeback profile",
+        "Orlando half-court scoring fragility without full wing creation"
+      ]
+    },
+    "actual_result": {
+      "orlando_team_points": 79,
+      "ausar_rebounds": 10,
+      "directional_accuracy": "2-for-2 on actionable positions"
+    }
+  },
+  "team_box_score": {
+    "DET": {
+      "points": 93,
+      "rebounds": 52,
+      "offensive_rebounds": 14,
+      "defensive_rebounds": 38,
+      "assists": 16,
+      "steals": 5,
+      "blocks": 8,
+      "turnovers": 10,
+      "field_goals": "32-80",
+      "fg_pct": 40.0,
+      "three_pointers": "9-27",
+      "three_pct": 33.3,
+      "free_throws": "20-26",
+      "free_throw_pct": 76.9,
+      "points_in_paint": 36,
+      "second_chance_points": 14,
+      "fastbreak_points": 6,
+      "biggest_lead": 14
+    },
+    "ORL": {
+      "points": 79,
+      "rebounds": 38,
+      "offensive_rebounds": 8,
+      "defensive_rebounds": 30,
+      "assists": 20,
+      "steals": 6,
+      "blocks": 4,
+      "turnovers": 10,
+      "field_goals": "27-78",
+      "fg_pct": 34.6,
+      "three_pointers": "9-36",
+      "three_pct": 25.0,
+      "free_throws": "16-21",
+      "free_throw_pct": 76.2,
+      "points_in_paint": 24,
+      "second_chance_points": 14,
+      "fastbreak_points": 6,
+      "biggest_lead": 24
+    }
+  },
+  "quarter_breakdown": {
+    "Q1": {"DET": 26, "ORL": 25, "note": "Balanced opening quarter; both teams playable."},
+    "Q2": {"DET": 12, "ORL": 35, "note": "Orlando eruption; DET 0-6 from three, ORL 61.9% FG and 44.4% from three in quarter."},
+    "Q3": {"DET": 24, "ORL": 11, "note": "Collapse began; Orlando shot 3-17 and committed 5 turnovers."},
+    "Q4": {"DET": 31, "ORL": 8, "note": "Full collapse; Orlando shot 1-20 FG and 0-10 from three."},
+    "second_half": {"DET": 55, "ORL": 19, "note": "Detroit won second half by 36 points."}
+  },
+  "player_diagnostics": {
+    "DET": {
+      "Cade Cunningham": {
+        "minutes": "42:02",
+        "points": 32,
+        "rebounds": 10,
+        "assists": 3,
+        "steals": 4,
+        "turnovers": 4,
+        "fg": "10-23",
+        "free_throws": "10-12",
+        "plus_minus": 7,
+        "tag": "ELITE_USAGE_COMEBACK_ENGINE"
+      },
+      "Ausar Thompson": {
+        "minutes": "36:44",
+        "points": 4,
+        "rebounds": 10,
+        "offensive_rebounds": 5,
+        "defensive_rebounds": 5,
+        "assists": 6,
+        "blocks": 4,
+        "plus_minus": 22,
+        "tag": "WING_CRASH_AND_DEFENSIVE_DISRUPTION_HIT"
+      },
+      "Tobias Harris": {
+        "minutes": "38:12",
+        "points": 22,
+        "rebounds": 10,
+        "fg": "7-20",
+        "free_throws": "6-9",
+        "plus_minus": 14,
+        "tag": "VETERAN_STABILIZER_DOUBLE_DOUBLE"
+      },
+      "Jalen Duren": {
+        "minutes": "32:11",
+        "points": 8,
+        "rebounds": 9,
+        "offensive_rebounds": 5,
+        "fouls": 5,
+        "tag": "FOUL_CAP_CENTER_GLASS_STILL_ACTIVE"
+      },
+      "Duncan Robinson": {
+        "minutes": "36:29",
+        "points": 14,
+        "rebounds": 5,
+        "three_pt": "4-9",
+        "plus_minus": 24,
+        "tag": "SPACING_RELEASE_VALVE"
+      }
+    },
+    "ORL": {
+      "Paolo Banchero": {
+        "minutes": "40:49",
+        "points": 17,
+        "rebounds": 10,
+        "assists": 6,
+        "fg": "4-20",
+        "three_pt": "0-9",
+        "free_throws": "9-12",
+        "tag": "HIGH_USAGE_EFFICIENCY_COLLAPSE"
+      },
+      "Desmond Bane": {
+        "minutes": "37:41",
+        "points": 17,
+        "rebounds": 3,
+        "fg": "7-18",
+        "three_pt": "3-9",
+        "plus_minus": -27,
+        "tag": "FIRST_HALF_SPACING_FADED_LATE"
+      },
+      "Jalen Suggs": {
+        "minutes": "38:12",
+        "points": 7,
+        "rebounds": 7,
+        "assists": 7,
+        "fg": "1-10",
+        "turnovers": 5,
+        "tag": "GUARD_CREATION_BREAKDOWN"
+      },
+      "Wendell Carter Jr.": {
+        "minutes": "31:49",
+        "points": 9,
+        "rebounds": 0,
+        "fouls": 6,
+        "tag": "CENTER_REBOUND_FAILURE_FOUL_OUT"
+      },
+      "Tristan da Silva": {
+        "minutes": "22:31",
+        "points": 10,
+        "rebounds": 6,
+        "three_pt": "2-4",
+        "plus_minus": 10,
+        "tag": "BENCH_FORWARD_STABILITY_SIGNAL"
+      }
+    }
+  },
+  "rebound_environment_analysis": {
+    "detroit_rebound_edge": "+14 total rebounds, +6 offensive rebounds",
+    "key_signal": "Ausar Thompson and Jalen Duren combined for 10 offensive rebounds; Detroit's wing/center crash profile was confirmed.",
+    "orlando_issue": "Wendell Carter Jr. logged zero rebounds in 31:49 and fouled out; Orlando's center rebound floor broke completely.",
+    "miss_profile": "Orlando generated massive miss volume but failed to convert it into enough controllable offensive boards after halftime.",
+    "classification": "signal_confirmed_for_DET_wing_crash_and_ORL_scoring_under; signal_broken_for_WCJ_rebound_floor"
+  },
+  "rotation_and_fatigue_notes": {
+    "DET": [
+      "Cunningham reached 42:02 and carried 12 fourth-quarter minutes.",
+      "Ausar played 36:44 with no turnovers and high defensive impact.",
+      "Duren remained effective on the glass despite 5 fouls."
+    ],
+    "ORL": [
+      "Banchero reached 40:49 but collapsed to 4-20 FG and 0-9 from three.",
+      "Suggs played 38:12 with 5 turnovers and 1-10 FG.",
+      "Carter fouled out and produced zero rebounds, creating a major interior failure state."
+    ]
+  },
+  "patch_evaluation": {
+    "retain": [
+      "HIGH_USAGE_GUARD_REBOUND_SPILLOVER_V1",
+      "PLAYOFF_LOW_EFFICIENCY_UNDER_BOOST_V1",
+      "WING_CRASH_REBOUND_SPIKE"
+    ],
+    "modify": [
+      {
+        "patch": "ORL_CENTER_REBOUND_FLOOR_V1",
+        "reason": "Wendell Carter Jr. zero rebounds with 6 fouls shows center floor can collapse in pressure games when fouls and role displacement hit simultaneously."
+      },
+      {
+        "patch": "CLOSEOUT_GAME_COLLAPSE_DETECTOR_V1",
+        "reason": "Add late-game offensive collapse risk for teams missing multiple wing creators and relying on Paolo/Bane/Suggs high-usage shot creation."
+      }
+    ],
+    "revert": []
+  },
+  "variance_tags": [
+    "CLOSEOUT_COLLAPSE_EVENT",
+    "TWENTY_FOUR_POINT_LEAD_ERASED",
+    "ORL_SECOND_HALF_SCORING_COLLAPSE",
+    "ORL_23_STRAIGHT_MISSES_REPORTED",
+    "DET_GRIT_COMEBACK_PROFILE",
+    "AUSAR_REBOUND_EDGE_CONFIRMED",
+    "ORL_TEAM_TOTAL_UNDER_HIT",
+    "WCJ_REBOUND_FLOOR_BROKEN",
+    "PAOLO_HIGH_USAGE_EFFICIENCY_TRAP",
+    "GAME7_PRESSURE_ESCALATION"
+  ],
+  "retraining_flags": [
+    {
+      "flag": "CLOSEOUT_GAME_PRESSURE_COLLAPSE",
+      "description": "Teams with a 3-2 series lead at home and missing core creators can experience extreme half-to-half offensive collapse; monitor shot quality, turnover pressure, and creator fatigue."
+    },
+    {
+      "flag": "CENTER_FOUL_REBOUND_ZERO_OUTLIER",
+      "description": "A center projected for 30+ minutes can still break rebound floor when foul count and matchup role displacement occur together."
+    },
+    {
+      "flag": "WING_CRASH_OVERS_IN_LOW_EFFICIENCY_GAMES",
+      "description": "Ausar-type high-minute wings with offensive crash role should remain live for rebound overs in high-miss playoff environments."
+    }
+  ],
+  "backtest_logbook_registration": {
+    "status": "FINALIZED",
+    "registered_under": "Backtest_Logbook",
+    "tags": [
+      "NBA_PLAYOFFS_2026",
+      "DET_ORL_SERIES",
+      "GAME_6",
+      "EDGE_CALL_ACTIVE",
+      "POSTMORTEM_FINALIZED",
+      "LIVEFLOW_INGESTION_READY"
+    ]
+  },
+  "confidence_level": "HIGH",
+  "final_status": "MODIFY"
+}
