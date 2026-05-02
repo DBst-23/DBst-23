@@ -40,6 +40,12 @@
 | Houston team total | 92.5 over | +9245 | Requires 35 points from 58 with 8:46 left |
 | Lakers team total | 94.5 over | +113 | Requires 16 points from 79 with 8:54 left on user screen |
 
+## Position locked
+
+| Bet | Stake | Price | Score/time at lock | Needed after lock | Status |
+|---|---:|---:|---|---:|---|
+| Lakers team total over 94.5 | $5.00 | +123 | LAL 81, HOU 62 — 4Q 6:28 | 14 Lakers points | LIVE |
+
 ## Model tags
 
 - HOU_CREATION_DEPLETION_CONFIRMED
@@ -48,8 +54,11 @@
 - LAL_REBOUND_CONTROL_ACTIVE
 - AYTON_REBOUND_ANCHOR_CONFIRMED
 - LAL_TEAM_TOTAL_94_5_LIVE_WINDOW_ACTIVE
+- LAL_TT_94_5_POSITION_LOCKED
 - BACKDOOR_RISK_REDUCED_AFTER_4Q_OPEN
 
 ## LiveFlow note
 
 The 4Q opening sequence reduces the earlier backdoor concern. Houston's offensive profile remains suppressed by poor field-goal efficiency, poor three-point shooting, and limited assist generation. Lakers team total 94.5 becomes the cleaner live watch because it requires 16 additional Lakers points with nearly nine minutes remaining, while Houston team total over 92.5 remains structurally blocked.
+
+At lock point, the Lakers need 14 points over the final 6:28. The bet is no longer a pure pace bet; it is tied to whether Houston can stay close enough to force two more offensive cycles from LeBron/Reaves/Rui/Ayton rather than immediate deep-bench bleed.
