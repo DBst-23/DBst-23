@@ -1,0 +1,52 @@
+{
+  "log_id": "LIVEFLOW_LOCK_20260502_PHI_BOS_G7_PAUL_GEORGE_PTS_AST",
+  "sport": "NBA",
+  "model_context": "SharpEdge NBA LiveFlow / Game 7 playoff pregame snipe",
+  "game": {
+    "date": "2026-05-02",
+    "matchup": "Philadelphia 76ers at Boston Celtics",
+    "round": "East First Round",
+    "game_number": 7
+  },
+  "positions": [
+    {
+      "market": "Player Points",
+      "selection": "Paul George 20+ points",
+      "side": "Yes",
+      "odds": "+228",
+      "stake": 1.50,
+      "max_payout": 4.92,
+      "status": "LOCKED_PREGAME",
+      "confidence_tier": "LEAN_PLUS_MONEY",
+      "edge_rationale": [
+        "Game 6 role expansion showed Philadelphia using Paul George as a stabilizer and secondary creator",
+        "Plus-money threshold priced near 30.5% implied probability before model adjustment",
+        "Path improves if Embiid draws doubles and Maxey faces primary pressure"
+      ],
+      "liveflow_upgrade_trigger": "Upgrade only if PG records 4+ FGA or multiple early touches/creation reps in first rotation"
+    },
+    {
+      "market": "Player Assists",
+      "selection": "Paul George 4+ assists",
+      "side": "Yes",
+      "odds": "+113",
+      "stake": 1.50,
+      "max_payout": 3.20,
+      "status": "LOCKED_PREGAME",
+      "confidence_tier": "LEAN_VALUE",
+      "edge_rationale": [
+        "Philadelphia adjustment profile supports distributed initiation through Maxey and George",
+        "Assists path improves if Boston loads help toward Embiid and Maxey",
+        "Threshold aligns with projected median near 4.0 assists"
+      ],
+      "liveflow_upgrade_trigger": "Upgrade only if PG has early on-ball reps, post-entry facilitation, or 2+ potential assists in first quarter"
+    }
+  ],
+  "risk_control": {
+    "mode": "LIVEFLOW_STRIPPED_MODE_ACTIVE",
+    "stake_size": "micro",
+    "correlation_note": "Both positions are Paul George usage correlated; monitor exposure and avoid adding a third PG-correlated leg pregame.",
+    "risk_cluster_status": "WITHIN_LIMIT"
+  },
+  "created_from_chat": true
+}
