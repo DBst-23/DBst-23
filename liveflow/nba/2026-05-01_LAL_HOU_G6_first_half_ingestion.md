@@ -1,4 +1,4 @@
-# NBA LiveFlow Ingestion — LAL @ HOU — 2026-05-01 — First Half
+# NBA LiveFlow Ingestion — LAL @ HOU — 2026-05-01
 
 ## Metadata
 
@@ -6,20 +6,21 @@
 - Date: 2026-05-01
 - Venue: Toyota Center, Houston, TX
 - Source: NBA Official Scorer's Report / Official Play-by-Play
-- Segment ingested: First Half, including Q1 and Q2 splits
+- Segment ingested: 1st Quarter through 3rd Quarter 06:02
 - Officials: Scott Foster, Curtis Blair, Karl Lane, Kevin Cutler
 - Mode: LIVE-FLOW ingestion / model training / postgame validation
 
-## First Half Score
+## Current Score State — 3Q 06:02
 
-| Team | Q1 | Q2 | 1H Total |
-|---|---:|---:|---:|
-| Lakers | 23 | 26 | 49 |
-| Rockets | 18 | 13 | 31 |
+| Team | Q1 | Q2 | 3Q to 06:02 | Total |
+|---|---:|---:|---:|---:|
+| Lakers | 23 | 26 | 14 | 63 |
+| Rockets | 18 | 13 | 8 | 39 |
 
-- 1H margin: Lakers +18
-- 1H total: 80
-- Period duration: 1:04
+- Current margin: Lakers +24
+- Current total: 102
+- Biggest Lakers lead: 25
+- Attendance: 18,055 sellout
 
 ## Availability / Inactive Players
 
@@ -33,27 +34,26 @@
 - Kevin Durant: OUT — left ankle sprain
 - Fred VanVleet: OUT — right knee ACL repair
 
-## First Half Team Stats
+## Team Stats Through 3Q 06:02
 
 | Category | Lakers | Rockets |
 |---|---:|---:|
-| FG | 18-45 | 12-41 |
-| FG% | 40.0% | 29.3% |
-| 3PT | 6-13 | 2-11 |
-| 3PT% | 46.2% | 18.2% |
-| FT | 7-11 | 5-8 |
-| FT% | 63.6% | 62.5% |
-| Offensive Rebounds | 6 | 2 |
-| Defensive Rebounds | 22 | 18 |
-| Total Rebounds | 28 | 20 |
-| Assists | 10 | 5 |
-| Steals | 3 | 1 |
-| Turnovers | 6 | 10 |
-| Blocks | 7 | 6 |
-| Points in Paint | 22 | 20 |
+| FG | 23-55 | 14-52 |
+| FG% | 41.8% | 26.9% |
+| 3PT | 8-17 | 3-15 |
+| 3PT% | 47.1% | 20.0% |
+| FT | 9-14 | 8-13 |
+| FT% | 64.3% | 61.5% |
+| Offensive Rebounds | 6 | 4 |
+| Defensive Rebounds | 29 | 23 |
+| Total Rebounds | 35 | 27 |
+| Assists | 13 | 7 |
+| Steals | 3 | 3 |
+| Turnovers | 7 | 7 |
+| Blocks | 8 | 7 |
+| Points in Paint | 28 | 22 |
 | 2nd Chance Points | 2 | 2 |
-| Fast Break Points | 14 | 4 |
-| Biggest Lead | 19 | 5 |
+| Fast Break Points | 16 | 4 |
 
 ## Quarter Splits
 
@@ -66,10 +66,10 @@
 
 Signal notes:
 
-- Lakers led 23-18 after Q1.
-- Houston offense was still competitive early but turnover-prone.
+- Houston offense was competitive early but turnover-prone.
 - Sengun had 5 rebounds in Q1.
 - Ayton had 4 rebounds in Q1.
+- Lakers led 23-18 after Q1.
 
 ### Q2
 
@@ -85,33 +85,48 @@ Signal notes:
 - Rockets committed 6 turnovers in Q2, producing a collapse profile.
 - Lakers generated 9 Q2 fast-break points.
 
-## Player First Half Notes
+### 3Q Through 06:02
+
+| Team | Points | FG | 3PT | Rebounds | Turnovers |
+|---|---:|---:|---:|---:|---:|
+| Lakers | 14 | 5-10 | 2-4 | 7 | 2 |
+| Rockets | 8 | 2-11 | 1-4 | 7 | 0 |
+
+Signal notes:
+
+- Houston cleaned up turnovers in early 3Q but the shot-making collapse continued.
+- Rockets shot 18.2% from the field in the early 3Q window.
+- Lakers extended the lead from +18 at halftime to +24 by 06:02.
+- Rui Hachimura added two 3PM in the opening 3Q stretch.
+
+## Player Notes Through 3Q 06:02
 
 ### Lakers
 
 | Player | Min | Pts | Reb | Ast | FG | 3PT | +/- | Notes |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| LeBron James | 20:04 | 18 | 3 | 5 | 7-14 | 2-4 | +14 | Primary engine; transition creator |
-| Rui Hachimura | 17:28 | 10 | 4 | 1 | 4-8 | 2-3 | +8 | Efficient secondary scorer |
-| Deandre Ayton | 16:01 | 2 | 8 | 0 | 0-3 | 0-0 | 0 | Rebound anchor despite low scoring |
-| Austin Reaves | 17:53 | 7 | 2 | 2 | 3-7 | 0-1 | +5 | Secondary handler |
-| Marcus Smart | 17:55 | 0 | 3 | 0 | 0-4 | 0-2 | +15 | Defensive pressure / disruption |
-| Luke Kennard | 13:23 | 3 | 3 | 1 | 1-4 | 1-1 | +18 | Bench spacing, positive swing |
-| Jaxson Hayes | 7:59 | 2 | 3 | 1 | 0-0 | 0-0 | +18 | Backup big energy |
+| LeBron James | 26:02 | 22 | 3 | 6 | 8-18 | 2-5 | +20 | Primary engine; controlled tempo and transition |
+| Rui Hachimura | 23:26 | 16 | 6 | 1 | 6-10 | 4-5 | +14 | Spacing pop; 3Q separation shooting |
+| Deandre Ayton | 21:59 | 4 | 11 | 1 | 1-5 | 0-0 | +6 | Rebound anchor; low scoring but glass control |
+| Austin Reaves | 23:51 | 9 | 2 | 2 | 4-9 | 0-2 | +11 | Secondary guard support; 3 blocks |
+| Marcus Smart | 23:11 | 0 | 5 | 1 | 0-4 | 0-2 | +19 | Defense/pressure without scoring |
+| Luke Kennard | 14:05 | 3 | 3 | 1 | 1-4 | 1-1 | +20 | Bench spacing, positive swing |
+| Jaxson Hayes | 7:59 | 2 | 3 | 1 | 0-0 | 0-0 | +18 | Backup energy big |
 | Jake LaRavia | 9:17 | 7 | 2 | 0 | 3-5 | 1-2 | +12 | Bench scoring burst |
 
 ### Rockets
 
 | Player | Min | Pts | Reb | Ast | FG | 3PT | +/- | Notes |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| Tari Eason | 15:44 | 7 | 2 | 0 | 3-7 | 1-3 | -8 | Early scoring, foul pressure |
-| Jabari Smith Jr. | 21:48 | 7 | 4 | 1 | 2-6 | 1-3 | -11 | Frontcourt minutes load |
-| Alperen Sengun | 21:35 | 8 | 7 | 0 | 3-8 | 0-0 | -17 | Primary interior hub, turnover drag |
-| Reed Sheppard | 17:59 | 5 | 0 | 1 | 2-10 | 0-4 | -12 | Shot creation inefficient |
-| Amen Thompson | 22:40 | 4 | 4 | 3 | 2-7 | 0-0 | -17 | Rim pressure, defensive activity, low scoring |
+| Tari Eason | 21:04 | 11 | 2 | 0 | 4-9 | 2-4 | -11 | Best perimeter scoring signal but foul-pressure context |
+| Jabari Smith Jr. | 27:46 | 7 | 7 | 2 | 2-7 | 1-3 | -17 | Frontcourt minutes load, low efficiency |
+| Alperen Sengun | 27:29 | 10 | 10 | 1 | 3-10 | 0-0 | -24 | Hub stress; strong boards but poor scoring efficiency |
+| Reed Sheppard | 23:15 | 5 | 0 | 1 | 2-12 | 0-6 | -16 | Severe shot creation inefficiency |
+| Amen Thompson | 28:38 | 6 | 5 | 3 | 3-10 | 0-0 | -23 | Athletic pressure, low scoring conversion |
 | Josh Okogie | 9:36 | 0 | 2 | 0 | 0-2 | 0-1 | -11 | Low offensive impact |
-| Aaron Holiday | 6:01 | 0 | 1 | 0 | 0-0 | 0-0 | -6 | Low usage |
+| Aaron Holiday | 6:43 | 0 | 1 | 0 | 0-0 | 0-0 | -8 | Low usage |
 | Dorian Finney-Smith | 4:37 | 0 | 0 | 0 | 0-1 | 0-0 | -8 | Minimal impact |
+| Jae'Sean Tate | 0:42 | 0 | 0 | 0 | 0-1 | 0-1 | -2 | Garbage/rotation probe |
 
 ## LiveFlow Model Signals
 
@@ -121,6 +136,7 @@ Signal notes:
 - `LA_TRANSITION_ADVANTAGE_ACTIVE`
 - `HOU_TURNOVER_PRESSURE_EXPLOIT`
 - `AYTON_REBOUND_ANCHOR_ACTIVE`
+- `RUI_SPACING_POP_ACTIVE`
 - `BENCH_PLUS_SWING_KENNARD_HAYES_LARAVIA`
 
 ### Rockets Negative Signals
@@ -130,62 +146,68 @@ Signal notes:
 - `VANVLEET_OUT_HANDLER_LOSS`
 - `ADAMS_OUT_GLASS_PHYSICALITY_LOSS`
 - `HOU_Q2_COLLAPSE_SIGNAL`
+- `HOU_3Q_SHOT_QUALITY_FAILURE_CONTINUES`
 - `HOU_3PT_FAILURE_ACTIVE`
 - `SENGUN_USAGE_WITH_LOW_EFFICIENCY`
+- `REED_SHEPPARD_CREATION_INEFFICIENCY`
 - `LIVE_BALL_TURNOVER_DRAG`
 
 ## Key LiveFlow Interpretation
 
-The first-half profile was not simply a Lakers shooting edge. It was a full structure failure from Houston:
+The updated 3Q checkpoint confirms the first-half read. Houston cleaned up turnovers after halftime, but the offensive problem did not correct because the shot profile and creation tree were still broken.
 
-1. Houston's creation tree was stripped by Durant and VanVleet being out.
-2. Sengun was forced into a heavy hub role but did not generate efficient offense or assists.
-3. Reed Sheppard volume was inefficient at 2-10 FG and 0-4 from three.
-4. The Rockets had only 5 assists against 10 turnovers.
-5. Lakers turned Houston misses and turnovers into a 14-4 fast-break edge.
-6. Lakers controlled the glass 28-20 despite Ayton scoring only 2 points.
+1. Houston's creation tree remained stripped by Durant and VanVleet being out.
+2. Sengun reached 10 rebounds by 3Q 06:02, but his hub efficiency remained poor at 3-10 FG.
+3. Reed Sheppard reached 2-12 FG and 0-6 from three, keeping Houston's guard-creation profile suppressed.
+4. Amen Thompson supplied pressure and athleticism, but only 6 points on 3-10 FG kept the scoring ceiling low.
+5. Lakers controlled defensive glass and transition flow with a 35-27 rebounding edge and 16-4 fast-break edge.
+6. Rui's 4-of-5 3PT shooting gave Los Angeles the spacing pop that Houston lacked.
 
 ## Betting/Model Relevance
 
 ### For Live Totals
 
-- Q2 Houston 13-point output activates severe offensive suppression.
-- Any Houston live team total over should require proof of 3Q shot-quality recovery.
-- Lakers defensive activity plus Houston missing creators creates under-friendly Houston scoring environment.
+- Houston live over remains blocked unless there is a clear 3Q/4Q shooting spike.
+- Houston team total under remains structurally supported by 26.9% FG and 20.0% 3PT through 3Q 06:02.
+- Full-game under risk depends on garbage-time pace and free throws; base scoring environment remains under-friendly.
 
 ### For Rebounds
 
-- Ayton 8 rebounds by half = strong continuation profile if minutes hold.
-- Sengun 7 rebounds by half = strong raw board path, but blowout/minute risk must be monitored.
-- Rockets poor shooting created extra defensive board volume for Lakers bigs/wings.
+- Ayton 11 rebounds by 3Q 06:02 = strong continuation, but blowout rest risk now rises.
+- Sengun 10 rebounds by 3Q 06:02 = strong raw board profile, but same blowout/minute risk applies.
+- Jabari 7 rebounds and Amen 5 rebounds are secondary board paths from miss-heavy environment.
 
 ### For Spread / Side
 
-- Lakers +18 at half was supported by turnover margin, transition edge, and Houston creation deficit.
-- Houston comeback path required immediate 3Q shooting correction and turnover cleanup.
+- Lakers +24 is structurally supported by Houston offensive depletion, not fluky single-shot variance.
+- Houston comeback path requires immediate three-point correction plus Lakers bench/carelessness.
 
-## First Half Summary Tag
+## Updated Summary Tag
 
 ```yaml
 liveflow_ingestion:
   game: LAL_HOU_2026_05_01
-  segment: first_half
-  score: LAL_49_HOU_31
-  primary_signal: HOU_Q2_COLLAPSE_SIGNAL
+  segment: through_3Q_06_02
+  score: LAL_63_HOU_39
+  primary_signal: HOU_CREATION_TREE_COLLAPSE_CONFIRMED
   lakers_edge:
     - transition
     - defensive_pressure
     - rebounding
     - LeBron_engine
+    - Rui_spacing_pop
   rockets_failure:
     - depleted_creation
     - poor_3pt_shooting
-    - high_turnover_rate
+    - poor_field_goal_efficiency
     - low_assist_generation
+    - Sengun_hub_stress
+    - Sheppard_creation_inefficiency
   model_tags:
     - LIVEFLOW_INGESTED
-    - FIRST_HALF_REPORT
+    - THIRD_QUARTER_CHECKPOINT
     - HOU_CREATION_DEPLETION_ACTIVE
+    - HOU_3Q_SHOT_QUALITY_FAILURE_CONTINUES
     - LAL_TRANSITION_RUNOUT_EDGE
     - AYTON_REBOUND_ANCHOR
     - SENGUN_HUB_STRESS_TEST
