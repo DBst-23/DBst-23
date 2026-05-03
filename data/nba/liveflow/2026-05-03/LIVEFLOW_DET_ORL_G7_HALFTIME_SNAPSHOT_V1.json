@@ -1,0 +1,91 @@
+{
+  "entry_id": "LIVEFLOW_DET_ORL_G7_HALFTIME_SNAPSHOT_V1",
+  "sport": "NBA",
+  "mode": "LIVEFLOW_STRIPPED_MODE_ACTIVE",
+  "date": "2026-05-03",
+  "game": "ORL@DET",
+  "round": "Eastern Conference First Round Game 7",
+  "snapshot_time": "HALFTIME",
+  "score": {
+    "orlando": 49,
+    "detroit": 60,
+    "combined": 109
+  },
+  "current_market": {
+    "spread": {
+      "detroit_minus_10_5": -137,
+      "orlando_plus_10_5": 113
+    },
+    "moneyline": {
+      "detroit": -720,
+      "orlando": 573
+    },
+    "full_game_total": {
+      "line": 206.5,
+      "over": -108,
+      "under": -112
+    },
+    "team_totals": {
+      "detroit_over_111_5": 101,
+      "detroit_under_111_5": -126,
+      "orlando_over_97_5": -104,
+      "orlando_under_97_5": -117
+    }
+  },
+  "first_half_box_score_notes": {
+    "orlando": {
+      "points": 49,
+      "fg": "17-41",
+      "fg_pct": 41.5,
+      "three_pt": "8-18",
+      "three_pt_pct": 44.4,
+      "free_throws": "7-8",
+      "turnovers": 9,
+      "points_off_turnovers_allowed": 12
+    },
+    "detroit": {
+      "points": 60,
+      "fg": "20-44",
+      "fg_pct": 45.5,
+      "three_pt": "8-19",
+      "three_pt_pct": 42.1,
+      "free_throws": "12-16",
+      "turnovers": 3,
+      "points_off_turnovers_allowed": 3
+    },
+    "quarters": {
+      "q1": "ORL 22, DET 20",
+      "q2": "ORL 27, DET 40"
+    }
+  },
+  "model_readout": {
+    "projected_final_mean": 208.0,
+    "projected_final_median": 207.0,
+    "projected_second_half_mean": 98.5,
+    "detroit_win_probability": 0.86,
+    "orlando_cover_plus_10_5_probability": 0.47,
+    "detroit_cover_minus_10_5_probability": 0.53,
+    "over_206_5_probability": 0.52,
+    "under_206_5_probability": 0.48,
+    "detroit_tt_over_111_5_probability": 0.58,
+    "orlando_tt_under_97_5_probability": 0.51
+  },
+  "liveflow_action": {
+    "recommendation": "NO NEW BET",
+    "reason": "Market has re-priced after Detroit 40-point second quarter. Remaining edges are thin and correlated with existing under exposure. RISK_CLUSTER_LOCK favors pass instead of adding another correlated total or spread position.",
+    "existing_ticket_status": {
+      "under_191_5_entry": "stressed",
+      "required_second_half_for_win": "82 or fewer combined points",
+      "risk_level": "high"
+    }
+  },
+  "tags": [
+    "LIVEFLOW",
+    "HALFTIME_SNAPSHOT",
+    "NO_NEW_BET",
+    "RISK_CLUSTER_LOCK",
+    "DET_40_POINT_Q2",
+    "ORL_TURNOVER_PRESSURE",
+    "EXISTING_UNDER_STRESSED"
+  ]
+}
