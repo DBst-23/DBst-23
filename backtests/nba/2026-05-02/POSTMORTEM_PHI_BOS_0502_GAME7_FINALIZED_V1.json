@@ -1,0 +1,332 @@
+{
+  "registry_id": "POSTMORTEM_PHI_BOS_0502_GAME7_FINALIZED_V1",
+  "sport": "NBA",
+  "workflow": "NBA_LiveFlow_SharpEdge",
+  "backtest_logbook_status": "REGISTERED_FINALIZED",
+  "game_date": "2026-05-02",
+  "matchup": "PHI@BOS",
+  "series_context": {
+    "round": "Eastern Conference First Round",
+    "game_number": 7,
+    "series_result_after_game": "PHI wins series 4-3",
+    "venue": "TD Garden, Boston, MA",
+    "attendance": 19156,
+    "officials": ["James Capers", "Tyler Ford", "Gediminas Petraitis"]
+  },
+  "final_score": {
+    "PHI": 109,
+    "BOS": 100,
+    "total_points": 209,
+    "margin": "PHI by 9"
+  },
+  "pre_game_context": {
+    "key_injury_shift": "Jayson Tatum ruled out with left knee stiffness; Boston reshuffled lineup with Brown/White/Pritchard/Hauser/Queta taking larger usage and minutes.",
+    "confirmed_celtics_starting_lineup": ["Derrick White", "Ron Harper Jr.", "Jaylen Brown", "Baylor Scheierman", "Luka Garza"],
+    "confirmed_76ers_starting_lineup": ["Tyrese Maxey", "VJ Edgecombe", "Kelly Oubre Jr.", "Paul George", "Joel Embiid"],
+    "market_context": {
+      "pre_tatum_out_market": "BOS spread showed as high as -7/-7.5 in sharp market screenshots; Kalshi lagged at BOS -5.5 earlier.",
+      "post_tatum_out_market": "BOS repriced near -4.5/-165 with total around 205 after Tatum out confirmation.",
+      "sharpedge_interpretation": "Tatum-out repricing created a manual LiveFlow pivot window toward PHI moneyline/spread/team-total rather than Boston favorite exposure."
+    }
+  },
+  "investments": [
+    {
+      "investment_id": "PG_20_PLUS_POINTS",
+      "market": "Player Points",
+      "selection": "Paul George 20+ points",
+      "stake": 1.50,
+      "price": "+228",
+      "actual": 13,
+      "result": "LOSS",
+      "payout": 0.00,
+      "net_profit": -1.50,
+      "classification": "USAGE_REASSIGNMENT_MISS",
+      "tags": ["EDGE_CALL_ACTIVE", "MISS_REGISTERED", "PG_TOUCHES_SUPPRESSED", "EMBIID_MAXEY_DOMINANCE", "ROLE_PIVOT_FAILED"]
+    },
+    {
+      "investment_id": "PG_4_PLUS_ASSISTS",
+      "market": "Player Assists",
+      "selection": "Paul George 4+ assists",
+      "stake": 1.50,
+      "price": "+113",
+      "actual": 1,
+      "result": "LOSS",
+      "payout": 0.00,
+      "net_profit": -1.50,
+      "classification": "FACILITATION_ROLE_MISS",
+      "tags": ["EDGE_CALL_ACTIVE", "MISS_REGISTERED", "PG_ASSIST_ROLE_DID_NOT_MATERIALIZE", "MAXEY_PRIMARY_ENGINE", "EMBIID_SHORT_ROLL_PLAYMAKING"]
+    },
+    {
+      "investment_id": "PHI_TT_OVER_105_5",
+      "market": "Team Total",
+      "selection": "Philadelphia 76ers Over 105.5 points",
+      "stake": 5.00,
+      "price": "+105",
+      "actual": 109,
+      "result": "WIN",
+      "payout": 10.25,
+      "net_profit": 5.25,
+      "classification": "LIVEFLOW_TEAM_TOTAL_HIT",
+      "tags": ["EDGE_CALL_ACTIVE", "WIN_REGISTERED", "PHI_TT_OVER_VALIDATED", "FOUL_EXTENSION_CONFIRMED", "MAXEY_CLOSING_FT_ENGINE"]
+    },
+    {
+      "investment_id": "PHI_MONEYLINE",
+      "market": "Moneyline",
+      "selection": "Philadelphia 76ers to win",
+      "stake": 5.00,
+      "price": "+134",
+      "actual": "PHI 109, BOS 100",
+      "result": "WIN",
+      "payout": 11.71,
+      "net_profit": 6.71,
+      "classification": "TATUM_OUT_MARKET_REPRICE_HIT",
+      "tags": ["EDGE_CALL_ACTIVE", "WIN_REGISTERED", "INJURY_REPRICE_EDGE", "PHI_ML_VALIDATED", "BOS_CREATION_DEFICIT"]
+    },
+    {
+      "investment_id": "PHI_ALT_SPREAD_MINUS_4_5",
+      "market": "Spread",
+      "selection": "Philadelphia wins by over 4.5 points",
+      "stake": 1.50,
+      "price": "+123",
+      "actual_margin": 9,
+      "result": "WIN",
+      "payout": 3.35,
+      "net_profit": 1.85,
+      "classification": "LIVEFLOW_ALT_SPREAD_HIT",
+      "tags": ["EDGE_CALL_ACTIVE", "WIN_REGISTERED", "ALT_SPREAD_LADDER_HIT", "PHI_MARGIN_CONTROL", "BOS_LATE_THREE_MISS_CLUSTER"]
+    }
+  ],
+  "investment_summary": {
+    "record": "3-2",
+    "total_staked": 14.50,
+    "total_return": 25.31,
+    "net_profit": 10.81,
+    "roi_pct": 74.55,
+    "largest_positive_driver": "PHI moneyline +134 and PHI team total over 105.5",
+    "largest_negative_driver": "Paul George role props; production concentrated through Embiid, Maxey, Edgecombe instead."
+  },
+  "model_projection_audit": {
+    "pre_tatum_out_state": {
+      "bos_favored_band": "BOS -6.5 to -8.5 depending book snapshot",
+      "full_game_total_band": "205-206.5",
+      "core_assumption": "Boston spacing/3PT volume remains viable if Tatum active or limited-active."
+    },
+    "post_tatum_out_reassessment": {
+      "moneyline_direction": "PHI upset live/plus-money playable",
+      "spread_direction": "PHI + points, then PHI alt margin ladder after game-flow confirmation",
+      "team_total_direction": "PHI TT Over strengthened as Embiid/Maxey became control engine",
+      "full_total_direction": "Total stayed less attractive than PHI-specific exposure because Boston efficiency risk remained high."
+    },
+    "final_model_scorecard": [
+      {
+        "market": "PHI Moneyline",
+        "model_probability_estimate": "50-53% after Tatum out / live confirmation",
+        "mean_projection": "PHI by 1.5 to 3.5 before live separation",
+        "median_projection": "PHI by 2",
+        "actual": "PHI by 9",
+        "result": "HIT"
+      },
+      {
+        "market": "PHI -4.5 alternate live spread",
+        "model_probability_estimate": "60-64% at halftime/live entry after PHI led 55-50",
+        "mean_projection": "PHI by 6.5 to 8.5",
+        "median_projection": "PHI by 7",
+        "actual": "PHI by 9",
+        "result": "HIT"
+      },
+      {
+        "market": "PHI TT Over 105.5",
+        "model_probability_estimate": "55-58% during 3Q update",
+        "mean_projection": 106.8,
+        "median_projection": 107,
+        "actual": 109,
+        "result": "HIT"
+      },
+      {
+        "market": "Paul George 20+ points",
+        "model_probability_estimate": "Thin plus-money ladder prior to role compression",
+        "mean_projection": 16.5,
+        "median_projection": 15,
+        "actual": 13,
+        "result": "MISS"
+      },
+      {
+        "market": "Paul George 4+ assists",
+        "model_probability_estimate": "Thin plus-money ladder prior to final role confirmation",
+        "mean_projection": 2.7,
+        "median_projection": 2,
+        "actual": 1,
+        "result": "MISS"
+      }
+    ]
+  },
+  "team_box_score": {
+    "PHI": {
+      "points": 109,
+      "fg": "39-82",
+      "fg_pct": 47.6,
+      "three_pt": "11-28",
+      "three_pt_pct": 39.3,
+      "ft": "20-23",
+      "ft_pct": 87.0,
+      "rebounds": 44,
+      "offensive_rebounds": 3,
+      "defensive_rebounds": 41,
+      "assists": 25,
+      "turnovers": 9,
+      "points_in_paint": 42,
+      "second_chance_points": 13,
+      "fast_break_points": 9,
+      "biggest_lead": 18
+    },
+    "BOS": {
+      "points": 100,
+      "fg": "37-93",
+      "fg_pct": 39.8,
+      "three_pt": "13-49",
+      "three_pt_pct": 26.5,
+      "ft": "13-16",
+      "ft_pct": 81.2,
+      "rebounds": 44,
+      "offensive_rebounds": 10,
+      "defensive_rebounds": 34,
+      "assists": 19,
+      "turnovers": 5,
+      "points_in_paint": 40,
+      "second_chance_points": 9,
+      "fast_break_points": 11,
+      "biggest_lead": 1
+    }
+  },
+  "player_box_score_focus": {
+    "PHI": {
+      "Joel Embiid": {"points": 34, "rebounds": 12, "assists": 6, "fg": "12-26", "ft": "9-11", "plus_minus": 11},
+      "Tyrese Maxey": {"points": 30, "rebounds": 11, "assists": 7, "fg": "11-18", "ft": "6-6", "plus_minus": 8},
+      "VJ Edgecombe": {"points": 23, "rebounds": 6, "assists": 4, "three_pt": "5-11", "plus_minus": 19},
+      "Paul George": {"points": 13, "rebounds": 3, "assists": 1, "fg": "5-10", "three_pt": "3-5", "turnovers": 3, "plus_minus": 9}
+    },
+    "BOS": {
+      "Jaylen Brown": {"points": 33, "rebounds": 9, "assists": 4, "fg": "12-27", "three_pt": "3-9", "plus_minus": -16},
+      "Derrick White": {"points": 26, "rebounds": 6, "assists": 4, "fg": "9-26", "three_pt": "5-16", "plus_minus": -6},
+      "Neemias Queta": {"points": 17, "rebounds": 12, "assists": 1, "fg": "7-8", "plus_minus": 9},
+      "Payton Pritchard": {"points": 13, "rebounds": 5, "assists": 7, "fg": "5-13", "plus_minus": -2}
+    }
+  },
+  "quarter_phase_analysis": {
+    "q1": {
+      "score": "PHI 32, BOS 19",
+      "signal": "Philadelphia seized immediate control with Embiid/Maxey creation and Boston's Tatum-less spacing exposed early.",
+      "model_note": "Early 15-point PHI lead confirmed injury-reprice edge and pushed Boston into high-variance 3PT chase mode."
+    },
+    "q2": {
+      "score": "BOS 31, PHI 23",
+      "signal": "Boston bench/guard shot-making stabilized the game; White and Queta created a temporary counterpunch.",
+      "model_note": "This quarter prevented an easy PHI runaway and kept live team total/spread entries price-sensitive."
+    },
+    "q3": {
+      "score": "PHI 33, BOS 25",
+      "signal": "Philadelphia restored separation with 57.1% FG and 66.7% 3PT shooting in the quarter while Boston shot 33.3% FG and 23.5% from three.",
+      "model_note": "This was the decisive model-validation window for PHI TT and PHI spread ladder."
+    },
+    "q4": {
+      "score": "BOS 25, PHI 21",
+      "signal": "Boston cut the lead to one multiple times, but Maxey's late drives/free throws closed the game.",
+      "model_note": "PHI TT Over was saved and validated through late foul-extension and Maxey's 6-for-6 fourth-quarter FT profile."
+    }
+  },
+  "pivotal_moments": [
+    {
+      "time": "Pre-game",
+      "event": "Jayson Tatum ruled out",
+      "impact": "Converted matchup from Boston favorite profile into PHI plus-money upset and team-total hunting window."
+    },
+    {
+      "time": "1Q",
+      "event": "PHI wins opening quarter 32-19",
+      "impact": "Confirmed Boston's half-court creation stress without Tatum."
+    },
+    {
+      "time": "3Q 2:24",
+      "event": "VJ Edgecombe three pushes PHI lead to 18",
+      "impact": "Stretched Boston into late chase mode and validated PHI margin control."
+    },
+    {
+      "time": "4Q 7:59 to 5:02",
+      "event": "Boston cuts deficit to 1 multiple times",
+      "impact": "Created sweat-zone for spread/ML but did not break PHI due to Embiid and Maxey stabilization."
+    },
+    {
+      "time": "Final 0:20",
+      "event": "Maxey and Edgecombe close at the line",
+      "impact": "PHI TT Over 105.5 and PHI -4.5 both cash."
+    }
+  ],
+  "hit_miss_reason": {
+    "wins": [
+      "PHI ML hit because Tatum's absence removed Boston's primary pressure valve and compressed offense into Brown/White high-volume creation.",
+      "PHI -4.5 hit because Philadelphia generated three separate control windows: opening burst, third-quarter separation, and late free throw close.",
+      "PHI TT Over 105.5 hit because Maxey/Embiid created enough late foul pressure despite a cold fourth-quarter field-goal rate."
+    ],
+    "misses": [
+      "Paul George 20+ missed because he was not the primary usage beneficiary; Embiid, Maxey, and Edgecombe absorbed the scoring profile.",
+      "Paul George 4+ assists missed because playmaking concentrated through Maxey and Embiid; George finished with only one assist."
+    ],
+    "model_assessment": "The macro read was excellent after Tatum was ruled out; the weak point was overextending into Paul George role props instead of prioritizing PHI team-level derivatives and Maxey/Embiid control props.",
+    "error_type": "PLAYER_ROLE_DISTRIBUTION_MISS_WITH_STRONG_GAMESTATE_EDGE"
+  },
+  "variance_tags": [
+    "EDGE_CALL_ACTIVE",
+    "WIN_REGISTERED",
+    "MISS_REGISTERED",
+    "TATUM_OUT_REPRICE_EDGE",
+    "INJURY_REPRICE_EDGE_VALIDATED",
+    "PHI_ML_VALIDATED",
+    "PHI_ALT_SPREAD_LADDER_HIT",
+    "PHI_TT_OVER_VALIDATED",
+    "MAXEY_CLOSING_ENGINE",
+    "EMBIID_CONTROL_HUB",
+    "EDGE_COMBE_SPACING_SPIKE",
+    "BOS_THREE_POINT_DEPENDENCY_FAILURE",
+    "BOS_3P_UNDER_30_PERCENT",
+    "PG_ROLE_PROJECTION_MISS",
+    "PLAYER_PROP_ROLE_COMPRESSION",
+    "LIVEFLOW_STRIPPED_MODE_ALIGNMENT"
+  ],
+  "model_patch_recommendations": [
+    {
+      "patch_id": "STAR_OUT_USAGE_REDISTRIBUTION_GATE_V1",
+      "description": "When an opposing star is ruled out, reassign edge priority first to team-level markets, then to the highest-touch ball-handlers/bigs, and downgrade tertiary player props unless direct on/off usage evidence supports them."
+    },
+    {
+      "patch_id": "ROLE_PROP_CONFIRMATION_GATE_V1",
+      "description": "For plus-money player ladders, require confirmed touch/assist role evidence after final lineups when the player is not the primary ball-handler or post hub."
+    },
+    {
+      "patch_id": "GAME7_FOUL_EXTENSION_TT_GATE_V1",
+      "description": "In Game 7 elimination settings, boost team-total overs when live spread remains within 6-12 points and opponent is forced into late take-foul mode."
+    },
+    {
+      "patch_id": "BOSTON_NO_TATUM_3PT_DEPENDENCY_FLAG_V1",
+      "description": "When Tatum is inactive, raise variance on Boston team totals and full-game overs if 3PA share exceeds 45% of FGA and Brown/White combined shot burden exceeds 45 FGA."
+    }
+  ],
+  "next_round_carry_forward": {
+    "PHI": [
+      "Embiid remains primary playoff control hub; model should treat him as points/rebounds/assists stabilizer but monitor late-game fatigue and efficiency dips.",
+      "Maxey is the closing engine; late-game FT and drive volume deserve elevated live-market priority.",
+      "Edgecombe spacing spike is real enough to log as a volatility upside tag, especially when PHI needs secondary shot creation.",
+      "Paul George remains valuable as spacing/defensive glue, but not automatically as a usage or assist ladder target."
+    ],
+    "BOS": [
+      "Tatum absence materially changes offensive geometry; Boston becomes Brown/White/Pritchard high-3PA profile with efficiency volatility.",
+      "Queta rebounding/minute role was validated off bench despite not starting: 32:33, 17 points, 12 rebounds.",
+      "Boston can still generate comeback runs, but without Tatum their late-game shot quality narrows."
+    ]
+  },
+  "github_registry": {
+    "target_folder": "backtests/nba/2026-05-02/",
+    "target_filename": "POSTMORTEM_PHI_BOS_0502_GAME7_FINALIZED_V1.json",
+    "registered_under": "Backtest_Logbook",
+    "ready_for_commit": true
+  }
+}
