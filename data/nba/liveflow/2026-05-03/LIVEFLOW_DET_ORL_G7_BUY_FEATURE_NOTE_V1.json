@@ -1,0 +1,34 @@
+{
+  "entry_id": "LIVEFLOW_DET_ORL_G7_BUY_FEATURE_NOTE_V1",
+  "sport": "NBA",
+  "mode": "LIVEFLOW_STRIPPED_MODE_ACTIVE",
+  "date": "2026-05-03",
+  "game": "ORL@DET",
+  "market": "No Over 191.5 total points",
+  "snapshot": {
+    "score": "ORL 49 - DET 60",
+    "period": "HALFTIME",
+    "current_buy_price": "+943",
+    "current_position_value": 0.34,
+    "original_cost": 2.50,
+    "max_payout": 6.14
+  },
+  "mechanics": {
+    "buy_feature_meaning": "Buy adds more exposure to the same side of the existing Kalshi contract at the current market price. It is not a hedge or cashout; it increases payout if the selected outcome wins and increases total risk if it loses.",
+    "american_odds_break_even_probability": 0.0959,
+    "condition_to_win": "Game total must finish 191 or lower. With 109 points at halftime, second half must stay at 82 points or fewer."
+  },
+  "model_decision": {
+    "recommendation": "NO NIBBLE unless ultra-micro recreational add only",
+    "reason": "The +943 price looks attractive, but the game requires a 2H scoring collapse below 83 combined points after a 109-point first half. Detroit and Orlando both shot above 42% from three in the first half, and Q2 produced 67 points. Market value has collapsed to $0.34, showing the contract is priced as very unlikely.",
+    "estimated_true_probability_range": "6-9%",
+    "edge_vs_plus_943": "insufficient / slightly negative unless true probability is above 9.6%"
+  },
+  "tags": [
+    "BUY_FEATURE_EXPLAINED",
+    "NO_NIBBLE",
+    "UNDER_191_5_STRESSED",
+    "LIVEFLOW_RISK_CONTROL",
+    "RISK_CLUSTER_LOCK"
+  ]
+}
