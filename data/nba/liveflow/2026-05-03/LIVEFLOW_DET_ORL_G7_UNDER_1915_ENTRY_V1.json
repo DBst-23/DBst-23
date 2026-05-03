@@ -1,0 +1,59 @@
+{
+  "entry_id": "LIVEFLOW_DET_ORL_G7_UNDER_1915_ENTRY_V1",
+  "sport": "NBA",
+  "mode": "LIVEFLOW_STRIPPED_MODE_ACTIVE",
+  "date": "2026-05-03",
+  "game": "ORL@DET",
+  "round": "Eastern Conference First Round Game 7",
+  "market": "Full Game Total Points",
+  "position": "No - Over 191.5 points scored",
+  "interpreted_side": "Under 191.5",
+  "book": "Kalshi",
+  "stake": 2.5,
+  "entry_price": "+145",
+  "entry_score": {
+    "orlando": 30,
+    "detroit": 31,
+    "combined": 61,
+    "period": "2Q",
+    "clock": "9:08"
+  },
+  "source_context": {
+    "official_gamebook_uploaded": "20260503_ORLDET_book.pdf",
+    "quarter_1_score": "ORL 22, DET 20",
+    "quarter_1_total": 42,
+    "quarter_1_notes": [
+      "Orlando shot 38.1% FG but 44.4% from three in Q1",
+      "Detroit shot 35.0% FG and committed 4 turnovers in Q1",
+      "Paolo Banchero carried Orlando early with 11 Q1 points and 3 made threes",
+      "Detroit won early glass/second-chance profile but did not convert efficiently enough"
+    ]
+  },
+  "model_readout_at_entry": {
+    "live_mean_total": 184.5,
+    "live_median_total": 185.0,
+    "under_probability": 0.58,
+    "edge_status": "EDGE_CALL_ACTIVE",
+    "confidence_tier": "moderate_plus",
+    "risk_notes": [
+      "Price was superior to initial screen; +145 is materially better than -112 fair-ish screen",
+      "Pace remained controlled despite early Paolo shooting spike",
+      "Primary danger is foul parade or hot 3PT continuation"
+    ]
+  },
+  "correlation_control": {
+    "risk_cluster": "game_total_under_cluster",
+    "open_correlated_bets_count": 1,
+    "risk_cluster_lock_status": "OK"
+  },
+  "status": "OPEN",
+  "tags": [
+    "LIVEFLOW",
+    "EDGE_CALL_ACTIVE",
+    "GAME7_PRESSURE",
+    "UNDER_1915",
+    "PRICE_DISLOCATION",
+    "PACE_SUPPRESSION_READ",
+    "PAOLO_EARLY_SHOOTING_SPIKE"
+  ]
+}
