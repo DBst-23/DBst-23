@@ -3,14 +3,14 @@
   "totalItems": 12,
   "totalEvents": 0,
   "totalGames": 12,
-  "totalGamesInProgress": 1,
+  "totalGamesInProgress": 2,
   "dates": [
     {
       "date": "2026-05-04",
       "totalItems": 12,
       "totalEvents": 0,
       "totalGames": 12,
-      "totalGamesInProgress": 1,
+      "totalGamesInProgress": 2,
       "games": [
         {
           "gamePk": 824363,
@@ -95,12 +95,12 @@
           "gameDate": "2026-05-04T22:10:00Z",
           "officialDate": "2026-05-04",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -169,12 +169,12 @@
           "gameDate": "2026-05-04T22:40:00Z",
           "officialDate": "2026-05-04",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -243,12 +243,12 @@
           "gameDate": "2026-05-04T22:40:00Z",
           "officialDate": "2026-05-04",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -706,6 +706,7 @@
                 "losses": 18,
                 "pct": ".471"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 12
             },
@@ -720,6 +721,7 @@
                 "losses": 22,
                 "pct": ".371"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 12
             }
@@ -778,6 +780,7 @@
                 "losses": 10,
                 "pct": ".714"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 12
             },
@@ -792,6 +795,7 @@
                 "losses": 19,
                 "pct": ".457"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 12
             }
