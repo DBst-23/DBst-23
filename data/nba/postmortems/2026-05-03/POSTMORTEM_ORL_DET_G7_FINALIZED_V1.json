@@ -1,0 +1,27 @@
+{
+  "entry_id": "POSTMORTEM_ORL_DET_G7_FINALIZED_V1",
+  "sport": "NBA",
+  "season": "2025-26",
+  "date": "2026-05-03",
+  "game": "ORL @ DET",
+  "round": "East First Round Game 7",
+  "venue": "Little Caesars Arena, Detroit, MI",
+  "final_score": {"orlando": 94, "detroit": 116, "total": 210},
+  "positions": [
+    {"market": "No Orlando over 94.5 team total", "stake": 1.50, "odds": "+113", "result": "WIN", "payout": 3.20},
+    {"market": "No Over 191.5 total points", "stake": 2.50, "odds": "+145", "result": "LOSS", "payout": 0.00}
+  ],
+  "period_scores": {"q1": "ORL 22 DET 20", "q2": "ORL 27 DET 40", "q3": "ORL 15 DET 23", "q4": "ORL 30 DET 33"},
+  "summary": "Detroit eliminated Orlando 116-94 behind Cade Cunningham, Tobias Harris and Jalen Duren. Orlando team total under 94.5 cashed by hook; full-game under 191.5 failed because the final total reached 210 after a 63-point fourth quarter.",
+  "key_drivers": {
+    "detroit": ["Cade Cunningham: 32 PTS, 12 AST, +29", "Tobias Harris: 30 PTS, 9 REB, 5/7 3PT", "Jalen Duren: 15 PTS, 15 REB, 6 OREB"],
+    "orlando": ["Paolo Banchero: 38 PTS, 9 REB, 6 AST, 5 TO", "Magic: 16 turnovers for 19 Pistons points", "Magic 3Q collapse: 15 points, 5/18 FG, 0/5 3PT"]
+  },
+  "diagnostics": {
+    "hits": ["ORL TT under read was correct", "Paolo-heavy creation profile exposed Orlando fragility", "Detroit rebound/paint edge materialized"],
+    "misses": ["Full-game under failed due to Q4 scoring overflow", "Detroit 4Q efficiency was not dampened enough", "Garbage-time/foul scoring risk was underweighted"],
+    "patches": ["Q4_GARBAGE_EFFICIENCY_GATE", "TT_UNDER_VS_FULL_UNDER_SPLIT", "GAME7_HOME_FAVORITE_FRONT_RUNNER_OVERFLOW"]
+  },
+  "betting_summary": {"record": "1-1", "staked": 4.00, "returned": 3.20, "net": -0.80, "roi": -0.20},
+  "tags": ["POSTMORTEM_FINALIZED", "BACKTEST_LOGBOOK_REGISTER", "ORL_TT_UNDER_HIT", "FULL_GAME_UNDER_MISS", "LIVEFLOW_STRIPPED_MODE"]
+}
