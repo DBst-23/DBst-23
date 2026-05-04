@@ -3,14 +3,14 @@
   "totalItems": 12,
   "totalEvents": 0,
   "totalGames": 12,
-  "totalGamesInProgress": 2,
+  "totalGamesInProgress": 4,
   "dates": [
     {
       "date": "2026-05-04",
       "totalItems": 12,
       "totalEvents": 0,
       "totalGames": 12,
-      "totalGamesInProgress": 2,
+      "totalGamesInProgress": 4,
       "games": [
         {
           "gamePk": 824363,
@@ -40,7 +40,7 @@
                 "losses": 22,
                 "pct": ".353"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 12
             },
@@ -170,9 +170,9 @@
           "officialDate": "2026-05-04",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "P",
-            "detailedState": "Warmup",
-            "statusCode": "PW",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
             "abstractGameCode": "L"
           },
@@ -244,9 +244,9 @@
           "officialDate": "2026-05-04",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "P",
-            "detailedState": "Warmup",
-            "statusCode": "PW",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
             "abstractGameCode": "L"
           },
@@ -317,12 +317,12 @@
           "gameDate": "2026-05-04T23:05:00Z",
           "officialDate": "2026-05-04",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -393,9 +393,10 @@
           "status": {
             "abstractGameState": "Preview",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Delayed Start",
+            "statusCode": "PI",
             "startTimeTBD": false,
+            "reason": "Inclement Weather",
             "abstractGameCode": "P"
           },
           "teams": {
@@ -836,9 +837,9 @@
           "officialDate": "2026-05-04",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
