@@ -1,0 +1,144 @@
+{
+  "log_id": "NBA_POSTMORTEM_20260504_MIN_SAS_G1",
+  "sport": "NBA",
+  "game_type": "2026 Playoffs - Western Conference Semifinals Game 1",
+  "date": "2026-05-04",
+  "venue": "Frost Bank Center, San Antonio, TX",
+  "officials": ["Marc Davis", "Kevin Scott", "Gediminas Petraitis", "Andy Nagy"],
+  "teams": {
+    "away": "Minnesota Timberwolves",
+    "home": "San Antonio Spurs"
+  },
+  "final_score": {
+    "MIN": 104,
+    "SAS": 102,
+    "margin": 2,
+    "total": 206
+  },
+  "market_positions": [
+    {
+      "market": "player_rebounds",
+      "selection": "Julius Randle 8+ rebounds",
+      "side": "yes",
+      "stake": 1.50,
+      "odds": "+189",
+      "result": "win",
+      "actual": 10,
+      "payout": 4.34,
+      "model_tag": "HIT_REGISTERED_REBOUND_FUNNEL_CORE"
+    },
+    {
+      "market": "spread_alt",
+      "selection": "No - San Antonio wins by over 3.5 points",
+      "stake": 2.50,
+      "odds": "+118",
+      "result": "win",
+      "actual_margin": "MIN by 2",
+      "payout": 5.46,
+      "model_tag": "HIT_REGISTERED_SPREAD_FADE_LIVEFLOW"
+    },
+    {
+      "market": "game_total_alt",
+      "selection": "No - Over 205.5 points",
+      "stake": 1.50,
+      "odds": "-104",
+      "result": "loss",
+      "actual_total": 206,
+      "model_tag": "MISS_REGISTERED_TOTAL_HOOK_BURN"
+    },
+    {
+      "market": "player_rebounds",
+      "selection": "Julius Randle 7+ rebounds",
+      "side": "yes",
+      "stake": 2.00,
+      "odds": "+108",
+      "result": "win",
+      "actual": 10,
+      "payout": 4.18,
+      "model_tag": "HIT_REGISTERED_REBOUND_FUNNEL_CORE"
+    }
+  ],
+  "box_score_core": {
+    "MIN": {
+      "fg": "41-90",
+      "fg_pct": 45.6,
+      "three_pt": "10-26",
+      "three_pt_pct": 38.5,
+      "ft": "12-21",
+      "rebounds": 46,
+      "assists": 20,
+      "turnovers": 13,
+      "points_in_paint": 52,
+      "second_chance_points": 20,
+      "fast_break_points": 10
+    },
+    "SAS": {
+      "fg": "39-87",
+      "fg_pct": 44.8,
+      "three_pt": "10-36",
+      "three_pt_pct": 27.8,
+      "ft": "14-18",
+      "rebounds": 47,
+      "assists": 24,
+      "turnovers": 14,
+      "points_in_paint": 58,
+      "second_chance_points": 13,
+      "fast_break_points": 27
+    }
+  },
+  "key_player_results": {
+    "Julius Randle": {"points": 21, "rebounds": 10, "assists": 2, "minutes": "41:28"},
+    "Anthony Edwards": {"points": 18, "rebounds": 3, "assists": 3, "minutes": "25:15"},
+    "Rudy Gobert": {"points": 7, "rebounds": 10, "assists": 3, "minutes": "29:40"},
+    "Naz Reid": {"points": 12, "rebounds": 9, "assists": 1, "minutes": "29:43"},
+    "Victor Wembanyama": {"points": 11, "rebounds": 15, "assists": 5, "blocks": 12, "minutes": "39:52"},
+    "Dylan Harper": {"points": 18, "rebounds": 4, "assists": 4, "minutes": "28:56"},
+    "Julian Champagnie": {"points": 17, "rebounds": 7, "minutes": "31:52"},
+    "Stephon Castle": {"points": 17, "rebounds": 5, "assists": 5, "minutes": "28:16"}
+  },
+  "quarter_flow": [
+    {"quarter": 1, "MIN": 24, "SAS": 23, "note": "Tight open. Wembanyama rim protection appeared immediately; Minnesota still found enough paint and transition recovery."},
+    {"quarter": 2, "MIN": 21, "SAS": 22, "note": "Half ended tied 45-45. Pace and scoring stayed suppressed, validating low-total lean through halftime."},
+    {"quarter": 3, "MIN": 24, "SAS": 27, "note": "San Antonio led 72-69 entering the 4Q; spread-fade setup became attractive because game remained one-possession density."},
+    {"quarter": 4, "MIN": 35, "SAS": 30, "note": "Edwards returned as closer, Minnesota shot 63.2% in Q4 and flipped the result. Total landed 206, burning Under/No over 205.5 by a hook."}
+  ],
+  "model_diagnostics": {
+    "successful_reads": [
+      "Randle rebound funnel was correctly identified. He logged 41:28 and reached 10 rebounds, clearing both 7+ and 8+.",
+      "San Antonio margin fade was correct. Spurs did not win by 4+; Minnesota won outright by 2.",
+      "LiveFlow recognized one-possession game texture and resisted overpricing Spurs control."
+    ],
+    "misses": [
+      "No over 205.5 lost by 0.5 point as the final landed 206.",
+      "Fourth-quarter Edwards scoring return and late efficiency created enough points to break the low-total thesis by the hook."
+    ],
+    "patches_required": [
+      "ANTHONY_EDWARDS_RETURN_CLOSER_BOOST",
+      "HOOK_ZONE_TOTAL_AVOIDANCE_1PT_BAND",
+      "WEMBY_BLOCK_GRAVITY_SHOT_PROFILE_ADJUSTMENT",
+      "RANDLE_MINUTES_STABILITY_REBOUND_UPGRADE",
+      "LIVEFLOW_ONE_POSSESSION_SPREAD_FADE_CONFIRMATION"
+    ]
+  },
+  "rebound_funnel_review": {
+    "pregame_targets": ["Julius Randle 7+ rebounds", "Julius Randle 8+ rebounds"],
+    "actual": 10,
+    "reason_for_hit": "Randle played 41:28, generated 5 offensive rebounds and 5 defensive rebounds, and remained central because Minnesota needed his size/usage against Wembanyama. High Wemby block volume extended miss/rebound sequences rather than suppressing Randle boards.",
+    "future_rule": "When Randle projects 38+ minutes in a physical playoff matchup, his 7+/8+ rebound ladders remain live if opponent rim contests create extra rebound events and blowout risk is low."
+  },
+  "edge_scoring": {
+    "bet_record": "3-1",
+    "stake_total": 7.50,
+    "cash_return": 13.98,
+    "net_profit": 6.48,
+    "roi_pct": 86.4,
+    "market_read_grade": "A-",
+    "model_process_grade": "A-",
+    "execution_grade": "A",
+    "notes": "Excellent micro-stake LiveFlow sequence. Only miss was a 0.5-point total hook, while both Randle rebound ladders and Spurs margin fade hit."
+  },
+  "source_notes": [
+    "Official NBA scorer report uploaded as 20260504_MINSAS_book (2).pdf",
+    "AP recap: Timberwolves 104, Spurs 102"
+  ]
+}
