@@ -1,0 +1,111 @@
+{
+  "log_id": "NBA_POSTMORTEM_20260504_PHI_NYK_G1",
+  "sport": "NBA",
+  "game_type": "2026 Playoffs - Eastern Conference Semifinals Game 1",
+  "date": "2026-05-04",
+  "venue": "Madison Square Garden, New York, NY",
+  "officials": ["Scott Foster", "Courtney Kirkland", "Kevin Cutler", "Eric Dalen"],
+  "teams": {
+    "away": "Philadelphia 76ers",
+    "home": "New York Knicks"
+  },
+  "final_score": {
+    "PHI": 98,
+    "NYK": 137,
+    "margin": 39,
+    "total": 235
+  },
+  "market_positions": [
+    {
+      "market": "player_rebounds",
+      "selection": "Paul George 6+ rebounds",
+      "side": "yes",
+      "stake": 1.75,
+      "odds": "+113",
+      "result": "loss",
+      "actual": 3,
+      "model_tag": "MISS_REGISTERED_REBOUND_FUNNEL_MISREAD"
+    },
+    {
+      "market": "spread_alt",
+      "selection": "No - New York wins by over 13.5 points",
+      "stake": 2.50,
+      "odds": "+104",
+      "result": "loss",
+      "actual_margin": 39,
+      "model_tag": "MISS_REGISTERED_BLOWOUT_EXTENSION_FAILURE"
+    }
+  ],
+  "box_score_core": {
+    "PHI": {
+      "fg": "30-73",
+      "fg_pct": 41.1,
+      "three_pt": "11-30",
+      "three_pt_pct": 36.7,
+      "ft": "27-34",
+      "rebounds": 28,
+      "assists": 15,
+      "turnovers": 19,
+      "points_in_paint": 32,
+      "fast_break_points": 3
+    },
+    "NYK": {
+      "fg": "53-84",
+      "fg_pct": 63.1,
+      "three_pt": "19-37",
+      "three_pt_pct": 51.4,
+      "ft": "12-17",
+      "rebounds": 39,
+      "assists": 34,
+      "turnovers": 14,
+      "points_in_paint": 58,
+      "fast_break_points": 16
+    }
+  },
+  "key_player_results": {
+    "Jalen Brunson": {"points": 35, "rebounds": 1, "assists": 3, "minutes": "30:42"},
+    "Karl-Anthony Towns": {"points": 17, "rebounds": 6, "assists": 6, "minutes": "20:24"},
+    "Mikal Bridges": {"points": 17, "rebounds": 2, "assists": 5, "minutes": "26:38"},
+    "OG Anunoby": {"points": 18, "rebounds": 3, "assists": 1, "minutes": "30:25"},
+    "Josh Hart": {"points": 8, "rebounds": 8, "assists": 6, "minutes": "25:42"},
+    "Paul George": {"points": 17, "rebounds": 3, "assists": 3, "minutes": "26:26"},
+    "Joel Embiid": {"points": 14, "rebounds": 4, "assists": 1, "minutes": "24:32"},
+    "Tyrese Maxey": {"points": 13, "rebounds": 3, "assists": 2, "minutes": "26:38"}
+  },
+  "quarter_flow": [
+    {"quarter": 1, "PHI": 25, "NYK": 33, "note": "Knicks opened efficient, Brunson rhythm established; PHI kept afloat via free throws."},
+    {"quarter": 2, "PHI": 26, "NYK": 41, "note": "Decisive game break. Knicks won the quarter by 15 and led 74-51 at half."},
+    {"quarter": 3, "PHI": 27, "NYK": 35, "note": "No regression. Knicks pushed lead to 34 by end of 3Q."},
+    {"quarter": 4, "PHI": 20, "NYK": 28, "note": "Bench-heavy garbage time; starters sat, Knicks still extended."}
+  ],
+  "model_diagnostics": {
+    "primary_failure": "The model underestimated blowout-extension risk after Knicks shot quality and pace stayed elite through the second quarter.",
+    "secondary_failure": "Paul George rebound over was exposed by role compression and limited minutes due to blowout; he finished with only 3 rebounds in 26:26.",
+    "successful_read": "Knicks offensive superiority and Brunson pressure were correctly identified, but not aggressively enough for margin expansion.",
+    "patches_required": [
+      "BLOWOUT_EXTENSION_GATE_V1",
+      "STAR_MINUTES_COMPRESSION_REBOUND_DOWNGRADE",
+      "HOT_SHOOTING_CONTINUATION_ALERT_50_3PT",
+      "KNICKS_BRUNSON_PRESSURE_PROFILE_UPGRADE",
+      "PHI_POST_3_1_COMEBACK_FATIGUE_PENALTY"
+    ]
+  },
+  "rebound_funnel_review": {
+    "pregame_target": "Paul George 6+ rebounds",
+    "actual": 3,
+    "reason_for_miss": "Rebound chances did not funnel to George because Knicks made 63.1% FG and 51.4% from 3, reducing miss volume. Philadelphia also lost starter minutes early due to the 39-point margin.",
+    "future_rule": "Do not ladder wing rebounds when opponent projected shot quality exceeds 60% true-shot style pressure or when blowout risk is elevated. Require stable minutes plus miss-volume confirmation."
+  },
+  "edge_scoring": {
+    "pregame_edge_accuracy": "miss",
+    "liveflow_edge_accuracy": "miss",
+    "market_read_grade": "C-",
+    "model_process_grade": "B-",
+    "execution_grade": "C",
+    "notes": "Small stakes limited damage, but the spread fade contradicted live blowout evidence after NYK hit 74 first-half points."
+  },
+  "source_notes": [
+    "Official NBA scorer report uploaded as 20260504_PHINYK_book (2).pdf",
+    "AP recap: Knicks 137, 76ers 98"
+  ]
+}
