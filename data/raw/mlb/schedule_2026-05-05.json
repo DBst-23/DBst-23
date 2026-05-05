@@ -733,78 +733,6 @@
           "ifNecessaryDescription": "Normal Game"
         },
         {
-          "gamePk": 824362,
-          "gameGuid": "066611a4-0471-4460-ab8b-ee50a03d87ba",
-          "link": "/api/v1.1/game/824362/feed/live",
-          "gameType": "R",
-          "season": "2026",
-          "gameDate": "2026-05-06T00:40:00Z",
-          "officialDate": "2026-05-05",
-          "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
-            "startTimeTBD": false,
-            "abstractGameCode": "P"
-          },
-          "teams": {
-            "away": {
-              "team": {
-                "id": 121,
-                "name": "New York Mets",
-                "link": "/api/v1/teams/121"
-              },
-              "leagueRecord": {
-                "wins": 13,
-                "losses": 22,
-                "pct": ".371"
-              },
-              "splitSquad": false,
-              "seriesNumber": 12
-            },
-            "home": {
-              "team": {
-                "id": 115,
-                "name": "Colorado Rockies",
-                "link": "/api/v1/teams/115"
-              },
-              "leagueRecord": {
-                "wins": 14,
-                "losses": 22,
-                "pct": ".389"
-              },
-              "splitSquad": false,
-              "seriesNumber": 12
-            }
-          },
-          "venue": {
-            "id": 19,
-            "name": "Coors Field",
-            "link": "/api/v1/venues/19"
-          },
-          "content": {
-            "link": "/api/v1/game/824362/content"
-          },
-          "gameNumber": 1,
-          "publicFacing": true,
-          "doubleHeader": "N",
-          "gamedayType": "P",
-          "tiebreaker": "N",
-          "calendarEventID": "14-824362-2026-05-05",
-          "seasonDisplay": "2026",
-          "dayNight": "night",
-          "scheduledInnings": 9,
-          "reverseHomeAwayStatus": false,
-          "inningBreakLength": 120,
-          "gamesInSeries": 3,
-          "seriesGameNumber": 2,
-          "seriesDescription": "Regular Season",
-          "recordSource": "S",
-          "ifNecessary": "N",
-          "ifNecessaryDescription": "Normal Game"
-        },
-        {
           "gamePk": 824040,
           "gameGuid": "1191bed8-ed00-444e-b075-9b4cfddd5444",
           "link": "/api/v1.1/game/824040/feed/live",
@@ -1080,6 +1008,81 @@
           "gamedayType": "P",
           "tiebreaker": "N",
           "calendarEventID": "14-823227-2026-05-05",
+          "seasonDisplay": "2026",
+          "dayNight": "night",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
+          "gamesInSeries": 3,
+          "seriesGameNumber": 2,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 824362,
+          "gameGuid": "066611a4-0471-4460-ab8b-ee50a03d87ba",
+          "link": "/api/v1.1/game/824362/feed/live",
+          "gameType": "R",
+          "season": "2026",
+          "gameDate": "2026-05-06T00:40:00Z",
+          "officialDate": "2026-05-07",
+          "rescheduleDate": "2026-05-07T19:10:00Z",
+          "rescheduleGameDate": "2026-05-07",
+          "status": {
+            "abstractGameState": "Final",
+            "codedGameState": "D",
+            "detailedState": "Postponed",
+            "statusCode": "DI",
+            "startTimeTBD": false,
+            "reason": "Inclement Weather",
+            "abstractGameCode": "F"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 121,
+                "name": "New York Mets",
+                "link": "/api/v1/teams/121"
+              },
+              "leagueRecord": {
+                "wins": 13,
+                "losses": 22,
+                "pct": ".371"
+              },
+              "splitSquad": false,
+              "seriesNumber": 12
+            },
+            "home": {
+              "team": {
+                "id": 115,
+                "name": "Colorado Rockies",
+                "link": "/api/v1/teams/115"
+              },
+              "leagueRecord": {
+                "wins": 14,
+                "losses": 22,
+                "pct": ".389"
+              },
+              "splitSquad": false,
+              "seriesNumber": 12
+            }
+          },
+          "venue": {
+            "id": 19,
+            "name": "Coors Field",
+            "link": "/api/v1/venues/19"
+          },
+          "content": {
+            "link": "/api/v1/game/824362/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-824362-2026-05-05",
           "seasonDisplay": "2026",
           "dayNight": "night",
           "scheduledInnings": 9,
