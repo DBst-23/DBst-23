@@ -1,0 +1,194 @@
+{
+  "log_id": "NBA_POSTMORTEM_20260505_LAL_OKC_G1_FINAL",
+  "registry": "Backtest_Logbook",
+  "sport": "NBA",
+  "league": "NBA",
+  "model_context": {
+    "mode": "NBA_LIVEFLOW_V003",
+    "protocol": "LIVEFLOW_STRIPPED_MODE_ACTIVE",
+    "risk_rule": "single_fire_micro_unit",
+    "market_type": [
+      "live_spread",
+      "live_team_total"
+    ]
+  },
+  "game": {
+    "date": "2026-05-05",
+    "round": "Western Conference Semifinals",
+    "game_number": 1,
+    "venue": "Paycom Center, Oklahoma City, OK",
+    "away_team": "Los Angeles Lakers",
+    "home_team": "Oklahoma City Thunder",
+    "final_score": {
+      "LAL": 90,
+      "OKC": 108
+    },
+    "winner": "Oklahoma City Thunder",
+    "margin": 18
+  },
+  "source_notes": {
+    "official_book": "NBA official scorer report uploaded by user: 20260505_LALOKC_book (4).pdf",
+    "recap": "AP recap supplied by user: Holmgren 24 points, Thunder top Lakers 108-90 in Game 1."
+  },
+  "market_positions": [
+    {
+      "market": "Spread",
+      "selection": "No - Oklahoma City wins by over 13.5 points",
+      "interpretation": "Lakers +13.5 equivalent",
+      "entry_price": "+110",
+      "stake": 7.50,
+      "result": "LOSS",
+      "settlement_score": "LAL 90 - OKC 108",
+      "outcome_margin": 18,
+      "closing_status": "Outcome is 18",
+      "model_tag": "EDGE_CALL_ACTIVE",
+      "diagnostic_tag": "LATE_MARGIN_EXPANSION_MISS"
+    },
+    {
+      "market": "Team Total",
+      "selection": "Yes - Los Angeles Lakers over 103.5 points",
+      "entry_price": "+118",
+      "stake": 2.50,
+      "result": "LOSS",
+      "settlement_score": "LAL 90 - OKC 108",
+      "outcome_total": 90,
+      "closing_status": "Outcome is Home: 108, Away: 90",
+      "model_tag": "EDGE_CALL_ACTIVE",
+      "diagnostic_tag": "LAL_OFFENSIVE_COLLAPSE_POST_HALFTIME"
+    }
+  ],
+  "gameflow": {
+    "quarter_scores": {
+      "LAL": [26, 27, 19, 18],
+      "OKC": [31, 30, 23, 24]
+    },
+    "halftime_score": {
+      "LAL": 53,
+      "OKC": 61
+    },
+    "third_quarter_score": {
+      "LAL": 19,
+      "OKC": 23
+    },
+    "fourth_quarter_score": {
+      "LAL": 18,
+      "OKC": 24
+    },
+    "second_half_score": {
+      "LAL": 37,
+      "OKC": 47
+    },
+    "biggest_lead": {
+      "LAL": 7,
+      "OKC": 21
+    },
+    "turning_points": [
+      "OKC trailed 7-0 early but stabilized to lead 31-26 after Q1.",
+      "OKC entered halftime up 61-53 despite LAL remaining within striking range.",
+      "LAL offensive efficiency collapsed after halftime: 37 second-half points on 37.5% shooting with 10 second-half turnovers.",
+      "OKC used 2nd-chance pressure, paint scoring, and bench shot creation to stretch the margin beyond the +13.5 cover zone."
+    ]
+  },
+  "team_box_summary": {
+    "LAL": {
+      "field_goals": "35-85",
+      "fg_pct": 41.2,
+      "three_pointers": "10-30",
+      "three_pct": 33.3,
+      "free_throws": "10-13",
+      "rebounds": 41,
+      "assists": 26,
+      "turnovers": 18,
+      "points_in_paint": 40,
+      "second_chance_points": 11,
+      "fast_break_points": 11
+    },
+    "OKC": {
+      "field_goals": "42-85",
+      "fg_pct": 49.4,
+      "three_pointers": "13-30",
+      "three_pct": 43.3,
+      "free_throws": "11-12",
+      "rebounds": 44,
+      "assists": 29,
+      "turnovers": 16,
+      "points_in_paint": 48,
+      "second_chance_points": 21,
+      "fast_break_points": 16
+    }
+  },
+  "player_notes": {
+    "Chet Holmgren": {
+      "line": "24 points, 12 rebounds, 3 blocks, +10",
+      "model_relevance": "Primary interior + spacing mismatch; OKC offense flowed through Holmgren efficiency and rim pressure."
+    },
+    "Shai Gilgeous-Alexander": {
+      "line": "18 points, 6 assists, 7 turnovers",
+      "model_relevance": "Below peak scoring but still created enough pressure; turnovers did not prevent OKC margin expansion."
+    },
+    "Ajay Mitchell": {
+      "line": "18 points, 4 assists, +14",
+      "model_relevance": "Key replacement production with Jalen Williams inactive; bench/role-player creation was underestimated."
+    },
+    "LeBron James": {
+      "line": "27 points, 6 assists, 4 rebounds",
+      "model_relevance": "Kept LAL viable early, but offensive support cratered late."
+    },
+    "Austin Reaves": {
+      "line": "8 points on 3-16 FG, 0-5 3PT",
+      "model_relevance": "Primary miss driver for LAL team total; usage remained but conversion failed."
+    },
+    "Deandre Ayton": {
+      "line": "10 points, 12 rebounds, 4 fouls",
+      "model_relevance": "Early rebound/paint presence faded; second-half 0 points on 0-6 FG."
+    }
+  },
+  "diagnostics": {
+    "pre_halftime_read": {
+      "spread_model_mean_margin": "OKC by 9.6",
+      "spread_model_median_margin": "OKC by 9",
+      "lal_plus_13_5_probability": "57-59%",
+      "lal_tt_over_103_5_probability": "52-54%",
+      "edge_quality": "Playable but fragile due to OKC shot creation + LAL non-LeBron dependency."
+    },
+    "actual_result_delta": {
+      "spread_delta_vs_model_mean": "+8.4 OKC margin points",
+      "lal_team_total_delta_vs_line": "-13.5 points",
+      "second_half_total_delta": "LAL scored 37 after needing 51 for TT over 103.5"
+    },
+    "failure_modes": [
+      "Lakers half-court creation collapsed without Luka Doncic.",
+      "Austin Reaves efficiency failure: 3-16 FG created dead possessions.",
+      "OKC second-chance edge: 21-11 for game; 15-9 already visible at halftime.",
+      "OKC bench/role-player production remained strong despite Jalen Williams out.",
+      "Live spread model over-weighted first-half competitiveness and under-weighted OKC 4Q separation risk."
+    ],
+    "patch_recommendations": [
+      "Add NON_LEBRON_CREATION_FAILURE gate for Lakers without Doncic when Reaves is below 30% FG at halftime.",
+      "Raise penalty on live team total overs when primary guard is inefficient and offense requires 50+ second-half points.",
+      "Apply OKC_MARGIN_EXPANSION_GATE when Thunder hold halftime lead with rebounding edge, 2nd-chance edge, and opponent turnover pressure.",
+      "Upgrade role-player replacement module for OKC when Jalen Williams is inactive but Ajay Mitchell/Jared McCain/Isaiah Joe minutes are active."
+    ]
+  },
+  "betting_result_summary": {
+    "record": "0-2",
+    "total_staked": 10.00,
+    "total_return": 0.00,
+    "net": -10.00,
+    "roi": -100.0,
+    "notes": "Two LiveFlow positions missed: Lakers +13.5 equivalent and Lakers TT over 103.5. Primary failure was LAL second-half offensive collapse plus OKC margin expansion."
+  },
+  "tags": [
+    "NBA_POSTMORTEM",
+    "LIVEFLOW",
+    "EDGE_CALL_ACTIVE",
+    "MISS_REGISTERED",
+    "LAL_OFFENSIVE_COLLAPSE_POST_HALFTIME",
+    "OKC_MARGIN_EXPANSION_GATE_REQUIRED",
+    "REAVES_EFFICIENCY_FAILURE",
+    "CHET_INTERIOR_SPACING_MISMATCH",
+    "SECOND_CHANCE_EDGE",
+    "BACKTEST_LOGBOOK_REGISTERED"
+  ],
+  "status": "FINALIZED"
+}
