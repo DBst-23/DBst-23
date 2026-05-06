@@ -176,9 +176,9 @@
           "officialDate": "2026-05-06",
           "status": {
             "abstractGameState": "Final",
-            "codedGameState": "O",
-            "detailedState": "Game Over",
-            "statusCode": "O",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
             "abstractGameCode": "F"
           },
@@ -271,7 +271,7 @@
                 "losses": 14,
                 "pct": ".600"
               },
-              "score": 1,
+              "score": 3,
               "splitSquad": false,
               "seriesNumber": 12
             },
@@ -401,10 +401,11 @@
           "officialDate": "2026-05-06",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "codedGameState": "M",
+            "detailedState": "Player challenge",
+            "statusCode": "MJ",
             "startTimeTBD": false,
+            "reason": "Pitch Result",
             "abstractGameCode": "L"
           },
           "teams": {
