@@ -1,0 +1,207 @@
+{
+  "log_id": "NBA_POSTMORTEM_20260505_CLE_DET_G1_FINAL",
+  "registry": "Backtest_Logbook",
+  "sport": "NBA",
+  "league": "NBA",
+  "model_context": {
+    "mode": "NBA_LIVEFLOW_V003",
+    "protocol": "LIVEFLOW_STRIPPED_MODE_ACTIVE",
+    "risk_rule": "single_fire_micro_unit",
+    "market_type": [
+      "live_team_total"
+    ]
+  },
+  "game": {
+    "date": "2026-05-05",
+    "round": "Eastern Conference Semifinals",
+    "game_number": 1,
+    "venue": "Little Caesars Arena, Detroit, MI",
+    "away_team": "Cleveland Cavaliers",
+    "home_team": "Detroit Pistons",
+    "final_score": {
+      "CLE": 101,
+      "DET": 111
+    },
+    "winner": "Detroit Pistons",
+    "margin": 10
+  },
+  "source_notes": {
+    "official_book": "NBA official scorer report uploaded by user: 20260505_CLEDET_book (2).pdf",
+    "recap": "AP recap supplied by user: Cade Cunningham scores 23, Tobias Harris has 20 to help Pistons beat Cavs 111-101 in Game 1."
+  },
+  "market_positions": [
+    {
+      "market": "Team Total",
+      "selection": "Yes - Cleveland Cavaliers over 100.5 points",
+      "entry_price": "-112",
+      "stake": 10.00,
+      "max_payout": 18.95,
+      "result": "WIN",
+      "settlement_score": "CLE 101 - DET 111",
+      "outcome_total": 101,
+      "closing_status": "Outcome is Home: 111, Away: 101",
+      "model_tag": "EDGE_CALL_ACTIVE",
+      "diagnostic_tag": "HALFTIME_TT_OVER_HOOK_WIN"
+    }
+  ],
+  "gameflow": {
+    "quarter_scores": {
+      "CLE": [
+        21,
+        25,
+        30,
+        25
+      ],
+      "DET": [
+        37,
+        22,
+        24,
+        28
+      ]
+    },
+    "halftime_score": {
+      "CLE": 46,
+      "DET": 59
+    },
+    "third_quarter_score": {
+      "CLE": 30,
+      "DET": 24
+    },
+    "fourth_quarter_score": {
+      "CLE": 25,
+      "DET": 28
+    },
+    "second_half_score": {
+      "CLE": 55,
+      "DET": 52
+    },
+    "biggest_lead": {
+      "CLE": 5,
+      "DET": 18
+    },
+    "turning_points": [
+      "Detroit opened the game with a 37-21 first quarter, forcing Cleveland into 6 first-quarter turnovers that produced 12 Pistons points.",
+      "Cleveland entered halftime down 59-46, creating a live team-total window where Cleveland needed 55 points to clear 100.5.",
+      "Cleveland produced a 30-point third quarter on 72.2% shooting and 66.7% from three, immediately validating the second-half offensive recovery path.",
+      "Cleveland tied the game 93-93 with 5:28 left after James Harden scored seven straight, but Detroit answered through Jalen Duren rim finishes off Cade Cunningham creation.",
+      "Cleveland landed exactly 101 points, clearing the 100.5 team total by a half-point hook."
+    ]
+  },
+  "team_box_summary": {
+    "CLE": {
+      "field_goals": "36-80",
+      "fg_pct": 45.0,
+      "three_pointers": "14-38",
+      "three_pct": 36.8,
+      "free_throws": "15-16",
+      "rebounds": 41,
+      "assists": 23,
+      "turnovers": 20,
+      "points_off_turnovers_allowed": 31,
+      "points_in_paint": 44,
+      "second_chance_points": 11,
+      "fast_break_points": 6
+    },
+    "DET": {
+      "field_goals": "37-84",
+      "fg_pct": 44.0,
+      "three_pointers": "10-26",
+      "three_pct": 38.5,
+      "free_throws": "27-35",
+      "rebounds": 45,
+      "assists": 23,
+      "turnovers": 12,
+      "points_off_turnovers_allowed": 16,
+      "points_in_paint": 44,
+      "second_chance_points": 19,
+      "fast_break_points": 15
+    }
+  },
+  "player_notes": {
+    "Cade Cunningham": {
+      "line": "23 points, 7 assists, 3 rebounds, +12",
+      "model_relevance": "Late-game creation stabilized Detroit; assisted three straight Jalen Duren dunks after Cleveland tied the game."
+    },
+    "Tobias Harris": {
+      "line": "20 points, 8 rebounds, 2 steals",
+      "model_relevance": "Two-way veteran profile helped Detroit survive Cleveland second-half push."
+    },
+    "Jalen Duren": {
+      "line": "11 points, 12 rebounds, 4 assists, 2 blocks, +17",
+      "model_relevance": "Late rim-finishing and defensive stop on Harden were pivotal; rebound funnel validated."
+    },
+    "Duncan Robinson": {
+      "line": "19 points, 5-8 3PT",
+      "model_relevance": "Spacing and shot-making punished Cleveland defensive rotations."
+    },
+    "Donovan Mitchell": {
+      "line": "23 points, 4 rebounds, 2 assists",
+      "model_relevance": "Scoring was adequate but did not reach opener ceiling profile; streak of 30+ in series openers ended."
+    },
+    "James Harden": {
+      "line": "22 points, 8 rebounds, 7 assists, 7 turnovers",
+      "model_relevance": "Fourth-quarter scoring surge carried Cleveland TT over, but turnovers were the core game-loss driver."
+    },
+    "Jarrett Allen": {
+      "line": "2 points, 3 rebounds, 4 fouls in 18:22",
+      "model_relevance": "Center displacement/foul-limited profile created rotation instability; Cleveland interior scoring/rebound ceiling reduced."
+    }
+  },
+  "diagnostics": {
+    "live_entry_context": {
+      "entry_score": "CLE 46 - DET 59 at halftime",
+      "market_line": "Cleveland TT over 100.5",
+      "price": "-112",
+      "required_second_half_points": 55,
+      "model_mean_projection": 102.8,
+      "model_median_projection": 102.0,
+      "estimated_hit_probability": "55-57%",
+      "edge_quality": "Playable thin edge; dependent on Cleveland reducing turnovers and maintaining 3PT volume."
+    },
+    "actual_result_delta": {
+      "cle_team_total_delta_vs_line": "+0.5 points",
+      "second_half_needed": 55,
+      "second_half_actual": 55,
+      "hook_result": "WIN by 0.5"
+    },
+    "success_drivers": [
+      "Cleveland shot 51.2% in the second half and scored exactly 55 after halftime.",
+      "Third-quarter correction was the key: 30 points on 13-18 FG and 4-6 3PT.",
+      "Harden's 13 fourth-quarter points generated enough late scoring pressure to reach 101.",
+      "Detroit's lead size kept Cleveland starters active deep into the fourth quarter, protecting minutes and usage."
+    ],
+    "risk_notes": [
+      "Cleveland committed 20 total turnovers, giving Detroit 31 points off turnovers.",
+      "Jarrett Allen was limited to 18:22 with 4 fouls and only 2 points / 3 rebounds.",
+      "The edge was real but fragile: no cushion beyond the hook."
+    ],
+    "patch_recommendations": [
+      "Tag HALFTIME_TT_OVER_HOOK_WIN when a team total clears by 0.5 with exact second-half requirement met.",
+      "Do not over-grade as high-confidence despite win; classify as THIN_EDGE_CONFIRMED because the final landed exactly on the needed second-half number.",
+      "Add Cleveland turnover dampener when Harden/Mitchell dual-handler lineups face aggressive point-of-attack pressure.",
+      "Keep Detroit live spread/moneyline resilience boost active when Duren + Cade PNR is functioning late."
+    ]
+  },
+  "betting_result_summary": {
+    "record": "1-0",
+    "total_staked": 10.00,
+    "total_return": 18.95,
+    "net": 8.95,
+    "roi": 89.5,
+    "notes": "LiveFlow halftime Cleveland TT over 100.5 cashed by the hook. Correct read on second-half correction, but the narrow margin requires thin-edge classification rather than full model dominance."
+  },
+  "tags": [
+    "NBA_POSTMORTEM",
+    "LIVEFLOW",
+    "EDGE_CALL_ACTIVE",
+    "WIN_REGISTERED",
+    "HALFTIME_TT_OVER_HOOK_WIN",
+    "THIN_EDGE_CONFIRMED",
+    "CLEVELAND_SECOND_HALF_CORRECTION",
+    "DET_TURNOVER_PRESSURE",
+    "DUREN_LATE_RIM_RUN",
+    "HARDEN_TURNOVER_VOLATILITY",
+    "BACKTEST_LOGBOOK_REGISTERED"
+  ],
+  "status": "FINALIZED"
+}
