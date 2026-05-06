@@ -1,0 +1,86 @@
+{
+  "log_id": "NBA_LIVEFLOW_PREGAME_MIN_SAS_G2_2026_05_06",
+  "sport": "NBA",
+  "model_context": "SharpEdge NBA LiveFlow / B-series workflow",
+  "created_from": "ChatGPT live betting workflow",
+  "game": {
+    "matchup": "Minnesota Timberwolves at San Antonio Spurs",
+    "game_number": "Game 2",
+    "series_round": "Western Conference Semifinals",
+    "market_date": "2026-05-06",
+    "venue_context": "San Antonio home court"
+  },
+  "pregame_market_context": {
+    "prior_game_result": "MIN 104 - SAS 102 in Game 1",
+    "key_context": [
+      "Minnesota stole Game 1 on the road despite San Antonio's Wembanyama defensive spike.",
+      "Market continued to price San Antonio as a heavy favorite into Game 2.",
+      "Model identified spread inflation on San Antonio alternate margin markets.",
+      "Randle rebound role remained sticky due to physical forward usage and matchup demands."
+    ]
+  },
+  "locked_positions": [
+    {
+      "ticket_id": "KALSHI_MIN_SAS_G2_SPREAD_NO_SAS_10_5",
+      "market": "Spread",
+      "selection": "No - San Antonio wins by over 10.5 points",
+      "interpreted_equivalent": "Minnesota +10.5",
+      "stake_usd": 10.0,
+      "odds_american": -117,
+      "max_payout_usd": 18.60,
+      "entry_value_usd": 9.15,
+      "current_value_delta_usd": -0.85,
+      "current_value_delta_pct": -8.4,
+      "status_at_entry": "locked",
+      "model_probability": 0.605,
+      "model_mean_margin": "SAS by 5.8",
+      "model_median_margin": "SAS by 7",
+      "fair_line": "SAS -6.5",
+      "edge_estimate": "+3.5 to +4.0 spread points",
+      "confidence_tier": "strong lean / playable"
+    },
+    {
+      "ticket_id": "KALSHI_MIN_SAS_G2_RANDLE_7_REB",
+      "market": "Player rebounds",
+      "selection": "Yes - Julius Randle 7+ rebounds",
+      "stake_usd": 1.67,
+      "odds_american": 104,
+      "max_payout_usd": 3.42,
+      "entry_value_usd": 1.48,
+      "current_value_delta_usd": -0.19,
+      "current_value_delta_pct": -11.4,
+      "status_at_entry": "locked",
+      "model_probability": 0.58,
+      "model_mean_rebounds": 7.8,
+      "model_median_rebounds": 8,
+      "fair_price_estimate": "around -135",
+      "edge_estimate": "plus-money leak vs projected rebound distribution",
+      "confidence_tier": "strong prop edge"
+    }
+  ],
+  "liveflow_directives": {
+    "mode": "LIVEFLOW_STRIPPED_MODE_ACTIVE",
+    "execution_style": "single-bet discipline; avoid correlated overexposure",
+    "monitoring_focus": [
+      "San Antonio 3Q response intensity",
+      "Minnesota foul trouble and Edwards mobility",
+      "Randle minutes and defensive rebounding chances",
+      "Wembanyama shot profile and Spurs halfcourt efficiency",
+      "Market overreaction if SAS opens with run"
+    ],
+    "risk_notes": [
+      "Do not add another highly correlated Minnesota spread position unless price dislocates materially.",
+      "Randle rebound ticket is correlated with competitive game script, but small stake keeps risk contained.",
+      "If Spurs lead grows beyond 14 early, reassess live rather than chase."
+    ]
+  },
+  "tags": [
+    "EDGE_CALL_ACTIVE",
+    "LIVEFLOW_PREGAME_LOCK",
+    "MIN_PLUS_10_5_EDGE",
+    "RANDLE_REBOUND_FUNNEL",
+    "SERIES_GAME_2_ADJUSTMENT",
+    "SPREAD_INFLATION_FADE",
+    "REBOUND_PROP_EDGE"
+  ]
+}
