@@ -1,0 +1,24 @@
+{
+  "series_id": "2026_WCSF_MIN_SAS",
+  "game_number": 1,
+  "date": "2026-05-04",
+  "matchup": "MIN @ SAS",
+  "final_score": {
+    "MIN": 104,
+    "SAS": 102
+  },
+  "series_state_after_game": "MIN leads 1-0",
+  "linked_postmortem": "nba_postmortems/2026-05-04_MIN_SAS_G1_post-mortem.json",
+  "rolling_window_tags": [
+    "ROAD_STEAL",
+    "REBOUND_EDGE",
+    "SPURS_COLD_SHOOTING",
+    "RANDLE_REBOUND_CHANNEL",
+    "MODERATE_FUTURE_WEIGHT"
+  ],
+  "forward_model_notes": [
+    "Track rebound distribution closely.",
+    "Watch for Spurs offensive response in Game 2.",
+    "Cap confidence on rebound props if blowout risk emerges."
+  ]
+}
