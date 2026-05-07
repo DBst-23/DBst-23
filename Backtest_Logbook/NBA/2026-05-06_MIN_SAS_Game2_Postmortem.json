@@ -1,0 +1,201 @@
+{
+  "log_id": "NBA_POSTMORTEM_20260506_MIN_SAS_G2_FINAL",
+  "registry": "Backtest_Logbook",
+  "sport": "NBA",
+  "league": "NBA",
+  "model_context": {
+    "mode": "NBA_LIVEFLOW_V003",
+    "protocol": "LIVEFLOW_STRIPPED_MODE_ACTIVE",
+    "risk_rule": "single_fire_micro_unit_with_pregame_exceptions",
+    "market_type": ["pregame_spread", "pregame_rebounds", "live_total"],
+    "series_context": "Western Conference Semifinals, Spurs even series 1-1 after Game 2"
+  },
+  "game": {
+    "date": "2026-05-06",
+    "round": "Western Conference Semifinals",
+    "game_number": 2,
+    "venue": "Frost Bank Center, San Antonio, TX",
+    "away_team": "Minnesota Timberwolves",
+    "home_team": "San Antonio Spurs",
+    "final_score": {"MIN": 95, "SAS": 133},
+    "winner": "San Antonio Spurs",
+    "margin": 38,
+    "total_points": 228,
+    "attendance": 19185,
+    "officials": ["Scott Foster", "Sean Wright", "Mitchell Ervin", "Andy Nagy"]
+  },
+  "source_notes": {
+    "official_book": "NBA official scorer report uploaded by user: 20260506_MINSAS_book (1).pdf",
+    "recap": "AP recap supplied by user: Wembanyama and Spurs rebound to hand Timberwolves largest postseason defeat, 133-95, to even series.",
+    "injury_context": "Donte DiVincenzo inactive for Minnesota. Anthony Edwards played limited minutes off bench while returning from left knee issue."
+  },
+  "market_positions": [
+    {
+      "market": "Pregame Spread",
+      "selection": "No - San Antonio wins by over 10.5 points",
+      "interpretation": "Minnesota +10.5 equivalent",
+      "entry_price": "-117",
+      "stake": 10.00,
+      "result": "LOSS",
+      "settlement_score": "MIN 95 - SAS 133",
+      "outcome_margin": 38,
+      "model_tag": "EDGE_CALL_ACTIVE",
+      "diagnostic_tag": "BLOWOUT_REGIME_FAILURE"
+    },
+    {
+      "market": "Player Rebounds",
+      "selection": "Julius Randle 7+ rebounds",
+      "entry_price": "+100 blended across 2 trades",
+      "stake": 3.67,
+      "result": "LOSS",
+      "settlement_score": "Julius Randle 5 rebounds",
+      "outcome": "No",
+      "model_tag": "EDGE_CALL_ACTIVE",
+      "diagnostic_tag": "MINUTES_COLLAPSE_REBOUND_PROP_MISS"
+    },
+    {
+      "market": "Live Total",
+      "selection": "No - Over 206.5 points scored",
+      "interpretation": "Under 206.5 equivalent",
+      "entry_price": "-127",
+      "stake": 5.50,
+      "result": "LOSS",
+      "settlement_score": "MIN 95 - SAS 133",
+      "outcome_total": 228,
+      "model_tag": "EDGE_CALL_ACTIVE",
+      "diagnostic_tag": "GARBAGE_TIME_OVER_SPIKE"
+    }
+  ],
+  "gameflow": {
+    "quarter_scores": {"MIN": [17, 18, 28, 32], "SAS": [24, 35, 39, 35]},
+    "halftime_score": {"MIN": 35, "SAS": 59},
+    "third_quarter_score": {"MIN": 28, "SAS": 39},
+    "fourth_quarter_score": {"MIN": 32, "SAS": 35},
+    "second_half_score": {"MIN": 60, "SAS": 74},
+    "biggest_lead": {"MIN": 1, "SAS": 47},
+    "lead_changes": 4,
+    "times_tied": 2,
+    "turning_points": [
+      "Spurs closed the 1st quarter up 24-17 after Minnesota shot 29.2% and committed 6 turnovers.",
+      "San Antonio won the 2nd quarter 35-18, creating a 59-35 halftime lead and effectively flipping the game into blowout regime.",
+      "Minnesota was held to 35 first-half points on 14-of-47 FG and 2-of-15 from three.",
+      "Spurs expanded the lead to 98-63 by the end of the 3rd quarter, triggering bench/game-state distortion for player props and totals.",
+      "Both teams combined for 67 points in the 4th quarter despite the game being noncompetitive, causing the live Under 206.5 equivalent to fail.",
+      "San Antonio's biggest lead reached 47; final margin settled at 38."
+    ]
+  },
+  "team_box_summary": {
+    "MIN": {
+      "field_goals": "35-88",
+      "fg_pct": 39.8,
+      "three_pointers": "9-30",
+      "three_pct": 30.0,
+      "free_throws": "16-31",
+      "ft_pct": 51.6,
+      "rebounds": 43,
+      "assists": 19,
+      "turnovers": 22,
+      "points_in_paint": 36,
+      "second_chance_points": 21,
+      "fast_break_points": 5,
+      "points_off_turnovers_allowed": 17
+    },
+    "SAS": {
+      "field_goals": "45-90",
+      "fg_pct": 50.0,
+      "three_pointers": "16-39",
+      "three_pct": 41.0,
+      "free_throws": "27-33",
+      "ft_pct": 81.8,
+      "rebounds": 55,
+      "assists": 29,
+      "turnovers": 15,
+      "points_in_paint": 58,
+      "second_chance_points": 14,
+      "fast_break_points": 29,
+      "points_off_turnovers_allowed": 19
+    }
+  },
+  "player_notes": {
+    "Victor Wembanyama": {"line": "19 points, 15 rebounds, 2 blocks, 25:54 minutes", "model_relevance": "Aggressive offensive tone-setter; 14 points and 9 rebounds by halftime. Sat most of 4Q due to blowout."},
+    "De'Aaron Fox": {"line": "16 points, 2 assists, +24, 25:41 minutes", "model_relevance": "Attack-mode trigger; hit both 3PT attempts after missing all 4 in Game 1. Pace pressure was a major Spurs multiplier."},
+    "Stephon Castle": {"line": "21 points, 4 rebounds, 4 assists, 9-9 FT", "model_relevance": "Guard downhill pressure and foul generation created early separation."},
+    "Dylan Harper": {"line": "11 points, 7 rebounds, 5 assists, +24", "model_relevance": "Bench guard creation sustained Spurs run and prevented Minnesota stabilization."},
+    "Julian Champagnie": {"line": "12 points on 4-6 from three", "model_relevance": "Third-quarter spacing spike; hit four threes in the decisive expansion segment."},
+    "Julius Randle": {"line": "12 points, 5 rebounds, 5 turnovers, -26, 27:24 minutes", "model_relevance": "Rebound over failed because blowout cut minutes and turnover/foul pressure reduced rebounding posture."},
+    "Anthony Edwards": {"line": "12 points, 3 rebounds, 4 turnovers, -33, 24:08 minutes", "model_relevance": "Bench/minutes restriction remained active; limited ability to stabilize Minnesota offense."},
+    "Rudy Gobert": {"line": "5 points, 10 rebounds, 4 turnovers, 3-9 FT, -23", "model_relevance": "Rebounding production existed, but offensive limitations and free throw misses fed Spurs runouts."}
+  },
+  "diagnostics": {
+    "pregame_read": {
+      "min_plus_10_5_equivalent": {
+        "model_probability": "54-56%",
+        "model_mean_margin": "SAS by 7.8",
+        "model_median_margin": "SAS by 8.5",
+        "actual_margin": "SAS by 38",
+        "edge_quality": "Failed due to complete blowout regime and Minnesota offensive collapse."
+      },
+      "randle_7_plus_rebounds": {
+        "model_probability": "51-53%",
+        "model_mean": 7.2,
+        "model_median": 7.0,
+        "actual": 5,
+        "edge_quality": "Miss; Game 1 rebound-chance logic was overridden by reduced minutes and blowout bench pull."
+      }
+    },
+    "live_total_read": {
+      "entry_state": "Halftime: MIN 35 - SAS 59, total 94",
+      "market_line": "No - Over 206.5, Under equivalent at -127",
+      "model_probability": "57-59% Under 206.5",
+      "model_mean_total": 200.5,
+      "model_median_total": 198.0,
+      "actual_total": 228,
+      "edge_quality": "Miss; garbage-time scoring spike plus Spurs bench efficiency overrode blowout under logic."
+    },
+    "failure_modes": [
+      "Minnesota entered offensive collapse by halftime: 35 points, 29.8% FG, 13.3% 3PT, 11 turnovers.",
+      "Spurs pace/transition pressure stayed live despite blowout, producing 29 fast-break points.",
+      "San Antonio shot 41.0% from three and 50.0% FG overall, including bench-driven 4Q scoring.",
+      "Minnesota committed 22 turnovers and shot only 51.6% from the free throw line, eliminating comeback or spread-cover paths.",
+      "Randle's rebound prop was vulnerable to blowout minutes compression; he played only 27:24 and finished with 5 rebounds.",
+      "The live under failed because 4Q bench units produced 67 combined points after the competitive phase was already over."
+    ],
+    "what_model_got_right": [
+      "Correctly identified Randle as a rebound-channel candidate from Game 1 tracking, but failed to adequately price blowout minutes risk.",
+      "Correctly recognized first-half Minnesota offensive weakness at halftime for the live under setup.",
+      "Correctly tracked Edwards minutes restriction as a destabilizer for Minnesota."
+    ],
+    "patch_recommendations": [
+      "Add BLOWOUT_PROP_MINUTES_KILL_SWITCH for rebound overs when spread expands beyond 20 before halftime or 28 before end of 3Q.",
+      "Add GARBAGE_TIME_TOTAL_OVER_SPIKE gate when bench units combine high 3PA rate with low defensive resistance in blowouts.",
+      "Increase penalty on under positions when pre-halftime total is low but favorite pace remains attack-oriented and bench shooters are efficient.",
+      "Add GAME2_HOME_FAVORITE_REBOUND_RESPONSE overlay when elite favorite loses Game 1 at home and early stars show attack-mode intent.",
+      "Downgrade underdog spread positions when opponent's first-half fast-break points plus turnover edge signal transition avalanche."
+    ]
+  },
+  "betting_result_summary": {
+    "record": "0-3",
+    "total_staked": 19.17,
+    "total_return": 0.00,
+    "net": -19.17,
+    "roi": -100.0,
+    "notes": "Pregame MIN +10.5 equivalent, Randle 7+ rebounds, and live Under 206.5 equivalent all lost. Core failure was blowout-regime misclassification: San Antonio's Game 2 response created early separation, compressed Minnesota starter minutes, and still generated high 4Q scoring through bench units."
+  },
+  "tags": [
+    "NBA_POSTMORTEM",
+    "LIVEFLOW",
+    "EDGE_CALL_ACTIVE",
+    "MISS_REGISTERED",
+    "BLOWOUT_REGIME_FAILURE",
+    "MIN_OFFENSIVE_COLLAPSE",
+    "SPURS_GAME2_RESPONSE_SPIKE",
+    "WEMBANYAMA_ATTACK_MODE_CONFIRMED",
+    "FOX_ATTACK_MODE_CONFIRMED",
+    "RANDLE_REBOUND_MINUTES_COMPRESSION",
+    "GARBAGE_TIME_OVER_SPIKE",
+    "LIVE_UNDER_FAILURE",
+    "BLOWOUT_PROP_MINUTES_KILL_SWITCH_REQUIRED",
+    "BACKTEST_LOGBOOK_REGISTERED"
+  ],
+  "status": "FINALIZED"
+}
