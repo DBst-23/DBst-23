@@ -1,0 +1,24 @@
+{
+  "series_id": "2026_ECSF_PHI_NYK",
+  "game_number": 1,
+  "date": "2026-05-04",
+  "matchup": "PHI @ NYK",
+  "final_score": {
+    "PHI": 98,
+    "NYK": 137
+  },
+  "series_state_after_game": "NYK leads 1-0",
+  "linked_postmortem": "nba_postmortems/2026-05-04_PHI_NYK_G1_post-mortem.json",
+  "rolling_window_tags": [
+    "BLOWOUT_DEWEIGHT",
+    "REST_DISADVANTAGE",
+    "TRANSITION_COLLAPSE",
+    "ROAD_FATIGUE",
+    "LOW_FUTURE_WEIGHT"
+  ],
+  "forward_model_notes": [
+    "Reduce predictive weight of Game 1 margin.",
+    "Account for PHI short-rest fatigue after Game 7.",
+    "Do not overreact to Game 1 offensive suppression."
+  ]
+}
