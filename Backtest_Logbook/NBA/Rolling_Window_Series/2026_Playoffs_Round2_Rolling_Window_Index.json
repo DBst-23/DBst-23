@@ -1,0 +1,142 @@
+{
+  "registry_id": "NBA_2026_PLAYOFFS_ROUND2_ROLLING_WINDOW_INDEX",
+  "registry": "Backtest_Logbook",
+  "purpose": "Series-level rolling-window tracker for NBA playoff postmortems, LiveFlow entries, edge calls, misses, and patch requirements.",
+  "created_from_conversation": "Charlotte NBA LiveFlow workflow",
+  "last_updated": "2026-05-07",
+  "status": "ACTIVE",
+  "series": [
+    {
+      "series_id": "2026_ECSF_PHI_NYK",
+      "round": "Eastern Conference Semifinals",
+      "teams": {"away_seed_context": "Philadelphia 76ers", "home_seed_context": "New York Knicks"},
+      "current_series_state": "NYK leads 2-0",
+      "rolling_window_weighting_notes": [
+        "Game 1 blowout should be deweighted due to PHI road fatigue after one day rest following Game 7 vs BOS.",
+        "Game 2 validated PHI competitiveness without Embiid: 25 lead changes, 14 ties, no team led by more than seven.",
+        "Primary forward-looking flags: Embiid injury status, OG Anunoby late-game exit, Brunson close-game margin expansion, KAT late rebound stabilizer."
+      ],
+      "games": [
+        {
+          "game_number": 1,
+          "date": "2026-05-04",
+          "final_score": {"PHI": 98, "NYK": 137},
+          "postmortem_file": "Backtest_Logbook/NBA/2026-05-04_PHI_NYK_Game1_Postmortem.json",
+          "registration_status": "PENDING_FILE_CONFIRMATION",
+          "rolling_window_use": "Context only; apply blowout deweighting due to PHI rest/fatigue disadvantage."
+        },
+        {
+          "game_number": 2,
+          "date": "2026-05-06",
+          "final_score": {"PHI": 102, "NYK": 108},
+          "postmortem_file": "Backtest_Logbook/NBA/2026-05-06_PHI_NYK_Game2_Postmortem.json",
+          "registration_status": "CONFIRMED_LOGGED",
+          "edge_results": {"record": "0-1", "net": -2.50},
+          "key_tags": [
+            "GAME1_BLOWOUT_DEWEIGHTING_VALIDATED",
+            "PHI_EMBIID_OUT_RESILIENCE",
+            "CLOSING_MARGIN_HOOK_MISS",
+            "BRUNSON_CLOSER_GATE_REQUIRED",
+            "KAT_LATE_REBOUND_STABILIZER"
+          ],
+          "rolling_window_use": "High-weight Game 3 input; close-game mechanics and Embiid-out rotation effects are more predictive than Game 1 margin."
+        }
+      ]
+    },
+    {
+      "series_id": "2026_WCSF_MIN_SAS",
+      "round": "Western Conference Semifinals",
+      "teams": {"away_seed_context": "Minnesota Timberwolves", "home_seed_context": "San Antonio Spurs"},
+      "current_series_state": "Series tied 1-1",
+      "rolling_window_weighting_notes": [
+        "Game 1 showed Minnesota could steal road home-court through Randle/Gobert/Naz rebound channels and Spurs cold top-two shooting.",
+        "Game 2 showed San Antonio response profile: Wembanyama/Fox attack-mode, transition avalanche, Minnesota offensive collapse, and blowout bench scoring risk.",
+        "Primary forward-looking flags: Edwards minutes restriction, Randle rebound minutes compression, Spurs Game 2 home-favorite response, garbage-time total over spike."
+      ],
+      "games": [
+        {
+          "game_number": 1,
+          "date": "2026-05-04",
+          "final_score": {"MIN": 104, "SAS": 102},
+          "postmortem_file": "Backtest_Logbook/NBA/2026-05-04_MIN_SAS_Game1_Postmortem.json",
+          "registration_status": "PENDING_FILE_CONFIRMATION",
+          "rolling_window_use": "Use rebound tracking inputs, but cap confidence where Game 2 blowout minutes risk is possible."
+        },
+        {
+          "game_number": 2,
+          "date": "2026-05-06",
+          "final_score": {"MIN": 95, "SAS": 133},
+          "postmortem_file": "Backtest_Logbook/NBA/2026-05-06_MIN_SAS_Game2_Postmortem.json",
+          "registration_status": "CONFIRMED_LOGGED",
+          "edge_results": {"record": "0-3", "net": -19.17},
+          "key_tags": [
+            "BLOWOUT_REGIME_FAILURE",
+            "MIN_OFFENSIVE_COLLAPSE",
+            "SPURS_GAME2_RESPONSE_SPIKE",
+            "WEMBANYAMA_ATTACK_MODE_CONFIRMED",
+            "FOX_ATTACK_MODE_CONFIRMED",
+            "RANDLE_REBOUND_MINUTES_COMPRESSION",
+            "GARBAGE_TIME_OVER_SPIKE",
+            "BLOWOUT_PROP_MINUTES_KILL_SWITCH_REQUIRED"
+          ],
+          "rolling_window_use": "High-weight Game 3 input for blowout-risk detection and Spurs pace/transition response; low-weight for normal competitive total projections due to garbage-time distortion."
+        }
+      ]
+    },
+    {
+      "series_id": "2026_WCSF_LAL_OKC",
+      "round": "Western Conference Semifinals",
+      "teams": {"away_seed_context": "Los Angeles Lakers", "home_seed_context": "Oklahoma City Thunder"},
+      "current_series_state": "OKC leads 1-0 at time of logged Game 1 file",
+      "games": [
+        {
+          "game_number": 1,
+          "date": "2026-05-05",
+          "final_score": {"LAL": 90, "OKC": 108},
+          "postmortem_file": "Backtest_Logbook/NBA/2026-05-05_LAL_OKC_Game1_Postmortem.json",
+          "registration_status": "CONFIRMED_SEARCH_RESULT",
+          "rolling_window_use": "Track Lakers offensive suppression without Luka and OKC margin control profile."
+        }
+      ]
+    },
+    {
+      "series_id": "2026_ECSF_CLE_DET",
+      "round": "Eastern Conference Semifinals",
+      "teams": {"away_seed_context": "Cleveland Cavaliers", "home_seed_context": "Detroit Pistons"},
+      "current_series_state": "DET leads 1-0 at time of logged Game 1 file",
+      "games": [
+        {
+          "game_number": 1,
+          "date": "2026-05-05",
+          "final_score": {"CLE": 101, "DET": 111},
+          "postmortem_file": "Backtest_Logbook/NBA/2026-05-05_CLE_DET_Game1_Postmortem.json",
+          "registration_status": "CONFIRMED_SEARCH_RESULT",
+          "rolling_window_use": "Track Detroit turnover pressure and Cavs late-game response profile."
+        }
+      ]
+    }
+  ],
+  "active_patch_queue": [
+    {
+      "patch": "BLOWOUT_PROP_MINUTES_KILL_SWITCH",
+      "source_game": "MIN@SAS Game 2",
+      "trigger": "Spread expands beyond 20 by halftime or 28 by end of 3Q; downgrade rebound overs and starter-dependent props."
+    },
+    {
+      "patch": "GARBAGE_TIME_TOTAL_OVER_SPIKE",
+      "source_game": "MIN@SAS Game 2",
+      "trigger": "Blowout plus bench 3PA rate and low defensive resistance; reduce confidence in full-game live unders."
+    },
+    {
+      "patch": "BRUNSON_CLOSE_GAME_MARGIN_EXPANSION",
+      "source_game": "PHI@NYK Game 2",
+      "trigger": "Knicks live spread inside 5 in playoff 4Q with Brunson on floor and opposing closer fatigue detected."
+    },
+    {
+      "patch": "GAME1_BLOWOUT_DEWEIGHTING",
+      "source_game": "PHI@NYK Game 2 validation",
+      "trigger": "Prior blowout caused by opponent short-rest/fatigue disadvantage after Game 7."
+    }
+  ],
+  "workflow_rule": "Every finalized NBA postmortem should be registered both as a standalone Backtest_Logbook file and inside this rolling-window series index for forward Game N+1 forecasting."
+}
