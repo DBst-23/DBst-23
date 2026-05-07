@@ -3,14 +3,14 @@
   "totalItems": 10,
   "totalEvents": 0,
   "totalGames": 10,
-  "totalGamesInProgress": 0,
+  "totalGamesInProgress": 2,
   "dates": [
     {
       "date": "2026-05-07",
       "totalItems": 10,
       "totalEvents": 0,
       "totalGames": 10,
-      "totalGamesInProgress": 0,
+      "totalGamesInProgress": 2,
       "games": [
         {
           "gamePk": 823551,
@@ -332,9 +332,9 @@
           "rescheduledFromDate": "2026-05-05",
           "status": {
             "abstractGameState": "Final",
-            "codedGameState": "O",
-            "detailedState": "Game Over",
-            "statusCode": "O",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
             "abstractGameCode": "F"
           },
@@ -487,9 +487,9 @@
           "officialDate": "2026-05-07",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "P",
-            "detailedState": "Warmup",
-            "statusCode": "PW",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
             "abstractGameCode": "L"
           },
@@ -505,7 +505,7 @@
                 "losses": 18,
                 "pct": ".500"
               },
-              "score": 0,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 12
             },
@@ -561,9 +561,9 @@
           "officialDate": "2026-05-07",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "P",
-            "detailedState": "Warmup",
-            "statusCode": "PW",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
             "abstractGameCode": "L"
           },
@@ -727,6 +727,7 @@
                 "losses": 15,
                 "pct": ".583"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 13
             },
@@ -741,6 +742,7 @@
                 "losses": 14,
                 "pct": ".611"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 13
             }
