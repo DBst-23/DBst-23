@@ -1,0 +1,161 @@
+{
+  "log_id": "NBA_POSTMORTEM_20260506_PHI_NYK_G2_FINAL",
+  "registry": "Backtest_Logbook",
+  "sport": "NBA",
+  "league": "NBA",
+  "model_context": {
+    "mode": "NBA_LIVEFLOW_V003",
+    "protocol": "LIVEFLOW_STRIPPED_MODE_ACTIVE",
+    "risk_rule": "single_fire_micro_unit",
+    "market_type": ["live_spread"],
+    "series_context": "Eastern Conference Semifinals, Knicks lead 2-0 after Game 2"
+  },
+  "game": {
+    "date": "2026-05-06",
+    "round": "Eastern Conference Semifinals",
+    "game_number": 2,
+    "venue": "Madison Square Garden, New York, NY",
+    "away_team": "Philadelphia 76ers",
+    "home_team": "New York Knicks",
+    "final_score": {"PHI": 102, "NYK": 108},
+    "winner": "New York Knicks",
+    "margin": 6,
+    "attendance": 19812,
+    "officials": ["Tony Brothers", "Tyler Ford", "Brian Forte", "Eric Dalen"]
+  },
+  "source_notes": {
+    "official_book": "NBA official scorer report uploaded by user: 20260506_PHINYK_book (2).pdf",
+    "recap": "AP recap supplied by user: Jalen Brunson helps Knicks take 2-0 lead over 76ers with 108-102 victory.",
+    "injury_context": "Joel Embiid ruled out with sprained right ankle and sore right hip; Mitchell Robinson DND due to illness."
+  },
+  "market_positions": [
+    {
+      "market": "Spread",
+      "selection": "No - New York wins by over 4.5 points",
+      "interpretation": "Philadelphia +4.5 equivalent",
+      "entry_price": "+104",
+      "stake": 2.50,
+      "result": "LOSS",
+      "settlement_score": "PHI 102 - NYK 108",
+      "outcome_margin": 6,
+      "closing_status": "Outcome is 6",
+      "model_tag": "EDGE_CALL_ACTIVE",
+      "diagnostic_tag": "CLOSING_MARGIN_HOOK_MISS"
+    }
+  ],
+  "gameflow": {
+    "quarter_scores": {"PHI": [33, 29, 28, 12], "NYK": [31, 30, 28, 19]},
+    "halftime_score": {"PHI": 62, "NYK": 61},
+    "third_quarter_score": {"PHI": 28, "NYK": 28},
+    "fourth_quarter_score": {"PHI": 12, "NYK": 19},
+    "second_half_score": {"PHI": 40, "NYK": 47},
+    "biggest_lead": {"PHI": 7, "NYK": 7},
+    "lead_changes": 25,
+    "times_tied": 14,
+    "turning_points": [
+      "Philadelphia led 90-89 entering the 4th quarter, keeping the live +4.5 equivalent highly live.",
+      "Philadelphia went up 99-96 on Kelly Oubre Jr.'s 3-pointer with 6:52 left.",
+      "Josh Hart immediately tied the game with a 3-pointer at 6:25, stabilizing New York's late-game possession quality.",
+      "Jalen Brunson created the final leverage swing with buckets at 5:06 and 3:46, moving New York from 99-99 to 103-99.",
+      "Mikal Bridges extended the margin to 105-99 at 2:56, moving the ticket outside the +4.5 cover band.",
+      "Philadelphia scored only 12 points in the 4th quarter on 4-of-19 shooting and 1-of-10 from three."
+    ]
+  },
+  "team_box_summary": {
+    "PHI": {
+      "field_goals": "34-75",
+      "fg_pct": 45.3,
+      "three_pointers": "13-34",
+      "three_pct": 38.2,
+      "free_throws": "21-28",
+      "rebounds": 39,
+      "assists": 20,
+      "turnovers": 18,
+      "points_in_paint": 30,
+      "second_chance_points": 8,
+      "fast_break_points": 8,
+      "points_off_turnovers_allowed": 9
+    },
+    "NYK": {
+      "field_goals": "40-79",
+      "fg_pct": 50.6,
+      "three_pointers": "7-26",
+      "three_pct": 26.9,
+      "free_throws": "21-25",
+      "rebounds": 37,
+      "assists": 25,
+      "turnovers": 13,
+      "points_in_paint": 56,
+      "second_chance_points": 11,
+      "fast_break_points": 15,
+      "points_off_turnovers_allowed": 23
+    }
+  },
+  "player_notes": {
+    "Jalen Brunson": {"line": "26 points, 6 assists, 40:48 minutes", "model_relevance": "Late-game closer; hit the tiebreaking shot and another midrange jumper to push NYK beyond the live +4.5 threshold."},
+    "Karl-Anthony Towns": {"line": "20 points, 10 rebounds, 7 assists on 6-8 FG", "model_relevance": "Paint pressure and late rebounding anchor. He had 9 fourth-quarter rebounds, blocking PHI's second-chance comeback path."},
+    "OG Anunoby": {"line": "24 points, 5 rebounds, 4 steals, +12", "model_relevance": "Two-way force and transition pressure source; late injury/locker-room exit should be tracked for Game 3."},
+    "Mikal Bridges": {"line": "18 points on 9-13 FG, 5 rebounds", "model_relevance": "Second-half Maxey containment improved; also hit the key 20-foot jumper at 2:56 to create the six-point final margin zone."},
+    "Tyrese Maxey": {"line": "26 points, 6 assists, 6 turnovers, 46:48 minutes", "model_relevance": "Strong first half with 19 points, but only 7 points in the second half and 5 in the fourth. Fatigue/usage burden without Embiid became a late-game suppressor."},
+    "Paul George": {"line": "19 points, 6 rebounds, 4 assists, 5-13 from three", "model_relevance": "Early shot-making supported PHI cover equity, but 0 fourth-quarter points on 0-of-5 shooting hurt the final possession band."},
+    "Kelly Oubre Jr.": {"line": "19 points, 5 rebounds, 3-6 from three", "model_relevance": "Hit the 6:52 fourth-quarter three to put PHI up 99-96, but PHI offense stalled after."},
+    "Adem Bona": {"line": "2 points, 7 rebounds, 6 offensive rebounds in 16:23", "model_relevance": "Embiid-out rebound funnel emerged; foul trouble capped the ceiling."}
+  },
+  "diagnostics": {
+    "live_entry_read": {
+      "entry_state": "PHI 79 - NYK 77, 3rd quarter 6:16",
+      "market_line": "NYK by over 4.5 - No at +104",
+      "equivalent_position": "PHI +4.5",
+      "model_probability_at_entry": "53-55% PHI +4.5 cover band",
+      "model_mean_margin_at_entry": "NYK by 2.8",
+      "model_median_margin_at_entry": "NYK by 3",
+      "edge_quality": "Playable micro-edge due to Embiid-out PHI resilience, close-game lead-change density, and market overreaction to Game 1 blowout."
+    },
+    "actual_result_delta": {
+      "spread_delta_vs_ticket": "Missed by 1.5 points; NYK won by 6 vs PHI +4.5 equivalent.",
+      "fourth_quarter_delta": "NYK +7 in 4Q, PHI scored only 12.",
+      "model_mean_margin_delta": "+3.2 NYK points vs live mean margin."
+    },
+    "failure_modes": [
+      "PHI late-game shot quality was adequate but conversion failed: 4-of-19 FG and 1-of-10 3PT in 4Q.",
+      "Maxey workload fatigue appeared after 46:48 minutes; only 7 second-half points with 3 second-half turnovers.",
+      "Paul George failed to convert as secondary closer: 0 fourth-quarter points on 0-of-5 shooting.",
+      "KAT's fourth-quarter rebounding control removed PHI's extra possession path.",
+      "Brunson late-game shot-making exceeded the expected close-game spread band."
+    ],
+    "what_model_got_right": [
+      "Correctly downgraded the weight of Game 1 blowout due to Philadelphia fatigue/rest disadvantage.",
+      "Correctly identified PHI would compete without Embiid rather than repeat a 25+ point loss profile.",
+      "Correctly projected close-game volatility: 25 lead changes and neither team led by more than seven.",
+      "Correctly identified live +4.5 equivalent as the best available position versus laying NYK live chalk."
+    ],
+    "patch_recommendations": [
+      "Add CLOSING_SHOTMAKING_SUPPRESSOR for Embiid-out PHI when Maxey exceeds 44 minutes and George is cold entering final 6 minutes.",
+      "Upgrade KAT_LATE_REBOUND_STABILIZER when Mitchell Robinson is out and Knicks need defensive closeout possessions.",
+      "Add BRUNSON_CLOSE_GAME_MARGIN_EXPANSION gate for live spreads inside 5 points during playoff 4Q windows.",
+      "Keep Game1_Blowout_Deweighting active, but require late-game closer scoring projection before attacking short underdog live spreads."
+    ]
+  },
+  "betting_result_summary": {
+    "record": "0-1",
+    "total_staked": 2.50,
+    "total_return": 0.00,
+    "net": -2.50,
+    "roi": -100.0,
+    "notes": "LiveFlow micro-position on PHI +4.5 equivalent lost by 1.5 points. Read was structurally sound, but late NYK clutch execution plus PHI fourth-quarter shot drought broke the cover band."
+  },
+  "tags": [
+    "NBA_POSTMORTEM",
+    "LIVEFLOW",
+    "EDGE_CALL_ACTIVE",
+    "MISS_REGISTERED",
+    "CLOSING_MARGIN_HOOK_MISS",
+    "PHI_EMBIID_OUT_RESILIENCE",
+    "GAME1_BLOWOUT_DEWEIGHTING_VALIDATED",
+    "BRUNSON_CLOSER_GATE_REQUIRED",
+    "KAT_LATE_REBOUND_STABILIZER",
+    "PHI_FOURTH_QUARTER_OFFENSIVE_DROUGHT",
+    "BACKTEST_LOGBOOK_REGISTERED"
+  ],
+  "status": "FINALIZED"
+}
