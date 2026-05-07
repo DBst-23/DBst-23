@@ -5,6 +5,12 @@
   "created_from_conversation": "Charlotte NBA LiveFlow workflow",
   "last_updated": "2026-05-07",
   "status": "ACTIVE",
+  "folder_map": {
+    "legacy_or_active_postmortem_folder": "nba_postmortems/",
+    "standard_logbook_folder": "Backtest_Logbook/NBA/",
+    "series_index_folder": "Backtest_Logbook/NBA/Rolling_Window_Series/",
+    "note": "Game 1 PHI_NYK and MIN_SAS postmortems were confirmed by user screenshot inside nba_postmortems, so the index now points to that folder for those files."
+  },
   "series": [
     {
       "series_id": "2026_ECSF_PHI_NYK",
@@ -21,9 +27,10 @@
           "game_number": 1,
           "date": "2026-05-04",
           "final_score": {"PHI": 98, "NYK": 137},
-          "postmortem_file": "Backtest_Logbook/NBA/2026-05-04_PHI_NYK_Game1_Postmortem.json",
-          "registration_status": "PENDING_FILE_CONFIRMATION",
-          "rolling_window_use": "Context only; apply blowout deweighting due to PHI rest/fatigue disadvantage."
+          "postmortem_file": "nba_postmortems/2026-05-04_PHI_NYK_G1_post-mortem.json",
+          "registration_status": "CONFIRMED_BY_USER_SCREENSHOT",
+          "rolling_window_use": "Context only; apply blowout deweighting due to PHI rest/fatigue disadvantage.",
+          "index_correction": "Previously pointed to Backtest_Logbook/NBA/2026-05-04_PHI_NYK_Game1_Postmortem.json as pending. Corrected to nba_postmortems folder path shown by user."
         },
         {
           "game_number": 2,
@@ -58,9 +65,10 @@
           "game_number": 1,
           "date": "2026-05-04",
           "final_score": {"MIN": 104, "SAS": 102},
-          "postmortem_file": "Backtest_Logbook/NBA/2026-05-04_MIN_SAS_Game1_Postmortem.json",
-          "registration_status": "PENDING_FILE_CONFIRMATION",
-          "rolling_window_use": "Use rebound tracking inputs, but cap confidence where Game 2 blowout minutes risk is possible."
+          "postmortem_file": "nba_postmortems/2026-05-04_MIN_SAS_G1_post-mortem.json",
+          "registration_status": "CONFIRMED_BY_USER_SCREENSHOT",
+          "rolling_window_use": "Use rebound tracking inputs, but cap confidence where Game 2 blowout minutes risk is possible.",
+          "index_correction": "Previously pointed to Backtest_Logbook/NBA/2026-05-04_MIN_SAS_Game1_Postmortem.json as pending. Corrected to nba_postmortems folder path shown by user."
         },
         {
           "game_number": 2,
@@ -138,5 +146,5 @@
       "trigger": "Prior blowout caused by opponent short-rest/fatigue disadvantage after Game 7."
     }
   ],
-  "workflow_rule": "Every finalized NBA postmortem should be registered both as a standalone Backtest_Logbook file and inside this rolling-window series index for forward Game N+1 forecasting."
+  "workflow_rule": "Every finalized NBA postmortem should be registered either from the active nba_postmortems folder or the standard Backtest_Logbook/NBA folder, then indexed inside this rolling-window series file for forward Game N+1 forecasting."
 }
