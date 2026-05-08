@@ -1,0 +1,178 @@
+{
+  "postmortem_id": "NBA_POSTMORTEM_2026-05-07_LAL_OKC_G2",
+  "registry": "Backtest_Logbook",
+  "folder": "Backtest_Logbook/NBA/Rolling_Window_Series",
+  "series_id": "2026_WCSF_LAL_OKC",
+  "game_number": 2,
+  "date": "2026-05-07",
+  "round": "Western Conference Semifinals",
+  "venue": "Paycom Center, Oklahoma City, OK",
+  "officials": ["John Goble", "Ben Taylor", "Mark Lindsay", "Tre Maddox"],
+  "attendance": 18203,
+  "final_score": {
+    "LAL": 107,
+    "OKC": 125
+  },
+  "series_state_after_game": "OKC leads 2-0",
+  "market_positions": [
+    {
+      "market": "LAL team total",
+      "side": "No - Los Angeles Lakers over 104.5 points",
+      "equivalent_position": "LAL under 104.5 team total",
+      "stake": 10.0,
+      "odds": -104,
+      "result": "LOSS",
+      "final_outcome": 107,
+      "miss_margin_points": 2.5,
+      "bet_type": "LIVE_FLOW_HALFTIME_STRIKE"
+    }
+  ],
+  "phase_analysis": {
+    "first_quarter": {
+      "score": {"LAL": 23, "OKC": 27},
+      "read": "OKC established early defensive pressure and rim deterrence while LAL remained within range through Rui shot-making and late-quarter stabilization.",
+      "model_signal": "Initial Lakers offensive suppression was present but not decisive enough for a live under without a large cushion."
+    },
+    "second_quarter": {
+      "score": {"LAL": 35, "OKC": 30},
+      "read": "LAL won the quarter 35-30, shot 65% from the field, and carried a 58-57 halftime lead. This created the halftime strike context but also exposed that Lakers role scoring was hotter than expected.",
+      "model_signal": "Halftime under entry should have been downgraded because LAL had already reached 58 on efficient shooting, with Reaves/Smart/Kennard all contributing."
+    },
+    "third_quarter": {
+      "score": {"LAL": 22, "OKC": 36},
+      "read": "OKC flipped the game with a 36-22 quarter. Lakers committed 7 turnovers in the period and allowed OKC to generate 9 second-chance points and 6 fast-break points.",
+      "model_signal": "This phase validated the OKC pressure script but created a dangerous late-game starter-extension zone, not a clean under zone."
+    },
+    "fourth_quarter": {
+      "score": {"LAL": 27, "OKC": 32},
+      "read": "LAL still scored 27 in the fourth despite trailing by double digits. Reaves and LeBron remained productive before bench minutes added late points.",
+      "model_signal": "Playoff under failed because late-game extension plus free throws and deep-bench points broke suppression assumptions."
+    }
+  },
+  "team_stat_summary": {
+    "LAL": {
+      "fg": "39-78",
+      "fg_pct": 50.0,
+      "three_pt": "11-29",
+      "three_pt_pct": 37.9,
+      "ft": "18-21",
+      "ft_pct": 85.7,
+      "rebounds": 30,
+      "assists": 24,
+      "turnovers": 21,
+      "points_off_turnovers_allowed": 26,
+      "points_in_paint": 52,
+      "second_chance_points": 6,
+      "fast_break_points": 4
+    },
+    "OKC": {
+      "fg": "45-81",
+      "fg_pct": 55.6,
+      "three_pt": "14-36",
+      "three_pt_pct": 38.9,
+      "ft": "21-26",
+      "ft_pct": 80.8,
+      "rebounds": 32,
+      "assists": 26,
+      "turnovers": 14,
+      "points_off_turnovers_allowed": 14,
+      "points_in_paint": 46,
+      "second_chance_points": 17,
+      "fast_break_points": 14
+    }
+  },
+  "key_players": {
+    "LAL": [
+      {"player": "Austin Reaves", "pts": 31, "reb": 2, "ast": 6, "fg": "10-16", "ft": "8-10", "turnovers": 5},
+      {"player": "LeBron James", "pts": 23, "reb": 2, "ast": 6, "fg": "9-18", "turnovers": 3},
+      {"player": "Rui Hachimura", "pts": 16, "reb": 4, "fg": "6-10", "three_pt": "4-7"},
+      {"player": "Marcus Smart", "pts": 14, "reb": 4, "ast": 5, "turnovers": 3},
+      {"player": "Deandre Ayton", "pts": 3, "reb": 10, "fg": "1-7"}
+    ],
+    "OKC": [
+      {"player": "Chet Holmgren", "pts": 22, "reb": 9, "ast": 3, "stl": 4, "blk": 2, "plus_minus": 19},
+      {"player": "Shai Gilgeous-Alexander", "pts": 22, "ast": 2, "fg": "7-13", "ft": "7-9"},
+      {"player": "Ajay Mitchell", "pts": 20, "reb": 3, "ast": 6, "fg": "7-12"},
+      {"player": "Jared McCain", "pts": 18, "fg": "7-11", "three_pt": "4-5"},
+      {"player": "Isaiah Hartenstein", "pts": 10, "reb": 9, "stl": 2, "blk": 2}
+    ]
+  },
+  "pivotal_moments": [
+    {
+      "time": "Halftime",
+      "score": "LAL 58, OKC 57",
+      "note": "LiveFlow entered LAL under 104.5 after a hot LAL first half. The entry had insufficient buffer because LAL needed only 47 second-half points to beat the number."
+    },
+    {
+      "time": "3Q 10:34",
+      "score_context": "LAL leading 63-61 before free throws",
+      "note": "SGA flagrant sequence and Caruso technical created a noisy high-leverage possession, but OKC later stabilized the quarter."
+    },
+    {
+      "time": "3Q 2:53 to 1:51",
+      "score_context": "OKC expanded to double digits",
+      "note": "Jaylin Williams and Jared McCain threes pushed OKC from 81-74 to 89-76, creating the double-digit lead regime."
+    },
+    {
+      "time": "4Q 8:58 to 8:26",
+      "score_context": "OKC lead cut from 13 to 5",
+      "note": "LeBron and Reaves hit back-to-back threes/attacks to keep LAL starters active and extend the scoring environment."
+    },
+    {
+      "time": "4Q 2:14 to final",
+      "score_context": "Bench stretch",
+      "note": "Late substitutions did not suppress scoring enough. Nick Smith Jr., Dalton Knecht, Nikola Topic, and Jared McCain produced late points that lifted the final total and confirmed garbage-time volatility."
+    }
+  ],
+  "model_relevance_summary": {
+    "edge_call_status": "MISS_REGISTERED",
+    "miss_type": "PLAYOFF_TEAM_TOTAL_UNDER_BUFFER_FAILURE",
+    "primary_failure": "LAL had already reached 58 at halftime, leaving too little cushion for a 104.5 under in a playoff environment with starter extension and free-throw paths still live.",
+    "secondary_failure": "OKC defensive pressure produced turnovers but also created extra possessions, free throws, and transition/late-game scoring, keeping the game from becoming a clean under profile.",
+    "confirmed_signals": [
+      "OKC second-half pressure spike",
+      "LAL turnover vulnerability without Luka Doncic",
+      "Chet Holmgren rim/defensive activity as a stabilizer",
+      "OKC bench scoring depth through Jared McCain/Cason Wallace"
+    ],
+    "failed_assumptions": [
+      "Double-digit playoff lead would suppress Lakers team total pace enough after halftime",
+      "Lakers scoring would regress sharply after hot second quarter",
+      "Bench-time scoring would be neutral or under-friendly"
+    ],
+    "forward_model_notes": [
+      "Require at least 3.5-point buffer below team-total under line for playoff LiveFlow entries.",
+      "Do not auto-fire under when the target team already has 55+ at halftime unless pace/FTA/shot quality are all collapsing.",
+      "Apply playoff starter-extension gate when spread is 8-18 entering 4Q; stars often stay in long enough to kill unders.",
+      "Add garbage-time bench scoring risk when OKC depth units include McCain, Wallace, Joe, or Topic with green-light 3PA."
+    ]
+  },
+  "patch_tags": [
+    "PLAYOFF_TEAM_TOTAL_UNDER_BUFFER_FAILURE",
+    "HALFTIME_HOT_OFFENSE_FADE_TRAP",
+    "PLAYOFF_STARTER_EXTENSION_GATE_REQUIRED",
+    "GARBAGE_TIME_BENCH_SCORING_RISK",
+    "OKC_PRESSURE_CREATES_POSSESSION_SPIKE",
+    "LAL_WITHOUT_LUKA_TURNOVER_VOLATILITY"
+  ],
+  "recommended_patch_queue": [
+    {
+      "patch": "PLAYOFF_TT_UNDER_BUFFER_GATE",
+      "rule": "No playoff team-total under unless model median is at least 3.5 points below the live line."
+    },
+    {
+      "patch": "HALFTIME_55_PLUS_UNDER_CAUTION",
+      "rule": "If target team has 55+ points at halftime, require clear pace decline plus FTA suppression before under entry."
+    },
+    {
+      "patch": "STARTER_EXTENSION_4Q_GATE",
+      "rule": "For playoff spreads between 8 and 18 entering Q4, assume primary scorers remain active until under 4:00 unless lead reaches 20+."
+    },
+    {
+      "patch": "OKC_DEPTH_GARBAGE_TIME_OVER_SPIKE",
+      "rule": "When OKC bench scorers are active late, downgrade full-game and team-total unders because bench 3PA remains aggressive."
+    }
+  ],
+  "rolling_window_use": "High-weight Game 3 input for Lakers turnover/scoring volatility and OKC second-half pressure. Low-weight for clean under projections because late-game and bench scoring distorted the suppression profile.",
+  "status": "FINALIZED_LOGGED"
+}
