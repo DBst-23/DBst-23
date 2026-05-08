@@ -111,7 +111,12 @@
       "series_id": "2026_ECSF_CLE_DET",
       "round": "Eastern Conference Semifinals",
       "teams": {"away_seed_context": "Cleveland Cavaliers", "home_seed_context": "Detroit Pistons"},
-      "current_series_state": "DET leads 1-0 at time of logged Game 1 file",
+      "current_series_state": "DET leads 2-0",
+      "rolling_window_weighting_notes": [
+        "Detroit pressure and depth have now held across two games, with forced turnovers and spacing counters limiting Cleveland's late-game scoring reliability.",
+        "Cleveland can generate comeback bursts through Donovan Mitchell and Jarrett Allen interior pressure, but fourth-quarter perimeter failure remains a key team-total over risk.",
+        "Primary forward-looking flags: Harden usage drag, Mitchell one-player surge dependency, Detroit closeout spacing through Cade Cunningham, Tobias Harris, and Duncan Robinson."
+      ],
       "games": [
         {
           "game_number": 1,
@@ -120,6 +125,22 @@
           "postmortem_file": "Backtest_Logbook/NBA/2026-05-05_CLE_DET_Game1_Postmortem.json",
           "registration_status": "CONFIRMED_SEARCH_RESULT",
           "rolling_window_use": "Track Detroit turnover pressure and Cavs late-game response profile."
+        },
+        {
+          "game_number": 2,
+          "date": "2026-05-07",
+          "final_score": {"CLE": 97, "DET": 107},
+          "postmortem_file": "Backtest_Logbook/NBA/Rolling_Window_Series/2026-05-07_CLE_DET_Game2_Postmortem.json",
+          "registration_status": "CONFIRMED_LOGGED",
+          "edge_results": {"record": "0-1", "net": -5.00},
+          "key_tags": [
+            "FOURTH_QUARTER_SHOT_QUALITY_COLLAPSE",
+            "CLEVELAND_3P_REGRESSION_NOT_REALIZED",
+            "HARDEN_USAGE_INEFFICIENCY",
+            "DETROIT_CLOSEOUT_SPACING_STABILIZER",
+            "TEAM_TOTAL_HOOK_RANGE_MISS"
+          ],
+          "rolling_window_use": "High-weight Game 3 input for Detroit pressure continuity and Cavs live team-total risk filters; medium-weight for raw total projection because Cleveland still reached 97 despite poor 3P shooting."
         }
       ]
     }
@@ -144,6 +165,21 @@
       "patch": "GAME1_BLOWOUT_DEWEIGHTING",
       "source_game": "PHI@NYK Game 2 validation",
       "trigger": "Prior blowout caused by opponent short-rest/fatigue disadvantage after Game 7."
+    },
+    {
+      "patch": "CLE_LATE_3P_DEPENDENCY_GATE",
+      "source_game": "CLE@DET Game 2",
+      "trigger": "Cleveland live team total over requires at least neutral 3P form or a clear foul-extension path after 3Q."
+    },
+    {
+      "patch": "DET_CLOSEOUT_SPACING_STABILIZER",
+      "source_game": "CLE@DET Game 2",
+      "trigger": "Detroit leading or tied in final six minutes with Cunningham plus Robinson/Harris spacing active."
+    },
+    {
+      "patch": "HARDEN_USAGE_DRAG_FLAG",
+      "source_game": "CLE@DET Game 2",
+      "trigger": "Harden below 40% FG with multiple turnovers entering second half."
     }
   ],
   "workflow_rule": "Every finalized NBA postmortem should be registered either from the active nba_postmortems folder or the standard Backtest_Logbook/NBA folder, then indexed inside this rolling-window series file for forward Game N+1 forecasting."
