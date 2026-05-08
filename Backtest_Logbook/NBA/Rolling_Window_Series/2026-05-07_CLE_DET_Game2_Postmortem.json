@@ -1,0 +1,179 @@
+{
+  "postmortem_id": "NBA_POSTMORTEM_2026_05_07_CLE_DET_G2",
+  "registry": "Backtest_Logbook",
+  "folder": "Backtest_Logbook/NBA/Rolling_Window_Series",
+  "series_id": "2026_ECSF_CLE_DET",
+  "game_number": 2,
+  "date": "2026-05-07",
+  "matchup": "Cleveland Cavaliers at Detroit Pistons",
+  "venue": "Little Caesars Arena, Detroit, MI",
+  "officials": ["Zach Zarba", "Curtis Blair", "Karl Lane", "Sean Corbin"],
+  "final_score": {
+    "CLE": 97,
+    "DET": 107
+  },
+  "series_state_after_game": "DET leads 2-0",
+  "source_files": [
+    "20260507_CLEDET_book (1).pdf"
+  ],
+  "market_positions": [
+    {
+      "bet_type": "LiveFlow team total",
+      "market": "Cleveland team total over 99.5 points",
+      "side": "YES",
+      "line": 99.5,
+      "odds": "+113",
+      "stake": 5.00,
+      "max_payout": 10.69,
+      "result": "LOSS",
+      "final_stat": 97,
+      "net": -5.00,
+      "trigger_window": "3Q live strike window",
+      "entry_score_context": "CLE 54 - DET 62, 3Q 7:10",
+      "model_note": "Entry was justified by suppressed first-half shooting, low break-even at +113, and expected catch-up script, but fourth-quarter shot quality and 3P failure prevented closeout."
+    }
+  ],
+  "quarter_score": {
+    "CLE": [18, 25, 32, 22],
+    "DET": [25, 29, 25, 28]
+  },
+  "team_efficiency_summary": {
+    "CLE": {
+      "fg": "34-81",
+      "fg_pct": 42.0,
+      "three_pt": "7-32",
+      "three_pt_pct": 21.9,
+      "ft": "22-27",
+      "ft_pct": 81.5,
+      "rebounds": 36,
+      "assists": 20,
+      "turnovers": 11,
+      "points_in_paint": 52,
+      "second_chance_points": 22,
+      "fast_break_points": 4
+    },
+    "DET": {
+      "fg": "39-80",
+      "fg_pct": 48.8,
+      "three_pt": "14-28",
+      "three_pt_pct": 50.0,
+      "ft": "15-20",
+      "ft_pct": 75.0,
+      "rebounds": 42,
+      "assists": 21,
+      "turnovers": 13,
+      "points_in_paint": 42,
+      "second_chance_points": 16,
+      "fast_break_points": 13
+    }
+  },
+  "player_summary": {
+    "CLE": {
+      "Donovan Mitchell": {"points": 31, "rebounds": 6, "assists": 3, "fg": "11-24", "three_pt": "2-9"},
+      "Jarrett Allen": {"points": 22, "rebounds": 7, "assists": 3, "fg": "7-9", "ft": "8-10"},
+      "James Harden": {"points": 10, "rebounds": 6, "assists": 3, "fg": "3-13", "three_pt": "0-4", "turnovers": 4},
+      "Evan Mobley": {"points": 9, "rebounds": 1, "assists": 4, "blocks": 3}
+    },
+    "DET": {
+      "Cade Cunningham": {"points": 25, "rebounds": 4, "assists": 10, "fg": "7-14", "three_pt": "3-6", "ft": "8-8"},
+      "Tobias Harris": {"points": 21, "rebounds": 7, "fg": "9-16", "three_pt": "2-3"},
+      "Duncan Robinson": {"points": 17, "three_pt": "5-9", "steals": 3},
+      "Daniss Jenkins": {"points": 14, "rebounds": 6, "assists": 4},
+      "Jalen Duren": {"points": 8, "rebounds": 10}
+    }
+  },
+  "game_flow_phases": [
+    {
+      "phase": "1Q",
+      "score": "DET 25 - CLE 18",
+      "read": "Detroit established the defensive pressure profile immediately. Cleveland had five turnovers and shot 36.8% from the field with only one made three. Detroit converted early pressure into transition and spacing rhythm."
+    },
+    {
+      "phase": "2Q",
+      "score": "DET 29 - CLE 25",
+      "read": "Detroit extended the lead to 54-43 at halftime. Cleveland remained within striking range because of free throws and Allen interior scoring, but Harden and the perimeter group were still inefficient."
+    },
+    {
+      "phase": "3Q",
+      "score": "CLE 32 - DET 25",
+      "read": "This was the live strike window. Cleveland cleaned up turnovers to zero for the quarter, shot 55% from the field and 57.1% from three, cutting the game to 79-75. The CLE TT over 99.5 entry became live with a plausible path."
+    },
+    {
+      "phase": "4Q",
+      "score": "DET 28 - CLE 22",
+      "read": "The ticket failed in the closing segment. Cleveland shot 8-for-23 and 0-for-11 from three in the fourth. Detroit stabilized behind Cunningham shot-making and late free throws. Cleveland finished three points short of the 100-point threshold."
+    }
+  ],
+  "pivotal_moments": [
+    {
+      "time": "1Q early",
+      "moment": "Detroit forced three Cleveland turnovers inside the first three minutes and jumped to a 12-5 lead.",
+      "model_relevance": "Confirms Detroit pressure can suppress Cleveland early possession quality and create negative first-half team-total drift."
+    },
+    {
+      "time": "3Q 6:29 to 2:06",
+      "moment": "Cleveland made its comeback push behind Mitchell threes, Allen paint touches and Strus perimeter support, narrowing the gap to one.",
+      "model_relevance": "Validated the LiveFlow strike logic but only for short-window scoring bursts, not full-game closeout reliability."
+    },
+    {
+      "time": "4Q 10:19",
+      "moment": "Cleveland briefly took the lead 81-79, but Detroit immediately answered with Harris and Robinson scoring.",
+      "model_relevance": "Cleveland comeback scripts remain fragile when Detroit can re-open spacing through Cunningham/Robinson actions."
+    },
+    {
+      "time": "4Q final 3:13 to 0:22.7",
+      "moment": "Detroit closed the game from 98-91 to 107-97 while Cleveland missed several perimeter attempts.",
+      "model_relevance": "Late-game Cavs overs require a better shot-quality/three-point stabilizer before firing."
+    }
+  ],
+  "model_diagnostics": {
+    "ticket_result": "MISS_REGISTERED",
+    "edge_call_status": "EDGE_CALL_ACTIVE",
+    "primary_failure_mode": "FOURTH_QUARTER_SHOT_QUALITY_COLLAPSE",
+    "secondary_failure_modes": [
+      "CLEVELAND_3P_REGRESSION_NOT_REALIZED",
+      "HARDEN_USAGE_INEFFICIENCY",
+      "DETROIT_CLOSEOUT_SPACING_STABILIZER",
+      "TEAM_TOTAL_HOOK_RANGE_MISS"
+    ],
+    "what_model_got_right": [
+      "Cleveland had a real live recovery window in the third quarter.",
+      "The +113 price was a favorable market entry relative to break-even probability.",
+      "Detroit's pressure profile was correctly identified as the main threat to Cleveland scoring rhythm."
+    ],
+    "what_model_missed": [
+      "Cleveland's fourth-quarter three-point failure was not penalized enough.",
+      "Harden's low-efficiency usage dragged the offense more than expected.",
+      "Detroit's late-game response after Cleveland took the lead was stronger than projected."
+    ]
+  },
+  "rolling_window_notes_for_game3": [
+    "Detroit pressure is now a two-game stable feature, not a one-game anomaly.",
+    "Cleveland team total overs need stricter late-game shot-quality confirmation, especially when Harden is inefficient and Strus is cold.",
+    "Mitchell can carry scoring bursts, but one-player surge scripts are fragile against Detroit's depth and spacing counters.",
+    "Jarrett Allen interior scoring was efficient and should be treated as a Cleveland stabilizer, but not enough alone for team-total overs without perimeter conversion.",
+    "Cade Cunningham closeout profile should receive a 4Q stability boost in live spread and Pistons team total modeling."
+  ],
+  "recommended_patches": [
+    {
+      "patch_id": "CLE_LATE_3P_DEPENDENCY_GATE",
+      "trigger": "Cleveland live team total over requires at least neutral 3P form or a clear foul-extension path after 3Q.",
+      "action": "Downgrade CLE TT overs by 4-7 percentage points when 4Q reliance shifts to Mitchell/Harden perimeter creation without Strus support."
+    },
+    {
+      "patch_id": "DET_CLOSEOUT_SPACING_STABILIZER",
+      "trigger": "Detroit leading or tied in final six minutes with Cunningham plus Robinson/Harris spacing active.",
+      "action": "Boost Detroit late-game scoring floor and reduce opposing comeback/cover probability."
+    },
+    {
+      "patch_id": "HARDEN_USAGE_DRAG_FLAG",
+      "trigger": "Harden below 40% FG with multiple turnovers entering second half.",
+      "action": "Reduce Cleveland team total mean by 2.5 to 4.0 unless assist creation or free-throw rate offsets."
+    }
+  ],
+  "final_grade": {
+    "bet_grade": "C+ process, loss result",
+    "model_confidence_adjustment": "Downgrade future CLE live TT overs unless late-game shot profile confirms.",
+    "rolling_window_weight": "High for Detroit defensive pressure and Cleveland late-game shot-quality risk; medium for total projections because Cleveland nearly reached threshold despite poor 3P shooting."
+  }
+}
