@@ -1,0 +1,218 @@
+{
+  "postmortem_id": "NBA_POSTMORTEM_2026_05_09_DET_CLE_G3",
+  "registry": "Backtest_Logbook",
+  "folder": "Backtest_Logbook/NBA/Rolling_Window_Series",
+  "series_id": "2026_ECSF_CLE_DET",
+  "game_number": 3,
+  "date": "2026-05-09",
+  "matchup": "Detroit Pistons at Cleveland Cavaliers",
+  "venue": "Rocket Arena, Cleveland, OH",
+  "officials": [
+    "Scott Foster",
+    "Courtney Kirkland",
+    "Pat Fraher",
+    "Tre Maddox"
+  ],
+  "final_score": {
+    "DET": 109,
+    "CLE": 116
+  },
+  "series_state_after_game": "DET leads 2-1",
+  "source_files": [
+    "20260509_DETCLE_book (2).pdf",
+    "Kalshi position screenshots: CLE TT Over 117.5, No CLE by over 6.5"
+  ],
+  "market_positions": [
+    {
+      "bet_type": "LiveFlow team total",
+      "market": "Cleveland team total over 117.5 points",
+      "side": "YES",
+      "line": 117.5,
+      "odds": "+134",
+      "stake": 9.49,
+      "max_payout": 22.22,
+      "result": "LOSS",
+      "final_stat": 116,
+      "net": -9.49,
+      "trigger_window": "Halftime LiveFlow strike",
+      "entry_score_context": "DET 48 - CLE 64 at halftime; Cleveland needed 54 second-half points to clear 117.5",
+      "model_note": "Entry over-weighted first-half efficiency and home-control game script. Cleveland scored only 52 in the second half after shooting regression and a 19-point third quarter, missing the team total by 1.5 points."
+    },
+    {
+      "bet_type": "LiveFlow spread / margin band",
+      "market": "No - Cleveland wins by over 6.5 points",
+      "side": "NO",
+      "line": 6.5,
+      "odds": "-108",
+      "stake": 7.77,
+      "max_payout": 15.01,
+      "result": "LOSS",
+      "final_stat": "CLE won by 7",
+      "net": -7.77,
+      "trigger_window": "Late game margin-band capture",
+      "entry_score_context": "Final margin landed CLE +7, crossing the 6.5 threshold by 0.5 points",
+      "model_note": "This was a margin-band hook failure. The model correctly identified Detroit competitiveness but failed to protect against the final free-throw/margin expansion path."
+    }
+  ],
+  "quarter_score": {
+    "DET": [30, 18, 33, 28],
+    "CLE": [32, 32, 19, 33]
+  },
+  "team_efficiency_summary": {
+    "DET": {
+      "fg": "41-91",
+      "fg_pct": 45.1,
+      "three_pt": "9-25",
+      "three_pt_pct": 36.0,
+      "ft": "18-22",
+      "ft_pct": 81.8,
+      "rebounds": 40,
+      "offensive_rebounds": 17,
+      "assists": 23,
+      "turnovers": 15,
+      "points_in_paint": 60,
+      "second_chance_points": 19,
+      "fast_break_points": 11,
+      "turnover_points_allowed": 19
+    },
+    "CLE": {
+      "fg": "43-74",
+      "fg_pct": 58.1,
+      "three_pt": "12-32",
+      "three_pt_pct": 37.5,
+      "ft": "18-28",
+      "ft_pct": 64.3,
+      "rebounds": 33,
+      "offensive_rebounds": 5,
+      "assists": 22,
+      "turnovers": 15,
+      "points_in_paint": 54,
+      "second_chance_points": 11,
+      "fast_break_points": 10,
+      "turnover_points_allowed": 27
+    }
+  },
+  "player_summary": {
+    "DET": {
+      "Cade Cunningham": {"points": 27, "rebounds": 10, "assists": 10, "fg": "10-27", "three_pt": "2-6", "turnovers": 8},
+      "Tobias Harris": {"points": 21, "rebounds": 5, "fg": "7-14", "three_pt": "2-3", "ft": "5-5"},
+      "Duncan Robinson": {"points": 15, "rebounds": 3, "assists": 4, "steals": 5, "three_pt": "4-7"},
+      "Jalen Duren": {"points": 11, "rebounds": 4, "fg": "5-8"},
+      "Paul Reed": {"points": 11, "rebounds": 3, "fg": "4-4", "plus_minus": 11}
+    },
+    "CLE": {
+      "Donovan Mitchell": {"points": 35, "rebounds": 10, "assists": 4, "fg": "13-24", "three_pt": "2-8", "ft": "7-8"},
+      "James Harden": {"points": 19, "rebounds": 2, "assists": 7, "fg": "8-14", "three_pt": "3-7", "turnovers": 3},
+      "Jarrett Allen": {"points": 18, "rebounds": 4, "fg": "7-9", "ft": "4-7"},
+      "Evan Mobley": {"points": 13, "rebounds": 8, "assists": 4, "blocks": 2, "ft": "5-10"},
+      "Dennis Schroder": {"points": 11, "fg": "4-5", "three_pt": "3-3"}
+    }
+  },
+  "game_flow_phases": [
+    {
+      "phase": "1Q",
+      "score": "CLE 32 - DET 30",
+      "read": "Cleveland opened extremely efficient at 72.2% FG and 57.1% from three, but the early warning was already present: six Cavaliers turnovers and Detroit generating 30 points despite trailing by two."
+    },
+    {
+      "phase": "2Q",
+      "score": "CLE 32 - DET 18",
+      "read": "This created the halftime strike. Cleveland reached 64 points, Detroit shot 0-for-10 from three in the quarter, and the live team-total over looked mathematically live. The issue: the model treated Detroit's 2Q miss pattern as sustainable defensive control instead of regression risk."
+    },
+    {
+      "phase": "3Q",
+      "score": "DET 33 - CLE 19",
+      "read": "The ticket deteriorated immediately. Cleveland shot 8-for-19 and 2-for-11 from three, committed five turnovers, and Detroit scored 33 on 56.5% shooting. This was the key model failure quarter."
+    },
+    {
+      "phase": "4Q",
+      "score": "CLE 33 - DET 28",
+      "read": "Cleveland recovered enough to win but not enough for the team total. Late free throws and Harden's closing three pushed the final margin to seven, which also burned the NO Cleveland by over 6.5 ticket by a half-point."
+    }
+  ],
+  "pivotal_moments": [
+    {
+      "time": "Halftime",
+      "moment": "Cleveland led 64-48 after shooting 68.6% FG and 53.8% from three in the first half.",
+      "model_relevance": "This created a false-positive LiveFlow over signal because the model did not apply a strong enough extreme-efficiency regression penalty."
+    },
+    {
+      "time": "3Q 7:23 to 3Q 2:28",
+      "moment": "Detroit cut a 69-54 deficit to a 76-74 lead through Cunningham, Thompson, Robinson and Reed pressure actions.",
+      "model_relevance": "Detroit's Game 1 and Game 2 pressure continuity showed up again. The rolling window should have weighted DET second-half correction higher."
+    },
+    {
+      "time": "4Q 4:57",
+      "moment": "Tobias Harris put Detroit ahead 101-100 with a three, confirming Cleveland's halftime lead was not stable enough for a runaway/team-total extension script.",
+      "model_relevance": "The spread/margin model must treat Detroit as a live backdoor and late lead-change threat, even when Cleveland owns the first-half efficiency edge."
+    },
+    {
+      "time": "4Q final 25.9 seconds",
+      "moment": "James Harden hit a late three to push Cleveland to 113, then Mitchell free throws moved the final to 116-109.",
+      "model_relevance": "Free-throw closeout helped margin expansion but Cleveland still finished below the team-total threshold. Spread-band NO positions require endgame foul-margin protection."
+    }
+  ],
+  "model_diagnostics": {
+    "ticket_result": "MISS_REGISTERED",
+    "edge_call_status": "EDGE_CALL_ACTIVE",
+    "session_result": {
+      "record": "0-2",
+      "net": -17.26,
+      "markets": ["CLE team total over", "NO CLE by over 6.5"]
+    },
+    "primary_failure_mode": "HALFTIME_EXTREME_EFFICIENCY_OVERWEIGHT",
+    "secondary_failure_modes": [
+      "DET_SECOND_HALF_PRESSURE_REGRESSION_UNDERWEIGHTED",
+      "CLE_THIRD_QUARTER_SHOT_QUALITY_COLLAPSE",
+      "TURNOVER_DRAG_NOT_PRICED_AGGRESSIVELY_ENOUGH",
+      "MARGIN_BAND_HOOK_BURN",
+      "LIVEFLOW_STAKE_ESCALATION_AFTER_LOSING_SEQUENCE"
+    ],
+    "what_model_got_right": [
+      "Cleveland remained the correct game winner after halftime.",
+      "Cleveland had enough offensive creation to reach the 110s despite a 3Q collapse.",
+      "Detroit's competitiveness and pressure profile were visible in the rolling window."
+    ],
+    "what_model_missed": [
+      "Cleveland's first-half 68.6% FG was not sustainable and required an automatic mean haircut.",
+      "Detroit's second-half adjustment profile should have been boosted after Game 1 and Game 2 pressure continuity.",
+      "The model failed to separate winner projection from team-total projection; Cleveland could win while still missing 117.5.",
+      "The margin-band position ignored late-game free-throw expansion risk around 5.5 to 7.5."
+    ]
+  },
+  "rolling_window_notes_for_game4": [
+    "Detroit pressure is now a three-game stable feature and must be treated as a primary series input, not variance.",
+    "Cleveland halftime overs require a regression haircut when first-half FG% exceeds 60% or 3P% exceeds 45% with elevated turnovers.",
+    "Cleveland can win with Mitchell/Harden shot-making, but team-total overs above 115 require verified 3Q stability or foul-extension path.",
+    "Detroit offensive rebounding and second-chance pressure remain meaningful: DET had 17 offensive rebounds and 19 second-chance points in Game 3.",
+    "Do not attack narrow NO margin bands against Cleveland when late foul sequence can push 4-5 point wins into 7-point outcomes.",
+    "After consecutive LiveFlow misses, enforce stake reset to micro-unit sizing until two clean confirmations occur."
+  ],
+  "recommended_patches": [
+    {
+      "patch_id": "HALFTIME_EXTREME_EFFICIENCY_REGRESSION_GATE",
+      "trigger": "Team has 60+ halftime points while shooting 60%+ FG or 45%+ from three.",
+      "action": "Reduce second-half projected scoring mean by 4.5 to 7.0 points unless pace, foul rate, and shot-quality data independently confirm sustainability."
+    },
+    {
+      "patch_id": "DET_SECOND_HALF_PRESSURE_STABILITY_BOOST",
+      "trigger": "Detroit opponent has 7+ first-half turnovers or DET has shown multi-game pressure continuity in the series.",
+      "action": "Boost DET second-half defensive disruption and opponent turnover drag; reduce opposing team-total over probability by 3-6 percentage points."
+    },
+    {
+      "patch_id": "LIVEFLOW_LOSS_STREAK_STAKE_RESET",
+      "trigger": "Two or more consecutive LiveFlow misses or user notes emotional/financial pressure.",
+      "action": "Force next entries to micro-unit sizing only, cap exposure at one open ticket, and disable add-on stakes until one full clean win cycle."
+    },
+    {
+      "patch_id": "MARGIN_BAND_FREE_THROW_EXPANSION_FILTER",
+      "trigger": "Taking NO on favorite win margin over 4.5-7.5 while favorite is likely to lead inside final minute.",
+      "action": "Downgrade NO side by 5-8 percentage points unless dog has timeout/possession leverage and favorite FT profile is weak."
+    }
+  ],
+  "final_grade": {
+    "bet_grade": "D result, C- process",
+    "model_confidence_adjustment": "Immediate model-check required before next aggressive LiveFlow exposure. Prioritize regression gates and stake reset.",
+    "rolling_window_weight": "High. This game confirms Detroit pressure continuity, Cleveland team-total fragility after hot halves, and margin-band hook risk."
+  }
+}
