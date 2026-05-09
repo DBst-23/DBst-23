@@ -1,0 +1,163 @@
+{
+  "postmortem_id": "NBA_POSTMORTEM_2026_WCSF_SAS_MIN_G3",
+  "registry": "Backtest_Logbook",
+  "folder": "Backtest_Logbook/NBA/Rolling_Window_Series/",
+  "series_id": "2026_WCSF_MIN_SAS",
+  "game_number": 3,
+  "date": "2026-05-08",
+  "created_from_conversation": "Charlotte NBA LiveFlow workflow",
+  "status": "FINALIZED_LOGGED",
+  "source_summary": {
+    "official_box_source": "NBA official scorer report uploaded by user",
+    "recap_source": "AP recap supplied by user",
+    "venue": "Target Center, Minneapolis, MN",
+    "officials": ["Tony Brothers", "Tyler Ford", "Jacyn Goble", "Eric Dalen"]
+  },
+  "matchup": {
+    "away": "San Antonio Spurs",
+    "home": "Minnesota Timberwolves",
+    "final_score": {"SAS": 115, "MIN": 108},
+    "series_after_game": "SAS leads 2-1"
+  },
+  "quarter_scores": {
+    "SAS": [23, 28, 35, 29],
+    "MIN": [22, 29, 28, 29],
+    "halftime": {"SAS": 51, "MIN": 51},
+    "through_3q": {"SAS": 86, "MIN": 79},
+    "final_total": 223
+  },
+  "primary_box_score_drivers": {
+    "SAS": {
+      "Victor Wembanyama": {"pts": 39, "reb": 15, "ast": 1, "blk": 5, "fg": "13-18", "three_pt": "3-5", "ft": "10-12", "plus_minus": 16},
+      "DeAaron Fox": {"pts": 17, "reb": 3, "ast": 5, "fg": "7-19", "plus_minus": -2},
+      "Stephon Castle": {"pts": 13, "reb": 4, "ast": 12, "plus_minus": 17},
+      "Julian Champagnie": {"pts": 6, "reb": 12, "oreb": 4}
+    },
+    "MIN": {
+      "Anthony Edwards": {"pts": 32, "reb": 14, "ast": 6, "fg": "12-26", "three_pt": "3-9"},
+      "Naz Reid": {"pts": 18, "reb": 9, "ast": 5, "three_pt": "4-8"},
+      "Jaden McDaniels": {"pts": 17, "reb": 7, "fg": "5-22"},
+      "Julius Randle": {"pts": 12, "reb": 6, "fg": "3-12", "fouls": 5},
+      "Rudy Gobert": {"pts": 13, "reb": 7, "blk": 3}
+    }
+  },
+  "team_level_diagnostics": {
+    "shooting": {
+      "SAS_fg_pct": 45.9,
+      "SAS_3p_pct": 36.4,
+      "MIN_fg_pct": 38.4,
+      "MIN_3p_pct": 35.0
+    },
+    "rebounding": {
+      "SAS_total_reb": 48,
+      "MIN_total_reb": 54,
+      "MIN_second_chance_points": 30,
+      "SAS_second_chance_points": 12
+    },
+    "paint_and_transition": {
+      "SAS_paint_points": 46,
+      "MIN_paint_points": 38,
+      "SAS_fast_break_points": 13,
+      "MIN_fast_break_points": 7
+    },
+    "game_flow": {
+      "biggest_SAS_lead": 15,
+      "biggest_MIN_lead": 4,
+      "lead_changes": 6,
+      "ties": 3
+    }
+  },
+  "game_phase_analysis": {
+    "early_game": "San Antonio opened with a Wembanyama pressure burst and Minnesota missed its first 12 shots before stabilizing through Edwards shot-making and offensive rebounding.",
+    "second_quarter": "Minnesota fought back to a 51-51 halftime tie behind Edwards, McDaniels, Gobert putbacks, and second-chance pressure.",
+    "third_quarter": "Critical model phase. SAS won the 3Q 35-28 behind 6-of-10 three-point shooting and cleaner halfcourt spacing. This created the live total danger zone and pushed SAS back outside the 5.5 spread pocket.",
+    "fourth_quarter": "Wembanyama controlled the close despite foul pressure, scoring 16 in the 4Q. Minnesota cut it to one at 99-98, but SAS answered through Champagnie spacing, Wembanyama isolation/three-point shot-making, and late free throws."
+  },
+  "liveflow_investments": [
+    {
+      "market": "Spread",
+      "selection": "No - San Antonio wins by over 5.5 points",
+      "stake": 5.00,
+      "entry_odds": -108,
+      "result": "LOSS",
+      "final_margin": 7,
+      "net": -5.00,
+      "diagnostic": "Correct competitive-game thesis, but Wembanyama 4Q scoring and SAS late free throws broke the 5.5 margin band."
+    },
+    {
+      "market": "Total Points",
+      "selection": "No - Over 206.5 points scored",
+      "stake": 5.00,
+      "entry_odds": 100,
+      "action": "CASHED_OUT",
+      "cashout_return": 1.44,
+      "final_total": 223,
+      "net": -3.56,
+      "diagnostic": "Good damage-control exit. 3Q pace spike and SAS efficiency flipped under probability negative before the final went over."
+    },
+    {
+      "market": "Player Rebounds",
+      "selection": "DeAaron Fox 4+ rebounds",
+      "stake": 2.50,
+      "entry_odds": 123,
+      "result": "LOSS",
+      "final_rebounds": 3,
+      "net": -2.50,
+      "diagnostic": "Hook-style live prop miss. Fox had 3 by end of 3Q but logged zero rebounds in Q4 as Wembanyama/Champagnie controlled late defensive boards."
+    }
+  ],
+  "liveflow_result_summary": {
+    "settled_record": "0-2",
+    "cashout_trades": 1,
+    "total_staked": 12.50,
+    "total_return": 1.44,
+    "net": -11.06,
+    "notes": "One cashout avoided full -5.00 total loss but overall slate remained negative due to spread margin and Fox rebound miss."
+  },
+  "model_hits": [
+    "Pregame competitive-game thesis was closer than Game 2 blowout profile; Wolves kept the game within single digits and had a late one-possession window.",
+    "Cashing out total under was correct once 3Q shot quality and pace moved against the position.",
+    "Wembanyama offensive takeover and foul-risk resilience were correctly identified as central forward variables."
+  ],
+  "model_misses": [
+    "Spread ticket underestimated Wembanyama fourth-quarter closeout scoring and Spurs late free-throw margin expansion.",
+    "Fox rebound 4+ overestimated guard rebound accumulation after halftime; late boards consolidated to Wembanyama and Champagnie.",
+    "Total under entry did not carry enough buffer against 3Q shooting acceleration and playoff close-game free throws."
+  ],
+  "patch_queue_additions": [
+    {
+      "patch": "WEMBANYAMA_CLOSEOUT_MARGIN_EXPANSION_GATE",
+      "trigger": "If SAS leads by 1-7 entering final 6:00 and Wembanyama is active despite foul trouble, widen SAS margin distribution by +1.5 to +2.5 points."
+    },
+    {
+      "patch": "GUARD_REBOUND_4Q_DECAY_FILTER",
+      "trigger": "For guard rebound ladders needing one board in 4Q, downgrade if elite bigs/long forwards are dominating defensive rebounding share and game is close."
+    },
+    {
+      "patch": "LIVE_UNDER_3Q_EFFICIENCY_KILL_SWITCH",
+      "trigger": "If 3Q combined scoring exceeds 60 with one team shooting 50%+ and late-game foul path is live, force cashout/no-add on full-game unders."
+    },
+    {
+      "patch": "MIN_SHORT_RANGE_SUPPRESSION_VS_WEMBY",
+      "trigger": "Downgrade McDaniels/Randle rim and short-mid efficiency when Wembanyama is active and generating 4+ stocks or strong paint deterrence."
+    }
+  ],
+  "forward_model_notes": [
+    "Game 4 forecast must treat Wembanyama as the series-control variable, not merely a high-usage scorer.",
+    "Minnesota can generate rebound volume and second-chance points, but efficiency suppression around the rim is still persistent.",
+    "Edwards minutes/usage are stable enough to carry MIN offense, but supporting-shot quality from Randle/McDaniels remains a risk flag.",
+    "Do not chase under positions without a larger buffer; this series can look slow early and still break totals through 3Q/4Q efficiency and free throws.",
+    "Spread bands around SAS -5.5 remain fragile because Wembanyama closeout possessions can turn a 2-4 point game into a 6-8 point final margin."
+  ],
+  "tags": [
+    "ROLLING_WINDOW_SERIES",
+    "WCSF_MIN_SAS",
+    "GAME3_POSTMORTEM",
+    "WEMBANYAMA_CLOSEOUT_DOMINANCE",
+    "FOX_REBOUND_HOOK_MISS",
+    "LIVE_UNDER_CASHOUT_CORRECT",
+    "SPREAD_MARGIN_BAND_FAILURE",
+    "MIN_SECOND_CHANCE_EDGE_NOT_ENOUGH",
+    "GAME4_FORECAST_INPUT"
+  ]
+}
