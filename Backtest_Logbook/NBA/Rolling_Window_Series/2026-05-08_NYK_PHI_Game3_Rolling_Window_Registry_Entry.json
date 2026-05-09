@@ -1,0 +1,37 @@
+{
+  "registry_entry_id": "RW_NYK_PHI_2026-05-08_G3",
+  "series_id": "2026_ECSF_PHI_NYK",
+  "game_number": 3,
+  "date": "2026-05-08",
+  "postmortem_file": "Backtest_Logbook/NBA/Rolling_Window_Series/2026-05-08_NYK_PHI_Game3_Postmortem.json",
+  "registration_status": "CONFIRMED_LOGGED",
+  "series_state_after_game": "NYK leads 3-0",
+  "final_score": {
+    "NYK": 108,
+    "PHI": 94
+  },
+  "edge_results": {
+    "record": "1-0",
+    "net": 9.70,
+    "ticket": "NYK -5.5 LIVE halftime -104",
+    "stake": 10.00,
+    "payout": 19.70
+  },
+  "key_tags": [
+    "LIVEFLOW_HALFTIME_CAPTURE_SUCCESS",
+    "BRUNSON_CLOSER_GATE_CONFIRMED",
+    "PHI_Q1_HEATER_REGRESSION_CONFIRMED",
+    "SECOND_CHANCE_EDGE_ACTIVE",
+    "REBOUND_ASYMMETRY_ACTIVE",
+    "NYK_ROAD_CONTROL_CONFIRMED",
+    "EMBIID_RETURN_NOT_ENOUGH",
+    "OG_ANUNOBY_OUT_ROTATION_STABLE"
+  ],
+  "rolling_window_use": "High-weight Game 4 input. Game 3 validated NYK road control, Brunson closer leverage, rebounding edge, and the deweighting of PHI early heater stretches. Use as primary Game 4 forecast anchor over Game 1 blowout noise.",
+  "forward_model_notes": [
+    "NYK second-chance and defensive rebounding advantage remains live even with OG Anunoby out.",
+    "PHI first-quarter scoring bursts are dangerous but should be deweighted if driven by single-player shooting variance.",
+    "Embiid active status does not automatically upgrade PHI unless mobility and rebounding control improve.",
+    "Brunson closeout usage remains the primary late-game margin-expansion trigger."
+  ]
+}
