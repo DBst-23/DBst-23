@@ -1,0 +1,239 @@
+{
+  "game_id": "NYK_PHI_2026-05-08_G3",
+  "registry": "Backtest_Logbook/NBA/Rolling_Window_Series",
+  "series_id": "2026_ECSF_PHI_NYK",
+  "round": "Eastern Conference Semifinals",
+  "game_number": 3,
+  "date": "2026-05-08",
+  "venue": "Xfinity Mobile Arena, Philadelphia, PA",
+  "source_files": [
+    {
+      "type": "nba_official_scorers_report",
+      "file": "/mnt/data/20260508_NYKPHI_book (3).pdf",
+      "citation": "turn238file0"
+    },
+    {
+      "type": "ap_recap_user_supplied",
+      "headline": "Jalen Brunson scores 33 points and helps Knicks take 3-0 lead over 76ers with 108-94 Game 3 win"
+    }
+  ],
+  "final_score": {
+    "NYK": 108,
+    "PHI": 94
+  },
+  "series_state_after_game": "NYK leads 3-0",
+  "market_log": {
+    "liveflow_mode": "LIVEFLOW_STRIPPED_MODE_ACTIVE",
+    "liveflow_positions": [
+      {
+        "market": "spread",
+        "selection": "NYK -5.5",
+        "entry_time": "halftime",
+        "entry_score": {
+          "NYK": 60,
+          "PHI": 52
+        },
+        "odds": -104,
+        "stake": 10.0,
+        "payout": 19.7,
+        "net_profit": 9.7,
+        "result": "WIN",
+        "closing_final_margin": 14
+      }
+    ],
+    "session_record": "1-0",
+    "session_net": 9.7
+  },
+  "official_box_summary": {
+    "team_totals": {
+      "NYK": {
+        "FG": "38-76",
+        "FG_pct": 50.0,
+        "3P": "9-27",
+        "3P_pct": 33.3,
+        "FT": "23-32",
+        "FT_pct": 71.9,
+        "REB": 49,
+        "AST": 25,
+        "TO": 14,
+        "PTS": 108
+      },
+      "PHI": {
+        "FG": "36-84",
+        "FG_pct": 42.9,
+        "3P": "9-32",
+        "3P_pct": 28.1,
+        "FT": "13-16",
+        "FT_pct": 81.2,
+        "REB": 33,
+        "AST": 23,
+        "TO": 11,
+        "PTS": 94
+      }
+    },
+    "period_scores": {
+      "Q1": {
+        "NYK": 27,
+        "PHI": 31
+      },
+      "Q2": {
+        "NYK": 33,
+        "PHI": 21
+      },
+      "Q3": {
+        "NYK": 25,
+        "PHI": 24
+      },
+      "Q4": {
+        "NYK": 23,
+        "PHI": 18
+      }
+    },
+    "key_edges": {
+      "rebounds": {
+        "NYK": 49,
+        "PHI": 33,
+        "margin": 16
+      },
+      "second_chance_points": {
+        "NYK": 20,
+        "PHI": 11
+      },
+      "points_in_paint": {
+        "NYK": 52,
+        "PHI": 46
+      },
+      "biggest_lead": {
+        "NYK": 16,
+        "PHI": 12
+      },
+      "lead_changes": 1,
+      "times_tied": 2
+    }
+  },
+  "player_notes": {
+    "Jalen Brunson": {
+      "PTS": 33,
+      "AST": 9,
+      "REB": 5,
+      "FG": "11-22",
+      "3P": "3-8",
+      "FT": "8-9",
+      "model_tag": "STAR_ASCENSION_CONFIRMED"
+    },
+    "Mikal Bridges": {
+      "PTS": 23,
+      "REB": 3,
+      "FG": "8-14",
+      "plus_minus": 15,
+      "model_tag": "TWO_WAY_STABILIZER"
+    },
+    "Josh Hart": {
+      "PTS": 12,
+      "REB": 11,
+      "AST": 3,
+      "model_tag": "REBOUND_ASYMMETRY_DRIVER"
+    },
+    "Karl-Anthony Towns": {
+      "PTS": 8,
+      "REB": 12,
+      "AST": 7,
+      "PF": 5,
+      "model_tag": "PLAYMAKING_BIG_AND_DREB_STABILIZER"
+    },
+    "Landry Shamet": {
+      "PTS": 15,
+      "FG": "5-6",
+      "3P": "2-3",
+      "model_tag": "ROTATION_OUTPERFORMANCE_WITH_OG_OUT"
+    },
+    "Paul George": {
+      "PTS": 15,
+      "Q1_PTS": 15,
+      "second_half_PTS": 0,
+      "FG": "6-18",
+      "model_tag": "EARLY_HEATER_REGRESSION_CONFIRMED"
+    },
+    "Joel Embiid": {
+      "PTS": 18,
+      "REB": 6,
+      "AST": 5,
+      "FG": "7-17",
+      "injury_context": "Returned from ankle/hip issues; mobility and conditioning still capped impact."
+    },
+    "Tyrese Maxey": {
+      "PTS": 17,
+      "AST": 7,
+      "FG": "8-12",
+      "usage_note": "Efficient but not enough volume to offset Knicks possession edge."
+    }
+  },
+  "game_phase_analysis": {
+    "Q1": "Philadelphia opened hot behind Paul George's 15-point burst and led by as many as 12, but New York stayed efficient and preserved the offensive glass.",
+    "Q2": "New York flipped the game 33-21. Bridges, Brunson, Shamet, and the bench stabilized the offense while Philadelphia's shot quality and ball security degraded.",
+    "Q3": "Philadelphia cut the deficit to two late in the third, but New York answered through Brunson free throws and Shamet's late three to restore a nine-point cushion.",
+    "Q4": "Knicks closed with composure. Brunson, Bridges, and Hart generated the decisive separation, while Philadelphia scored only 18 points in the period."
+  },
+  "pivotal_moments": [
+    {
+      "time": "8:20 Q2",
+      "event": "Jose Alvarado transition three gave NYK first lead at 38-35",
+      "tag": "MOMENTUM_FLIP"
+    },
+    {
+      "time": "4:12 Q2",
+      "event": "Mikal Bridges 25-foot three pushed NYK to 52-42",
+      "tag": "SPREAD_EXTENSION_TRIGGER"
+    },
+    {
+      "time": "0:07 Q3",
+      "event": "Landry Shamet three stretched NYK lead to 85-76",
+      "tag": "HALFTIME_POSITION_PROTECTION"
+    },
+    {
+      "time": "7:03 Q4",
+      "event": "Brunson three made it 95-86 after PHI trimmed to four",
+      "tag": "CLOSER_GATE_CONFIRMED"
+    },
+    {
+      "time": "3:46 Q4",
+      "event": "Bridges fast-break score pushed lead to 105-89",
+      "tag": "COVER_SEAL"
+    }
+  ],
+  "model_relevance_summary": {
+    "liveflow_read": "Correct. Halftime NYK -5.5 captured the moment when possession control, rebounding, and Philly Q1 heater regression converged.",
+    "rolling_window_translation": [
+      "Knicks remain highly live in road playoff environments when Brunson controls Q2/Q4 usage.",
+      "Philadelphia early hot starts should not be over-weighted when driven by a single scorer heater.",
+      "Without OG Anunoby, Knicks can still stabilize via Hart/Bridges/Shamet minutes, but rotation fatigue should be watched if series extends.",
+      "Embiid active status alone is not enough to upgrade PHI if mobility, rebounding, and transition defense remain compromised.",
+      "NYK second-chance and defensive rebounding advantage is now a high-weight series signal."
+    ],
+    "forward_game4_flags": [
+      "NYK_CLOSEOUT_SWEEP_PRESSURE_ON",
+      "PHI_ELIMINATION_URGENCY_VOLATILITY",
+      "EMBIID_MOBILITY_MONITOR",
+      "OG_ANUNOBY_STATUS_MONITOR",
+      "BRUNSON_CLOSER_GATE_ACTIVE",
+      "PHI_Q1_HEATER_DEWEIGHTING"
+    ]
+  },
+  "diagnostic_tags": [
+    "LIVEFLOW_HALFTIME_CAPTURE_SUCCESS",
+    "NYK_ROAD_CONTROL_CONFIRMED",
+    "BRUNSON_CLOSER_GATE_CONFIRMED",
+    "PHI_Q1_HEATER_REGRESSION_CONFIRMED",
+    "SECOND_CHANCE_EDGE_ACTIVE",
+    "REBOUND_ASYMMETRY_ACTIVE",
+    "EMBIID_RETURN_NOT_ENOUGH",
+    "KNICKS_FAN_CROWD_INVERSION_EFFECT",
+    "ROLLING_WINDOW_GAME3_LOGGED"
+  ],
+  "rolling_window_weight": {
+    "game4_forecast_weight": "HIGH",
+    "reason": "Competitive through three quarters before Knicks' closing execution separated; more predictive than Game 1 blowout and validates Game 2 close-game profile."
+  },
+  "created_by": "Charlotte",
+  "created_at": "2026-05-08T00:00:00Z"
+}
