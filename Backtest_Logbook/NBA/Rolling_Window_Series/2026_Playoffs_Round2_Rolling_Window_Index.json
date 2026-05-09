@@ -3,33 +3,35 @@
   "registry": "Backtest_Logbook",
   "purpose": "Series-level rolling-window tracker for NBA playoff postmortems, LiveFlow entries, edge calls, misses, and patch requirements.",
   "created_from_conversation": "Charlotte NBA LiveFlow workflow",
-  "last_updated": "2026-05-07",
+  "last_updated": "2026-05-08",
   "status": "ACTIVE",
   "folder_map": {
     "legacy_or_active_postmortem_folder": "nba_postmortems/",
     "standard_logbook_folder": "Backtest_Logbook/NBA/",
     "series_index_folder": "Backtest_Logbook/NBA/Rolling_Window_Series/",
-    "note": "Game 1 PHI_NYK and MIN_SAS postmortems were confirmed by user screenshot inside nba_postmortems, so the index now points to that folder for those files."
+    "note": "Game 1 PHI_NYK and MIN_SAS postmortems were confirmed by user screenshot inside nba_postmortems, so the index points to that folder for those files while finalized rolling-window game files are registered under Backtest_Logbook/NBA/Rolling_Window_Series/."
   },
   "series": [
     {
       "series_id": "2026_ECSF_PHI_NYK",
       "round": "Eastern Conference Semifinals",
       "teams": {"away_seed_context": "Philadelphia 76ers", "home_seed_context": "New York Knicks"},
-      "current_series_state": "NYK leads 2-0",
+      "current_series_state": "NYK leads 3-0",
       "games": [
         {"game_number": 1, "date": "2026-05-04", "final_score": {"PHI": 98, "NYK": 137}, "postmortem_file": "nba_postmortems/2026-05-04_PHI_NYK_G1_post-mortem.json", "registration_status": "CONFIRMED_BY_USER_SCREENSHOT", "rolling_window_use": "Context only; apply blowout deweighting due to PHI rest/fatigue disadvantage."},
-        {"game_number": 2, "date": "2026-05-06", "final_score": {"PHI": 102, "NYK": 108}, "postmortem_file": "Backtest_Logbook/NBA/2026-05-06_PHI_NYK_Game2_Postmortem.json", "registration_status": "CONFIRMED_LOGGED", "edge_results": {"record": "0-1", "net": -2.50}, "key_tags": ["GAME1_BLOWOUT_DEWEIGHTING_VALIDATED", "PHI_EMBIID_OUT_RESILIENCE", "CLOSING_MARGIN_HOOK_MISS", "BRUNSON_CLOSER_GATE_REQUIRED", "KAT_LATE_REBOUND_STABILIZER"], "rolling_window_use": "High-weight Game 3 input; close-game mechanics and Embiid-out rotation effects are more predictive than Game 1 margin."}
+        {"game_number": 2, "date": "2026-05-06", "final_score": {"PHI": 102, "NYK": 108}, "postmortem_file": "Backtest_Logbook/NBA/2026-05-06_PHI_NYK_Game2_Postmortem.json", "registration_status": "CONFIRMED_LOGGED", "edge_results": {"record": "0-1", "net": -2.50}, "key_tags": ["GAME1_BLOWOUT_DEWEIGHTING_VALIDATED", "PHI_EMBIID_OUT_RESILIENCE", "CLOSING_MARGIN_HOOK_MISS", "BRUNSON_CLOSER_GATE_REQUIRED", "KAT_LATE_REBOUND_STABILIZER"], "rolling_window_use": "High-weight Game 3 input; close-game mechanics and Embiid-out rotation effects are more predictive than Game 1 margin."},
+        {"game_number": 3, "date": "2026-05-08", "final_score": {"NYK": 109, "PHI": 94}, "postmortem_file": "Backtest_Logbook/NBA/Rolling_Window_Series/2026-05-08_NYK_PHI_Game3_Postmortem.json", "registration_status": "CONFIRMED_LOGGED", "edge_results": {"record": "1-0", "net": 9.70}, "key_tags": ["BRUNSON_CLOSEOUT_DOMINANCE", "NYK_ROAD_CROWD_EDGE", "PHI_EMBIID_RETURN_NOT_ENOUGH", "SHAMET_ROTATION_SPIKE", "GAME4_SWEEP_PRESSURE_INPUT"], "rolling_window_use": "High-weight Game 4 input; Knicks closing power and Sixers offensive fragility with limited Embiid are now primary forecast variables."}
       ]
     },
     {
       "series_id": "2026_WCSF_MIN_SAS",
       "round": "Western Conference Semifinals",
       "teams": {"away_seed_context": "Minnesota Timberwolves", "home_seed_context": "San Antonio Spurs"},
-      "current_series_state": "Series tied 1-1",
+      "current_series_state": "SAS leads 2-1",
       "games": [
         {"game_number": 1, "date": "2026-05-04", "final_score": {"MIN": 104, "SAS": 102}, "postmortem_file": "nba_postmortems/2026-05-04_MIN_SAS_G1_post-mortem.json", "registration_status": "CONFIRMED_BY_USER_SCREENSHOT", "rolling_window_use": "Use rebound tracking inputs, but cap confidence where Game 2 blowout minutes risk is possible."},
-        {"game_number": 2, "date": "2026-05-06", "final_score": {"MIN": 95, "SAS": 133}, "postmortem_file": "Backtest_Logbook/NBA/2026-05-06_MIN_SAS_Game2_Postmortem.json", "registration_status": "CONFIRMED_LOGGED", "edge_results": {"record": "0-3", "net": -19.17}, "key_tags": ["BLOWOUT_REGIME_FAILURE", "MIN_OFFENSIVE_COLLAPSE", "SPURS_GAME2_RESPONSE_SPIKE", "WEMBANYAMA_ATTACK_MODE_CONFIRMED", "FOX_ATTACK_MODE_CONFIRMED", "RANDLE_REBOUND_MINUTES_COMPRESSION", "GARBAGE_TIME_OVER_SPIKE", "BLOWOUT_PROP_MINUTES_KILL_SWITCH_REQUIRED"], "rolling_window_use": "High-weight Game 3 input for blowout-risk detection and Spurs pace/transition response; low-weight for normal competitive total projections due to garbage-time distortion."}
+        {"game_number": 2, "date": "2026-05-06", "final_score": {"MIN": 95, "SAS": 133}, "postmortem_file": "Backtest_Logbook/NBA/2026-05-06_MIN_SAS_Game2_Postmortem.json", "registration_status": "CONFIRMED_LOGGED", "edge_results": {"record": "0-3", "net": -19.17}, "key_tags": ["BLOWOUT_REGIME_FAILURE", "MIN_OFFENSIVE_COLLAPSE", "SPURS_GAME2_RESPONSE_SPIKE", "WEMBANYAMA_ATTACK_MODE_CONFIRMED", "FOX_ATTACK_MODE_CONFIRMED", "RANDLE_REBOUND_MINUTES_COMPRESSION", "GARBAGE_TIME_OVER_SPIKE", "BLOWOUT_PROP_MINUTES_KILL_SWITCH_REQUIRED"], "rolling_window_use": "High-weight Game 3 input for blowout-risk detection and Spurs pace/transition response; low-weight for normal competitive total projections due to garbage-time distortion."},
+        {"game_number": 3, "date": "2026-05-08", "final_score": {"SAS": 115, "MIN": 108}, "postmortem_file": "Backtest_Logbook/NBA/Rolling_Window_Series/2026-05-08_SAS_MIN_Game3_Postmortem.json", "registration_status": "CONFIRMED_LOGGED", "edge_results": {"settled_record": "0-2", "cashout_trades": 1, "net": -11.06}, "key_tags": ["WEMBANYAMA_CLOSEOUT_DOMINANCE", "FOX_REBOUND_HOOK_MISS", "LIVE_UNDER_CASHOUT_CORRECT", "SPREAD_MARGIN_BAND_FAILURE", "MIN_SECOND_CHANCE_EDGE_NOT_ENOUGH"], "rolling_window_use": "High-weight Game 4 input. Wembanyama closeout scoring, guard-rebound 4Q decay, and live-under efficiency kill-switch become active forward filters."}
       ]
     },
     {
@@ -69,7 +71,11 @@
     {"patch": "PLAYOFF_TT_UNDER_BUFFER_GATE", "source_game": "LAL@OKC Game 2", "trigger": "No playoff team-total under unless model median is at least 3.5 points below the live line."},
     {"patch": "HALFTIME_55_PLUS_UNDER_CAUTION", "source_game": "LAL@OKC Game 2", "trigger": "If target team has 55+ points at halftime, require clear pace decline plus FTA suppression before under entry."},
     {"patch": "STARTER_EXTENSION_4Q_GATE", "source_game": "LAL@OKC Game 2", "trigger": "For playoff spreads between 8 and 18 entering Q4, assume primary scorers remain active until under 4:00 unless lead reaches 20+."},
-    {"patch": "OKC_DEPTH_GARBAGE_TIME_OVER_SPIKE", "source_game": "LAL@OKC Game 2", "trigger": "When OKC bench scorers are active late, downgrade full-game and team-total unders because bench 3PA remains aggressive."}
+    {"patch": "OKC_DEPTH_GARBAGE_TIME_OVER_SPIKE", "source_game": "LAL@OKC Game 2", "trigger": "When OKC bench scorers are active late, downgrade full-game and team-total unders because bench 3PA remains aggressive."},
+    {"patch": "WEMBANYAMA_CLOSEOUT_MARGIN_EXPANSION_GATE", "source_game": "SAS@MIN Game 3", "trigger": "If SAS leads by 1-7 entering final 6:00 and Wembanyama is active despite foul trouble, widen SAS margin distribution by +1.5 to +2.5 points."},
+    {"patch": "GUARD_REBOUND_4Q_DECAY_FILTER", "source_game": "SAS@MIN Game 3", "trigger": "For guard rebound ladders needing one board in 4Q, downgrade if elite bigs/long forwards are dominating defensive rebounding share and game is close."},
+    {"patch": "LIVE_UNDER_3Q_EFFICIENCY_KILL_SWITCH", "source_game": "SAS@MIN Game 3", "trigger": "If 3Q combined scoring exceeds 60 with one team shooting 50%+ and late-game foul path is live, force cashout/no-add on full-game unders."},
+    {"patch": "MIN_SHORT_RANGE_SUPPRESSION_VS_WEMBY", "source_game": "SAS@MIN Game 3", "trigger": "Downgrade McDaniels/Randle rim and short-mid efficiency when Wembanyama is active and generating 4+ stocks or strong paint deterrence."}
   ],
   "workflow_rule": "Every finalized NBA postmortem should be registered either from the active nba_postmortems folder or the standard Backtest_Logbook/NBA folder, then indexed inside this rolling-window series file for forward Game N+1 forecasting."
 }
