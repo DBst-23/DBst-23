@@ -1,0 +1,350 @@
+{
+  "audit_id": "NBA_LIVEFLOW_MODEL_AUDIT_2026_05_10",
+  "created_date": "2026-05-10",
+  "registry": "Backtest_Logbook",
+  "folder": "Backtest_Logbook/NBA/Model_Audits",
+  "audit_scope": "Recent NBA playoff LiveFlow and rolling-window tickets across NYK/PHI, SAS/MIN, DET/CLE, OKC/LAL",
+  "status": "ACTIVE_MODEL_AUDIT_COMPLETE",
+  "bankroll_state": {
+    "reported_state": "Bankroll at $0 after NYK/PHI Game 4 losses",
+    "mode_after_audit": "PAPER_TRACKING_AND_COOLDOWN",
+    "active_lock": "BANKROLL_ZERO_COOLDOWN_LOCK",
+    "liveflow_aggressive_mode": false
+  },
+  "audit_summary": {
+    "tickets_reviewed": 12,
+    "wins": 1,
+    "losses": 9,
+    "cashouts_or_partial_losses": 2,
+    "primary_leak": "Live team-total markets were attacked with insufficient garbage-time and bench-unit tail modeling.",
+    "secondary_leak": "Bankroll and risk-control layer allowed aggressive exposure during an active drawdown.",
+    "core_diagnosis": "The model has often been directionally correct on game script, but has failed to convert that read into the correct derivative market. Starter benching helped player-prop fades but did not guarantee team-total unders. Live entries also lacked required margin buffer and were too vulnerable to one-quarter scoring tails, hooks, and late bench production."
+  },
+  "tickets": [
+    {
+      "ticket_id": "NYK_PHI_G3_LIVE_NYK_MINUS_5_5",
+      "date": "2026-05-08",
+      "game": "New York Knicks at Philadelphia 76ers Game 3",
+      "entry_window": "Halftime",
+      "market": "Spread",
+      "selection": "YES - New York wins by over 5.5 points",
+      "line": "NYK -5.5",
+      "entry_price": "-104",
+      "stake": 10.00,
+      "final_score": "NYK 108, PHI 94",
+      "result": "WIN",
+      "payout": 19.70,
+      "net": 9.70,
+      "miss_category": null,
+      "root_cause": "Strong read. Knicks control, Philadelphia late-game shotmaking limitations, and Brunson closer profile aligned.",
+      "patch_rule": "Retain as positive example: live spread entries are preferred when game-control edge is clear and lead state supports margin continuation."
+    },
+    {
+      "ticket_id": "SAS_MIN_G3_PREGAME_NO_SAS_BY_5_5",
+      "date": "2026-05-08",
+      "game": "San Antonio Spurs at Minnesota Timberwolves Game 3",
+      "entry_window": "Pregame",
+      "market": "Spread",
+      "selection": "NO - San Antonio wins by over 5.5 points",
+      "line": "SAS -5.5 fade",
+      "entry_price": "-108",
+      "stake": 5.00,
+      "final_score": "SAS 115, MIN 108",
+      "result": "LOSS",
+      "payout": 0.00,
+      "net": -5.00,
+      "miss_category": "MARGIN_BAND_HOOK_BURN",
+      "root_cause": "The handicap correctly expected a competitive game but failed by a thin margin band. Spurs won by 7, clearing the 5.5 threshold despite Minnesota staying live most of the second half.",
+      "patch_rule": "Do not attack NO/fade on a favorite margin unless projected favorite margin is at least 3.5 points below the market threshold. Reject if favorite has elite closer/paint anchor advantage."
+    },
+    {
+      "ticket_id": "SAS_MIN_G3_LIVE_NO_OVER_206_5",
+      "date": "2026-05-08",
+      "game": "San Antonio Spurs at Minnesota Timberwolves Game 3",
+      "entry_window": "Halftime",
+      "market": "Total",
+      "selection": "NO - Over 206.5 points scored",
+      "line": "Under/No 206.5 equivalent",
+      "entry_price": "+105 to +100 observed",
+      "stake": 5.00,
+      "final_score": "SAS 115, MIN 108",
+      "final_total": 223,
+      "result": "CASHOUT_PARTIAL_LOSS",
+      "payout": 1.44,
+      "net": -3.56,
+      "miss_category": "PACE_REACCELERATION_AND_TOTAL_TAIL",
+      "root_cause": "First-half tied game state created a false under look. Third-quarter pace and shotmaking reaccelerated, pushing total well past the live threshold.",
+      "patch_rule": "For tied/one-possession halftime games, reject full-game under/NO unless both teams show sub-46% eFG and possession count is materially below baseline."
+    },
+    {
+      "ticket_id": "SAS_MIN_G3_LIVE_FOX_4_REBOUNDS",
+      "date": "2026-05-08",
+      "game": "San Antonio Spurs at Minnesota Timberwolves Game 3",
+      "entry_window": "Halftime",
+      "market": "Player rebounds",
+      "selection": "YES - De'Aaron Fox 4+ rebounds",
+      "line": "4+ rebounds",
+      "entry_price": "+123",
+      "stake": 2.50,
+      "final_score": "SAS 115, MIN 108",
+      "result": "LOSS",
+      "payout": 0.00,
+      "net": -2.50,
+      "miss_category": "GUARD_REBOUND_DECAY",
+      "root_cause": "Guard rebound live ladder was overvalued after halftime. Remaining rebound chances consolidated toward frontcourt and high-minute wings rather than Fox.",
+      "patch_rule": "Reject guard rebound ladders after halftime unless player already has at least 75% of ladder target, minutes are secure, and team rebounding role is structurally elevated."
+    },
+    {
+      "ticket_id": "DET_CLE_G3_LIVE_CLE_TT_OVER_117_5",
+      "date": "2026-05-09",
+      "game": "Detroit Pistons at Cleveland Cavaliers Game 3",
+      "entry_window": "Halftime",
+      "market": "Team total",
+      "selection": "YES - Cleveland over 117.5 points scored",
+      "line": "CLE TT over 117.5",
+      "entry_price": "+134",
+      "stake": 9.49,
+      "final_score": "DET 109, CLE 116",
+      "result": "LOSS",
+      "payout": 0.00,
+      "net": -9.49,
+      "miss_category": "HOT_HALF_REGRESSION_MISS",
+      "root_cause": "Cleveland had 64 at half but required 54 second-half points to clear. The model overweighted first-half scoring and underweighted second-half regression, Detroit defensive adjustment, and late clock compression.",
+      "patch_rule": "If live TT over requires 53+ second-half points from a team already outperforming first-half efficiency, require a projected median at least 5.5 points above the line and no defensive regression signal."
+    },
+    {
+      "ticket_id": "DET_CLE_G3_LIVE_NO_CLE_BY_6_5",
+      "date": "2026-05-09",
+      "game": "Detroit Pistons at Cleveland Cavaliers Game 3",
+      "entry_window": "Live",
+      "market": "Spread",
+      "selection": "NO - Cleveland wins by over 6.5 points",
+      "line": "CLE -6.5 fade",
+      "entry_price": "-108",
+      "stake": 7.77,
+      "final_score": "DET 109, CLE 116",
+      "result": "LOSS",
+      "payout": 0.00,
+      "net": -7.77,
+      "miss_category": "MARGIN_BAND_HOOK_BURN",
+      "root_cause": "Cleveland won by exactly 7. Model correctly saw Detroit competitiveness but attacked a thin margin band without enough buffer.",
+      "patch_rule": "No margin-band fade inside 1.5 points of a common final margin zone. Require at least 3-point cushion from model median to line."
+    },
+    {
+      "ticket_id": "OKC_LAL_G3_LIVE_LAL_TT_NO_107_5",
+      "date": "2026-05-09",
+      "game": "Oklahoma City Thunder at Los Angeles Lakers Game 3",
+      "entry_window": "Halftime",
+      "market": "Team total",
+      "selection": "NO - Los Angeles Lakers over 107.5 points scored",
+      "line": "LAL TT under/no 107.5",
+      "entry_price": "varied live, observed -183 no later",
+      "stake": 10.00,
+      "result": "LOSS",
+      "payout": 0.00,
+      "net": -10.00,
+      "miss_category": "TEAM_TOTAL_UNDER_TAIL_AND_GAME_SCRIPT_REVERSAL",
+      "root_cause": "The model overweighted OKC defensive control and underweighted Lakers second-half offensive continuation/FT path. Live total state showed scoring pressure remained elevated.",
+      "patch_rule": "Reject team-total NO/under when live full-game total is rising and target team has already crossed halftime pace expectation."
+    },
+    {
+      "ticket_id": "NYK_PHI_G4_LIVE_PHI_TT_NO_108_5",
+      "date": "2026-05-10",
+      "game": "New York Knicks at Philadelphia 76ers Game 4",
+      "entry_window": "Halftime/third-quarter blowout window",
+      "market": "Team total",
+      "selection": "NO - Philadelphia over 108.5 points scored",
+      "line": "PHI TT no/under 108.5",
+      "entry_price": "+158",
+      "stake": 3.92,
+      "final_score": "NYK 144, PHI 114",
+      "result": "LOSS",
+      "payout": 0.00,
+      "net": -3.92,
+      "miss_category": "GARBAGE_TIME_BENCH_SCORING_TAIL_UNDERWEIGHTED",
+      "root_cause": "Starter benching was correctly anticipated, but the model incorrectly treated that as team-total suppression. Philadelphia scored 31 in Q4 and cleared 108.5.",
+      "patch_rule": "GARBAGE_TIME_BENCH_SCORING_TAIL_V2: if a team has 80+ through 3Q, reject NO/under unless line requires 32+ Q4 points or model median sits at least 6 points below the line."
+    },
+    {
+      "ticket_id": "NYK_PHI_G4_LIVE_EMBIID_8_REBOUNDS",
+      "date": "2026-05-10",
+      "game": "New York Knicks at Philadelphia 76ers Game 4",
+      "entry_window": "Halftime",
+      "market": "Player rebounds",
+      "selection": "YES - Joel Embiid 8+ rebounds",
+      "line": "8+ rebounds",
+      "entry_price": "+139",
+      "stake": 1.50,
+      "final_score": "NYK 144, PHI 114",
+      "result": "LOSS",
+      "payout": 0.00,
+      "net": -1.50,
+      "miss_category": "REBOUND_LADDER_MINUTES_KILL_SWITCH_CONFIRMED",
+      "root_cause": "Blowout removed Embiid from Q4. The ticket required continuation minutes that the game state did not support.",
+      "patch_rule": "Do not enter second-half rebound ladders for stars on teams trailing by 18+ unless player has already reached at least 70% of the target and coach incentive remains high."
+    },
+    {
+      "ticket_id": "SAS_MIN_G2_PREGAME_RANDLE_7_REBOUNDS",
+      "date": "2026-05-06",
+      "game": "Minnesota Timberwolves at San Antonio Spurs Game 2",
+      "entry_window": "Pregame",
+      "market": "Player rebounds",
+      "selection": "YES - Julius Randle 7+ rebounds",
+      "line": "7+ rebounds",
+      "entry_price": "+100 blended across two trades",
+      "stake": 3.67,
+      "final_score": "SAS 133, MIN 95",
+      "result": "LOSS",
+      "payout": 0.00,
+      "net": -3.67,
+      "miss_category": "BLOWOUT_MINUTES_AND_ROLE_SUPPRESSION",
+      "root_cause": "Minnesota suffered a 38-point loss. Blowout and Wembanyama paint deterrence suppressed Randle's interior activity and rebound path.",
+      "patch_rule": "For rebound overs/ladders against Wembanyama, require stronger price or avoid if opponent blowout risk exceeds 18%."
+    },
+    {
+      "ticket_id": "SAS_MIN_G2_PREGAME_NO_SAS_BY_10_5",
+      "date": "2026-05-06",
+      "game": "Minnesota Timberwolves at San Antonio Spurs Game 2",
+      "entry_window": "Pregame",
+      "market": "Spread",
+      "selection": "NO - San Antonio wins by over 10.5 points",
+      "line": "SAS -10.5 fade",
+      "entry_price": "-117",
+      "stake": 10.00,
+      "final_score": "SAS 133, MIN 95",
+      "result": "LOSS",
+      "payout": 0.00,
+      "net": -10.00,
+      "miss_category": "BLOWOUT_REVENGE_SPOT_MISS",
+      "root_cause": "The model underestimated Spurs Game 2 response, Minnesota injury/minute fragility, and Wembanyama/Fox tone-setting after Game 1 loss.",
+      "patch_rule": "REVENGE_BLOWOUT_RESPONSE_GATE: downgrade road underdog/favorite-margin fades after a superior home team loses Game 1 and has elite two-way anchor advantage."
+    },
+    {
+      "ticket_id": "SAS_MIN_G2_LIVE_TOTAL_NO_OVER_206_5",
+      "date": "2026-05-06",
+      "game": "Minnesota Timberwolves at San Antonio Spurs Game 2",
+      "entry_window": "Halftime",
+      "market": "Total",
+      "selection": "NO - Over 206.5 points scored",
+      "line": "Under/no 206.5",
+      "entry_price": "-127",
+      "stake": 5.50,
+      "final_score": "SAS 133, MIN 95",
+      "final_total": 228,
+      "result": "LOSS",
+      "payout": 0.00,
+      "net": -5.50,
+      "miss_category": "BLOWOUT_OFFENSE_CONTINUATION_MISS",
+      "root_cause": "Spurs offense stayed efficient despite blowout. Model assumed pace/shot quality would decay earlier than it did.",
+      "patch_rule": "No live full-game total under/NO when favorite already has 59+ at half and offensive leader minutes still project into early 3Q."
+    }
+  ],
+  "loss_bucket_counts": {
+    "GARBAGE_TIME_BENCH_SCORING_TAIL_UNDERWEIGHTED": 1,
+    "HOT_HALF_REGRESSION_MISS": 1,
+    "MARGIN_BAND_HOOK_BURN": 2,
+    "REBOUND_LADDER_MINUTES_KILL_SWITCH_CONFIRMED": 1,
+    "GUARD_REBOUND_DECAY": 1,
+    "PACE_REACCELERATION_AND_TOTAL_TAIL": 1,
+    "TEAM_TOTAL_UNDER_TAIL_AND_GAME_SCRIPT_REVERSAL": 1,
+    "BLOWOUT_MINUTES_AND_ROLE_SUPPRESSION": 1,
+    "BLOWOUT_REVENGE_SPOT_MISS": 1,
+    "BLOWOUT_OFFENSE_CONTINUATION_MISS": 1
+  },
+  "audit_findings": [
+    {
+      "finding_id": "F1",
+      "title": "Team-total unders/no positions are the largest leak.",
+      "evidence": "Losses on PHI no 108.5, LAL no 107.5, SAS/MIN no 206.5 total, and SAS/MIN Game 2 no over 206.5 all came from live scoring tails.",
+      "severity": "CRITICAL"
+    },
+    {
+      "finding_id": "F2",
+      "title": "Starter benching logic is being applied to the wrong market.",
+      "evidence": "Starter benching correctly hurt Embiid rebound outlook, but did not stop Philadelphia team total from clearing because bench scored 31 in Q4.",
+      "severity": "CRITICAL"
+    },
+    {
+      "finding_id": "F3",
+      "title": "Margin-band fades are too thin for bankroll recovery mode.",
+      "evidence": "SAS -5.5 fade and CLE -6.5 fade both lost by narrow margin bands despite competitive-game reads.",
+      "severity": "HIGH"
+    },
+    {
+      "finding_id": "F4",
+      "title": "Rebound ladders need stricter game-state gates.",
+      "evidence": "Randle 7+, Fox 4+, and Embiid 8+ all failed from role/minute/rebound-distribution issues.",
+      "severity": "HIGH"
+    },
+    {
+      "finding_id": "F5",
+      "title": "Risk control failed after drawdown.",
+      "evidence": "Aggressive LiveFlow continued while bankroll and confidence state were degraded.",
+      "severity": "CRITICAL"
+    }
+  ],
+  "patches_to_activate": [
+    {
+      "patch_id": "BANKROLL_ZERO_COOLDOWN_LOCK",
+      "status": "ACTIVE_IMMEDIATELY",
+      "rule": "If bankroll is zero or active drawdown exceeds three straight settled losses, disable aggressive LiveFlow and allow only paper tracking until reset conditions are met."
+    },
+    {
+      "patch_id": "GARBAGE_TIME_BENCH_SCORING_TAIL_V2",
+      "status": "ACTIVE_IMMEDIATELY",
+      "rule": "If a team has 80+ points through 3Q, do not use starter benching as a standalone reason to bet team total under/no. Add bench scoring tail and require a six-point model buffer."
+    },
+    {
+      "patch_id": "NO_TEAM_TOTAL_MINIMUM_BUFFER_GATE",
+      "status": "ACTIVE_IMMEDIATELY",
+      "rule": "Reject team-total NO/under unless model median is at least 5.5 points below the live line or the required remaining scoring rate is materially unrealistic."
+    },
+    {
+      "patch_id": "HOT_HALF_REGRESSION_GATE_V1",
+      "status": "ACTIVE_IMMEDIATELY",
+      "rule": "If a team has 60+ at halftime due to high shotmaking, reduce 2H projection by 4.5 to 7.0 points unless pace and free-throw environment both remain elevated."
+    },
+    {
+      "patch_id": "MARGIN_BAND_FADE_FILTER_V1",
+      "status": "ACTIVE_IMMEDIATELY",
+      "rule": "No favorite-margin NO/fade unless model median favorite margin is at least 3.0 points below the market threshold."
+    },
+    {
+      "patch_id": "REBOUND_LADDER_GAME_STATE_KILL_SWITCH_V2",
+      "status": "ACTIVE_IMMEDIATELY",
+      "rule": "Reject live rebound ladder if player requires Q4 minutes and game margin projects 18+ by early/mid 4Q."
+    },
+    {
+      "patch_id": "GUARD_REBOUND_LADDER_DECAY_FILTER_V1",
+      "status": "ACTIVE_IMMEDIATELY",
+      "rule": "Guard rebound ladders after halftime require player to already hold at least 75% of target plus a projected minute ceiling above 31."
+    }
+  ],
+  "new_liveflow_entry_requirements": {
+    "minimum_model_edge": "4.5 percentage points",
+    "minimum_median_buffer_team_total": "5.5 points",
+    "minimum_median_buffer_spread_margin_fade": "3.0 points",
+    "cashout_plan_required": true,
+    "correlated_exposure_limit": "Maximum 1 live ticket per game until bankroll reset",
+    "preferred_markets_after_audit": [
+      "Live spread only when control edge and market buffer are clear",
+      "Player prop fades after minutes kill switch confirms",
+      "Rebound unders/fades when blowout/minutes risk is active"
+    ],
+    "restricted_markets_after_audit": [
+      "Team total NO/under in blowout garbage-time windows",
+      "Full-game total NO/under after pace reacceleration",
+      "Thin margin-band favorite fades",
+      "Guard rebound ladders after halftime"
+    ]
+  },
+  "audit_verdict": {
+    "model_read_quality": "Mixed but salvageable",
+    "market_selection_quality": "Poor during recent drawdown",
+    "timing_quality": "Inconsistent",
+    "risk_management_quality": "Failed",
+    "overall_grade": "D+",
+    "next_operating_mode": "COOLDOWN + PAPER TRACKING + PATCH VALIDATION",
+    "rebuild_condition": "Require at least 10 paper-tracked LiveFlow candidates with 60%+ graded process quality before real-money restart."
+  }
+}
