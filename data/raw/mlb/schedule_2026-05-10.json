@@ -3,14 +3,14 @@
   "totalItems": 15,
   "totalEvents": 0,
   "totalGames": 15,
-  "totalGamesInProgress": 10,
+  "totalGamesInProgress": 9,
   "dates": [
     {
       "date": "2026-05-10",
       "totalItems": 15,
       "totalEvents": 0,
       "totalGames": 15,
-      "totalGamesInProgress": 10,
+      "totalGamesInProgress": 9,
       "games": [
         {
           "gamePk": 823868,
@@ -21,12 +21,12 @@
           "gameDate": "2026-05-10T16:15:00Z",
           "officialDate": "2026-05-10",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -37,10 +37,11 @@
               },
               "leagueRecord": {
                 "wins": 19,
-                "losses": 21,
-                "pct": ".475"
+                "losses": 22,
+                "pct": ".463"
               },
               "score": 2,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 13
             },
@@ -51,11 +52,12 @@
                 "link": "/api/v1/teams/146"
               },
               "leagueRecord": {
-                "wins": 18,
+                "wins": 19,
                 "losses": 22,
-                "pct": ".450"
+                "pct": ".463"
               },
-              "score": 2,
+              "score": 5,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 13
             }
@@ -68,6 +70,7 @@
           "content": {
             "link": "/api/v1/game/823868/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
@@ -129,7 +132,7 @@
                 "losses": 23,
                 "pct": ".425"
               },
-              "score": 1,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 13
             }
@@ -188,7 +191,7 @@
                 "losses": 13,
                 "pct": ".658"
               },
-              "score": 3,
+              "score": 4,
               "splitSquad": false,
               "seriesNumber": 13
             },
@@ -203,7 +206,7 @@
                 "losses": 22,
                 "pct": ".436"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 13
             }
@@ -277,7 +280,7 @@
                 "losses": 22,
                 "pct": ".450"
               },
-              "score": 5,
+              "score": 6,
               "splitSquad": false,
               "seriesNumber": 13
             }
@@ -336,7 +339,7 @@
                 "losses": 25,
                 "pct": ".375"
               },
-              "score": 4,
+              "score": 5,
               "splitSquad": false,
               "seriesNumber": 13
             },
@@ -425,7 +428,7 @@
                 "losses": 19,
                 "pct": ".525"
               },
-              "score": 3,
+              "score": 4,
               "splitSquad": false,
               "seriesNumber": 13
             }
@@ -484,7 +487,7 @@
                 "losses": 23,
                 "pct": ".425"
               },
-              "score": 1,
+              "score": 5,
               "splitSquad": false,
               "seriesNumber": 13
             },
@@ -499,7 +502,7 @@
                 "losses": 20,
                 "pct": ".512"
               },
-              "score": 1,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 13
             }
@@ -647,7 +650,7 @@
                 "losses": 16,
                 "pct": ".568"
               },
-              "score": 0,
+              "score": 3,
               "splitSquad": false,
               "seriesNumber": 13
             }
@@ -1058,9 +1061,9 @@
           "officialDate": "2026-05-10",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
