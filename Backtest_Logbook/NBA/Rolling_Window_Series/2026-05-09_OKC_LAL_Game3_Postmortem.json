@@ -1,0 +1,148 @@
+{
+  "postmortem_id": "2026-05-09_OKC_LAL_GAME3_POSTMORTEM",
+  "registry": "Backtest_Logbook/NBA/Rolling_Window_Series",
+  "series_id": "2026_WCSF_LAL_OKC",
+  "round": "Western Conference Semifinals",
+  "game_number": 3,
+  "game_date": "2026-05-09",
+  "venue": "Crypto.com Arena, Los Angeles, CA",
+  "officials": ["James Capers", "Curtis Blair", "Ed Malloy"],
+  "final_score": {
+    "OKC": 131,
+    "LAL": 108,
+    "margin": 23,
+    "total": 239
+  },
+  "series_state_after_game": "OKC leads 3-0",
+  "market_context": {
+    "halftime_score": {"LAL": 59, "OKC": 57},
+    "live_full_game_total_at_halftime": 219.5,
+    "live_team_totals_at_halftime": {
+      "LAL_over_107_5": {"yes_price": -183, "no_price": 113},
+      "OKC_over_113_5": {"yes_price": -143, "no_price": -112}
+    },
+    "liveflow_recommended_strike": {
+      "market": "LAL team total No Over 107.5",
+      "price": "+113",
+      "model_mean": 106.2,
+      "model_median": 106.0,
+      "model_win_probability": "53-55%",
+      "result": "MISS",
+      "actual_lal_points": 108,
+      "miss_margin": 0.5,
+      "stake_status": "USER_CONFIRMED_LOSS_BUT_STAKE_NOT_PROVIDED_IN_FINAL_SCREENSHOT",
+      "financial_result": null
+    }
+  },
+  "game_flow_summary": {
+    "first_half": {
+      "score": {"LAL": 59, "OKC": 57},
+      "read": "Lakers led despite hot shooting profile; model treated LAL 55% first-half 3P as regression candidate, but failed to price the 107.5 hook and OKC-driven game-speed expansion correctly."
+    },
+    "third_quarter": {
+      "score": {"OKC": 33, "LAL": 20},
+      "read": "OKC flipped the game through pressure defense, live-ball creation, and efficient shot generation. Lakers turnovers produced a possession-quality collapse."
+    },
+    "fourth_quarter": {
+      "score": {"OKC": 41, "LAL": 29},
+      "read": "The game entered an OKC avalanche state. Thunder continued scoring aggressively even after separation, while Lakers still reached the team-total threshold by one basket despite losing control of the game."
+    }
+  },
+  "stat_diagnostics": {
+    "team_efficiency": {
+      "OKC_FG_pct": 56.4,
+      "OKC_3P_pct": 44.7,
+      "LAL_FG_pct": 46.9,
+      "LAL_3P_pct": 46.7
+    },
+    "second_half_split": {
+      "OKC_points": 74,
+      "LAL_points": 49,
+      "OKC_FG_pct": 61.2,
+      "OKC_3P_pct": 55.0,
+      "LAL_points_allowed_as_under_failure_context": 49
+    },
+    "possession_pressure": {
+      "LAL_turnovers": 17,
+      "LAL_points_allowed_off_turnovers": 30,
+      "OKC_turnovers": 10,
+      "OKC_points_allowed_off_turnovers": 11
+    },
+    "paint_and_transition": {
+      "OKC_points_in_paint": 64,
+      "LAL_points_in_paint": 44,
+      "OKC_fast_break_points": 19,
+      "LAL_fast_break_points": 8
+    },
+    "key_player_notes": {
+      "OKC": {
+        "Ajay_Mitchell": "24 points, 10 assists, 3 steals; major second-half pressure and creation engine.",
+        "Shai_Gilgeous_Alexander": "23 points, 9 assists, plus-24; controlled pace despite inefficient first half.",
+        "Chet_Holmgren": "18 points, 9 rebounds; efficient interior and rim pressure.",
+        "Isaiah_Hartenstein": "12 points, 9 rebounds, plus-26; second-half interior stabilizer.",
+        "Isaiah_Joe": "12 points on 4 made threes; garbage/extension scoring risk confirmed."
+      },
+      "LAL": {
+        "Rui_Hachimura": "21 points on 5 made threes; first-half shooting spike cooled but full-game total still barely cleared.",
+        "LeBron_James": "19 points, 8 assists, minus-24; late-game margin stress and turnover drag.",
+        "Austin_Reaves": "17 points, 9 assists, 5 turnovers; pressure vulnerability drove OKC runouts.",
+        "Luke_Kennard": "18 points; bench shooting kept LAL team-total alive despite game collapse."
+      }
+    }
+  },
+  "model_diagnostic": {
+    "primary_error": "HALFTIME_TEAM_TOTAL_UNDER_HOOK_FAILURE",
+    "failure_type": "The model correctly saw LAL first-half shooting regression, but underestimated the probability that LAL could still reach 108 through residual scoring, free throws, bench minutes, and garbage-time extension.",
+    "why_the_bet_lost": [
+      "LAL needed only 49 second-half points to beat 107.5 and landed exactly on 49.",
+      "The under needed 48 or fewer second-half points, leaving no cushion for normal playoff extension or late bench scoring.",
+      "OKC's second-half scoring avalanche created more possessions and forced Lakers response scoring despite game state worsening.",
+      "The model overweighted Lakers 3P regression and underweighted OKC pace/pressure spillover into opponent scoring volume.",
+      "The entry failed the newly-required playoff team-total under buffer standard."
+    ],
+    "model_vs_actual": {
+      "projected_LAL_total_mean": 106.2,
+      "projected_LAL_total_median": 106.0,
+      "actual_LAL_total": 108,
+      "delta_to_mean": 1.8,
+      "delta_to_line": 0.5
+    },
+    "classification": [
+      "MISS_REGISTERED",
+      "EDGE_CALL_ACTIVE",
+      "HOOK_BURN",
+      "PLAYOFF_TT_UNDER_BUFFER_FAILURE",
+      "OKC_PRESSURE_SPEEDUP_UNDERWEIGHTED",
+      "LAL_GARBAGE_EXTENSION_RISK_UNDERWEIGHTED"
+    ]
+  },
+  "patches_to_activate": [
+    {
+      "patch": "PLAYOFF_TEAM_TOTAL_UNDER_MINIMUM_BUFFER_V2",
+      "rule": "Do not fire playoff live team-total unders unless model median is at least 4.0 points below the live line, or 5.5 points below if the team already has 55+ at halftime.",
+      "source": "OKC@LAL Game 3"
+    },
+    {
+      "patch": "ONE_POSSESSION_HOOK_REJECTION_GATE",
+      "rule": "Reject live totals/team totals where the edge relies on a half-point below one normal scoring event unless price is +140 or better and pace is clearly declining.",
+      "source": "OKC@LAL Game 3"
+    },
+    {
+      "patch": "OKC_PRESSURE_SPEEDUP_SPILLOVER",
+      "rule": "When OKC pressure produces 7+ opponent turnovers by halftime or 14+ through 3Q, increase both OKC scoring expectation and opponent desperation/garbage scoring tail by +2 to +4 combined points.",
+      "source": "OKC@LAL Game 3"
+    },
+    {
+      "patch": "LAL_WITHOUT_LUKA_BENCH_SCORING_TAIL",
+      "rule": "When Luka is inactive and LAL rotation relies on Reaves/Kennard/Rui shooting, do not assume collapse equals suppression; maintain a late bench/spacing scoring tail unless game total pace collapses below threshold.",
+      "source": "OKC@LAL Game 3"
+    },
+    {
+      "patch": "LIVEFLOW_LOSS_STREAK_COOLDOWN_LOCK",
+      "rule": "After multiple same-slate LiveFlow losses, reduce stake to minimum unit and require two independent signals before next strike.",
+      "source": "User loss-streak note after OKC@LAL Game 3"
+    }
+  ],
+  "rolling_window_use": "High-weight Game 4 input. OKC pressure, second-half scoring acceleration, and Lakers one-basket team-total hook risk must be treated as active. Team-total unders against Lakers require larger buffer; OKC overs and game overs may deserve greater attention when Thunder pressure turns live-ball turnovers into pace inflation.",
+  "status": "LOGGED"
+}
