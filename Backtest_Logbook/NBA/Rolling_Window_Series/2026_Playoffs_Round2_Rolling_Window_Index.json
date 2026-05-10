@@ -38,15 +38,17 @@
       "series_id": "2026_WCSF_LAL_OKC",
       "round": "Western Conference Semifinals",
       "teams": {"away_seed_context": "Los Angeles Lakers", "home_seed_context": "Oklahoma City Thunder"},
-      "current_series_state": "OKC leads 2-0",
+      "current_series_state": "OKC leads 3-0",
       "rolling_window_weighting_notes": [
         "Game 1 established Lakers offensive suppression without Luka and OKC margin control.",
         "Game 2 showed the danger of halftime team-total unders when LAL already reached 58 and playoff starter-extension remained alive.",
+        "Game 3 confirmed OKC second-half pressure can increase both OKC scoring and opponent residual scoring volume, creating hook danger for LAL team-total unders.",
         "Primary forward-looking flags: LAL turnover volatility, OKC second-half pressure, OKC bench green-light scoring, playoff under buffer requirement."
       ],
       "games": [
         {"game_number": 1, "date": "2026-05-05", "final_score": {"LAL": 90, "OKC": 108}, "postmortem_file": "Backtest_Logbook/NBA/2026-05-05_LAL_OKC_Game1_Postmortem.json", "registration_status": "CONFIRMED_SEARCH_RESULT", "rolling_window_use": "Track Lakers offensive suppression without Luka and OKC margin control profile."},
-        {"game_number": 2, "date": "2026-05-07", "final_score": {"LAL": 107, "OKC": 125}, "postmortem_file": "Backtest_Logbook/NBA/Rolling_Window_Series/2026-05-07_LAL_OKC_Game2_Postmortem.json", "registration_status": "CONFIRMED_LOGGED", "edge_results": {"record": "0-1", "net": -10.00}, "key_tags": ["PLAYOFF_TEAM_TOTAL_UNDER_BUFFER_FAILURE", "HALFTIME_HOT_OFFENSE_FADE_TRAP", "PLAYOFF_STARTER_EXTENSION_GATE_REQUIRED", "GARBAGE_TIME_BENCH_SCORING_RISK", "OKC_PRESSURE_CREATES_POSSESSION_SPIKE", "LAL_WITHOUT_LUKA_TURNOVER_VOLATILITY"], "rolling_window_use": "High-weight Game 3 input for Lakers turnover/scoring volatility and OKC second-half pressure. Low-weight for clean under projections because late-game and bench scoring distorted the suppression profile."}
+        {"game_number": 2, "date": "2026-05-07", "final_score": {"LAL": 107, "OKC": 125}, "postmortem_file": "Backtest_Logbook/NBA/Rolling_Window_Series/2026-05-07_LAL_OKC_Game2_Postmortem.json", "registration_status": "CONFIRMED_LOGGED", "edge_results": {"record": "0-1", "net": -10.00}, "key_tags": ["PLAYOFF_TEAM_TOTAL_UNDER_BUFFER_FAILURE", "HALFTIME_HOT_OFFENSE_FADE_TRAP", "PLAYOFF_STARTER_EXTENSION_GATE_REQUIRED", "GARBAGE_TIME_BENCH_SCORING_RISK", "OKC_PRESSURE_CREATES_POSSESSION_SPIKE", "LAL_WITHOUT_LUKA_TURNOVER_VOLATILITY"], "rolling_window_use": "High-weight Game 3 input for Lakers turnover/scoring volatility and OKC second-half pressure. Low-weight for clean under projections because late-game and bench scoring distorted the suppression profile."},
+        {"game_number": 3, "date": "2026-05-09", "final_score": {"OKC": 131, "LAL": 108}, "postmortem_file": "Backtest_Logbook/NBA/Rolling_Window_Series/2026-05-09_OKC_LAL_Game3_Postmortem.json", "registration_status": "CONFIRMED_LOGGED", "edge_results": {"record": "0-1", "net": null, "note": "User confirmed loss; final stake not provided in settled screenshot."}, "key_tags": ["HALFTIME_TEAM_TOTAL_UNDER_HOOK_FAILURE", "PLAYOFF_TT_UNDER_BUFFER_FAILURE", "OKC_PRESSURE_SPEEDUP_UNDERWEIGHTED", "LAL_GARBAGE_EXTENSION_RISK_UNDERWEIGHTED", "ONE_POSSESSION_HOOK_BURN", "LIVEFLOW_LOSS_STREAK_COOLDOWN_LOCK"], "rolling_window_use": "High-weight Game 4 input. OKC pressure, second-half scoring acceleration, and Lakers one-basket team-total hook risk must be treated as active. Team-total unders against Lakers require larger buffer; OKC overs and game overs gain priority when Thunder pressure turns turnovers into pace inflation."}
       ]
     },
     {
@@ -80,7 +82,12 @@
     {"patch": "HALFTIME_EXTREME_EFFICIENCY_REGRESSION_GATE", "source_game": "DET@CLE Game 3", "trigger": "Team has 60+ halftime points while shooting 60%+ FG or 45%+ from three."},
     {"patch": "DET_SECOND_HALF_PRESSURE_STABILITY_BOOST", "source_game": "DET@CLE Game 3", "trigger": "Detroit opponent has 7+ first-half turnovers or DET has shown multi-game pressure continuity in the series."},
     {"patch": "LIVEFLOW_LOSS_STREAK_STAKE_RESET", "source_game": "DET@CLE Game 3", "trigger": "Two or more consecutive LiveFlow misses or user notes emotional/financial pressure."},
-    {"patch": "MARGIN_BAND_FREE_THROW_EXPANSION_FILTER", "source_game": "DET@CLE Game 3", "trigger": "Taking NO on favorite win margin over 4.5-7.5 while favorite is likely to lead inside final minute."}
+    {"patch": "MARGIN_BAND_FREE_THROW_EXPANSION_FILTER", "source_game": "DET@CLE Game 3", "trigger": "Taking NO on favorite win margin over 4.5-7.5 while favorite is likely to lead inside final minute."},
+    {"patch": "PLAYOFF_TEAM_TOTAL_UNDER_MINIMUM_BUFFER_V2", "source_game": "OKC@LAL Game 3", "trigger": "Do not fire playoff live team-total unders unless model median is at least 4.0 points below the live line, or 5.5 points below if the team already has 55+ at halftime."},
+    {"patch": "ONE_POSSESSION_HOOK_REJECTION_GATE", "source_game": "OKC@LAL Game 3", "trigger": "Reject live totals/team totals where the edge relies on a half-point below one normal scoring event unless price is +140 or better and pace is clearly declining."},
+    {"patch": "OKC_PRESSURE_SPEEDUP_SPILLOVER", "source_game": "OKC@LAL Game 3", "trigger": "When OKC pressure produces 7+ opponent turnovers by halftime or 14+ through 3Q, increase both OKC scoring expectation and opponent desperation/garbage scoring tail by +2 to +4 combined points."},
+    {"patch": "LAL_WITHOUT_LUKA_BENCH_SCORING_TAIL", "source_game": "OKC@LAL Game 3", "trigger": "When Luka is inactive and LAL rotation relies on Reaves/Kennard/Rui shooting, do not assume collapse equals suppression; maintain a late bench/spacing scoring tail unless game total pace collapses below threshold."},
+    {"patch": "LIVEFLOW_LOSS_STREAK_COOLDOWN_LOCK", "source_game": "OKC@LAL Game 3", "trigger": "After multiple same-slate LiveFlow losses, reduce stake to minimum unit and require two independent signals before next strike."}
   ],
   "workflow_rule": "Every finalized NBA postmortem should be registered either from the active nba_postmortems folder or the standard Backtest_Logbook/NBA folder, then indexed inside this rolling-window series file for forward Game N+1 forecasting."
 }
