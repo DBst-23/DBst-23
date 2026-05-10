@@ -1,0 +1,78 @@
+{
+  "postmortem_id": "NBA_POSTMORTEM_2026_05_10_NYK_PHI_G4",
+  "registry": "Backtest_Logbook",
+  "folder": "Backtest_Logbook/NBA/Rolling_Window_Series",
+  "series_id": "2026_ECSF_PHI_NYK",
+  "game_number": 4,
+  "date": "2026-05-10",
+  "matchup": "New York Knicks at Philadelphia 76ers",
+  "venue": "Xfinity Mobile Arena, Philadelphia, PA",
+  "officials": ["John Goble", "Sean Wright", "Nick Buchert", "Andy Nagy"],
+  "final_score": {"NYK": 144, "PHI": 114},
+  "series_state_after_game": "NYK wins series 4-0",
+  "market_review": [
+    {
+      "market": "Philadelphia team total 108.5",
+      "side": "NO",
+      "entry_price": "+158",
+      "stake": 3.92,
+      "result": "MISS",
+      "final_stat": 114,
+      "net": -3.92,
+      "diagnosis": "The live read correctly identified starter benching risk, but underestimated fourth-quarter bench scoring. Philadelphia scored 31 in Q4 and cleared 108.5."
+    },
+    {
+      "market": "Joel Embiid 8+ rebounds",
+      "side": "YES",
+      "entry_price": "+139",
+      "stake": 1.50,
+      "result": "MISS",
+      "final_stat": 5,
+      "net": -1.50,
+      "diagnosis": "The rebound ladder failed because Embiid had only five rebounds through three and played 0:00 in Q4 after the blowout reached full bench conditions."
+    }
+  ],
+  "session_result": {"record": "0-2", "net": -5.42, "bankroll_state_note": "User reported bankroll at zero after settlement."},
+  "quarter_score": {"NYK": [43, 38, 41, 22], "PHI": [24, 33, 26, 31]},
+  "team_summary": {
+    "NYK": {"fg": "49-91", "fg_pct": 53.8, "three_pt": "25-44", "three_pt_pct": 56.8, "rebounds": 47, "assists": 33, "turnovers": 11},
+    "PHI": {"fg": "43-86", "fg_pct": 50.0, "three_pt": "8-35", "three_pt_pct": 22.9, "rebounds": 30, "assists": 24, "turnovers": 10}
+  },
+  "critical_game_flow": [
+    "NYK led 43-24 after the first quarter behind extreme three-point shooting.",
+    "NYK led 81-57 at halftime; PHI remained live for team-total markets because 57 points left a reachable fourth-quarter path.",
+    "NYK led 122-83 after three. PHI needed 26+ Q4 points to clear 108.5 and scored 31.",
+    "Q4 was played almost entirely by bench units. Embiid, Maxey, George and Oubre recorded 0:00 in Q4, but PHI bench scoring still beat the team-total threshold."
+  ],
+  "model_diagnostics": {
+    "primary_failure_mode": "GARBAGE_TIME_TEAM_TOTAL_TAIL_UNDERWEIGHTED",
+    "secondary_failure_modes": [
+      "STARTER_BENCHING_CORRECT_BUT_BENCH_OUTPUT_WRONG",
+      "NO_TEAM_TOTAL_BUFFER_TOO_THIN",
+      "BLOWOUT_BENCH_SCORING_SUPPRESSION_FALSE_ASSUMPTION",
+      "REBOUND_LADDER_MINUTES_KILL_SWITCH_CONFIRMED"
+    ],
+    "what_model_got_right": [
+      "Knicks control and sweep pressure were correctly identified.",
+      "Embiid rebound over became a dead-zone after 3Q.",
+      "Starter benching in Q4 was correctly anticipated."
+    ],
+    "what_model_missed": [
+      "Philadelphia bench scoring tail was materially higher than projected.",
+      "Starter benching was incorrectly translated into team-total suppression.",
+      "The live NO 108.5 position lacked enough Q4 buffer."
+    ]
+  },
+  "recommended_patches": [
+    {"patch_id": "GARBAGE_TIME_BENCH_SCORING_TAIL_V2", "action": "Add a fourth-quarter bench scoring tail when a team has 80+ through three even if trailing by 25+."},
+    {"patch_id": "NO_TEAM_TOTAL_MINIMUM_Q4_BUFFER_GATE", "action": "Reject NO team-total positions unless model median is at least six points below the live line when Q4 scoring below 26 is required."},
+    {"patch_id": "STARTER_BENCHING_NOT_TEAM_TOTAL_SUPPRESSION_GATE", "action": "Separate starter-prop kill switches from team-total projections and run a bench-only total model."},
+    {"patch_id": "BANKROLL_ZERO_COOLDOWN_LOCK", "action": "Move to cooldown and paper-tracking mode before the next live entry cycle."}
+  ],
+  "rolling_window_notes_for_future": [
+    "Game 4 confirms blowout team-total unders remain dangerous if the losing team already has 80+ through three.",
+    "Starter benching is useful for player-prop fades but not sufficient for team-total unders.",
+    "For future NYK games, opposing bench scoring tail must be modeled separately once New York creates a 25+ point lead."
+  ],
+  "final_grade": {"result_grade": "F", "process_grade": "C-", "risk_control_grade": "D", "rolling_window_weight": "Very high"}
+}
