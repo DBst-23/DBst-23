@@ -1,0 +1,199 @@
+{
+  "log_id": "NBA_ROLLING_WINDOW_SAS_MIN_GAME4_HALFTIME_POSTMORTEM_2026_05_10",
+  "sport": "NBA",
+  "league_context": "2026 Playoffs - Western Conference Semifinals",
+  "series_id": "2026_WCSF_MIN_SAS",
+  "game_number": 4,
+  "date": "2026-05-10",
+  "venue": "Target Center, Minneapolis, MN",
+  "final_score": {
+    "SAS": 109,
+    "MIN": 114
+  },
+  "series_state_after_game": "Series tied 2-2",
+  "halftime_state": {
+    "score": {
+      "SAS": 56,
+      "MIN": 60
+    },
+    "primary_context": "MIN led by 4 at halftime after Victor Wembanyama was ejected at 8:39 in Q2 for Flagrant 2.",
+    "wembanyama_status": "EJECTED_Q2_8_39",
+    "key_halftime_notes": [
+      "Wembanyama finished first half/game with 12:29, 4 points, 4 rebounds, 3 fouls.",
+      "MIN had 60 halftime points but only a 4-point lead, not a true separation state.",
+      "Spurs retained enough guard creation through Fox, Castle, Harper, and Vassell to keep the game live despite Wembanyama ejection."
+    ]
+  },
+  "halftime_projection_snapshot": {
+    "created_by": "Charlotte NBA LiveFlow halftime read",
+    "primary_edge": "MIN live spread +3.5 or better",
+    "secondary_edge": "MIN team total over 111.5 or 112.5",
+    "rebound_edge": "Rudy Gobert 8+ rebounds only if available",
+    "avoid_list": [
+      "Spurs spread / Spurs ML",
+      "Spurs team total over",
+      "Full-game under"
+    ],
+    "projected_markets": {
+      "MIN_win_probability": "66-69%",
+      "MIN_live_spread_probability": "64-68%",
+      "MIN_mean_margin": 5.5,
+      "MIN_median_margin": 4,
+      "full_game_total_mean": 221.5,
+      "full_game_total_median": 220,
+      "MIN_team_total_mean": 116.5,
+      "MIN_team_total_median": 116,
+      "SAS_team_total_mean": 106.5,
+      "SAS_team_total_median": 106,
+      "Gobert_rebounds_mean": 9.2,
+      "Gobert_rebounds_median": 9
+    }
+  },
+  "actual_result_vs_projection": {
+    "game_side": {
+      "projection": "MIN win / MIN live spread edge",
+      "actual": "MIN won 114-109",
+      "result": "HIT",
+      "margin_actual": 5,
+      "margin_delta_vs_mean": -0.5,
+      "margin_delta_vs_median": 1,
+      "grade": "A"
+    },
+    "full_game_total": {
+      "projection_mean": 221.5,
+      "projection_median": 220,
+      "actual_total": 223,
+      "delta_vs_mean": 1.5,
+      "delta_vs_median": 3,
+      "result": "ACCURATE_OVER_LEAN",
+      "grade": "A-"
+    },
+    "MIN_team_total": {
+      "projection_mean": 116.5,
+      "projection_median": 116,
+      "actual": 114,
+      "delta_vs_mean": -2.5,
+      "delta_vs_median": -2,
+      "result": "DIRECTION_RIGHT_FOR_MIN_PRESSURE_BUT_OVER_LINE_DEPENDED_ON_NUMBER",
+      "grade": "B-"
+    },
+    "SAS_team_total": {
+      "projection_mean": 106.5,
+      "projection_median": 106,
+      "actual": 109,
+      "delta_vs_mean": 2.5,
+      "delta_vs_median": 3,
+      "result": "UNDERPROJECTED_SPURS_GUARD_CREATION_WITH_WEMBY_OUT",
+      "grade": "C+"
+    },
+    "Gobert_rebounds": {
+      "projection_mean": 9.2,
+      "projection_median": 9,
+      "actual": 13,
+      "result": "HIT_IF_8_PLUS_PLAYED; STRONG_REBOUND_MODEL_ALIGNMENT",
+      "delta_vs_mean": 3.8,
+      "delta_vs_median": 4,
+      "grade": "A"
+    }
+  },
+  "actual_game_summary": {
+    "score_by_period": {
+      "Q1": {"SAS": 30, "MIN": 34},
+      "Q2": {"SAS": 26, "MIN": 26},
+      "Q3": {"SAS": 28, "MIN": 20},
+      "Q4": {"SAS": 25, "MIN": 34}
+    },
+    "key_player_outputs": {
+      "MIN": {
+        "Anthony Edwards": {"points": 36, "rebounds": 6, "assists": 2, "minutes": "40:05"},
+        "Rudy Gobert": {"points": 11, "rebounds": 13, "assists": 4, "minutes": "30:17"},
+        "Naz Reid": {"points": 15, "rebounds": 9, "assists": 4, "minutes": "30:34"},
+        "Julius Randle": {"points": 12, "rebounds": 8, "turnovers": 6, "minutes": "37:36"}
+      },
+      "SAS": {
+        "DeAaron Fox": {"points": 24, "rebounds": 4, "assists": 3, "minutes": "36:51"},
+        "Stephon Castle": {"points": 20, "rebounds": 6, "assists": 4, "minutes": "36:35"},
+        "Dylan Harper": {"points": 24, "rebounds": 7, "minutes": "27:04"},
+        "Luke Kornet": {"points": 7, "rebounds": 9, "blocks": 2, "minutes": "26:12"},
+        "Victor Wembanyama": {"points": 4, "rebounds": 4, "minutes": "12:29", "status": "EJECTED"}
+      }
+    },
+    "team_four_factor_notes": {
+      "rebounding": "MIN won total rebounds 49-41 and offensive rebounds 15-13.",
+      "second_chance": "MIN won second-chance points 24-15, validating the Gobert/Reid interior path.",
+      "paint": "SAS still won points in the paint 58-50 despite losing Wembanyama, exposing a Spurs guard-drive persistence miss in the model.",
+      "turnovers": "MIN committed 17 turnovers to SAS 14; the third-quarter turnover cluster kept SAS alive and flipped the game temporarily."
+    }
+  },
+  "model_diagnostic": {
+    "what_worked": [
+      "Correctly identified Minnesota as the strongest live side after Wembanyama ejection.",
+      "Correctly rejected full-game under exposure; final total reached 223.",
+      "Correctly highlighted Gobert rebound path; Gobert finished with 13 boards.",
+      "Projected final margin was very close: MIN projected mean +5.5, actual +5."
+    ],
+    "what_missed_or_was_underweighted": [
+      "Spurs guard/wing scoring persistence after Wembanyama ejection was underweighted; SAS still scored 53 second-half points and 109 total.",
+      "Third-quarter Minnesota offensive stall was underweighted; MIN scored only 20 in Q3 on 34.8% FG with 6 turnovers.",
+      "Luke Kornet replacement value was underweighted; Kornet delivered 26:12, 9 rebounds, 2 blocks, and helped stabilize SAS interior minutes.",
+      "The model assumed Wembanyama removal would create immediate Minnesota offensive release, but Minnesota's payoff concentrated in Q4 rather than Q3."
+    ],
+    "root_cause": "The halftime model was correct on side, total direction, and Gobert rebounds, but it over-penalized SAS for Wembanyama's ejection and did not fully price Spurs small-creation / Kornet stabilization. The correct edge was MIN spread, not an aggressive MIN team-total over unless the number was 112.5 or lower.",
+    "severity": "LOW_TO_MEDIUM - projection profitable if primary edge was followed; diagnostic still needed because secondary team-total path was less clean."
+  },
+  "patch_rules": [
+    {
+      "patch_id": "STAR_EJECTION_REPLACEMENT_VALUE_SPLIT",
+      "trigger": "Star big ejected before halftime but replacement big logs 8+ first-half minutes with positive defensive/rebounding impact.",
+      "rule": "Do not automatically subtract full star impact from team side/total. Split adjustment into offense, rim deterrence, rebounding, and usage redistribution. Apply replacement value credit if backup center is producing rebounds/blocks/putbacks.",
+      "source": "SAS@MIN Game 4 - Wembanyama ejected, Kornet stabilized with 9 REB and 2 BLK."
+    },
+    {
+      "patch_id": "POST_EJECTION_GUARD_CREATION_SURVIVAL_GATE",
+      "trigger": "Team loses primary big but has at least three live ball handlers/creators with 10+ points by halftime or projected 30+ second-half combined usage.",
+      "rule": "Maintain opponent scoring tail. Avoid hard fading team total unless pace collapses or shot quality declines for two consecutive segments.",
+      "source": "Fox/Castle/Harper/Vassell combined carried SAS to 109 despite Wembanyama ejection."
+    },
+    {
+      "patch_id": "Q3_STALL_BEFORE_TEAM_TOTAL_OVER_GATE",
+      "trigger": "Halftime team-total over relies on immediate 3Q offensive expansion after opponent star removal.",
+      "rule": "Require first 3-4 minutes of Q3 confirmation before adding over exposure if the target team has turnover volatility or half-court spacing issues. Prefer live side over team total until scoring confirmation appears.",
+      "source": "MIN scored only 20 in Q3 before exploding for 34 in Q4."
+    },
+    {
+      "patch_id": "GOBERT_REBOUND_PATH_UPGRADE_WITH_WEMBY_OUT",
+      "trigger": "Wembanyama inactive/ejected and Gobert has 5+ rebounds by halftime with 24+ projected minutes.",
+      "rule": "Gobert 8+ rebounds becomes playable; 10+ ladder requires plus money and close-game minutes confidence.",
+      "source": "Gobert finished with 13 rebounds."
+    },
+    {
+      "patch_id": "MIN_EDGE_PRIORITY_ORDER",
+      "trigger": "Minnesota has side edge but team scoring projection is sensitive to turnover/spacing volatility.",
+      "rule": "Rank edge order as: 1) spread cushion, 2) rebound props, 3) team total only at discounted number, 4) avoid full-game under.",
+      "source": "MIN side and Gobert boards hit cleaner than MIN team total over."
+    }
+  ],
+  "rolling_window_use_for_game5": {
+    "series_state": "2-2",
+    "forward_inputs": [
+      "Minnesota home/late-game response validated but not dominant; they required a 34-25 Q4 to escape after losing Q3 20-28.",
+      "Spurs remain dangerous without full Wembanyama minutes because Fox/Castle/Harper/Vassell can sustain creation.",
+      "Wembanyama discipline/ejection volatility must be tracked but not projected as recurring baseline.",
+      "Gobert/Naz/Randle offensive rebounding and second-chance pressure remain real Minnesota strengths.",
+      "Do not overreact to the Wembanyama ejection game when projecting Game 5 normal rotation. Create separate normal-rotation and disruption-rotation branches."
+    ],
+    "game5_branching": {
+      "normal_rotation_branch": "SAS regains Wembanyama rim pressure and closeout ceiling; Minnesota rebound edge narrows but remains relevant through Gobert/Reid.",
+      "foul_or_discipline_disruption_branch": "If Wembanyama picks up early fouls or emotional/technical risk, activate MIN spread/rebound boost again.",
+      "liveflow_priority": "Wait for 1H foul profile and Kornet/Wemby minute split before attacking second-half side or team totals."
+    }
+  },
+  "betting_result_grading": {
+    "recommended_primary_edge": "MIN live spread +3.5 or better",
+    "recommended_primary_result": "HIT if played at +3.5/+4.5/+5.5; MIN won by 5",
+    "secondary_team_total_result": "Conditional; MIN actual 114 means Over 111.5/112.5 hit, Over 114.5+ failed/pushed depending line",
+    "rebound_edge_result": "Gobert 8+ hit comfortably; 10+ also hit; 12+ hit if played at long odds",
+    "overall_halftime_projection_grade": "A-"
+  },
+  "status": "LOGGED_FOR_ROLLING_WINDOW_SERIES"
+}
