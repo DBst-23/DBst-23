@@ -1,0 +1,118 @@
+{
+  "log_id": "2026-05-11_OKC_LAL_Game4_LiveFlow_GhostBet",
+  "registry": "Backtest_Logbook",
+  "sport": "NBA",
+  "mode": "LIVEFLOW_STRIPPED_MODE_ACTIVE",
+  "series_id": "2026_WCSF_LAL_OKC",
+  "game": {
+    "game_number": 4,
+    "date": "2026-05-11",
+    "matchup": "Oklahoma City Thunder at Los Angeles Lakers",
+    "venue": "Crypto.com Arena, Los Angeles, CA",
+    "period_at_entry": "Halftime",
+    "score_at_entry": {
+      "OKC": 49,
+      "LAL": 45
+    }
+  },
+  "ticket": {
+    "ticket_type": "ghost_bet",
+    "bankroll_status": "BANKROLL_RESET_MODE_ZERO_BALANCE",
+    "market": "Team Total",
+    "selection": "YES - Oklahoma City over 107.5 points scored",
+    "line": 107.5,
+    "odds_at_lock": -104,
+    "stake_if_live": 5.00,
+    "potential_payout_if_live": 9.85,
+    "entry_source": "Kalshi screenshot",
+    "status": "ACTIVE_GHOST_LOCKED"
+  },
+  "halftime_projection": {
+    "okc_points_needed_second_half": 59,
+    "model_mean": 109.1,
+    "model_median": 108.6,
+    "hit_probability": 0.565,
+    "edge_estimate": "+2.7% to +3.5%",
+    "confidence_tier": "moderate",
+    "recommended_execution": "ghost/minimum-unit only"
+  },
+  "live_context": {
+    "full_game_live_total": 204.5,
+    "okc_live_spread": -11.5,
+    "okc_live_moneyline": -565,
+    "lal_inactive_context": "Doncic inactive - left hamstring strain",
+    "okc_inactive_context": "Sorber rest/right ACL recovery; Williams left hamstring strain",
+    "first_half_team_stats": {
+      "OKC": {
+        "points": 49,
+        "fg": "19-43",
+        "fg_pct": 0.442,
+        "three_pt": "6-18",
+        "three_pt_pct": 0.333,
+        "ft": "5-6",
+        "rebounds": 22,
+        "offensive_rebounds": 4,
+        "assists": 8,
+        "turnovers": 8,
+        "points_in_paint": 18,
+        "fast_break_points": 7
+      },
+      "LAL": {
+        "points": 45,
+        "fg": "15-39",
+        "fg_pct": 0.385,
+        "three_pt": "2-13",
+        "three_pt_pct": 0.154,
+        "ft": "13-14",
+        "rebounds": 21,
+        "offensive_rebounds": 5,
+        "assists": 5,
+        "turnovers": 8,
+        "points_in_paint": 20,
+        "fast_break_points": 4
+      }
+    },
+    "quarter_splits": {
+      "Q1": {"OKC": 21, "LAL": 26},
+      "Q2": {"OKC": 28, "LAL": 19}
+    },
+    "key_player_notes": [
+      "Shai Gilgeous-Alexander: 14 points, 4 assists at halftime",
+      "Ajay Mitchell: +15, 8 points, 3 assists, 2 steals at halftime",
+      "Isaiah Hartenstein: +15, 7 rebounds at halftime",
+      "Alex Caruso: 9 points on 3 made threes at halftime",
+      "Lakers recorded 8 first-half turnovers and only 5 assists"
+    ]
+  },
+  "rolling_window_tags": [
+    "GHOST_BET_LOCKED",
+    "OKC_TEAM_TOTAL_OVER_107_5",
+    "OKC_PRESSURE_SPEEDUP_SPILLOVER_ACTIVE",
+    "LAL_WITHOUT_LUKA_TURNOVER_VOLATILITY",
+    "SECOND_HALF_OKC_SCORING_REQUIREMENT_59",
+    "LIVEFLOW_MINIMUM_UNIT_ONLY",
+    "BANKROLL_RESET_MODE"
+  ],
+  "model_rules_applied": [
+    {
+      "rule": "OKC_PRESSURE_SPEEDUP_SPILLOVER",
+      "application": "Lakers 8 first-half turnovers and weak assist creation kept OKC transition/extra-possession scoring path alive."
+    },
+    {
+      "rule": "LAL_WITHOUT_LUKA_BENCH_SCORING_TAIL",
+      "application": "Avoided Lakers under despite offensive suppression because residual scoring and late-game tails remain live."
+    },
+    {
+      "rule": "PLAYOFF_TT_UNDER_BUFFER_GATE",
+      "application": "No under fired; selected OKC over instead due positive projection cross over posted line."
+    }
+  ],
+  "postgame_fields_pending": {
+    "final_score": null,
+    "okc_final_points": null,
+    "result": null,
+    "ghost_net_if_live": null,
+    "projection_delta": null,
+    "postmortem_required": true
+  }
+}
