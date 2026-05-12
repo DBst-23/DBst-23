@@ -1,0 +1,62 @@
+{
+  "ghost_bet_id": "DET_CLE_G4_HALFTIME_CLE_TT_OVER_106_5_GHOST_2026_05_10",
+  "date": "2026-05-10",
+  "sport": "NBA",
+  "log_type": "LIVEFLOW_GHOST_BET",
+  "bankroll_state": "BANKROLL_ZERO_COOLDOWN_LOCK",
+  "real_money": false,
+  "matchup": "Detroit Pistons at Cleveland Cavaliers - Game 4",
+  "entry_window": "Halftime",
+  "halftime_score": {
+    "DET": 56,
+    "CLE": 52
+  },
+  "market": "Team Total",
+  "selection": "YES - Cleveland over 106.5 points scored",
+  "line": 106.5,
+  "entry_price": "+100",
+  "ghost_stake": 5.00,
+  "ghost_payout_if_right": 10.05,
+  "model_snapshot_at_entry": {
+    "primary_read": "Cleveland scoring correction path after poor first-half FG% but strong FT volume and three-point attempt rate.",
+    "model_probability": "57-60%",
+    "fair_price_range": "-133 to -150",
+    "edge_vs_entry_price": "+8% to +10% implied value",
+    "projected_final_points": {
+      "mean": 110.2,
+      "median": 109,
+      "range_low": 105,
+      "range_high": 115
+    },
+    "required_second_half_points_to_clear": 55,
+    "key_drivers": [
+      "CLE shot only 39.5% FG in first half, leaving positive shotmaking regression path.",
+      "CLE attempted 25 threes in first half, confirming volume rather than passive offense.",
+      "CLE generated 16 FTA in first half vs DET 5 FTA, indicating whistle pressure.",
+      "Detroit committed 13 fouls in first half.",
+      "Donovan Mitchell was 1-for-8 at halftime, creating star-regression upside."
+    ],
+    "risk_flags": [
+      "Cleveland needs 55 second-half points, so line is not free despite value price.",
+      "Detroit led at halftime and can slow possessions if it controls early Q3.",
+      "Hot Detroit shooting could force Cleveland pace upward, but also risks Cavs defensive pressure changing rotation/tempo."
+    ]
+  },
+  "audit_tags": [
+    "GHOST_BET_TRACKING",
+    "BANKROLL_ZERO_COOLDOWN_LOCK",
+    "TEAM_TOTAL_OVER_VALIDATION",
+    "HALFTIME_LIVEFLOW_EDGE",
+    "PATCH_VALIDATION_SAMPLE"
+  ],
+  "grading_fields_pending": {
+    "final_score": null,
+    "cle_final_points": null,
+    "result": "PENDING",
+    "net_if_real": null,
+    "miss_category": null,
+    "root_cause": null,
+    "patch_rule_update": null
+  },
+  "status": "LOGGED_PENDING_FINAL"
+}
