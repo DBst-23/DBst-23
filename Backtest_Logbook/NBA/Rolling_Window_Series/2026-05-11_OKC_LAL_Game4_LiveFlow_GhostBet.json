@@ -9,10 +9,19 @@
     "date": "2026-05-11",
     "matchup": "Oklahoma City Thunder at Los Angeles Lakers",
     "venue": "Crypto.com Arena, Los Angeles, CA",
+    "officials": [
+      "Tony Brothers #25",
+      "Kevin Scott #24",
+      "Justin Van Duyne #64"
+    ],
     "period_at_entry": "Halftime",
     "score_at_entry": {
       "OKC": 49,
       "LAL": 45
+    },
+    "end_of_3q_score": {
+      "OKC": 80,
+      "LAL": 84
     }
   },
   "ticket": {
@@ -25,7 +34,12 @@
     "stake_if_live": 5.00,
     "potential_payout_if_live": 9.85,
     "entry_source": "Kalshi screenshot",
-    "status": "ACTIVE_GHOST_LOCKED"
+    "status": "SETTLED_GHOST_HIT",
+    "result": "HIT",
+    "result_confirmed_by_user": true,
+    "settlement_note": "User confirmed the OKC team total over 107.5 ghost bet hit. Exact final score was not supplied in-chat at the time of this GitHub update, so final points are recorded as threshold-cleared rather than exact.",
+    "okc_final_points_status": ">=108",
+    "ghost_net_if_live": 4.85
   },
   "halftime_projection": {
     "okc_points_needed_second_half": 59,
@@ -34,85 +48,147 @@
     "hit_probability": 0.565,
     "edge_estimate": "+2.7% to +3.5%",
     "confidence_tier": "moderate",
-    "recommended_execution": "ghost/minimum-unit only"
+    "recommended_execution": "ghost/minimum-unit only",
+    "projection_result": "VALIDATED_HIT",
+    "projection_delta_status": "Model cleared line directionally; exact delta pending final box score."
   },
   "live_context": {
-    "full_game_live_total": 204.5,
-    "okc_live_spread": -11.5,
-    "okc_live_moneyline": -565,
+    "full_game_live_total_at_entry": 204.5,
+    "okc_live_spread_at_entry": -11.5,
+    "okc_live_moneyline_at_entry": -565,
     "lal_inactive_context": "Doncic inactive - left hamstring strain",
     "okc_inactive_context": "Sorber rest/right ACL recovery; Williams left hamstring strain",
+    "market_update_after_3q": {
+      "score": "LAL 84, OKC 80",
+      "time_marker": "End of 3rd quarter / early 4th reference from user feed",
+      "team_total_market": {
+        "LAL_over_107_5": {
+          "yes_price": -108,
+          "no_price": -132
+        },
+        "OKC_over_107_5": {
+          "yes_price": 113,
+          "no_price": -161
+        }
+      },
+      "read": "Market temporarily re-opened OKC over 107.5 at plus money despite OKC needing 28+ in Q4 from the end-of-3Q state. User's locked ghost position ultimately validated."
+    },
     "first_half_team_stats": {
       "OKC": {
         "points": 49,
-        "fg": "19-43",
-        "fg_pct": 0.442,
+        "fg": "19-42",
+        "fg_pct": 0.452,
         "three_pt": "6-18",
         "three_pt_pct": 0.333,
         "ft": "5-6",
         "rebounds": 22,
         "offensive_rebounds": 4,
         "assists": 8,
-        "turnovers": 8,
+        "turnovers": 9,
         "points_in_paint": 18,
+        "second_chance_points": 6,
         "fast_break_points": 7
       },
       "LAL": {
         "points": 45,
-        "fg": "15-39",
-        "fg_pct": 0.385,
+        "fg": "15-38",
+        "fg_pct": 0.395,
         "three_pt": "2-13",
         "three_pt_pct": 0.154,
         "ft": "13-14",
-        "rebounds": 21,
-        "offensive_rebounds": 5,
+        "rebounds": 20,
+        "offensive_rebounds": 4,
         "assists": 5,
         "turnovers": 8,
         "points_in_paint": 20,
+        "second_chance_points": 6,
         "fast_break_points": 4
       }
     },
     "quarter_splits": {
       "Q1": {"OKC": 21, "LAL": 26},
-      "Q2": {"OKC": 28, "LAL": 19}
+      "Q2": {"OKC": 28, "LAL": 19},
+      "Q3": {"OKC": 31, "LAL": 39}
     },
-    "key_player_notes": [
+    "key_player_notes_halftime": [
       "Shai Gilgeous-Alexander: 14 points, 4 assists at halftime",
       "Ajay Mitchell: +15, 8 points, 3 assists, 2 steals at halftime",
       "Isaiah Hartenstein: +15, 7 rebounds at halftime",
       "Alex Caruso: 9 points on 3 made threes at halftime",
       "Lakers recorded 8 first-half turnovers and only 5 assists"
+    ],
+    "key_player_notes_end_3q": [
+      "Shai Gilgeous-Alexander reached 26 points and 7 assists by end of 3Q; OKC offense still had primary-creator usage intact.",
+      "Ajay Mitchell reached 18 points by end of 3Q, confirming secondary-handler scoring support beyond SGA.",
+      "OKC scored 31 in Q3 despite Lakers scoring 39, validating pace re-acceleration rather than suppression.",
+      "Lakers' third-quarter surge turned the game competitive, increasing late-game starter-extension and foul-path probability."
+    ]
+  },
+  "official_gamebook_evidence_summary": {
+    "source_type": "NBA official scorer's report and play-by-play text supplied by user",
+    "first_half_evidence": {
+      "score": "OKC 49, LAL 45",
+      "okc_efficiency": "45.2% FG, 33.3% 3PT, 83.3% FT",
+      "lal_efficiency": "39.5% FG, 15.4% 3PT, 92.9% FT",
+      "possession_pressure": "Both teams had 8+ turnovers by halftime; OKC had 7 fast-break points and 6 second-chance points.",
+      "model_interpretation": "The halftime read was not a clean pace collapse. OKC had enough shot volume, transition leakage, offensive rebounding, and primary-creator usage to support a second-half team-total over path."
+    },
+    "third_quarter_evidence": {
+      "score_after_3q": "LAL 84, OKC 80",
+      "quarter_score": "LAL 39, OKC 31",
+      "okc_q3_efficiency": "11-19 FG, 1-5 3PT, 8-11 FT",
+      "lal_q3_efficiency": "13-17 FG, 5-7 3PT, 8-9 FT",
+      "pace_and_foul_context": "Q3 produced 70 combined points and 19 combined free throw attempts, activating pace re-acceleration and late-game foul-path logic.",
+      "model_interpretation": "The Q3 explosion confirmed that the halftime total environment was live. Even though OKC trailed by 4 after 3Q, the competitive script created a Q4 scoring extension path for OKC."
+    },
+    "play_by_play_evidence": [
+      "OKC opened Q3 with SGA and Ajay Mitchell shot creation, including pullups, transition scoring, and foul pressure.",
+      "Lakers' Q3 run forced OKC into continued starter usage rather than bench-suppressed possessions.",
+      "Repeated lead changes/ties by end of 3Q supported a competitive fourth-quarter environment rather than a dead under script.",
+      "Tony Brothers crew context plus Q3 foul volume supported a non-zero late free-throw tail."
     ]
   },
   "rolling_window_tags": [
-    "GHOST_BET_LOCKED",
-    "OKC_TEAM_TOTAL_OVER_107_5",
+    "GHOST_BET_HIT_REGISTERED",
+    "OKC_TEAM_TOTAL_OVER_107_5_HIT",
     "OKC_PRESSURE_SPEEDUP_SPILLOVER_ACTIVE",
     "LAL_WITHOUT_LUKA_TURNOVER_VOLATILITY",
-    "SECOND_HALF_OKC_SCORING_REQUIREMENT_59",
+    "SECOND_HALF_OKC_SCORING_REQUIREMENT_59_VALIDATED",
+    "THIRD_QUARTER_PACE_REACCELERATION_CONFIRMED",
+    "COMPETITIVE_SCRIPT_STARTER_EXTENSION",
     "LIVEFLOW_MINIMUM_UNIT_ONLY",
     "BANKROLL_RESET_MODE"
   ],
   "model_rules_applied": [
     {
       "rule": "OKC_PRESSURE_SPEEDUP_SPILLOVER",
-      "application": "Lakers 8 first-half turnovers and weak assist creation kept OKC transition/extra-possession scoring path alive."
+      "application": "Lakers turnover volatility and OKC pressure produced enough pace/transition leakage to keep the OKC scoring path open."
     },
     {
       "rule": "LAL_WITHOUT_LUKA_BENCH_SCORING_TAIL",
-      "application": "Avoided Lakers under despite offensive suppression because residual scoring and late-game tails remain live."
+      "application": "Avoided a Lakers under focus and prioritized OKC scoring because Lakers scoring volatility could force OKC response possessions."
     },
     {
       "rule": "PLAYOFF_TT_UNDER_BUFFER_GATE",
       "application": "No under fired; selected OKC over instead due positive projection cross over posted line."
+    },
+    {
+      "rule": "THIRD_QUARTER_VALIDATION_ACCELERATOR",
+      "application": "OKC scored 31 in Q3 and the game became competitive, strengthening the probability of fourth-quarter starter usage and late-game scoring extension."
     }
   ],
-  "postgame_fields_pending": {
-    "final_score": null,
-    "okc_final_points": null,
-    "result": null,
-    "ghost_net_if_live": null,
-    "projection_delta": null,
-    "postmortem_required": true
+  "postmortem": {
+    "result_grade": "WIN / PROCESS VALIDATED",
+    "core_reason_hit": "The model correctly identified that OKC's halftime total was not dead despite only 49 first-half points. Turnover pressure, shot-volume stability, SGA usage, Ajay Mitchell secondary creation, and third-quarter pace reacceleration created enough scoring runway to clear 107.5.",
+    "what_worked": [
+      "Gamebook text allowed fast extraction of halftime efficiency, turnovers, quarter splits, foul context, and substitution/usage signals.",
+      "The model avoided the prior leak of forcing team-total unders in volatile playoff environments.",
+      "The ghost-bet discipline protected bankroll while still allowing process tracking."
+    ],
+    "what_to_refine": [
+      "Exact final score should be added later for clean projection delta calculation.",
+      "When Q3 creates a plus-money re-entry on the same team total, mark whether model should add, hold, or reject based on remaining points required and price."
+    ],
+    "forward_patch_rule": "If halftime team-total over requires 58-60 second-half points but the gamebook shows active creator usage, live-ball turnover volatility, non-dead pace, and no blowout bench risk, permit ghost/min-unit over consideration when price is near even or better. If Q3 adds 30+ points and game remains within 8, upgrade to protected/validated state."
   }
 }
