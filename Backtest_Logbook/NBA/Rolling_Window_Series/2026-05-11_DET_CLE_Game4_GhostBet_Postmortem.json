@@ -1,0 +1,191 @@
+{
+  "log_id": "NBA_ROLLING_WINDOW_2026_05_11_DET_CLE_GAME4_GHOSTBET_POSTMORTEM",
+  "registry": "Backtest_Logbook/NBA/Rolling_Window_Series",
+  "sport": "NBA",
+  "model_environment": "NBA LiveFlow B.003 rolling-window series",
+  "entry_type": "final_postmortem_with_ghost_bet_result",
+  "date": "2026-05-11",
+  "series_id": "2026_ECSF_CLE_DET",
+  "round": "Eastern Conference Semifinals",
+  "game_number": 4,
+  "venue": "Rocket Arena, Cleveland, OH",
+  "officials": ["Marc Davis", "Josh Tiven", "Mitchell Ervin", "Tre Maddox"],
+  "source_document": {
+    "type": "NBA official scorer report / gamebook PDF",
+    "file_name": "20260511_DETCLE_book (1).pdf",
+    "status": "uploaded_in_chat_and_used_for_postmortem",
+    "pages_used": [1, 4, 5, 6, 7, 8, 14, 15, 16, 17, 18]
+  },
+  "final_score": {
+    "DET": 103,
+    "CLE": 112
+  },
+  "series_state_after_game": "Series tied 2-2",
+  "quarter_scores": {
+    "DET": [24, 32, 21, 26],
+    "CLE": [21, 31, 38, 22]
+  },
+  "halftime_state": {
+    "score": {"DET": 56, "CLE": 52},
+    "market_snapshot": {
+      "live_game_total": 211.5,
+      "DET_live_moneyline": -126,
+      "CLE_live_moneyline": 105,
+      "CLE_team_total_line": 106.5,
+      "DET_team_total_line": 106.5
+    },
+    "gamebook_inputs": {
+      "DET_halftime_fg": "23-42 / 54.8%",
+      "DET_halftime_3p": "6-12 / 50.0%",
+      "DET_halftime_ft": "4-5 / 80.0%",
+      "CLE_halftime_fg": "15-38 / 39.5%",
+      "CLE_halftime_3p": "9-25 / 36.0%",
+      "CLE_halftime_ft": "13-16 / 81.2%",
+      "DET_points_in_paint_halftime": 22,
+      "CLE_points_in_paint_halftime": 12,
+      "DET_turnovers_halftime": 10,
+      "CLE_turnovers_halftime": 8,
+      "lead_changes_halftime": 9,
+      "times_tied_halftime": 3
+    },
+    "read_summary": "Cleveland trailed by 4 despite poor 2P efficiency, heavy 3PA volume, and strong free throw access. The live read favored Cleveland second-half correction rather than Detroit continuation."
+  },
+  "ghost_bets": [
+    {
+      "ticket_id": "GHOST_DET_CLE_G4_CLE_TT_OVER_106_5",
+      "market": "Team Total",
+      "team": "Cleveland Cavaliers",
+      "selection": "YES - Cleveland over 106.5 points scored",
+      "line": 106.5,
+      "price": "+100",
+      "stake": 5.00,
+      "bankroll_status": "ghost_bet_only_bankroll_at_zero",
+      "result": "WIN",
+      "final_team_points": 112,
+      "margin_to_line": 5.5,
+      "payout_if_live": 10.05,
+      "net_if_live": 5.05,
+      "roi_if_live": 1.01,
+      "model_status": "HIT_REGISTERED_GHOST",
+      "edge_call_active": true
+    }
+  ],
+  "non_logged_or_secondary_market_notes": [
+    {
+      "market": "Detroit team total over 109.5",
+      "line": 109.5,
+      "price": "+123",
+      "status": "screen_seen_but_not_marked_as_final_primary_ghost_bet_in_log",
+      "final_team_points": 103,
+      "diagnostic_note": "Would have missed if played; Detroit 2H scoring cooled to 47 after 56-point first half. Do not assume first-half DET efficiency carries when Cleveland defensive pressure and Mitchell scoring takeover are live."
+    }
+  ],
+  "projection_comparison": {
+    "halftime_projection_anchor": {
+      "CLE_needed_after_halftime_to_clear_106_5": 55,
+      "CLE_actual_second_half_points": 60,
+      "DET_needed_after_halftime_to_clear_109_5": 54,
+      "DET_actual_second_half_points": 47
+    },
+    "model_result": {
+      "primary_edge": "CLE team total over 106.5",
+      "hit_quality": "clean hit with 5.5-point buffer",
+      "closing_score_support": "Cleveland reached 90 through 3Q and finished 112 despite only 22 in Q4."
+    }
+  },
+  "game_phase_analysis": {
+    "first_quarter": {
+      "score": "DET 24 - CLE 21",
+      "read": "Detroit survived an early Cleveland 11-point lead and flipped the quarter through LeVert shot-making and Cleveland cold half-court shooting.",
+      "model_note": "Do not overrate early Cleveland control if Donovan Mitchell is cold, but track free throw access and turnover creation as correction signals."
+    },
+    "second_quarter": {
+      "score": "DET 32 - CLE 31",
+      "read": "Detroit kept offensive efficiency high and entered halftime up 56-52. Cleveland stayed close through threes and free throws despite weak interior scoring.",
+      "model_note": "Halftime live edge came from Cleveland's points being suppressed by poor FG% rather than lack of creation."
+    },
+    "third_quarter": {
+      "score": "CLE 38 - DET 21",
+      "read": "Cleveland's game flipped immediately after halftime. Donovan Mitchell produced a takeover quarter and Detroit's primary creation collapsed under turnover pressure.",
+      "model_note": "This is the decisive validation point for the CLE 106.5 ghost over. Cleveland scored 38 in Q3, moving from 52 to 90 before Q4."
+    },
+    "fourth_quarter": {
+      "score": "DET 26 - CLE 22",
+      "read": "Cleveland protected a double-digit lead through foul-line scoring and late Mitchell usage. Detroit made a small late push but never fully threatened the team-total result.",
+      "model_note": "The CLE over remained safe because Q3 banked enough points before late-game pace softened."
+    }
+  },
+  "key_drivers": {
+    "cleveland": {
+      "donovan_mitchell": "43 points, 13-26 FG, 4-12 3P, 13-15 FT; 39 second-half points after 4 first-half points.",
+      "james_harden": "24 points and 11 assists; playmaking stabilized Cleveland's half-court shot creation.",
+      "evan_mobley": "17 points, 8 rebounds, 5 assists, 5 blocks; defensive spine and second-half rim deterrence.",
+      "free_throw_edge": "Cleveland finished 30-34 FT while Detroit was only 9-12 FT."
+    },
+    "detroit": {
+      "caris_levert": "24 points on 10-16 shooting; carried Detroit through first-half bench offense.",
+      "tobias_harris": "16 points and 8 rebounds, but scored only 2 second-half points after 14 at halftime.",
+      "cade_cunningham": "19 points, 6 assists, 5 turnovers; pressure and second-half turnover issues limited Detroit's ceiling.",
+      "turnover_problem": "Detroit finished with 20 turnovers leading to 25 Cleveland points."
+    }
+  },
+  "root_cause_read": {
+    "why_the_ghost_bet_hit": [
+      "Cleveland had strong free throw access at halftime and finished with a major FT volume edge.",
+      "Halftime scoring was being held down by poor FG% rather than lack of offensive process.",
+      "Detroit's turnover profile created second-half live-ball and short-clock opportunities for Cleveland.",
+      "Mitchell's first-half cold shooting created a positive regression/takeover path rather than a fade signal.",
+      "Cleveland's 38-point third quarter created enough buffer to survive a slower 22-point fourth quarter."
+    ],
+    "what_the_model_got_right": [
+      "Correctly treated the first-half score as unstable because Cleveland's underlying creation and FT profile were stronger than the raw 52 points implied.",
+      "Correctly targeted the team total rather than spread or moneyline, avoiding margin volatility while capturing Cleveland scoring correction.",
+      "Correctly kept the ticket as ghost-sized due to bankroll reset mode."
+    ],
+    "remaining_risk_flags": [
+      "Cleveland scoring was heavily dependent on Mitchell's takeover and free throws; this is powerful but volatile.",
+      "Detroit's late mini-run shows that Cleveland spread/margin markets still carry backdoor risk.",
+      "Second-half overs should still require process confirmation, not just halftime deficit chasing."
+    ]
+  },
+  "patch_rules": [
+    {
+      "patch_id": "HALFTIME_CREATION_VS_FINISHING_SPLIT_GATE",
+      "status": "ADD_TO_ACTIVE_PATCH_QUEUE",
+      "rule": "At halftime, separate poor shooting from poor creation. If a team has strong 3PA volume, FT access, and assist/paint creation but trails or underperforms raw points, allow team-total over consideration even when FG% is poor.",
+      "trigger_from_game": "CLE had 52 at half on 39.5% FG but had 25 3PA, 16 FTA, and 12 assists."
+    },
+    {
+      "patch_id": "MITCHELL_COLD_HALF_TAKEOVER_BOOST",
+      "status": "ADD_TO_ACTIVE_PATCH_QUEUE",
+      "rule": "For elite high-usage playoff scorers, a cold first half with normal minutes and shot volume should not automatically suppress second-half team total. Add takeover tail when team remains within 8 points and usage remains high.",
+      "trigger_from_game": "Mitchell had 4 first-half points on 1-8 FG, then scored 39 in the second half."
+    },
+    {
+      "patch_id": "DET_TURNOVER_PRESSURE_FADE_GATE",
+      "status": "ADD_TO_ACTIVE_PATCH_QUEUE",
+      "rule": "Downgrade Detroit second-half team-total overs when turnovers reach 10+ by halftime or Cunningham/Ausar/Duren combine for high live-ball turnover pressure, especially against switchable rim-protection teams.",
+      "trigger_from_game": "Detroit had 10 halftime turnovers and 20 final turnovers, producing 25 Cleveland points off turnovers."
+    },
+    {
+      "patch_id": "THIRD_QUARTER_VALIDATION_ACCELERATOR",
+      "status": "ADD_TO_ACTIVE_PATCH_QUEUE",
+      "rule": "When a halftime team-total over target gets 32+ points in Q3, mark position as protected and do not overreact to Q4 pace suppression unless the remaining required points exceed 18.",
+      "trigger_from_game": "Cleveland scored 38 in Q3, reaching 90 through three quarters."
+    }
+  ],
+  "rolling_window_use": "High-weight Game 5 input. The series is now tied 2-2. Cleveland's second-half correction profile, Mitchell takeover tail, free throw access, and Detroit turnover pressure should be elevated. Detroit first-half efficiency must be discounted if turnover pressure remains high. Cleveland team-total overs can be playable when halftime process metrics are stronger than raw score, but spread/margin plays remain vulnerable to backdoor scoring.",
+  "confidence_for_future_use": "HIGH_FOR_TEAM_TOTAL_PROCESS_FILTERS / MEDIUM_FOR_SPREAD_MARKETS",
+  "tags": [
+    "GHOST_BET_HIT_REGISTERED",
+    "CLE_TEAM_TOTAL_OVER_HIT",
+    "HALFTIME_CREATION_VS_FINISHING_SPLIT",
+    "MITCHELL_SECOND_HALF_TAKEOVER",
+    "DET_TURNOVER_PRESSURE_FADE",
+    "THIRD_QUARTER_VALIDATION_ACCELERATOR",
+    "ROLLING_WINDOW_GAME5_INPUT",
+    "BANKROLL_RESET_MODE"
+  ],
+  "created_by": "Charlotte",
+  "status": "CONFIRMED_LOGGED"
+}
