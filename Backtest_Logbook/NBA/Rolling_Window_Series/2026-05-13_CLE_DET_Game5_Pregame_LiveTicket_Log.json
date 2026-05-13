@@ -1,0 +1,169 @@
+{
+  "log_id": "NBA_ROLLING_WINDOW_2026_05_13_CLE_DET_GAME5_PREGAME_LIVE_TICKET_LOG",
+  "registry": "Backtest_Logbook/NBA/Rolling_Window_Series",
+  "sport": "NBA",
+  "model_environment": "NBA LiveFlow B.003 rolling-window series",
+  "entry_type": "pregame_edge_log_with_live_micro_positions",
+  "date": "2026-05-13",
+  "series_id": "2026_ECSF_CLE_DET",
+  "round": "Eastern Conference Semifinals",
+  "game_number": 5,
+  "matchup": "Cleveland Cavaliers at Detroit Pistons",
+  "venue": "Detroit home court",
+  "bankroll_mode": "micro-level bankroll active",
+  "source_inputs": {
+    "market_screens": [
+      "Kalshi spread market: CLE +4.5 / DET -4.5, user locked No on Detroit wins by over 4.5 points",
+      "Kalshi rebound market: Tobias Harris 8+ rebounds",
+      "Book screen: DET team total mostly 107.5 to 108.5, CLE team total mostly 104.5 to 105.5",
+      "Book screen: full game total mostly 212.5 to 213.5, Detroit favored around -3.5 to -4.5"
+    ],
+    "lineup_context": {
+      "CLE_expected_starters": ["James Harden", "Donovan Mitchell", "Dean Wade", "Evan Mobley", "Jarrett Allen"],
+      "DET_expected_starters": ["Cade Cunningham", "Duncan Robinson", "Ausar Thompson", "Tobias Harris", "Jalen Duren"],
+      "DET_injury_watch": [
+        "Duncan Robinson questionable - back soreness",
+        "Kevin Huerter questionable - left adductor strain / possible eighth straight absence",
+        "Caris LeVert questionable - heel contusion"
+      ]
+    },
+    "rolling_window_anchor_file": "Backtest_Logbook/NBA/Rolling_Window_Series/2026-05-11_DET_CLE_Game4_GhostBet_Postmortem.json",
+    "recent_tracking_window": {
+      "date_from": "2026-05-11",
+      "date_to": "2026-05-12",
+      "description": "Player tracking rebound chances from prior CLE-DET game used to recalibrate Game 5 rebound market."
+    }
+  },
+  "locked_positions": [
+    {
+      "ticket_id": "LIVE_MICRO_CLE_DET_G5_CLE_PLUS_4_5",
+      "market": "Spread",
+      "selection_display": "No - Detroit wins by over 4.5 points",
+      "translated_position": "Cleveland +4.5",
+      "team": "Cleveland Cavaliers",
+      "line": 4.5,
+      "price": -122,
+      "stake": 2.50,
+      "max_payout": 4.56,
+      "current_value_at_lock_screenshot": 2.24,
+      "status": "LOCKED_PREGAME",
+      "edge_call_active": true,
+      "model_read": {
+        "mean_margin": "DET by 2.0 to 3.0",
+        "median_margin": "DET by 2",
+        "cover_probability": 0.565,
+        "fair_price_estimate": -130,
+        "edge_summary": "Cleveland +4.5 is supported by rolling-window Game 4 inputs: Cleveland second-half correction profile, Mitchell takeover tail, free throw creation, and Detroit turnover-pressure fade risk."
+      },
+      "risk_flags": [
+        "Detroit at home with market favorite status",
+        "Cleveland margin still exposed to late foul-game variance",
+        "Detroit injury uncertainty can either hurt spacing or concentrate usage into Cade/Tobias/Duren"
+      ]
+    },
+    {
+      "ticket_id": "LIVE_MICRO_CLE_DET_G5_TOBIAS_HARRIS_8_REB",
+      "market": "Player Rebounds",
+      "player": "Tobias Harris",
+      "team": "Detroit Pistons",
+      "selection": "Yes - Tobias Harris 8+ rebounds",
+      "threshold": 8,
+      "price": 123,
+      "stake": 2.50,
+      "max_payout": 5.59,
+      "current_value_at_lock_screenshot": 2.19,
+      "status": "LOCKED_PREGAME",
+      "edge_call_active": true,
+      "model_read": {
+        "mean_rebounds": 7.3,
+        "median_rebounds": 7,
+        "hit_probability_range": "49% to 51%",
+        "fair_price_zone": "+100 to +105",
+        "edge_summary": "Tobias 8+ is a plus-money micro ladder. It is not a high-certainty straight projection, but the price is above estimated fair value based on rolling-window chance quality."
+      },
+      "tracking_evidence": {
+        "prior_game_minutes": 36.5,
+        "prior_game_rebounds": 8,
+        "rebound_chances": 11,
+        "rebound_chance_pct": 72.7,
+        "deferred_rebound_chances": 2,
+        "adjusted_rebound_chance_pct": 88.9,
+        "contested_rebounds": 5,
+        "contested_rebound_pct": 62.5,
+        "avg_rebound_distance_ft": 8.4,
+        "read": "Tobias showed active rebound involvement, not just passive long-board collection. His 88.9% adjusted chance rate and 5 contested boards made him the top Detroit rebound ladder signal over Duren."
+      },
+      "risk_flags": [
+        "Threshold requires 8 exactly or better; median remains 7",
+        "If Robinson/LeVert/Huerter statuses shift Detroit rotation size/spacing, rebound distribution may change",
+        "Duren or Paul Reed can siphon interior boards if Detroit rebalances frontcourt minutes"
+      ]
+    }
+  ],
+  "pregame_forecast_snapshot": {
+    "game_line_probabilities": {
+      "DET_moneyline_probability": 0.585,
+      "CLE_moneyline_probability": 0.415,
+      "CLE_plus_4_5_cover_probability": 0.565,
+      "DET_minus_4_5_cover_probability": 0.435,
+      "full_game_over_212_5_probability": 0.505,
+      "full_game_under_212_5_probability": 0.495
+    },
+    "projected_score_distribution": {
+      "mean_score": {"CLE": 105.6, "DET": 108.2},
+      "median_score": {"CLE": 105, "DET": 108},
+      "mean_total": 213.8,
+      "median_total": 213,
+      "mean_margin": "DET +2.6",
+      "median_margin": "DET +3"
+    },
+    "team_total_probabilities": {
+      "DET_over_108_5_probability": 0.505,
+      "CLE_over_105_5_probability": 0.498,
+      "CLE_over_104_5_probability": 0.525
+    }
+  },
+  "rolling_window_reasoning": {
+    "game4_carryover_signals": [
+      "Cleveland can outperform raw halftime score when creation and free throw access remain strong.",
+      "Detroit turnover pressure is a live downgrade signal, especially if Cade carries heavy initiation load.",
+      "Cleveland spread/margin markets carry better value than Detroit favorite pricing when the market overweights Detroit record/home status.",
+      "Rebound tracking downgraded Jalen Duren despite high chances because conversion was extremely poor, shifting Detroit rebound ladder attention toward Tobias Harris."
+    ],
+    "injury_context": [
+      "Duncan Robinson questionable with back issue may reduce Detroit spacing or push more usage/minutes to Ausar, Jenkins, or Harris.",
+      "Huerter questionable and possibly still out keeps Detroit wing shooting depth thin.",
+      "LeVert questionable with heel issue matters because he supplied 24 points in Game 4 and can change bench creation/rebound distribution."
+    ]
+  },
+  "liveflow_watchlist": [
+    {
+      "trigger": "Tobias Harris has 4+ rebounds by halftime or 6+ rebound chances by halftime",
+      "action": "Keep 8+ position live; consider no cash-out unless price becomes strongly profitable."
+    },
+    {
+      "trigger": "Tobias Harris has 2 or fewer rebound chances by halftime",
+      "action": "Downgrade position; evaluate cash-out only if market still offers acceptable recovery."
+    },
+    {
+      "trigger": "Cleveland trails by 6 or fewer entering halftime with Mitchell/Harden/Mobley minutes clean",
+      "action": "CLE +4.5 remains structurally alive."
+    },
+    {
+      "trigger": "Detroit leads by 10+ with low turnover count and strong Cade half-court control",
+      "action": "Spread position risk rises; watch for cash-out/liquidity if value deteriorates sharply."
+    }
+  ],
+  "tags": [
+    "LIVE_MICRO_POSITION_LOCKED",
+    "CLE_PLUS_4_5_EDGE_CALL_ACTIVE",
+    "TOBIAS_HARRIS_8_REB_LADDER",
+    "ROLLING_WINDOW_GAME5_PREGAME",
+    "DET_INJURY_UNCERTAINTY",
+    "REBOUND_TRACKING_SIGNAL",
+    "DUREN_CONVERSION_DOWNGRADE",
+    "TOBIAS_REBOUND_CHANCE_UPGRADE"
+  ],
+  "created_by": "Charlotte",
+  "status": "CONFIRMED_LOGGED_PREGAME"
+}
