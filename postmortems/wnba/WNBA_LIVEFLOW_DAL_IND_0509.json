@@ -1,0 +1,69 @@
+{
+  "game_id": "WNBA_LIVEFLOW_DAL_IND_0509",
+  "date": "2026-05-09",
+  "matchup": "Dallas Wings @ Indiana Fever",
+  "final_score": {
+    "DAL": 107,
+    "IND": 104
+  },
+  "live_position": {
+    "market": "DAL -3.5",
+    "entry_score": "DAL 60 - IND 51 halftime",
+    "entry_price": -127,
+    "result": "LOSS",
+    "margin": 3,
+    "required_margin": 4,
+    "miss_type": "HOOK_LOSS_LIVE_SPREAD"
+  },
+  "model_assessment": {
+    "winner_read": "CORRECT",
+    "cover_read": "MISS",
+    "classification": "SIGNAL_PARTIALLY_CONFIRMED",
+    "failure_mode": "Margin compression from Indiana offensive rebounds, paint pressure, and Dallas foul load"
+  },
+  "team_stats": {
+    "DAL": {
+      "points": 107,
+      "rebounds": 27,
+      "oreb": 3,
+      "assists": 26,
+      "turnovers": 17,
+      "fg": "39-66",
+      "three_pt": "12-23",
+      "fastbreak_points": 25,
+      "points_in_paint": 44,
+      "second_chance_points": 7
+    },
+    "IND": {
+      "points": 104,
+      "rebounds": 28,
+      "oreb": 7,
+      "assists": 23,
+      "turnovers": 14,
+      "fg": "40-77",
+      "three_pt": "7-24",
+      "fastbreak_points": 12,
+      "points_in_paint": 62,
+      "second_chance_points": 22
+    }
+  },
+  "patch_recommendation": {
+    "status": "MODIFY",
+    "patch": "LIVE_SPREAD_MARGIN_COMPRESSION_v1",
+    "logic": {
+      "if_favorite_foul_load_high": true,
+      "if_opponent_points_in_paint_gte": 55,
+      "if_opponent_second_chance_points_gte": 18,
+      "if_live_cover_buffer_lte": 6,
+      "downgrade_cover_probability": "-6% to -10%"
+    }
+  },
+  "retraining_flags": [
+    "HOOK_LOSS_LIVE_SPREAD",
+    "LIVE_SPREAD_MARGIN_COMPRESSION",
+    "OREB_SECOND_CHANCE_MARGIN_SUPPRESSION",
+    "FOUL_LOAD_COVER_RISK",
+    "WINNER_CORRECT_COVER_MISS"
+  ],
+  "final_status": "MODIFY"
+}
