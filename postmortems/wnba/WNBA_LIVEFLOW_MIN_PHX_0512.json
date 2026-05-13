@@ -1,0 +1,130 @@
+{
+  "game_id": "WNBA_LIVEFLOW_MIN_PHX_0512",
+  "date": "2026-05-12",
+  "matchup": "Minnesota Lynx @ Phoenix Mercury",
+  "final_score": {
+    "MIN": 88,
+    "PHX": 84
+  },
+  "live_position": {
+    "market": "Over 167.5 total points",
+    "entry_score": "MIN 41 - PHX 45 halftime",
+    "entry_price": -127,
+    "stake": 2.5,
+    "max_payout": 4.48,
+    "result": "WIN",
+    "final_total": 172,
+    "line": 167.5,
+    "margin_to_line": 4.5,
+    "classification": "EDGE_CALL_ACTIVE_SMALL"
+  },
+  "model_assessment": {
+    "total_read": "CORRECT",
+    "classification": "SIGNAL_CONFIRMED",
+    "primary_drivers": [
+      "Close-game pace preservation",
+      "Free throw extension active",
+      "Turnover-to-transition path active",
+      "PHX and MIN generated enough second-half scoring despite PHX shooting inefficiency"
+    ]
+  },
+  "halftime_snapshot": {
+    "score": {
+      "MIN": 41,
+      "PHX": 45
+    },
+    "live_market": {
+      "spread": "PHX -7.5 +123 / MIN +7.5 -149",
+      "total": "167.5",
+      "over_price": -121,
+      "under_price": 101
+    },
+    "entry_note": "User locked Over 167.5 at -127, slightly above stated -125 cap. Managed as yellow micro-position."
+  },
+  "team_stats_final": {
+    "MIN": {
+      "points": 88,
+      "rebounds": 43,
+      "oreb": 9,
+      "assists": 20,
+      "steals": 5,
+      "blocks": 4,
+      "turnovers": 15,
+      "fg": "32-64",
+      "fg_pct": 50.0,
+      "three_pt": "7-19",
+      "three_pt_pct": 36.8,
+      "ft": "17-24",
+      "ft_pct": 70.8,
+      "points_off_turnovers": 12,
+      "fastbreak_points": 6,
+      "points_in_paint": 42,
+      "second_chance_points": 13,
+      "fouls": 28
+    },
+    "PHX": {
+      "points": 84,
+      "rebounds": 31,
+      "oreb": 9,
+      "assists": 20,
+      "steals": 11,
+      "blocks": 4,
+      "turnovers": 11,
+      "fg": "26-72",
+      "fg_pct": 36.1,
+      "three_pt": "9-29",
+      "three_pt_pct": 31.0,
+      "ft": "23-33",
+      "ft_pct": 69.7,
+      "points_off_turnovers": 21,
+      "fastbreak_points": 17,
+      "points_in_paint": 32,
+      "second_chance_points": 13,
+      "fouls": 22
+    }
+  },
+  "player_notes": {
+    "MIN": {
+      "N_Howard": "14 pts, 11 reb, 4 OREB, 4 TOV, 4 PF; high-rebound profile with foul/turnover volatility.",
+      "N_Coffey": "13 pts, 11 reb, 6 PF; strong efficiency but foul-out risk confirmed.",
+      "O_Miles": "13 pts, 6 reb, 7 ast; creation stabilized MIN offense.",
+      "E_Cechova": "11 bench pts, 6 reb; bench scoring helped over sustain."
+    },
+    "PHX": {
+      "K_Copper": "30 pts on 9-22 FG, 10-13 FT; primary scoring engine and foul pressure source.",
+      "D_Bonner": "16 pts, 7 reb; secondary scoring stable despite poor team FG%.",
+      "A_Thomas": "10 pts, 4 reb, 8 ast on 2-10 FG and 6-13 FT; facilitation supported pace, scoring efficiency weak.",
+      "N_Mack": "9 pts, 10 reb, 3 OREB, 3 blk; interior activity supported second-chance environment."
+    }
+  },
+  "rebound_environment": {
+    "summary": "MIN dominated total boards 43-31, but both teams generated 9 offensive rebounds and 13 second-chance points. Rebound environment supported total sustain through extra possessions.",
+    "classification": "REBOUND_EXTRA_POSSESSION_CONFIRMED",
+    "notes": [
+      "MIN defensive rebounding advantage prevented PHX from running away despite turnover pressure.",
+      "Equal OREB totals and equal second-chance points created enough supplemental scoring for over path.",
+      "PHX poor FG% did not kill total because FT volume and transition points replaced field-goal efficiency."
+    ]
+  },
+  "patch_evaluation": {
+    "status": "KEEP_AND_MODIFY",
+    "confirmed_tags": [
+      "CLOSE_GAME_PACE_PRESERVATION",
+      "FREE_THROW_EXTENSION_ACTIVE",
+      "LIVE_BALL_TURNOVER_CHAOS",
+      "REBOUND_EXTRA_POSSESSION_CONFIRMED"
+    ],
+    "modification_needed": {
+      "PRICE_CAP_EXCEPTION_LOGIC": "Entry was -127 despite user max -125 rule. Future workflow should hard-block -126 or worse unless user explicitly overrides in-message before placement."
+    }
+  },
+  "retraining_flags": [
+    "LIVE_TOTAL_OVER_WIN",
+    "CLOSE_GAME_PACE_PRESERVATION_CONFIRMED",
+    "FT_EXTENSION_TOTAL_SUPPORT",
+    "EXTRA_POSSESSION_REBOUND_SUPPORT",
+    "PRICE_CAP_EXCEPTION_REVIEW"
+  ],
+  "confidence_level": "MEDIUM",
+  "final_status": "KEEP_AND_MODIFY"
+}
