@@ -1,0 +1,143 @@
+{
+  "game_id": "WNBA_LIVEFLOW_NYL_PDX_0512",
+  "date": "2026-05-12",
+  "matchup": "New York Liberty @ Portland Fire",
+  "final_score": {
+    "NYL": 96,
+    "PDX": 98
+  },
+  "live_position": {
+    "market": "NYL -12.5 live spread",
+    "entry_score": "NYL 54 - PDX 47 halftime",
+    "entry_price": -112,
+    "stake": 1.5,
+    "max_payout": 2.84,
+    "result": "LOSS",
+    "final_margin": -2,
+    "required_margin": 13,
+    "miss_distance": 15,
+    "classification": "POSITION_COLLAPSE"
+  },
+  "model_assessment": {
+    "winner_read": "INCORRECT",
+    "cover_read": "MISS",
+    "classification": "SIGNAL_BROKEN",
+    "failure_mode": "New York failed to separate after halftime; Portland three-point variance and bench scoring held, while NY turnover count and defensive leakage triggered margin compression collapse."
+  },
+  "halftime_snapshot": {
+    "score": {
+      "NYL": 54,
+      "PDX": 47
+    },
+    "live_market": {
+      "spread": "NYL -12.5 -117 / PDX +12.5 -108",
+      "total": "176.5",
+      "over_price": -661,
+      "under_price": 528
+    },
+    "entry_note": "User locked NYL -12.5 at -112, within max -125 price cap. Classified as yellow micro-position."
+  },
+  "team_stats_final": {
+    "NYL": {
+      "points": 96,
+      "rebounds": 31,
+      "oreb": 8,
+      "assists": 23,
+      "steals": 7,
+      "blocks": 3,
+      "turnovers": 18,
+      "fg": "33-62",
+      "fg_pct": 53.2,
+      "three_pt": "13-28",
+      "three_pt_pct": 46.4,
+      "ft": "17-18",
+      "ft_pct": 94.4,
+      "points_off_turnovers": 19,
+      "fastbreak_points": 10,
+      "points_in_paint": 32,
+      "second_chance_points": 9,
+      "fouls": 16,
+      "biggest_lead": 13
+    },
+    "PDX": {
+      "points": 98,
+      "rebounds": 26,
+      "oreb": 8,
+      "assists": 15,
+      "steals": 8,
+      "blocks": 4,
+      "turnovers": 14,
+      "fg": "34-68",
+      "fg_pct": 50.0,
+      "three_pt": "15-33",
+      "three_pt_pct": 45.5,
+      "ft": "15-15",
+      "ft_pct": 100.0,
+      "points_off_turnovers": 25,
+      "fastbreak_points": 7,
+      "points_in_paint": 34,
+      "second_chance_points": 10,
+      "fouls": 21,
+      "biggest_lead": 4
+    }
+  },
+  "player_notes": {
+    "NYL": {
+      "B_Stewart": "16 pts, 10 reb, 4 ast, 3 blk; scoring normalized somewhat after slow start but not enough for separation.",
+      "J_Jones": "17 pts, 7 reb, 3 ast, 4 TOV; efficient scoring but turnover drag.",
+      "M_Johannes": "18 pts, 4 reb, 4 ast; perimeter scoring stable.",
+      "P_Astier": "24 pts, 5 reb, 3 ast, 5 TOV; offensive engine but turnover pressure contributed to margin failure."
+    },
+    "PDX": {
+      "B_Carleton": "26 pts, 5 threes, 4 steals; primary variance spike and defensive disruption source.",
+      "C_Leite": "21 pts, 4 reb, 6 ast; lead guard control and late-game stability.",
+      "K_Smalls": "13 pts off bench on 4-5 3PT; bench shooting spike broke NY spread extension thesis.",
+      "L_Geiselsoder": "13 pts, 5 reb, 3 threes; frontcourt spacing sustained PDX offense."
+    }
+  },
+  "rebound_environment": {
+    "summary": "NYL won total rebounds 31-26, but offensive rebounds were even at 8-8. Rebounding did not create separation for NY; PDX matched second-chance output 10-9 and neutralized NY's board advantage.",
+    "classification": "REBOUND_EDGE_NEUTRALIZED",
+    "notes": [
+      "NY had a 23-18 defensive rebounding edge but could not convert into margin extension.",
+      "Even OREB count prevented NY from generating a possession cushion.",
+      "PDX second-chance scoring and perimeter efficiency offset NY rebounding advantage."
+    ]
+  },
+  "patch_evaluation": {
+    "status": "MODIFY",
+    "failed_tags": [
+      "FAVORITE_SPREAD_EXTENSION",
+      "STEWART_NORMALIZATION_BOOST",
+      "NY_TALENT_EDGE_SEPARATION"
+    ],
+    "confirmed_risk_tags": [
+      "LIVE_SPREAD_MARGIN_COMPRESSION_RISK",
+      "PDX_THREE_POINT_VARIANCE_HELD",
+      "NY_TURNOVER_WATCH_TRIGGERED",
+      "UNDERDOG_BENCH_SCORING_SPIKE",
+      "FAVORITE_FAILED_TO_SEPARATE"
+    ],
+    "new_rule_recommendation": {
+      "patch": "LIVE_SPREAD_EXTENSION_FILTER_v1",
+      "logic": {
+        "block_favorite_spread_entries_when_current_margin_under": 10,
+        "and_required_final_margin_over": 12.5,
+        "and_underdog_3pt_pct_over": 38,
+        "and_favorite_turnovers_over": 10,
+        "and_underdog_points_off_turnovers_gte": 15
+      }
+    }
+  },
+  "retraining_flags": [
+    "LIVE_SPREAD_POSITION_COLLAPSE",
+    "FAVORITE_EXTENSION_FAIL",
+    "PDX_THREE_POINT_VARIANCE_HELD",
+    "UNDERDOG_BENCH_SCORING_SPIKE",
+    "NY_TURNOVER_WATCH_TRIGGERED",
+    "REBOUND_EDGE_NEUTRALIZED",
+    "SIGNAL_BROKEN"
+  ],
+  "confidence_level": "HIGH_POSTGAME",
+  "final_status": "MODIFY"
+}
