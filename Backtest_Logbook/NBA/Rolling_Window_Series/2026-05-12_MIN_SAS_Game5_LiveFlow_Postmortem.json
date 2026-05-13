@@ -1,0 +1,222 @@
+{
+  "log_id": "NBA_LIVEFLOW_2026-05-12_MIN_SAS_GAME5_ROLLING_WINDOW_ENTRY",
+  "registry": "Backtest_Logbook",
+  "folder": "Backtest_Logbook/NBA/Rolling_Window_Series/",
+  "created_from_conversation": "Charlotte NBA LiveFlow workflow",
+  "status": "FINALIZED_LOGGED",
+  "date": "2026-05-12",
+  "sport": "NBA",
+  "round": "Western Conference Semifinals",
+  "series_id": "2026_WCSF_MIN_SAS",
+  "game_number": 5,
+  "venue": "Frost Bank Center, San Antonio, TX",
+  "officials": ["John Goble", "Ben Taylor", "Karl Lane", "Kevin Cutler"],
+  "attendance": 19345,
+  "game_duration": "2:28",
+  "teams": {
+    "away": "Minnesota Timberwolves",
+    "home": "San Antonio Spurs"
+  },
+  "final_score": {
+    "MIN": 97,
+    "SAS": 126
+  },
+  "score_by_period": {
+    "MIN": [30, 17, 26, 24],
+    "SAS": [34, 25, 32, 35]
+  },
+  "series_state_after_game": "San Antonio leads series 3-2",
+  "official_gamebook_evidence_summary": {
+    "source_file": "20260512_MINSAS_book (1).pdf",
+    "source_type": "NBA Official Scorer's Report / Final Box + Play-by-Play",
+    "final_box_page": 1,
+    "key_lines": [
+      "Final: San Antonio Spurs 126, Minnesota Timberwolves 97.",
+      "Spurs won the 4th quarter 35-24 and expanded the biggest lead to 30.",
+      "San Antonio shot 52.8% FG, 34.4% from three, and 77.8% FT.",
+      "Minnesota shot 38.6% FG, 27.3% from three, and 80.0% FT.",
+      "Points in the paint: Spurs 68, Timberwolves 36.",
+      "Julius Randle final line: 36:23, 17 points, 10 rebounds, 1 assist.",
+      "Victor Wembanyama final line: 32:38, 27 points, 17 rebounds, 5 assists, 3 blocks.",
+      "Dylan Harper produced 12 points and 10 rebounds off the bench.",
+      "Keldon Johnson produced 21 points on 8-of-11 shooting."
+    ],
+    "liveflow_checkpoint_pages": {
+      "q1": 2,
+      "halftime": 4,
+      "end_q3": 6,
+      "q4_final": 7,
+      "play_by_play_q4": [18, 19, 20]
+    }
+  },
+  "pre_game_context_inputs": {
+    "market_snapshot": {
+      "side_spread": "SAS approximately -9.5 to -10.5 pregame",
+      "game_total": "218.5 to 219.5 range",
+      "team_totals": {
+        "SAS": "114.5 market consensus; Kalshi YES taken at -112 on over 114.5",
+        "MIN": "104.5 broader market pregame; live entry later taken at 102.5"
+      }
+    },
+    "lineup_status": {
+      "MIN_confirmed_starters": ["Ayo Dosunmu", "Anthony Edwards", "Jaden McDaniels", "Julius Randle", "Rudy Gobert"],
+      "SAS_confirmed_starters": ["De'Aaron Fox", "Stephon Castle", "Devin Vassell", "Julian Champagnie", "Victor Wembanyama"],
+      "DeAaron_Fox_status": "Upgraded to good-to-go pregame after ankle question mark; played 34:29."
+    },
+    "series_context": [
+      "Game 5 was tied 2-2 entering the night after Minnesota won Game 4 114-109 while Wembanyama was ejected early.",
+      "Wembanyama was available for Game 5 with no further discipline and immediately re-established interior control."
+    ]
+  },
+  "locked_positions": [
+    {
+      "ticket_id": "SAS_TT_OVER_114_5_KALSHI_2026-05-12",
+      "market": "Team Total",
+      "selection": "San Antonio over 114.5 points scored",
+      "book": "Kalshi",
+      "entry_type": "pregame",
+      "stake": 1.50,
+      "odds": -112,
+      "closing_observed": "Approximately -116 to -127 at 114.5 depending snapshot; DraftKings moved to 113.5 -129 on over.",
+      "result": "WIN",
+      "final_score_component": 126,
+      "payout": 2.84,
+      "profit": 1.34,
+      "hit_margin_points": 11.5,
+      "edge_call_status": "EDGE_CALL_ACTIVE",
+      "model_reasoning_snapshot": {
+        "pregame_read": "Spurs offensive profile with Wembanyama active, Fox confirmed, and strong home response spot supported 115+ outcome path.",
+        "liveflow_validation": "At 4:46 4Q, SAS led 110-91 and needed only five more points; model read was hold with strong hit probability. Keldon Johnson three at 3:09 pushed SAS to 115 and secured the over."
+      }
+    },
+    {
+      "ticket_id": "RANDLE_7_PLUS_REBOUNDS_KALSHI_2026-05-12",
+      "market": "Player Rebounds",
+      "selection": "Julius Randle 7+ rebounds",
+      "book": "Kalshi",
+      "entry_type": "pregame",
+      "stake": 1.50,
+      "odds": 118,
+      "closing_observed": "Kalshi +119 at 6.5 equivalent / 7+ ladder pricing; market held near entry.",
+      "result": "WIN",
+      "final_stat": 10,
+      "payout": 3.28,
+      "profit": 1.78,
+      "hit_margin_rebounds": 3,
+      "edge_call_status": "EDGE_CALL_ACTIVE",
+      "model_reasoning_snapshot": {
+        "pregame_read": "Randle rebounding path was supported by projected 35+ minutes, series physicality, missed-shot volume, and Minnesota needing frontcourt possessions against Wembanyama/Gobert configurations.",
+        "liveflow_validation": "Randle had 5 rebounds through 3Q, then grabbed 5 more in the 4Q, including multiple offensive rebounds during Minnesota's comeback/gap-closing attempt."
+      }
+    },
+    {
+      "ticket_id": "MIN_TT_OVER_102_5_KALSHI_2026-05-12",
+      "market": "Team Total",
+      "selection": "Minnesota over 102.5 points scored",
+      "book": "Kalshi",
+      "entry_type": "halftime_liveflow",
+      "stake": 2.50,
+      "odds": -108,
+      "result": "LOSS",
+      "final_score_component": 97,
+      "payout": 0.00,
+      "profit": -2.50,
+      "miss_margin_points": 5.5,
+      "edge_call_status": "EDGE_CALL_ACTIVE",
+      "model_reasoning_snapshot": {
+        "halftime_score": "SAS 59, MIN 47",
+        "entry_rationale": "Minnesota needed 56 second-half points to clear 102.5. The bet leaned on comeback pressure, Edwards/Randle minutes, and potential foul-extension path.",
+        "failure_reason": "The blowout expanded, Minnesota shot only 36.4% FG in the second half and 23.5% from three, and late garbage-time substitutions capped the primary scoring path."
+      }
+    }
+  ],
+  "betting_result_summary": {
+    "record": "2-1",
+    "total_staked": 5.50,
+    "total_return": 6.12,
+    "net_profit": 0.62,
+    "roi_percent": 11.27,
+    "winning_tickets": 2,
+    "losing_tickets": 1,
+    "micro_bankroll_note": "Micro-level bankroll live again; session finished positive despite one late LiveFlow miss."
+  },
+  "model_vs_market_postmortem": {
+    "sas_team_total_over_114_5": {
+      "pre_game_line": 114.5,
+      "actual": 126,
+      "delta": 11.5,
+      "grading": "HIT_REGISTERED",
+      "diagnostic": "Strong model-market alignment. Pregame team-total over captured the true Spurs ceiling once Wembanyama control and paint pressure stabilized."
+    },
+    "randle_7_plus_rebounds": {
+      "line_equivalent": 6.5,
+      "actual": 10,
+      "delta": 3.5,
+      "grading": "HIT_REGISTERED",
+      "diagnostic": "Correct ladder target. Early foul/minute compression did not kill the rebound path because Randle played 36:23 and the 4Q created extra rebound volume."
+    },
+    "min_team_total_over_102_5_live": {
+      "live_line": 102.5,
+      "actual": 97,
+      "delta": -5.5,
+      "grading": "MISS_REGISTERED",
+      "diagnostic": "Late live over failed because comeback scoring path was overestimated after the game tilted into a 20+ point margin and Minnesota's primary group lost efficiency."
+    }
+  },
+  "game_flow_analysis": {
+    "q1": {
+      "score": "SAS 34, MIN 30",
+      "read": "Fast/high-efficiency start. Wembanyama erupted for 18 points and 6 rebounds in Q1, immediately validating the Spurs response spot and SAS TT over profile."
+    },
+    "q2": {
+      "score": "SAS 25, MIN 17",
+      "read": "Minnesota offensive collapse quarter. Spurs defense held MIN to 25% FG in Q2 and expanded the halftime lead to 12."
+    },
+    "q3": {
+      "score": "SAS 32, MIN 26",
+      "read": "Minnesota briefly tied the game at 61, but SAS stabilized with bench scoring from Castle, Harper, and Keldon Johnson. Spurs entered Q4 up 18."
+    },
+    "q4": {
+      "score": "SAS 35, MIN 24",
+      "read": "Spurs closed through both starters and bench. SAS reached 115 at 3:09 on a Keldon Johnson shot, then extended garbage-time scoring to 126. Minnesota did not reach the live team-total threshold."
+    }
+  },
+  "key_model_tags": [
+    "SAS_TEAM_TOTAL_OVER_HIT",
+    "RANDLE_REBOUND_LADDER_HIT",
+    "MIN_LIVE_TEAM_TOTAL_OVER_MISS",
+    "WEMBANYAMA_RESPONSE_GAME_DOMINANCE",
+    "SPURS_PAINT_SUPREMACY",
+    "MIN_2Q_OFFENSIVE_COLLAPSE",
+    "BLOWOUT_RISK_LIVE_OVER_FAILURE",
+    "BENCH_EXTENSION_SCORING_SPIKE",
+    "MICRO_BANKROLL_POSITIVE_SESSION"
+  ],
+  "patch_queue_updates": [
+    {
+      "patch": "BLOWOUT_RISK_LIVE_TEAM_TOTAL_OVER_GATE",
+      "source_game": "MIN@SAS Game 5",
+      "trigger": "Do not add live team-total over when target team trails by 15+ after halftime or 18+ after 3Q unless the line is at least 7 points below projected median and starters are confirmed to remain active.",
+      "reason": "MIN TT over 102.5 failed despite reasonable raw math because blowout/starter-pull risk and 2H efficiency decline were underweighted."
+    },
+    {
+      "patch": "ELITE_BIG_RESPONSE_TEAM_TOTAL_BOOST",
+      "source_game": "MIN@SAS Game 5",
+      "trigger": "When elite big returns after ejection/absence and team is at home in a tied playoff series, boost team total mean if usage, FT pressure, and paint creation show early confirmation.",
+      "reason": "Wembanyama posted 18/6 in Q1 and Spurs finished with 68 paint points; this was a direct team-total over driver."
+    },
+    {
+      "patch": "FRONTCOURT_REBOUND_LADDER_STICKINESS",
+      "source_game": "MIN@SAS Game 5",
+      "trigger": "Maintain rebound ladder confidence for high-minute forwards even if early rebounds are low, provided minutes remain 34+ and opponent rim contests generate miss/putback volume.",
+      "reason": "Randle had only 5 boards through 3Q but finished with 10 due to 4Q offensive rebounding and continued minutes."
+    }
+  ],
+  "rolling_window_use": "High-weight Game 6 input. Spurs paint control, Wembanyama response profile, and bench scoring tail are elevated. Minnesota live overs need stricter blowout and starter-extension filters. Randle rebound ladders remain playable only when projected minutes are secure and price stays plus-money.",
+  "audit_notes": {
+    "classification": "Actionable LiveFlow + Pregame betting log",
+    "settlement_verified_by_user_screenshots": true,
+    "official_gamebook_uploaded": true,
+    "official_gamebook_pages_used": [1, 2, 4, 6, 7, 18, 19, 20]
+  }
+}
