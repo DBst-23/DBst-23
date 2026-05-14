@@ -1,0 +1,148 @@
+{
+  "game_id": "WNBA_LIVEFLOW_IND_LAS_0513",
+  "date": "2026-05-13",
+  "matchup": "Indiana Fever @ Los Angeles Sparks",
+  "final_score": {
+    "IND": 87,
+    "LAS": 78
+  },
+  "investment": {
+    "market": "Under 175.5 total points / No - Over 175.5 points scored",
+    "entry_score": "IND 40 - LAS 28, 2Q 4:04",
+    "entry_price": -117,
+    "stake": 5.0,
+    "max_payout": 9.30,
+    "result": "WIN",
+    "final_total": 165,
+    "line": 175.5,
+    "margin_to_line": 10.5,
+    "classification": "EDGE_CALL_ACTIVE"
+  },
+  "entry_market_snapshot": {
+    "period_time": "2Q 4:04",
+    "score": {
+      "IND": 40,
+      "LAS": 28
+    },
+    "live_market": {
+      "spread": "IND -6.5 +152 / LAS +6.5 +128",
+      "moneyline": "IND -610 / LAS +398",
+      "total": "175.5",
+      "over_price": -149,
+      "under_price": -108
+    },
+    "actual_entry_price": -117,
+    "price_cap_status": "PASS_WITHIN_USER_MAX_NEGATIVE_PRICE_-125"
+  },
+  "model_assessment": {
+    "primary_read": "LIVE_TOTAL_UNDER",
+    "classification": "SIGNAL_CONFIRMED",
+    "why_it_worked": [
+      "Live total stayed inflated at 175.5 despite pace cooling before entry",
+      "Low free throw volume at entry supported under path",
+      "Los Angeles half-court offense showed assist drag and poor spacing",
+      "Indiana's early scoring profile was hot-shooting dependent and vulnerable to regression",
+      "Favorite spread markets were rejected due to turnover risk and live cover fragility"
+    ]
+  },
+  "team_stats_final": {
+    "IND": {
+      "points": 87,
+      "rebounds": 33,
+      "oreb": 8,
+      "assists": 23,
+      "steals": 7,
+      "blocks": 3,
+      "turnovers": 17,
+      "fg": "31-63",
+      "fg_pct": 49.2,
+      "three_pt": "9-30",
+      "three_pt_pct": 30.0,
+      "ft": "16-19",
+      "ft_pct": 84.2,
+      "points_off_turnovers": 24,
+      "fastbreak_points": 2,
+      "points_in_paint": 36,
+      "second_chance_points": 6,
+      "fouls": 24,
+      "biggest_lead": 21
+    },
+    "LAS": {
+      "points": 78,
+      "rebounds": 24,
+      "oreb": 4,
+      "assists": 13,
+      "steals": 12,
+      "blocks": 4,
+      "turnovers": 19,
+      "fg": "28-57",
+      "fg_pct": 49.1,
+      "three_pt": "2-15",
+      "three_pt_pct": 13.3,
+      "ft": "20-25",
+      "ft_pct": 80.0,
+      "points_off_turnovers": 14,
+      "fastbreak_points": 11,
+      "points_in_paint": 46,
+      "second_chance_points": 5,
+      "fouls": 24,
+      "biggest_lead": 2
+    }
+  },
+  "player_notes": {
+    "IND": {
+      "C_Clark": "24 pts, 4 reb, 9 ast, 6 TOV. High usage creation supported IND scoring but turnovers kept pace uneven.",
+      "K_Mitchell": "23 pts on 9-17 FG and 3-9 3PT. Main scoring support; efficient enough but 3PT rate normalized from early live window.",
+      "S_Cunningham": "12 pts, 7 reb, 5-9 FG. Secondary stability without over-speeding game.",
+      "A_Boston": "4 pts, 7 reb, 6 fouls. Interior scoring stayed muted, supporting under thesis."
+    },
+    "LAS": {
+      "K_Plum": "25 pts, 4 ast, 5 TOV. Primary scoring engine but turnover drag and poor team 3PT support limited total ceiling.",
+      "D_Hamby": "16 pts, 8 reb on 6-8 FG. Efficient but not enough volume to break under.",
+      "C_Brink": "11 pts, 5 reb, 3 blk off bench. Productive interior burst, but game total remained under threshold.",
+      "A_Atkins": "2 pts on 0-4 FG. Perimeter offensive drag confirmed."
+    }
+  },
+  "postmortem_phases": {
+    "phase_1_game_flow": "Indiana created early separation, but scoring rhythm slowed after the live strike. LA never produced enough perimeter efficiency to force the game over.",
+    "phase_2_pivotal_moments": [
+      "Live strike came with IND ahead 40-28 and total still inflated at 175.5",
+      "LA remained poor from three, finishing 2-15",
+      "Indiana's three-point shooting normalized to 30.0% by final",
+      "Boston foul trouble and low scoring kept Indiana from pushing total too high",
+      "LA turnovers and poor assist profile created empty possessions"
+    ],
+    "phase_3_variance_variables": {
+      "confirmed": [
+        "LOW_FT_VOLUME_UNDER_SUPPORT_AT_ENTRY",
+        "LA_HALFCOURT_DRAG",
+        "IND_HOT_SHOOTING_REGRESSION",
+        "FAVORITE_SPREAD_EXTENSION_BLOCK"
+      ],
+      "late_risks_that_did_not_break_bet": [
+        "LAS finished with 25 FT attempts",
+        "Plum scoring remained active",
+        "IND/LAS combined for 46 paint points from LA and 36 from IND"
+      ]
+    },
+    "phase_4_model_relevance_summary": {
+      "process_grade": "A_MINUS",
+      "outcome_grade": "WIN",
+      "model_alignment": "Strong. The model correctly avoided spread traps and identified that the total was inflated relative to the actual pace and half-court efficiency.",
+      "future_adjustments": [
+        "Keep live-total regression trigger active when early total remains high after pace cools",
+        "Continue blocking favorite spread extension with elevated turnover count",
+        "Track LA low-assist offense as under-supportive unless FT volume spikes early"
+      ]
+    }
+  },
+  "retraining_flags": [
+    "LIVE_TOTAL_UNDER_WIN",
+    "LIVE_TOTAL_REGRESSION_TRIGGER_CONFIRMED",
+    "IND_HOT_SHOOTING_REGRESSION_CONFIRMED",
+    "LA_HALFCOURT_DRAG_CONFIRMED",
+    "LOW_3PT_SUPPORT_LAS",
+    "SPREAD_MARKET_REJECTION_CONFIRMED"
+  ],
+  "final_status": "WIN_LOGGED"
+}
