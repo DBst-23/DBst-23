@@ -1,0 +1,149 @@
+{
+  "game_id": "WNBA_LIVEFLOW_LVA_CONN_0513",
+  "date": "2026-05-13",
+  "matchup": "Las Vegas Aces @ Connecticut Sun",
+  "final_score": {
+    "LVA": 98,
+    "CON": 69
+  },
+  "live_position": {
+    "market": "CON +17.5 live spread / No - Las Vegas wins by over 17.5",
+    "entry_score": "LVA 50 - CON 39, 3Q 8:54",
+    "entry_price": 108,
+    "stake": 5.0,
+    "max_payout": 10.42,
+    "result": "LOSS",
+    "final_margin": 29,
+    "covered_by": "LVA -17.5",
+    "miss_distance": 11.5,
+    "classification": "POSITION_COLLAPSE"
+  },
+  "model_assessment": {
+    "winner_read": "CORRECT_LVA_CONTROL",
+    "cover_read": "MISS",
+    "classification": "SIGNAL_BROKEN",
+    "failure_mode": "Connecticut margin-compression thesis failed. Las Vegas paint dominance, offensive rebounding, second-chance scoring, and bench efficiency extended the lead beyond the live spread. Connecticut shooting regression never arrived."
+  },
+  "live_entry_snapshot": {
+    "score": {
+      "LVA": 50,
+      "CON": 39
+    },
+    "period_time": "3Q 8:54",
+    "live_market": {
+      "spread": "LVA -17.5 -155 / CON +17.5 +109",
+      "moneyline": "LVA -10653 / CON +3015",
+      "total": "171.5",
+      "over_price": -108,
+      "under_price": -117
+    },
+    "entry_note": "User locked CON +17.5 at +108 as a yellow micro-position based on FT survival, OREB support, possible shooting regression, and A'ja Wilson foul risk."
+  },
+  "team_stats_final": {
+    "LVA": {
+      "points": 98,
+      "rebounds": 46,
+      "oreb": 12,
+      "assists": 21,
+      "steals": 9,
+      "blocks": 6,
+      "turnovers": 16,
+      "fg": "39-72",
+      "fg_pct": 54.2,
+      "three_pt": "5-16",
+      "three_pt_pct": 31.3,
+      "ft": "15-21",
+      "ft_pct": 71.4,
+      "points_off_turnovers": 18,
+      "fastbreak_points": 18,
+      "points_in_paint": 58,
+      "second_chance_points": 22,
+      "fouls": 19,
+      "biggest_lead": 36
+    },
+    "CON": {
+      "points": 69,
+      "rebounds": 29,
+      "oreb": 8,
+      "assists": 16,
+      "steals": 6,
+      "blocks": 3,
+      "turnovers": 14,
+      "fg": "23-70",
+      "fg_pct": 32.9,
+      "three_pt": "3-13",
+      "three_pt_pct": 23.1,
+      "ft": "20-24",
+      "ft_pct": 83.3,
+      "points_off_turnovers": 10,
+      "fastbreak_points": 2,
+      "points_in_paint": 34,
+      "second_chance_points": 10,
+      "fouls": 20,
+      "biggest_lead": 2
+    }
+  },
+  "player_notes": {
+    "LVA": {
+      "A_Wilson": "22 pts, 11 reb, 4 OREB, 2 blk, +33. Despite 4 PF, remained dominant and drove paint/rebound edge.",
+      "C_Carter": "27 pts, 8 reb, 4 ast off bench on 13-16 FG. Major bench spike and spread-extension driver.",
+      "C_Parker_Tyus": "10 pts, 5 reb, 3 OREB, 2 blk. Bench interior activity amplified second-chance edge.",
+      "C_Gray": "7 pts, 6 reb, 6 ast, +29. Stabilized offense and margin control.",
+      "J_Loyd": "11 pts off bench with 3 threes. Spacing support during extension phase."
+    },
+    "CON": {
+      "A_Morrow": "16 pts, 11 reb, 4 OREB but 4-16 FG. Rebound support existed, but efficiency did not regress enough.",
+      "O_Nelson_Ododa": "14 pts, 6 reb on 5-7 FG. Efficient interior contributor but not enough volume.",
+      "S_Rivers": "8 pts on 2-11 FG. Shot creation collapse.",
+      "D_Miller": "5 pts on 1-9 FG. Perimeter inefficiency sustained.",
+      "K_Burke": "4 pts, 5 ast, 4 TOV on 2-8 FG. Creation drag and turnover pressure."
+    }
+  },
+  "rebound_environment": {
+    "summary": "Las Vegas dominated total rebounds 46-29 and offensive rebounds 12-8. LVA converted the glass into 22 second-chance points versus CON's 10, eliminating the expected Connecticut margin-compression path.",
+    "classification": "FAVORITE_REBOUND_EXTENSION_CONFIRMED",
+    "notes": [
+      "The pre-entry CON OREB support existed early but did not sustain relative to LVA's interior dominance.",
+      "Aces produced 58 paint points and 22 second-chance points, creating a high-stability spread extension path.",
+      "Connecticut's 8 OREB and 20-24 FT were not enough because FG efficiency remained at 32.9%."
+    ]
+  },
+  "patch_evaluation": {
+    "status": "MODIFY",
+    "failed_tags": [
+      "CON_FT_SURVIVAL",
+      "CON_OREB_SUPPORT",
+      "AJA_FOUL_RISK_MARGIN_COMPRESSION",
+      "LIVE_SPREAD_EXTENSION_FADE"
+    ],
+    "confirmed_risk_tags": [
+      "LV_PAINT_DOMINANCE",
+      "FAVORITE_REBOUND_EXTENSION",
+      "BENCH_SCORING_SPIKE",
+      "CON_SHOOTING_REGRESSION_FAILED",
+      "SECOND_CHANCE_EXTENSION"
+    ],
+    "new_rule_recommendation": {
+      "patch": "LIVE_DOG_SPREAD_FADE_FILTER_v1",
+      "logic": {
+        "block_underdog_plus_spread_when_favorite_paint_points_gte": 34,
+        "and_favorite_fg_pct_gte": 54,
+        "and_underdog_fg_pct_lte": 33,
+        "and_favorite_second_chance_points_gte": 11,
+        "and_favorite_bench_points_spike_active": true
+      }
+    }
+  },
+  "retraining_flags": [
+    "LIVE_DOG_SPREAD_POSITION_COLLAPSE",
+    "FAVORITE_EXTENSION_CONFIRMED",
+    "LV_PAINT_DOMINANCE_CONFIRMED",
+    "CON_SHOOTING_REGRESSION_FAILED",
+    "BENCH_SCORING_SPIKE_C_CARTER",
+    "SECOND_CHANCE_EXTENSION",
+    "REBOUND_ENVIRONMENT_MISREAD",
+    "SIGNAL_BROKEN"
+  ],
+  "confidence_level": "HIGH_POSTGAME",
+  "final_status": "MODIFY"
+}
