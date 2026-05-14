@@ -1,0 +1,70 @@
+{
+  "game_id": "WNBA_POSTMORTEM_LVA_CON_0513",
+  "date": "2026-05-13",
+  "matchup": "Las Vegas Aces @ Connecticut Sun",
+  "final_score": {
+    "LVA": 98,
+    "CON": 69
+  },
+  "investment": {
+    "market": "No - Las Vegas wins by over 17.5 points",
+    "bet_type": "Spread Fade",
+    "position": "LVA not to win by 18+",
+    "odds": "+108",
+    "stake": 5.0,
+    "result": "LOSS",
+    "classification": "EDGE_CALL_ACTIVE"
+  },
+  "entry_snapshot": {
+    "score": "LVA 50 - CON 39",
+    "period": "3Q 8:54",
+    "live_spread": "LVA -17.5",
+    "market_read": "Connecticut hanging within volatility band despite offensive inefficiency"
+  },
+  "postmortem": {
+    "phase_1_game_flow": {
+      "summary": "Connecticut initially stayed within range, but Vegas created a second-half avalanche driven by paint dominance, transition scoring, offensive rebounding, and Sun offensive collapse.",
+      "turning_point": "Aces extended margin through sustained rim pressure and bench scoring while Connecticut shooting cratered below recovery threshold."
+    },
+    "phase_2_pivotal_moments": [
+      "A'ja Wilson established total interior control with 22 points and 11 rebounds in only 21 minutes",
+      "Carter exploded off bench with 27 points on 13-16 FG",
+      "Connecticut shot only 32.9% FG and 23.1% from three",
+      "Vegas won points in paint 58-34",
+      "Vegas won rebounds 46-29",
+      "Sun offensive possessions repeatedly died in half-court isolation"
+    ],
+    "phase_3_variance_variables": {
+      "collapse_tags": [
+        "OFFENSIVE_COLLAPSE_EVENT",
+        "BENCH_SCORING_SPIKE",
+        "PAINT_DOMINATION_EVENT",
+        "GARBAGE_TIME_EXTENSION"
+      ],
+      "key_failure_points": [
+        "Connecticut lacked shot creation under pressure",
+        "Vegas bench efficiency exceeded median expectation",
+        "Sun defensive resistance collapsed during second-half runs",
+        "Aces maintained elite efficiency despite low three-point volume"
+      ]
+    },
+    "phase_4_model_relevance_summary": {
+      "process_grade": "B_MINUS",
+      "outcome_grade": "LOSS",
+      "model_alignment": "Entry logic valid at time of strike. Collapse event and margin acceleration invalidated spread resistance thesis.",
+      "future_adjustments": [
+        "Increase collapse weighting when opponent offensive efficiency drops below 35% FG",
+        "Add interior domination volatility gate for A'ja Wilson led blowout scenarios",
+        "Flag bench-efficiency eruption events when secondary scorers exceed 75% TS"
+      ]
+    }
+  },
+  "retraining_flags": [
+    "FAVORITE_EXTENSION_FAILURE",
+    "SECOND_HALF_COLLAPSE",
+    "PAINT_DOMINATION_OVERLAY",
+    "BENCH_ERUPTION_EVENT",
+    "OFFENSIVE_FLOOR_BREAKDOWN"
+  ],
+  "final_engine_tag": "VARIANCE_BURN"
+}
