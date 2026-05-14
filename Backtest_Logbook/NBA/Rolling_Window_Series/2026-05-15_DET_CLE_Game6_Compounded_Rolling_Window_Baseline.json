@@ -6,6 +6,7 @@
   "entry_type": "compounded_recent_form_and_series_matchup_baseline",
   "created_from_conversation": "Charlotte NBA LiveFlow workflow",
   "date_created": "2026-05-14",
+  "date_recalculated": "2026-05-14",
   "target_game": {
     "date": "2026-05-15",
     "game_number": 6,
@@ -17,12 +18,49 @@
     "scheduled_tip_context": "Friday May 15, 2026, 4:00 PM PDT"
   },
   "source_files_compounded": [
+    "Backtest_Logbook/NBA/Rolling_Window_Series/2026-05-05_CLE_DET_Game1_Postmortem.json",
     "Backtest_Logbook/NBA/Rolling_Window_Series/2026-05-07_CLE_DET_Game2_Postmortem.json",
     "Backtest_Logbook/NBA/Rolling_Window_Series/2026-05-09_DET_CLE_Game3_Postmortem.json",
     "Backtest_Logbook/NBA/Rolling_Window_Series/2026-05-11_DET_CLE_Game4_GhostBet_Postmortem.json",
     "Backtest_Logbook/NBA/Rolling_Window_Series/2026-05-13_CLE_DET_Game5_Pregame_LiveTicket_Log.json",
     "Conversation-supplied Game 5 final/postmortem inputs: CLE 117, DET 113; CLE TT over 105.5 hit; CLE +4.5 position won; Tobias Harris 8+ rebounds lost"
   ],
+  "game1_newly_added_anchor": {
+    "final_score": {"CLE": 101, "DET": 111},
+    "market_position": "CLE team total over 100.5 at -112",
+    "result": "WIN by hook",
+    "model_mean_projection": 102.8,
+    "model_median_projection": 102.0,
+    "estimated_hit_probability": "55-57%",
+    "diagnostic_tags": [
+      "HALFTIME_TT_OVER_HOOK_WIN",
+      "THIN_EDGE_CONFIRMED",
+      "CLEVELAND_SECOND_HALF_CORRECTION",
+      "DET_TURNOVER_PRESSURE",
+      "DUREN_LATE_RIM_RUN",
+      "HARDEN_TURNOVER_VOLATILITY"
+    ],
+    "compounding_effect": [
+      "Adds earlier validation that Cleveland can produce exact second-half correction even after Detroit pressure creates a large halftime deficit.",
+      "Adds caution that Cleveland team-total overs have been real but often thin/hook-sensitive, not automatic wide-margin edges.",
+      "Strengthens Detroit turnover-pressure and Cade-Duren late PNR resilience as a standing counterweight to Cleveland spread positions.",
+      "Weakens blind Detroit fade only when Duncan Robinson is active and shooting because Game 1 spacing was a core Detroit success driver."
+    ]
+  },
+  "series_results_compounded": {
+    "known_game_scores": [
+      {"game": 1, "date": "2026-05-05", "score": {"CLE": 101, "DET": 111}, "venue": "DET"},
+      {"game": 2, "date": "2026-05-07", "score": {"CLE": 97, "DET": 107}, "venue": "DET"},
+      {"game": 3, "date": "2026-05-09", "score": {"DET": 109, "CLE": 116}, "venue": "CLE"},
+      {"game": 4, "date": "2026-05-11", "score": {"DET": 103, "CLE": 112}, "venue": "CLE"},
+      {"game": 5, "date": "2026-05-13", "score": {"CLE": 117, "DET": 113}, "venue": "DET"}
+    ],
+    "five_game_series_average": {"CLE": 108.6, "DET": 108.6, "total": 217.2},
+    "cle_home_games_average_games3_4": {"CLE": 114.0, "DET": 106.0, "total": 220.0},
+    "det_home_games_average_games1_2_5": {"CLE": 105.0, "DET": 110.3, "total": 215.3},
+    "last_three_games_average": {"CLE": 115.0, "DET": 108.3, "total": 223.3},
+    "model_interpretation": "Raw series scoring sits above the current 209.5-210.5 market total, but Game 6 pricing is discounting playoff tightening, venue flip, injury uncertainty, and late-series fatigue. The model keeps the total near market while nudging Cleveland spread/team-total upward."
+  },
   "market_snapshot_game6_early": {
     "full_game": {
       "cle_moneyline_range": "-159 to -177, with many books around -168 to -175",
@@ -41,7 +79,7 @@
       "stake": 4.67,
       "max_payout": 8.53,
       "status": "LOCKED_PREGAME",
-      "model_alignment": "Supported as the primary Game 6 compound-position from Game 5 correction and Cleveland home response."
+      "model_alignment": "Still supported after Game 1 is added, but confidence is trimmed slightly because Game 1 confirms Detroit's Cade-Duren late resilience and Robinson spacing upside."
     }
   },
   "injury_and_lineup_context": {
@@ -53,6 +91,11 @@
           "More creation burden shifts to Cade Cunningham",
           "Daniss Jenkins, Caris LeVert, Kevin Huerter, and Ausar Thompson minute/usage paths become more sensitive to availability",
           "Tobias Harris may gain floor time stability but not automatically rebound conversion because Cleveland frontcourt controlled Game 5 glass"
+        ],
+        "model_effect_if_active": [
+          "Game 1 showed Robinson's 5-8 3PT spacing can punish Cleveland rotations.",
+          "Detroit team-total ceiling and Cade assist conversion increase.",
+          "Cleveland spread remains playable, but DET under and CLE margin expansion should be downgraded."
         ]
       },
       "kevin_huerter": "Questionable/rotation-sensitive; if limited, Detroit perimeter scoring depth remains fragile.",
@@ -60,70 +103,55 @@
     },
     "cleveland": {
       "core": ["James Harden", "Donovan Mitchell", "Dean Wade", "Evan Mobley", "Jarrett Allen"],
-      "health_context": "No Cleveland inactive concern was flagged in the provided lineup screen."
+      "health_context": "No Cleveland inactive concern was flagged in the provided lineup screen.",
+      "jarrett_allen_note": "Game 1 foul/minutes displacement is now added as a warning that Allen rebound overs need foul-stability confirmation despite Game 5 frontcourt-control upgrade."
     }
   },
   "game5_final_anchor": {
     "final_score": {"CLE": 117, "DET": 113},
     "game5_edge_results": [
-      {
-        "market": "Cleveland team total over 105.5",
-        "result": "WIN",
-        "stake": 5.00,
-        "payout": 9.13,
-        "net": 4.13,
-        "tag": "CLE_TEAM_TOTAL_OVER_VALIDATED"
-      },
-      {
-        "market": "No - Detroit wins by over 4.5 points / Cleveland +4.5 equivalent",
-        "result": "WIN",
-        "stake": 2.50,
-        "payout": 4.56,
-        "net": 2.06,
-        "tag": "SPREAD_FADE_DET_MARGIN_VALIDATED"
-      },
-      {
-        "market": "Tobias Harris 8+ rebounds",
-        "result": "LOSS",
-        "stake": 2.50,
-        "payout": 0.00,
-        "net": -2.50,
-        "tag": "TOBIAS_REBOUND_CONVERSION_FAILURE"
-      }
+      {"market": "Cleveland team total over 105.5", "result": "WIN", "stake": 5.00, "payout": 9.13, "net": 4.13, "tag": "CLE_TEAM_TOTAL_OVER_VALIDATED"},
+      {"market": "No - Detroit wins by over 4.5 points / Cleveland +4.5 equivalent", "result": "WIN", "stake": 2.50, "payout": 4.56, "net": 2.06, "tag": "SPREAD_FADE_DET_MARGIN_VALIDATED"},
+      {"market": "Tobias Harris 8+ rebounds", "result": "LOSS", "stake": 2.50, "payout": 0.00, "net": -2.50, "tag": "TOBIAS_REBOUND_CONVERSION_FAILURE"}
     ],
     "net_confirmed_from_conversation": 3.69,
     "model_lesson": "Cleveland spread/team-total reads were validated. Tobias Harris rebound ladder had supportive minutes/recent chance logic but failed due to Cleveland frontcourt control and Detroit rebound distribution instability."
   },
   "compounded_team_baseline": {
     "cleveland_cavaliers": {
-      "series_recent_form_grade": "UPGRADED",
+      "series_recent_form_grade": "UPGRADED_BUT_HOOK_SENSITIVE",
       "offensive_profile": [
-        "Game 5 showed Cleveland can clear team total even after Detroit first-half pressure if creation quality stabilizes.",
+        "Game 1 and Game 5 both validate Cleveland second-half correction/team-total overs, but both reads carried hook or low-cushion characteristics.",
         "Harden plus Mobley assist hub structure generated multiple assisted paint and perimeter scoring paths.",
         "Max Strus and Sam Merrill spacing tails matter more than pure starter scoring projections.",
-        "Mitchell remains the scoring gravity/takeover tail, but not the only path to over outcomes."
+        "Mitchell remains the scoring gravity/takeover tail, but not the only path to over outcomes.",
+        "Game 1 adds a turnover dampener: Cleveland can score enough, but high live-ball turnovers can keep Detroit margin and ML alive."
       ],
       "rebounding_profile": [
         "Cleveland frontcourt rebound pressure strengthened across Game 5.",
         "Dean Wade defensive rebounding spike is a small but relevant long-board stabilizer.",
-        "Allen/Mobley combination remains the strongest anti-Detroit second-chance defense and best prop derivative angle."
+        "Allen/Mobley combination remains the strongest anti-Detroit second-chance defense and best prop derivative angle.",
+        "Jarrett Allen foul/minute volatility from Game 1 prevents an unrestricted boost to Allen rebound ladders."
       ],
       "turnover_profile": [
-        "Cleveland still had live-ball turnover risk versus Detroit pressure, but Game 5 showed enough second-half correction to overcome it.",
-        "If Cleveland first-half turnovers are under control, Game 6 CLE spread and team-total edges strengthen materially."
+        "Cleveland still has live-ball turnover risk versus Detroit pressure; Game 1's 20 turnovers and 31 points off turnovers allowed must stay active.",
+        "If Cleveland first-half turnovers are under control, Game 6 CLE spread and team-total edges strengthen materially.",
+        "If Cleveland hits 7+ turnovers by halftime, reduce CLE spread confidence and consider Detroit live resilience."
       ]
     },
     "detroit_pistons": {
-      "series_recent_form_grade": "DOWNGRADED_BUT_LIVE_VOLATILITY",
+      "series_recent_form_grade": "VOLATILE_WITH_SPACING_DEPENDENCE",
       "offensive_profile": [
         "Cade Cunningham is the primary pressure valve and late-clock offense source.",
-        "Detroit becomes more Cade-dependent when Duncan Robinson is out or limited.",
-        "Detroit team-total overs require either Cade scoring burst, fast-break pressure, or unsustainably high early shooting.",
+        "Game 1 confirms the Cade-Duren PNR can stabilize Detroit late when Cleveland ties or compresses the margin.",
+        "Duncan Robinson's Game 1 spacing/shot-making is a major swing input; if active and effective, Detroit's offense grades closer to neutral.",
+        "Detroit team-total overs require either Cade scoring burst, fast-break pressure, Robinson/wing shooting, or unsustainably high early shooting.",
         "Detroit half-court spacing is less stable when Robinson/Huerter/LeVert statuses are uncertain."
       ],
       "rebounding_profile": [
         "Duren remains high-ceiling but volatile versus Cleveland size.",
-        "Tobias Harris rebounding cannot be treated as a clean ladder despite strong prior tracking because Cleveland frontcourt suppression was validated in Game 5.",
+        "Game 1 Duren 12 rebounds validated the rebound funnel when Allen is foul-limited; Game 5 lowered confidence when Cleveland frontcourt controlled glass.",
+        "Tobias Harris rebounding cannot be treated as a clean ladder despite Game 1 and prior tracking because Cleveland frontcourt suppression was validated in Game 5.",
         "Ausar Thompson can collect event rebounds, but his offensive role volatility makes rebound ladders thin unless price is favorable."
       ],
       "turnover_profile": [
@@ -134,138 +162,69 @@
   },
   "compounded_projection_game6": {
     "score_distribution": {
-      "mean_score": {"DET": 103.0, "CLE": 107.8},
-      "median_score": {"DET": 103, "CLE": 108},
-      "mean_total": 210.8,
-      "median_total": 210,
-      "mean_margin": "CLE +4.8",
+      "mean_score": {"DET": 103.8, "CLE": 108.1},
+      "median_score": {"DET": 104, "CLE": 108},
+      "mean_total": 211.9,
+      "median_total": 212,
+      "mean_margin": "CLE +4.3",
       "median_margin": "CLE +4"
     },
     "game_line_probabilities": {
-      "CLE_moneyline_probability": 0.635,
-      "DET_moneyline_probability": 0.365,
-      "CLE_minus_3_5_cover_probability": 0.555,
-      "CLE_minus_4_5_cover_probability": 0.505,
-      "DET_plus_3_5_cover_probability": 0.445,
-      "full_game_over_210_5_probability": 0.502,
-      "full_game_under_210_5_probability": 0.498
+      "CLE_moneyline_probability": 0.625,
+      "DET_moneyline_probability": 0.375,
+      "CLE_minus_3_5_cover_probability": 0.545,
+      "CLE_minus_4_5_cover_probability": 0.492,
+      "DET_plus_3_5_cover_probability": 0.455,
+      "full_game_over_210_5_probability": 0.522,
+      "full_game_under_210_5_probability": 0.478
     },
     "team_total_probabilities": {
-      "CLE_over_107_5_probability": 0.505,
-      "CLE_over_106_5_probability": 0.535,
-      "CLE_over_104_5_probability": 0.620,
-      "DET_over_105_5_probability": 0.395,
-      "DET_under_105_5_probability": 0.605,
-      "DET_over_103_5_probability": 0.480,
-      "DET_under_103_5_probability": 0.520
-    }
+      "CLE_over_107_5_probability": 0.512,
+      "CLE_over_106_5_probability": 0.542,
+      "CLE_over_104_5_probability": 0.628,
+      "DET_over_105_5_probability": 0.432,
+      "DET_under_105_5_probability": 0.568,
+      "DET_over_103_5_probability": 0.505,
+      "DET_under_103_5_probability": 0.495
+    },
+    "reprice_delta_from_prior_compounded_file": {
+      "CLE_mean": "+0.3",
+      "DET_mean": "+0.8",
+      "total_mean": "+1.1",
+      "CLE_margin_mean": "-0.5",
+      "CLE_minus_3_5_cover_probability": "-1.0 percentage point",
+      "CLE_minus_4_5_cover_probability": "-1.3 percentage points",
+      "over_210_5_probability": "+2.0 percentage points",
+      "DET_over_105_5_probability": "+3.7 percentage points"
+    },
+    "plain_english_reprice": "Adding Game 1 raises Detroit's offensive and resilience floor slightly because it reintroduces Robinson spacing, Detroit pressure, and Cade-Duren late-game function. Cleveland still projects as the correct side at -3.5, but the margin edge is less aggressive than before. The total and Detroit team total move upward modestly."
   },
   "player_market_baseline": {
     "rebounds": {
-      "evan_mobley_9_plus": {
-        "market_price_seen": "+118",
-        "mean": 9.2,
-        "median": 9,
-        "hit_probability": "52% to 54%",
-        "edge_grade": "BEST_EARLY_REBOUND_VALUE",
-        "action": "Playable early if still +110 or better"
-      },
-      "jarrett_allen_8_plus": {
-        "market_price_seen": "+113",
-        "mean": 8.4,
-        "median": 8,
-        "hit_probability": "53% to 55%",
-        "edge_grade": "PLAYABLE",
-        "action": "Playable, below Mobley due to Duren/Allen minute and foul sensitivity"
-      },
-      "jalen_duren_10_plus": {
-        "market_price_seen": "+118",
-        "mean": 9.7,
-        "median": 10,
-        "hit_probability": "49% to 51%",
-        "edge_grade": "FAIR_VOLATILE",
-        "action": "Live/ghost unless price improves or Cleveland missed-shot volume rises"
-      },
-      "tobias_harris_7_plus_or_8_plus": {
-        "market_prices_seen": {"7_plus": "-112", "8_plus": "+165"},
-        "mean": 6.4,
-        "median": 6,
-        "hit_probability_7_plus": "47% to 49%",
-        "hit_probability_8_plus": "31% to 34%",
-        "edge_grade": "PASS_AFTER_GAME5_MISS",
-        "action": "Do not chase. Require live rebound-chance validation before re-entry."
-      },
-      "ausar_thompson_8_plus": {
-        "market_price_seen": "+134",
-        "mean": 6.6,
-        "median": 6,
-        "hit_probability": "38% to 41%",
-        "edge_grade": "THIN_LADDER_ONLY",
-        "action": "No pregame strike"
-      }
+      "evan_mobley_9_plus": {"market_price_seen": "+118", "mean": 9.1, "median": 9, "hit_probability": "51% to 53%", "edge_grade": "BEST_EARLY_REBOUND_VALUE_BUT_SMALL_TRIM", "action": "Playable if still +115 or better; Game 1 Allen foul context modestly increases Mobley board path"},
+      "jarrett_allen_8_plus": {"market_price_seen": "+113", "mean": 8.1, "median": 8, "hit_probability": "51% to 53%", "edge_grade": "PLAYABLE_BUT_FOUL_SENSITIVE", "action": "Trim from prior grade because Game 1 showed Allen foul/minute displacement risk"},
+      "jalen_duren_10_plus": {"market_price_seen": "+118", "mean": 10.0, "median": 10, "hit_probability": "50% to 52%", "edge_grade": "UPGRADED_TO_FAIR_PLUS", "action": "Playable only if Allen foul risk or Robinson active spacing improves DET possession quality"},
+      "tobias_harris_7_plus_or_8_plus": {"market_prices_seen": {"7_plus": "-112", "8_plus": "+165"}, "mean": 6.6, "median": 6, "hit_probability_7_plus": "48% to 50%", "hit_probability_8_plus": "33% to 36%", "edge_grade": "PASS_UNLESS_LIVE_CHANCES_VALIDATE", "action": "Do not chase. Game 1 8 boards helps profile but Game 5 miss keeps pregame off the card."},
+      "ausar_thompson_8_plus": {"market_price_seen": "+134", "mean": 6.5, "median": 6, "hit_probability": "37% to 40%", "edge_grade": "THIN_LADDER_ONLY", "action": "No pregame strike"}
     },
     "assists": {
-      "james_harden_7_plus": {
-        "market_price_seen": "-112",
-        "mean": 7.4,
-        "median": 7,
-        "hit_probability": "56% to 58%",
-        "edge_grade": "PLAYABLE_BUT_CORRELATED_WITH_CLE_SPREAD",
-        "action": "Watchlist or small secondary if correlation exposure is acceptable"
-      },
-      "cade_cunningham_9_plus": {
-        "market_price_seen": "-117",
-        "mean": 8.9,
-        "median": 9,
-        "hit_probability": "52% to 54%",
-        "edge_grade": "THIN",
-        "action": "Ghost/live only; Detroit must shoot efficiently off Cade creation"
-      },
-      "donovan_mitchell_4_plus": {
-        "market_price_seen": "+101",
-        "mean": 4.4,
-        "median": 4,
-        "hit_probability": "50% to 52%",
-        "edge_grade": "FAIR",
-        "action": "No priority over Harden assists"
-      }
+      "james_harden_7_plus": {"market_price_seen": "-112", "mean": 7.5, "median": 7, "hit_probability": "56% to 59%", "edge_grade": "PLAYABLE_BUT_TURNOVER_VOLATILE", "action": "Watchlist or small secondary; Game 1 7 AST with 7 TO confirms volume but also Detroit pressure risk"},
+      "cade_cunningham_9_plus": {"market_price_seen": "-117", "mean": 9.1, "median": 9, "hit_probability": "53% to 55%", "edge_grade": "UPGRADED_THIN_PLAYABLE_IF_ROBINSON_ACTIVE", "action": "Better if Robinson/Huerter/LeVert shooting is active; otherwise ghost/live only"},
+      "donovan_mitchell_4_plus": {"market_price_seen": "+101", "mean": 4.3, "median": 4, "hit_probability": "49% to 51%", "edge_grade": "FAIR", "action": "No priority over Harden assists"}
     },
     "points": {
-      "donovan_mitchell_30_plus": {
-        "market_price_seen": "+158",
-        "mean": 27.6,
-        "median": 27,
-        "hit_probability": "34% to 37%",
-        "edge_grade": "SLIGHTLY_OVERPRICED",
-        "action": "No early strike"
-      },
-      "cade_cunningham_30_plus": {
-        "market_price_seen": "+152",
-        "mean": 27.8,
-        "median": 27,
-        "hit_probability": "36% to 39%",
-        "edge_grade": "FAIR_TO_THIN",
-        "action": "Better live if Detroit trails and Cade usage spikes"
-      },
-      "tobias_harris_20_plus": {
-        "market_price_seen": "+118",
-        "mean": 15.6,
-        "median": 15,
-        "hit_probability": "30% to 33%",
-        "edge_grade": "AVOID",
-        "action": "Do not chase Game 5 scoring burst"
-      },
-      "james_harden_20_plus": {
-        "market_price_seen": "-121",
-        "mean": 21.2,
-        "median": 21,
-        "hit_probability": "55% to 57%",
-        "edge_grade": "CORRELATED_WITH_CLE_CONTROL",
-        "action": "Playable only if avoiding Harden assists; do not stack both heavily"
-      }
+      "donovan_mitchell_30_plus": {"market_price_seen": "+158", "mean": 27.2, "median": 27, "hit_probability": "33% to 36%", "edge_grade": "SLIGHTLY_OVERPRICED", "action": "No early strike"},
+      "cade_cunningham_30_plus": {"market_price_seen": "+152", "mean": 28.1, "median": 28, "hit_probability": "37% to 40%", "edge_grade": "FAIR_TO_THIN", "action": "Better live if Detroit trails and Cade usage spikes"},
+      "tobias_harris_20_plus": {"market_price_seen": "+118", "mean": 16.1, "median": 16, "hit_probability": "32% to 35%", "edge_grade": "STILL_AVOID_PREFERS_LIVE_ONLY", "action": "Game 1 and Game 5 scoring show ceiling, but price is not enough for pregame"},
+      "james_harden_20_plus": {"market_price_seen": "-121", "mean": 21.4, "median": 21, "hit_probability": "55% to 58%", "edge_grade": "CORRELATED_WITH_CLE_CONTROL", "action": "Playable only if avoiding Harden assists; do not stack both heavily"}
     }
   },
   "active_compounded_patches": [
+    "HALFTIME_TT_OVER_HOOK_WIN_CLASSIFIER",
+    "THIN_EDGE_CONFIRMED_CLASSIFIER",
+    "CLEVELAND_TURNOVER_DAMPENER_VS_DET_PRESSURE",
+    "DET_CADE_DUREN_PNR_RESILIENCE_BOOST",
+    "ROBINSON_SPACING_TOGGLE",
     "HALFTIME_CREATION_VS_FINISHING_SPLIT_GATE",
     "MITCHELL_COLD_HALF_TAKEOVER_BOOST",
     "DET_TURNOVER_PRESSURE_FADE_GATE",
@@ -277,19 +236,19 @@
     "CLEVELAND_FRONTCOURT_GLASS_CONTROL_BOOST"
   ],
   "workflow_directives_game6": [
-    "Use Game 5 Cleveland correction and frontcourt control as the highest-weight recent form input.",
-    "Do not overweight Detroit season record or home Game 5 favorite status now that venue flips to Cleveland.",
-    "CLE -3.5 is the primary position; avoid over-clustering into CLE team total unless line falls to 106.5 or price improves.",
-    "Prioritize Cleveland big rebound props over Detroit wing rebound ladders.",
+    "CLE -3.5 remains the primary position, but do not escalate because Game 1 adds Detroit late-game PNR resilience and Robinson spacing upside.",
+    "Avoid over-clustering into CLE team total unless line falls to 106.5 or price improves; CLE TT overs have validated but often with hook/low cushion.",
+    "Prioritize Cleveland big rebound props over Detroit wing rebound ladders, but apply Allen foul-risk filter from Game 1.",
     "For Tobias Harris, require live validation: 4+ rebound chances by early 2Q or 6+ by halftime before considering re-entry.",
-    "Treat Duncan Robinson status as a spacing toggle: OUT/limited supports CLE spread and DET under; active and shooting well increases DET team-total volatility."
+    "Treat Duncan Robinson status as a spacing toggle: OUT/limited supports CLE spread and DET under; active and shooting well increases DET team-total and Cade assist volatility.",
+    "If CLE commits 7+ first-half turnovers, reduce CLE margin confidence and look for Detroit live resilience instead of adding CLE exposure."
   ],
-  "edge_ranking_game6_early": [
-    {"rank": 1, "market": "CLE -3.5 equivalent / Cleveland wins by over 3.5", "price_seen": -121, "probability": "55% to 57%", "status": "LOCKED"},
-    {"rank": 2, "market": "Evan Mobley 9+ rebounds", "price_seen": 118, "probability": "52% to 54%", "status": "BEST_AVAILABLE_PROP_WATCH"},
-    {"rank": 3, "market": "Jarrett Allen 8+ rebounds", "price_seen": 113, "probability": "53% to 55%", "status": "PLAYABLE"},
-    {"rank": 4, "market": "James Harden 7+ assists", "price_seen": -112, "probability": "56% to 58%", "status": "PLAYABLE_BUT_CORRELATED"},
-    {"rank": 5, "market": "DET under 105.5 team total", "price_seen": "No direct under price from Kalshi screen; DET over 105.5 +113 implies under expensive", "probability": "59% to 61%", "status": "VALUE_DEPENDS_ON_PRICE"}
+  "edge_ranking_game6_repriced": [
+    {"rank": 1, "market": "CLE -3.5 equivalent / Cleveland wins by over 3.5", "price_seen": -121, "probability": "54.5% to 55.5%", "status": "LOCKED; STILL POSITIVE BUT SLIGHTLY TRIMMED"},
+    {"rank": 2, "market": "Evan Mobley 9+ rebounds", "price_seen": 118, "probability": "51% to 53%", "status": "BEST_AVAILABLE_PROP_WATCH"},
+    {"rank": 3, "market": "James Harden 7+ assists", "price_seen": -112, "probability": "56% to 59%", "status": "PLAYABLE_BUT_CORRELATED"},
+    {"rank": 4, "market": "Jarrett Allen 8+ rebounds", "price_seen": 113, "probability": "51% to 53%", "status": "PLAYABLE_BUT_FOUL_SENSITIVE"},
+    {"rank": 5, "market": "Cade Cunningham 9+ assists", "price_seen": -117, "probability": "53% to 55% if Robinson active; 50% to 52% if spacing remains thin", "status": "CONDITIONAL WATCH"}
   ],
-  "status": "CONFIRMED_LOGGED_COMPOUNDED_BASELINE"
+  "status": "CONFIRMED_LOGGED_RECALCULATED_WITH_GAME1"
 }
