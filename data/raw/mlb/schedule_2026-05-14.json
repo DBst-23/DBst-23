@@ -3,14 +3,14 @@
   "totalItems": 11,
   "totalEvents": 0,
   "totalGames": 11,
-  "totalGamesInProgress": 1,
+  "totalGamesInProgress": 0,
   "dates": [
     {
       "date": "2026-05-14",
       "totalItems": 11,
       "totalEvents": 0,
       "totalGames": 11,
-      "totalGamesInProgress": 1,
+      "totalGamesInProgress": 0,
       "games": [
         {
           "gamePk": 823383,
@@ -483,12 +483,12 @@
           "gameDate": "2026-05-14T19:05:00Z",
           "officialDate": "2026-05-14",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -498,11 +498,12 @@
                 "link": "/api/v1/teams/138"
               },
               "leagueRecord": {
-                "wins": 24,
+                "wins": 25,
                 "losses": 18,
-                "pct": ".571"
+                "pct": ".581"
               },
               "score": 5,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 14
             },
@@ -514,10 +515,11 @@
               },
               "leagueRecord": {
                 "wins": 22,
-                "losses": 20,
-                "pct": ".524"
+                "losses": 21,
+                "pct": ".512"
               },
               "score": 4,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 14
             }
@@ -530,6 +532,7 @@
           "content": {
             "link": "/api/v1/game/825008/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
@@ -559,9 +562,10 @@
           "status": {
             "abstractGameState": "Preview",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Delayed Start",
+            "statusCode": "PR",
             "startTimeTBD": false,
+            "reason": "Rain",
             "abstractGameCode": "P"
           },
           "teams": {
@@ -798,6 +802,7 @@
                 "losses": 25,
                 "pct": ".419"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 14
             },
@@ -812,6 +817,7 @@
                 "losses": 18,
                 "pct": ".581"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 14
             }
