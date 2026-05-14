@@ -1,0 +1,61 @@
+{
+  "log_id": "NBA_PREGAME_LOCKS_20260515_DET_CLE_G6",
+  "registry": "Backtest_Logbook/NBA/Rolling_Window_Series",
+  "sport": "NBA",
+  "model_environment": "NBA LiveFlow B.003 rolling-window series",
+  "entry_type": "pregame_locked_positions",
+  "created_from_conversation": "Charlotte NBA LiveFlow workflow",
+  "date_logged": "2026-05-14",
+  "target_game": {
+    "date": "2026-05-15",
+    "game_number": 6,
+    "matchup": "Detroit Pistons at Cleveland Cavaliers",
+    "round": "Eastern Conference Semifinals",
+    "series_id": "2026_ECSF_CLE_DET"
+  },
+  "locked_positions": [
+    {
+      "market": "Spread",
+      "selection": "Yes - Cleveland wins by over 3.5 points",
+      "price": -121,
+      "stake": 4.67,
+      "max_payout": 8.53,
+      "status": "LOCKED_PREGAME",
+      "model_mean_margin": "CLE +4.3",
+      "model_median_margin": "CLE +4",
+      "estimated_hit_probability": "54.5% to 55.5%",
+      "edge_grade": "PLAYABLE_POSITIVE_BUT_TRIMMED",
+      "risk_notes": [
+        "Game 1 compounding adds Detroit Cade-Duren late-game resilience.",
+        "Duncan Robinson active status can increase Detroit spacing and reduce Cleveland margin confidence.",
+        "Avoid adding correlated Cleveland exposure before lineup/injury confirmation."
+      ],
+      "tags": ["EDGE_CALL_ACTIVE", "LOCKED_PREGAME", "CLE_MINUS_3_5_EQUIVALENT", "RISK_CLUSTER_LOCK_WATCH"]
+    },
+    {
+      "market": "Player Rebounds",
+      "selection": "Yes - Evan Mobley 9+ rebounds",
+      "price": 118,
+      "stake": 2.50,
+      "max_payout": 5.46,
+      "current_value_snapshot": 2.25,
+      "status": "LOCKED_PREGAME",
+      "model_mean": 9.1,
+      "model_median": 9,
+      "estimated_hit_probability": "51% to 53%",
+      "edge_grade": "BEST_EARLY_REBOUND_VALUE_BUT_SMALL_TRIM",
+      "risk_notes": [
+        "Jarrett Allen foul/minute stability can affect Mobley's rebound share both ways.",
+        "Detroit shot profile and Duren rim pressure must create enough defensive board chances.",
+        "If Cleveland controls the game comfortably, Mobley closing minutes must hold near projection."
+      ],
+      "tags": ["EDGE_CALL_ACTIVE", "LOCKED_PREGAME", "MOBLEY_REBOUND_VALUE", "CLEVELAND_FRONTCOURT_GLASS_CONTROL_BOOST"]
+    }
+  ],
+  "workflow_status": {
+    "liveflow_plan": "Await LIVE-FLOW mode. No additional pregame stacking unless a non-correlated price error appears.",
+    "risk_cluster_note": "Two current positions are same-game correlated through Cleveland control/frontcourt advantage. Do not add another Cleveland-side correlated pregame position without reducing stake or waiting live.",
+    "next_workflow": "Begin SAS@MIN Game 6 elimination-game rolling-window postmortem and pregame edge scan."
+  },
+  "status": "FINALIZED_LOGGED"
+}
