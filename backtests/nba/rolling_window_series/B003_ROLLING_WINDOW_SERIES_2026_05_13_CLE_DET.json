@@ -1,0 +1,163 @@
+{
+  "log_id": "B.003_ROLLING_WINDOW_SERIES_2026_05_13_CLE_DET",
+  "sport": "NBA",
+  "mode": "LIVEFLOW_STRIPPED_MODE_ACTIVE",
+  "model_family": "B.003 rolling_window_series",
+  "matchup": "Cleveland Cavaliers @ Detroit Pistons",
+  "game_number": 5,
+  "date": "2026-05-13",
+  "venue": "Little Caesars Arena, Detroit, MI",
+  "officials": [
+    "Tony Brothers",
+    "Tyler Ford",
+    "Gediminas Petraitis",
+    "Mark Lindsay"
+  ],
+  "source_file": "20260513_CLEDET_book.pdf",
+  "final_score": {
+    "CLE": 117,
+    "DET": 113,
+    "periods": {
+      "CLE": [27, 25, 32, 19, 14],
+      "DET": [29, 31, 20, 23, 10]
+    },
+    "went_to_overtime": true
+  },
+  "pregame_context": {
+    "confirmed_lineups": {
+      "CLE": ["James Harden", "Donovan Mitchell", "Dean Wade", "Evan Mobley", "Jarrett Allen"],
+      "DET": ["Cade Cunningham", "Daniss Jenkins", "Ausar Thompson", "Tobias Harris", "Jalen Duren"]
+    },
+    "key_injury": "Duncan Robinson out - low back soreness",
+    "market_context": {
+      "spread_reference": "DET -4 to -4.5 range",
+      "total_reference": "211.5 to 212.5 range",
+      "team_total_reference": {
+        "DET": "108.5 pregame / 114.5 live halftime",
+        "CLE": "105.5 live halftime"
+      }
+    }
+  },
+  "bets": [
+    {
+      "market": "CLE Team Total Over 105.5",
+      "entry_type": "halftime_liveflow",
+      "selection": "Yes",
+      "line": 105.5,
+      "odds": -122,
+      "stake": 5.00,
+      "result": "WIN",
+      "actual": 117,
+      "payout": 9.13,
+      "profit": 4.13,
+      "tags": ["LIVEFLOW_STRIKE", "SECOND_HALF_OFFENSIVE_SURGE", "PACE_RECOVERY_TRIGGER"]
+    },
+    {
+      "market": "No DET wins by over 4.5 points",
+      "entry_type": "pregame_position",
+      "selection": "No",
+      "line": 4.5,
+      "odds": -122,
+      "stake": 2.50,
+      "result": "WIN",
+      "actual_margin": -4,
+      "payout": 4.56,
+      "profit": 2.06,
+      "tags": ["MARKET_MISPRICE", "SPREAD_PROTECTION", "GAME_SCRIPT_EDGE"]
+    },
+    {
+      "market": "Tobias Harris 8+ Rebounds",
+      "entry_type": "pregame_prop",
+      "selection": "Yes",
+      "line": 8,
+      "odds": 123,
+      "stake": 2.50,
+      "result": "LOSS",
+      "actual": 6,
+      "payout": 0.00,
+      "profit": -2.50,
+      "tags": ["MISS_REGISTERED", "WING_REBOUND_SUPPRESSION", "FOUL_PRESSURE", "PAUL_REED_REBOUND_SPIKE"]
+    }
+  ],
+  "session_result": {
+    "total_wagered": 10.00,
+    "total_returned": 13.69,
+    "net_profit": 3.69,
+    "roi_percent": 36.9,
+    "record": "2-1"
+  },
+  "team_box_score": {
+    "CLE": {
+      "fg": "36-80",
+      "fg_pct": 45.0,
+      "three_pt": "14-35",
+      "three_pt_pct": 40.0,
+      "ft": "31-38",
+      "rebounds": 44,
+      "offensive_rebounds": 13,
+      "assists": 25,
+      "turnovers": 17,
+      "points_in_paint": 38,
+      "second_chance_points": 14,
+      "fast_break_points": 7
+    },
+    "DET": {
+      "fg": "42-95",
+      "fg_pct": 44.2,
+      "three_pt": "11-33",
+      "three_pt_pct": 33.3,
+      "ft": "18-20",
+      "rebounds": 40,
+      "offensive_rebounds": 15,
+      "assists": 28,
+      "turnovers": 15,
+      "points_in_paint": 48,
+      "second_chance_points": 15,
+      "fast_break_points": 23
+    }
+  },
+  "key_player_outcomes": {
+    "CLE": {
+      "James Harden": {"pts": 30, "reb": 8, "ast": 6, "min": "43:05"},
+      "Donovan Mitchell": {"pts": 21, "reb": 4, "ast": 3, "min": "42:02"},
+      "Evan Mobley": {"pts": 19, "reb": 8, "ast": 8, "blk": 3, "min": "42:32"},
+      "Jarrett Allen": {"pts": 16, "reb": 10, "min": "36:26"},
+      "Max Strus": {"pts": 20, "reb": 8, "three_pt": "6-8", "min": "36:14"}
+    },
+    "DET": {
+      "Cade Cunningham": {"pts": 39, "reb": 7, "ast": 9, "min": "48:06"},
+      "Tobias Harris": {"pts": 13, "reb": 6, "ast": 3, "min": "39:41"},
+      "Jalen Duren": {"pts": 9, "reb": 5, "ast": 4, "min": "25:00"},
+      "Paul Reed": {"pts": 10, "reb": 8, "min": "17:00"},
+      "Ausar Thompson": {"pts": 6, "reb": 7, "ast": 5, "stl": 4, "blk": 3, "min": "40:35"}
+    }
+  },
+  "postmortem": {
+    "winning_reads": [
+      "Cleveland live team total over was sharpened by second-half offensive rebound pressure, free throw extension, and Detroit's defensive fatigue.",
+      "No DET by over 4.5 was the cleanest pregame/live portfolio hedge because Detroit's early edge was fragile and Cade-heavy.",
+      "Cleveland bench spacing from Max Strus and Sam Merrill prevented the offense from collapsing during Mitchell's inefficient regulation stretch."
+    ],
+    "failed_reads": [
+      "Tobias Harris 8+ rebounds missed despite 39:41 minutes because the rebound tree shifted toward Paul Reed, Ausar Thompson, Cade Cunningham, and Cleveland's frontcourt pressure.",
+      "Harris foul pressure and perimeter spacing role reduced his clean defensive-board access."
+    ],
+    "model_notes": [
+      "Apply WING_REBOUND_SUPPRESSION when a PF projects high minutes but must spend possessions stretched away from the rim against two-big Cleveland lineups.",
+      "Upgrade live Cleveland team totals when trailing but maintaining efficient shooting, offensive rebounding pressure, and FT path.",
+      "Flag Detroit late-game Cade usage concentration as a volatility source: high ceiling but turnover and fatigue-sensitive."
+    ]
+  },
+  "variance_tags": [
+    "LIVEFLOW_COMEBACK_SUCCESS",
+    "PACE_RECOVERY_TRIGGER",
+    "SECOND_HALF_OFFENSIVE_SURGE",
+    "WING_REBOUND_SUPPRESSION",
+    "PAUL_REED_REBOUND_SPIKE",
+    "CADE_USAGE_SPIKE",
+    "DET_EFFICIENCY_REGRESSION",
+    "CLEVELAND_FT_EXTENSION",
+    "OVERTIME_EXTENSION"
+  ],
+  "status": "logged"
+}
