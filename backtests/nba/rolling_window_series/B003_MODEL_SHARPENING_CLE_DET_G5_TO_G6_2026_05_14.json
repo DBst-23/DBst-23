@@ -1,0 +1,126 @@
+{
+  "log_id": "B003_MODEL_SHARPENING_CLE_DET_G5_TO_G6_2026_05_14",
+  "source_log": "B.003_ROLLING_WINDOW_SERIES_2026_05_13_CLE_DET",
+  "matchup": "Cleveland Cavaliers @ Detroit Pistons",
+  "game": 5,
+  "purpose": "Deep postmortem and model sharpening for Game 6 forecast",
+  "core_correction": {
+    "live_cleveland_tt_over_105_5": "Win was overtime-assisted, not a clean regulation hit. Cleveland finished regulation at 103 and crossed only after OT extension.",
+    "model_action": "Separate regulation hit probability from OT-inclusive hit probability for all live team totals in close-game states."
+  },
+  "game_environment": {
+    "possessions_per_team": 97,
+    "regulation_score": "103-103",
+    "final_score_ot": "CLE 117 - DET 113",
+    "main_total_regulation": 206,
+    "main_total_ot_inclusive": 230
+  },
+  "scoring_diagnostics": {
+    "cle": {
+      "points": 117,
+      "ts_pct": 60.42,
+      "efg_pct": 53.75,
+      "three_pt_pct": 40.0,
+      "ft_points": 31,
+      "rim_or_3_frequency_pct": 60.0,
+      "note": "Cleveland created a cleaner playoff shot diet and generated the decisive free throw gap."
+    },
+    "det": {
+      "points": 113,
+      "ts_pct": 54.37,
+      "efg_pct": 50.0,
+      "three_pt_pct": 33.33,
+      "ft_points": 18,
+      "rim_or_3_frequency_pct": 46.32,
+      "note": "Detroit produced paint volume and offensive boards but relied heavily on short-midrange creation and Cade late-clock burden."
+    }
+  },
+  "rebounding_diagnostics": {
+    "team_lineup_rebounds": {
+      "cle_reb": 48,
+      "det_reb": 50,
+      "cle_oreb": 16,
+      "det_oreb": 19,
+      "cle_fg_oreb_pct": 35.71,
+      "det_fg_oreb_pct": 38.0
+    },
+    "tobias_harris": {
+      "minutes": 39.7,
+      "rebounds": 6,
+      "rebound_chances": 8,
+      "rebound_chance_pct": 75.0,
+      "adjusted_rebound_chance_pct": 75.0,
+      "avg_rebound_distance": 8.6,
+      "diagnosis": "Efficiency was acceptable; miss came from too few chances, not poor conversion."
+    },
+    "paul_reed": {
+      "minutes": 17.0,
+      "rebounds": 8,
+      "rebound_chances": 13,
+      "adjusted_rebound_chance_pct": 66.7,
+      "diagnosis": "Backup big absorbed Harris/Duren board equity."
+    },
+    "duren": {
+      "minutes": 25.0,
+      "rebounds": 5,
+      "rebound_chances": 19,
+      "adjusted_rebound_chance_pct": 26.3,
+      "diagnosis": "High chance volume but low conversion versus Allen/Mobley frontcourt pressure."
+    }
+  },
+  "lineup_notes": {
+    "cle_best_functional_groups": [
+      "Allen-Strus-Merrill-Harden-Schroder: +7 in 3:32, 17 points on 7 possessions",
+      "Allen-Strus-Wade-Harden-Schroder: +6 in 5:08, 13 points on 8 possessions"
+    ],
+    "det_key_groups": [
+      "Reed-Cunningham-Thompson-Jenkins-Harris: 12:14, -2, 22 points on 19 possessions, 12 rebounds, 5 offensive rebounds",
+      "Cunningham-Duren-Thompson-Jenkins-Harris: 9:14, -5, 13 points on 18 possessions"
+    ]
+  },
+  "new_model_patches": [
+    {
+      "name": "OT_INCLUSIVE_LIVE_TOTAL_SPLIT",
+      "trigger": "Live team total or full-game total when score margin <= 8 entering 4Q and projected clutch usage is concentrated",
+      "effect": "Report regulation probability and OT-inclusive probability separately. Do not score as a clean regulation edge when OT is required."
+    },
+    {
+      "name": "WING_REBOUND_CHANCE_CAP_V2",
+      "trigger": "Forward rebound prop over when player projects 36+ minutes but historical/tracking rebound chances are <= 9 and backup big has 10+ rebound chances per 18 minutes",
+      "effect": "Cap mean rebounds and suppress ladder/alt 8+ confidence unless player has >= 11 projected chances."
+    },
+    {
+      "name": "DET_BACKUP_BIG_REBOUND_STEAL",
+      "trigger": "Paul Reed/backup center active in closing or non-Duren frontcourt groups",
+      "effect": "Redistribute 1.0 to 1.8 rebounds away from Harris/Duren/Ausar depending on minutes."
+    },
+    {
+      "name": "CLEVELAND_SPACING_BENCH_BOOST",
+      "trigger": "Strus or Merrill lineups with Harden and one Cleveland big",
+      "effect": "Upgrade CLE team total live ceiling and 3PA efficiency; stabilize comeback paths."
+    },
+    {
+      "name": "CADE_USAGE_FATIGUE_GATE",
+      "trigger": "Cade projected 44+ minutes with usage carrying late-game offense",
+      "effect": "Raise Cade points/assists ceiling but increase Detroit turnover and late efficiency regression risk."
+    }
+  ],
+  "game6_preliminary_model_read": {
+    "assumptions": "Uses Game 5 rolling-window data only; pending Game 6 market, injury, and minutes confirmation.",
+    "cle_mean_points": 111.5,
+    "cle_median_points": 111.0,
+    "det_mean_points": 108.8,
+    "det_median_points": 109.0,
+    "total_mean": 220.3,
+    "total_median": 219.0,
+    "cle_win_probability": 54.0,
+    "det_win_probability": 46.0,
+    "projected_margin": "CLE -2.7",
+    "market_bias_watch": [
+      "Avoid overweighting Game 5 OT final total; regulation total was 206.",
+      "Cleveland team total overs need price discipline unless line stays below 109.5 or Detroit fatigue/guard defense worsens.",
+      "Tobias Harris 8+ remains downgraded unless projected rebound chances rise to 11+."
+    ]
+  },
+  "status": "model_sharpening_logged"
+}
