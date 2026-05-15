@@ -1,0 +1,145 @@
+{
+  "game_id": "WNBA_LIVEFLOW_MIN_DAL_0514",
+  "date": "2026-05-14",
+  "matchup": "Minnesota Lynx @ Dallas Wings",
+  "final_score": {
+    "MIN": 90,
+    "DAL": 86
+  },
+  "investment": {
+    "market": "Over 185.5 total points",
+    "entry_score": "MIN 68 - DAL 67, 3Q 1:05",
+    "entry_price": 113,
+    "stake": 2.35,
+    "max_payout": 5.02,
+    "result": "LOSS",
+    "final_total": 176,
+    "line": 185.5,
+    "miss_distance": 9.5,
+    "sold_value": 0.09,
+    "classification": "EDGE_CALL_ACTIVE_SMALL"
+  },
+  "entry_market_snapshot": {
+    "period_time": "3Q 1:05",
+    "score": {
+      "MIN": 68,
+      "DAL": 67
+    },
+    "entry_note": "User locked Over 185.5 at +113 after live odds moved from +128 while attempting to place. Micro sizing preserved risk control."
+  },
+  "game_flow_summary": {
+    "end_3q_score": "DAL 70 - MIN 68",
+    "needed_q4_points": 48,
+    "actual_q4_points": 38,
+    "summary": "The entry required a high-output fourth quarter in a close game. The close-game condition held, but scoring slowed enough in Q4 to leave the total short by 9.5 points."
+  },
+  "team_stats_final": {
+    "MIN": {
+      "points": 90,
+      "rebounds": 31,
+      "oreb": 6,
+      "assists": 20,
+      "steals": 6,
+      "blocks": 7,
+      "turnovers": 18,
+      "fg": "35-58",
+      "fg_pct": 60.3,
+      "three_pt": "6-13",
+      "three_pt_pct": 46.2,
+      "ft": "14-18",
+      "ft_pct": 77.8,
+      "points_off_turnovers": 19,
+      "fastbreak_points": 9,
+      "points_in_paint": 48,
+      "second_chance_points": 18,
+      "fouls": 19,
+      "biggest_lead": 4
+    },
+    "DAL": {
+      "points": 86,
+      "rebounds": 26,
+      "oreb": 9,
+      "assists": 22,
+      "steals": 9,
+      "blocks": 3,
+      "turnovers": 14,
+      "fg": "31-67",
+      "fg_pct": 46.3,
+      "three_pt": "5-17",
+      "three_pt_pct": 29.4,
+      "ft": "19-22",
+      "ft_pct": 86.4,
+      "points_off_turnovers": 15,
+      "fastbreak_points": 12,
+      "points_in_paint": 40,
+      "second_chance_points": 9,
+      "fouls": 18,
+      "biggest_lead": 12
+    }
+  },
+  "player_notes": {
+    "MIN": {
+      "N_Howard": "26 pts, 5 reb, 4 ast, 3 blk on 11-14 FG. Elite efficiency supported over path but 7 turnovers added empty possessions.",
+      "C_Williams": "21 pts on 9-10 FG and 3-4 3PT. Extremely efficient scoring, but low FT volume limited late extension.",
+      "N_Coffey": "13 pts, 8 reb on perfect 3-3 from deep. Hot perimeter support confirmed.",
+      "O_Miles": "15 pts, 6 ast. Creation supported game flow."
+    },
+    "DAL": {
+      "P_Bueckers": "27 pts, 8 ast, 3-4 3PT, 10-11 FT. Primary Dallas engine and over support.",
+      "M_Siegrist": "17 bench points on 7-11 FG. Bench scoring spike helped position stay alive.",
+      "A_Ogunbowale": "6 pts on 2-11 FG. Major scoring drag and one of the reasons the over failed.",
+      "J_Shepard": "7 pts, 6 reb, 4 ast. Low scoring from starter frontcourt limited ceiling."
+    }
+  },
+  "postmortem_phases": {
+    "phase_1_game_flow": "The game entered the late third quarter at a strong scoring pace and remained close, validating the initial over entry logic. However, the fourth quarter produced only 38 points versus the 48 needed from end of Q3.",
+    "phase_2_pivotal_moments": [
+      "Entry was made at 135 total points with roughly 11 minutes left, requiring 51+ more points.",
+      "End of 3Q total reached 138, requiring 48 Q4 points.",
+      "Close-game condition held, but whistle/foul extension did not deliver enough points.",
+      "Dallas perimeter support outside Paige and Siegrist lagged, especially Ogunbowale finishing 2-11.",
+      "Minnesota shot 60.3% overall, but turnover count and lower late FT conversion volume prevented total from reaching 186."
+    ],
+    "phase_3_variance_variables": {
+      "confirmed": [
+        "CLOSE_GAME_PACE_PRESERVATION_PARTIAL",
+        "MULTI_SCORER_SUPPORT",
+        "PLUS_MONEY_MICRO_RISK_CONTROL"
+      ],
+      "failed_or_underpowered": [
+        "FOURTH_QUARTER_FT_EXTENSION",
+        "DAL_SECONDARY_SCORING_DEPTH",
+        "LATE_TOTAL_CEILING"
+      ]
+    },
+    "phase_4_model_relevance_summary": {
+      "process_grade": "B_MINUS",
+      "outcome_grade": "LOSS",
+      "model_alignment": "Entry logic was reasonable for a micro plus-money total, but the threshold required too much fourth-quarter scoring. Future over entries above 185 late in Q3 should demand either stronger live foul indicators or a lower needed Q4 threshold.",
+      "future_adjustments": [
+        "Add LATE_HIGH_TOTAL_OVER_FILTER when needed Q4 points exceed 46",
+        "Require active bonus/FT acceleration for late overs above 185",
+        "Downgrade overs when one high-usage scorer is below 35% FG and team 3PT depth is weak",
+        "Preserve micro-only sizing for plus-money late total entries"
+      ]
+    }
+  },
+  "retraining_flags": [
+    "LIVE_TOTAL_OVER_LOSS",
+    "LATE_HIGH_TOTAL_THRESHOLD_MISS",
+    "Q4_SCORING_SHORTFALL",
+    "FT_EXTENSION_UNDERPOWERED",
+    "DAL_SECONDARY_SCORING_DRAG",
+    "PLUS_MONEY_MICRO_LOSS_CONTROLLED"
+  ],
+  "patch_recommendation": {
+    "patch": "LATE_HIGH_TOTAL_OVER_FILTER_v1",
+    "logic": {
+      "block_or_downgrade_over_when_line_gte": 185.5,
+      "and_needed_points_remaining_gte": 48,
+      "unless_bonus_or_late_foul_pressure_active": true,
+      "and_game_margin_lte": 6
+    }
+  },
+  "final_status": "LOSS_LOGGED"
+}
