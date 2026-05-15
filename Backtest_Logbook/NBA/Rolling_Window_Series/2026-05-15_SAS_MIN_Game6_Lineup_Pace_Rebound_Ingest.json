@@ -1,0 +1,191 @@
+{
+  "log_id": "NBA_ROLLING_WINDOW_20260515_SAS_MIN_G6_LINEUP_PACE_REBOUND_INGEST",
+  "registry": "Backtest_Logbook/NBA/Rolling_Window_Series",
+  "sport": "NBA",
+  "model_environment": "NBA LiveFlow B.003 rolling-window series",
+  "entry_type": "lineup_pace_rebound_ingest",
+  "date_logged": "2026-05-14",
+  "target_game": {
+    "date": "2026-05-15",
+    "game_number": 6,
+    "matchup": "San Antonio Spurs at Minnesota Timberwolves",
+    "round": "Western Conference Semifinals",
+    "series_id": "2026_WCSF_SAS_MIN",
+    "context": "Minnesota elimination game"
+  },
+  "source_files": [
+    {
+      "file": "SAS_rolling_series_Lineup_pace.csv",
+      "data_layer": "lineup_pace",
+      "filter": "per_100_possessions"
+    },
+    {
+      "file": "SAS_rolling_series_Lineup_Rebounds.csv",
+      "data_layer": "lineup_rebounds",
+      "filter": "per_100_possessions"
+    },
+    {
+      "file": "MIN_rolling_series_Lineup_pace.csv",
+      "data_layer": "lineup_pace",
+      "filter": "per_100_possessions"
+    },
+    {
+      "file": "MIN_rolling_series_Lineup_Rebounds.csv",
+      "data_layer": "lineup_rebounds",
+      "filter": "per_100_possessions"
+    }
+  ],
+  "filter_rules_confirmed": {
+    "pbp_team_stats": "per_100_possessions",
+    "pbp_lineup_pace": "per_100_possessions",
+    "pbp_lineup_rebounds": "per_100_possessions",
+    "nba_stats_box_outs": "per_36_minutes",
+    "nba_tracking_rebounds": "per_game",
+    "raw_totals": "logging_only_not_projection_input"
+  },
+  "san_antonio": {
+    "pace_summary": {
+      "primary_lineup": {
+        "lineup": "Fox, Vassell, Champagnie, Wembanyama, Castle",
+        "games": 4,
+        "minutes": 45.0,
+        "pace": 99.4,
+        "seconds_per_possession_offense": 13.52,
+        "seconds_per_possession_defense": 15.48,
+        "first_chance_points_per_100": 107.4,
+        "model_note": "Largest stable SAS sample; not ultra-fast, but efficient enough to support SAS control and team total stability."
+      },
+      "best_pace_accelerator": {
+        "lineup": "Kornet, Johnson, Vassell, Castle, Harper",
+        "games": 4,
+        "minutes": 16.0,
+        "pace": 108.3,
+        "seconds_per_possession_offense": 12.05,
+        "first_chance_points_per_100": 113.9,
+        "model_note": "Strong bench/secondary pace accelerator; useful for LIVE-FLOW over or SAS TT push if this group checks in and holds efficiency."
+      },
+      "secondary_fast_unit": {
+        "lineup": "Fox, Kornet, Johnson, Vassell, Harper",
+        "games": 4,
+        "minutes": 10.0,
+        "pace": 109.4,
+        "first_chance_points_per_100": 91.3,
+        "model_note": "Fast but less efficient; pace alone is not enough to upgrade full-game over."
+      }
+    },
+    "rebound_summary": {
+      "primary_lineup": {
+        "lineup": "Fox, Vassell, Champagnie, Wembanyama, Castle",
+        "games": 4,
+        "minutes": 45.0,
+        "rebounds_per_100": 25.8,
+        "def_rebounds_per_100": 43.5,
+        "off_rebounds_per_100": 8.5,
+        "def_fg_rebound_pct": 0.809,
+        "off_fg_rebound_pct": 0.184,
+        "self_oreb_pct": 0.095,
+        "model_note": "Strong defensive glass control; supports Wembanyama rebound floor and limits Minnesota second-chance pressure."
+      },
+      "bench_rebound_unit": {
+        "lineup": "Kornet, Johnson, Vassell, Castle, Harper",
+        "games": 4,
+        "minutes": 16.0,
+        "rebounds_per_100": 23.9,
+        "def_rebounds_per_100": 37.1,
+        "off_rebounds_per_100": 11.1,
+        "def_fg_rebound_pct": 0.571,
+        "off_fg_rebound_pct": 0.22,
+        "model_note": "SAS bench still carries offensive-glass activity; keeps SAS second-chance path alive when Wemby sits."
+      }
+    }
+  },
+  "minnesota": {
+    "pace_summary": {
+      "primary_lineup": {
+        "lineup": "Edwards, McDaniels, Dosunmu, Gobert, Randle",
+        "games": 3,
+        "minutes": 31.0,
+        "pace": 90.1,
+        "seconds_per_possession_offense": 16.02,
+        "seconds_per_possession_defense": 15.95,
+        "first_chance_points_per_100": 74.6,
+        "model_note": "Slow, low first-chance scoring group; weakens MIN team-total overs unless pace shifts or bench units lift offense."
+      },
+      "pace_accelerator_reid_no_gobert": {
+        "lineup": "Reid, Edwards, McDaniels, Dosunmu, Randle",
+        "games": 3,
+        "minutes": 15.0,
+        "pace": 111.3,
+        "first_chance_points_per_100": 54.3,
+        "model_note": "Fast but inefficient; danger zone for chasing MIN TT just because pace rises."
+      },
+      "best_first_chance_scoring_unit": {
+        "lineup": "Reid, Edwards, McDaniels, Dosunmu, Gobert",
+        "games": 3,
+        "minutes": 13.0,
+        "pace": 97.0,
+        "first_chance_points_per_100": 104.0,
+        "model_note": "Best meaningful MIN scoring signal; watch for this grouping live as MIN's cleanest offensive correction path."
+      },
+      "randle_reid_shannon_unit": {
+        "lineup": "Reid, Edwards, McDaniels, Shannon Jr., Randle",
+        "games": 4,
+        "minutes": 13.0,
+        "pace": 100.6,
+        "first_chance_points_per_100": 103.6,
+        "model_note": "Playable scoring unit but matchup volatility remains; useful for LIVE-FLOW if Minnesota is closing gap."
+      }
+    },
+    "rebound_summary": {
+      "primary_lineup": {
+        "lineup": "Edwards, McDaniels, Dosunmu, Gobert, Randle",
+        "games": 3,
+        "minutes": 31.0,
+        "rebounds_per_100": 27.0,
+        "def_rebounds_per_100": 35.7,
+        "off_rebounds_per_100": 18.6,
+        "def_fg_rebound_pct": 0.69,
+        "off_fg_rebound_pct": 0.322,
+        "model_note": "Starting group has workable offensive glass, but slower tempo and low first-chance scoring suppress full team-total confidence."
+      },
+      "strongest_rebound_unit": {
+        "lineup": "Reid, Edwards, McDaniels, Dosunmu, Gobert",
+        "games": 3,
+        "minutes": 13.0,
+        "rebounds_per_100": 35.2,
+        "def_rebounds_per_100": 44.8,
+        "off_rebounds_per_100": 24.0,
+        "def_fg_rebound_pct": 0.769,
+        "off_fg_rebound_pct": 0.4,
+        "model_note": "Best MIN glass profile; strengthens Reid/Gobert/Randle rebound-related reads when this lineup or similar size profile appears."
+      },
+      "randle_reid_shannon_rebound_unit": {
+        "lineup": "Reid, Edwards, McDaniels, Shannon Jr., Randle",
+        "games": 4,
+        "minutes": 13.0,
+        "rebounds_per_100": 30.4,
+        "def_rebounds_per_100": 39.3,
+        "off_rebounds_per_100": 21.4,
+        "def_fg_rebound_pct": 0.75,
+        "off_fg_rebound_pct": 0.395,
+        "model_note": "Good rebound activity; supports Naz/Randle boards more than it supports a clean Wolves scoring over."
+      }
+    }
+  },
+  "model_signals": [
+    "SAS starting group with Fox/Vassell/Champagnie/Wembanyama/Castle has the largest reliable minutes sample and strong first-chance scoring profile.",
+    "SAS bench/Harper-Keldon-Kornet units play faster but carry thinner and more volatile scoring samples; use as LiveFlow pace accelerators, not pregame anchors.",
+    "MIN starting lineup with Edwards/McDaniels/Dosunmu/Gobert/Randle is slow and low efficiency in first-chance scoring, which weakens MIN team-total overs unless bench units force pace and convert.",
+    "MIN Reid-heavy lineups carry the strongest rebound/second-chance signal; this strengthens Naz Reid rebound/P+R live ladders more than raw Minnesota team total overs.",
+    "The strongest MIN scoring+rebound blend is Reid/Edwards/McDaniels/Dosunmu/Gobert, not the slow primary starting group. Track this live."
+  ],
+  "projection_adjustments": {
+    "sas_spread_minus_5_5": "hold_thin_positive",
+    "sas_team_total_113_5": "slightly_strengthened_if_SAS_main_group_minutes_hold",
+    "min_team_total_106_5": "still_pass_unless_live_pace_accelerates_and_reid_or_gobert_size_units_convert",
+    "wembanyama_rebounds": "maintain_strongest_rebound_profile",
+    "randle_rebounds": "maintain_7_plus_ladder_interest_but_game_script_sensitive",
+    "naz_reid_rebounds_or_pr": "strengthened_as_live_or_plus_price_candidate"
+  },
+  "status": "FINALIZED_LOGGED"
+}
