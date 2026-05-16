@@ -1,0 +1,270 @@
+{
+  "log_id": "NBA_POSTMORTEM_20260515_DET_CLE_G6_FINAL",
+  "registry": "Rolling_Window_Series",
+  "secondary_registry": "Backtest_Logbook",
+  "sport": "NBA",
+  "league": "NBA",
+  "model_context": {
+    "mode": "NBA_LIVEFLOW_V003",
+    "protocol": "LIVEFLOW_STRIPPED_MODE_ACTIVE",
+    "risk_rule": "single_fire_micro_unit",
+    "series": "CLE_DET_ECSF_2026",
+    "rolling_window_inclusion": true,
+    "game_number": 6
+  },
+  "game": {
+    "date": "2026-05-15",
+    "round": "Eastern Conference Semifinals",
+    "game_number": 6,
+    "venue": "Rocket Arena, Cleveland, OH",
+    "away_team": "Detroit Pistons",
+    "home_team": "Cleveland Cavaliers",
+    "final_score": {
+      "DET": 115,
+      "CLE": 94
+    },
+    "winner": "Detroit Pistons",
+    "margin": 21,
+    "series_status_after_game": "Tied 3-3",
+    "next_game": "Game 7 in Detroit"
+  },
+  "officials": [
+    "#15 Zach Zarba",
+    "#60 James Williams",
+    "#3 Nick Buchert",
+    "#54 Ray Acosta"
+  ],
+  "source_notes": {
+    "official_book": "NBA official scorer report supplied by user",
+    "recap": "AP recap supplied by user: Cade Cunningham scores 21 and Pistons dominate 2nd half to beat Cavs 115-94 and force Game 7."
+  },
+  "market_positions": [
+    {
+      "market": "Full Game Total",
+      "selection": "No - Over 210.5 points scored",
+      "entry_price": "-104",
+      "stake": 7.59,
+      "max_payout": 14.95,
+      "result": "WIN",
+      "settlement_score": "DET 115 - CLE 94",
+      "outcome_total": 209,
+      "net": 7.36,
+      "roi_pct": 96.97,
+      "model_tag": "EDGE_CALL_ACTIVE",
+      "diagnostic_tag": "LIVE_TOTAL_UNDER_HIT"
+    },
+    {
+      "market": "Player Rebounds",
+      "selection": "Yes - Evan Mobley 9+ rebounds",
+      "entry_price": "+118",
+      "stake": 2.50,
+      "result": "LOSS",
+      "settlement_score": "DET 115 - CLE 94",
+      "outcome": "No",
+      "actual_rebounds": 6,
+      "diagnostic_tag": "MOBLEY_REBOUND_MISS_CENTER_SHARE_SUPPRESSION"
+    },
+    {
+      "market": "Spread",
+      "selection": "Yes - Cleveland wins by over 3.5 points",
+      "entry_price": "-121",
+      "stake": 4.67,
+      "result": "LOSS",
+      "settlement_score": "DET 115 - CLE 94",
+      "outcome_margin": -21,
+      "diagnostic_tag": "PREGAME_SPREAD_MISS_DET_PHYSICALITY_UNDERWEIGHTED"
+    }
+  ],
+  "gameflow": {
+    "quarter_scores": {
+      "DET": [27, 27, 30, 31],
+      "CLE": [25, 26, 19, 24]
+    },
+    "halftime_score": {
+      "DET": 54,
+      "CLE": 51
+    },
+    "second_half_score": {
+      "DET": 61,
+      "CLE": 43
+    },
+    "third_quarter_score": {
+      "DET": 30,
+      "CLE": 19
+    },
+    "fourth_quarter_score": {
+      "DET": 31,
+      "CLE": 24
+    },
+    "biggest_lead": {
+      "DET": 22,
+      "CLE": 6
+    },
+    "turning_points": [
+      "Cleveland led by 6 in the first quarter but committed 8 first-quarter turnovers, keeping Detroit alive despite Cleveland shooting 58.8%.",
+      "Detroit led 54-51 at halftime even while committing 11 turnovers, because Cleveland also had 13 turnovers and failed to create clean flow.",
+      "Detroit opened the third quarter with a decisive surge, turning a 3-point halftime lead into a double-digit control state.",
+      "Cleveland scored only 19 points in the third quarter on 25.0% shooting and 16.7% from three.",
+      "Detroit won the second half 61-43 and closed the fourth quarter 31-24, eliminating any Cleveland comeback path."
+    ]
+  },
+  "team_box_summary": {
+    "DET": {
+      "field_goals": "43-82",
+      "fg_pct": 52.4,
+      "three_pointers": "16-36",
+      "three_pct": 44.4,
+      "free_throws": "13-19",
+      "rebounds": 43,
+      "offensive_rebounds": 13,
+      "assists": 25,
+      "turnovers": 18,
+      "points_off_turnovers_allowed": 17,
+      "points_in_paint": 48,
+      "second_chance_points": 20,
+      "fast_break_points": 14,
+      "bench_points": 48
+    },
+    "CLE": {
+      "field_goals": "30-77",
+      "fg_pct": 39.0,
+      "three_pointers": "12-35",
+      "three_pct": 34.3,
+      "free_throws": "22-30",
+      "rebounds": 40,
+      "offensive_rebounds": 16,
+      "assists": 15,
+      "turnovers": 20,
+      "points_off_turnovers_allowed": 28,
+      "points_in_paint": 26,
+      "second_chance_points": 13,
+      "fast_break_points": 8,
+      "bench_points": 19
+    }
+  },
+  "player_notes": {
+    "Cade Cunningham": {
+      "line": "21 points, 8 assists, 2 rebounds, 5 made threes",
+      "model_relevance": "Primary creation hub remained volatile with 7 turnovers, but his three-point shot and table-setting sustained Detroit offense."
+    },
+    "Jalen Duren": {
+      "line": "15 points, 11 rebounds, 4 offensive rebounds, 3 blocks",
+      "model_relevance": "Validated Duren rim pressure and offensive glass dominance. His second-chance impact was one of the core Game 6 separators."
+    },
+    "Paul Reed": {
+      "line": "17 points, 6 rebounds, 3 offensive rebounds",
+      "model_relevance": "Bench-big minutes created extra rebound pressure and scoring depth. Add BENCH_BIG_MINUTES_SPIKE impact for Game 7."
+    },
+    "Duncan Robinson": {
+      "line": "14 points, 4-7 from three",
+      "model_relevance": "Return from back soreness restored Detroit spacing; his gravity widened driving lanes and punished Cleveland help defense."
+    },
+    "James Harden": {
+      "line": "23 points, 7 rebounds, 4 assists, 8 turnovers",
+      "model_relevance": "Scoring held, but turnover volatility again directly damaged Cleveland team flow and live total upside."
+    },
+    "Donovan Mitchell": {
+      "line": "18 points, 4 rebounds, 3 assists",
+      "model_relevance": "Failed to produce alpha scoring separation in elimination response spot; downgrade Cleveland late-series shot creation ceiling if Detroit pressure stays legal and physical."
+    },
+    "Evan Mobley": {
+      "line": "18 points, 6 rebounds, 2 assists",
+      "model_relevance": "Rebound prop miss: finished 6 rebounds despite strong minutes. Cleveland frontcourt rebound share split with Allen and Strus, and missed-shot profile did not funnel cleanly to Mobley."
+    }
+  },
+  "betting_result_summary": {
+    "record": "1-2",
+    "wins": 1,
+    "losses": 2,
+    "total_staked": 14.76,
+    "total_return": 14.95,
+    "net": 0.19,
+    "roi_pct": 1.29,
+    "notes": "Live total under saved the card. Pregame Cleveland -3.5 and Mobley 9+ rebounds missed due to Detroit physicality, Cleveland turnover collapse, Detroit bench scoring, and rebound distribution away from Mobley."
+  },
+  "diagnostics": {
+    "winning_read": {
+      "market": "No - Over 210.5",
+      "why_it_won": [
+        "Final total landed 209, clearing the under position by 1.5 points.",
+        "Cleveland offensive efficiency collapsed after halftime.",
+        "Detroit controlled the game state, reducing late urgency after building a large lead.",
+        "Cleveland's 20 turnovers killed possession quality and prevented scoring continuity."
+      ]
+    },
+    "missed_reads": [
+      {
+        "market": "Cleveland -3.5",
+        "failure_reason": "Model overweighted Cleveland home response and underweighted Detroit elimination-game physicality, bench scoring, offensive rebounding, and perimeter variance."
+      },
+      {
+        "market": "Evan Mobley 9+ rebounds",
+        "failure_reason": "Mobley minutes were strong but rebound funnel did not isolate to him. Allen grabbed 8, Strus grabbed 8, and Detroit shot efficiently enough to reduce clean defensive rebound volume."
+      }
+    ],
+    "model_sharpening_flags": [
+      "DET_ELIMINATION_PHYSICALITY_BOOST_ON",
+      "CLEVELAND_TURNOVER_VOLATILITY_ACTIVE",
+      "DUREN_OFFENSIVE_GLASS_BOOST",
+      "PAUL_REED_BENCH_BIG_SPIKE",
+      "DUNCAN_ROBINSON_SPACING_RETURN_BOOST",
+      "CLEVELAND_HALFCOURT_CREATION_SUPPRESSION",
+      "MOBLEY_REBOUND_FUNNEL_DOWNGRADE",
+      "LIVE_TOTAL_UNDER_CORRECT"
+    ],
+    "game_7_carryover": {
+      "detroit": [
+        "Upgrade Detroit offensive rebound expectation.",
+        "Upgrade Detroit bench scoring volatility if Reed, Robinson, Sasser remain in active rhythm.",
+        "Keep Cade creation strong but turnover-risk attached.",
+        "Duren rim pressure remains a core series edge."
+      ],
+      "cleveland": [
+        "Apply turnover dampener to projected team total and spread confidence.",
+        "Avoid Mobley rebound overs unless line drops or Allen/Strus rebound role changes.",
+        "Mitchell/Harden scoring can hit but does not automatically convert to team efficiency.",
+        "Cleveland assist rate is a red flag after only 15 assists on 30 made field goals."
+      ]
+    }
+  },
+  "game_7_patch": {
+    "detroit": {
+      "offensive_rebound_boost_pct": 7.5,
+      "bench_scoring_volatility_boost_pct": 8.0,
+      "duncan_robinson_spacing_boost": true,
+      "duren_reed_frontcourt_pressure": "active",
+      "elimination_resilience_tag": "active"
+    },
+    "cleveland": {
+      "turnover_volatility_penalty_pct": 6.5,
+      "halfcourt_creation_suppression": "active",
+      "mobley_rebound_funnel_downgrade": true,
+      "spread_confidence_penalty_pct": -4.0,
+      "team_total_ceiling_trim": -2.5
+    },
+    "liveflow_rules": {
+      "avoid_cleveland_spread_if_turnovers_8plus_by_half": true,
+      "attack_full_game_under_if_cleveland_ast_rate_below_50pct": true,
+      "upgrade_detroit_live_spread_if_offensive_rebounds_6plus_by_half": true
+    }
+  },
+  "tags": [
+    "NBA_POSTMORTEM",
+    "ROLLING_WINDOW_SERIES",
+    "BACKTEST_LOGBOOK_REGISTERED",
+    "CLE_DET_GAME6",
+    "LIVEFLOW_STRIPPED_MODE_ACTIVE",
+    "EDGE_CALL_ACTIVE",
+    "LIVE_TOTAL_UNDER_HIT",
+    "MOBLEY_REBOUND_MISS",
+    "CLEVELAND_SPREAD_MISS",
+    "DET_SECOND_HALF_DOMINANCE",
+    "DET_ELIMINATION_PHYSICALITY",
+    "CLEVELAND_TURNOVER_COLLAPSE",
+    "DUREN_OFFENSIVE_GLASS",
+    "PAUL_REED_BENCH_BIG_SPIKE",
+    "DUNCAN_ROBINSON_RETURN_SPACING",
+    "GAME7_PREP_INPUT"
+  ],
+  "status": "FINALIZED"
+}
