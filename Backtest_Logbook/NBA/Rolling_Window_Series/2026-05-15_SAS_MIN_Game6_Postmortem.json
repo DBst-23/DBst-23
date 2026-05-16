@@ -1,0 +1,233 @@
+{
+  "log_id": "NBA_POSTMORTEM_20260515_SAS_MIN_G6_FINAL",
+  "registry": "Rolling_Window_Series",
+  "secondary_registry": "Backtest_Logbook",
+  "sport": "NBA",
+  "league": "NBA",
+  "model_context": {
+    "mode": "NBA_LIVEFLOW_V003",
+    "protocol": "LIVEFLOW_STRIPPED_MODE_ACTIVE",
+    "risk_rule": "single_fire_micro_unit",
+    "series": "SAS_MIN_WCSF_2026",
+    "rolling_window_inclusion": true,
+    "game_number": 6,
+    "market_type": ["live_spread", "player_rebound"]
+  },
+  "game": {
+    "date": "2026-05-15",
+    "round": "Western Conference Semifinals",
+    "game_number": 6,
+    "venue": "Target Center, Minneapolis, MN",
+    "away_team": "San Antonio Spurs",
+    "home_team": "Minnesota Timberwolves",
+    "final_score": {"SAS": 139, "MIN": 109},
+    "winner": "San Antonio Spurs",
+    "margin": 30,
+    "series_result": "San Antonio wins series 4-2",
+    "next_round": "Western Conference Finals vs Oklahoma City"
+  },
+  "officials": ["#19 James Capers", "#58 Josh Tiven", "#64 Justin Van Duyne", "#45 Brian Forte"],
+  "source_notes": {
+    "official_book": "NBA official scorer report supplied by user: 20260515_SASMIN_book.pdf",
+    "recap": "AP recap supplied by user: Stephon Castle gives Spurs 32 points in a 139-109 blowout to eliminate Timberwolves in Game 6."
+  },
+  "market_positions": [
+    {
+      "market": "Spread",
+      "selection": "Yes - San Antonio wins by over 13.5 points",
+      "entry_price": "+101",
+      "stake": 4.95,
+      "max_payout": 9.95,
+      "result": "WIN",
+      "settlement_score": "SAS 139 - MIN 109",
+      "outcome_margin": 30,
+      "net": 5.00,
+      "roi_pct": 101.01,
+      "model_tag": "EDGE_CALL_ACTIVE",
+      "diagnostic_tag": "LIVE_SPREAD_BLOWOUT_CONTINUATION_HIT"
+    },
+    {
+      "market": "Player Rebounds",
+      "selection": "Yes - Julius Randle 7+ rebounds",
+      "entry_price": "-108",
+      "stake": 5.15,
+      "max_payout": 9.95,
+      "result": "WIN",
+      "settlement_score": "SAS 139 - MIN 109",
+      "actual_rebounds": 7,
+      "net": 4.80,
+      "roi_pct": 93.2,
+      "model_tag": "EDGE_CALL_ACTIVE",
+      "diagnostic_tag": "RANDLE_REBOUND_HOOK_WIN"
+    }
+  ],
+  "gameflow": {
+    "quarter_scores": {"SAS": [36, 38, 36, 29], "MIN": [27, 34, 23, 25]},
+    "halftime_score": {"SAS": 74, "MIN": 61},
+    "second_half_score": {"SAS": 65, "MIN": 48},
+    "third_quarter_score": {"SAS": 36, "MIN": 23},
+    "fourth_quarter_score": {"SAS": 29, "MIN": 25},
+    "biggest_lead": {"SAS": 37, "MIN": 0},
+    "lead_changes": 0,
+    "times_tied": 0,
+    "turning_points": [
+      "San Antonio controlled the opening quarter 36-27 behind Stephon Castle's immediate shot-making and Fox pace control.",
+      "The Spurs pushed the lead as high as 29 in the second quarter before Minnesota cut it to 13 by halftime.",
+      "San Antonio erased the Minnesota comeback threat with a 36-23 third quarter, entering the fourth up 110-84.",
+      "Minnesota never led and never forced a late leverage state, validating the live spread blowout-continuation angle.",
+      "Randle reached 7 rebounds despite only 23:42 minutes, cashing the 7+ rebound position by the exact threshold."
+    ]
+  },
+  "team_box_summary": {
+    "SAS": {
+      "field_goals": "49-88",
+      "fg_pct": 55.7,
+      "three_pointers": "18-38",
+      "three_pct": 47.4,
+      "free_throws": "23-27",
+      "rebounds": 60,
+      "offensive_rebounds": 12,
+      "assists": 34,
+      "turnovers": 15,
+      "points_off_turnovers_allowed": 21,
+      "points_in_paint": 58,
+      "second_chance_points": 21,
+      "fast_break_points": 17,
+      "blocks": 13
+    },
+    "MIN": {
+      "field_goals": "40-106",
+      "fg_pct": 37.7,
+      "three_pointers": "12-34",
+      "three_pct": 35.3,
+      "free_throws": "17-21",
+      "rebounds": 29,
+      "offensive_rebounds": 9,
+      "assists": 25,
+      "turnovers": 5,
+      "points_off_turnovers_allowed": 7,
+      "points_in_paint": 52,
+      "second_chance_points": 12,
+      "fast_break_points": 5,
+      "blocks": 2
+    }
+  },
+  "player_notes": {
+    "Stephon Castle": {
+      "line": "32 points, 11 rebounds, 6 assists, 5-7 3PT, +28",
+      "model_relevance": "Primary volatility breaker. Castle's early 3PT burst created immediate spread pressure and forced Minnesota into chase mode."
+    },
+    "Victor Wembanyama": {
+      "line": "19 points, 6 rebounds, 2 assists, 3 blocks, +25",
+      "model_relevance": "Scoring volume was secondary, but rim deterrence and vertical gravity drove Minnesota efficiency suppression."
+    },
+    "De'Aaron Fox": {
+      "line": "21 points, 9 assists, 4 rebounds, 3-3 3PT, +26",
+      "model_relevance": "Pace control and transition ignition validated Spurs backcourt dominance tag."
+    },
+    "Julian Champagnie": {
+      "line": "18 points, 5 rebounds, 4-9 3PT, +35",
+      "model_relevance": "Spacing wing ceiling materially widened San Antonio margin and supports bench/role-player shooting volatility boost."
+    },
+    "Dylan Harper": {
+      "line": "15 points, 5 rebounds, 2 assists, +16",
+      "model_relevance": "Bench scoring stability confirmed San Antonio depth advantage."
+    },
+    "Anthony Edwards": {
+      "line": "24 points, 2 rebounds, 2 assists, 9-26 FG, -31",
+      "model_relevance": "High volume but inefficient; Spurs switch-heavy defense forced tough shot diet and limited playmaking conversion."
+    },
+    "Julius Randle": {
+      "line": "3 points, 7 rebounds, 1 assist, 1-8 FG, -34",
+      "model_relevance": "Rebound ladder cashed at 7, but offensive role collapsed. Strong example of rebound-positive / scoring-negative split in blowout state."
+    },
+    "Naz Reid": {
+      "line": "18 points, 7 rebounds, 3-7 3PT",
+      "model_relevance": "Bench scoring kept Minnesota from total collapse but did not affect spread outcome."
+    },
+    "Terrence Shannon Jr.": {
+      "line": "21 points, 2 rebounds, 8-15 FG",
+      "model_relevance": "Garbage-time and second-unit scoring preserved Minnesota team total range but not competitiveness."
+    }
+  },
+  "betting_result_summary": {
+    "record": "2-0",
+    "wins": 2,
+    "losses": 0,
+    "total_staked": 10.10,
+    "total_return": 19.90,
+    "net": 9.80,
+    "roi_pct": 97.03,
+    "notes": "Clean two-hit card: SAS -13.5 live spread hit by 16.5 points of cover cushion, and Julius Randle 7+ rebounds cashed exactly at threshold."
+  },
+  "diagnostics": {
+    "winning_reads": [
+      {
+        "market": "SAS -13.5 live spread",
+        "why_it_won": [
+          "San Antonio led by 13 at halftime and won the second half by 17.",
+          "Spurs shot 55.7% FG and 47.4% from three.",
+          "Minnesota shot 37.7% FG on 106 attempts and never created efficient halfcourt flow.",
+          "San Antonio posted 34 assists and 60 rebounds, creating both efficiency and possession advantage."
+        ]
+      },
+      {
+        "market": "Julius Randle 7+ rebounds",
+        "why_it_won": [
+          "Randle reached 6 rebounds by halftime, giving the ladder a strong early path.",
+          "Minnesota's poor shooting generated rebound volume despite Randle's scoring collapse.",
+          "He finished exactly at 7 rebounds, making this a hook/threshold win rather than a high-cushion prop."
+        ]
+      }
+    ],
+    "model_sharpening_flags": [
+      "SAS_BACKCOURT_CREATION_SPIKE",
+      "CASTLE_SHOOTING_CEILING_UNLOCKED",
+      "FOX_PACE_CONTROL_ACTIVE",
+      "WEMBY_RIM_DETERRENCE_SUPPRESSION",
+      "MIN_ELIMINATION_COLLAPSE_RECURRING_PATTERN",
+      "RANDLE_SCORING_COLLAPSE_REBOUND_STILL_ACTIVE",
+      "SPURS_DEPTH_SCORING_BOOST",
+      "BLOWOUT_CONTINUATION_VALIDATED"
+    ],
+    "series_carryover": {
+      "san_antonio": [
+        "Upgrade backcourt creation and shooting variance ceiling into WCF baseline.",
+        "Maintain Wembanyama defensive deterrence as a team efficiency suppressor even when his scoring volume is not ceiling-level.",
+        "Depth scoring should remain active with Harper, Champagnie, Kornet, and Bryant creating support lanes.",
+        "Blowout continuation logic validated when Spurs lead by double digits with shooting efficiency and defensive rim control intact."
+      ],
+      "minnesota": [
+        "Flag elimination-game offensive collapse risk as recurring pattern.",
+        "Downgrade Randle scoring reliability against length/switch-heavy defenses while preserving rebound path in high-miss environments.",
+        "Edwards volume can remain high while efficiency and assists collapse under elite pressure.",
+        "Gobert offensive/rebounding floor is fragile against Wembanyama/Kornet size layers."
+      ]
+    }
+  },
+  "patch_recommendations": [
+    "Add CASTLE_PLAYOFF_CEILING_SPIKE to Spurs wing/backcourt module.",
+    "Add MIN_ELIMINATION_NO_SHOW_RISK for future playoff elimination reads.",
+    "Separate Randle rebound projection from Randle points projection; poor shooting did not prevent rebound cashing.",
+    "Treat Spurs 3PT volume plus Wembanyama rim deterrence as a spread-expansion combo.",
+    "Apply BLOWOUT_CONTINUATION_VALIDATED when favorite leads 10+ at half, owns the glass, and opponent eFG is suppressed."
+  ],
+  "tags": [
+    "NBA_POSTMORTEM",
+    "ROLLING_WINDOW_SERIES",
+    "BACKTEST_LOGBOOK_REGISTERED",
+    "SAS_MIN_GAME6",
+    "LIVEFLOW_STRIPPED_MODE_ACTIVE",
+    "EDGE_CALL_ACTIVE",
+    "WIN_REGISTERED",
+    "SAS_SPREAD_HIT",
+    "RANDLE_REBOUND_HIT",
+    "CASTLE_CEILING_SPIKE",
+    "SPURS_BACKCOURT_DOMINANCE",
+    "WEMBY_RIM_DETERRENCE",
+    "MIN_ELIMINATION_COLLAPSE",
+    "BLOWOUT_CONTINUATION_VALIDATED",
+    "GAME6_SERIES_CLOSEOUT"
+  ],
+  "status": "FINALIZED"
+}
