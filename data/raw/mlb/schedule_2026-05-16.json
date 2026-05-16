@@ -3,14 +3,14 @@
   "totalItems": 15,
   "totalEvents": 0,
   "totalGames": 15,
-  "totalGamesInProgress": 0,
+  "totalGamesInProgress": 1,
   "dates": [
     {
       "date": "2026-05-16",
       "totalItems": 15,
       "totalEvents": 0,
       "totalGames": 15,
-      "totalGamesInProgress": 0,
+      "totalGamesInProgress": 1,
       "games": [
         {
           "gamePk": 824278,
@@ -21,12 +21,12 @@
           "gameDate": "2026-05-16T17:10:00Z",
           "officialDate": "2026-05-16",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -242,9 +242,9 @@
           "officialDate": "2026-05-16",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -404,6 +404,7 @@
                 "losses": 25,
                 "pct": ".444"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 15
             },
@@ -418,6 +419,7 @@
                 "losses": 14,
                 "pct": ".674"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 15
             }
