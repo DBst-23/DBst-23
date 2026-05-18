@@ -1,0 +1,220 @@
+{
+  "log_id": "rolling_window_series_SAS_OKC_WCF_Game1_2026-05-18_pregame_live_context",
+  "repo_target": "DBst-23/DBst-23",
+  "path_target": "Backtest_Logbook/NBA/Rolling_Window_Series/",
+  "game": {
+    "matchup": "San Antonio Spurs @ Oklahoma City Thunder",
+    "date": "2026-05-18",
+    "stage": "Western Conference Finals Game 1",
+    "venue": "Oklahoma City",
+    "scheduled_tip_pdt": "17:30",
+    "series_context": "Spurs won 4 of 5 regular-season/Cup matchups versus OKC; final late-season matchup excluded from primary rolling-window weighting because OKC starters were not meaningfully involved."
+  },
+  "market_snapshot": {
+    "moneyline": {
+      "sas_best": "+208",
+      "okc_best": "-209",
+      "market_note": "OKC favored but not priced as mismatch; SAS plus price has upset optionality but not a primary edge."
+    },
+    "spread": {
+      "consensus": "OKC -6.5 / SAS +6.5",
+      "best_sas": "+6.5 +103 Novig",
+      "best_okc": "-6.5 +100 888Sport",
+      "model_note": "OKC -6.5 is thin plus-money lean; SAS +7.5 would be preferred if available at reasonable vig."
+    },
+    "total": {
+      "main_market": "220.5 to 221.5",
+      "best_over": "Over 220.5 -110 888Sport",
+      "kalshi": "220.5 with Over -120 / Under +101",
+      "model_note": "Over 220.5 is the cleanest pregame strike if -110 to -115. Avoid paying -120 unless live-flow pocket allows smaller stake."
+    },
+    "team_totals": {
+      "sas": {
+        "market_range": "106.5 to 108.5",
+        "kalshi": "SAS O105.5 -154 / U105.5 +129",
+        "model_note": "SAS O105.5 has line value but is overpriced at -154. Preferred book target is SAS O106.5 at -115 or better."
+      },
+      "okc": {
+        "market_range": "113.5 to 115.5",
+        "kalshi": "OKC O115.5 +109 / U115.5 -143",
+        "model_note": "OKC O113.5 is playable at -115 or better. OKC O115.5 +109 is market-correct, not a strike."
+      }
+    }
+  },
+  "injury_context": {
+    "deaaron_fox": {
+      "status": "Questionable ankle; participated in shootaround; likely game-time confirmation gate.",
+      "projected_minutes_if_active": 35,
+      "model_effect_if_limited": {
+        "sas_team_total_delta": "-2.5 to -4.0",
+        "sas_turnover_rate_delta": "+2.5%",
+        "castle_usage_delta": "+3% to +5%",
+        "wembanyama_touch_volume_delta": "+8% to +10%"
+      }
+    },
+    "luke_kornet": {
+      "status": "Questionable foot; limited postseason role but important as backup size versus OKC bigs.",
+      "projected_minutes_if_active": 12,
+      "model_effect_if_out": {
+        "okc_team_total_delta": "+1.0 to +1.8",
+        "chet_hartenstein_rebound_chance_delta": "+4% to +7%",
+        "wembanyama_foul_stamina_volatility": "small increase"
+      }
+    },
+    "jalen_williams": {
+      "status": "Expected to return / no longer listed as inactive in provided context.",
+      "projected_minutes": 28,
+      "model_effect": "Restores OKC secondary creation, wing defense, and transition stability."
+    }
+  },
+  "narrative_context": {
+    "sga_mvp_trophy": {
+      "tag": "SGA_MVP_TROPHY_MORALE_BOOST",
+      "effect": "First-quarter energy and usage bump, not a full-game blind over boost."
+    },
+    "wembanyama_response": {
+      "tag": "WEMBY_MVP_RESPONSE_VOLATILITY",
+      "effect": "Raises early aggression and shot/block/rebound volatility."
+    },
+    "chet_vs_wemby": {
+      "tag": "CHET_WEMBY_RIVALRY_INTENSITY",
+      "effect": "Interior contest rate, rim deterrence, and foul volatility elevated."
+    }
+  },
+  "projected_minutes_core": {
+    "OKC": {
+      "Shai Gilgeous-Alexander": 36,
+      "Chet Holmgren": 32,
+      "Ajay Mitchell": 29,
+      "Jalen Williams": 28,
+      "Isaiah Hartenstein": 27,
+      "Luguentz Dort": 25,
+      "Cason Wallace": 20,
+      "Alex Caruso": 18,
+      "Jaylin Williams": 14
+    },
+    "SAS": {
+      "DeAaron Fox": 35,
+      "Stephon Castle": 35,
+      "Victor Wembanyama": 34,
+      "Devin Vassell": 34,
+      "Julian Champagnie": 29,
+      "Dylan Harper": 25,
+      "Keldon Johnson": 18,
+      "Luke Kornet": 12,
+      "Carter Bryant": 12
+    }
+  },
+  "simulation_output": {
+    "team_score_projection": {
+      "SAS": {
+        "mean": 107.8,
+        "median": 107,
+        "range_primary": "102-114"
+      },
+      "OKC": {
+        "mean": 114.9,
+        "median": 115,
+        "range_primary": "109-122"
+      },
+      "total": {
+        "mean": 222.7,
+        "median": 221,
+        "range_primary": "214-232"
+      },
+      "margin": {
+        "mean": "OKC +7.1",
+        "median": "OKC +6"
+      }
+    },
+    "game_line_probabilities": {
+      "OKC_ML": 0.675,
+      "SAS_ML": 0.325,
+      "OKC_minus_6_5": 0.518,
+      "SAS_plus_7_5": 0.536,
+      "over_220_5": 0.558,
+      "over_221_5": 0.534,
+      "under_223": 0.521
+    },
+    "team_total_probabilities": {
+      "SAS_over_105_5": 0.595,
+      "SAS_over_106_5": 0.568,
+      "SAS_over_107_5": 0.529,
+      "SAS_over_108_5": 0.491,
+      "OKC_over_113_5": 0.561,
+      "OKC_over_114_5": 0.519,
+      "OKC_over_115_5": 0.478,
+      "OKC_under_115_5": 0.522
+    }
+  },
+  "edge_board": [
+    {
+      "rank": 1,
+      "market": "Full Game Over 220.5",
+      "model_probability": 0.558,
+      "fair_odds": "-126",
+      "target_price": "-110 to -115",
+      "stake": "$5 max",
+      "edge_status": "PRIMARY_STRIKE"
+    },
+    {
+      "rank": 2,
+      "market": "SAS Team Total Over 106.5",
+      "model_probability": 0.568,
+      "fair_odds": "-131",
+      "target_price": "-115 or better",
+      "stake": "$2.50-$3.00",
+      "edge_status": "SECONDARY_SMALL"
+    },
+    {
+      "rank": 3,
+      "market": "OKC Team Total Over 113.5",
+      "model_probability": 0.561,
+      "fair_odds": "-128",
+      "target_price": "-115 or better",
+      "stake": "$2.50-$3.00",
+      "edge_status": "SECONDARY_SMALL"
+    }
+  ],
+  "passes": [
+    {
+      "market": "Kalshi SAS O105.5 -154",
+      "reason": "Model probability around 59.5%; price implies roughly 60.6%, making it overpriced despite low line."
+    },
+    {
+      "market": "Kalshi OKC O115.5 +109",
+      "reason": "Projection sits near 114.9/115; plus money is tempting but probability only around 47.8%, roughly fair."
+    },
+    {
+      "market": "OKC ML",
+      "reason": "Model probability aligns too closely with market."
+    },
+    {
+      "market": "SAS ML",
+      "reason": "Needs +215 or better for value threshold."
+    }
+  ],
+  "liveflow_triggers": {
+    "if_total_jumps_to_225_plus": "Do not chase over; evaluate Under 229.5+ only if pace is normal and scoring is shotmaking-driven.",
+    "if_q1_55_to_58_with_good_pace": "Hold full-game over; pace profile remains supportive.",
+    "if_sas_slow_start_but_fox_moves_well": "Look for discounted SAS live team total over.",
+    "if_fox_limited": "Downgrade SAS TT, full-game over, and Castle efficiency.",
+    "if_wembanyama_two_early_fouls": "Avoid SAS overs; pivot toward OKC TT live over or Chet rebound/points live."
+  },
+  "model_tags": [
+    "ROLLING_WINDOW_SERIES_SAS_OKC_ACTIVE",
+    "WCF_GAME1_CONTEXT_ACTIVE",
+    "SGA_MVP_TROPHY_MORALE_BOOST",
+    "WEMBY_MVP_RESPONSE_VOLATILITY",
+    "CHET_WEMBY_RIVALRY_INTENSITY",
+    "FOX_ANKLE_CONFIRMATION_GATE",
+    "KORNET_BACKUP_SIZE_GATE",
+    "JALEN_WILLIAMS_RETURN_STABILITY",
+    "LIVEFLOW_STRIPPED_MODE_READY"
+  ],
+  "final_call": {
+    "primary": "Full Game Over 220.5 if -110 to -115; stake $5 max.",
+    "secondary": "SAS TT Over 106.5 if -115 or better; stake $2.50-$3.00.",
+    "note": "No parlay recommendation; keep LiveFlow pocket open for one $5 in-game strike."
+  }
+}
