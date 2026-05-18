@@ -1,0 +1,245 @@
+{
+  "series_id": "ROLLING_WINDOW_SERIES_SAS_OKC_2025_26",
+  "game_id": "SAS_OKC_2025_12_13_NBA_CUP_SEMIFINAL",
+  "date": "2025-12-13",
+  "competition": "NBA Cup Semifinal",
+  "venue": "T-Mobile Arena, Las Vegas, NV",
+  "final_score": {
+    "SAS": 111,
+    "OKC": 109
+  },
+  "result": "SAS win",
+  "market_context_next_meeting": {
+    "game": "SAS @ OKC",
+    "spread_range": "OKC -10.5 to -11.5",
+    "total_range": "232.0 to 233.5",
+    "sas_team_total_range": "109.5 to 111.0",
+    "okc_team_total_range": "120.5 to 122.5"
+  },
+  "phase_analysis": {
+    "q1": {
+      "score": "OKC 31, SAS 20",
+      "summary": "OKC pressure and transition engine controlled the opening phase. San Antonio committed five first-quarter turnovers and Wembanyama did not play in Q1."
+    },
+    "q2": {
+      "score": "SAS 26, OKC 18",
+      "summary": "Wembanyama entered and shifted the matchup geometry. San Antonio erased most of a 16-point deficit, using offensive rebounding and OKC perimeter regression."
+    },
+    "q3": {
+      "score": "SAS 32, OKC 28",
+      "summary": "San Antonio flipped the game through Fox creation, Vassell spacing, Wembanyama rim gravity, and forced OKC turnovers."
+    },
+    "q4": {
+      "score": "SAS 33, OKC 32",
+      "summary": "Wembanyama closed as the dominant matchup variable. Spurs converted late second-chance pressure while OKC failed to turn offensive rebounds into efficient points."
+    }
+  },
+  "box_score_anchors": {
+    "SAS": {
+      "points": 111,
+      "fg": "37/90",
+      "fg_pct": 41.1,
+      "three_point": "13/42",
+      "three_pct": 31.0,
+      "free_throws": "24/32",
+      "rebounds": 52,
+      "offensive_rebounds": 15,
+      "assists": 21,
+      "turnovers": 19,
+      "blocks": 6,
+      "second_chance_points": 16,
+      "fast_break_points": 16,
+      "paint_points": 40
+    },
+    "OKC": {
+      "points": 109,
+      "fg": "38/92",
+      "fg_pct": 41.3,
+      "three_point": "9/37",
+      "three_pct": 24.3,
+      "free_throws": "24/27",
+      "rebounds": 51,
+      "offensive_rebounds": 14,
+      "assists": 20,
+      "turnovers": 15,
+      "blocks": 4,
+      "second_chance_points": 6,
+      "fast_break_points": 23,
+      "paint_points": 44
+    }
+  },
+  "key_player_notes": {
+    "Victor Wembanyama": {
+      "team": "SAS",
+      "minutes": "20:39",
+      "points": 22,
+      "rebounds": 9,
+      "blocks": 2,
+      "plus_minus": 21,
+      "tag": "WEMBY_GEOMETRY_SHIFT",
+      "note": "Returned from absence on minutes restriction and changed the game structure immediately."
+    },
+    "Devin Vassell": {
+      "team": "SAS",
+      "minutes": "32:14",
+      "points": 23,
+      "rebounds": 5,
+      "assists": 4,
+      "three_point": "4/9",
+      "tag": "VASSELL_SPACING_PRESSURE"
+    },
+    "DeAaron Fox": {
+      "team": "SAS",
+      "minutes": "36:35",
+      "points": 22,
+      "assists": 4,
+      "steals": 2,
+      "tag": "FOX_HALFCOURT_STABILIZER"
+    },
+    "Stephon Castle": {
+      "team": "SAS",
+      "minutes": "33:41",
+      "points": 22,
+      "rebounds": 6,
+      "turnovers": 6,
+      "tag": "CASTLE_TURNOVER_VOLATILITY"
+    },
+    "Shai Gilgeous-Alexander": {
+      "team": "OKC",
+      "minutes": "36:34",
+      "points": 29,
+      "assists": 5,
+      "turnovers": 5,
+      "three_point": "1/7",
+      "tag": "SGA_PULLUP_FORCED_PROFILE"
+    },
+    "Isaiah Hartenstein": {
+      "team": "OKC",
+      "minutes": "20:14",
+      "points": 10,
+      "rebounds": 9,
+      "offensive_rebounds": 8,
+      "tag": "HARTENSTEIN_OREB_VOLUME_LOW_CONVERSION"
+    },
+    "Alex Caruso": {
+      "team": "OKC",
+      "minutes": "24:04",
+      "points": 11,
+      "rebounds": 8,
+      "steals": 3,
+      "plus_minus": 22,
+      "tag": "CARUSO_STABILIZER_TAG"
+    }
+  },
+  "matchup_edges": {
+    "sas_second_chance_conversion": {
+      "status": "active",
+      "sas_second_chance_points": 16,
+      "okc_second_chance_points": 6,
+      "note": "Raw rebounding was nearly even, but San Antonio converted offensive boards into points far better."
+    },
+    "okc_empty_oreb_calories": {
+      "status": "active",
+      "note": "OKC generated offensive rebound volume but failed to turn it into efficient second-chance scoring."
+    },
+    "wembanyama_geometry_shift": {
+      "status": "active",
+      "note": "Wembanyama changed rim pressure, spacing gravity, defensive coverage, and rebounding profile despite minutes restriction."
+    },
+    "okc_transition_engine": {
+      "status": "partial",
+      "okc_fast_break_points": 23,
+      "note": "Transition offense was live, but not enough to overcome halfcourt and second-chance conversion issues."
+    }
+  },
+  "lineup_signals": {
+    "sas_positive": [
+      {
+        "lineup": "Fox, Vassell, Wembanyama, Harper, Barnes",
+        "minutes": "2:47",
+        "plus_minus": 13,
+        "tag": "SAS_WEMBY_FOX_VASSELL_SURGE"
+      },
+      {
+        "lineup": "Fox, Champagnie, Wembanyama, Castle, Barnes",
+        "minutes": "2:28",
+        "plus_minus": 5,
+        "tag": "SAS_LENGTH_CREATION_BALANCE"
+      }
+    ],
+    "okc_positive": [
+      {
+        "lineup": "Caruso, Hartenstein, Holmgren, Wallace, Mitchell",
+        "minutes": "3:12",
+        "plus_minus": 6,
+        "tag": "OKC_CARUSO_SIZE_PRESSURE_UNIT"
+      }
+    ],
+    "okc_negative": [
+      {
+        "lineup": "Hartenstein, Gilgeous-Alexander, Dort, Williams, Wallace",
+        "minutes": "1:49",
+        "plus_minus": -8,
+        "tag": "OKC_SPACING_COMPRESSION_UNIT"
+      },
+      {
+        "lineup": "Wiggins, Williams, Williams, Wallace, Mitchell",
+        "minutes": "3:27",
+        "plus_minus": -7,
+        "tag": "OKC_BENCH_CREATION_DIP"
+      }
+    ]
+  },
+  "simulation_implications_for_next_game": {
+    "spread": {
+      "market": "OKC -10.5 to -11.5",
+      "lean": "SAS plus points",
+      "sas_plus_11_probability": 0.545,
+      "okc_minus_11_probability": 0.455
+    },
+    "moneyline": {
+      "market": "SAS +360 to +445 / OKC -455 to -599",
+      "sas_win_probability_range": "24% to 28%",
+      "okc_win_probability_range": "72% to 76%"
+    },
+    "total": {
+      "market": "232.0 to 233.5",
+      "lean": "Under",
+      "mean": 228.8,
+      "median": 227.5,
+      "over_233_5_probability": 0.438,
+      "under_233_5_probability": 0.562
+    },
+    "team_totals": {
+      "sas_tt_110_5": {
+        "mean": 110.9,
+        "median": 110.0,
+        "over_probability": 0.506,
+        "under_probability": 0.494,
+        "status": "no_play_yet"
+      },
+      "okc_tt_122_5": {
+        "mean": 118.0,
+        "median": 117.5,
+        "over_probability": 0.391,
+        "under_probability": 0.609,
+        "status": "early_edge_under"
+      }
+    }
+  },
+  "model_tags": [
+    "ROLLING_WINDOW_SERIES_ACTIVE",
+    "SAS_OKC_MATCHUP_FILE_OPENED",
+    "WEMBY_GEOMETRY_SHIFT",
+    "OKC_TRANSITION_ENGINE_PARTIAL",
+    "SAS_SECOND_CHANCE_CONVERSION_EDGE",
+    "OKC_OREB_EMPTY_CALORIES",
+    "SGA_PULLUP_FORCED_PROFILE",
+    "CASTLE_TURNOVER_VOLATILITY",
+    "CARUSO_STABILIZER_TAG",
+    "HARTENSTEIN_OREB_VOLUME_LOW_CONVERSION",
+    "SPURS_LENGTH_DISRUPTION",
+    "Q2_WEMBY_ENTRY_SWING",
+    "Q3_TURNOVER_FLIP"
+  ]
+}
