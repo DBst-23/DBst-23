@@ -1,0 +1,74 @@
+{
+  "series_id": "ROLLING_WINDOW_SERIES_SAS_OKC_2025_26",
+  "game_id": "SAS_OKC_2025_12_23_REGULAR_SEASON",
+  "date": "2025-12-23",
+  "competition": "NBA Regular Season",
+  "venue": "Frost Bank Center, San Antonio, TX",
+  "officials": ["Scott Foster", "Karl Lane", "Suyash Mehta"],
+  "final_score": {"SAS": 130, "OKC": 110},
+  "result": "SAS win",
+  "series_context": {
+    "status": "SAS defeated OKC for second time in 11 days",
+    "prior_meeting": "SAS 111, OKC 109 on 2025-12-13 NBA Cup Semifinal",
+    "rolling_window_record_vs_okc": "SAS 2-0 in current logged window",
+    "okc_context": "OKC entered as defending champion profile and suffered worst loss of season to date"
+  },
+  "phase_analysis": {
+    "q1": {"score": "SAS 31, OKC 29", "summary": "High-efficiency opening with 5 ties and 3 lead changes. Spurs survived OKC early rim/SGA pressure through Barnes scoring, Vassell rebounding, Harper playmaking, and early Wembanyama bench impact."},
+    "q2": {"score": "OKC 31, SAS 27", "summary": "OKC briefly regained control behind SGA and Isaiah Joe spacing. Spurs remained inside contact range despite Fox free throw misses and turnover leakage. Halftime: OKC 60, SAS 58."},
+    "q3": {"score": "SAS 29, OKC 22", "summary": "Game flipped through defensive disruption. OKC committed 6 turnovers for 14 Spurs points. Harper steals, Castle pressure, Barnes/Vassell transition threes, and Keldon Johnson shotmaking created the decisive shift."},
+    "q4": {"score": "SAS 43, OKC 28", "summary": "Spurs detonated the game late: 15/19 FG, 6/9 from three, 13 assists, only 1 turnover. Wembanyama hit the separation three, Castle followed with another, and San Antonio closed with full offensive control."}
+  },
+  "box_score_anchors": {
+    "SAS": {"points": 130, "fg": "48/84", "fg_pct": 57.1, "three_point": "16/36", "three_pct": 44.4, "free_throws": "18/24", "rebounds": 34, "offensive_rebounds": 10, "assists": 34, "turnovers": 9, "steals": 10, "blocks": 3, "paint_points": 60, "second_chance_points": 15, "fast_break_points": 19},
+    "OKC": {"points": 110, "fg": "46/85", "fg_pct": 54.1, "three_point": "12/30", "three_pct": 40.0, "free_throws": "6/7", "rebounds": 36, "offensive_rebounds": 9, "assists": 23, "turnovers": 13, "steals": 5, "blocks": 1, "paint_points": 48, "second_chance_points": 9, "fast_break_points": 5}
+  },
+  "key_player_notes": {
+    "Keldon Johnson": {"team": "SAS", "minutes": "22:14", "points": 25, "fg": "10/16", "three_point": "5/9", "plus_minus": 9, "tag": "KELDON_BENCH_SCORING_SURGE", "note": "Primary scoring accelerant; punished OKC bench and transition coverage gaps."},
+    "Stephon Castle": {"team": "SAS", "minutes": "27:51", "points": 24, "assists": 3, "three_point": "4/6", "plus_minus": 12, "tag": "CASTLE_TWO_WAY_PRESSURE", "note": "Late-game shotmaking and defensive pressure helped break the game open."},
+    "Victor Wembanyama": {"team": "SAS", "minutes": "23:08", "points": 12, "rebounds": 5, "assists": 3, "blocks": 0, "plus_minus": 13, "tag": "WEMBY_GRAVITY_WITHOUT_BLOCKS", "note": "Block streak ended at 101, but spacing/rim gravity still shifted OKC coverage and supported the fourth-quarter run."},
+    "Dylan Harper": {"team": "SAS", "minutes": "20:17", "points": 4, "assists": 10, "steals": 5, "turnovers": 0, "plus_minus": 8, "tag": "HARPER_DISRUPTION_ENGINE", "note": "Low scoring but high-leverage creation/defensive disruption. Season-high 5 steals and 10 assists."},
+    "Julian Champagnie": {"team": "SAS", "minutes": "22:09", "rebounds": 10, "defensive_rebounds": 10, "plus_minus": 11, "tag": "CHAMPAGNIE_GLASS_STABILIZER"},
+    "Shai Gilgeous-Alexander": {"team": "OKC", "minutes": "35:30", "points": 33, "assists": 8, "turnovers": 2, "fg": "14/22", "tag": "SGA_EFFICIENT_BUT_TEAM_SUPPRESSED", "note": "SGA scored efficiently, but OKC could not generate enough free throws, transition, or secondary creation."},
+    "Isaiah Hartenstein": {"team": "OKC", "minutes": "25:39", "points": 8, "rebounds": 12, "offensive_rebounds": 5, "personal_fouls": 5, "tag": "HARTENSTEIN_REBOUND_VOLUME_FOUL_DRAG"},
+    "Chet Holmgren": {"team": "OKC", "minutes": "27:08", "points": 7, "rebounds": 3, "fg": "3/10", "plus_minus": -11, "tag": "CHET_LOW_IMPACT_SUPPRESSION"}
+  },
+  "matchup_edges": {
+    "sas_second_half_surge": {"status": "active", "sas_second_half_points": 72, "okc_second_half_points": 50, "note": "Spurs outscored OKC by 22 in the second half and created the decisive separation."},
+    "q4_execution_gap": {"status": "critical", "sas_q4_points": 43, "okc_q4_points": 28, "sas_q4_fg": "15/19", "sas_q4_three_point": "6/9", "sas_q4_assists": 13, "sas_q4_turnovers": 1},
+    "okc_turnover_conversion_failure": {"status": "active", "okc_turnovers": 13, "sas_points_off_turnovers": 20, "note": "OKC turnovers became high-value Spurs scoring possessions, especially in Q3."},
+    "sas_paint_and_transition_edge": {"status": "active", "sas_paint_points": 60, "okc_paint_points": 48, "sas_fast_break_points": 19, "okc_fast_break_points": 5},
+    "okc_free_throw_suppression": {"status": "active", "okc_fta": 7, "sas_fta": 24, "note": "OKC scored efficiently from the field but lacked free throw volume to withstand Spurs shotmaking runs."},
+    "wemby_geometry_still_active": {"status": "active", "note": "Even without a recorded block, Wembanyama's presence continued to alter lineup geometry, offensive spacing, and OKC defensive coverage."}
+  },
+  "tracking_inputs": {
+    "player_tracking_rebounding": {
+      "OKC": {"Hartenstein": {"reb": 12, "contested_reb": 6, "reb_chances": 21, "adj_reb_chance_pct": 57.1}, "Holmgren": {"reb": 3, "reb_chances": 4}, "SGA": {"reb": 3, "reb_chances": 6}, "Caruso": {"reb": 4, "reb_chances": 5}},
+      "SAS": {"Champagnie": {"reb": 10, "contested_reb": 5, "reb_chances": 12, "adj_reb_chance_pct": 83.3}, "Kornet": {"reb": 5, "contested_reb": 4, "reb_chances": 14}, "Wembanyama": {"reb": 5, "reb_chances": 11}, "Harper": {"reb": 3, "contested_reb": 2, "reb_chances": 6}}
+    },
+    "team_boxouts": {
+      "SAS": {"forward_boxouts": 6, "center_boxouts": 5, "guard_boxouts": 0},
+      "OKC": {"forward_boxouts": 7, "center_boxouts": 6, "guard_boxouts": 2}
+    },
+    "lineup_rebounding_signals": {
+      "SAS_team_total_rebounds_by_tracking": 40,
+      "OKC_team_total_rebounds_by_tracking": 38,
+      "sas_top_lineup": "Fox, Kornet, Vassell, Castle, Barnes: 8:25, 11 rebounds, 4 OREB",
+      "okc_top_lineup": "Hartenstein, Gilgeous-Alexander, Dort, Holmgren, Williams: 8:25, 11 rebounds, 2 OREB"
+    },
+    "turnover_tracking": {"OKC": {"total": 15, "live_ball": 10, "live_ball_pct": 66.67, "bad_pass": 8}, "SAS": {"total": 9, "live_ball": 5, "live_ball_pct": 55.56}},
+    "shot_quality_tracking": {"OKC": {"shot_quality": 0.52, "rim_or_3_freq": 52.94, "efg_pct": 61.18, "ts_pct": 62.5}, "SAS": {"shot_quality": 0.55, "rim_or_3_freq": 75.0, "efg_pct": 66.67, "ts_pct": 67.71}}
+  },
+  "rolling_window_updates": {
+    "series_signal": "SAS has now produced two distinct win scripts vs OKC in 11 days: close-game Cup survival and full second-half separation blowout.",
+    "persistent_tags": ["SAS_OKC_MATCHUP_EDGE_ACTIVE", "SPURS_LENGTH_DISRUPTION", "WEMBY_GEOMETRY_SHIFT", "WEMBY_GRAVITY_WITHOUT_BLOCKS", "HARPER_DISRUPTION_ENGINE", "KELDON_BENCH_SCORING_SURGE", "CASTLE_TWO_WAY_PRESSURE", "OKC_SECOND_HALF_SUPPRESSION", "OKC_TRANSITION_SUPPRESSED", "OKC_FT_VOLUME_SUPPRESSED", "SPURS_Q4_AVALANCHE", "HARTENSTEIN_REBOUND_VOLUME_FOUL_DRAG", "CHAMPAGNIE_GLASS_STABILIZER"],
+    "model_implication": "Do not price OKC vs SAS as a standard Thunder dominance matchup. Spurs length, Wembanyama geometry, secondary creators, and bench scoring materially alter OKC's transition and late-game efficiency profile."
+  },
+  "simulation_implications_for_next_sas_okc_meeting": {
+    "spread": {"market_reference_from_prior_same_matchup": "OKC -10.5 to -11.5", "postmortem_adjustment": "downgrade OKC cover probability; upgrade SAS plus-points band", "status": "SAS spread resilience confirmed"},
+    "total": {"note": "This game went over 233.5 due to extreme SAS Q4 efficiency. Treat totals as bifurcated: OKC offense can be suppressed, but SAS transition/shotmaking can create overs if OKC live-ball turnovers spike."},
+    "team_totals": {"sas_tt": "upgrade if line <=111.5 with healthy Wembanyama/Castle/Johnson roles", "okc_tt": "downgrade if priced above 121.5 against SAS length/halfcourt pressure"},
+    "player_props": {"Harper_assists_steals": "watchlist", "Castle_points_3pm": "watchlist", "Keldon_points": "bench-volatility upside", "Hartenstein_rebounds": "volume strong but foul-risk dependent", "Chet_points_rebounds": "suppression risk active"}
+  },
+  "model_tags": ["ROLLING_WINDOW_SERIES_ACTIVE", "SAS_OKC_MATCHUP_FILE_OPENED", "REGULAR_SEASON_GAME_2025_12_23_LOGGED", "SAS_SECOND_WIN_IN_11_DAYS", "SPURS_Q4_AVALANCHE", "OKC_SECOND_HALF_SUPPRESSION", "HARPER_DISRUPTION_ENGINE", "KELDON_BENCH_SCORING_SURGE", "CASTLE_TWO_WAY_PRESSURE", "WEMBY_GRAVITY_WITHOUT_BLOCKS", "OKC_TRANSITION_SUPPRESSED", "OKC_FT_VOLUME_SUPPRESSED", "HARTENSTEIN_REBOUND_VOLUME_FOUL_DRAG", "CHAMPAGNIE_GLASS_STABILIZER"]
+}
