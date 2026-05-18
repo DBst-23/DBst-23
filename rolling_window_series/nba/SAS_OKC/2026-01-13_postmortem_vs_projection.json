@@ -1,0 +1,114 @@
+{
+  "series_id": "ROLLING_WINDOW_SERIES_SAS_OKC_2025_26",
+  "entry_id": "SAS_OKC_2026_01_13_POSTMORTEM_VS_PROJECTION",
+  "game": {
+    "date": "2026-01-13",
+    "venue": "Paycom Center, Oklahoma City, OK",
+    "final_score": {"SAS": 98, "OKC": 119, "total": 217, "margin_OKC": 21},
+    "quarter_scores": {"SAS": [26,26,24,22], "OKC": [32,23,40,24]},
+    "officials": ["Tyler Ford", "John Butler", "Derrick Collins"]
+  },
+  "pregame_projection_logged": {
+    "mean_score": {"SAS": 111.8, "OKC": 115.2, "total": 227.0, "margin_OKC": 3.4},
+    "median_score": {"SAS": 111, "OKC": 115, "total": 226, "margin_OKC": 4},
+    "probabilities": {
+      "SAS_plus_8_5": 0.68,
+      "SAS_plus_9": 0.70,
+      "OKC_minus_8_5": 0.32,
+      "under_230": 0.58,
+      "OKC_TT_under_119_5": 0.63,
+      "SAS_TT_over_110_5": 0.52,
+      "OKC_ML": 0.61,
+      "SAS_ML": 0.39
+    }
+  },
+  "projection_vs_actual": {
+    "SAS_points_delta": -13.8,
+    "OKC_points_delta": 3.8,
+    "total_delta": -10.0,
+    "margin_delta_OKC": 17.6,
+    "spread_call": {"market": "SAS +8.5/+9", "result": "MISS", "actual_margin": 21},
+    "total_call": {"market": "Under 230", "result": "HIT", "actual_total": 217},
+    "okc_team_total_call": {"market": "OKC TT Under 119.5", "result": "PUSH_OR_NEAR_PUSH_DEPENDING_BOOK", "actual_OKC": 119},
+    "sas_team_total_call": {"market": "SAS TT Over 110.5", "result": "MISS", "actual_SAS": 98},
+    "moneyline_call": {"market": "OKC ML favored", "result": "HIT"}
+  },
+  "core_diagnosis": {
+    "primary_failure": "Model correctly caught total suppression but badly underestimated OKC margin separation because SAS offense cratered below rolling-window expectation.",
+    "deciding_segment": "Third quarter: OKC 40, SAS 24",
+    "first_half_context": "Game was close at halftime, OKC 55-52, validating early script competitiveness before second-half break.",
+    "second_half_context": "OKC won second half 64-46; Spurs turnovers and blocked attempts created one-way separation.",
+    "key_spurs_absence": "Devin Vassell inactive with left adductor strain, reducing SAS spacing and secondary shot creation.",
+    "key_okc_absences": "OKC played without Isaiah Hartenstein and Lu Dort but still won glass/paint/defense battle through Jaylin Williams, Chet Holmgren, Caruso, and SGA rim pressure."
+  },
+  "stat_notes": {
+    "shooting": {
+      "SAS_FG": "34/85, 40.0%",
+      "OKC_FG": "42/81, 51.9%",
+      "SAS_3P": "13/37, 35.1%",
+      "OKC_3P": "11/30, 36.7%",
+      "OKC_paint_points": 56,
+      "SAS_paint_points": 40
+    },
+    "shot_quality_and_distribution": {
+      "SAS_shot_quality": 0.54,
+      "OKC_shot_quality": 0.56,
+      "SAS_eFG": 0.4765,
+      "OKC_eFG": 0.5793,
+      "SAS_TS": 0.5052,
+      "OKC_TS": 0.6398,
+      "SAS_rim_FG": "15/28, 53.57%",
+      "OKC_rim_FG": "19/23, 82.61%"
+    },
+    "rebounding": {
+      "SAS_total_rebounds": 42,
+      "OKC_total_rebounds": 43,
+      "SAS_tracking_rebounds": 45,
+      "OKC_tracking_rebounds": 49,
+      "notable_OKC": ["Chet Holmgren 10 REB", "Jaylin Williams 10 REB", "Ajay Mitchell 6 REB", "SGA 5 REB"],
+      "notable_SAS": ["Luke Kornet 8 REB", "Castle 7 REB", "Wembanyama 7 REB", "Champagnie 6 REB"]
+    },
+    "turnovers_and_pressure": {
+      "SAS_total_TO": 12,
+      "OKC_total_TO": 11,
+      "SAS_live_ball_TO": 7,
+      "OKC_live_ball_TO": 4,
+      "OKC_blocks": 11,
+      "SAS_blocks": 3
+    },
+    "fouls": {
+      "SAS_fouls": 25,
+      "OKC_fouls": 23,
+      "SAS_free_throws": "17/24",
+      "OKC_free_throws": "24/27"
+    }
+  },
+  "phase_analysis": {
+    "phase_1_opening": "High-tension start. Spurs led briefly and generated early offensive rebounding through Kornet/Wemby, but SGA scored 13 in Q1 and OKC exited up 32-26.",
+    "phase_2_second_quarter": "Spurs stabilized and won Q2 26-23. Halftime 55-52 indicated the pregame close-spread script was live through 24 minutes.",
+    "phase_3_third_quarter_break": "Critical miss. OKC exploded 40-24 behind SGA/Jalen downhill creation, 69.6% FG in quarter, 22 paint points, and defensive blocks. This broke SAS +8.5 and forced total under to survive via SAS offensive collapse.",
+    "phase_4_fourth_quarter": "Game state became control/bleed. OKC led by 24 early Q4 and finished 119-98. Spurs never re-entered cover range."
+  },
+  "model_patch_recommendations": [
+    "Add THIRD_QUARTER_REVENGE_SURGE_GATE for elite home favorites after repeated matchup losses.",
+    "Add VASSELL_SPACING_ABSENCE_DOWNGRADE to SAS offensive mean, especially against elite rim protection/turnover defenses.",
+    "Reduce rolling-window spread weight when opponent enters revenge game with home court and prior 0-3 series record.",
+    "Create OKC_SMALLBALL_REBOUND_RESILIENCE tag: Hartenstein absence does not automatically create SAS rebounding edge when Jaylin/Chet/Caruso minutes expand.",
+    "Add RIM_EFFICIENCY_SUPPRESSION_FAILURE flag when Wemby/Kornet lineups allow opponent rim FG above 75%.",
+    "Separate total suppression from spread cover. Low total did not imply dog cover because one-sided efficiency gap widened."
+  ],
+  "updated_series_state": {
+    "season_series_after_game": "SAS leads 3-1",
+    "next_matchup": "2026-02-04 at San Antonio",
+    "new_matchup_tags": [
+      "OKC_REVENGE_SUCCESS_CONFIRMED",
+      "THIRD_QUARTER_AVALANCHE_ALLOWED",
+      "SAS_SPACING_ABSENCE_CRITICAL",
+      "OKC_TT_UNDER_STILL_VALIDATED_NEAR_LINE",
+      "FULL_GAME_UNDER_VALIDATED",
+      "SPREAD_MODEL_MISS_REGISTERED",
+      "DOG_COVER_OVERCONFIDENCE_PATCH_REQUIRED",
+      "OKC_RIM_PRESSURE_RESTORED"
+    ]
+  }
+}
