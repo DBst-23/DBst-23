@@ -1,0 +1,141 @@
+{
+  "log_id": "NBA_LIVEFLOW_20260517_CLE_DET_G7_3Q_STRIKE",
+  "parent_log_id": "NBA_LIVEFLOW_20260517_CLE_DET_G7_HALFTIME",
+  "registry": "Backtest_Logbook",
+  "sport": "NBA",
+  "mode": "NBA_LIVEFLOW_V003",
+  "protocol": "LIVEFLOW_STRIPPED_MODE_ACTIVE",
+  "series_context": "CLE_DET_ECSF_ROLLING_WINDOW_SERIES",
+  "game": {
+    "date": "2026-05-17",
+    "round": "Eastern Conference Semifinals",
+    "game_number": 7,
+    "venue": "Little Caesars Arena, Detroit, MI",
+    "away_team": "Cleveland Cavaliers",
+    "home_team": "Detroit Pistons",
+    "score_state": "CLE 97 - DET 73",
+    "clock_state": "3Q 00:38.60",
+    "lead_margin": 24
+  },
+  "live_market_snapshot": {
+    "clock": "3Q 00:38.60",
+    "score": "CLE 97 - DET 73",
+    "live_total": {
+      "line": 223.5,
+      "over_price": -126,
+      "under_price": -155
+    },
+    "live_spread": {
+      "CLE": "-21.5 +109",
+      "DET": "+21.5 -137"
+    },
+    "live_team_totals": {
+      "DET_over_101_5": "+128",
+      "DET_under_101_5": "-168",
+      "CLE_over_88_5": "already_yes"
+    },
+    "market_volume": 39051725
+  },
+  "active_positions_update": [
+    {
+      "market": "Total Points",
+      "selection": "Yes - Over 205.5 points scored",
+      "entry_price": "-108",
+      "stake": 5.00,
+      "status": "STRONG_POSITION_AT_3Q_STRIKE",
+      "current_score_total": 170,
+      "points_needed_to_cash": 36,
+      "model_probability_now": 0.87,
+      "mean_final_total_now": 223.8,
+      "median_final_total_now": 222.0,
+      "edge_status": "POSITIVE_CLV_AND_HIGH_CASH_EQUITY",
+      "tag": "PREGAME_OVER_CLV_CONFIRMED"
+    },
+    {
+      "market": "Player Rebounds",
+      "selection": "Yes - Tobias Harris 7+ rebounds",
+      "entry_price": "+109",
+      "stake": 2.76,
+      "status": "LIVE_BUT_PRESSURED",
+      "current_rebounds": 5,
+      "rebounds_needed": 2,
+      "model_probability_now": 0.34,
+      "mean_rebounds_now": 6.0,
+      "median_rebounds_now": 5.0,
+      "risk_note": "Blowout rotation and Harris minutes compression reduce 4Q rebound path despite 5 boards through late 3Q.",
+      "tag": "REBOUND_PROP_BLOWOUT_SUPPRESSION_RISK"
+    }
+  ],
+  "quarter_progression": {
+    "Q1": {"CLE": 31, "DET": 22},
+    "Q2": {"CLE": 33, "DET": 25},
+    "Q3_to_0111": {"CLE": 31, "DET": 25},
+    "aggregate_to_3Q_strike": {"CLE": 95, "DET": 72}
+  },
+  "team_box_to_3q_strike": {
+    "CLE": {
+      "points": 95,
+      "fg": "32-58",
+      "fg_pct": 55.2,
+      "three_pt": "9-24",
+      "three_pct": 37.5,
+      "ft": "22-35",
+      "ft_pct": 62.9,
+      "rebounds": 31,
+      "assists": 22,
+      "turnovers": 9,
+      "points_in_paint": 40,
+      "second_chance_points": 11,
+      "fast_break_points": 5
+    },
+    "DET": {
+      "points": 72,
+      "fg": "25-61",
+      "fg_pct": 41.0,
+      "three_pt": "10-27",
+      "three_pct": 37.0,
+      "ft": "12-15",
+      "ft_pct": 80.0,
+      "rebounds": 27,
+      "assists": 17,
+      "turnovers": 10,
+      "points_in_paint": 28,
+      "second_chance_points": 8,
+      "fast_break_points": 11
+    }
+  },
+  "player_state_to_3q_strike": {
+    "Donovan Mitchell": "24 points, 7 assists, 4 rebounds; controlled 3Q pace and prevented DET run.",
+    "Jarrett Allen": "23 points, 7 rebounds; Cleveland frontcourt pressure remains decisive.",
+    "Sam Merrill": "20 points, 5 made threes; bench spacing remains game-breaking variable.",
+    "Evan Mobley": "14 points, 8 rebounds, 4 assists; strong two-way support.",
+    "Cade Cunningham": "12 points, 5 assists, 3 rebounds; Detroit primary engine stalled under pressure.",
+    "Tobias Harris": "5 points, 5 rebounds; needs 2 more for 7+ but blowout rotations threaten path.",
+    "Jalen Duren": "6 points, 6 rebounds, 4 fouls; foul trouble suppresses rebound ceiling."
+  },
+  "liveflow_analysis": {
+    "state_read": "Cleveland has entered control state. DET comeback probability collapsed; total equity remains strong because pregame over is deeply ahead of required pace.",
+    "pace_read": "Q3 maintained scoring at roughly 56-point pace despite blowout risk. Live market inflated to 223.5, validating earlier 205.5 entry.",
+    "det_team_total_101_5": "DET has 73 with 12:38 remaining from screenshot clock context. Needs 29 points. At +128, probability is around 42-45%, not enough for fresh entry due to garbage-time uncertainty.",
+    "live_total_223_5": "Over 223.5 requires roughly 54 more points from 170 with just over a quarter left. Model rates this near 49-51%; no fresh over entry due to blowout kill-switch.",
+    "spread_21_5": "CLE -21.5 and DET +21.5 both unstable due to bench/garbage-time variance. No clean single-fire edge."
+  },
+  "volatility_tags": [
+    "LIVEFLOW_3Q_STRIKE_LOG",
+    "PREGAME_OVER_CLV_CONFIRMED",
+    "CLE_CONTROL_STATE",
+    "DET_HOME_GAME7_COLLAPSE",
+    "SAM_MERRILL_SPACING_BURST",
+    "CLEVELAND_FRONTCOURT_DOMINANCE",
+    "BLOWOUT_KILL_SWITCH_ACTIVE",
+    "GARBAGE_TIME_TOTAL_VOLATILITY",
+    "TOBIAS_REBOUND_PROP_BLOWOUT_SUPPRESSION_RISK",
+    "RISK_CLUSTER_LOCK_NO_NEW_CORRELATED_OVER"
+  ],
+  "recommended_action": {
+    "new_bet": "NO_PLAY",
+    "reason": "Existing over 205.5 has high equity and fresh correlated exposure violates LiveFlow risk discipline. DET TT 101.5 at +128 is tempting but below threshold after blowout kill-switch.",
+    "cashout_guidance": "Hold over 205.5 unless market offers near-full payout before 4Q slowdown; Tobias Harris 7+ should be held due to low stake and live 2-rebound path."
+  },
+  "status": "IN_PROGRESS_3Q_STRIKE"
+}
