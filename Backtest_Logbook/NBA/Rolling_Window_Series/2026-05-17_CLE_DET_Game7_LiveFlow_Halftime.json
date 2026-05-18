@@ -1,0 +1,151 @@
+{
+  "log_id": "NBA_LIVEFLOW_20260517_CLE_DET_G7_HALFTIME",
+  "registry": "Backtest_Logbook",
+  "sport": "NBA",
+  "league": "NBA",
+  "model_context": {
+    "mode": "NBA_LIVEFLOW_V003",
+    "protocol": "LIVEFLOW_STRIPPED_MODE_ACTIVE",
+    "risk_rule": "single_fire_micro_unit",
+    "series_context": "CLE_DET_ECSF_ROLLING_WINDOW_SERIES",
+    "market_type": [
+      "pregame_total",
+      "pregame_rebound_prop",
+      "live_team_total",
+      "live_spread",
+      "live_total"
+    ]
+  },
+  "game": {
+    "date": "2026-05-17",
+    "round": "Eastern Conference Semifinals",
+    "game_number": 7,
+    "venue": "Little Caesars Arena, Detroit, MI",
+    "away_team": "Cleveland Cavaliers",
+    "home_team": "Detroit Pistons",
+    "status": "HALFTIME_LOG",
+    "halftime_score": {
+      "CLE": 64,
+      "DET": 47
+    },
+    "halftime_margin": 17
+  },
+  "officials": [
+    "Marc Davis",
+    "Ben Taylor",
+    "Kevin Scott",
+    "Brent Barnaky"
+  ],
+  "market_snapshots": {
+    "pregame": {
+      "spread": "DET -4.5",
+      "total": "205.5",
+      "cle_team_total_consensus": "100.5-101.5",
+      "det_team_total_consensus": "104.5-105.5",
+      "kalshi_total": {
+        "line": 205.5,
+        "over_price": -108,
+        "under_price": -112
+      }
+    },
+    "q1_end": {
+      "score": "CLE 31 - DET 22",
+      "live_total": 208.5,
+      "live_spread": "CLE -2.5",
+      "det_team_total": "104.5 Yes +118 / No -155",
+      "cle_team_total": "106.5 Yes +118 / No -155"
+    },
+    "halftime": {
+      "score": "CLE 64 - DET 47",
+      "live_total": 214.5,
+      "live_spread": "CLE -11.5 +105 / DET +11.5 -126",
+      "det_team_total": "101.5 Yes -126 / No +105",
+      "cle_team_total": "112.5 Yes -126 / No +101"
+    }
+  },
+  "locked_positions": [
+    {
+      "market": "Total Points",
+      "selection": "Yes - Over 205.5 points scored",
+      "entry_price": "-108",
+      "stake": 5.00,
+      "status": "OPEN_AT_HALFTIME",
+      "model_tag": "EDGE_CALL_ACTIVE",
+      "diagnostic_tag": "PREGAME_OVER_WITH_LIVEFLOW_RESERVE"
+    },
+    {
+      "market": "Player Rebounds",
+      "selection": "Yes - Tobias Harris 7+ rebounds",
+      "entry_price": "+109",
+      "stake": 2.76,
+      "status": "OPEN_AT_HALFTIME",
+      "model_tag": "EDGE_CALL_ACTIVE",
+      "diagnostic_tag": "SERIES_REBOUND_PROFILE_EDGE"
+    }
+  ],
+  "first_half_team_box": {
+    "CLE": {
+      "points": 64,
+      "fg": "22-42",
+      "fg_pct": 52.4,
+      "three_pt": "8-19",
+      "three_pct": 42.1,
+      "ft": "12-20",
+      "ft_pct": 60.0,
+      "rebounds": 22,
+      "assists": 18,
+      "turnovers": 6,
+      "points_in_paint": 26,
+      "second_chance_points": 5,
+      "fast_break_points": 0
+    },
+    "DET": {
+      "points": 47,
+      "fg": "16-42",
+      "fg_pct": 38.1,
+      "three_pt": "6-17",
+      "three_pct": 35.3,
+      "ft": "9-11",
+      "ft_pct": 81.8,
+      "rebounds": 20,
+      "assists": 10,
+      "turnovers": 6,
+      "points_in_paint": 18,
+      "second_chance_points": 4,
+      "fast_break_points": 6
+    }
+  },
+  "quarter_scores": {
+    "CLE": [31, 33],
+    "DET": [22, 25]
+  },
+  "player_halftime_notes": {
+    "Evan Mobley": "12 points, 7 rebounds, 4 assists at half; Cleveland interior + connector role driving separation.",
+    "Jarrett Allen": "15 points, 3 rebounds at half; rim pressure and free throws stressed Detroit frontcourt.",
+    "Donovan Mitchell": "11 points, 6 assists, 4 rebounds; strong creation and early shot-making.",
+    "Sam Merrill": "15 bench points on 5-7 FG and 4-6 3PT; spacing burst was major first-half swing factor.",
+    "Cade Cunningham": "12 points, 5 assists, 3 rebounds; Detroit offense dependent on his self-creation.",
+    "Tobias Harris": "3 points, 3 rebounds at half; rebound prop still live but usage and foul context require monitoring.",
+    "Jalen Duren": "6 points, 6 rebounds at half; Detroit rebound profile still center-supported despite scoreboard pressure."
+  },
+  "liveflow_diagnostics": {
+    "score_state": "CLE +17 at halftime; Cleveland has flipped series physicality with efficiency, paint pressure, and Merrill spacing.",
+    "pace_environment": "111 first-half points with elevated Cleveland shot quality and Detroit trailing-game urgency.",
+    "over_205_5_status": "Needs 95 second-half points to cash from halftime. Live total moved to 214.5, giving positive CLV versus pregame 205.5.",
+    "det_tt_101_5_status": "Detroit needs 55 second-half points to clear 101.5. Current offensive quality is weak but trailing script preserves starter minutes and pace urgency.",
+    "cle_tt_112_5_status": "Cleveland needs 49 second-half points to clear 112.5; strong first-half efficiency but blowout/clock risk begins if lead grows beyond 20.",
+    "risk_cluster_note": "Pregame over is already active. Avoid stacking more correlated over/team-total exposure unless the price becomes a clear live misprice."
+  },
+  "model_sharpening_tags": [
+    "CLE_EFFICIENCY_SPIKE",
+    "DET_HOME_GAME7_PRESSURE_FAILURE",
+    "SAM_MERRILL_SPACING_BURST",
+    "CLEVELAND_FRONTCOURT_FINISHING_EDGE",
+    "DET_TRAILING_SCRIPT_MINUTES_PROTECTION",
+    "PREGAME_OVER_CLV_POSITIVE",
+    "TOBIAS_REBOUND_PROP_LIVE_MONITOR",
+    "LIVEFLOW_HALFTIME_LOG",
+    "ROLLING_WINDOW_SERIES_UPDATE"
+  ],
+  "status": "IN_PROGRESS_HALFTIME"
+}
