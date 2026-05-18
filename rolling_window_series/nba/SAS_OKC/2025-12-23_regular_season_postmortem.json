@@ -7,6 +7,30 @@
   "officials": ["Scott Foster", "Karl Lane", "Suyash Mehta"],
   "final_score": {"SAS": 130, "OKC": 110},
   "result": "SAS win",
+  "market_lines": {
+    "source": "user_uploaded_odds_screen_after_final",
+    "orientation": "OKC @ SAS",
+    "full_game_reference": {
+      "best_odds": {"OKC_ML": -222, "SAS_ML": 207, "OKC_spread": -6.5, "OKC_spread_odds": -105, "SAS_spread": 7.0, "SAS_spread_odds": -103, "over": 235.5, "over_odds": -103, "under": 236.5, "under_odds": -111},
+      "market_consensus": {"OKC_ML_range": [-222, -250], "SAS_ML_range": [190, 207], "OKC_spread_common": -6.5, "SAS_spread_common": 6.5, "total_common": 235.5}
+    },
+    "team_totals": {
+      "OKC": {"common_line": 120.5, "range": [119.5, 121.5], "notable_best_under": {"book": "ProphetX", "line": 119.5, "under_odds": 106}, "close_result": "OKC scored 110; under all listed TT bands cashed"},
+      "SAS": {"common_line": 114.5, "range": [114.5, 115.5], "notable_best_over": {"book": "FanDuel", "line": 115.5, "over_odds": -104}, "close_result": "SAS scored 130; over all listed TT bands cashed"}
+    },
+    "closing_result_eval": {
+      "moneyline": "SAS upset ML won at roughly +190 to +207 range",
+      "spread": "SAS +6.5/+7 covered by 26.5 to 27 points; OKC -6.5/-7 failed hard",
+      "total": "Final total 240; over 235.5 cashed by 4.5 points and under 236.5 failed by 3.5 points",
+      "team_total_OKC": "OKC under 120.5/121.5 strongly cashed; final 110",
+      "team_total_SAS": "SAS over 114.5/115.5 strongly cashed; final 130"
+    },
+    "line_read_for_model": {
+      "market_assumption": "OKC favored by 6.5 to 7 despite recent SAS upset in Cup semifinal",
+      "model_postmortem_correction": "Market still priced OKC control too heavily and underweighted SAS matchup-specific disruption and second-half creation ceiling.",
+      "edge_classification": "SAS spread and SAS team total were the cleanest pregame edges in hindsight; OKC team total under was structurally supported by rolling-window suppression tags. Full-game over was live but more variance-driven through SAS Q4 efficiency spike."
+    }
+  },
   "series_context": {
     "status": "SAS defeated OKC for second time in 11 days",
     "prior_meeting": "SAS 111, OKC 109 on 2025-12-13 NBA Cup Semifinal",
@@ -61,14 +85,14 @@
   },
   "rolling_window_updates": {
     "series_signal": "SAS has now produced two distinct win scripts vs OKC in 11 days: close-game Cup survival and full second-half separation blowout.",
-    "persistent_tags": ["SAS_OKC_MATCHUP_EDGE_ACTIVE", "SPURS_LENGTH_DISRUPTION", "WEMBY_GEOMETRY_SHIFT", "WEMBY_GRAVITY_WITHOUT_BLOCKS", "HARPER_DISRUPTION_ENGINE", "KELDON_BENCH_SCORING_SURGE", "CASTLE_TWO_WAY_PRESSURE", "OKC_SECOND_HALF_SUPPRESSION", "OKC_TRANSITION_SUPPRESSED", "OKC_FT_VOLUME_SUPPRESSED", "SPURS_Q4_AVALANCHE", "HARTENSTEIN_REBOUND_VOLUME_FOUL_DRAG", "CHAMPAGNIE_GLASS_STABILIZER"],
+    "persistent_tags": ["SAS_OKC_MATCHUP_EDGE_ACTIVE", "SPURS_LENGTH_DISRUPTION", "WEMBY_GEOMETRY_SHIFT", "WEMBY_GRAVITY_WITHOUT_BLOCKS", "HARPER_DISRUPTION_ENGINE", "KELDON_BENCH_SCORING_SURGE", "CASTLE_TWO_WAY_PRESSURE", "OKC_SECOND_HALF_SUPPRESSION", "OKC_TRANSITION_SUPPRESSED", "OKC_FT_VOLUME_SUPPRESSED", "SPURS_Q4_AVALANCHE", "HARTENSTEIN_REBOUND_VOLUME_FOUL_DRAG", "CHAMPAGNIE_GLASS_STABILIZER", "SAS_SPREAD_MARKET_MISPRICE", "SAS_TEAM_TOTAL_OVER_CONFIRMED", "OKC_TEAM_TOTAL_UNDER_CONFIRMED"],
     "model_implication": "Do not price OKC vs SAS as a standard Thunder dominance matchup. Spurs length, Wembanyama geometry, secondary creators, and bench scoring materially alter OKC's transition and late-game efficiency profile."
   },
   "simulation_implications_for_next_sas_okc_meeting": {
-    "spread": {"market_reference_from_prior_same_matchup": "OKC -10.5 to -11.5", "postmortem_adjustment": "downgrade OKC cover probability; upgrade SAS plus-points band", "status": "SAS spread resilience confirmed"},
-    "total": {"note": "This game went over 233.5 due to extreme SAS Q4 efficiency. Treat totals as bifurcated: OKC offense can be suppressed, but SAS transition/shotmaking can create overs if OKC live-ball turnovers spike."},
-    "team_totals": {"sas_tt": "upgrade if line <=111.5 with healthy Wembanyama/Castle/Johnson roles", "okc_tt": "downgrade if priced above 121.5 against SAS length/halfcourt pressure"},
+    "spread": {"market_reference_from_this_game": "OKC -6.5/-7 despite recent SAS Cup win", "postmortem_adjustment": "downgrade OKC cover probability; upgrade SAS plus-points band", "status": "SAS spread resilience confirmed"},
+    "total": {"market_reference_from_this_game": "235.5/236.5", "result": "240 final", "note": "This game went over 235.5 due to extreme SAS Q4 efficiency. Treat totals as bifurcated: OKC offense can be suppressed, but SAS transition/shotmaking can create overs if OKC live-ball turnovers spike."},
+    "team_totals": {"sas_tt": "upgrade if line <=115.5 with healthy Wembanyama/Castle/Johnson roles", "okc_tt": "downgrade if priced above 119.5-121.5 against SAS length/halfcourt pressure"},
     "player_props": {"Harper_assists_steals": "watchlist", "Castle_points_3pm": "watchlist", "Keldon_points": "bench-volatility upside", "Hartenstein_rebounds": "volume strong but foul-risk dependent", "Chet_points_rebounds": "suppression risk active"}
   },
-  "model_tags": ["ROLLING_WINDOW_SERIES_ACTIVE", "SAS_OKC_MATCHUP_FILE_OPENED", "REGULAR_SEASON_GAME_2025_12_23_LOGGED", "SAS_SECOND_WIN_IN_11_DAYS", "SPURS_Q4_AVALANCHE", "OKC_SECOND_HALF_SUPPRESSION", "HARPER_DISRUPTION_ENGINE", "KELDON_BENCH_SCORING_SURGE", "CASTLE_TWO_WAY_PRESSURE", "WEMBY_GRAVITY_WITHOUT_BLOCKS", "OKC_TRANSITION_SUPPRESSED", "OKC_FT_VOLUME_SUPPRESSED", "HARTENSTEIN_REBOUND_VOLUME_FOUL_DRAG", "CHAMPAGNIE_GLASS_STABILIZER"]
+  "model_tags": ["ROLLING_WINDOW_SERIES_ACTIVE", "SAS_OKC_MATCHUP_FILE_OPENED", "REGULAR_SEASON_GAME_2025_12_23_LOGGED", "SAS_SECOND_WIN_IN_11_DAYS", "SPURS_Q4_AVALANCHE", "OKC_SECOND_HALF_SUPPRESSION", "HARPER_DISRUPTION_ENGINE", "KELDON_BENCH_SCORING_SURGE", "CASTLE_TWO_WAY_PRESSURE", "WEMBY_GRAVITY_WITHOUT_BLOCKS", "OKC_TRANSITION_SUPPRESSED", "OKC_FT_VOLUME_SUPPRESSED", "HARTENSTEIN_REBOUND_VOLUME_FOUL_DRAG", "CHAMPAGNIE_GLASS_STABILIZER", "SAS_SPREAD_MARKET_MISPRICE", "SAS_TEAM_TOTAL_OVER_CONFIRMED", "OKC_TEAM_TOTAL_UNDER_CONFIRMED"]
 }
