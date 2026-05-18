@@ -1,0 +1,78 @@
+{
+  "series_id": "ROLLING_WINDOW_SERIES_SAS_OKC_2025_26",
+  "projection_id": "SAS_OKC_2026_01_13_PROJECTION_STRESS_TEST",
+  "date": "2026-01-13",
+  "matchup": "San Antonio Spurs at Oklahoma City Thunder",
+  "mode": "quick_projection_stress_test",
+  "market_snapshot": {
+    "sas_ml_best": 280,
+    "okc_ml_best": -278,
+    "spread_common": {"SAS": 8.5, "OKC": -8.5},
+    "best_spread": {"SAS": 9.0, "OKC": -8.5},
+    "total_common": 230.0,
+    "total_range": [229.0, 230.5],
+    "team_total_sas_common": 110.5,
+    "team_total_okc_common": 119.5
+  },
+  "prior_rolling_window_results": [
+    {"date": "2025-12-13", "result": "SAS 111, OKC 109", "script": "Cup semifinal close-game survival"},
+    {"date": "2025-12-23", "result": "SAS 130, OKC 110", "script": "Spurs Q4 avalanche"},
+    {"date": "2025-12-25", "result": "SAS 117, OKC 102", "script": "Road halfcourt suppression blowout"}
+  ],
+  "stress_test_baseline": {
+    "market_implied_total": 230.0,
+    "market_implied_sas": 110.75,
+    "market_implied_okc": 119.25,
+    "market_margin_okc": 8.5
+  },
+  "model_projection": {
+    "mean_score": {"SAS": 111.8, "OKC": 115.2, "total": 227.0, "margin_OKC": 3.4},
+    "median_score": {"SAS": 111, "OKC": 115, "total": 226, "margin_OKC": 4},
+    "distribution_bands": {
+      "SAS_points": {"p10": 101, "p25": 106, "p50": 111, "p75": 117, "p90": 123},
+      "OKC_points": {"p10": 104, "p25": 110, "p50": 115, "p75": 121, "p90": 127},
+      "total_points": {"p10": 211, "p25": 219, "p50": 226, "p75": 235, "p90": 244},
+      "margin_OKC": {"p10": -8, "p25": -2, "p50": 4, "p75": 9, "p90": 16}
+    },
+    "game_line_probabilities": {
+      "SAS_moneyline": 0.39,
+      "OKC_moneyline": 0.61,
+      "SAS_plus_8_5": 0.68,
+      "SAS_plus_9": 0.70,
+      "OKC_minus_8_5": 0.32,
+      "full_game_over_230": 0.42,
+      "full_game_under_230": 0.58,
+      "SAS_team_total_over_110_5": 0.52,
+      "SAS_team_total_under_110_5": 0.48,
+      "OKC_team_total_over_119_5": 0.37,
+      "OKC_team_total_under_119_5": 0.63
+    }
+  },
+  "edges": [
+    {"market": "SAS +8.5/+9", "model_probability": 0.68, "edge_grade": "A-", "reason": "Rolling window has shown SAS losing no matchup by this band and winning three straight outright; model margin is OKC by only 3-4."},
+    {"market": "OKC team total under 119.5", "model_probability": 0.63, "edge_grade": "B+", "reason": "OKC scored 109, 110, and 102 across the logged series; 119.5 requires a major efficiency recovery against a team that has repeatedly disrupted their halfcourt."},
+    {"market": "Full game under 230", "model_probability": 0.58, "edge_grade": "B", "reason": "Market has shaded down from prior 233-235 ranges but still leaves room under if OKC efficiency remains suppressed and SAS does not recreate Dec 23 Q4 avalanche."},
+    {"market": "SAS ML +250 to +280", "model_probability": 0.39, "edge_grade": "sprinkle only", "reason": "Fair price from model near +156; market still offers upset premium despite 3-0 rolling window, but variance and OKC revenge spot cap sizing."}
+  ],
+  "risk_flags": [
+    "OKC_REVENGE_SPOT_ACTIVE",
+    "HOME_ADJUSTMENT_OKC_ACTIVE",
+    "MARKET_CORRECTION_FROM_PRIOR_233_235_TOTAL_TO_229_230_ACTIVE",
+    "SAS_3_0_NARRATIVE_PUBLIC_WEIGHT_RISK",
+    "OKC_SHOOTING_REGRESSION_POSITIVE_RISK",
+    "SPREAD_EDGE_STRONGER_THAN_ML_EDGE"
+  ],
+  "model_tags": [
+    "ROLLING_WINDOW_SERIES_ACTIVE",
+    "SAS_OKC_PROJECTION_STRESS_TEST_0113",
+    "SAS_SPREAD_EDGE_ACTIVE",
+    "OKC_TT_UNDER_EDGE_ACTIVE",
+    "FULL_GAME_UNDER_LEAN_ACTIVE",
+    "SAS_ML_SPRINKLE_ONLY",
+    "OKC_HALFCourt_SUPPRESSION_CONTINUITY",
+    "WEMBY_GEOMETRY_TWO_WAY_CONTROL",
+    "FOX_EARLY_COUNTERPUNCH_ENGINE",
+    "SGA_EFFICIENCY_SUPPRESSION_WATCH"
+  ],
+  "execution_note": "Quick stress-test projection built from uploaded market screen and existing rolling-window matchup postmortems. This is not a full injury-confirmed final sim; treat as model checkpoint before deeper input ingestion."
+}
