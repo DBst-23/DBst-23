@@ -1,0 +1,94 @@
+{
+  "series_id": "ROLLING_WINDOW_SERIES_SAS_OKC_2025_26",
+  "game_id": "SAS_OKC_2025_12_25_REGULAR_SEASON",
+  "date": "2025-12-25",
+  "competition": "NBA Regular Season",
+  "venue": "Paycom Center, Oklahoma City, OK",
+  "officials": ["Tony Brothers", "Kevin Cutler", "Brandon Schwab"],
+  "final_score": {"SAS": 117, "OKC": 102},
+  "result": "SAS win",
+  "series_context": {
+    "status": "SAS defeated OKC for third time in two weeks",
+    "rolling_window_record_vs_okc": "SAS 3-0 in current logged window",
+    "prior_meetings": ["SAS 111, OKC 109 on 2025-12-13 NBA Cup Semifinal", "SAS 130, OKC 110 on 2025-12-23 Regular Season"],
+    "okc_context": "OKC entered as defending NBA champion and suffered first home loss of season. Thunder are 2-4 since 24-1 start, with three losses to SAS."
+  },
+  "market_lines": {
+    "source": "user_uploaded_odds_screens",
+    "orientation": "SAS @ OKC",
+    "full_game_reference": {
+      "best_odds": {"SAS_ML": 321, "OKC_ML": -333, "SAS_spread": 10.5, "SAS_spread_odds": -101, "OKC_spread": -9.0, "OKC_spread_odds": -111, "over": 233.5, "over_odds": -110, "under": 235.5, "under_odds": -110},
+      "market_consensus": {"SAS_ML_range": [260, 321], "OKC_ML_range": [-333, -400], "SAS_spread_common": 10.0, "OKC_spread_common": -10.0, "total_common_range": [233.5, 235.5]}
+    },
+    "team_totals": {
+      "SAS": {"common_line": 112.5, "range": [111.5, 112.5], "notable_best_over": {"book": "ProphetX", "line": 112.5, "over_odds": 113}, "close_result": "SAS scored 117; over 111.5/112.5 cashed"},
+      "OKC": {"common_line": 122.5, "range": [122.5, 123.5], "close_result": "OKC scored 102; under all listed TT bands cashed by 20+ points"}
+    },
+    "closing_result_eval": {
+      "moneyline": "SAS upset ML won at roughly +260 to +321 range",
+      "spread": "SAS +9.5/+10.5 covered outright by 15; OKC -9/-10.5 failed hard",
+      "total": "Final total 219; under 233.5/235.5 cashed comfortably",
+      "team_total_SAS": "SAS over 111.5/112.5 cashed; final 117",
+      "team_total_OKC": "OKC under 122.5/123.5 strongly cashed; final 102"
+    },
+    "line_read_for_model": {
+      "market_assumption": "Despite two recent SAS wins, market still held OKC as a large home favorite near -9 to -10.5 and priced OKC team total above 122.",
+      "model_postmortem_correction": "This created a third consecutive market misprice: SAS spread/ML resilience and OKC team-total suppression repeated.",
+      "edge_classification": "SAS spread, SAS ML sprinkle, OKC team total under, and full-game under were all supported by matchup-specific suppression signals. SAS team total over also cleared, but with less margin than Dec 23."
+    }
+  },
+  "phase_analysis": {
+    "q1": {"score": "SAS 41, OKC 36", "summary": "OKC opened hot, made first seven field goals, and led by 8. Fox immediately countered with 13 first-quarter points, Castle pressure, and Wembanyama/Keldon bench surge flipped the quarter. SAS shot 71.4% in Q1."},
+    "q2": {"score": "SAS 28, OKC 24", "summary": "Spurs stabilized after OKC bench pressure. Fox reached 21 first-half points and SAS led 69-60 at halftime. OKC shot only 38.1% in Q2 and failed to generate enough clean secondary offense."},
+    "q3": {"score": "SAS 26, OKC 19", "summary": "Decisive suppression quarter. OKC shot 7/26 and 1/12 from three. Wembanyama three, Barnes three, and Harper dunk extended the gap to 17. SAS led 95-79 after three."},
+    "q4": {"score": "OKC 23, SAS 22", "summary": "OKC briefly cut it to 9, but Wembanyama's 26-foot three restored separation. Spurs managed clock and maintained double-digit control. Garbage-time scoring landed final at 117-102."}
+  },
+  "box_score_anchors": {
+    "SAS": {"points": 117, "fg": "45/84", "fg_pct": 53.6, "three_point": "11/29", "three_pct": 37.9, "free_throws": "16/21", "rebounds": 49, "offensive_rebounds": 10, "assists": 20, "turnovers": 12, "steals": 3, "blocks": 4, "paint_points": 52, "second_chance_points": 18, "fast_break_points": 17},
+    "OKC": {"points": 102, "fg": "37/95", "fg_pct": 38.9, "three_point": "11/44", "three_pct": 25.0, "free_throws": "17/25", "rebounds": 48, "offensive_rebounds": 16, "assists": 23, "turnovers": 7, "steals": 7, "blocks": 6, "paint_points": 46, "second_chance_points": 24, "fast_break_points": 7}
+  },
+  "key_player_notes": {
+    "De'Aaron Fox": {"team": "SAS", "minutes": "32:52", "points": 29, "fg": "12/19", "three_point": "3/4", "rebounds": 4, "assists": 3, "plus_minus": 6, "tag": "FOX_EARLY_COUNTERPUNCH_ENGINE", "note": "Primary first-half stabilizer. His 21 first-half points erased OKC's opening surge and set the Spurs game script."},
+    "Victor Wembanyama": {"team": "SAS", "minutes": "25:48", "points": 19, "rebounds": 11, "fg": "6/12", "three_point": "2/3", "free_throws": "5/5", "plus_minus": 13, "tag": "WEMBY_GEOMETRY_TWO_WAY_CONTROL", "note": "Returned full matchup gravity with 11 rebounds and spacing. His 4Q three restored separation after OKC cut the lead."},
+    "Stephon Castle": {"team": "SAS", "minutes": "31:37", "points": 19, "assists": 7, "fg": "8/11", "plus_minus": 7, "tag": "CASTLE_CONNECTIVE_SCORING_CREATION"},
+    "Dylan Harper": {"team": "SAS", "minutes": "20:26", "points": 12, "assists": 2, "fg": "5/8", "plus_minus": 14, "tag": "HARPER_BENCH_PRESSURE_STABILIZER"},
+    "Keldon Johnson": {"team": "SAS", "minutes": "16:58", "points": 9, "rebounds": 7, "plus_minus": 7, "tag": "KELDON_REBOUND_BENCH_FORCE"},
+    "Shai Gilgeous-Alexander": {"team": "OKC", "minutes": "36:08", "points": 22, "fg": "7/19", "three_point": "1/6", "assists": 4, "plus_minus": -15, "tag": "SGA_EFFICIENCY_SUPPRESSED", "note": "Held to 36.8% FG and 6 second-half points; SAS length forced a low-efficiency night."},
+    "Chet Holmgren": {"team": "OKC", "minutes": "30:33", "points": 10, "rebounds": 12, "fg": "5/9", "three_point": "0/2", "plus_minus": -14, "tag": "CHET_REBOUND_VOLUME_LOW_SCORING"},
+    "Isaiah Hartenstein": {"team": "OKC", "minutes": "23:31", "points": 13, "rebounds": 12, "offensive_rebounds": 3, "plus_minus": -1, "tag": "HARTENSTEIN_GLASS_VOLUME_NOT_ENOUGH"},
+    "Alex Caruso": {"team": "OKC", "minutes": "19:39", "points": 12, "fg": "3/13", "three_point": "2/12", "plus_minus": -13, "tag": "CARUSO_VOLUME_3PT_DRAG"}
+  },
+  "matchup_edges": {
+    "sas_road_resilience": {"status": "confirmed", "note": "SAS won outright at OKC despite being priced as +260 to +321 underdog."},
+    "okc_halfcourt_suppression": {"status": "critical", "okc_fg_pct": 38.9, "okc_three_pct": 25.0, "okc_second_half_fg": "14/47", "okc_second_half_three": "5/26"},
+    "third_quarter_kill_zone": {"status": "critical", "score": "SAS 26, OKC 19", "okc_q3_fg": "7/26", "okc_q3_three": "1/12"},
+    "sas_shot_quality_conversion": {"status": "active", "sas_shot_quality": 0.55, "sas_efg_pct": 60.12, "sas_ts_pct": 62.9, "note": "SAS generated and converted high-value looks; OKC shot quality was similar but conversion collapsed."},
+    "okc_conversion_collapse": {"status": "critical", "okc_shot_quality": 0.54, "okc_efg_pct": 44.27, "okc_ts_pct": 47.2, "note": "OKC's expected shot diet did not convert under SAS length and contest pressure."},
+    "sas_transition_edge": {"status": "active", "sas_fast_break_points": 17, "okc_fast_break_points": 7},
+    "okc_offensive_rebounding_salvage": {"status": "active_but_insufficient", "okc_offensive_rebounds": 16, "okc_second_chance_points": 24, "note": "OKC generated second-chance volume but still finished 102 because primary shotmaking collapsed."},
+    "spurs_paint_touch_advantage": {"status": "active", "sas_paint_points": 52, "okc_paint_points": 46}
+  },
+  "tracking_inputs": {
+    "player_tracking_rebounding": {
+      "OKC": {"Chet Holmgren": {"reb": 12, "contested_reb": 1, "reb_chances": 19, "adj_reb_chance_pct": 66.7}, "Isaiah Hartenstein": {"reb": 12, "contested_reb": 4, "reb_chances": 17, "adj_reb_chance_pct": 80.0}, "Shai Gilgeous-Alexander": {"reb": 6, "reb_chances": 9}, "Kenrich Williams": {"reb": 5, "reb_chances": 12}},
+      "SAS": {"Victor Wembanyama": {"reb": 11, "contested_reb": 6, "reb_chances": 16, "adj_reb_chance_pct": 73.3}, "Keldon Johnson": {"reb": 7, "reb_chances": 9, "adj_reb_chance_pct": 87.5}, "Harrison Barnes": {"reb": 6, "reb_chances": 10}, "Julian Champagnie": {"reb": 5, "reb_chances": 10}}
+    },
+    "team_rebounding_by_lineup_totals": {"SAS": {"reb": 53, "dreb": 43, "oreb": 10, "fg_oreb_pct": 25.64}, "OKC": {"reb": 52, "dreb": 33, "oreb": 19, "fg_oreb_pct": 32.76}},
+    "scoring_tracking": {"SAS": {"possessions": 96, "points": 117, "shot_quality": 0.55, "efg_pct": 60.12, "ts_pct": 62.9, "rim_or_3_freq": 67.86}, "OKC": {"possessions": 97, "points": 102, "shot_quality": 0.54, "efg_pct": 44.27, "ts_pct": 47.2, "rim_or_3_freq": 69.79}},
+    "turnover_tracking": {"SAS": {"total": 13, "live_ball": 7, "live_ball_pct": 53.85}, "OKC": {"total": 7, "live_ball": 3, "live_ball_pct": 42.86}},
+    "foul_tracking": {"SAS": {"fouls": 16, "shooting_fouls_committed": 12, "fouls_drawn": 18}, "OKC": {"fouls": 18, "shooting_fouls_committed": 10, "fouls_drawn": 16}}
+  },
+  "rolling_window_updates": {
+    "series_signal": "SAS has now produced three distinct win scripts vs OKC: Cup close-game survival, Dec 23 Q4 avalanche, and Dec 25 road halfcourt suppression blowout.",
+    "persistent_tags": ["SAS_OKC_MATCHUP_EDGE_ACTIVE", "SAS_3_0_ROLLING_WINDOW_VS_OKC", "SPURS_LENGTH_DISRUPTION", "WEMBY_GEOMETRY_TWO_WAY_CONTROL", "FOX_EARLY_COUNTERPUNCH_ENGINE", "CASTLE_CONNECTIVE_SCORING_CREATION", "HARPER_BENCH_PRESSURE_STABILIZER", "OKC_HALFCourt_SUPPRESSION", "OKC_THIRD_QUARTER_COLLAPSE", "SGA_EFFICIENCY_SUPPRESSED", "OKC_TEAM_TOTAL_UNDER_CONFIRMED", "SAS_SPREAD_MARKET_MISPRICE", "SAS_ML_UNDERDOG_MISPRICE", "FULL_GAME_UNDER_CONFIRMED"],
+    "model_implication": "OKC cannot be priced as a standard double-digit favorite against this SAS ecosystem without a major adjustment. The recurring profile is SAS length suppressing OKC efficiency, Fox/Castle creating enough offense, and Wembanyama geometry breaking OKC's normal defensive pressure shell."
+  },
+  "simulation_implications_for_next_sas_okc_meeting": {
+    "spread": {"market_reference_from_this_game": "OKC -9 to -10.5", "postmortem_adjustment": "Major downgrade to OKC cover probability; SAS plus-points band must be upgraded materially", "status": "SAS spread resilience confirmed for third straight matchup"},
+    "moneyline": {"note": "SAS ML upset at +260 to +321 confirms matchup-specific upset tail is not negligible."},
+    "total": {"market_reference_from_this_game": "233.5 to 235.5", "result": "219 final", "note": "Under profile is stronger when SAS suppresses OKC efficiency without creating extreme 43-point Q4 avalanche like Dec 23."},
+    "team_totals": {"sas_tt": "upgrade if line <=112.5 with Fox/Wemby/Castle active", "okc_tt": "downgrade aggressively if priced above 121.5/122.5 vs SAS length and halfcourt pressure"},
+    "player_props": {"Fox_points": "watchlist vs OKC early counterpunch role", "Wembanyama_rebounds": "strong median profile if 25+ minutes", "Castle_points_assists": "watchlist", "OKC_3PM_volume": "under efficiency risk despite high attempts", "SGA_points_efficiency": "downgrade ceiling vs SAS length"}
+  },
+  "model_tags": ["ROLLING_WINDOW_SERIES_ACTIVE", "SAS_OKC_MATCHUP_FILE_OPENED", "REGULAR_SEASON_GAME_2025_12_25_LOGGED", "SAS_THIRD_WIN_IN_TWO_WEEKS", "OKC_FIRST_HOME_LOSS", "SAS_3_0_ROLLING_WINDOW_VS_OKC", "SAS_SPREAD_MARKET_MISPRICE", "SAS_ML_UNDERDOG_MISPRICE", "OKC_TEAM_TOTAL_UNDER_CONFIRMED", "SAS_TEAM_TOTAL_OVER_CONFIRMED", "FULL_GAME_UNDER_CONFIRMED", "FOX_EARLY_COUNTERPUNCH_ENGINE", "WEMBY_GEOMETRY_TWO_WAY_CONTROL", "SGA_EFFICIENCY_SUPPRESSED", "OKC_THIRD_QUARTER_COLLAPSE"]
+}
