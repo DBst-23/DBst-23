@@ -1,0 +1,157 @@
+{
+  "series_id": "rolling_window_series_SASvsOKC",
+  "game_id": "SAS_OKC_2026-05-18_WCF_G1",
+  "log_type": "live_context_patch",
+  "timestamp_context": "2026-05-18 pregame",
+  "repo_target": "DBst-23/DBst-23",
+  "market_snapshot": {
+    "full_game": {
+      "moneyline": {"SAS": "+207", "OKC": "-251"},
+      "spread": {"SAS": "+6.5 +101", "OKC": "-6.5 -121"},
+      "total": {"over_220_5": "-121", "under_220_5": "+101"}
+    },
+    "team_totals_kalshi": {
+      "OKC_over_115_5": "+109",
+      "OKC_under_115_5": "-137",
+      "SAS_over_108_5": "-104",
+      "SAS_under_108_5": "-121"
+    },
+    "market_note": "Total compressed from wider 221.5 consensus into Kalshi 220.5; OKC team total available at elevated 115.5 plus-money, while SAS TT increased to 108.5 after Fox ruled out."
+  },
+  "injury_update": {
+    "DeAaron Fox": {
+      "status": "OUT",
+      "injury": "ankle",
+      "impact": "Primary Spurs guard creation removed. Dylan Harper starts at PG. Usage redistribution expected to Harper, Castle, Vassell, Wembanyama, and Keldon Johnson. Spurs half-court shot quality downgraded; transition/secondary creation volatility increased."
+    },
+    "Luke Kornet": {
+      "status": "PROBABLE / limited strength concern",
+      "injury": "foot",
+      "impact": "Backup big availability partially stabilizes Wembanyama non-C minutes, but full-strength assumption is not allowed. If limited, Plumlee/Olynyk emergency-minute pathways become relevant."
+    },
+    "Jalen Williams": {
+      "status": "expected active",
+      "impact": "OKC half-court creation and wing defensive stability restored. Ajay Mitchell usage/minute compression risk increases."
+    }
+  },
+  "expected_lineups": {
+    "SAS": ["Dylan Harper", "Stephon Castle", "Devin Vassell", "Julian Champagnie", "Victor Wembanyama"],
+    "OKC": ["Shai Gilgeous-Alexander", "Luguentz Dort", "Jalen Williams", "Chet Holmgren", "Isaiah Hartenstein"]
+  },
+  "context_modifiers": {
+    "FOX_OUT_CREATION_SHIFT": "ON",
+    "HARPER_STARTER_USAGE_BOOST": "ON",
+    "CASTLE_PRIMARY_SECONDARY_CREATOR_BOOST": "ON",
+    "SAS_HALFCOURT_EFFICIENCY_DOWNGRADE": "ON",
+    "OKC_MVP_CEREMONY_EMOTION_SPIKE": "ON",
+    "SGA_MORALE_BOOST": "ON",
+    "WEMBY_MVP_SNUB_MOTIVATION": "ON",
+    "CHET_WEMBY_RIVALRY_VOLATILITY": "ON",
+    "JALEN_WILLIAMS_RETURN_OKC_STABILITY": "ON",
+    "KORNET_LIMITED_FOOT_GATE": "ON"
+  },
+  "projection_patch": {
+    "baseline_before_fox_out": {
+      "OKC_points_mean": 115.8,
+      "OKC_points_median": 116,
+      "SAS_points_mean": 108.1,
+      "SAS_points_median": 108,
+      "total_mean": 223.9,
+      "total_median": 224,
+      "OKC_win_probability": 0.675,
+      "SAS_cover_plus_6_5_probability": 0.505
+    },
+    "adjusted_after_fox_out": {
+      "OKC_points_mean": 116.7,
+      "OKC_points_median": 117,
+      "SAS_points_mean": 104.9,
+      "SAS_points_median": 105,
+      "total_mean": 221.6,
+      "total_median": 221,
+      "OKC_win_probability": 0.724,
+      "OKC_cover_minus_6_5_probability": 0.552,
+      "SAS_cover_plus_6_5_probability": 0.448,
+      "over_220_5_probability": 0.515,
+      "under_220_5_probability": 0.485,
+      "OKC_TT_over_115_5_probability": 0.535,
+      "SAS_TT_over_108_5_probability": 0.405
+    }
+  },
+  "edge_board": [
+    {
+      "market": "OKC team total over 115.5",
+      "line": 115.5,
+      "price": "+109",
+      "model_probability": 0.535,
+      "mean": 116.7,
+      "median": 117,
+      "edge": "small positive plus-money edge",
+      "stake_guidance": "$2.00-$3.00 micro-unit only; avoid if price drops below +100"
+    },
+    {
+      "market": "SAS team total under 108.5",
+      "line": 108.5,
+      "price": "-121",
+      "model_probability": 0.595,
+      "mean": 104.9,
+      "median": 105,
+      "edge": "strongest derivative after Fox ruled out, but price is taxed",
+      "stake_guidance": "$3.00-$4.00 if accepted; best if -115 or better appears"
+    },
+    {
+      "market": "Full game over 220.5",
+      "line": 220.5,
+      "price": "-121",
+      "model_probability": 0.515,
+      "mean": 221.6,
+      "median": 221,
+      "edge": "thin/no-play at taxed price after Fox out",
+      "stake_guidance": "No pregame add; reserve for LiveFlow only"
+    },
+    {
+      "market": "OKC -6.5 spread",
+      "line": -6.5,
+      "price": "-121",
+      "model_probability": 0.552,
+      "mean_margin": 11.8,
+      "median_margin": 10,
+      "edge": "directional lean OKC, price reduces value",
+      "stake_guidance": "Lean only; better used live if OKC starts slow or price improves"
+    }
+  ],
+  "prop_regrade_from_daft_previews": {
+    "Stephon Castle_over_16_5_points": {
+      "status_after_fox_out": "upgraded",
+      "mean": 19.6,
+      "median": 19,
+      "probability": 0.635,
+      "edge": "Fox out increases handling/shot volume; remains best Daft tail"
+    },
+    "Devin Vassell_over_11_5_points": {
+      "status_after_fox_out": "upgraded but correlated",
+      "mean": 13.1,
+      "median": 13,
+      "probability": 0.575,
+      "edge": "Playable only as small single; avoid heavy Castle+Vassell cluster exposure"
+    },
+    "Ajay_Mitchell_under_13_5_points": {
+      "status_after_jalen_return": "still live",
+      "mean": 11.8,
+      "median": 12,
+      "probability": 0.57,
+      "edge": "Jalen Williams return compresses Ajay usage; OKC blowout path creates late-minute volatility"
+    }
+  },
+  "liveflow_plan": {
+    "mode": "LIVEFLOW_STRIPPED_MODE_ACTIVE",
+    "risk_cluster_lock": "max two correlated positions per segment",
+    "first_watch_window": "first 4-6 minutes",
+    "triggers": [
+      "If OKC rim pressure + FTA rate appears immediately, OKC TT over remains live.",
+      "If SAS half-court stalls without Fox and Harper/Castle pressure is forced into late clock, target SAS TT under live.",
+      "If Wembanyama foul trouble appears, downgrade SAS cover and upgrade OKC spread/TT.",
+      "If OKC starts cold from three but gets paint touches, avoid panic under; look for rebound over/live TT buy points."
+    ]
+  },
+  "notes": "Patch reflects Fox ruled out, Kornet probable but not full strength, SGA MVP ceremony motivational environment, Wembanyama/SGA narrative tension, and Chet/Wemby rivalry volatility. Fourth regular-season matchup excluded from matchup weighting per user due to non-starter involvement."
+}
