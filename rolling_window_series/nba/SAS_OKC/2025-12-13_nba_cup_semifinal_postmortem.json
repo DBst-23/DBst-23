@@ -9,12 +9,28 @@
     "OKC": 109
   },
   "result": "SAS win",
-  "market_context_next_meeting": {
+  "market_context_same_matchup": {
     "game": "SAS @ OKC",
-    "spread_range": "OKC -10.5 to -11.5",
-    "total_range": "232.0 to 233.5",
-    "sas_team_total_range": "109.5 to 111.0",
-    "okc_team_total_range": "120.5 to 122.5"
+    "source_note": "User-provided market screens were for this specific SAS @ OKC matchup, not a future placeholder context.",
+    "moneyline_range": {
+      "SAS": "+360 to +445",
+      "OKC": "-455 to -599"
+    },
+    "spread_range": {
+      "SAS": "+10.5 to +11.5",
+      "OKC": "-10.5 to -11.5"
+    },
+    "full_game_total_range": "232.0 to 233.5",
+    "team_total_range": {
+      "SAS": "109.5 to 111.0",
+      "OKC": "120.5 to 122.5"
+    },
+    "primary_screen_snapshot": {
+      "spread_best": "SAS +11.5 -108 / OKC -10.5 -111",
+      "total_best": "Over 232 -109 / Under 233.5 -102",
+      "sas_team_total_common": "110.5",
+      "okc_team_total_common": "122.5"
+    }
   },
   "phase_analysis": {
     "q1": {
@@ -190,7 +206,7 @@
       }
     ]
   },
-  "simulation_implications_for_next_game": {
+  "simulation_implications_for_same_matchup": {
     "spread": {
       "market": "OKC -10.5 to -11.5",
       "lean": "SAS plus points",
@@ -230,6 +246,7 @@
   "model_tags": [
     "ROLLING_WINDOW_SERIES_ACTIVE",
     "SAS_OKC_MATCHUP_FILE_OPENED",
+    "MARKET_CONTEXT_CORRECTED_TO_SAME_MATCHUP",
     "WEMBY_GEOMETRY_SHIFT",
     "OKC_TRANSITION_ENGINE_PARTIAL",
     "SAS_SECOND_CHANCE_CONVERSION_EDGE",
