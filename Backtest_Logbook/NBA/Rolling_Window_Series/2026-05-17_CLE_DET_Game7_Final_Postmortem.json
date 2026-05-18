@@ -1,0 +1,175 @@
+{
+  "log_id": "NBA_POSTMORTEM_20260517_CLE_DET_G7_FINAL",
+  "registry": "Backtest_Logbook",
+  "folder": "Backtest_Logbook/NBA/Rolling_Window_Series",
+  "sport": "NBA",
+  "mode": "NBA_LIVEFLOW_V003",
+  "protocol": "LIVEFLOW_STRIPPED_MODE_ACTIVE",
+  "series_context": "CLE_DET_ECSF_ROLLING_WINDOW_SERIES",
+  "game": {
+    "date": "2026-05-17",
+    "round": "Eastern Conference Semifinals",
+    "game_number": 7,
+    "venue": "Little Caesars Arena, Detroit, MI",
+    "attendance": 20062,
+    "officials": ["Marc Davis", "Ben Taylor", "Kevin Scott", "Brent Barnaky"],
+    "away_team": "Cleveland Cavaliers",
+    "home_team": "Detroit Pistons",
+    "final_score": {
+      "CLE": 125,
+      "DET": 94,
+      "margin": 31,
+      "total": 219
+    },
+    "quarter_scores": {
+      "CLE": [31, 33, 35, 26],
+      "DET": [22, 25, 26, 21]
+    }
+  },
+  "bet_results": [
+    {
+      "market": "Total Points",
+      "selection": "Yes - Over 205.5 points scored",
+      "entry_price": -108,
+      "stake": 5.00,
+      "payout": 9.66,
+      "profit": 4.66,
+      "result": "WIN",
+      "final_total": 219,
+      "closing_context": "Live total inflated as high as 223.5 during 3Q control state; pregame/live entry captured +13.5 points of result margin versus line.",
+      "tags": ["HIT_REGISTERED", "PREGAME_OVER_CLV_CONFIRMED", "CLV_CAPTURED", "EDGE_CALL_ACTIVE"]
+    },
+    {
+      "market": "Player Rebounds",
+      "selection": "Yes - Tobias Harris 7+ rebounds",
+      "entry_price": 109,
+      "stake": 2.76,
+      "max_payout": 5.78,
+      "result": "LOSS",
+      "final_rebounds": 5,
+      "miss_delta": -2,
+      "closing_context": "Harris had 5 rebounds by late 3Q but played only 1:06 in Q4 due to blowout compression; final minutes 22:37.",
+      "tags": ["MISS_REGISTERED", "REBOUND_PROP_BLOWOUT_SUPPRESSION_RISK", "MINUTES_COMPRESSION", "BLOWOUT_KILL_SWITCH_CONFIRMED"]
+    }
+  ],
+  "market_model_snapshot": {
+    "primary_total_line": 205.5,
+    "model_pre_game_total_mean": 211.8,
+    "model_pre_game_total_median": 210.5,
+    "model_pre_game_over_probability": 0.585,
+    "actual_total": 219,
+    "total_projection_delta": 7.2,
+    "tobias_rebound_line": "7+",
+    "tobias_pre_game_mean": 6.9,
+    "tobias_pre_game_median": 7.0,
+    "tobias_pre_game_probability": 0.535,
+    "tobias_actual": 5
+  },
+  "team_box_summary": {
+    "CLE": {
+      "fg": "43-85",
+      "fg_pct": 50.6,
+      "three_pt": "11-34",
+      "three_pct": 32.4,
+      "ft": "28-44",
+      "ft_pct": 63.6,
+      "off_reb": 14,
+      "def_reb": 36,
+      "total_reb": 50,
+      "assists": 31,
+      "turnovers": 11,
+      "points_in_paint": 58,
+      "second_chance_points": 18,
+      "fast_break_points": 12,
+      "biggest_lead": 35
+    },
+    "DET": {
+      "fg": "30-85",
+      "fg_pct": 35.3,
+      "three_pt": "12-39",
+      "three_pct": 30.8,
+      "ft": "22-29",
+      "ft_pct": 75.9,
+      "off_reb": 10,
+      "def_reb": 31,
+      "total_reb": 41,
+      "assists": 21,
+      "turnovers": 14,
+      "points_in_paint": 34,
+      "second_chance_points": 11,
+      "fast_break_points": 11,
+      "biggest_lead": 1
+    }
+  },
+  "key_player_outcomes": {
+    "CLE": {
+      "Donovan Mitchell": "26 PTS, 6 REB, 8 AST, +17; decisive 3Q separator.",
+      "Jarrett Allen": "23 PTS, 7 REB, 8-14 FG; paint pressure and foul generation broke DET interior.",
+      "Evan Mobley": "21 PTS, 12 REB, 6 AST, 2 STL, 2 BLK, +31; two-way stabilizer.",
+      "Sam Merrill": "23 PTS, 5-8 3PT, +22; bench spacing burst changed game geometry.",
+      "James Harden": "9 PTS, 5 REB, 6 AST, +31 despite poor shooting; orchestration and control-state value."
+    },
+    "DET": {
+      "Cade Cunningham": "13 PTS, 4 REB, 5 AST, 5-16 FG, 0-7 3PT, -32; primary engine suppressed.",
+      "Tobias Harris": "5 PTS, 5 REB, 0-6 FG, 22:37; rebound prop killed by blowout minutes compression.",
+      "Jalen Duren": "7 PTS, 9 REB, 5 PF; foul trouble limited ceiling but still productive on glass.",
+      "Daniss Jenkins": "17 PTS, 3 REB, 5 AST; late scoring helped total but not comeback.",
+      "Duncan Robinson": "13 PTS, 3-5 3PT; spacing contribution not enough to offset defensive collapse."
+    }
+  },
+  "postmortem_phases": {
+    "phase_1_game_flow": {
+      "opening_phase": "CLE opened 31-22 behind efficient interior touches and early 3PT shotmaking. DET generated some offensive glass but missed early paint/wing chances.",
+      "middle_phase": "CLE extended to 64-47 by halftime. Allen, Mobley, Merrill and Mitchell punished DET fouls, turnovers and weak halfcourt defense.",
+      "separation_phase": "Q3 was the game-breaker: CLE won it 35-26, reached 99-73 after three, and forced the model into control-state/blowout volatility mode.",
+      "closing_phase": "Q4 became garbage-time compression. CLE still won the quarter 26-21 while DET shot only 23.8% in the period."
+    },
+    "phase_2_pivotal_moments": [
+      "Sam Merrill bench burst gave CLE spacing and kept DET from loading up on Mitchell/Harden actions.",
+      "Jarrett Allen free-throw and rim-pressure sequence in Q2 forced DET into foul distress.",
+      "DET opened Q3 with turnovers and missed threes; CLE pushed the lead past 20 and never gave back control.",
+      "Harris checked out early in Q4 with only 5 boards, confirming rebound prop suppression."
+    ],
+    "phase_3_context_variables": {
+      "officiating": "High whistle environment: CLE attempted 44 FT and DET committed 31 fouls. Marc Davis crew supported physicality and free-throw volume, aiding over result but damaging DET rotation stability.",
+      "rebounding": "CLE won total rebounds 50-41 and second-chance points 18-11. DET center/forward box-out edge did not translate under foul pressure and blowout state.",
+      "psychological": "Detroit showed Game 7 home collapse symptoms: forced shot profile, Cade suppression, turnovers, and emotional technical/foul leakage.",
+      "rotation": "Harris and several DET starters lost 4Q minutes due to margin. This is the core reason the Tobias rebound over failed despite being live through 3Q."
+    },
+    "phase_4_model_relevance": {
+      "total_model": "Correct directional call. The over was supported by foul volume, transition leak risk, and CLE efficiency. Final 219 cleared 205.5 by 13.5 points.",
+      "rebound_model": "Tobias Harris 7+ was structurally live but fragile. Model needs stronger Game 7 blowout/minutes-compression penalty on role forwards when team is trailing by 20+ entering Q4.",
+      "liveflow_model": "3Q strike no-new-entry call was correct. Existing Over was protected; fresh DET TT over was rejected and DET finished only 94, validating kill-switch discipline.",
+      "patch_recommendations": [
+        "Increase BLOWOUT_KILL_SWITCH weight for player rebound overs when team down 22+ late Q3.",
+        "Apply ROLE_FORWARD_MINUTES_COMPRESSION penalty when player is non-primary scorer and team enters elimination blowout.",
+        "Boost full-game totals when whistle crew + paint pressure produces 60+ projected FTA environment.",
+        "Track bench-spacing burst tag for Sam Merrill-style shooters in playoff games."
+      ]
+    }
+  },
+  "volatility_tags": [
+    "FINAL_POSTMORTEM",
+    "EDGE_CALL_ACTIVE",
+    "TOTAL_OVER_HIT",
+    "CLV_CAPTURED",
+    "BLOWOUT_KILL_SWITCH_CONFIRMED",
+    "DET_HOME_GAME7_COLLAPSE",
+    "CLE_CONTROL_STATE",
+    "SAM_MERRILL_SPACING_BURST",
+    "CLEVELAND_FRONTCOURT_DOMINANCE",
+    "TOBIAS_REBOUND_PROP_MISS",
+    "MINUTES_COMPRESSION",
+    "FOUL_VOLUME_OVER_SUPPORT",
+    "RISK_CLUSTER_LOCK_VALIDATED"
+  ],
+  "net_bet_result": {
+    "total_staked": 7.76,
+    "total_return_confirmed": 9.66,
+    "pending_or_lost_return": 0,
+    "net_profit": 1.90,
+    "record": "1-1",
+    "notes": "Over win carried the slate. Tobias 7+ missed by two rebounds due to blowout suppression."
+  },
+  "status": "FINALIZED"
+}
