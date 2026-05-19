@@ -1,0 +1,43 @@
+{
+  "game_id": "SAS_OKC_WCF_G1_2026_05_18",
+  "timestamp": "2026-05-18_live_update",
+  "source": "Rotowire screenshot provided by user",
+  "player_update": {
+    "player": "Ajay Mitchell",
+    "team": "Oklahoma City Thunder",
+    "status": "BENCH_ROLE_CONFIRMED",
+    "reported_context": "Mitchell will come off the bench for Game 1 of the Western Conference Finals against San Antonio.",
+    "role_note": "Jalen Williams return pushes Mitchell back into reserve role after high-usage Lakers semifinal stretch. Still expected to remain a key rotation contributor."
+  },
+  "model_adjustments": {
+    "ajay_mitchell_minutes": {
+      "prior_projection": 29,
+      "adjusted_projection_range": "20-24",
+      "median_minutes": 22
+    },
+    "ajay_mitchell_points": {
+      "prior_market_reference": "Under 13.5 discussed from Daft Previews",
+      "adjusted_mean": 10.8,
+      "adjusted_median": 10,
+      "under_13_5_probability": 0.635,
+      "edge_class": "ROLE_COMPRESSION_UNDER"
+    },
+    "okc_usage_distribution": {
+      "beneficiaries": ["Shai Gilgeous-Alexander", "Jalen Williams", "Chet Holmgren"],
+      "reduced_roles": ["Ajay Mitchell", "Cason Wallace", "Isaiah Joe"],
+      "note": "Mitchell remains live for bench burst but loses starter-level touch security."
+    }
+  },
+  "market_implications": {
+    "tail_status": "Ajay Mitchell Under 13.5 upgraded from LEAN to PLAYABLE LEAN if price is -115 or better",
+    "avoid": "Do not play Mitchell overs unless live minutes exceed projected bench pattern or Jalen Williams shows limitation.",
+    "correlation": "Supports OKC primary creator concentration and slightly strengthens SGA/Jalen usage assumptions."
+  },
+  "tags": [
+    "ROLLING_WINDOW_SERIES_SAS_OKC",
+    "WCF_G1_LIVE_CONTEXT",
+    "AJAY_MITCHELL_BENCH_ROLE",
+    "ROLE_COMPRESSION_UNDER",
+    "JALEN_WILLIAMS_RETURN_EFFECT"
+  ]
+}
