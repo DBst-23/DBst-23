@@ -1,0 +1,67 @@
+{
+  "game_id": "SAS_OKC_WCF_G1_2026_05_18",
+  "period": "Q1_END",
+  "score": {"SAS": 27, "OKC": 27, "total": 54},
+  "market_snapshot": {
+    "live_total": 217.5,
+    "spread": {"SAS": "+6.5 -121", "OKC": "-6.5 +101"},
+    "moneyline": {"SAS": "+198", "OKC": "-251"},
+    "team_totals": {"OKC_over_112_5": "+109", "SAS_over_105_5": "-132"}
+  },
+  "q1_box_score_flags": {
+    "SAS": {
+      "points": 27,
+      "fg": "8/21",
+      "fg_pct": 38.1,
+      "three_pt": "3/10",
+      "fta": 9,
+      "off_reb": 4,
+      "turnovers": 5,
+      "points_off_turnovers_allowed": 7,
+      "paint_points": 10
+    },
+    "OKC": {
+      "points": 27,
+      "fg": "11/23",
+      "fg_pct": 47.8,
+      "three_pt": "3/10",
+      "fta": 2,
+      "off_reb": 1,
+      "turnovers": 2,
+      "fast_break_points": 8,
+      "paint_points": 14
+    }
+  },
+  "player_flow_notes": {
+    "Stephon Castle": {"points": 11, "note": "Castle usage and downhill pressure validated early; Daft tail thesis alive."},
+    "Victor Wembanyama": {"points": 6, "rebounds": 5, "oreb": 4, "note": "Dominating offensive glass; early rivalry/motivation signal active."},
+    "Shai Gilgeous_Alexander": {"points": 2, "fg": "1/4", "note": "Slow scoring start despite MVP trophy narrative; assist/control role active."},
+    "Jalen Williams": {"points": 10, "rebounds": 4, "note": "Return impact materially stronger than expected; early OKC stabilizer."},
+    "Alex Caruso": {"points": 10, "note": "Bench defense-to-offense swing rescued OKC after early -9 hole."},
+    "Ajay Mitchell": {"minutes_note": "Bench role confirmed; early foul trouble with 2 fouls; under points thesis strengthened."}
+  },
+  "liveflow_projection_after_q1": {
+    "full_game_total_mean": 218.6,
+    "full_game_total_median": 218,
+    "over_217_5_probability": 0.515,
+    "under_217_5_probability": 0.485,
+    "OKC_team_total_mean": 112.9,
+    "OKC_team_total_median": 113,
+    "OKC_over_112_5_probability": 0.522,
+    "SAS_team_total_mean": 105.7,
+    "SAS_team_total_median": 105,
+    "SAS_over_105_5_probability": 0.503,
+    "OKC_minus_6_5_cover_probability": 0.548,
+    "SAS_plus_6_5_cover_probability": 0.452
+  },
+  "liveflow_decision": {
+    "recommended_action": "HOLD",
+    "reason": "Q1 pace is live but total reset is efficient. SAS turnover drag supports OKC, but SGA slow start and Spurs offensive glass prevent clean OKC TT strike. Wait for 2Q entry or stale team total." ,
+    "strike_zone": [
+      "OKC TT Over only if 112.5 remains +109 or better after first clean SGA/Jalen scoring push.",
+      "SAS TT Under if live number returns to 108.5+ without foul spike.",
+      "Castle overs remain validated; no chase if market corrected above 18.5."
+    ]
+  },
+  "tags": ["ROLLING_WINDOW_SERIES_SAS_OKC", "WCF_G1", "Q1_LIVEFLOW", "FOX_OUT", "CASTLE_USAGE_CONFIRMED", "WEMBY_OREB_PRESSURE", "AJAY_MITCHELL_ROLE_COMPRESSION"]
+}
