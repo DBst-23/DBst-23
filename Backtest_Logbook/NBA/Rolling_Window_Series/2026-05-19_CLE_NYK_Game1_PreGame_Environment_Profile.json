@@ -1,0 +1,142 @@
+{
+  "profile_id": "B003_SERIES_ENV_CLE_NYK_ECF_GAME1_PRELIVE",
+  "created_date": "2026-05-19",
+  "game": "CLE @ NYK",
+  "round": "Eastern Conference Finals Game 1",
+  "source_mode": "rolling_series_window_plus_live_market_context",
+  "status": "PRELIVE_PROFILE_LOGGED",
+  "market_snapshot": {
+    "game_time_pdt": "5:00 PM",
+    "moneyline_best": {"CLE": "+225", "NYK": "-219"},
+    "consensus_moneyline_range": {"CLE": "+190 to +225", "NYK": "-225 to -278"},
+    "spread_best": {"CLE": "+7.5 -111", "NYK": "-6.5 -103"},
+    "consensus_spread": "NYK -6.5/-7.5",
+    "total_range": "217.0 to 218.5",
+    "team_totals": {
+      "NYK": {"primary_line": 112.5, "best_over": "Pinnacle -101", "best_under": "Kalshi -107", "market_note": "Most books 112.5; Bovada/Rebet lower variants 111.5/112.0."},
+      "CLE": {"primary_line": 105.5, "kalshi_alt": 106.5, "best_over": "Kalshi +101 at 106.5", "best_under": "Circa -105 at 105.5"}
+    }
+  },
+  "injury_context": {
+    "CLE": {
+      "Larry Nance Jr.": {"status": "questionable", "issue": "illness", "expected_impact": "minimal", "note": "Projected 0 minutes / only brief garbage-time postseason appearances; do not materially adjust core rotation."}
+    },
+    "NYK": {
+      "OG Anunoby": {"status": "probable", "issue": "hamstring", "expected_impact": "active", "note": "Full participant Monday; expected to play. Monitor hamstring conditioning but model assumes starting role."}
+    }
+  },
+  "projected_minutes_core": {
+    "CLE": {
+      "James Harden": 38,
+      "Donovan Mitchell": 38,
+      "Evan Mobley": 38,
+      "Jarrett Allen": 31,
+      "Max Strus": 31,
+      "Sam Merrill": 24,
+      "Dean Wade": 22,
+      "Dennis Schroder": 18
+    },
+    "NYK": {
+      "Jalen Brunson": 38,
+      "Josh Hart": 38,
+      "Mikal Bridges": 36,
+      "OG Anunoby": 35,
+      "Karl-Anthony Towns": 31,
+      "Miles McBride": 20,
+      "Mitchell Robinson": 17,
+      "Landry Shamet": 12
+    }
+  },
+  "rolling_window_series_inputs": {
+    "NYK": {
+      "primary_form_source": "2026_ECSF_PHI_NYK rolling window",
+      "active_tags": [
+        "BRUNSON_CLOSEOUT_DOMINANCE",
+        "BRUNSON_CLOSER_GATE_REQUIRED",
+        "KAT_LATE_REBOUND_STABILIZER",
+        "GAME1_BLOWOUT_DEWEIGHTING_VALIDATED",
+        "NYK_HALFCOUT_CLOSER_PROFILE"
+      ],
+      "read": "NYK owns cleaner late-game structure and halfcourt closer profile. Avoid overweighting prior blowout; use close-game mechanics as primary input."
+    },
+    "CLE": {
+      "primary_form_source": "2026_ECSF_CLE_DET rolling window",
+      "active_tags": [
+        "HALFTIME_CREATION_VS_FINISHING_SPLIT_GATE",
+        "MITCHELL_COLD_HALF_TAKEOVER_BOOST",
+        "CLE_LATE_3P_DEPENDENCY_GATE",
+        "HARDEN_USAGE_DRAG_FLAG",
+        "THIRD_QUARTER_VALIDATION_ACCELERATOR",
+        "MARGIN_BAND_HOOK_BURN"
+      ],
+      "read": "CLE is volatile but live-over viable when creation quality remains intact. Mitchell takeover tail active. Harden usage drag remains a risk if efficiency and turnover profile deteriorate."
+    }
+  },
+  "simulation_output_pre_tip": {
+    "projected_score_mean": {"CLE": 105.4, "NYK": 112.1, "total": 217.5},
+    "projected_score_median": {"CLE": 104.8, "NYK": 111.6, "total": 216.8},
+    "win_probability": {"CLE": 0.385, "NYK": 0.615},
+    "spread_probability": {
+      "CLE_plus_7_5": 0.535,
+      "NYK_minus_6_5": 0.505,
+      "NYK_minus_7_5": 0.468
+    },
+    "total_probability": {
+      "over_217_5": 0.502,
+      "under_218_5": 0.523,
+      "over_218_5": 0.477
+    },
+    "team_total_probability": {
+      "NYK_over_112_5": 0.486,
+      "NYK_under_112_5": 0.514,
+      "CLE_over_105_5": 0.492,
+      "CLE_under_105_5": 0.508,
+      "CLE_over_106_5": 0.462
+    },
+    "model_confidence": "medium-low pre-tip; better for live validation than pregame full strike"
+  },
+  "edge_board": [
+    {
+      "market": "CLE +7.5",
+      "line": "+7.5 -111",
+      "model_probability": 0.535,
+      "edge_type": "small spread cushion edge",
+      "tier": "lean only",
+      "rationale": "Rolling-window profile respects NYK closer edge but +7.5 captures hook/margin-band volatility and Mitchell takeover tail."
+    },
+    {
+      "market": "NYK team total under 112.5",
+      "line": "112.5 -107 to -120 depending book",
+      "model_probability": 0.514,
+      "edge_type": "thin under lean",
+      "tier": "no pregame fire",
+      "rationale": "Projection median below line, but Brunson closeout and home whistle can push late scoring. Requires live pace/FTA validation."
+    },
+    {
+      "market": "CLE team total over 105.5",
+      "line": "105.5 market / 106.5 Kalshi +101",
+      "model_probability": 0.492,
+      "edge_type": "conditional live-only",
+      "tier": "watchlist",
+      "rationale": "Do not buy pregame unless creation quality validates. Best live signal is strong Mitchell usage + paint touches + free throw path despite early misses."
+    }
+  ],
+  "liveflow_rules": {
+    "entry_priority": [
+      "Wait for first 6-8 minutes before team-total strike.",
+      "For CLE overs, require creation > finishing: rim pressure, FT access, assist quality, and non-toxic Harden possessions.",
+      "For NYK side/spread, prioritize late 3Q/4Q if within two possessions and Brunson is controlling touches.",
+      "Avoid full-game total unless pace and FTA path clearly diverge from 217.5 baseline."
+    ],
+    "kill_switches": [
+      "If Harden has high-usage inefficient possessions plus live-ball turnovers, downgrade CLE TT overs.",
+      "If OG hamstring limits defensive mobility or minutes, lift CLE wing creation and downgrade NYK defensive rating.",
+      "If NYK gets early bonus/FTA advantage, cancel NYK TT under lean."
+    ]
+  },
+  "pre_tip_recommendation": {
+    "primary_action": "No full pregame lock",
+    "best_watch": "CLE +7.5 if available; otherwise wait live",
+    "live_strike_zone": "CLE team total over only after process validation; NYK late-game spread/ML windows if close"
+  }
+}
