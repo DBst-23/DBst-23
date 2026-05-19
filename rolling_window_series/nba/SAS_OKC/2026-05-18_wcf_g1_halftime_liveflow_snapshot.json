@@ -1,0 +1,55 @@
+{
+  "game_id": "SAS_OKC_WCF_G1_2026_05_18",
+  "period": "HALFTIME",
+  "score": {"SAS": 51, "OKC": 44, "total": 95},
+  "market_snapshot": {
+    "live_total": 208.5,
+    "spread": {"SAS": "+1.5 -132", "OKC": "-1.5 +105"},
+    "moneyline": {"SAS": "-117", "OKC": "-104"},
+    "team_totals": {"OKC_over_100_5": "-143", "SAS_over_102_5": "-126"}
+  },
+  "halftime_box_score": {
+    "SAS": {"points": 51, "fg": "18/43", "fg_pct": 41.9, "three_pt": "7/19", "three_pct": 36.8, "ft": "8/9", "rebounds": 29, "off_reb": 6, "assists": 11, "turnovers": 8, "points_in_paint": 20, "second_chance_points": 9, "fast_break_points": 0},
+    "OKC": {"points": 44, "fg": "16/43", "fg_pct": 37.2, "three_pt": "6/22", "three_pct": 27.3, "ft": "6/6", "rebounds": 20, "off_reb": 2, "assists": 10, "turnovers": 5, "points_in_paint": 18, "second_chance_points": 2, "fast_break_points": 14}
+  },
+  "key_player_state": {
+    "Victor_Wembanyama": {"points": 14, "rebounds": 10, "offensive_rebounds": 5, "minutes": "19:09"},
+    "Shai_Gilgeous_Alexander": {"points": 4, "assists": 5, "rebounds": 1, "fg": "1/5", "minutes": "19:09"},
+    "Alex_Caruso": {"points": 16, "three_pt": "4/7", "minutes": "11:32"},
+    "Jalen_Williams": {"points": 12, "fg": "5/11", "minutes": "14:21"},
+    "Stephon_Castle": {"points": 11, "turnovers": 5, "minutes": "17:51"}
+  },
+  "flow_diagnostics": {
+    "dominant_signal": "SAS controls glass and second-chance math; Wembanyama is materially altering OKC shot quality and possession outcomes.",
+    "OKC_regression_signal": "SGA has not activated as scorer. OKC still has live comeback equity because the deficit is only 7 despite SGA at 4 points and OKC 27.3% from three.",
+    "SAS_risk": "No Fox increases late-half and late-game ball security risk. Castle has 5 turnovers and OKC pressure can flip game state fast.",
+    "total_read": "Market total stayed at 208.5 despite 95-point half. Needs 114 second-half points to clear. Model does not support chasing over at this number unless pace spikes early Q3.",
+    "team_total_read": "OKC needs 57 second-half points to clear 100.5. This is plausible with SGA normalization but -143 is heavy vig. SAS needs 52 to clear 102.5, but their scoring profile is more possession/rebound based than creation based."
+  },
+  "updated_projection": {
+    "full_game_total_mean": 205.8,
+    "full_game_total_median": 205,
+    "over_208_5_probability": 0.437,
+    "under_208_5_probability": 0.563,
+    "SAS_points_mean": 103.8,
+    "SAS_points_median": 103,
+    "SAS_over_102_5_probability": 0.528,
+    "OKC_points_mean": 102.0,
+    "OKC_points_median": 102,
+    "OKC_over_100_5_probability": 0.548,
+    "OKC_minus_1_5_cover_probability": 0.482,
+    "SAS_plus_1_5_cover_probability": 0.518
+  },
+  "liveflow_decision": {
+    "recommended_action": "NO_STRIKE_AT_CURRENT_PRICES",
+    "lean_1": "OKC TT Over 100.5 is the best raw probability angle, but -143 is not a clean value strike.",
+    "lean_2": "SAS TT Over 102.5 has modest probability but is fragile due to Fox absence and turnover risk.",
+    "avoid": ["Full game Over 208.5 at +173 because the plus price is tempting but needs a major 2H tempo/FT spike", "OKC spread chase unless SGA scoring activation appears early Q3"],
+    "trigger_rules": {
+      "OKC_TT_strike": "Enter only if OKC TT drops to 99.5/100.5 at -125 or better, or if SGA scores 5+ points in first 4 minutes of Q3 without line jumping above 104.5.",
+      "full_game_under_strike": "Only if live total floats back to 211.5+ with no pace spike.",
+      "SAS_side_hold": "SAS live ML/plus spread only if Wemby remains on floor and Spurs continue +6 or better rebound margin after first Q3 rotation."
+    }
+  },
+  "tags": ["ROLLING_WINDOW_SERIES_SAS_OKC", "WCF_G1", "HALFTIME_LIVEFLOW", "FOX_OUT", "WEMBY_OREB_DOMINANCE", "SGA_SUPPRESSED", "OKC_REGRESSION_PENDING", "NO_STRIKE_CURRENT_PRICE", "RISK_CLUSTER_LOCK_CLEAR"]
+}
