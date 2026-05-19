@@ -1,0 +1,43 @@
+{
+  "game_id": "SAS_OKC_WCF_G1_2026_05_18",
+  "period": "Q2_03:30",
+  "score": {"SAS": 44, "OKC": 41, "total": 85, "time_remaining_q2": "03:30"},
+  "market_snapshot": {
+    "live_total": 208.5,
+    "spread": {"SAS": "+2.5 -108", "OKC": "-2.5 -117"},
+    "moneyline": {"SAS": "+118", "OKC": "-143"},
+    "team_totals": {"OKC_over_103_5": "-143", "SAS_over_105_5": "+113"}
+  },
+  "live_box_score": {
+    "SAS": {"points": 44, "fg": "15/39", "fg_pct": 38.5, "three_pt": "6/17", "fta": 9, "rebounds": 26, "off_reb": 6, "turnovers": 6, "second_chance_points": 9, "fast_break_points": 0},
+    "OKC": {"points": 41, "fg": "15/37", "fg_pct": 40.5, "three_pt": "5/20", "fta": 6, "rebounds": 17, "off_reb": 1, "turnovers": 4, "second_chance_points": 2, "fast_break_points": 12}
+  },
+  "flow_diagnostics": {
+    "primary_signal": "SAS rebounding and Wembanyama offensive glass pressure are suppressing OKC margin despite Spurs poor FG efficiency.",
+    "OKC_issue": "Halfcourt offense remains dependent on Caruso/Jalen shotmaking while SGA is not yet applying scoring pressure.",
+    "SAS_issue": "No Fox means fewer creation counters late-clock; Spurs are surviving through Wemby boards and role-player threes.",
+    "market_note": "Total has dropped from 217.5 to 208.5; the under move is now mostly priced in. OKC TT 103.5 is playable only if expecting SGA normalization, but price -143 is expensive."
+  },
+  "updated_projection": {
+    "full_game_total_mean": 210.9,
+    "full_game_total_median": 211,
+    "over_208_5_probability": 0.548,
+    "under_208_5_probability": 0.452,
+    "SAS_points_mean": 105.6,
+    "SAS_points_median": 105,
+    "SAS_over_105_5_probability": 0.506,
+    "OKC_points_mean": 105.3,
+    "OKC_points_median": 105,
+    "OKC_over_103_5_probability": 0.571,
+    "OKC_minus_2_5_cover_probability": 0.536,
+    "SAS_plus_2_5_cover_probability": 0.464
+  },
+  "liveflow_decision": {
+    "recommended_action": "LEAN_OKC_TT_OVER_103_5_BUT_PRICE_SENSITIVE",
+    "confidence_tier": "micro_only",
+    "edge": "Small model edge if line holds 103.5, but -143 reduces value. Fair price closer to -133/-138.",
+    "better_entry": "OKC live TT 102.5 or 103.5 at -130 or better; avoid chasing -145 or worse.",
+    "avoid": ["SAS TT Over 105.5 despite plus money because Spurs scoring is rebound-driven and fragile", "Full game over if total re-inflates above 211.5 before SGA scoring activation"]
+  },
+  "tags": ["ROLLING_WINDOW_SERIES_SAS_OKC", "WCF_G1", "Q2_0330_LIVEFLOW", "FOX_OUT", "WEMBY_OREB_PRESSURE", "OKC_SHOT_SUPPRESSION", "SGA_NORMALIZATION_PENDING", "PRICE_SENSITIVE_ENTRY"]
+}
