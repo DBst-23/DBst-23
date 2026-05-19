@@ -1,0 +1,52 @@
+{
+  "schema_version": "B.003_POSTMORTEM_V1",
+  "log_id": "ROLLING_WINDOW_SERIES_SAS_OKC_WCF_G1_2026_05_18_FINAL",
+  "game": {
+    "date": "2026-05-18",
+    "matchup": "San Antonio Spurs at Oklahoma City Thunder",
+    "venue": "Paycom Center",
+    "round": "Western Conference Finals Game 1",
+    "final_score": {"SAS": 122, "OKC": 115},
+    "periods": {"SAS": [27,24,29,21,7,14], "OKC": [27,17,29,28,7,7]},
+    "overtime": "2OT",
+    "officials": ["Zach Zarba", "John Goble", "Mitchell Ervin", "Ed Malloy"]
+  },
+  "market_results": [
+    {"selection": "OKC Team Total Over 106.5", "stake": 5.00, "odds": "+198", "result": "WIN", "payout": 14.91, "profit": 9.91, "entry_context": "Q3 5:06, SAS 64-63 OKC", "final_okc_points": 115},
+    {"selection": "No - San Antonio Over 108.5", "stake": 4.66, "odds": "-132", "result": "LOSS", "payout": 0.00, "profit": -4.66, "final_sas_points": 122},
+    {"selection": "Stephon Castle 20+ points", "stake": 2.50, "odds": "+123", "result": "LOSS", "payout": 0.00, "profit": -2.50, "final_castle_points": 17}
+  ],
+  "net_position": {"total_staked": 12.16, "total_payout": 14.91, "net_profit": 2.75, "roi": 0.2262},
+  "key_box_score": {
+    "SAS": {"FG": "41-96", "3P": "13-43", "FT": "27-29", "REB": 61, "OREB": 15, "AST": 25, "STL": 11, "TO": 21, "BLK": 7, "PITP": 52, "second_chance": 13},
+    "OKC": {"FG": "41-101", "3P": "17-45", "FT": "16-19", "REB": 40, "OREB": 9, "AST": 25, "STL": 14, "TO": 14, "BLK": 8, "PITP": 38, "second_chance": 8}
+  },
+  "player_spotlight": {
+    "Victor Wembanyama": {"MIN": "48:42", "PTS": 41, "REB": 24, "OREB": 9, "AST": 3, "STL": 1, "BLK": 3, "FG": "14-25", "FT": "12-13", "+/-": 16},
+    "Dylan Harper": {"PTS": 24, "REB": 11, "AST": 6, "STL": 7, "MIN": "46:57"},
+    "Stephon Castle": {"PTS": 17, "AST": 11, "TO": 11, "MIN": "48:51"},
+    "Shai Gilgeous-Alexander": {"PTS": 24, "AST": 12, "FG": "7-23", "MIN": "51:16", "+/-": -15},
+    "Alex Caruso": {"PTS": 31, "FG": "11-19", "3P": "8-14", "MIN": "31:40"},
+    "Jalen Williams": {"PTS": 26, "FG": "11-25", "MIN": "37:16"}
+  },
+  "phase_analysis": {
+    "first_half": "SAS led 51-44. Wembanyama already had 14/10 and Spurs held a 29-20 rebounding edge. OKC's primary issue was SGA suppression: 1-5 FG, 4 points before halftime.",
+    "third_quarter": "Both teams scored 29. OKC briefly reclaimed momentum, but SAS stabilized behind Wembanyama free throw pressure and Harper disruption.",
+    "fourth_quarter": "OKC won Q4 28-21, forcing 101-101 regulation. SGA and Caruso generated the comeback, but SAS survived with Wembanyama interior gravity and late-clock execution.",
+    "first_overtime": "Both teams scored 7. OKC led by 3 with under a minute, but Wembanyama hit the tying 28-foot three with 27 seconds left.",
+    "second_overtime": "SAS dominated 14-7. Wembanyama produced 9 points and 4 rebounds in the period; OKC shot 2-9 and scored zero paint points."
+  },
+  "model_diagnostics": {
+    "hit_tags": ["OKC_TT_OVER_EDGE_HIT", "LIVEFLOW_OFFENSIVE_NORMALIZATION_VALIDATED", "SGA_LATE_USAGE_RECOVERY_PARTIAL", "CARUSO_VARIANCE_SPIKE_CAPTURED"],
+    "miss_tags": ["SAS_TT_NO_BURNED_BY_OT", "CASTLE_POINTS_OVER_MISS", "CASTLE_USAGE_ASSIST_SHIFT", "WEMBY_REBOUND_DOMINANCE_UNDERWEIGHTED", "DOUBLE_OT_TAIL_RISK_REALIZED"],
+    "variance_notes": "Regulation finished 101-101, meaning OKC TT Over 106.5 required OT and hit because of extended-game tail risk. SAS No Over 108.5 lost primarily from OT extension and Wembanyama takeover. Castle 20+ missed because his offensive role shifted toward facilitation and high turnover pressure, finishing with 17 points and 11 assists."
+  },
+  "advanced_metrics_pending_layer": {
+    "status": "PENDING_DATA",
+    "to_append_when_available": ["player_tracking_rebounds", "box_outs", "contested_rebounds", "lineup_stints", "on_off_net_rating", "matchup_frequency", "touches", "frontcourt/drive help rotations", "transition possessions", "clutch lineup possessions"]
+  },
+  "forward_prep": {
+    "next_series_focus": "CLE at NYK Eastern Conference Finals prep",
+    "notes": "Only three-game regular season H2H sample; require broader matchup model using playoff form, lineup health, possession profile, rebounding/boxout layer, and halfcourt efficiency rather than H2H-only weighting."
+  }
+}
