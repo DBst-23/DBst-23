@@ -1,0 +1,60 @@
+{
+  "game_id": "SAS_OKC_WCF_G1_2026_05_18",
+  "period": "Q3_07_46",
+  "score": {"SAS": 57, "OKC": 58, "total": 115},
+  "market_snapshot": {
+    "game_clock": "3rd quarter 7:33 / scorer report through 7:46",
+    "live_total": {"line": 205.5, "over": -112, "under": -108},
+    "spread": {"SAS": "+3.5 -121", "OKC": "-3.5 -104"},
+    "moneyline": {"SAS": "+158", "OKC": "-191"},
+    "team_totals": {"OKC_over_106_5": "+128", "SAS_over_102_5": "-104"}
+  },
+  "live_score_state": {
+    "SAS_points_by_period": [27, 24, 6],
+    "OKC_points_by_period": [27, 17, 14],
+    "q3_run": "OKC 14 - SAS 6",
+    "lead_change": "OKC took first lead since early 1Q via Dort 3 at 7:50 Q3"
+  },
+  "through_3q_0746_box_score": {
+    "SAS": {"points": 57, "fg": "21/50", "fg_pct": 42.0, "three_pt": "7/23", "three_pct": 30.4, "ft": "8/9", "rebounds": 32, "off_reb": 7, "assists": 12, "turnovers": 9, "points_in_paint": 26, "second_chance_points": 9, "fast_break_points": 2},
+    "OKC": {"points": 58, "fg": "21/53", "fg_pct": 39.6, "three_pt": "9/27", "three_pct": 33.3, "ft": "7/7", "rebounds": 25, "off_reb": 5, "assists": 13, "turnovers": 6, "points_in_paint": 20, "second_chance_points": 5, "fast_break_points": 14}
+  },
+  "q3_early_segment": {
+    "SAS": {"points": 6, "fg": "3/7", "three_pt": "0/4", "turnovers": 1},
+    "OKC": {"points": 14, "fg": "5/9", "three_pt": "3/5", "turnovers": 1},
+    "diagnosis": "OKC three-point normalization arrived before SGA full scoring activation. Spurs offense stalled once first-half offensive rebound advantage cooled."
+  },
+  "player_state": {
+    "Victor_Wembanyama": {"points": 14, "rebounds": 10, "assists": 2, "minutes": "23:23"},
+    "Shai_Gilgeous_Alexander": {"points": 7, "assists": 5, "rebounds": 2, "fg": "2/9", "three_pt": "1/3", "minutes": "23:23"},
+    "Jalen_Williams": {"points": 15, "assists": 3, "fg": "6/12", "minutes": "18:35"},
+    "Chet_Holmgren": {"points": 8, "rebounds": 5, "three_pt": "2/2"},
+    "Stephon_Castle": {"points": 13, "turnovers": 5, "minutes": "22:05"}
+  },
+  "updated_projection": {
+    "full_game_total_mean": 207.2,
+    "full_game_total_median": 207,
+    "over_205_5_probability": 0.535,
+    "under_205_5_probability": 0.465,
+    "OKC_points_mean": 107.8,
+    "OKC_points_median": 108,
+    "OKC_over_106_5_probability": 0.552,
+    "SAS_points_mean": 99.4,
+    "SAS_points_median": 99,
+    "SAS_over_102_5_probability": 0.401,
+    "OKC_minus_3_5_cover_probability": 0.541,
+    "SAS_plus_3_5_cover_probability": 0.459,
+    "OKC_moneyline_probability": 0.642,
+    "SAS_moneyline_probability": 0.358
+  },
+  "liveflow_decision": {
+    "recommended_action": "STRIKE_CONDITIONALLY",
+    "primary_edge": "OKC TT Over 106.5 at +128 has become the cleanest plus-money live angle if available before the line rises.",
+    "edge_rationale": "OKC needs 49 points over the final 19:33. The offense has already normalized from three, Jalen/Chet are active, and SGA has not yet produced a scoring burst. Market is still pricing OKC TT as if full-game offensive drag remains dominant.",
+    "risk": "If SGA remains passive or Spurs re-establish Wemby offensive rebound dominance, this can stall. Do not pair with full-game over due correlation and RISK_CLUSTER_LOCK.",
+    "secondary_avoid": ["SAS TT Over 102.5 now downgraded: needs 46 from here and Fox absence plus turnover pressure remain material.", "Full game Over 205.5 is playable only as a lean, not a better strike than OKC TT because it requires SAS contribution too.", "OKC -3.5 is acceptable but less efficient than TT due endgame spread volatility."],
+    "certainty_tier": "60-69% boosted/one-shot tier",
+    "unit_guidance": "micro single-fire only"
+  },
+  "tags": ["ROLLING_WINDOW_SERIES_SAS_OKC", "WCF_G1", "Q3_LIVEFLOW", "OKC_THREE_POINT_NORMALIZATION", "SGA_SCORING_PENDING", "SAS_HALFCOURT_STALL", "FOX_OUT_CREATION_DROP", "OKC_TT_OVER_EDGE", "RISK_CLUSTER_LOCK"]
+}
