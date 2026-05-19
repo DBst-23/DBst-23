@@ -1,0 +1,63 @@
+{
+  "schema_version": "B.003_liveflow_position_v1",
+  "series_id": "rolling_window_series_CLEvsNYK_2026_ECF",
+  "game_id": "2026-05-19_CLE_at_NYK_Game1",
+  "market_snapshot_source": "user_uploaded_kalshi_and_odds_screen",
+  "logged_at_context": "pre_tip_or_liveflow_pregame_market_scan",
+  "positions": [
+    {
+      "player": "Josh Hart",
+      "team": "NYK",
+      "opponent": "CLE",
+      "market": "rebounds",
+      "selection": "YES_Josh_Hart_9_plus_rebounds",
+      "threshold": 8.5,
+      "display_line": "9+ rebounds",
+      "stake_usd": 2.50,
+      "odds": "+118",
+      "max_payout_usd": 5.46,
+      "status": "LOCKED_IN",
+      "tag": "LIVEFLOW_PREGAME_MICRO_SPRINKLE",
+      "price_quality": {
+        "captured_price": "+118",
+        "market_best_observed": "+120 at Circa / +119 Kalshi nearby / +118 locked",
+        "consensus_range_observed": "+102 to +110 on 8.5 line, with 3ET/Noviq variants at 7.5",
+        "assessment": "Captured near-top market price; acceptable CLV entry relative to broad market."
+      },
+      "model_projection_at_lock": {
+        "mean_rebounds": 8.7,
+        "median_rebounds": 8.0,
+        "probability_9_plus": "47-50%",
+        "implied_probability_at_plus_118": "45.9%",
+        "estimated_edge": "+1.5% to +4.1%",
+        "confidence_tier": "LEAN"
+      },
+      "drivers": [
+        "Cleveland perimeter miss profile can funnel long rebounds to Hart",
+        "Hart weak-side rebounding role benefits if CLE pull-up/late-clock 3PA rises",
+        "Knicks bigs occupy interior box-out assignments, leaving Hart as perimeter vacuum",
+        "Rolling playoff form favors Knicks wing rebound involvement when game is half-court physical"
+      ],
+      "risk_flags": [
+        "Requires miss volume; high CLE shot efficiency suppresses rebound chances",
+        "If Knicks dominate interior boards through KAT/Robinson, Hart ceiling may flatten",
+        "Foul trouble or reduced closing minutes lowers edge"
+      ],
+      "liveflow_upgrade_triggers": [
+        "CLE 15+ 3PA by mid-2Q",
+        "Hart 4+ rebounds by halftime",
+        "Hart positioned weak-side/nail on CLE perimeter attempts",
+        "NYK defensive scheme keeps Hart near rebounding lanes instead of hard top-locking"
+      ],
+      "postgame_scoring_rule": {
+        "hit_condition": "Josh Hart records 9 or more rebounds",
+        "miss_condition": "Josh Hart records 8 or fewer rebounds",
+        "grading_tags": [
+          "EDGE_CALL_ACTIVE",
+          "REBOUND_FUNNEL_WING_PROFILE",
+          "ROLLING_WINDOW_SERIES_CLE_NYK"
+        ]
+      }
+    }
+  ]
+}
