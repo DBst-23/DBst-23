@@ -1,0 +1,46 @@
+{
+  "log_id": "2026-05-18_SAS_OKC_WCF_Game1_Closing_Line_Audit",
+  "registry": "Backtest_Logbook",
+  "series_bucket": "rolling_window_series",
+  "series_id": "2026_WCF_SAS_OKC",
+  "game_number": 1,
+  "date": "2026-05-18",
+  "matchup": "San Antonio Spurs at Oklahoma City Thunder",
+  "status": "CLOSING_LINE_AUDIT_REGISTERED",
+  "final_score": {"SAS": 122, "OKC": 115, "margin_SAS": 7, "total": 237},
+  "closing_market_snapshot_from_user_screens": {
+    "game_lines": {
+      "best_odds": {"SAS_ML": "+235", "OKC_ML": "-235", "SAS_spread": "+7.5 -110", "OKC_spread": "-6.5 +100", "over": "218.5 -115", "under": "220.5 -111"},
+      "consensus_range": {"spread": "OKC -5.5 to -7.5", "total": "218.5 to 220.5", "OKC_ML_range": "-235 to -280", "SAS_ML_range": "+190 to +235"}
+    },
+    "team_totals": {
+      "SAS": {"consensus_line": "105.5 to 106.5", "best_visible_over": "Pinnacle/NOVIG -107 at 106.5", "Kalshi": "Over 105.5 -137 / Under +109"},
+      "OKC": {"consensus_line": "112.5 to 113.5", "best_visible_over": "BetOpenly +102 at 114.5", "Kalshi": "Over 115.5 +119 / Under -143"}
+    }
+  },
+  "market_results": {
+    "SAS_moneyline": "WIN",
+    "SAS_spread_plus_7_5": "WIN",
+    "OKC_spread_minus_6_5_or_minus_7_5": "LOSS",
+    "full_game_over_218_5_to_220_5": "WIN",
+    "SAS_team_total_over_105_5_or_106_5": "WIN",
+    "OKC_team_total_over_112_5_or_113_5": "WIN",
+    "OKC_team_total_over_115_5": "LOSS by 0.5"
+  },
+  "clv_and_market_read": {
+    "favorite_inflation": "OKC closed as heavy favorite despite matchup signs showing SAS could survive through glass control and Wembanyama gravity.",
+    "total_mispricing": "Closing total near 219-220 undershot the actual 237 by roughly 16.5-18.5 points. Double overtime inflated final, but regulation still reached 216, keeping the total market tight even before OT.",
+    "team_total_truth": "Both standard team totals were low relative to final output. SAS cleared by 15.5-16.5 points; OKC cleared 112.5/113.5 but missed the inflated Kalshi 115.5 by half-point.",
+    "market_blind_spot": "Books priced OKC superiority but did not fully price the SAS possession engine: +20 rebound margin, +7 offensive rebounds, and +7 free-throw point edge."
+  },
+  "model_alignment": {
+    "existing_postmortem_reference": "Backtest_Logbook/NBA/Rolling_Window_Series/2026-05-18_SAS_OKC_WCF_Game1_Deep_Postmortem.json",
+    "confirmed_from_deep_postmortem": ["WEMBY_GLASS_GRAVITY_GATE", "SAS_PRIMARY_UNIT_RIM3_STABILITY", "SAS_TURNOVER_SURVIVAL_OFFSET", "OKC_FOUL_DISCIPLINE_DRAG"],
+    "closing_line_implication_for_game2": "Market may correct OKC price downward or total upward, but if OKC is still priced as a clean -6.5/-7 favorite, SAS plus-points remains live unless lineup/foul/turnover corrections materially shift."
+  },
+  "game2_market_precheck_from_current_screens": {
+    "SAS_team_total": {"visible_market": "105.5-106.5", "model_game2_mean_from_deep_postmortem": 116.8, "model_game2_median": 116, "preliminary_edge": "SAS TT over has raw model edge, but requires checking whether market reflects Game 1 OT scoring tax and OKC defensive correction."},
+    "OKC_team_total": {"visible_market": "112.5-115.5", "model_game2_mean_from_deep_postmortem": 118.1, "model_game2_median": 118, "preliminary_edge": "OKC TT over is playable only at <=113.5; Kalshi 115.5 +119 is thin/high-volatility and not a priority."},
+    "full_game_total": {"visible_market": "218.5-220.5 closing Game 1", "model_game2_total_mean": 234.9, "model_game2_total_median": 234, "preliminary_edge": "If Game 2 total opens/holds below 224.5, over remains in attack range; above 229.5 becomes price-sensitive."}
+  }
+}
