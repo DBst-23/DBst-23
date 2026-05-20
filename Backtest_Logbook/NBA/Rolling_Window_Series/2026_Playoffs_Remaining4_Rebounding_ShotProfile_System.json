@@ -1,0 +1,101 @@
+{
+  "schema_version": "B.003_REBOUND_SHOT_PROFILE_SYSTEM_V1.0",
+  "created_from": "NBA Playoff Rebounding & Shot-Profile System update",
+  "scope": "remaining_4_teams",
+  "remaining_teams": ["SAS", "OKC", "CLE", "NYK"],
+  "source_context": {
+    "rolling_window_directory": "Backtest_Logbook/NBA/Rolling_Window_Series/",
+    "index_reference": "2026_Playoffs_Round2_Rolling_Window_Index.json",
+    "note": "Profiles are built from current playoff rolling-window postmortems plus newly supplied SAS@OKC Game 1 player tracking rebound and box-out layer. Advanced tracking should be appended as new games finalize."
+  },
+  "tag_system": {
+    "structural_tags": ["DOUBLE_BIG_ACTIVE", "STRETCH_5_PULL_OUT", "SMALL_BALL_5_OUT", "BENCH_BIG_ROTATION_HEAVY", "CENTER_MINUTES_LOCKED", "CENTER_DISPLACEMENT_RISK_ON"],
+    "scheme_tags": ["CRASH_HEAVY_OFFENSIVE", "TRANSITION_PRIORITY_DROP_CRASH", "SWITCH_HEAVY_DEFENSE", "DROP_COVERAGE_ANCHOR", "ZONE_REBOUND_CLUSTER"],
+    "distribution_tags": ["CONDENSED_REBOUND_TREE", "SPREAD_REBOUND_TREE", "PUTBACK_RATE_BOOST_ON", "LONG_REBOUND_CAPTURE_TEAM", "WEAKSIDE_CRASH_ELITE"],
+    "weakness_tags": ["BOXOUT_BREAKDOWN_TEAM", "LOW_DEF_REB_RATE", "GUARD_TAG_FAILURE", "SECOND_CHANCE_LEAK", "FOUL_RISK_REBOUND_LIMIT"],
+    "volatility_tags": ["REBOUND_VARIANCE_HIGH", "MATCHUP_DEPENDENT_GLASS", "PACE_DEPENDENT_REBOUNDING", "BLOWOUT_REBOUND_INFLATION"]
+  },
+  "team_profiles": {
+    "NYK": {
+      "team": "New York Knicks",
+      "rebound_dna": "Elite offensive rebounding identity; strong paint presence; half-court heavy; playoff form shows high defensive pressure and late-game possession extension ability.",
+      "rebound_tags": ["DOUBLE_BIG_ACTIVE", "CRASH_HEAVY_OFFENSIVE", "PUTBACK_RATE_BOOST_ON", "CONDENSED_REBOUND_TREE", "WEAKSIDE_CRASH_ELITE", "HALFCOURT_SUPPRESSOR_ON"],
+      "shot_tags": ["BRUNSON_PULLUP_GRAVITY", "KAT_PICK_AND_POP_SPACING", "MIDRANGE_PRESSURE", "HALFCOURT_CREATION_HEAVY", "LATE_GAME_ATTACK_SPIKE"],
+      "weakness_tags": ["TRANSITION_VULNERABLE_AFTER_CRASH", "FOUL_DEPENDENT_BIG_MINUTES", "RUST_START_RISK"],
+      "primary_rebound_funnel": ["Karl-Anthony Towns", "Josh Hart", "Mitchell Robinson", "OG Anunoby"],
+      "sim_impact": {"mean_rebound_boost_vs_avg": "+8% to +12%", "median_stability": "high", "volatility": "low-moderate"},
+      "liveflow_notes": "Hart rebound overs gain value when Cleveland misses from three or forces long rebounds. Robinson spikes when KAT is pulled perimeter and Knicks need rim control."
+    },
+    "CLE": {
+      "team": "Cleveland Cavaliers",
+      "rebound_dna": "Twin-tower size with Mobley plus Allen; strong defensive rebound funnel, but offensive rebounding can become conservative depending on transition defense priority.",
+      "rebound_tags": ["DOUBLE_BIG_ACTIVE", "ELITE_DEF_REBOUND_TEAM", "RIM_PROTECTION_TO_REBOUND_PIPELINE", "CONDENSED_REBOUND_TREE", "CENTER_MINUTES_LOCKED"],
+      "shot_tags": ["MITCHELL_RIM_PRESSURE", "HARDEN_DRIVE_AND_KICK", "SPOTUP_DEPENDENT_ROLE_PLAYERS", "HALFCOURT_CREATION_HEAVY", "THREE_POINT_VARIANCE_RISK"],
+      "weakness_tags": ["PERIMETER_LONG_REBOUND_EXPOSURE", "PACE_DROP_REBOUND_LIMIT", "OFFENSIVE_REBOUND_CONSERVATIVE", "LATE_GAME_TURNOVER_COLLAPSE_RISK"],
+      "primary_rebound_funnel": ["Evan Mobley", "Jarrett Allen", "Dean Wade", "Donovan Mitchell", "James Harden"],
+      "sim_impact": {"opponent_rebound_suppression": "-8% to -14%", "median_stability": "high", "volatility": "low unless turnover spiral or 3PT miss run activates"},
+      "liveflow_notes": "Mobley/Allen remain the core rebound tree. If Knicks drag Allen/Mobley into perimeter actions, Hart/Bridges/OG weakside rebound chances rise."
+    },
+    "SAS": {
+      "team": "San Antonio Spurs",
+      "rebound_dna": "Elite size and rim protection led by Wembanyama; Game 1 vs OKC confirmed condensed elite rebound funnel with Wembanyama 24 REB on 35 chances and 68.6% chance conversion.",
+      "rebound_tags": ["ELITE_DEF_REBOUND_TEAM", "DOUBLE_BIG_ACTIVE", "RIM_PROTECTION_TO_REBOUND_PIPELINE", "LOW_VARIANCE_REBOUND_TEAM", "WEMBY_GRAVITY_REBOUND_FUNNEL", "CONDENSED_REBOUND_TREE"],
+      "shot_tags": ["BALANCED_SHOT_MIX", "CONTROLLED_OFFENSE", "LOW_MISS_VARIANCE", "RIM_TOUCH_WEMBY_CORE", "CASTLE_DRIVE_PRESSURE"],
+      "weakness_tags": ["FOUL_RISK_REBOUND_LIMIT", "PERIMETER_LONG_REBOUND_EXPOSURE_IF_WEMBY_DEEP_DROP", "OT_MINUTES_FATIGUE_RISK"],
+      "primary_rebound_funnel": ["Victor Wembanyama", "Dylan Harper", "Julian Champagnie", "Devin Vassell", "Stephon Castle"],
+      "game1_tracking_layer": {
+        "Victor Wembanyama": {"minutes": 48.7, "rebounds": 24, "rebound_chances": 35, "rebound_chance_pct": 68.6, "contested_rebounds": 11, "avg_rebound_distance": 4.5, "box_outs": 2},
+        "Dylan Harper": {"minutes": 47.0, "rebounds": 11, "rebound_chances": 16, "rebound_chance_pct": 68.8, "avg_rebound_distance": 7.9},
+        "Julian Champagnie": {"minutes": 44.1, "rebounds": 9, "rebound_chances": 17, "adjusted_rebound_chance_pct": 64.3, "avg_rebound_distance": 10.0},
+        "Devin Vassell": {"minutes": 50.7, "rebounds": 6, "contested_rebound_pct": 66.7, "adjusted_rebound_chance_pct": 54.5},
+        "Stephon Castle": {"minutes": 48.9, "rebounds": 6, "rebound_chances": 16, "avg_rebound_distance": 11.4}
+      },
+      "sim_impact": {"opponent_rebound_suppression": "-10% to -16%", "team_rebound_mean": "high", "volatility": "low except OT/fatigue or foul trouble"},
+      "liveflow_notes": "Fade opposing big overs when Wembanyama is on-floor and avoiding foul trouble. Harper/Champagnie become long-rebound beneficiaries when OKC misses high-volume threes."
+    },
+    "OKC": {
+      "team": "Oklahoma City Thunder",
+      "rebound_dna": "Guard-driven offense and high efficiency reduce some raw rebound opportunities, but Game 1 showed OKC can spread rebound chances across guards/wings while still leaking elite opponent big production.",
+      "rebound_tags": ["SMALL_BALL_5_OUT", "PACE_DEPENDENT_REBOUNDING", "SPREAD_REBOUND_TREE", "REBOUND_VARIANCE_HIGH", "LONG_REBOUND_CAPTURE_TEAM", "MATCHUP_DEPENDENT_GLASS"],
+      "shot_tags": ["SGA_DRIVE_MIDRANGE_CORE", "CARUSO_SPOTUP_SPIKE", "THREE_POINT_VOLUME_MODERATE_HIGH", "LONG_REBOUND_GENERATOR", "EFFICIENCY_SWING_TEAM"],
+      "weakness_tags": ["BOXOUT_BREAKDOWN_TEAM", "WEAK_INTERIOR_ANCHOR", "SECOND_CHANCE_LEAK", "WEMBY_MATCHUP_DISPLACEMENT_FAILURE"],
+      "primary_rebound_funnel": ["Chet Holmgren", "Jalen Williams", "Cason Wallace", "Ajay Mitchell", "Shai Gilgeous-Alexander"],
+      "game1_tracking_layer": {
+        "Chet Holmgren": {"minutes": 40.9, "rebounds": 8, "rebound_chances": 21, "rebound_chance_pct": 38.1, "adjusted_rebound_chance_pct": 44.4, "avg_rebound_distance": 4.9},
+        "Jalen Williams": {"minutes": 37.3, "rebounds": 7, "rebound_chances": 16, "adjusted_rebound_chance_pct": 50.0, "avg_rebound_distance": 6.4},
+        "Cason Wallace": {"minutes": 28.2, "rebounds": 6, "rebound_chances": 8, "rebound_chance_pct": 75.0, "avg_rebound_distance": 9.8},
+        "Ajay Mitchell": {"minutes": 33.6, "rebounds": 4, "rebound_chances": 9, "rebound_chance_pct": 44.4, "avg_rebound_distance": 9.4},
+        "Alex Caruso": {"minutes": 31.7, "rebounds": 2, "rebound_chances": 10, "deferred_rebound_chances": 4, "adjusted_rebound_chance_pct": 33.3, "avg_rebound_distance": 14.9}
+      },
+      "sim_impact": {"team_rebound_mean": "slightly below average", "median_stability": "unstable", "volatility": "very high", "opponent_big_overs": "boosted when OKC goes small"},
+      "liveflow_notes": "If OKC shoots heavy threes and misses, long rebounds can flow to Wallace/Jalen/Ajay. If Wembanyama stays deep and OKC small-ball persists, Spurs big/wing rebound overs get boosted."
+    }
+  },
+  "matchup_interaction_rules": {
+    "A_INTERIOR_DOMINANCE": {"condition": "DOUBLE_BIG_ACTIVE vs SMALL_BALL_5_OUT", "outcome": "center/big rebound overs boosted", "mean_boost": "+12% to +18%", "volatility": "low-to-medium"},
+    "B_LONG_REBOUND_CHAOS": {"condition": "THREE_POINT_VOLUME_HIGH vs BOXOUT_BREAKDOWN_TEAM", "outcome": "wing/guard rebound spike", "mean_boost": "+10% to +20%", "volatility": "very high"},
+    "C_DEFENSIVE_SUPPRESSION": {"condition": "ELITE_DEF_REBOUND_TEAM vs RIM_PRESSURE_HEAVY", "outcome": "opponent rebound unders gain value", "mean_drop": "-10% to -15%", "volatility": "stable"},
+    "D_EFFICIENCY_TRAP": {"condition": "both teams high efficiency", "outcome": "total rebounds decrease; unders gain value"},
+    "E_CHAOS_GAME": {"condition": "MISS_VARIANCE_HIGH + high pace", "outcome": "alt rebound overs gain value, especially wings/guards", "volatility": "extreme"}
+  },
+  "remaining_matchup_profiles": {
+    "SAS_OKC": {
+      "series_state": "SAS leads 1-0 after 122-115 2OT win",
+      "active_rules": ["A_INTERIOR_DOMINANCE", "B_LONG_REBOUND_CHAOS", "C_DEFENSIVE_SUPPRESSION"],
+      "rebound_funnel_forecast": "Wembanyama remains the dominant primary funnel; Harper/Champagnie/Castle/Vassell benefit from OKC long misses. OKC counters with Chet/Jalen/Wallace spread tree but interior suppression remains a problem.",
+      "game2_watchlist": ["Wembanyama foul count", "OKC small-ball minutes", "Chet rebound chances vs actual boards", "Harper/Champagnie long rebound capture", "OKC 3PA miss clusters"]
+    },
+    "CLE_NYK": {
+      "series_state": "NYK leads 1-0 after 115-104 OT comeback",
+      "active_rules": ["A_INTERIOR_DOMINANCE", "B_LONG_REBOUND_CHAOS", "D_EFFICIENCY_TRAP if shooting normalizes"],
+      "rebound_funnel_forecast": "Cleveland funnels through Mobley/Allen, but Knicks weakside crashers Hart/OG/Bridges gain value when Cleveland role-player threes miss. KAT and Robinson split center rebound pathways based on lineup and foul state.",
+      "game2_watchlist": ["Hart rebound chances after 1Q/1H", "Mobley+Allen combined chances", "KAT perimeter displacement", "Mitchell/Harden missed threes", "Knicks transition-after-crash vulnerability"]
+    }
+  },
+  "live_rebound_flow_engine": {
+    "formula": "REB_projection = player_base_rate * team_rebound_profile * opponent_rebound_profile * shot_profile_interaction * pace * volatility_gate",
+    "edge_percent": "(model_probability - implied_probability) * matchup_multiplier",
+    "event_loop": ["classify shot_type", "update shot profile tags", "compute rebound edge score", "if miss: update rebound distribution", "log timestamp lineup edge_score volatility", "trigger lineup shift rules"],
+    "risk_controls": ["High volatility = smaller stake", "Avoid overs during defensive suppression unless player is primary funnel", "Alt overs only in chaos scenarios", "No correlated overexposure in LiveFlow_Stripped_Mode"]
+  }
+}
