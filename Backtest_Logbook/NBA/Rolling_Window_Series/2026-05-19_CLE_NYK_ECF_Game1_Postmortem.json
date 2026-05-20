@@ -1,0 +1,88 @@
+{
+  "log_id": "2026-05-19_CLE_NYK_ECF_Game1_Postmortem",
+  "registry": "Backtest_Logbook",
+  "series_bucket": "rolling_window_series",
+  "series_id": "2026_ECF_CLE_NYK",
+  "round": "Eastern Conference Finals",
+  "game_number": 1,
+  "date": "2026-05-19",
+  "venue": "Madison Square Garden, New York, NY",
+  "officials": ["Scott Foster", "James Capers", "JB DeRosa", "Ray Acosta"],
+  "final_score": {"CLE": 104, "NYK": 115, "periods": {"CLE": [16, 32, 35, 18, 3], "NYK": [23, 23, 23, 32, 14]}},
+  "game_result_summary": "New York erased a 22-point fourth-quarter deficit, tied the game late in regulation, then opened overtime with a decisive burst to win 115-104. Cleveland controlled most of the middle game but collapsed offensively and structurally after leading 93-71 with 7:52 left in the fourth.",
+  "position_results": [
+    {"ticket": "No - New York wins by over 9.5", "stake": 5.00, "odds": -108, "result": "LOSS", "closing_margin": 11, "tag": "OT_MARGIN_EXPANSION_BURN"},
+    {"ticket": "No - New York wins by over 8.5", "stake": 2.50, "odds": 109, "result": "LOSS", "closing_margin": 11, "tag": "OT_MARGIN_EXPANSION_BURN"},
+    {"ticket": "Josh Hart 9+ rebounds", "stake": 2.50, "odds": 118, "result": "LOSS", "actual": 7, "tag": "ROTATION_MINUTES_COMPRESSION_REBOUND_MISS"},
+    {"ticket": "James Harden 7+ assists", "stake": 2.50, "odds": -113, "result": "LOSS", "actual": 3, "tag": "HARDEN_CREATION_FAIL_TURNOVER_DRAG"}
+  ],
+  "betting_result_summary": {"record": "0-4", "net": -12.50, "diagnostic_grade": "Internal model / LiveFlow failure", "primary_failure": "We correctly identified the game as competitive through regulation, but failed to protect against overtime margin expansion after a massive Knicks comeback."},
+  "phase_analysis": {
+    "first_quarter": {
+      "score": "NYK 23 - CLE 16",
+      "read": "Knicks defense and bench pressure created early separation despite poor spacing. Cleveland committed five turnovers and shot 27.3% from the field.",
+      "model_note": "Early Cleveland turnover pressure should have raised Knicks comeback and chaos-tail probability, but not enough to justify preemptive margin expansion protection."
+    },
+    "second_quarter": {
+      "score": "CLE 32 - NYK 23",
+      "read": "Cleveland flipped the game with elite shotmaking: 10/16 FG and 6/9 from three in the quarter. Mitchell and Harden powered the run, but Harden turnovers remained a warning flag.",
+      "model_note": "Halftime read overweighted Cleveland's control and underweighted the cost of 11 first-half Cavs turnovers."
+    },
+    "third_quarter": {
+      "score": "CLE 35 - NYK 23",
+      "read": "Cleveland appeared to seize full control behind Mitchell shot creation, Mobley/Allen interior stability, and Knicks free-throw/shot-quality instability. NYK entered the fourth down 83-69.",
+      "model_note": "At 83-69, Cavs had the correct live side profile, but the model should have activated fourth-quarter closeout fragility due to Harden usage drag and Mitchell fatigue/foul stack."
+    },
+    "fourth_quarter": {
+      "score": "NYK 32 - CLE 18",
+      "read": "The collapse point. Knicks trailed 93-71 with 7:52 left, then Brunson attacked Harden relentlessly and the Knicks produced a 30-8 closing regulation stretch to tie 101-101.",
+      "model_note": "This was the miss. The LiveFlow engine failed to trigger COMEBACK_TSUNAMI_MODE when Knicks cut the lead from 22 to single digits with Brunson hunting Harden and Cleveland offense stagnating."
+    },
+    "overtime": {
+      "score": "NYK 14 - CLE 3",
+      "read": "Knicks opened OT with a 9-0 run and finished +11 in the extra period. Cleveland had no stable creation: 1/7 FG, 1/6 from three, three turnovers, zero rebounds credited in OT team table before team rebounds.",
+      "model_note": "OT margin expansion destroyed both anti-blowout tickets. Future NO margin bets require overtime blowout-tail protection in games with late collapses."
+    }
+  },
+  "advanced_box_score_proxy": {
+    "effective_fg_pct": {"CLE": 0.4889, "NYK": 0.5341},
+    "turnover_count": {"CLE": 21, "NYK": 19},
+    "offensive_rebounds": {"CLE": 11, "NYK": 9},
+    "free_throw_attempts": {"CLE": 23, "NYK": 32},
+    "paint_points": {"CLE": 38, "NYK": 60},
+    "second_chance_points": {"CLE": 14, "NYK": 17},
+    "fast_break_points": {"CLE": 12, "NYK": 13},
+    "largest_lead": {"CLE": 22, "NYK": 11}
+  },
+  "player_diagnostics": {
+    "Jalen Brunson": {"actual": {"points": 38, "rebounds": 5, "assists": 6, "minutes": "46:24"}, "diagnostic": "Primary comeback engine. Brunson hunting Harden in the fourth was the decisive matchup shift."},
+    "Donovan Mitchell": {"actual": {"points": 29, "rebounds": 5, "assists": 3, "steals": 6, "minutes": "40:40"}, "diagnostic": "Elite through three quarters but late-game shot creation faded under Knicks pressure and fatigue/foul context."},
+    "James Harden": {"actual": {"points": 15, "rebounds": 4, "assists": 3, "turnovers": 6, "minutes": "42:05"}, "diagnostic": "Assist prop failure and defensive target. Harden usage created drag: more turnovers than assists and more turnovers than made field goals."},
+    "Josh Hart": {"actual": {"points": 13, "rebounds": 7, "assists": 4, "minutes": "30:30"}, "diagnostic": "Rebound ladder failed due to minutes compression and late rotation shape. Hart played only 2:01 in Q4 and 0:42 in OT."},
+    "Karl-Anthony Towns": {"actual": {"points": 13, "rebounds": 13, "assists": 5, "turnovers": 7, "minutes": "40:21"}, "diagnostic": "Rebound funnel and late possession hub, but turnover volatility remains high."},
+    "OG Anunoby": {"actual": {"points": 13, "rebounds": 5, "plus_minus": 15}, "diagnostic": "Late OT value spike. Despite poor early offense, he became the free-throw/defensive stabilizer in OT."},
+    "Landry Shamet": {"actual": {"points": 9, "three_pointers": 3, "plus_minus": 25}, "diagnostic": "Hidden rotation swing. Bench shooting changed late spacing and reduced Hart closing minutes."}
+  },
+  "model_failures": [
+    "OT_MARGIN_EXPANSION_UNDERWEIGHTED",
+    "COMEBACK_TSUNAMI_MODE_NOT_TRIGGERED",
+    "HARDEN_DEFENSIVE_TARGET_RISK_UNDERWEIGHTED",
+    "HARDEN_ASSIST_PATH_OVERVALUED",
+    "HART_REBOUND_MINUTES_COMPRESSION_UNDERWEIGHTED",
+    "LATE_KNICKS_DEFENSE_TO_OFFENSE_CHAIN_UNDERWEIGHTED",
+    "CLEVELAND_CLOSEOUT_TURNOVER_FRAGILITY_UNDERWEIGHTED"
+  ],
+  "new_patch_queue": [
+    {"patch": "OT_MARGIN_EXPANSION_PROTECTION_GATE", "trigger": "Any NO-favorite-margin ticket live in a tied or overtime-risk playoff game must include OT margin expansion tail. If comeback team has momentum and crowd edge, do not assume close regulation equals close final margin."},
+    {"patch": "COMEBACK_TSUNAMI_MODE", "trigger": "Activate when a home playoff team cuts a 18+ point fourth-quarter deficit to single digits with 4:30+ remaining and primary closer is generating paint touches or foul pressure."},
+    {"patch": "HARDEN_DEFENSIVE_HUNT_GATE", "trigger": "If Harden is the target defender in repeated late-game actions and has 4+ turnovers or 4+ fouls, downgrade Cleveland closeout probability and widen opponent late-run distribution."},
+    {"patch": "HART_REBOUND_CLOSING_MINUTES_CHECK", "trigger": "Do not ladder Hart rebounds unless projected closing lineup has Hart above 34 minutes or Knicks are not using Shamet/spacing-heavy closing units."},
+    {"patch": "CAVS_CLOSEOUT_TURNOVER_FRAGILITY", "trigger": "When Cleveland has 15+ turnovers entering late fourth and relies on Harden/Mitchell isolation, downgrade win probability and team total conversion even if leading by double digits."}
+  ],
+  "series_forward_inputs_game2": {
+    "NYK": ["Brunson late-game hunting edge confirmed", "KAT rebound/hub role confirmed", "Shamet spacing can replace Hart in closing stretches", "OG late-game defensive/FT stabilizer active"],
+    "CLE": ["Mitchell ceiling intact", "Mobley rebound floor strong", "Harden assist market downgraded", "Turnover fragility severe under pressure", "Allen offensive rebound presence active but free throw volatility remains"]
+  },
+  "workflow_status": "FINALIZED_POSTMORTEM_REGISTERED_TO_ROLLING_WINDOW_SERIES",
+  "advanced_metrics_pending": ["player_tracking_rebounds", "box_outs", "lineup_stints", "matchup_defense", "touches", "potential_assists", "screen assists", "on/off lineup net ratings"]
+}
