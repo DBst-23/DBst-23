@@ -1,0 +1,68 @@
+{
+  "log_id": "2026-05-18_SAS_OKC_WCF_Game1_Deep_Postmortem",
+  "registry": "Backtest_Logbook",
+  "series_bucket": "rolling_window_series",
+  "series_id": "2026_WCF_SAS_OKC",
+  "round": "Western Conference Finals",
+  "game_number": 1,
+  "date": "2026-05-18",
+  "matchup": "San Antonio Spurs at Oklahoma City Thunder",
+  "status": "FINALIZED_DEEP_POSTMORTEM_REGISTERED",
+  "final_score": {"SAS": 122, "OKC": 115},
+  "core_read": "San Antonio won Game 1 by controlling the glass, sustaining rim/3 shot quality, and surviving heavy turnover pressure. OKC generated enough scoring volume and three-point efficiency to stay live, but the rebounding deficit and foul disadvantage created a structural Game 1 loss profile.",
+  "team_metrics": {
+    "scoring": {"SAS": {"points": 122, "possessions": 112, "efg_pct": 49.48, "ts_pct": 55.96, "shot_quality": 0.55, "rim_or_3_freq_pct": 84.38}, "OKC": {"points": 115, "possessions": 112, "efg_pct": 49.01, "ts_pct": 52.75, "shot_quality": 0.55, "rim_or_3_freq_pct": 72.28}},
+    "rebounds": {"SAS": {"rebounds": 68, "dreb": 49, "oreb": 19, "fg_dreb_pct": 79.66, "fg_oreb_pct": 35.85}, "OKC": {"rebounds": 48, "dreb": 36, "oreb": 12, "fg_dreb_pct": 64.15, "fg_oreb_pct": 20.34}},
+    "turnovers": {"SAS": {"turnovers": 23, "live_ball_turnovers": 14, "live_ball_to_pct": 60.87}, "OKC": {"turnovers": 15, "live_ball_turnovers": 11, "live_ball_to_pct": 73.33}},
+    "fouls": {"SAS": {"fouls": 19, "shooting_fouls_committed": 10, "fouls_drawn": 26}, "OKC": {"fouls": 26, "shooting_fouls_committed": 13, "fouls_drawn": 19}}
+  },
+  "player_tracking_rebounds": {
+    "Victor Wembanyama": {"rebounds": 24, "contested_rebounds": 11, "contested_reb_pct": 45.8, "rebound_chances": 35, "rebound_chance_pct": 68.6, "adjusted_rebound_chance_pct": 68.6, "avg_reb_distance": 4.5, "diagnostic": "Series-defining glass control. OKC has no clean one-on-one rebounding answer if Wembanyama stays near 49 minutes."},
+    "Dylan Harper": {"rebounds": 11, "rebound_chances": 16, "rebound_chance_pct": 68.8, "avg_reb_distance": 7.9, "diagnostic": "Guard rebound tail was real, not noise. He captured long misses and helped SAS survive OKC perimeter volume."},
+    "Julian Champagnie": {"rebounds": 9, "rebound_chances": 17, "adjusted_rebound_chance_pct": 64.3, "avg_reb_distance": 10.0, "diagnostic": "Weak-side forward rebound stabilizer. Important for Game 2 corner/above-break miss recovery."},
+    "Chet Holmgren": {"rebounds": 8, "rebound_chances": 21, "rebound_chance_pct": 38.1, "adjusted_rebound_chance_pct": 44.4, "avg_reb_distance": 4.9, "diagnostic": "High opportunity, poor conversion. OKC's biggest Game 2 correction lever is Chet converting more of his chances."},
+    "Cason Wallace": {"rebounds": 6, "rebound_chances": 8, "rebound_chance_pct": 75.0, "diagnostic": "Backcourt rebounding overperformance but low absolute chance base."},
+    "Shai Gilgeous-Alexander": {"rebounds": 3, "rebound_chances": 12, "rebound_chance_pct": 25.0, "adjusted_rebound_chance_pct": 27.3, "diagnostic": "Low rebound conversion despite massive minutes. Avoid SGA rebound overs unless Game 2 role shifts away from pure creation burden."}
+  },
+  "lineup_findings": {
+    "SAS_primary_unit": {"players": ["Vassell", "Champagnie", "Wembanyama", "Castle", "Harper"], "minutes": "30:14", "points": 63, "possessions": 60, "rebounds": 38, "turnovers": 14, "rim_or_3_freq_pct": 90.57, "diagnostic": "This was the series-winning identity group: elite shot profile and massive glass control, but turnover risk remains the primary liability."},
+    "OKC_primary_unit": {"players": ["Caruso", "Gilgeous-Alexander", "Holmgren", "Williams", "Mitchell"], "minutes": "09:19", "points": 22, "possessions": 18, "rebounds": 7, "turnovers": 0, "diagnostic": "Best clean-control OKC group. Strong scoring efficiency and zero turnovers, but still did not solve the SAS rebounding edge."},
+    "OKC_Caruso_SGA_Wiggins_JWill_Wallace": {"minutes": "03:57", "points": 2, "plus_minus": -7, "diagnostic": "Spacing/creation failure group. Should be downgraded for Game 2 unless used only as defensive bridge."}
+  },
+  "shot_profile_diagnostics": {
+    "SAS": "San Antonio generated an elite rim-or-three profile at 84.38%, including 38 rim attempts and 43 threes. They were not merely hot; the shot diet was structurally strong.",
+    "OKC": "OKC shot better from three at 37.78% and made 17 threes, but only 72.28% rim-or-three frequency and weaker rim volume reduced pressure consistency.",
+    "key_delta": "SAS converted game control through possession volume and free throws, not pure eFG dominance. OKC's eFG was close, but SAS owned the possession economy."
+  },
+  "four_factor_proxy": {
+    "efg_edge": "Near neutral: SAS 49.48% vs OKC 49.01%",
+    "turnover_edge": "OKC advantage: SAS 23 TOs vs OKC 15 TOs, but OKC failed to fully monetize it because SAS dominated rebounds and foul pressure.",
+    "rebound_edge": "Massive SAS advantage: +20 total rebounds, +7 offensive rebounds, +15.51 percentage-point FG DREB edge.",
+    "free_throw_edge": "SAS advantage: OKC committed 26 fouls and SAS drew 26 fouls; SAS generated 27 FT points in scoring table vs OKC 16."
+  },
+  "model_relevance_summary": {
+    "confirmed_edges": ["Wembanyama rebound dominance", "SAS rim/3 shot profile sustainability", "OKC turnover pressure", "OKC three-point shotmaking path", "SAS foul pressure advantage"],
+    "blind_spots": ["SAS turnover count did not kill them because rebound dominance offset it", "OKC Chet rebound chances were high but conversion was poor", "SGA rebound conversion suppressed despite 51+ minutes", "SAS guard/wing rebound distribution was stronger than expected"],
+    "game2_priority_variables": ["Wembanyama rebound line", "Chet rebound correction", "OKC team total response", "SAS turnovers live-ball conversion", "OKC foul discipline", "SAS primary unit minutes durability"]
+  },
+  "patch_queue": [
+    {"patch": "WEMBY_GLASS_GRAVITY_GATE", "trigger": "If Wembanyama projects 44+ minutes with 30+ rebound chances, raise SAS rebound margin and downgrade opposing center rebound conversion unless market already prices 18+ boards."},
+    {"patch": "CHET_CHANCE_TO_CONVERSION_REGRESSION_CHECK", "trigger": "If Chet records 18+ rebound chances but sub-45% adjusted chance conversion, Game 2 rebound projection gets mild upward correction but capped against Wembanyama lineups."},
+    {"patch": "SAS_TURNOVER_SURVIVAL_OFFSET", "trigger": "Do not auto-fade SAS for high turnovers when they hold +12 or better rebound margin and draw +5 or more foul differential."},
+    {"patch": "OKC_FOUL_DISCIPLINE_DRAG", "trigger": "If OKC commits 24+ fouls or gives SAS 24+ drawn fouls, downgrade OKC spread and late-game closeout probability."},
+    {"patch": "SAS_PRIMARY_UNIT_RIM3_STABILITY", "trigger": "When Vassell-Champagnie-Wembanyama-Castle-Harper lineup exceeds 25 minutes and rim-or-three frequency is 85%+, treat SAS offensive profile as sustainable, not shooting luck."}
+  ],
+  "game2_prep": {
+    "base_projection_pre_market": {"mean_score": {"SAS": 116.8, "OKC": 118.1}, "median_score": {"SAS": 116, "OKC": 118}, "projected_total_mean": 234.9, "projected_total_median": 234, "OKC_win_probability": 52.8, "SAS_win_probability": 47.2},
+    "spread_probabilities_pre_market": {"OKC_-2_5": 50.9, "OKC_-4_5": 45.2, "SAS_+4_5": 54.8, "SAS_+6_5": 60.1},
+    "total_probabilities_pre_market": {"over_229_5": 58.4, "over_232_5": 53.6, "under_236_5": 52.1, "under_240_5": 58.8},
+    "prop_watchlist": [
+      {"market": "Victor Wembanyama rebounds", "lean": "Over if line <= 14.5; cautious/pass if 17.5+", "mean": 16.2, "median": 16.0, "confidence": "medium-high"},
+      {"market": "Chet Holmgren rebounds", "lean": "Over only if line <= 7.5 and price fair; otherwise no-call due Wemby suppression", "mean": 8.6, "median": 8.0, "confidence": "medium"},
+      {"market": "SGA rebounds", "lean": "Under if line >= 5.5", "mean": 4.2, "median": 4.0, "confidence": "medium"},
+      {"market": "SAS turnovers", "lean": "Over if line <= 15.5", "mean": 17.1, "median": 17.0, "confidence": "medium"},
+      {"market": "OKC team total", "lean": "Over only if line <= 116.5 and foul discipline correction assumed", "mean": 118.1, "median": 118.0, "confidence": "thin edge"}
+    ],
+    "game2_strategy": "Do not chase revenge narrative blindly. OKC has correction paths through Chet rebound conversion and cleaner SGA-led lineups, but SAS possession economy is real. Prioritize rebound markets and full-game total bands before spread unless market overreacts to SAS Game 1 win."
+  }
+}
