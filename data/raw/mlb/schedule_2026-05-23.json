@@ -23,12 +23,12 @@
           "rescheduledFrom": "2026-05-22T22:40:00Z",
           "rescheduledFromDate": "2026-05-22",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -318,80 +318,6 @@
           "ifNecessaryDescription": "Normal Game"
         },
         {
-          "gamePk": 824840,
-          "gameGuid": "93cef5d3-c6bc-4162-9d23-95e0aeccb8be",
-          "link": "/api/v1.1/game/824840/feed/live",
-          "gameType": "R",
-          "season": "2026",
-          "gameDate": "2026-05-23T20:05:00Z",
-          "officialDate": "2026-05-23",
-          "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
-            "startTimeTBD": false,
-            "abstractGameCode": "P"
-          },
-          "teams": {
-            "away": {
-              "team": {
-                "id": 116,
-                "name": "Detroit Tigers",
-                "link": "/api/v1/teams/116"
-              },
-              "leagueRecord": {
-                "wins": 20,
-                "losses": 32,
-                "ties": 0,
-                "pct": ".385"
-              },
-              "splitSquad": false,
-              "seriesNumber": 17
-            },
-            "home": {
-              "team": {
-                "id": 110,
-                "name": "Baltimore Orioles",
-                "link": "/api/v1/teams/110"
-              },
-              "leagueRecord": {
-                "wins": 22,
-                "losses": 29,
-                "ties": 0,
-                "pct": ".431"
-              },
-              "splitSquad": false,
-              "seriesNumber": 17
-            }
-          },
-          "venue": {
-            "id": 2,
-            "name": "Oriole Park at Camden Yards",
-            "link": "/api/v1/venues/2"
-          },
-          "content": {
-            "link": "/api/v1/game/824840/content"
-          },
-          "gameNumber": 1,
-          "publicFacing": true,
-          "doubleHeader": "N",
-          "gamedayType": "P",
-          "tiebreaker": "N",
-          "calendarEventID": "14-824840-2026-05-23",
-          "seasonDisplay": "2026",
-          "dayNight": "day",
-          "scheduledInnings": 9,
-          "reverseHomeAwayStatus": false,
-          "inningBreakLength": 120,
-          "gamesInSeries": 3,
-          "seriesGameNumber": 2,
-          "seriesDescription": "Regular Season",
-          "recordSource": "S",
-          "ifNecessary": "N",
-          "ifNecessaryDescription": "Normal Game"
-        },
-        {
           "gamePk": 823458,
           "gameGuid": "ce8cb87b-1461-4a24-84f7-362c3815dbef",
           "link": "/api/v1.1/game/823458/feed/live",
@@ -401,9 +327,9 @@
           "officialDate": "2026-05-23",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -568,6 +494,7 @@
                 "ties": 0,
                 "pct": ".481"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 17
             },
@@ -583,6 +510,7 @@
                 "ties": 0,
                 "pct": ".392"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 17
             }
@@ -792,6 +720,7 @@
                 "ties": 0,
                 "pct": ".431"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 17
             },
@@ -807,6 +736,7 @@
                 "ties": 0,
                 "pct": ".442"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 17
             }
@@ -1198,6 +1128,81 @@
           "gamedayType": "P",
           "tiebreaker": "N",
           "calendarEventID": "14-823543-2026-05-23",
+          "seasonDisplay": "2026",
+          "dayNight": "day",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
+          "gamesInSeries": 3,
+          "seriesGameNumber": 2,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 824840,
+          "gameGuid": "93cef5d3-c6bc-4162-9d23-95e0aeccb8be",
+          "link": "/api/v1.1/game/824840/feed/live",
+          "gameType": "R",
+          "season": "2026",
+          "gameDate": "2026-05-23T20:05:00Z",
+          "officialDate": "2026-05-23",
+          "status": {
+            "abstractGameState": "Final",
+            "codedGameState": "D",
+            "detailedState": "Postponed",
+            "statusCode": "DR",
+            "startTimeTBD": false,
+            "reason": "Rain",
+            "abstractGameCode": "F"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 116,
+                "name": "Detroit Tigers",
+                "link": "/api/v1/teams/116"
+              },
+              "leagueRecord": {
+                "wins": 20,
+                "losses": 32,
+                "ties": 0,
+                "pct": ".385"
+              },
+              "splitSquad": false,
+              "seriesNumber": 17
+            },
+            "home": {
+              "team": {
+                "id": 110,
+                "name": "Baltimore Orioles",
+                "link": "/api/v1/teams/110"
+              },
+              "leagueRecord": {
+                "wins": 22,
+                "losses": 29,
+                "ties": 0,
+                "pct": ".431"
+              },
+              "splitSquad": false,
+              "seriesNumber": 17
+            }
+          },
+          "venue": {
+            "id": 2,
+            "name": "Oriole Park at Camden Yards",
+            "link": "/api/v1/venues/2"
+          },
+          "content": {
+            "link": "/api/v1/game/824840/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-824840-2026-05-23",
           "seasonDisplay": "2026",
           "dayNight": "day",
           "scheduledInnings": 9,
