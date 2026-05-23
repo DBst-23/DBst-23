@@ -3,14 +3,14 @@
   "totalItems": 16,
   "totalEvents": 0,
   "totalGames": 16,
-  "totalGamesInProgress": 3,
+  "totalGamesInProgress": 2,
   "dates": [
     {
       "date": "2026-05-23",
       "totalItems": 16,
       "totalEvents": 0,
       "totalGames": 16,
-      "totalGamesInProgress": 3,
+      "totalGamesInProgress": 2,
       "games": [
         {
           "gamePk": 824518,
@@ -23,12 +23,12 @@
           "rescheduledFrom": "2026-05-22T22:40:00Z",
           "rescheduledFromDate": "2026-05-22",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "O",
+            "detailedState": "Game Over",
+            "statusCode": "O",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -38,12 +38,13 @@
                 "link": "/api/v1/teams/138"
               },
               "leagueRecord": {
-                "wins": 28,
+                "wins": 29,
                 "losses": 21,
                 "ties": 0,
-                "pct": ".571"
+                "pct": ".580"
               },
-              "score": 6,
+              "score": 8,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 17
             },
@@ -55,11 +56,12 @@
               },
               "leagueRecord": {
                 "wins": 26,
-                "losses": 24,
+                "losses": 25,
                 "ties": 0,
-                "pct": ".520"
+                "pct": ".510"
               },
               "score": 1,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 17
             }
@@ -72,6 +74,7 @@
           "content": {
             "link": "/api/v1/game/824518/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "S",
@@ -115,10 +118,10 @@
                 "link": "/api/v1/teams/138"
               },
               "leagueRecord": {
-                "wins": 28,
+                "wins": 29,
                 "losses": 21,
                 "ties": 0,
-                "pct": ".571"
+                "pct": ".580"
               },
               "splitSquad": false,
               "seriesNumber": 17
@@ -131,9 +134,9 @@
               },
               "leagueRecord": {
                 "wins": 26,
-                "losses": 24,
+                "losses": 25,
                 "ties": 0,
-                "pct": ".520"
+                "pct": ".510"
               },
               "splitSquad": false,
               "seriesNumber": 17
@@ -328,9 +331,10 @@
           "status": {
             "abstractGameState": "Preview",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Delayed Start",
+            "statusCode": "PR",
             "startTimeTBD": false,
+            "reason": "Rain",
             "abstractGameCode": "P"
           },
           "teams": {
@@ -402,12 +406,12 @@
           "gameDate": "2026-05-23T20:05:00Z",
           "officialDate": "2026-05-23",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -478,12 +482,12 @@
           "gameDate": "2026-05-23T20:10:00Z",
           "officialDate": "2026-05-23",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -554,12 +558,12 @@
           "gameDate": "2026-05-23T20:10:00Z",
           "officialDate": "2026-05-23",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -630,12 +634,12 @@
           "gameDate": "2026-05-23T20:10:00Z",
           "officialDate": "2026-05-23",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -706,12 +710,12 @@
           "gameDate": "2026-05-23T20:10:00Z",
           "officialDate": "2026-05-23",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
