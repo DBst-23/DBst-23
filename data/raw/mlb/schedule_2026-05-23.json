@@ -3,14 +3,14 @@
   "totalItems": 16,
   "totalEvents": 0,
   "totalGames": 16,
-  "totalGamesInProgress": 0,
+  "totalGamesInProgress": 1,
   "dates": [
     {
       "date": "2026-05-23",
       "totalItems": 16,
       "totalEvents": 0,
       "totalGames": 16,
-      "totalGamesInProgress": 0,
+      "totalGamesInProgress": 1,
       "games": [
         {
           "gamePk": 824518,
@@ -24,9 +24,9 @@
           "rescheduledFromDate": "2026-05-22",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "P",
-            "detailedState": "Warmup",
-            "statusCode": "PW",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
             "abstractGameCode": "L"
           },
@@ -346,6 +346,7 @@
                 "ties": 0,
                 "pct": ".585"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 17
             },
@@ -361,6 +362,7 @@
                 "ties": 0,
                 "pct": ".490"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 17
             }
@@ -401,9 +403,9 @@
           "officialDate": "2026-05-23",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -420,6 +422,7 @@
                 "ties": 0,
                 "pct": ".520"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 17
             },
@@ -435,6 +438,7 @@
                 "ties": 0,
                 "pct": ".392"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 17
             }
@@ -627,9 +631,9 @@
           "officialDate": "2026-05-23",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -646,6 +650,7 @@
                 "ties": 0,
                 "pct": ".481"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 17
             },
@@ -661,6 +666,7 @@
                 "ties": 0,
                 "pct": ".692"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 17
             }
@@ -1147,7 +1153,9 @@
           "gameType": "R",
           "season": "2026",
           "gameDate": "2026-05-23T20:05:00Z",
-          "officialDate": "2026-05-23",
+          "officialDate": "2026-05-24",
+          "rescheduleDate": "2026-05-24T22:05:00Z",
+          "rescheduleGameDate": "2026-05-24",
           "status": {
             "abstractGameState": "Final",
             "codedGameState": "D",
