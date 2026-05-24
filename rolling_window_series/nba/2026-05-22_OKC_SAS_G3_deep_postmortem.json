@@ -1,0 +1,102 @@
+{
+  "series": "rolling_window_series",
+  "schema_version": "B.003_deep_postmortem_v1",
+  "sport": "NBA",
+  "game_id": "OKC_SAS_G3_2026_05_22",
+  "date": "2026-05-22",
+  "matchup": "Oklahoma City Thunder @ San Antonio Spurs",
+  "game_number": 3,
+  "final_score": {"OKC": 123, "SAS": 108, "margin_OKC": 15, "total": 231},
+  "quarter_scores": {"OKC": [26, 32, 37, 28], "SAS": [31, 20, 33, 24]},
+  "closing_market_context": {
+    "moneyline_range": {"OKC": "+110 to +132", "SAS": "-133 to -155"},
+    "spread_range": {"OKC": "+1.5 to +3.5", "SAS": "-1.5 to -3.5"},
+    "total_range": "218.5 to 220.5 market band",
+    "team_totals": {"OKC": "108.5/109.5 market range", "SAS": "110.5/111.5 market range"},
+    "settlement": {
+      "OKC_moneyline": "WIN",
+      "OKC_spread": "WIN",
+      "game_over": "WIN by roughly 10.5 to 12.5 depending close",
+      "OKC_team_total_over": "WIN at 123",
+      "SAS_team_total_under_110_5": "WIN at 108",
+      "SAS_team_total_under_111_5": "WIN at 108"
+    }
+  },
+  "core_box_score_read": {
+    "possessions": {"OKC": 96, "SAS": 97},
+    "points_per_100_estimate": {"OKC": 128.1, "SAS": 111.3},
+    "shooting": {
+      "OKC": {"eFG": "57.93%", "TS": "63.40%", "3P": "17/39, 43.59%", "2P": "22/43, 51.16%", "FT_points": 28},
+      "SAS": {"eFG": "50.63%", "TS": "56.84%", "3P": "13/41, 31.71%", "2P": "21/39, 53.85%", "FT_points": 27}
+    },
+    "rebounding": {"OKC": 46, "SAS": 43, "OKC_OREB": 11, "SAS_OREB": 12},
+    "turnovers": {"OKC": 11, "SAS": 15, "OKC_live_ball_TO": 8, "SAS_live_ball_TO": 7},
+    "fouls": {"OKC": 25, "SAS": 28}
+  },
+  "phase_1_game_phase_analysis": {
+    "opening_phase_q1": "San Antonio opened with the cleaner scoreboard quarter, winning Q1 31-26. The Spurs' primary group of Fox, Vassell, Champagnie, Wembanyama, and Castle produced the best SAS stability stretch, with 40 points across 30 possessions in tracked lineup scoring. This created an early surface read that SAS could control the game through length, rim pressure, and free-throw generation.",
+    "middle_phase_q2_q3": "The game flipped across Q2 and Q3. OKC won those two quarters 69-53, with Q2 acting as the leverage swing and Q3 becoming the separation burst. OKC's shooting profile accelerated from spacing pressure: 17 made threes on 39 attempts and 43.6% from three. SAS kept rim quality and shot quality high but could not match the efficiency gradient from deep.",
+    "late_phase_q4": "The 4Q became consolidation rather than comeback. OKC entered with a 91-84 lead and won the final quarter 28-24. SAS never created enough defensive stops or three-point variance to threaten the live margin. Final score landed OKC 123-108, validating OKC side, OKC team total over, game over, and SAS team total under."
+  },
+  "phase_2_pivotal_moments": [
+    "Q2 swing: OKC turned a 31-26 deficit into a 58-51 halftime lead by winning the quarter 32-20.",
+    "Q3 eruption: OKC scored 37 in the third, the highest quarter of the game, creating full separation.",
+    "Three-point delta: OKC made 17 threes at 43.6%; SAS made 13 at 31.7%. That four-make difference was effectively the spread and game-state separator.",
+    "SAS offensive profile was not dead: 0.57 shot quality and 81.25% rim-or-three frequency. The issue was conversion volatility, especially above-the-break and corner three efficiency.",
+    "OKC won despite lower shot quality, because actual shotmaking dramatically exceeded expectation quality. This is a classic variance-plus-spacing win.",
+    "Wembanyama rebound miss signal: 4 rebounds on 13 chances and 30.8% chance conversion showed displacement/deference rather than opportunity shortage."
+  ],
+  "phase_3_contextual_variables": {
+    "shot_quality_vs_results": "SAS posted stronger team shot quality at 0.57 compared to OKC's 0.53, but OKC had the superior realized scoring through 57.9% eFG and 63.4% TS. This marks the game as an OKC shotmaking-over-quality event rather than simply a process domination spot.",
+    "rim_or_three_profile": "SAS generated an elite 81.25% rim-or-three frequency, but only converted 31.7% from three. OKC generated 65.85% rim-or-three frequency and still won the math through 43.6% three-point shooting and 28 FT points.",
+    "rebounding_distribution": "Team rebounding was tight: OKC 46, SAS 43. The important player-level note is not total board volume but distribution. Fox and Vassell each had 7 rebounds, while Wembanyama finished with only 4 despite 13 chances. This confirms guard/wing rebound leak and Wemby displacement risk.",
+    "box_outs": "Wembanyama logged only one box out and zero player rebounds on box outs, while Kornet had three box outs and two player rebounds on box outs. The SAS interior rebounding pattern was not concentrated through Wemby, which is a Game 4 prop-warning flag.",
+    "turnovers": "SAS had 15 turnovers to OKC's 11. OKC's live-ball turnover percentage was higher, but SAS had more total possessions wasted and more dead-ball drag. The Spurs could not convert their shot quality edge into scoreboard control because empty possessions interrupted rhythm.",
+    "fouls_and_free_throws": "Both teams lived at the line: OKC produced 28 FT points and SAS 27. Fouls were elevated at OKC 25 and SAS 28. This kept the total alive even when SAS three-point efficiency lagged."
+  },
+  "phase_4_model_relevance_summary": {
+    "what_model_should_reward": [
+      "OKC side and spread resilience when market prices them as underdog despite elite spacing volatility.",
+      "OKC team-total over potential when market posts 108.5/109.5 and OKC has high 3PA volume plus FT access.",
+      "Game-over pathways when both teams reach 25+ FT-point environments and combine for nearly 80 three-point attempts.",
+      "SAS team-total under can coexist with game over if OKC is the efficiency engine and SAS misses from three.",
+      "Wembanyama rebound unders or ladder fade when his rebound chance conversion is low and guards/wings are collecting long boards."
+    ],
+    "what_model_should_penalize": [
+      "Blind SAS home-favorite treatment when OKC spacing lineups are getting clean above-the-break volume.",
+      "Assuming high shot quality equals scoring over without checking conversion and turnover leakage.",
+      "Wembanyama automatic rebound-over confidence when his chance volume is high but conversion is under 35%.",
+      "SAS TT overs above 110.5 when their scoring depends on 3P normalization and they are facing OKC pressure depth."
+    ],
+    "game_4_preparation_read": "For Game 4, start from OKC as the tactical-control side unless market corrects heavily. The key decision tree is whether SAS three-point conversion normalizes or whether OKC's perimeter pressure keeps them below team-total expectation again. Wembanyama rebound projections need a displacement gate: his chances were present, but his conversion and box-out impact were not. OKC role-player threes and FT creation are the main over levers."
+  },
+  "game_4_patch_tags": [
+    "OKC_SPACING_VOLATILITY_UPGRADE",
+    "OKC_UNDERDOG_MARKET_MISPRICE_ALERT",
+    "SAS_SHOT_QUALITY_EMPTY_CALORIE_RISK",
+    "SAS_TT_UNDER_STILL_LIVE_ABOVE_110",
+    "WEMBY_REBOUND_DISPLACEMENT_GATE_ON",
+    "FOX_VASSELL_LONG_REBOUND_ABSORPTION_ON",
+    "FT_SPIKE_TOTAL_SUPPORT_ON",
+    "THREE_POINT_DELTA_DECIDES_MARGIN",
+    "OKC_TEAM_TOTAL_OVER_CEILING_PATH"
+  ],
+  "projected_game_4_starting_prior": {
+    "neutral_mean_total": 222.8,
+    "median_total": 222.0,
+    "OKC_mean_points": 113.4,
+    "SAS_mean_points": 109.4,
+    "projected_spread": "OKC -4.0 on adjusted Game 3 carry-forward, before injury/rotation changes",
+    "market_probability_notes": {
+      "OKC_ML_fair": "~60% before Game 4 adjustments if market still prices near pick/underdog",
+      "SAS_TT_under_110_5_prior": "~56-58% if lineup and pace environment similar",
+      "OKC_TT_over_109_5_prior": "~58-61% if 3PA volume remains 38+ and FT rate stable",
+      "game_total_over_219_5_prior": "~55% but less clean than OKC TT because SAS conversion remains unstable"
+    }
+  },
+  "source_notes": {
+    "closing_lines": "User supplied screenshots show OKC as underdog/short spread and total closing around 218.5-220.5, with team totals OKC 108.5/109.5 and SAS 110.5/111.5.",
+    "tracking_sources": ["Fouls.text", "Rebounds.text", "Scoring.text", "Shot Distribution.text", "Turnovers.text", "player tracking rebound table pasted in chat", "player box-outs pasted in chat"]
+  },
+  "status": "logged_for_game_4_prep"
+}
