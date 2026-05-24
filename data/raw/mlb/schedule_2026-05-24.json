@@ -3,14 +3,14 @@
   "totalItems": 16,
   "totalEvents": 0,
   "totalGames": 16,
-  "totalGamesInProgress": 4,
+  "totalGamesInProgress": 5,
   "dates": [
     {
       "date": "2026-05-24",
       "totalItems": 16,
       "totalEvents": 0,
       "totalGames": 16,
-      "totalGamesInProgress": 4,
+      "totalGamesInProgress": 5,
       "games": [
         {
           "gamePk": 822813,
@@ -182,9 +182,9 @@
           "rescheduledFromDate": "2026-05-23",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "P",
-            "detailedState": "Warmup",
-            "statusCode": "PW",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
             "abstractGameCode": "L"
           },
@@ -201,7 +201,7 @@
                 "ties": 0,
                 "pct": ".377"
               },
-              "score": 0,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 17
             },
@@ -831,7 +831,7 @@
                 "ties": 0,
                 "pct": ".510"
               },
-              "score": 4,
+              "score": 5,
               "splitSquad": false,
               "seriesNumber": 17
             },
@@ -847,7 +847,7 @@
                 "ties": 0,
                 "pct": ".404"
               },
-              "score": 4,
+              "score": 8,
               "splitSquad": false,
               "seriesNumber": 17
             }
@@ -907,7 +907,7 @@
                 "ties": 0,
                 "pct": ".377"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 17
             },
@@ -923,7 +923,7 @@
                 "ties": 0,
                 "pct": ".529"
               },
-              "score": 7,
+              "score": 9,
               "splitSquad": false,
               "seriesNumber": 17
             }
@@ -999,7 +999,7 @@
                 "ties": 0,
                 "pct": ".608"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 17
             }
@@ -1041,9 +1041,10 @@
           "status": {
             "abstractGameState": "Live",
             "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "detailedState": "Delayed",
+            "statusCode": "IR",
             "startTimeTBD": false,
+            "reason": "Rain",
             "abstractGameCode": "L"
           },
           "teams": {
