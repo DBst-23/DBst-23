@@ -1,0 +1,132 @@
+{
+  "series": "rolling_window_series",
+  "schema_version": "B.003_liveflow_postmortem_v1",
+  "sport": "NBA",
+  "league_context": "2026 NBA Playoffs - Eastern Conference Finals",
+  "game_id": "NYK_CLE_G3_2026_05_23",
+  "date": "2026-05-23",
+  "matchup": "New York Knicks @ Cleveland Cavaliers",
+  "venue": "Rocket Arena, Cleveland, OH",
+  "officials": ["Tony Brothers", "Tyler Ford", "Gediminas Petraitis", "Jacyn Goble"],
+  "final_score": {"NYK": 121, "CLE": 108, "margin_NYK": 13, "total": 229},
+  "quarter_scores": {"NYK": [37, 23, 31, 30], "CLE": [27, 27, 28, 26]},
+  "closing_market_context": {
+    "pregame_reference": {
+      "spread": "CLE -2.5 live/pregame market seen during Game 3 board; NYK +2.5 available",
+      "total": "216.5 live/pregame screen; later halftime market 222.5",
+      "team_totals": {"CLE": "109.5", "NYK": "107.5 to 113.5 live range"}
+    },
+    "settlement_vs_positions": {
+      "CLE_TT_under_109_5": "WIN: CLE scored 108",
+      "KAT_12_plus_rebounds": "LOSS: KAT finished below 12 rebounds",
+      "full_game_under_222_5": "LOSS: final total 229"
+    }
+  },
+  "liveflow_entries": [
+    {"market": "team_total", "selection": "No - Cleveland over 109.5 points", "odds_initial": "-122", "odds_additional": "+101", "stake_total": 14.13, "result": "win", "actual": 108, "payout": 19.12, "diagnosis": "CAVS_CREATION_FRAGILITY_CONFIRMED"},
+    {"market": "player_rebounds", "selection": "Karl-Anthony Towns 12+ rebounds", "odds": "-113", "stake": 2.50, "result": "loss", "diagnosis": "KAT_REBOUND_FUNNEL_MISFIRED / wing-center board distribution flattened"},
+    {"market": "game_total", "selection": "No - Over 222.5 points", "odds": "-127", "stake": 2.61, "result": "loss", "actual_total": 229, "diagnosis": "LATE_TOTAL_OVERFLOW / Knicks efficiency and 4Q shotmaking exceeded suppression model"}
+  ],
+  "portfolio_result": {
+    "record": "1-2",
+    "net_known": "+4.50 before unresolved display rounding; CLE TT under carried the card",
+    "primary_win": "CLE team total under 109.5",
+    "primary_miss": "KAT 12+ rebounds",
+    "secondary_miss": "full game under 222.5"
+  },
+  "liveflow_timeline": {
+    "q1": {
+      "score": "NYK 37 - CLE 27",
+      "read": "New York opened with elite offensive conversion: 12/17 FG, 4/8 from three, 9/10 FT. Cleveland scored 27 but relied on interior efficiency while showing early perimeter weakness at 2/9 from three and four turnovers.",
+      "model_signal": "NYK shotmaking was hot, but CLE team-total under remained alive because Cleveland had zero fast-break points and poor creation diversity."
+    },
+    "halftime": {
+      "score": "NYK 60 - CLE 54",
+      "read": "Cleveland recovered the margin but still showed under markers: 4/19 from three, 6/11 FT, 9 turnovers, only 8 assists. NYK remained cleaner despite reduced Q2 output.",
+      "model_signal": "CLE TT 109.5 under stayed positive because Cleveland needed 56 second-half points despite poor FT conversion and unstable half-court creation."
+    },
+    "q3_end": {
+      "score": "NYK 91 - CLE 82",
+      "read": "Both offenses stayed efficient enough to pressure the full-game under, but Cleveland continued to trail without transition points. Knicks scored 31 in Q3 with Brunson/Bridges shotmaking and Towns connective passing.",
+      "model_signal": "Game total under became fragile; CLE TT under still had edge because Cleveland needed 28+ in Q4 to beat 109.5."
+    },
+    "q4_6_40": {
+      "score": "NYK 105 - CLE 91",
+      "read": "Landry Shamet's 4Q shotmaking burst created the total overflow risk. Knicks lead climbed to 14, and Cleveland offense was not matching with clean enough volume.",
+      "model_signal": "CLE TT under became the strongest surviving position; full-game under was in danger due to Knicks bench shooting."
+    },
+    "final": {
+      "score": "NYK 121 - CLE 108",
+      "read": "NYK closed the game with enough offensive efficiency to push total to 229. Cleveland finished one bucket short of 109.5, validating the creation-fragility read."
+    }
+  },
+  "deep_postmortem": {
+    "phase_1_game_phase_analysis": {
+      "opening_phase_q1": "NYK dictated the opening environment with a 37-point first quarter. The Knicks shot 70.6% from the field and used early transition/turnover pressure to build a double-digit lead. Cleveland was not dead offensively, but the Cavs' output was narrow: paint scores and guard pull-ups with limited assisted rhythm.",
+      "middle_phase_q2_q3": "Cleveland stabilized in Q2 and Q3, scoring 27 and 28, but never flipped control. NYK kept the lead through efficient shot distribution, Brunson late-clock creation, Bridges rim/short-area scoring, and Towns as a passing/rebounding hub. Cleveland's 3PT volume was high but inefficient, keeping their team total vulnerable despite a respectable raw score pace.",
+      "late_phase_q4": "The 4Q became the decisive market phase. Landry Shamet created the overflow on the total with timely threes, while Cleveland could not generate enough clean possessions to beat 109.5. The Cavs scored 26 in Q4 and finished at 108, directly confirming the team-total under thesis."
+    },
+    "phase_2_pivotal_moments": [
+      "Q1 Knicks 9-1 opening burst forced Cleveland into chase mode from the start.",
+      "Cleveland tied the game 48-48 in Q2, but Knicks immediately regained control and closed the half up six.",
+      "Early Q3 Cleveland turnovers by Mobley/Harden/Mitchell repeatedly killed comeback possessions.",
+      "Mikal Bridges and Jalen Brunson stabilized NYK whenever Cleveland cut the margin to 3-6 points.",
+      "Landry Shamet's 4Q three-point burst pushed NYK from a controlled lead into total-overflow territory.",
+      "Cleveland final score of 108 created a clean one-point survival for CLE TT under 109.5."
+    ],
+    "phase_3_contextual_variables": {
+      "cleveland_creation": "Cleveland's issue was not total shot volume; it was quality consistency. Harden and Mitchell carried usage, but the team lacked transition scoring and needed difficult half-court makes. The Cavs had zero fast-break points deep into the game and never found enough assisted perimeter rhythm.",
+      "new_york_offense": "New York produced a stronger multi-lane offense. Brunson controlled late-clock possessions, Bridges punished gaps, Towns connected actions as a scorer/passer, and Shamet supplied the 4Q spacing eruption.",
+      "rebounding": "The KAT rebound over thesis failed because New York's rebound distribution flattened. Towns had impact, but Hart, Robinson, Bridges, and team boards absorbed enough rebound chances to keep KAT below the 12+ ladder.",
+      "free_throw_and_whistle": "Cleveland's poor free-throw conversion was a hidden under ally. Missed free throws from Mitchell/Mobley/Allen removed points Cleveland needed to clear 109.5.",
+      "pace_and_total": "The total missed because NYK efficiency stayed too high for too long. Lead-state suppression was not enough to offset Shamet's 4Q threes and Cleveland's late need to keep scoring."
+    },
+    "phase_4_model_relevance_summary": {
+      "what_model_got_right": [
+        "Cleveland team total under 109.5 was the cleanest edge and cashed at 108.",
+        "Cleveland creation fragility persisted from Game 2 into Game 3.",
+        "Cleveland's offense was vulnerable despite respectable raw scoring pace because the quality of creation was unstable.",
+        "NYK side strength was real again; Knicks won by 13."
+      ],
+      "what_model_got_wrong": [
+        "KAT rebound funnel was overweighted; Game 3 distribution did not concentrate enough rebounds through Towns for 12+.",
+        "Full-game under 222.5 underestimated NYK's late shotmaking and Shamet bench eruption.",
+        "Lead-state suppression was applied too aggressively to the total while NYK still had efficient scoring lanes.",
+        "The model did not fully price Cleveland chase-state scoring volume as a contributor to total overflow, even while keeping CLE under 109.5 alive."
+      ],
+      "game_4_preparation_read": "Carry forward CLE_CREATION_FRAGILITY as active, but separate it from full-game under assumptions. Cleveland can stay under its team total while the full game still goes over if NYK efficiency remains high. Rebound ladders should be downgraded unless live tracking confirms concentrated chances by halftime. NYK side and NYK offensive efficiency remain stronger than market treatment if Cleveland continues to rely on Harden/Mitchell isolation and low-transition offense."
+    }
+  },
+  "patches_to_apply": {
+    "ACTIVE_TAGS_FOR_GAME_4": [
+      "CAVS_CREATION_FRAGILITY_CONFIRMED",
+      "CLE_TRANSITION_SUPPRESSION_ON",
+      "NYK_MULTI_LANE_OFFENSE_UPGRADE",
+      "SHAMET_SPACING_VOLATILITY_ON",
+      "KAT_REBOUND_FUNNEL_DOWNGRADE",
+      "LEAD_SUPPRESSION_TOTAL_CAUTION",
+      "TEAM_TOTAL_UNDER_CAN_DECOUPLE_FROM_GAME_UNDER"
+    ],
+    "rules": [
+      "Do not automatically pair CLE team-total under with full-game under; NYK efficiency can break the total independently.",
+      "Require live rebound-chance concentration before playing KAT 12+ or higher ladders.",
+      "When CLE has zero/near-zero transition scoring and poor FT conversion, preserve CLE TT under even if pace appears high.",
+      "Bench shooter volatility must be added to late-game total models when Shamet/Merrill/Strus types are getting closing or extended minutes."
+    ]
+  },
+  "model_grade": {
+    "read_quality": "high on CLE team total, medium on total, low-medium on KAT rebounds",
+    "market_selection": "mixed",
+    "execution_quality": "positive due to primary edge win",
+    "risk_state": "controlled",
+    "deep_postmortem_status": "scheduled_for_2026-05-24_evening"
+  },
+  "next_actions": [
+    "Run deep postmortem reminder on 2026-05-24 evening.",
+    "Use this Game 3 log as Game 4 prep input.",
+    "Patch rolling_window_series with CLE team-total under decoupling rule.",
+    "Downgrade automatic KAT rebound ladders until live tracking confirms 12+ path.",
+    "Monitor NYK bench shooter volatility as late-game total risk."
+  ],
+  "notes": "Logged from live screenshots and official scorer reports supplied in-chat. Primary portfolio lesson: the model correctly identified Cleveland team-total fragility, but full-game under and KAT 12+ rebounds required stricter live confirmation. This file is intended for rolling_window_series Game 4 preparation and later deep-postmortem expansion."
+}
