@@ -3,14 +3,14 @@
   "totalItems": 16,
   "totalEvents": 0,
   "totalGames": 16,
-  "totalGamesInProgress": 6,
+  "totalGamesInProgress": 9,
   "dates": [
     {
       "date": "2026-05-24",
       "totalItems": 16,
       "totalEvents": 0,
       "totalGames": 16,
-      "totalGamesInProgress": 6,
+      "totalGamesInProgress": 9,
       "games": [
         {
           "gamePk": 822813,
@@ -41,7 +41,7 @@
                 "ties": 0,
                 "pct": ".500"
               },
-              "score": 2,
+              "score": 4,
               "splitSquad": false,
               "seriesNumber": 17
             },
@@ -133,7 +133,7 @@
                 "ties": 0,
                 "pct": ".431"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 17
             }
@@ -270,7 +270,7 @@
                 "ties": 0,
                 "pct": ".481"
               },
-              "score": 1,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 17
             },
@@ -286,7 +286,7 @@
                 "ties": 0,
                 "pct": ".431"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 17
             }
@@ -403,10 +403,11 @@
           "officialDate": "2026-05-24",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "codedGameState": "M",
+            "detailedState": "Player challenge",
+            "statusCode": "MJ",
             "startTimeTBD": false,
+            "reason": "Pitch Result",
             "abstractGameCode": "L"
           },
           "teams": {
@@ -464,83 +465,6 @@
           "inningBreakLength": 120,
           "gamesInSeries": 2,
           "seriesGameNumber": 2,
-          "seriesDescription": "Regular Season",
-          "recordSource": "S",
-          "ifNecessary": "N",
-          "ifNecessaryDescription": "Normal Game"
-        },
-        {
-          "gamePk": 824514,
-          "gameGuid": "646db8f0-5bf3-47dd-a48d-316b533a15af",
-          "link": "/api/v1.1/game/824514/feed/live",
-          "gameType": "R",
-          "season": "2026",
-          "gameDate": "2026-05-24T17:40:00Z",
-          "officialDate": "2026-05-24",
-          "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Delayed Start",
-            "statusCode": "PR",
-            "startTimeTBD": false,
-            "reason": "Rain",
-            "abstractGameCode": "P"
-          },
-          "teams": {
-            "away": {
-              "team": {
-                "id": 138,
-                "name": "St. Louis Cardinals",
-                "link": "/api/v1/teams/138"
-              },
-              "leagueRecord": {
-                "wins": 29,
-                "losses": 22,
-                "ties": 0,
-                "pct": ".569"
-              },
-              "score": 0,
-              "splitSquad": false,
-              "seriesNumber": 17
-            },
-            "home": {
-              "team": {
-                "id": 113,
-                "name": "Cincinnati Reds",
-                "link": "/api/v1/teams/113"
-              },
-              "leagueRecord": {
-                "wins": 27,
-                "losses": 25,
-                "ties": 0,
-                "pct": ".519"
-              },
-              "score": 0,
-              "splitSquad": false,
-              "seriesNumber": 17
-            }
-          },
-          "venue": {
-            "id": 2602,
-            "name": "Great American Ball Park",
-            "link": "/api/v1/venues/2602"
-          },
-          "content": {
-            "link": "/api/v1/game/824514/content"
-          },
-          "gameNumber": 1,
-          "publicFacing": true,
-          "doubleHeader": "N",
-          "gamedayType": "P",
-          "tiebreaker": "N",
-          "calendarEventID": "14-824514-2026-05-24",
-          "seasonDisplay": "2026",
-          "dayNight": "day",
-          "scheduledInnings": 9,
-          "reverseHomeAwayStatus": false,
-          "inningBreakLength": 120,
-          "gamesInSeries": 3,
-          "seriesGameNumber": 3,
           "seriesDescription": "Regular Season",
           "recordSource": "S",
           "ifNecessary": "N",
@@ -631,12 +555,12 @@
           "gameDate": "2026-05-24T18:10:00Z",
           "officialDate": "2026-05-24",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -651,7 +575,7 @@
                 "ties": 0,
                 "pct": ".472"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 17
             },
@@ -708,9 +632,9 @@
           "officialDate": "2026-05-24",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "P",
-            "detailedState": "Warmup",
-            "statusCode": "PW",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
             "abstractGameCode": "L"
           },
@@ -783,12 +707,12 @@
           "gameDate": "2026-05-24T18:20:00Z",
           "officialDate": "2026-05-24",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -1107,6 +1031,7 @@
                 "ties": 0,
                 "pct": ".491"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 17
             },
@@ -1122,6 +1047,7 @@
                 "ties": 0,
                 "pct": ".679"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 17
             }
@@ -1219,6 +1145,84 @@
           "scheduledInnings": 9,
           "reverseHomeAwayStatus": false,
           "inningBreakLength": 145,
+          "gamesInSeries": 3,
+          "seriesGameNumber": 3,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 824514,
+          "gameGuid": "646db8f0-5bf3-47dd-a48d-316b533a15af",
+          "link": "/api/v1.1/game/824514/feed/live",
+          "gameType": "R",
+          "season": "2026",
+          "gameDate": "2026-05-24T17:40:00Z",
+          "officialDate": "2026-08-17",
+          "rescheduleDate": "2026-08-17T17:40:00Z",
+          "rescheduleGameDate": "2026-08-17",
+          "status": {
+            "abstractGameState": "Final",
+            "codedGameState": "D",
+            "detailedState": "Postponed",
+            "statusCode": "DR",
+            "startTimeTBD": false,
+            "reason": "Rain",
+            "abstractGameCode": "F"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 138,
+                "name": "St. Louis Cardinals",
+                "link": "/api/v1/teams/138"
+              },
+              "leagueRecord": {
+                "wins": 29,
+                "losses": 22,
+                "ties": 0,
+                "pct": ".569"
+              },
+              "splitSquad": false,
+              "seriesNumber": 17
+            },
+            "home": {
+              "team": {
+                "id": 113,
+                "name": "Cincinnati Reds",
+                "link": "/api/v1/teams/113"
+              },
+              "leagueRecord": {
+                "wins": 27,
+                "losses": 25,
+                "ties": 0,
+                "pct": ".519"
+              },
+              "splitSquad": false,
+              "seriesNumber": 17
+            }
+          },
+          "venue": {
+            "id": 2602,
+            "name": "Great American Ball Park",
+            "link": "/api/v1/venues/2602"
+          },
+          "content": {
+            "link": "/api/v1/game/824514/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-824514-2026-05-24",
+          "seasonDisplay": "2026",
+          "dayNight": "day",
+          "description": "Makeup 8/17",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
           "gamesInSeries": 3,
           "seriesGameNumber": 3,
           "seriesDescription": "Regular Season",
