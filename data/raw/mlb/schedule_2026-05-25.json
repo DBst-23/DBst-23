@@ -101,9 +101,9 @@
           "officialDate": "2026-05-25",
           "status": {
             "abstractGameState": "Final",
-            "codedGameState": "O",
-            "detailedState": "Game Over",
-            "statusCode": "O",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
             "abstractGameCode": "F"
           },
@@ -337,12 +337,12 @@
           "gameDate": "2026-05-25T19:40:00Z",
           "officialDate": "2026-05-25",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -352,12 +352,13 @@
                 "link": "/api/v1/teams/147"
               },
               "leagueRecord": {
-                "wins": 31,
+                "wins": 32,
                 "losses": 22,
                 "ties": 0,
-                "pct": ".585"
+                "pct": ".593"
               },
-              "score": 2,
+              "score": 4,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 18
             },
@@ -369,11 +370,12 @@
               },
               "leagueRecord": {
                 "wins": 22,
-                "losses": 31,
+                "losses": 32,
                 "ties": 0,
-                "pct": ".415"
+                "pct": ".407"
               },
               "score": 3,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 18
             }
@@ -386,6 +388,7 @@
           "content": {
             "link": "/api/v1/game/824107/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
@@ -449,7 +452,7 @@
                 "ties": 0,
                 "pct": ".415"
               },
-              "score": 0,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 18
             }
@@ -509,7 +512,7 @@
                 "ties": 0,
                 "pct": ".538"
               },
-              "score": 1,
+              "score": 3,
               "splitSquad": false,
               "seriesNumber": 18
             },
@@ -525,7 +528,7 @@
                 "ties": 0,
                 "pct": ".415"
               },
-              "score": 0,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 18
             }
@@ -566,9 +569,9 @@
           "officialDate": "2026-05-25",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "P",
-            "detailedState": "Warmup",
-            "statusCode": "PW",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
             "abstractGameCode": "L"
           },
@@ -585,7 +588,7 @@
                 "ties": 0,
                 "pct": ".500"
               },
-              "score": 0,
+              "score": 3,
               "splitSquad": false,
               "seriesNumber": 18
             },
@@ -641,12 +644,12 @@
           "gameDate": "2026-05-25T22:40:00Z",
           "officialDate": "2026-05-25",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
