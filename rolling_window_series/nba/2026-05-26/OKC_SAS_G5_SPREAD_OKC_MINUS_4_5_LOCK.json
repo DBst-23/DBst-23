@@ -1,0 +1,44 @@
+{
+  "log_id": "OKC_SAS_G5_SPREAD_OKC_MINUS_4_5_LOCK_2026_05_26",
+  "sport": "NBA",
+  "series": "OKC_SAS_WCF",
+  "game": 5,
+  "date": "2026-05-26",
+  "market_type": "spread",
+  "selection": "Oklahoma City Thunder wins by over 4.5 points",
+  "side": "yes",
+  "book": "Kalshi",
+  "odds_taken": "-104",
+  "stake": 12.00,
+  "max_payout": 23.64,
+  "current_value_at_lock": 10.69,
+  "market_snapshot": {
+    "spread_line": "OKC -4.5",
+    "entry_price": "-104",
+    "team_total_correlated_position": "OKC over 111.5 at +100",
+    "game_context": "Game 5 home regression spot after Spurs won Game 4 103-82"
+  },
+  "model_projection": {
+    "projected_spread_mean": "OKC -6.0 to -6.5",
+    "projected_spread_median": "OKC -6",
+    "probability_cover_minus_4_5": 0.565,
+    "edge_tier": "moderate_plus",
+    "market_implied_probability_at_minus_104": 0.5098,
+    "estimated_probability_edge": "+5.5 percentage points"
+  },
+  "active_context_tags": [
+    "LIVEFLOW_STRIPPED_MODE_ACTIVE",
+    "EDGE_CALL_ACTIVE",
+    "RISK_CLUSTER_LOCK_MONITOR",
+    "OKC_HOME_REGRESSION_SPOT",
+    "OKC_BACKCOURT_EXPANSION_WITH_JALEN_Q",
+    "AJAY_MITCHELL_OUT",
+    "SAS_GAME4_SUPPRESSION_CHECK"
+  ],
+  "risk_notes": [
+    "This is correlated with OKC team total over 111.5; exposure cluster must be monitored.",
+    "Spread cover requires OKC scoring correction plus defensive containment of Wembanyama/Fox actions.",
+    "Primary miss path is Spurs half-court efficiency keeping game inside two possessions."
+  ],
+  "status": "locked_pending_result"
+}
