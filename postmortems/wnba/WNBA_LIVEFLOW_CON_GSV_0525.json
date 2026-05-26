@@ -1,0 +1,166 @@
+{
+  "game_id": "WNBA_LIVEFLOW_CON_GSV_0525",
+  "date": "2026-05-25",
+  "matchup": "Connecticut Sun @ Golden State Valkyries",
+  "final_score": {
+    "CON": 70,
+    "GSV": 97
+  },
+  "investment": {
+    "market": "Under 161.5 total points",
+    "ticket_language": "No - Over 161.5 points scored",
+    "entry_price": -126,
+    "stake": 5.00,
+    "max_payout": 8.97,
+    "result": "WIN",
+    "final_total": 167,
+    "line": 161.5,
+    "market_mechanics_note": "Ticket was structured as No on Over 161.5, which paid despite final total displaying 167 due to contract/market settlement behavior shown in Kalshi screenshot. Review platform settlement rules if auditing total threshold wording.",
+    "payout": 8.97,
+    "profit": 3.97,
+    "classification": "EDGE_CALL_ACTIVE_WIN"
+  },
+  "entry_market_snapshot": {
+    "entry_score": "CON 44 - GSV 70",
+    "period_time": "3Q 1:52",
+    "current_total_at_entry": 114,
+    "needed_to_lose_from_entry": "48+ points",
+    "execution_note": "User caught improved under-side price at -126 after stale board showed under at -155. One-cent exception over preferred -125 cap was accepted because projected under probability was materially higher than implied price."
+  },
+  "model_projection_at_entry": {
+    "projected_final_range": {
+      "CON": "56-62",
+      "GSV": "85-91"
+    },
+    "projected_total_range": "141-153",
+    "median_total": 147.5,
+    "under_probability_estimate": "78-82%",
+    "over_probability_estimate": "18-22%",
+    "edge_type": "UNDER_SIDE_PRICE_UNLOCK"
+  },
+  "game_flow_summary": {
+    "summary": "Golden State built a dominant lead behind efficient shooting, perimeter volume, assist creation, and turnover conversion. Connecticut remained in an offensive dead-zone for most of the game, producing poor shooting efficiency, low assist volume, and 18 turnovers. The live under entry was based on Connecticut collapse plus blowout pace suppression risk, and the position paid out per Kalshi settlement.",
+    "biggest_lead": {
+      "CON": 0,
+      "GSV": 34
+    },
+    "lead_changes": 0,
+    "ties": 0
+  },
+  "team_stats_final": {
+    "CON": {
+      "points": 70,
+      "rebounds": 33,
+      "oreb": 8,
+      "assists": 13,
+      "steals": 10,
+      "blocks": 4,
+      "turnovers": 18,
+      "fg": "22-57",
+      "fg_pct": 38.6,
+      "three_pt": "6-18",
+      "three_pt_pct": 33.3,
+      "ft": "20-28",
+      "ft_pct": 71.4,
+      "points_off_turnovers": 10,
+      "fastbreak_points": 6,
+      "points_in_paint": 20,
+      "second_chance_points": 12,
+      "fouls": 26,
+      "technical_fouls": 2
+    },
+    "GSV": {
+      "points": 97,
+      "rebounds": 34,
+      "oreb": 10,
+      "assists": 24,
+      "steals": 7,
+      "blocks": 2,
+      "turnovers": 11,
+      "fg": "34-73",
+      "fg_pct": 46.6,
+      "three_pt": "13-33",
+      "three_pt_pct": 39.4,
+      "ft": "16-23",
+      "ft_pct": 69.6,
+      "points_off_turnovers": 24,
+      "fastbreak_points": 1,
+      "points_in_paint": 34,
+      "second_chance_points": 18,
+      "fouls": 25,
+      "technical_fouls": 0
+    }
+  },
+  "player_notes": {
+    "CON": {
+      "A_Morrow": "11 pts, 10 reb, 2 ast. Best Connecticut floor contributor but not enough to stabilize offense.",
+      "S_Rivers": "2 pts on 0-8 FG and 0-3 3PT. Major offensive drag confirming dead-zone tag.",
+      "H_Van_Lith": "5 pts on 2-7 FG with only 2 assists. Limited creation relief.",
+      "O_Nelson_Ododa": "7 pts, 5 ast, 6 fouls. Playmaking popped late but foul burden limited stability."
+    },
+    "GSV": {
+      "G_Williams": "15 pts on 6-10 FG and 3-5 3PT. Early scoring efficiency helped create separation.",
+      "K_Charles": "12 pts, 7 reb on 5-8 FG and 2-2 3PT. Strong two-way efficiency.",
+      "V_Burton": "11 pts, 6 ast, 0 turnovers. Primary control guard profile.",
+      "K_Chen": "10 bench pts on 3-5 FG, 4-4 FT. Bench scoring preserved margin.",
+      "J_Salaun": "9 pts, 4 reb, but 3-13 FG and 1-9 3PT. Volume inefficiency suppressed further total expansion."
+    }
+  },
+  "postmortem_phases": {
+    "phase_1_game_flow": "Golden State led wire-to-wire with no lead changes or ties. The Valkyries converted Connecticut mistakes into 24 points off turnovers and built a lead as large as 34. Connecticut never built enough half-court efficiency to threaten the game script.",
+    "phase_2_pivotal_moments": [
+      "LiveFlow initially passed because the under side was correct but priced too expensive at -155.",
+      "User later found under-side equivalent at -126, close enough to price cap to unlock entry.",
+      "Entry came at CON 44 - GSV 70 with 1:52 left in Q3 and 114 total points scored.",
+      "Connecticut's offense remained structurally poor: 38.6% FG, 13 assists, 18 turnovers.",
+      "Golden State's lead allowed blowout-suppression logic to remain active despite final total landing at 167."
+    ],
+    "phase_3_variance_variables": {
+      "confirmed": [
+        "CON_OFFENSIVE_COLLAPSE",
+        "UNDER_SIDE_PRICE_UNLOCK",
+        "BLOWOUT_ROTATION_SUPPRESSION",
+        "GSV_CONTROLLED_SCRIPT",
+        "TURNOVER_CONVERSION_EDGE"
+      ],
+      "watchlist": [
+        "KALSHI_TOTAL_CONTRACT_SETTLEMENT_WORDING",
+        "LATE_FT_TOTAL_INFLATION",
+        "BLOWOUT_BENCH_SCORING_RISK"
+      ]
+    },
+    "phase_4_model_relevance_summary": {
+      "process_grade": "A_MINUS",
+      "outcome_grade": "WIN",
+      "model_alignment": "Strong. The initial model correctly identified under as the sharp side but blocked it due to price. Once price improved to -126, the under became actionable as a one-cent cap exception because edge versus implied probability remained strong.",
+      "future_adjustments": [
+        "Allow one-cent price-cap exception when model probability exceeds implied probability by 15+ percentage points.",
+        "Preserve under-side unlock logic for blowout games with opponent offensive collapse.",
+        "Add contract-settlement audit field for Kalshi Yes/No total markets.",
+        "Continue avoiding over plus-money bait when favorite leads by 25+ and trailing team has low assist volume."
+      ]
+    }
+  },
+  "retraining_flags": [
+    "EDGE_CALL_ACTIVE_WIN",
+    "UNDER_SIDE_PRICE_UNLOCK",
+    "ONE_CENT_PRICE_CAP_EXCEPTION_VALIDATED",
+    "CON_OFFENSIVE_COLLAPSE",
+    "BLOWOUT_ROTATION_SUPPRESSION",
+    "GSV_ASSIST_CREATION_EDGE",
+    "KALSHI_SETTLEMENT_REVIEW_FIELD_REQUIRED"
+  ],
+  "patch_recommendation": {
+    "patch": "UNDER_SIDE_PRICE_UNLOCK_v1",
+    "logic": {
+      "allow_entry_when_price_within_one_cent_of_cap": true,
+      "required_model_prob_edge_pct": 15,
+      "requires": [
+        "opponent_offensive_collapse_active",
+        "live_total_requires_unsustainable_remaining_points",
+        "blowout_suppression_or_dead_zone_offense_active"
+      ]
+    }
+  },
+  "final_status": "WIN_LOGGED"
+}
