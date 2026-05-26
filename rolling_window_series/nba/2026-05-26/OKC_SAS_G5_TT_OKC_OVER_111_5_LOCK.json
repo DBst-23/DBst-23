@@ -1,0 +1,45 @@
+{
+  "log_id": "OKC_SAS_G5_TT_OKC_OVER_111_5_LOCK_2026_05_26",
+  "sport": "NBA",
+  "series": "OKC_SAS_WCF",
+  "game": 5,
+  "date": "2026-05-26",
+  "market_type": "team_total",
+  "selection": "Oklahoma City Thunder over 111.5 points scored",
+  "side": "yes",
+  "book": "Kalshi",
+  "odds_taken": "+100",
+  "stake": 5.00,
+  "max_payout": 10.05,
+  "current_value_at_lock": 4.55,
+  "market_snapshot": {
+    "okc_team_total_line": 111.5,
+    "okc_yes_price_screen": -104,
+    "okc_position_price_taken": "+100",
+    "sas_team_total_line": 108.5,
+    "game_total": 218.5,
+    "spread": "OKC -4.5 / SAS +4.5",
+    "moneyline": "OKC -168 / SAS +139"
+  },
+  "model_projection": {
+    "okc_team_total_mean": 113.5,
+    "okc_team_total_median": 113.0,
+    "probability_over_111_5": 0.565,
+    "edge_tier": "moderate_plus_playable",
+    "expected_edge_vs_market": "+5 to +7 probability points"
+  },
+  "active_context_tags": [
+    "LIVEFLOW_STRIPPED_MODE_ACTIVE",
+    "EDGE_CALL_ACTIVE",
+    "OKC_BACKCOURT_EXPANSION_WITH_JALEN_Q",
+    "AJAY_MITCHELL_OUT",
+    "GAME5_HOME_REGRESSION_SPOT",
+    "SAS_GAME4_SUPPRESSION_CHECK"
+  ],
+  "risk_notes": [
+    "Correlated with OKC spread exposure; treat team total as cleaner production-based angle.",
+    "Primary miss path is OKC half-court stall or Spurs defensive pace suppression.",
+    "Entry at +100 improves cushion versus earlier -104 screen."
+  ],
+  "status": "locked_pending_result"
+}
