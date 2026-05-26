@@ -1,0 +1,137 @@
+{
+  "game_id": "NYK_CLE_G4_2026-05-25",
+  "type": "liveflow_q3_update",
+  "series": "NYK@CLE",
+  "game_number": 4,
+  "date": "2026-05-25",
+  "venue": "Rocket Arena, Cleveland, OH",
+  "officials": ["Marc Davis", "Josh Tiven", "Kevin Scott", "Jacyn Goble"],
+  "score_after_q3": {
+    "NYK": 98,
+    "CLE": 71,
+    "margin": "NYK +27"
+  },
+  "period_scores": {
+    "NYK": [38, 30, 30],
+    "CLE": [26, 23, 22]
+  },
+  "live_positions": [
+    {
+      "market": "Mikal Bridges 15+ points",
+      "side": "Yes",
+      "status_after_q3": "cashed_or_effectively_complete",
+      "q3_stat": 15,
+      "notes": "Bridges reached 15 points by end of Q3 despite inefficient 4-for-16 shooting. Volume/minutes thesis held."
+    },
+    {
+      "market": "NYK wins by over 2.5 points",
+      "side": "Yes",
+      "status_after_q3": "strongly_live",
+      "q3_state": "NYK +27",
+      "notes": "Spread position has dominant cushion entering Q4. Primary remaining risk is extreme garbage-time collapse, low probability."
+    },
+    {
+      "market": "Cleveland over 102.5 points scored",
+      "side": "No",
+      "entry_timing": "halftime",
+      "entry_score": "NYK 68 - CLE 49",
+      "status_after_q3": "strongly_live",
+      "q3_state": "CLE 71; needs 32+ Q4 points to beat 102.5",
+      "notes": "Cleveland scored only 22 in Q3, maintaining under pace. Blowout risk supports reduced starter urgency, but garbage-time defensive looseness remains the main threat."
+    }
+  ],
+  "q3_environment": {
+    "pace_signal": "moderate-to-high but one-sided",
+    "nyk_offense": {
+      "points": 98,
+      "fg": "36/73",
+      "fg_pct": 49.3,
+      "three_pt": "14/31",
+      "three_pt_pct": 45.2,
+      "assists": 25,
+      "turnovers": 11,
+      "fast_break_points": 30,
+      "second_chance_points": 22
+    },
+    "cle_offense": {
+      "points": 71,
+      "fg": "24/59",
+      "fg_pct": 40.7,
+      "three_pt": "8/30",
+      "three_pt_pct": 26.7,
+      "assists": 14,
+      "turnovers": 16,
+      "points_off_turnovers_allowed": 26
+    },
+    "rebound_environment": {
+      "total_rebounds": {"NYK": 43, "CLE": 25},
+      "offensive_rebounds": {"NYK": 14, "CLE": 5},
+      "team_rebounds": {"NYK": 6, "CLE": 5},
+      "signal": "NYK offensive glass and size/physicality dominance confirmed. Cleveland interior rebound suppression failed in this game state."
+    }
+  },
+  "player_notes_after_q3": {
+    "Karl-Anthony Towns": {
+      "minutes": "22:35",
+      "line": "15 PTS, 13 REB, 3 AST, 2 STL, 2 BLK",
+      "fouls": 4,
+      "signal": "Elite rebound hit despite foul load; rebound chances converted through defensive glass dominance."
+    },
+    "Josh Hart": {
+      "minutes": "23:36",
+      "line": "6 PTS, 10 REB, 6 AST, 2 STL",
+      "signal": "Wing rebound chaos fully active; Hart reached double-digit boards by Q3."
+    },
+    "Mikal Bridges": {
+      "minutes": "30:07",
+      "line": "15 PTS, 3 REB, 5 AST",
+      "signal": "Volume/minutes prop profile validated; efficiency poor but free throws and locked minutes pushed him to 15."
+    },
+    "Donovan Mitchell": {
+      "minutes": "28:06",
+      "line": "28 PTS, 3 REB, 1 AST",
+      "signal": "Only Cleveland reliable shot creator. Production isolated, not translating into team efficiency."
+    },
+    "James Harden": {
+      "minutes": "32:56",
+      "line": "12 PTS, 4 REB, 2 AST, 5 TO",
+      "signal": "Primary collapse driver: 0-for-6 from three, 5 turnovers, poor live-flow creation quality."
+    }
+  },
+  "liveflow_probabilities_after_q3": {
+    "NYK_win_probability": 0.985,
+    "NYK_cover_minus_2_5_probability": 0.955,
+    "CLE_under_102_5_probability": 0.72,
+    "game_total_over_225_5_probability": 0.47,
+    "game_total_mean_projection": 222.5,
+    "game_total_median_projection": 221.0,
+    "cle_final_score_mean": 98.0,
+    "cle_final_score_median": 97.0,
+    "nyk_final_score_mean": 124.5,
+    "nyk_final_score_median": 124.0
+  },
+  "liveflow_tags": [
+    "LIVEFLOW_Q3_UPDATE",
+    "NYK_TRANSITION_SURGE_CONFIRMED",
+    "CLE_TURNOVER_COLLAPSE",
+    "NYK_OREB_DOMINANCE",
+    "CLEVELAND_CREATION_FAILURE",
+    "BLOWOUT_GARBAGE_TIME_WATCH",
+    "HALFTIME_TT_UNDER_STRIKE_ACTIVE"
+  ],
+  "model_notes": {
+    "signal_confirmed": [
+      "NYK physical/rebound edge",
+      "Bridges minutes/volume path to 15+",
+      "Cleveland turnover vulnerability under pressure",
+      "Cleveland team total under live-flow path"
+    ],
+    "risk_remaining": [
+      "Q4 garbage-time pace spike",
+      "CLE bench/late fouling adding free points",
+      "NYK defensive intensity drop with 25+ point lead"
+    ],
+    "patch_recommendation": "Keep NYK offensive glass boost and live Cleveland turnover-collapse penalty active for final postmortem. Add garbage-time scoring dampener only if Q4 pace distorts final total."
+  },
+  "status": "logged_after_q3"
+}
