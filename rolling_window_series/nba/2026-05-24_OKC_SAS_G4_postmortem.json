@@ -1,0 +1,200 @@
+{
+  "game_id": "NBA_2026-05-24_OKC_SAS_G4",
+  "date": "2026-05-24",
+  "matchup": "Oklahoma City Thunder @ San Antonio Spurs",
+  "series_game": 4,
+  "final_score": {
+    "OKC": 82,
+    "SAS": 103,
+    "margin": "SAS +21",
+    "total": 185
+  },
+  "closing_market_snapshot": {
+    "moneyline_consensus": "SAS favored; best shown SAS -133 to -155 range, OKC +115 to +131 range",
+    "spread_consensus": "SAS -2.5 to -4.5; common close SAS -2.5/-3.5",
+    "total_consensus": "218.5 to 220.5",
+    "team_totals_current_game5_screen_context": {
+      "SAS_TT_common": "110.5 to 112.5",
+      "OKC_TT_common": "108.0 to 110.5"
+    }
+  },
+  "actual_game_script": {
+    "quarter_scores": {
+      "Q1": {"OKC": 19, "SAS": 28},
+      "Q2": {"OKC": 19, "SAS": 22},
+      "Q3": {"OKC": 22, "SAS": 28},
+      "Q4": {"OKC": 22, "SAS": 25}
+    },
+    "summary": "SAS controlled every quarter; OKC never reached 23 points in any quarter. Game total closed around 219 but finished 185, driven by OKC scoring collapse and poor shooting efficiency."
+  },
+  "team_stat_profile": {
+    "scoring_file_team_totals": {
+      "OKC": {
+        "possessions": 99,
+        "points": 82,
+        "two_pt_makes_attempts": "24/58",
+        "two_pt_pct": 41.38,
+        "three_pt_makes_attempts": "6/33",
+        "three_pt_pct": 18.18,
+        "ft_points": 16,
+        "shot_quality": 0.55,
+        "efg_pct": 36.26,
+        "ts_pct": 41.41,
+        "three_point_attempt_rate": 36.26
+      },
+      "SAS": {
+        "possessions": 100,
+        "points": 103,
+        "two_pt_makes_attempts": "26/57",
+        "two_pt_pct": 45.61,
+        "three_pt_makes_attempts": "9/34",
+        "three_pt_pct": 26.47,
+        "ft_points": 24,
+        "shot_quality": 0.59,
+        "efg_pct": 43.41,
+        "ts_pct": 48.58,
+        "three_point_attempt_rate": 37.36
+      }
+    },
+    "shot_distribution_team_totals": {
+      "OKC": {
+        "rim_or_3_freq": 67.03,
+        "rim_fgm_fga": "14/28",
+        "rim_fg_pct": 50.0,
+        "smr_fgm_fga": "4/14",
+        "lmr_fgm_fga": "6/16",
+        "corner3_fgm_fga": "3/10",
+        "ab3_fgm_fga": "3/23",
+        "ab3_pct": 13.04
+      },
+      "SAS": {
+        "rim_or_3_freq": 74.73,
+        "rim_fgm_fga": "19/34",
+        "rim_fg_pct": 55.88,
+        "smr_fgm_fga": "6/16",
+        "lmr_fgm_fga": "1/7",
+        "corner3_fgm_fga": "2/11",
+        "ab3_fgm_fga": "7/23",
+        "ab3_pct": 30.43
+      }
+    },
+    "turnovers_team_totals": {
+      "OKC": {"turnovers": 20, "live_ball_turnovers": 11, "dead_ball_turnovers": 9, "live_ball_to_pct": 55.0, "lost_ball": 9, "bad_pass": 2},
+      "SAS": {"turnovers": 13, "live_ball_turnovers": 9, "dead_ball_turnovers": 4, "live_ball_to_pct": 69.23, "lost_ball": 5, "bad_pass": 4}
+    },
+    "fouls_team_totals": {
+      "OKC": {"fouls": 25, "shooting_fouls_committed": 11, "fouls_drawn": 19},
+      "SAS": {"fouls": 19, "shooting_fouls_committed": 7, "fouls_drawn": 25}
+    },
+    "rebounds_team_totals": {
+      "OKC": {"rebounds": 59, "def_rebounds": 40, "orebounds": 19, "fg_dreb_pct": 67.27, "fg_oreb_pct": 31.67, "z_bounds": 2, "z_bound_pct": 3.92},
+      "SAS": {"rebounds": 60, "def_rebounds": 42, "orebounds": 18, "fg_dreb_pct": 68.33, "fg_oreb_pct": 32.73, "z_bounds": 3, "z_bound_pct": 6.0}
+    }
+  },
+  "rebound_tracking_player_summary": {
+    "OKC": {
+      "Chet Holmgren": {"min": 25.6, "reb": 9, "rebound_chances": 18, "chance_pct": 50.0, "adjusted_chance_pct": 52.9, "avg_reb_distance": 6.5},
+      "Isaiah Hartenstein": {"min": 17.9, "reb": 7, "rebound_chances": 13, "chance_pct": 53.8, "adjusted_chance_pct": 58.3, "avg_reb_distance": 6.4},
+      "Cason Wallace": {"min": 20.8, "reb": 4, "rebound_chances": 12, "chance_pct": 33.3, "adjusted_chance_pct": 40.0, "avg_reb_distance": 3.9},
+      "Kenrich Williams": {"min": 23.1, "reb": 5, "rebound_chances": 13, "chance_pct": 38.5, "adjusted_chance_pct": 45.5, "avg_reb_distance": 5.2},
+      "Jared McCain": {"min": 23.9, "reb": 2, "rebound_chances": 9, "chance_pct": 22.2, "adjusted_chance_pct": 28.6, "avg_reb_distance": 18.4}
+    },
+    "SAS": {
+      "DeAaron Fox": {"min": 30.9, "reb": 10, "rebound_chances": 15, "chance_pct": 66.7, "adjusted_chance_pct": 66.7, "avg_reb_distance": 10.9},
+      "Victor Wembanyama": {"min": 31.0, "reb": 8, "rebound_chances": 14, "chance_pct": 57.1, "adjusted_chance_pct": 66.7, "avg_reb_distance": 3.9},
+      "Luke Kornet": {"min": 13.4, "reb": 7, "rebound_chances": 15, "chance_pct": 46.7, "adjusted_chance_pct": 50.0, "avg_reb_distance": 3.3},
+      "Devin Vassell": {"min": 33.0, "reb": 6, "rebound_chances": 14, "chance_pct": 42.9, "adjusted_chance_pct": 42.9, "avg_reb_distance": 3.8},
+      "Dylan Harper": {"min": 20.6, "reb": 5, "rebound_chances": 9, "chance_pct": 55.6, "adjusted_chance_pct": 62.5, "avg_reb_distance": 4.6}
+    }
+  },
+  "signal_classification": {
+    "SAS_side_control": "signal_confirmed",
+    "game_under": "signal_confirmed_extreme",
+    "OKC_offensive_collapse": "signal_confirmed",
+    "SAS_team_total_over": "signal_weakened",
+    "OKC_team_total_under": "signal_confirmed_extreme",
+    "rebound_environment": "volume_inflated_but_evenly_distributed",
+    "SAS_big_rebounds": "signal_confirmed_for_Wembanyama_and_Kornet",
+    "OKC_big_rebounds": "signal_confirmed_for_Chet_and_Hartenstein_due_to_miss_volume"
+  },
+  "pregame_assumption_vs_actual": {
+    "market_total": {
+      "closing_range": "218.5 to 220.5",
+      "actual": 185,
+      "delta": -33.5,
+      "assessment": "Market badly overestimated scoring environment. Possession count was normal/high, but shot conversion collapsed, especially OKC 36.26 eFG and 18.18% from three."
+    },
+    "SAS_favorite": {
+      "closing_spread_common": "SAS -2.5 to -4.5",
+      "actual_margin": 21,
+      "assessment": "SAS favorite signal strongly confirmed."
+    },
+    "team_totals": {
+      "SAS_actual": 103,
+      "OKC_actual": 82,
+      "assessment": "SAS did not clear the newly shown Game 5 style 110+ TT range despite control; OKC under is the stronger continuation angle unless market heavily corrects downward."
+    }
+  },
+  "rebound_environment_analysis": {
+    "summary": "Total rebounds were extremely high: OKC 59, SAS 60. This was not one-team dominance; it was miss-volume inflation. Both teams had 30+ offensive rebound rate profiles, with SAS slightly better FG OReb% at 32.73 vs OKC 31.67.",
+    "key_read": "Rebound overs can remain live even if scoring unders hit. Miss volume created extra chances while poor efficiency suppressed points.",
+    "player_targeting_notes": [
+      "Wembanyama remains stable at 8+ boards with 14 chances and 66.7 adjusted chance pct.",
+      "Kornet was highly efficient on glass: 7 rebounds in 13.4 minutes from 15 chances; bench-big minutes spike flag required.",
+      "Fox guard rebounds are a real Game 5 watch: 10 rebounds, 15 chances, 10.9 avg rebound distance, 0 contested rebounds, indicating long-rebound capture rather than paint fight.",
+      "Chet/Hartenstein rebounds were supported by huge OKC miss environment but minutes split creates ceiling uncertainty."
+    ]
+  },
+  "rotation_and_fatigue_notes": {
+    "OKC": [
+      "Chet only 25.6 minutes and Hartenstein 17.9; combined frontcourt rebounding strong but individual minute volatility remains high.",
+      "SGA logged 31.3 minutes, 4 rebounds on 9 chances; team offensive burden did not translate to efficient scoring environment from available team-level data.",
+      "Jared McCain had 9 rebound chances but only 2 boards with 18.4 avg rebound distance, indicating long-ball rebound volatility not reliable."
+    ],
+    "SAS": [
+      "Wembanyama 31 minutes, Fox 30.9, Vassell 33.0, Castle 29.9: starters remained stable in controlled win.",
+      "Kornet 13.4 minutes with 7 rebounds demands bench-big spike tag."
+    ]
+  },
+  "patch_evaluation": {
+    "OKC_ABOVE_BREAK_THREE_FAILURE": "ADD — OKC shot 3/23 on above-break threes, 13.04%, creating both scoring suppression and rebound inflation.",
+    "MISS_VOLUME_REBOUND_INFLATION": "ADD — total rebounds 119 with final total only 185; rebound overs can decouple from game over.",
+    "SAS_SIZE_REBOUND_STABILITY": "KEEP/ADD — Wembanyama plus Kornet created stable interior rebound profile.",
+    "FOX_LONG_REBOUND_CAPTURE": "ADD — Fox 10 rebounds, 15 chances, zero contested boards, 10.9 avg distance.",
+    "OKC_TEAM_TOTAL_SUPPRESSION": "ADD — OKC scored 82 on 99 possessions with 36.26 eFG and 20 turnovers.",
+    "SAS_TT_OVER_CAUTION": "ADD — SAS controlled the game but only scored 103; side and team total should not be treated as same signal."
+  },
+  "retraining_flags": [
+    "OKC_AB3_COLLAPSE_FLAG",
+    "OKC_TURNOVER_PRESSURE_FLAG",
+    "MISS_VOLUME_REBOUND_INFLATION_ACTIVE",
+    "REBOUND_OVERS_CAN_DECOUPLE_FROM_GAME_UNDER",
+    "SAS_SIDE_CAN_HIT_WITHOUT_SAS_TT_OVER",
+    "FOX_LONG_REBOUND_CAPTURE_PROFILE",
+    "KORNET_BENCH_BIG_MINUTES_SPIKE",
+    "CHET_HARTENSTEIN_SPLIT_MINUTES_VOLATILITY",
+    "WEMBANYAMA_REBOUND_STABILITY_CONFIRMED"
+  ],
+  "game5_prep_seed": {
+    "baseline_line_read": {
+      "SAS_TT_market": "mostly 111.5, some 110.5/112.5",
+      "OKC_TT_market": "mostly 108.5/109.5",
+      "initial_model_bias": [
+        "OKC TT Under remains strongest continuation angle if 108.5+ is available.",
+        "Full-game under remains live, but market may correct from Game 4 extreme.",
+        "SAS spread/ML remains cleaner than SAS TT over because Game 4 showed control without scoring explosion.",
+        "Rebounds: Wembanyama, Kornet minute-dependent, Fox long rebounds, and Chet/Hartenstein split-minute monitoring are priority markets."
+      ]
+    },
+    "recommended_sim_modifiers": {
+      "OKC_offensive_efficiency_multiplier": 0.94,
+      "OKC_turnover_risk_boost": 1.12,
+      "OKC_above_break_three_efficiency_downgrade": true,
+      "SAS_size_rebound_boost": true,
+      "miss_volume_rebound_inflation": true,
+      "SAS_team_total_ceiling_cap": "apply unless OKC pace/turnover live-ball runouts spike"
+    }
+  },
+  "confidence_level": "HIGH",
+  "final_status": "KEEP SAS side/control signal; ADD OKC offensive suppression and miss-volume rebound inflation patches; MODIFY SAS team-total treatment with ceiling caution."
+}
