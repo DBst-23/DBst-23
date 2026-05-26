@@ -1,0 +1,264 @@
+{
+  "game_id": "NBA_2026-05-25_NYK_CLE_G4",
+  "date": "2026-05-25",
+  "matchup": "New York Knicks @ Cleveland Cavaliers",
+  "series_game": 4,
+  "venue": "Rocket Arena, Cleveland, OH",
+  "final_score": {
+    "NYK": 130,
+    "CLE": 93,
+    "margin": 37,
+    "total": 223
+  },
+  "market_snapshot": {
+    "pregame_model_line": {
+      "NYK_mean": 111.8,
+      "NYK_median": 111.5,
+      "CLE_mean": 108.4,
+      "CLE_median": 108.0,
+      "total_mean": 220.2,
+      "total_median": 219.5,
+      "model_spread": "NYK -3.4"
+    },
+    "key_market_entries": [
+      {
+        "market": "NYK -2.5",
+        "side": "YES",
+        "odds": -104,
+        "stake": 4.24,
+        "result": "WIN",
+        "payout": 8.35,
+        "profit": 4.11
+      },
+      {
+        "market": "CLE over 102.5 team total",
+        "side": "NO",
+        "odds": 100,
+        "stake": 5.0,
+        "result": "WIN",
+        "payout": 10.05,
+        "profit": 5.05
+      },
+      {
+        "market": "Mikal Bridges 15+ points",
+        "side": "YES",
+        "odds": -122,
+        "stake": 5.0,
+        "result": "WIN",
+        "payout": 9.13,
+        "profit": 4.13
+      }
+    ]
+  },
+  "pregame_assumptions_vs_actual": {
+    "NYK_side": {
+      "assumption": "NYK model favored despite market showing CLE home side resistance; NYK +2.5 / NYK spread was primary edge.",
+      "actual": "NYK won by 37.",
+      "status": "signal_confirmed",
+      "delta_vs_model_margin": 33.6
+    },
+    "NYK_team_total": {
+      "assumption": "NYK offense upgraded through multi-lane scoring; projected 111.8 mean.",
+      "actual": 130,
+      "status": "signal_confirmed_strong",
+      "delta_vs_mean": 18.2
+    },
+    "CLE_team_total": {
+      "assumption": "CLE creation fragility and above-break three dependency made CLE overs untrustworthy; CLE mean 108.4 with under preference at inflated numbers.",
+      "actual": 93,
+      "status": "signal_confirmed_strong",
+      "delta_vs_mean": -15.4
+    },
+    "game_total": {
+      "assumption": "Full-game under was caution because NYK could break total alone; projected total 220.2.",
+      "actual": 223,
+      "status": "model_near_total_but_distribution_miss",
+      "delta_vs_mean": 2.8
+    }
+  },
+  "quarter_flow": {
+    "Q1": {
+      "NYK": 38,
+      "CLE": 26,
+      "notes": "NYK flipped early CLE lead with transition, offensive glass, and bench rim pressure."
+    },
+    "Q2": {
+      "NYK": 30,
+      "CLE": 23,
+      "notes": "CLE turnover spiral created NYK runout scoring and expanded deficit to 19 at half."
+    },
+    "Q3": {
+      "NYK": 30,
+      "CLE": 22,
+      "notes": "NYK sustained advantage; Cleveland failed to stabilize half-court creation."
+    },
+    "Q4": {
+      "NYK": 32,
+      "CLE": 22,
+      "notes": "Blowout state did not generate meaningful CLE recovery; NYK continued scoring through secondary lanes."
+    }
+  },
+  "team_efficiency_environment": {
+    "through_3q_reported": {
+      "NYK_FG_pct": 49.3,
+      "NYK_3P_pct": 45.2,
+      "NYK_rebounds": 43,
+      "NYK_offensive_rebounds": 14,
+      "NYK_assists": 25,
+      "NYK_turnovers": 10,
+      "CLE_FG_pct": 40.7,
+      "CLE_3P_pct": 26.7,
+      "CLE_rebounds": 25,
+      "CLE_offensive_rebounds": 5,
+      "CLE_assists": 14,
+      "CLE_turnovers": 16
+    },
+    "final_known": {
+      "NYK_points": 130,
+      "CLE_points": 93,
+      "total_points": 223
+    }
+  },
+  "rebound_environment_analysis": {
+    "status": "NYK offensive glass and rebound-control signal confirmed",
+    "key_indicators": {
+      "NYK_2nd_chance_points_through_3q": 22,
+      "CLE_2nd_chance_points_through_3q": 2,
+      "NYK_fast_break_points_through_3q": 30,
+      "CLE_fast_break_points_through_3q": 5,
+      "NYK_rebound_margin_through_3q": 18,
+      "NYK_offensive_rebound_edge_through_3q": 9
+    },
+    "player_notes_through_3q": {
+      "Karl-Anthony Towns": "15 points, 13 rebounds, 3 assists, 2 steals, 2 blocks through 3Q; rebound downgrade should be modified, not reverted, because Game 4 created a favorable rebound environment from CLE misses and NYK control.",
+      "Josh Hart": "6 points, 10 rebounds, 6 assists through 3Q; utility/rebound role strongly validated.",
+      "Mitchell Robinson": "8 points, 9 rebounds in 16:56 through 3Q; bench-big rebound spike and offensive glass impact confirmed.",
+      "Mikal Bridges": "15 points through 3Q; 15+ points prop hit, but volume was inefficient at 4/16 through 3Q, so scoring edge was role/volume based rather than efficiency based."
+    }
+  },
+  "player_projection_comparison": {
+    "NYK": {
+      "Jalen Brunson": {
+        "pregame_pts_mean": 28.6,
+        "actual_through_3q_pts": 15,
+        "actual_through_3q_reb": 2,
+        "actual_through_3q_ast": 5,
+        "status": "scoring_under_projection_due_to_blowout_distribution"
+      },
+      "Karl-Anthony Towns": {
+        "pregame_pts_mean": 22.8,
+        "pregame_reb_mean": 9.4,
+        "actual_through_3q_pts": 15,
+        "actual_through_3q_reb": 13,
+        "actual_through_3q_ast": 3,
+        "status": "rebounds_over_projection; scoring below full-game mean but game state reduced need"
+      },
+      "Mikal Bridges": {
+        "pregame_pts_mean": 18.7,
+        "pregame_reb_mean": 4.9,
+        "actual_final_pts_minimum": 15,
+        "actual_through_3q_pts": 15,
+        "actual_through_3q_reb": 3,
+        "actual_through_3q_ast": 5,
+        "status": "15_plus_hit; full mean uncertain from provided final card"
+      },
+      "Josh Hart": {
+        "pregame_pts_mean": 12.2,
+        "pregame_reb_mean": 8.0,
+        "actual_through_3q_pts": 6,
+        "actual_through_3q_reb": 10,
+        "actual_through_3q_ast": 6,
+        "status": "rebound_edge_confirmed"
+      },
+      "OG Anunoby": {
+        "pregame_pts_mean": 15.0,
+        "pregame_reb_mean": 5.5,
+        "actual_through_3q_pts": 13,
+        "actual_through_3q_reb": 4,
+        "actual_through_3q_ast": 4,
+        "status": "near_projection; defensive/transition contribution exceeded scoring-only view"
+      },
+      "Landry Shamet": {
+        "pregame_pts_mean": 8.4,
+        "actual_through_3q_pts": 16,
+        "status": "bench_spacer_ceiling_hit; volatility spacer tag confirmed"
+      }
+    },
+    "CLE": {
+      "Donovan Mitchell": {
+        "pregame_pts_mean": 27.1,
+        "actual_through_3q_pts": 28,
+        "status": "individual scoring hit despite team collapse"
+      },
+      "James Harden": {
+        "pregame_pts_mean": 20.9,
+        "pregame_ast_mean": 8.6,
+        "actual_through_3q_pts": 12,
+        "actual_through_3q_ast": 2,
+        "actual_through_3q_turnovers": 5,
+        "status": "assist projection failed; creation fragility and turnover risk strongly confirmed"
+      },
+      "Evan Mobley": {
+        "pregame_pts_mean": 18.5,
+        "pregame_reb_mean": 8.4,
+        "actual_through_3q_pts": 15,
+        "actual_through_3q_reb": 7,
+        "status": "near but suppressed by team offensive breakdown"
+      },
+      "Jarrett Allen": {
+        "pregame_pts_mean": 14.2,
+        "pregame_reb_mean": 9.5,
+        "actual_through_3q_pts": 4,
+        "actual_through_3q_reb": 3,
+        "status": "projection miss; role/usage collapsed in NYK pressure environment"
+      },
+      "Max Strus": {
+        "pregame_pts_mean": 10.7,
+        "actual_through_3q_pts": 5,
+        "status": "caution confirmed"
+      },
+      "Sam Merrill": {
+        "pregame_pts_mean": 7.4,
+        "actual_through_3q_pts": 5,
+        "status": "bench spacing not enough to offset collapse"
+      }
+    }
+  },
+  "betting_result_summary": {
+    "record": "3-0 from documented tickets",
+    "total_staked": 14.24,
+    "total_payout": 27.53,
+    "net_profit": 13.29,
+    "roi_percent": 93.33,
+    "edge_calls": [
+      "NYK -2.5 WIN",
+      "CLE TT No over 102.5 WIN",
+      "Mikal Bridges 15+ WIN"
+    ]
+  },
+  "patch_evaluation": {
+    "CAVS_CREATION_FRAGILITY_CONFIRMED": "KEEP — Cleveland produced 16 turnovers through 3Q and 93 final points.",
+    "CLE_ABOVE_BREAK_THREE_DEPENDENCY_ON": "KEEP — CLE shot 26.7% from 3 through 3Q and could not create stable rim/paint scoring.",
+    "NYK_MULTI_LANE_OFFENSE_UPGRADE": "KEEP — NYK reached 130 with Brunson not needing to carry the scoring load.",
+    "KAT_REBOUND_FUNNEL_DOWNGRADE": "MODIFY — downgrade was too conservative for Game 4 environment; add conditional override when CLE miss volume + NYK offensive glass edge is active.",
+    "TEAM_TOTAL_UNDER_CAN_DECOUPLE_FROM_GAME_UNDER": "KEEP — CLE under hit while full-game total landed over model lean zone because NYK exploded.",
+    "LEAD_SUPPRESSION_TOTAL_CAUTION": "KEEP — game total still reached 223 despite 37-point margin."
+  },
+  "new_retraining_flags": [
+    "CLE_HALFCOURT_COLLAPSE_PERSISTENT",
+    "HARDEN_ASSIST_OVER_VOLATILITY_DOWNGRADE",
+    "ALLEN_REBOUND_ROLE_SUPPRESSION_VS_NYK",
+    "NYK_BENCH_SPACER_CEILING_ACTIVE",
+    "MITCHELL_INDIVIDUAL_SCORING_CAN_DECOUPLE_FROM_CLE_TEAM_TOTAL",
+    "KAT_REBOUND_DOWNGRADE_REQUIRES_ENVIRONMENT_OVERRIDE",
+    "NYK_OFFENSIVE_GLASS_SUPERIORITY_CONFIRMED",
+    "BLOWOUT_DOES_NOT_AUTO_KILL_NYK_TEAM_TOTAL"
+  ],
+  "rolling_window_update": {
+    "series_pattern": "NYK control now strengthened across side, team total, offensive glass, and Cavs creation fragility.",
+    "last_game_added": "2026-05-25_NYK_CLE_G4",
+    "recommendation_for_game_5_prep": "Open with NYK side/TT bias, CLE TT under bias at inflated numbers, avoid Harden assists unless line is discounted, and reprice KAT/Hart/Robinson rebounds using CLE miss-volume environment."
+  },
+  "confidence_level": "HIGH",
+  "final_status": "KEEP core patches; MODIFY KAT rebound downgrade with conditional environment override"
+}
