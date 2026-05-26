@@ -1,0 +1,130 @@
+{
+  "schema_version": "SharpEdge_NBA_LiveFlow_Postmortem_v1.0",
+  "log_type": "liveflow_halftime_strike",
+  "game_id": "2026-05-25_NYK_CLE_G4",
+  "matchup": "New York Knicks @ Cleveland Cavaliers",
+  "date": "2026-05-25",
+  "venue": "Rocket Arena, Cleveland, OH",
+  "officials": ["Marc Davis", "Josh Tiven", "Kevin Scott", "Jacyn Goble"],
+  "source": "user_provided_nba_official_scorers_report_first_half_and_live_market_screen",
+  "score_state": {
+    "period": "HALFTIME",
+    "nyk": 68,
+    "cle": 49,
+    "margin": 19,
+    "total_points": 117,
+    "quarter_scores": {
+      "q1": {"nyk": 38, "cle": 26},
+      "q2": {"nyk": 30, "cle": 23}
+    }
+  },
+  "live_market_snapshot_halftime": {
+    "spread": {"nyk": {"line": -17.5, "odds": -117}, "cle": {"line": 17.5, "odds": -104}},
+    "moneyline": {"nyk": -1686, "cle": 1240},
+    "game_total": {"line": 225.5, "over": 101, "under": -121},
+    "team_totals": {
+      "cle_over_102_5": {"yes": -126, "no": -104},
+      "nyk_over_121_5": {"yes": -132, "no": 109}
+    }
+  },
+  "first_half_team_stats": {
+    "nyk": {
+      "points": 68,
+      "fg": "25/48",
+      "fg_pct": 52.1,
+      "three_pt": "10/23",
+      "three_pt_pct": 43.5,
+      "ft": "8/12",
+      "rebounds": 26,
+      "off_reb": 7,
+      "assists": 17,
+      "turnovers": 4,
+      "points_in_paint": 26,
+      "second_chance_points": 16,
+      "fast_break_points": 26
+    },
+    "cle": {
+      "points": 49,
+      "fg": "15/38",
+      "fg_pct": 39.5,
+      "three_pt": "7/21",
+      "three_pt_pct": 33.3,
+      "ft": "12/13",
+      "rebounds": 17,
+      "off_reb": 2,
+      "assists": 8,
+      "turnovers": 9,
+      "points_in_paint": 12,
+      "second_chance_points": 2,
+      "fast_break_points": 3
+    }
+  },
+  "liveflow_diagnosis": {
+    "primary_script": "NYK transition + offensive glass avalanche; CLE halfcourt instability and turnover leakage.",
+    "pace_read": "Actual first-half total 117 pushed game pace/scoring above pregame, but blowout dynamics create 2H efficiency and rotation-risk drag.",
+    "rebound_environment": "NYK owns the live board environment: +9 total rebounds, +5 offensive rebounds, 16-2 second-chance edge. KAT already 10 rebounds at half and Robinson added 6 in 10:53.",
+    "turnover_environment": "CLE 9 turnovers for 18 NYK points is the central live-flow failure. Knicks only 4 turnovers.",
+    "paint_and_transition": "NYK +14 paint points and +23 fast-break points. This is not just shooting variance; it is possession-quality domination.",
+    "injury_rotation_note": "CLE Schroder inactive; guard pressure relief reduced, Harden/Mitchell handling burden elevated. This supports continued CLE turnover risk."
+  },
+  "halftime_projection_update": {
+    "full_game_total": {"mean": 222.8, "median": 223.5, "over_225_5_probability": 0.46, "under_225_5_probability": 0.54},
+    "nyk_team_total_121_5": {"mean": 123.8, "median": 124.0, "over_probability": 0.57, "under_probability": 0.43},
+    "cle_team_total_102_5": {"mean": 99.6, "median": 100.0, "over_probability": 0.41, "under_probability": 0.59},
+    "spread_nyk_minus_17_5": {"mean_margin": 18.6, "median_margin": 18.0, "cover_probability": 0.52},
+    "cle_plus_17_5": {"cover_probability": 0.48}
+  },
+  "liveflow_strike_board": [
+    {
+      "market": "CLE team total under 102.5 / No CLE over 102.5",
+      "price_seen": -104,
+      "model_probability": 0.59,
+      "fair_price": -144,
+      "edge": "positive",
+      "confidence_tier": "STRONG_LEAN",
+      "drivers": ["CLE 49 at half", "turnover burden", "poor paint creation", "Schroder inactive", "NYK glass control", "blowout pressure"]
+    },
+    {
+      "market": "Full game under 225.5",
+      "price_seen": -121,
+      "model_probability": 0.54,
+      "fair_price": -117,
+      "edge": "thin/no_call_zone_after_vig",
+      "confidence_tier": "NO_CALL_ZONE",
+      "drivers": ["117 first-half points already high", "2H blowout dampener", "NYK may slow clock", "FT spike risk remains"]
+    },
+    {
+      "market": "NYK team total over 121.5",
+      "price_seen": -132,
+      "model_probability": 0.57,
+      "fair_price": -133,
+      "edge": "fair_price_only_not_enough_edge",
+      "confidence_tier": "NO_CALL_ZONE",
+      "drivers": ["NYK 68 at half", "bench scoring strong", "but 19-point lead may reduce 4Q urgency"]
+    },
+    {
+      "market": "NYK -17.5 live spread",
+      "price_seen": -117,
+      "model_probability": 0.52,
+      "fair_price": -108,
+      "edge": "negative_after_price",
+      "confidence_tier": "AVOID",
+      "drivers": ["number already inflated", "backdoor/garbage risk", "pregame NYK -2.5 already strong position"]
+    }
+  ],
+  "recommended_halftime_action": {
+    "primary": "CLE team total under 102.5 / No CLE over 102.5 at -104 or better",
+    "secondary": "Hold pregame NYK -2.5 and Mikal Bridges 15+ positions; do not add NYK -17.5 at current price.",
+    "risk_note": "LIVEFLOW_STRIPPED_MODE_ACTIVE: one open correlated 2H/team-total exposure only; avoid stacking full-game under with CLE TT under unless price improves materially."
+  },
+  "rolling_window_tags": [
+    "LIVEFLOW_HALFTIME_STRIKE",
+    "NYK_TRANSITION_SURGE",
+    "CLE_TURNOVER_LEAK",
+    "OFFENSIVE_GLASS_DOMINANCE_NYK",
+    "BLOWOUT_DAMPENER_ACTIVE",
+    "CLE_TT_UNDER_WATCH",
+    "RISK_CLUSTER_LOCK_CHECK"
+  ],
+  "log_status": "created_via_chatgpt_github_connector"
+}
