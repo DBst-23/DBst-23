@@ -1,0 +1,131 @@
+{
+  "game_id": "OKC_SAS_WCF_G5_2026_05_26",
+  "date": "2026-05-26",
+  "matchup": "San Antonio Spurs @ Oklahoma City Thunder",
+  "venue": "Paycom Center, Oklahoma City, OK",
+  "officials": ["Tony Brothers", "James Capers", "Sean Wright", "JB DeRosa"],
+  "source_file": "20260526_SASOKC_book.pdf",
+  "source_type": "NBA Official Scorer's Report / Play-by-Play",
+  "final_score": {
+    "spurs": 113,
+    "thunder": 127,
+    "margin": 14
+  },
+  "score_by_period": {
+    "spurs": [27, 31, 33, 22],
+    "thunder": [29, 40, 32, 26]
+  },
+  "market_results": {
+    "OKC_spread_minus_4_5": {
+      "entry_odds": "-104",
+      "actual_margin": 14,
+      "result": "HIT"
+    },
+    "OKC_team_total_over_111_5": {
+      "entry_odds": "+100",
+      "actual_points": 127,
+      "result": "HIT"
+    },
+    "SAS_team_total_under_111_5_liveflow": {
+      "entry_odds": "-108",
+      "actual_points": 113,
+      "result": "MISS"
+    }
+  },
+  "team_stats": {
+    "spurs": {
+      "points": 113,
+      "fg": "37/92",
+      "fg_pct": 40.2,
+      "three_pt": "12/41",
+      "three_pct": 29.3,
+      "ft": "27/31",
+      "ft_pct": 87.1,
+      "off_rebounds": 15,
+      "def_rebounds": 26,
+      "total_rebounds": 41,
+      "team_rebounds": 8,
+      "assists": 25,
+      "turnovers": 15,
+      "turnover_points_allowed": 20,
+      "steals": 14,
+      "blocks": 3,
+      "paint_points": 46,
+      "second_chance_points": 15,
+      "fast_break_points": 26
+    },
+    "thunder": {
+      "points": 127,
+      "fg": "40/83",
+      "fg_pct": 48.2,
+      "three_pt": "14/32",
+      "three_pct": 43.8,
+      "ft": "33/38",
+      "ft_pct": 86.8,
+      "off_rebounds": 14,
+      "def_rebounds": 34,
+      "total_rebounds": 48,
+      "team_rebounds": 10,
+      "assists": 26,
+      "turnovers": 16,
+      "turnover_points_allowed": 22,
+      "steals": 9,
+      "blocks": 5,
+      "paint_points": 38,
+      "second_chance_points": 26,
+      "fast_break_points": 9
+    }
+  },
+  "key_player_outputs": {
+    "Shai Gilgeous-Alexander": {"pts": 32, "reb": 2, "ast": 9, "fg": "7/19", "ft": "16/17", "note": "FT engine and creation anchor; turnover load remained elevated."},
+    "Jared McCain": {"pts": 20, "reb": 3, "ast": 0, "fg": "7/19", "three_pt": "3/9", "note": "Usage absorbed in Jalen Williams absence; scoring volume important for OKC TT."},
+    "Alex Caruso": {"pts": 22, "reb": 2, "ast": 6, "fg": "5/10", "three_pt": "4/8", "ft": "8/8", "note": "Bench swing confirmed; elite efficiency plus defense."},
+    "Chet Holmgren": {"pts": 16, "reb": 11, "ast": 1, "note": "Double-big rebound stability confirmed."},
+    "Isaiah Hartenstein": {"pts": 12, "reb": 15, "ast": 4, "off_reb": 6, "plus_minus": 24, "note": "OREB/control engine confirmed; 15 rebounds and 6 offensive boards."},
+    "Victor Wembanyama": {"pts": 20, "reb": 6, "ast": 1, "fg": "4/15", "ft": "12/12", "note": "FT-driven scoring; rebound ladder caution remains active."},
+    "Stephon Castle": {"pts": 24, "reb": 5, "ast": 6, "fg": "7/11", "note": "Primary Spurs guard scoring/utility winner."},
+    "Julian Champagnie": {"pts": 22, "reb": 8, "fg": "8/15", "three_pt": "4/8", "note": "Early heater carried scoring; wing rebound distribution confirmed."},
+    "DeAaron Fox": {"pts": 9, "reb": 4, "ast": 8, "fg": "4/15", "note": "Scoring suppression plus assist pivot confirmed."},
+    "Keldon Johnson": {"pts": 15, "reb": 4, "fg": "7/13", "note": "Bench scoring kept SAS above 111.5 late."}
+  },
+  "rebound_environment": {
+    "classification": "OKC interior-control environment with SAS wing/guard rebound dispersion",
+    "okc_rebound_edge": "+7 total rebounds",
+    "okc_second_chance_efficiency": "26 points on 14 ORB, 1.86 second-chance points per ORB",
+    "sas_second_chance_efficiency": "15 points on 15 ORB, 1.00 second-chance points per ORB",
+    "confirmed_tags": [
+      "OKC_DOUBLE_BIG_REBOUND_STABILITY",
+      "HARTENSTEIN_OREB_CONTROL_ENGINE",
+      "WEMBY_REBOUND_LADDER_CAUTION",
+      "SAS_WING_REBOUND_DISTRIBUTION"
+    ]
+  },
+  "liveflow_review": {
+    "halftime_score": {"spurs": 58, "thunder": 69},
+    "halftime_read": "SAS TT under 111.5 was structurally live through 3Q but failed after extended 4Q points and late bench scoring pushed SAS to 113.",
+    "miss_driver": "Late-game extension from 6:11 to final added 14 SAS points after the earlier 112-99 snapshot; garbage-time/bench scoring turned the under into a miss.",
+    "new_risk_tag": "LIVEFLOW_TT_UNDER_GARBAGE_TIME_EXTENSION_RISK"
+  },
+  "patch_evaluation": {
+    "OKC_DOUBLE_BIG_REBOUND_STABILITY": "KEEP",
+    "HARTENSTEIN_OREB_CONTROL_ENGINE": "ADD_AND_KEEP",
+    "CARUSO_BENCH_SWING_VOLATILITY_ON": "ADD_AND_KEEP",
+    "SAS_FOX_SCORING_SUPPRESSION_ASSIST_PIVOT": "KEEP",
+    "WEMBY_REBOUND_LADDER_CAUTION": "KEEP",
+    "SAS_TT_UNDER_DECOUPLE_FROM_GAME_TOTAL": "MODIFY_WITH_GARBAGE_TIME_RISK",
+    "LEAD_SUPPRESSION_TOTAL_CAUTION": "MODIFY"
+  },
+  "retraining_flags": [
+    "Retain OKC double-big rebound boost when Holmgren and Hartenstein both project 25+ minutes.",
+    "Upgrade Hartenstein rebound and OREB projections in OKC home/control scripts.",
+    "Add Caruso bench swing scoring volatility when OKC wing/guard rotation is thinned by injuries.",
+    "Preserve Fox scoring suppression / assist pivot when FG efficiency is broken but creation volume remains stable.",
+    "Do not grade SAS TT under as fully confirmed when game remains within garbage-time extension range and bench units can add 10+ late points.",
+    "Add late-game/bench extension penalty to LiveFlow team-total unders when lead is 10-16 with 6+ minutes left."
+  ],
+  "rolling_window_status": {
+    "signal_status": "MIXED_CONFIRMED_WITH_LIVEFLOW_UNDER_MISS",
+    "confidence": "HIGH for OKC side/team-total and rebound patches; MEDIUM for SAS TT unders unless garbage-time filter is applied",
+    "final_status": "KEEP_WITH_MODIFICATIONS"
+  }
+}
