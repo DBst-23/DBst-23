@@ -1,0 +1,159 @@
+{
+  "schema_version": "rolling_window_series.v1",
+  "entry_id": "NBA_LIVEFLOW_HALFTIME_EDGE_2026_05_26_OKC_SAS_G5",
+  "sport": "NBA",
+  "series": "Western Conference Finals",
+  "game": "Game 5",
+  "date": "2026-05-26",
+  "matchup": "San Antonio Spurs at Oklahoma City Thunder",
+  "venue": "Paycom Center, Oklahoma City, OK",
+  "mode": "LIVEFLOW_STRIPPED_MODE_ACTIVE",
+  "status": "EDGE_CALL_ACTIVE",
+  "score_state": {
+    "period": "halftime",
+    "sas": 58,
+    "okc": 69,
+    "margin": "OKC +11",
+    "first_half_total": 127
+  },
+  "pregame_positions": [
+    {
+      "market": "team_total",
+      "selection": "Oklahoma City over 111.5 points",
+      "side": "yes",
+      "odds": "+100",
+      "stake": 5.0,
+      "status": "open",
+      "tag": "PREGAME_TT_OVER_OKC_111_5"
+    },
+    {
+      "market": "spread",
+      "selection": "Oklahoma City wins by over 4.5 points",
+      "side": "yes",
+      "odds": "-104",
+      "stake": 12.0,
+      "status": "open",
+      "tag": "PREGAME_OKC_MINUS_4_5"
+    }
+  ],
+  "liveflow_position_added": {
+    "market": "team_total",
+    "selection": "No - San Antonio over 111.5 points scored",
+    "interpreted_selection": "San Antonio team total under 111.5",
+    "side": "no",
+    "odds": "-108",
+    "stake": 5.53,
+    "max_payout_if_right": 10.68,
+    "book": "Kalshi",
+    "locked": true,
+    "tag": "LIVEFLOW_HALFTIME_SAS_TT_UNDER_111_5"
+  },
+  "halftime_market_snapshot": {
+    "live_spread": {
+      "sas_plus_9_5": "-117",
+      "okc_minus_9_5": "-104"
+    },
+    "live_total": {
+      "over_233_5": "-117",
+      "under_233_5": "-104"
+    },
+    "team_totals": {
+      "okc_over_123_5": "-108",
+      "okc_under_123_5": "-117",
+      "sas_over_111_5": "-117",
+      "sas_under_111_5": "-108"
+    }
+  },
+  "halftime_model_reprice": {
+    "okc_current": 69,
+    "sas_current": 58,
+    "okc_2h_mean": 55.5,
+    "sas_2h_mean": 52.0,
+    "okc_final_mean": 124.5,
+    "okc_final_median": 123.5,
+    "sas_final_mean": 110.0,
+    "sas_final_median": 109.5,
+    "total_final_mean": 234.5,
+    "total_final_median": 233.0
+  },
+  "probabilities": {
+    "okc_win": 0.855,
+    "okc_minus_4_5_original_cover": 0.73,
+    "okc_minus_9_5_live_cover": 0.54,
+    "over_233_5": 0.50,
+    "under_233_5": 0.50,
+    "okc_tt_over_123_5": 0.51,
+    "sas_tt_under_111_5": 0.545
+  },
+  "edge_summary": {
+    "primary_live_edge": "San Antonio team total under 111.5",
+    "confidence_tier": "controlled_single_fire",
+    "edge_type": "whistle_regression_plus_field_goal_suppression",
+    "mean_delta_vs_line": -1.5,
+    "median_delta_vs_line": -2.0,
+    "risk_notes": [
+      "Tony Brothers crew is whistle-active",
+      "SAS first-half scoring inflated by 17/19 FT",
+      "SAS only 38.6% FG and 33.3% 3PT through halftime",
+      "Wembanyama has 9 points on 1/5 FG with 7/7 FT, indicating scoring is free-throw dependent",
+      "Avoid stacking additional correlated OKC spread exposure due to existing OKC -4.5 ticket"
+    ]
+  },
+  "first_half_diagnostics": {
+    "sas": {
+      "points": 58,
+      "fg": "17/44",
+      "fg_pct": 0.386,
+      "three_pt": "7/21",
+      "three_pt_pct": 0.333,
+      "ft": "17/19",
+      "ft_pct": 0.895,
+      "turnovers": 8,
+      "points_off_turnovers_allowed": 14,
+      "team_rebounds": 22,
+      "paint_points": 18,
+      "fast_break_points": 10
+    },
+    "okc": {
+      "points": 69,
+      "fg": "21/40",
+      "fg_pct": 0.525,
+      "three_pt": "7/14",
+      "three_pt_pct": 0.5,
+      "ft": "20/20",
+      "ft_pct": 1.0,
+      "turnovers": 9,
+      "points_off_turnovers_allowed": 10,
+      "team_rebounds": 26,
+      "paint_points": 22,
+      "fast_break_points": 2
+    }
+  },
+  "active_tags": [
+    "LIVEFLOW_STRIPPED_MODE_ACTIVE",
+    "RISK_CLUSTER_LOCK_MONITORED",
+    "TONY_BROTHERS_WHISTLE_SPIKE",
+    "SAS_FT_INFLATION_ALERT",
+    "SAS_FIELD_GOAL_SUPPRESSION_ON",
+    "OKC_ORIGINAL_EDGE_HOLD",
+    "NO_ADD_OKC_CORRELATED_SPREAD"
+  ],
+  "next_monitoring_triggers": [
+    {
+      "trigger": "SAS reaches bonus before 7:00 in Q3",
+      "action": "downgrade SAS TT under edge to neutral_hold"
+    },
+    {
+      "trigger": "SAS starts Q3 with 3+ made FGs in first 4 minutes",
+      "action": "reduce under confidence; no hedge unless live line remains 111.5 or lower"
+    },
+    {
+      "trigger": "OKC lead expands to 16+ by mid-Q3",
+      "action": "upgrade SAS offensive instability / late bench risk; under remains live"
+    },
+    {
+      "trigger": "Wembanyama second-half usage shifts into paint touches instead of perimeter attempts",
+      "action": "monitor foul/FT risk; do not add more under exposure"
+    }
+  ]
+}
