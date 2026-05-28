@@ -1,0 +1,279 @@
+{
+  "game_id": "OKC_SAS_WCF_G5_2026_05_26_DEEP",
+  "date": "2026-05-26",
+  "matchup": "San Antonio Spurs @ Oklahoma City Thunder",
+  "venue": "Paycom Center, Oklahoma City, OK",
+  "series_context": "Western Conference Finals Game 5; SAS elimination prep required for Game 6",
+  "source_files_consulted": [
+    "20260526_SASOKC_book.pdf",
+    "Fouls.text",
+    "Rebounds.text",
+    "Scoring .text",
+    "Shot Distribution .text",
+    "Turnovers .text",
+    "User-provided closing line screenshots",
+    "User-provided player tracking rebounding and box-out tables"
+  ],
+  "final_score": {
+    "spurs": 114,
+    "thunder": 127,
+    "margin": 13,
+    "note": "User closing-line screen lists SAS 114. NBA official scorer PDF page 1 lists SAS 113. Treat as one-point reconciliation flag until official feed finalizes. Market grading for SAS TT over/under around 106.5-108.5 is unaffected."
+  },
+  "official_pdf_final_score": {
+    "spurs": 113,
+    "thunder": 127,
+    "margin": 14
+  },
+  "score_by_period_screen": {
+    "spurs": [27, 31, 33, 23],
+    "thunder": [29, 40, 32, 26]
+  },
+  "score_by_period_pdf": {
+    "spurs": [27, 31, 33, 22],
+    "thunder": [29, 40, 32, 26]
+  },
+  "closing_market_snapshot": {
+    "full_game": {
+      "best_moneyline": {"sas": "+141", "okc": "-149"},
+      "spread_cluster": "OKC -3.5 to -4.0; best visible OKC -3.5 -109, SAS +3.5 +105",
+      "total_cluster": "216.5 to 217.5; best visible over 216.5 -107, under 217.5 -108"
+    },
+    "team_totals": {
+      "sas": {
+        "common_line": "107.5",
+        "low_line": "106.5",
+        "high_line": "108.5 Kalshi",
+        "close_result": "OVER"
+      },
+      "okc": {
+        "common_line": "110.5",
+        "low_line": "109.5 Bovada",
+        "high_line": "111.5 Kalshi",
+        "close_result": "OVER"
+      }
+    }
+  },
+  "market_results": {
+    "okc_moneyline": "HIT",
+    "okc_minus_3_5_or_minus_4": "HIT",
+    "full_game_over_216_5_or_217_5": "HIT",
+    "sas_team_total_over_106_5_to_108_5": "HIT",
+    "okc_team_total_over_109_5_to_111_5": "HIT",
+    "prior_liveflow_sas_under_111_5": "MISS"
+  },
+  "team_core_box": {
+    "sas": {
+      "points": 114,
+      "possessions": 101,
+      "fg2": "25/51",
+      "fg2_pct": 49.02,
+      "fg3": "12/41",
+      "fg3_pct": 29.27,
+      "ft_points": 28,
+      "efg_pct": 46.74,
+      "ts_pct": 53.77,
+      "shot_quality": 0.56,
+      "rim_or_3_freq": 76.09,
+      "turnovers": 15,
+      "live_ball_turnovers": 9,
+      "fouls": 29,
+      "fouls_drawn": 21
+    },
+    "okc": {
+      "points": 127,
+      "possessions": 101,
+      "fg2": "26/51",
+      "fg2_pct": 50.98,
+      "fg3": "14/32",
+      "fg3_pct": 43.75,
+      "ft_points": 33,
+      "efg_pct": 56.63,
+      "ts_pct": 62.38,
+      "shot_quality": 0.54,
+      "rim_or_3_freq": 61.45,
+      "turnovers": 17,
+      "live_ball_turnovers": 14,
+      "fouls": 21,
+      "fouls_drawn": 29
+    }
+  },
+  "rebound_environment": {
+    "team_rebounds_tracking": {
+      "sas": 48,
+      "okc": 55,
+      "okc_edge": 7
+    },
+    "official_rebounds_pdf": {
+      "sas": 41,
+      "okc": 48,
+      "okc_edge": 7
+    },
+    "offensive_rebounds_tracking": {
+      "sas": 21,
+      "okc": 18
+    },
+    "defensive_rebounds_tracking": {
+      "sas": 27,
+      "okc": 37
+    },
+    "fg_oreb_pct": {
+      "sas": 36.36,
+      "okc": 42.86
+    },
+    "fg_dreb_pct": {
+      "sas": 57.14,
+      "okc": 63.64
+    },
+    "three_point_rebound_profile": {
+      "sas_3pt_oreb_pct": 31.03,
+      "okc_3pt_oreb_pct": 47.06,
+      "sas_3pt_dreb_pct": 52.94,
+      "okc_3pt_dreb_pct": 68.97
+    },
+    "classification": "OKC controlled defensive rebound environment with Hartenstein anchoring contested-board capture; SAS generated volume offensive boards but converted less efficiently than OKC.",
+    "confirmed_edges": [
+      "OKC_DOUBLE_BIG_REBOUND_STABILITY",
+      "HARTENSTEIN_OREB_CONTROL_ENGINE",
+      "OKC_LONG_REBOUND_CAPTURE_VS_SAS_3PA",
+      "SAS_WING_REBOUND_DISTRIBUTION",
+      "WEMBY_REBOUND_UNDER_ENVIRONMENT_CONFIRMED"
+    ]
+  },
+  "player_tracking_rebounding": {
+    "Isaiah Hartenstein": {
+      "rebounds": 15,
+      "contested_rebounds": 9,
+      "contested_reb_pct": 60.0,
+      "reb_chances": 21,
+      "reb_chance_pct": 71.4,
+      "adjusted_reb_chance_pct": 78.9,
+      "avg_reb_distance": 6.2,
+      "box_outs": 4,
+      "player_reb_on_box_outs": 3,
+      "signal": "elite board control and box-out conversion"
+    },
+    "Chet Holmgren": {
+      "rebounds": 11,
+      "contested_rebounds": 2,
+      "reb_chances": 17,
+      "reb_chance_pct": 64.7,
+      "adjusted_reb_chance_pct": 73.3,
+      "avg_reb_distance": 5.8,
+      "signal": "high opportunity share with low contested load; stable complement to Hartenstein"
+    },
+    "Victor Wembanyama": {
+      "rebounds": 6,
+      "contested_rebounds": 3,
+      "reb_chances": 16,
+      "reb_chance_pct": 37.5,
+      "adjusted_reb_chance_pct": 46.2,
+      "avg_reb_distance": 4.3,
+      "box_outs": 0,
+      "signal": "high chances but poor capture rate; under profile strengthened"
+    },
+    "Julian Champagnie": {
+      "rebounds": 8,
+      "reb_chances": 14,
+      "reb_chance_pct": 57.1,
+      "adjusted_reb_chance_pct": 61.5,
+      "avg_reb_distance": 5.7,
+      "signal": "SAS wing board redistribution confirmed"
+    },
+    "Dylan Harper": {
+      "rebounds": 6,
+      "reb_chances": 9,
+      "reb_chance_pct": 66.7,
+      "adjusted_reb_chance_pct": 75.0,
+      "avg_reb_distance": 8.3,
+      "signal": "long rebound beneficiary"
+    },
+    "Cason Wallace": {
+      "rebounds": 4,
+      "reb_chances": 9,
+      "adjusted_reb_chance_pct": 57.1,
+      "avg_reb_distance": 8.4,
+      "signal": "guard long-board profile but low raw ceiling"
+    }
+  },
+  "scoring_environment": {
+    "key_read": "OKC beat expected scoring through FT volume plus elite three-point shot-making, not superior shot quality. SAS shot quality was slightly higher, but OKC produced a massive efficiency edge.",
+    "okc_efficiency_edge": {
+      "efg_delta": 9.89,
+      "ts_delta": 8.61,
+      "three_point_pct_delta": 14.48
+    },
+    "free_throw_edge": {
+      "okc_ft_points": 33,
+      "sas_ft_points": 28,
+      "okc_fouls_drawn": 29,
+      "sas_fouls_drawn": 21
+    },
+    "shot_distribution_note": "SAS had 76.09% rim-or-3 frequency and 0.56 shot quality but only 46.74% eFG due to 12/41 from three. OKC had lower rim-or-3 frequency at 61.45% and lower shot quality at 0.54 but hit 14/32 from three."
+  },
+  "turnover_environment": {
+    "sas": {"turnovers": 15, "live_ball": 9, "live_ball_pct": 60.0},
+    "okc": {"turnovers": 17, "live_ball": 14, "live_ball_pct": 82.35},
+    "signal": "OKC had higher turnover danger but compensated with shooting/FTs/rebounding. SAS could not fully monetize OKC live-ball leakage. For Game 6, OKC live-ball turnover risk remains a comeback path for SAS but not enough alone without SAS three-point correction."
+  },
+  "rotation_notes": {
+    "okc": {
+      "injury_context": "Jalen Williams inactive; OKC absorbed usage through Shai, McCain, Caruso and double-big boards.",
+      "high_leverage_lineup": "Caruso-Hartenstein-SGA-Wallace-McCain logged +14 in 8:04 with 27 points on 17 possessions and zero turnovers.",
+      "risk": "Hartenstein turnover pocket appeared in some lineups but rebound/control value outweighed it."
+    },
+    "sas": {
+      "core_issue": "Wembanyama logged 37.6 minutes but only 6 rebounds on 16 chances and no box-outs; SAS wing/guard board capture absorbed his missed rebound volume.",
+      "late_game_distortion": "Bench scoring after 2:13 and extended closing possessions added team-total over fuel and invalidated earlier live under read."
+    }
+  },
+  "pregame_assumption_vs_actual": {
+    "okc_side_edge": {"assumption": "OKC interior/control edge should translate to spread cover.", "actual": "OKC won by 13/14 depending feed; cover confirmed.", "status": "signal_confirmed"},
+    "okc_team_total_over": {"assumption": "OKC scoring ceiling alive through SGA FT pressure and secondary scoring.", "actual": "OKC reached 127 vs 109.5-111.5 close range.", "status": "signal_confirmed"},
+    "sas_team_total_under_liveflow": {"assumption": "Lead suppression and fourth-quarter pace would cap SAS below 111.5.", "actual": "SAS reached 113/114 after late extension and bench scoring.", "status": "signal_broken_for_liveflow_under"},
+    "wemby_rebound_caution": {"assumption": "Avoid aggressive Wemby rebound overs vs OKC double-big/box-out environment.", "actual": "6 rebounds on 16 chances with 37.5% chance conversion.", "status": "signal_confirmed"},
+    "hartenstein_rebound_boost": {"assumption": "Hartenstein can anchor OREB/control profile.", "actual": "15 rebounds, 9 contested, 21 chances, 4 box-outs.", "status": "signal_confirmed_strong"}
+  },
+  "patch_evaluation": {
+    "OKC_DOUBLE_BIG_REBOUND_STABILITY": "KEEP",
+    "HARTENSTEIN_OREB_CONTROL_ENGINE": "UPGRADE",
+    "CARUSO_BENCH_SWING_VOLATILITY_ON": "KEEP",
+    "WEMBY_REBOUND_LADDER_CAUTION": "KEEP_AND_STRENGTHEN",
+    "SAS_WING_REBOUND_DISTRIBUTION": "KEEP",
+    "OKC_LIVE_BALL_TURNOVER_RISK": "ADD_FOR_GAME_6",
+    "SAS_TT_UNDER_DECOUPLE_FROM_GAME_TOTAL": "MODIFY",
+    "LIVEFLOW_TT_UNDER_GARBAGE_TIME_EXTENSION_RISK": "KEEP_AND_AUTO_APPLY"
+  },
+  "new_tags_for_rolling_window": [
+    "HARTENSTEIN_21_CHANCE_REBOUND_SPIKE",
+    "WEMBY_HIGH_CHANCE_LOW_CAPTURE_REBOUND_RISK",
+    "OKC_3PT_EFFICIENCY_OUTPACES_SHOT_QUALITY",
+    "SAS_3PT_VOLUME_LOW_EFFICIENCY_PRESSURE",
+    "OKC_LIVE_BALL_TO_RISK_DESPITE_WIN",
+    "SAS_LATE_TT_EXTENSION_RISK",
+    "CARUSO_ZERO_TO_HIGH_PLUS_LINEUP_ANCHOR",
+    "SAS_WING_GUARD_LONG_REBOUND_CAPTURE"
+  ],
+  "game6_prep_seed": {
+    "series_state": "SAS elimination game next",
+    "primary_questions": [
+      "Does SAS reduce Wembanyama perimeter volume and improve rebound positioning?",
+      "Does OKC keep Hartenstein above 28 minutes after 15-rebound control game?",
+      "Does SAS three-point volume remain high despite 29.27% outcome?",
+      "Does OKC turnover leakage regress or invite SAS upset/cover pressure?",
+      "Does market overreact to OKC offensive efficiency even though OKC shot quality was lower than SAS?"
+    ],
+    "early_game6_angles_to_validate": [
+      "Hartenstein rebounds over / OREB ladder if line opens conservative",
+      "Wembanyama rebounds under if line remains reputation-inflated",
+      "OKC team total caution if 3PT efficiency inflated market above sustainable shot quality",
+      "SAS team total over only if underpriced below 108 and pace stays around 101 possessions",
+      "LiveFlow avoid SAS TT unders unless lead >18 with under 5:00 or bench scoring risk fully removed"
+    ]
+  },
+  "rolling_window_status": {
+    "classification": "signal_confirmed_with_liveflow_under_patch_modification",
+    "confidence": "HIGH for rebound patches; MEDIUM for scoring carryover due to OKC 3PT variance; LOW for SAS live team-total unders without garbage-time filter",
+    "final_status": "KEEP_WITH_MODIFICATIONS"
+  }
+}
