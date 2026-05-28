@@ -3,14 +3,14 @@
   "totalItems": 6,
   "totalEvents": 0,
   "totalGames": 6,
-  "totalGamesInProgress": 3,
+  "totalGamesInProgress": 2,
   "dates": [
     {
       "date": "2026-05-28",
       "totalItems": 6,
       "totalEvents": 0,
       "totalGames": 6,
-      "totalGamesInProgress": 3,
+      "totalGamesInProgress": 2,
       "games": [
         {
           "gamePk": 824272,
@@ -179,12 +179,12 @@
           "gameDate": "2026-05-28T20:10:00Z",
           "officialDate": "2026-05-28",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -194,12 +194,13 @@
                 "link": "/api/v1/teams/144"
               },
               "leagueRecord": {
-                "wins": 37,
+                "wins": 38,
                 "losses": 19,
                 "ties": 0,
-                "pct": ".661"
+                "pct": ".667"
               },
               "score": 10,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 18
             },
@@ -211,11 +212,12 @@
               },
               "leagueRecord": {
                 "wins": 23,
-                "losses": 31,
+                "losses": 32,
                 "ties": 0,
-                "pct": ".426"
+                "pct": ".418"
               },
               "score": 2,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 18
             }
@@ -228,6 +230,7 @@
           "content": {
             "link": "/api/v1/game/824757/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
@@ -275,7 +278,7 @@
                 "ties": 0,
                 "pct": ".482"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 19
             },
@@ -291,7 +294,7 @@
                 "ties": 0,
                 "pct": ".464"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 19
             }
