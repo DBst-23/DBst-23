@@ -21,12 +21,12 @@
           "gameDate": "2026-05-28T17:10:00Z",
           "officialDate": "2026-05-28",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -36,12 +36,13 @@
                 "link": "/api/v1/teams/108"
               },
               "leagueRecord": {
-                "wins": 21,
+                "wins": 22,
                 "losses": 35,
                 "ties": 0,
-                "pct": ".375"
+                "pct": ".386"
               },
-              "score": 5,
+              "score": 7,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 18
             },
@@ -53,11 +54,12 @@
               },
               "leagueRecord": {
                 "wins": 22,
-                "losses": 34,
+                "losses": 35,
                 "ties": 0,
-                "pct": ".393"
+                "pct": ".386"
               },
               "score": 1,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 18
             }
@@ -70,6 +72,7 @@
           "content": {
             "link": "/api/v1/game/824272/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
@@ -117,7 +120,7 @@
                 "ties": 0,
                 "pct": ".482"
               },
-              "score": 0,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 18
             },
@@ -133,7 +136,7 @@
                 "ties": 0,
                 "pct": ".509"
               },
-              "score": 5,
+              "score": 6,
               "splitSquad": false,
               "seriesNumber": 18
             }
@@ -173,12 +176,12 @@
           "gameDate": "2026-05-28T20:10:00Z",
           "officialDate": "2026-05-28",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -324,9 +327,9 @@
           "officialDate": "2026-05-28",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -398,9 +401,9 @@
           "officialDate": "2026-05-28",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
