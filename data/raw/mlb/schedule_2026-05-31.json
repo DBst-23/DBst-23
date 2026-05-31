@@ -3,14 +3,14 @@
   "totalItems": 15,
   "totalEvents": 0,
   "totalGames": 15,
-  "totalGamesInProgress": 0,
+  "totalGamesInProgress": 1,
   "dates": [
     {
       "date": "2026-05-31",
       "totalItems": 15,
       "totalEvents": 0,
       "totalGames": 15,
-      "totalGamesInProgress": 0,
+      "totalGamesInProgress": 1,
       "games": [
         {
           "gamePk": 824832,
@@ -22,9 +22,9 @@
           "officialDate": "2026-05-31",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "P",
-            "detailedState": "Warmup",
-            "statusCode": "PW",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
             "abstractGameCode": "L"
           },
@@ -174,9 +174,9 @@
           "officialDate": "2026-05-31",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -797,6 +797,7 @@
                 "ties": 0,
                 "pct": ".379"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 19
             },
@@ -812,6 +813,7 @@
                 "ties": 0,
                 "pct": ".373"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 19
             }
