@@ -1,0 +1,102 @@
+{
+  "schema_version": "B.003_rolling_window_series_postmortem_v1",
+  "entry_type": "liveflow_final_postmortem",
+  "sport": "NBA",
+  "series": "2026_WCF_SAS_OKC",
+  "game_id": "SAS_OKC_WCF_Game7_2026-05-30",
+  "date": "2026-05-30",
+  "venue": "Paycom Center, Oklahoma City, OK",
+  "teams": {"visitor": "San Antonio Spurs", "home": "Oklahoma City Thunder"},
+  "final_score": {"SAS": 111, "OKC": 103, "total": 214, "winner": "SAS"},
+  "market_context": {
+    "pregame_market_snapshot": {
+      "SAS_spread": "+3.5 -117",
+      "OKC_spread": "-3.5 -104",
+      "SAS_moneyline": "+123",
+      "OKC_moneyline": "-149",
+      "game_total": "211.5",
+      "over": "-117",
+      "under": "-104",
+      "OKC_team_total": "108.5 over -104 / no -121",
+      "SAS_team_total": "104.5 over -126 / no +105"
+    },
+    "halftime_market_snapshot": {
+      "score": "SAS 56 - OKC 53",
+      "SAS_spread": "-1.5 -117",
+      "OKC_spread": "+1.5 -104",
+      "SAS_moneyline": "-132",
+      "OKC_moneyline": "+109",
+      "game_total": "214.5",
+      "over": "+101",
+      "under": "-121",
+      "OKC_team_total": "108.5 over +113 / no -149",
+      "SAS_team_total": "107.5 over -117 / no -104"
+    }
+  },
+  "model_projection_board": {
+    "initial_projection": {
+      "SAS_ML_probability": 0.613,
+      "SAS_minus_3_5_probability": 0.531,
+      "SAS_TT_over_112_5_probability": 0.558,
+      "OKC_TT_under_111_5_probability": 0.553,
+      "full_game_over": "no_call",
+      "best_clean_position": "SAS ML if market offers near -145 or better"
+    },
+    "raw_pre_market_projection": {"SAS_points": 113.8, "OKC_points": 109.6, "total": 223.4},
+    "market_tempo_recalibrated_projection": {
+      "projected_score": "OKC 109.2 - SAS 105.8",
+      "OKC_points": 109.2,
+      "SAS_points": 105.8,
+      "spread": "OKC -3.4",
+      "total": 215.0,
+      "best_playable_edge": "Full Game Over 211.5 at -117"
+    },
+    "halftime_liveflow_projection": {
+      "projected_total_mean": 221.7,
+      "projected_total_median": 220.5,
+      "over_214_5_probability": "62-64%",
+      "OKC_TT_over_108_5_probability": "59-61%",
+      "recommended_primary_play": "Full Game Over 214.5 +101"
+    }
+  },
+  "bets_logged": [
+    {"market": "SAS Moneyline", "odds": "+118", "stake": 10.00, "result": "win", "payout": 21.86, "profit": 11.86, "model_alignment": "initial pregame sim had SAS winning outright at 61.3%", "grade": "strong_hit"},
+    {"market": "Full Game Over 211.5", "odds": "-117", "stake": 9.60, "result": "win", "payout": 17.86, "profit": 8.26, "final_total": 214, "model_alignment": "recalibrated market-tempo model projected 215.0", "grade": "clean_hit_by_2_5_points"},
+    {"market": "Full Game Over 214.5", "odds": "+109", "stake": 9.81, "result": "loss", "payout": 0.00, "profit": -9.81, "final_total": 214, "model_alignment": "halftime LiveFlow projected 220.5 median / 221.7 mean", "grade": "hook_loss", "variance_tag": "LIVEFLOW_HALFTIME_TOTAL_HOOK"}
+  ],
+  "financial_summary": {"total_staked": 29.41, "total_return": 39.72, "net_profit": 10.31, "record": "2-1", "roi": 0.3506},
+  "core_postmortem": {
+    "headline": "SAS ML thesis confirmed; pregame over thesis landed; halftime over add-on lost by hook at 214.",
+    "what_worked": [
+      "Initial model correctly identified SAS as a live upset/win candidate despite market showing OKC favored.",
+      "Raw model total of 223.4 was too high, but directionally identified that 211.5 was low.",
+      "Market-tempo correction brought the total projection down to 215.0, nearly exact versus final total 214.",
+      "Pregame Over 211.5 -117 was the best calibrated total entry and closed as a winning bet."
+    ],
+    "what_failed_or_needs_patch": [
+      "Halftime LiveFlow over projection was too aggressive after first-half scoring pace.",
+      "The total-market add-on at Over 214.5 was exposed to late-game stall and lost by 0.5 despite the pregame over winning.",
+      "When pregame over already holds position and halftime total reopens above recalibrated fair, LiveFlow should require a larger edge buffer."
+    ]
+  },
+  "variance_and_patch_tags": [
+    "SAS_UPSET_THESIS_CONFIRMED",
+    "MARKET_TEMPO_CORRECTION_SUCCESS",
+    "PREGAME_TOTAL_EDGE_HIT",
+    "LIVEFLOW_HALFTIME_TOTAL_HOOK",
+    "GAME7_POSSESSION_COMPRESSION",
+    "CORRELATED_TOTAL_EXPOSURE_WARNING",
+    "HALFTIME_ADDON_BUFFER_REQUIRED"
+  ],
+  "actionable_patches": [
+    {"patch_name": "GAME7_POSSESSION_COMPRESSION_GATE", "rule": "In elimination Game 7 environments, cap halftime total add-ons when live total is 3+ points above pregame total unless live pace and foul environment both remain above threshold."},
+    {"patch_name": "PREGAME_OVER_POSITION_PROTECTION", "rule": "If pregame over is already held and live total moves upward, require at least +4.5 points of model edge and no late-clock compression flags before adding correlated over exposure."},
+    {"patch_name": "HALFTIME_HOOK_BUFFER_RULE", "rule": "Avoid adding over positions at x.5 totals when projected median is less than 6 points above market in playoff elimination settings."}
+  ],
+  "series_roll_forward_notes": {
+    "SAS_profile": "Validated as resilient underdog with enough creation diversity to survive OKC pressure.",
+    "OKC_profile": "Without Jalen Williams and Ajay Mitchell, OKC creation depth remained fragile; SGA pressure was real but not enough to fully stabilize the offense late.",
+    "future_model_weighting": "Prioritize injury-adjusted creation depth and playoff possession compression over raw first-half pace for late LiveFlow totals."
+  },
+  "status": "logged_to_rolling_window_series"
+}
