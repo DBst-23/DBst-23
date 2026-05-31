@@ -1,0 +1,73 @@
+{
+  "schema_version": "B.003_deep_postmortem_v1",
+  "entry_type": "rolling_window_series_deep_postmortem",
+  "sport": "NBA",
+  "series": "2026_WCF_SAS_OKC",
+  "game_id": "SAS_OKC_WCF_Game7_2026-05-30",
+  "date": "2026-05-30",
+  "venue": "Paycom Center, Oklahoma City, OK",
+  "final_score": {"SAS": 111, "OKC": 103, "total": 214, "winner": "SAS"},
+  "market_and_bet_results": {
+    "SAS_ML_plus_118": "win",
+    "full_game_over_211_5_minus_117": "win",
+    "liveflow_over_214_5_plus_109": "loss_by_hook",
+    "net_session": "+$10.31",
+    "record": "2-1"
+  },
+  "team_four_factors_and_context": {
+    "possessions": {"SAS": 92, "OKC": 92},
+    "scoring": {"SAS_points": 111, "OKC_points": 103, "SAS_TS_pct": 57.29, "OKC_TS_pct": 54.21, "SAS_eFG_pct": 55.11, "OKC_eFG_pct": 50.59},
+    "three_point_profile": {"SAS_3PM_3PA_pct": "17/40, 42.5%", "OKC_3PM_3PA_pct": "12/37, 32.43%"},
+    "rim_or_three_frequency": {"SAS": 79.55, "OKC": 58.82},
+    "shot_quality": {"SAS": 0.56, "OKC": 0.51},
+    "rebounding": {"SAS_total_reb": 47, "OKC_total_reb": 51, "SAS_oreb": 16, "OKC_oreb": 17},
+    "turnovers": {"SAS": 12, "OKC": 14, "SAS_live_ball_TO_pct": 75.0, "OKC_live_ball_TO_pct": 64.29},
+    "fouls": {"SAS_fouls": 18, "OKC_fouls": 16, "SAS_fouls_drawn": 16, "OKC_fouls_drawn": 18}
+  },
+  "deep_read": {
+    "core_result_explanation": "SAS won because its shot diet was materially cleaner and more efficient. The Spurs produced a 79.55% rim-or-three frequency, 17 made threes, 42.5% from three, and a 0.56 shot quality profile. OKC won the raw rebounding battle 51-47 and nearly matched offensive rebounding, but its shot mix was less efficient and more midrange-heavy, with only 58.82% rim-or-three frequency and 32.43% three-point shooting.",
+    "rebounding_layer": "OKC did not lose because of rebounding volume. OKC had 51 rebounds and 17 offensive boards, while SAS had 47 and 16. The hidden issue was rebound conversion: OKC second-chance volume did not translate into enough scoring separation because SAS maintained better shot efficiency and spacing on the other end.",
+    "shot_distribution_layer": "SAS created the superior math profile: 40 three-point attempts, 30 rim attempts, and only 18 combined short/mid/long midrange attempts. OKC had 25 short-midrange attempts and only 13 rim attempts, creating a lower-ceiling scoring profile in a Game 7 environment.",
+    "turnover_layer": "Both teams had live-ball turnover exposure, but OKC's 14 total turnovers and early-game giveaway pressure prevented sustained control. SAS committed 12 turnovers, but converted enough high-value shots to absorb them.",
+    "foul_layer": "Foul environment did not become a high-extension over engine. SAS had 18 fouls and OKC 16, with fouls drawn nearly balanced. This supports the halftime hook diagnosis: the 214.5 live over needed either cleaner late pace or foul extension, and neither fully materialized."
+  },
+  "player_tracking_rebounding_notes": {
+    "SAS": {
+      "Victor_Wembanyama": {"min": 41.9, "reb": 7, "reb_chances": 19, "adjusted_chance_pct": 43.8, "box_outs": 1},
+      "Dylan_Harper": {"min": 27.1, "reb": 7, "reb_chances": 10, "adjusted_chance_pct": 70.0},
+      "Devin_Vassell": {"min": 33.4, "reb": 6, "reb_chances": 6, "adjusted_chance_pct": 100.0},
+      "Stephon_Castle": {"min": 35.7, "reb": 6, "reb_chances": 11, "adjusted_chance_pct": 54.5},
+      "Julian_Champagnie": {"min": 37.5, "reb": 6, "reb_chances": 13, "adjusted_chance_pct": 46.2}
+    },
+    "OKC": {
+      "Jaylin_Williams": {"min": 25.6, "reb": 10, "reb_chances": 15, "adjusted_chance_pct": 71.4, "box_outs": 2},
+      "Cason_Wallace": {"min": 36.2, "reb": 7, "reb_chances": 11, "adjusted_chance_pct": 70.0},
+      "Alex_Caruso": {"min": 38.6, "reb": 5, "reb_chances": 7, "adjusted_chance_pct": 71.4},
+      "Isaiah_Hartenstein": {"min": 20.6, "reb": 5, "reb_chances": 12, "adjusted_chance_pct": 45.5},
+      "Chet_Holmgren": {"min": 32.8, "reb": 4, "reb_chances": 20, "adjusted_chance_pct": 22.2}
+    },
+    "key_flag": "Chet Holmgren's 20 rebound chances produced only 4 rebounds and a 22.2% adjusted chance rate, while Jaylin Williams and Cason Wallace were the stronger OKC rebound converters. This should influence future OKC frontcourt rebound prop calibration."
+  },
+  "model_accuracy": {
+    "SAS_moneyline": "correct; model identified SAS win probability at 61.3% and user captured +118",
+    "pregame_total": "correct; over 211.5 won with final total 214",
+    "recalibrated_total": "excellent; recalibrated total 215.0 versus final 214",
+    "halftime_total": "miss; live over 214.5 lost by 0.5 due to Game 7 possession compression and insufficient foul extension"
+  },
+  "patches_to_roll_forward": [
+    {"tag": "GAME7_POSSESSION_COMPRESSION_GATE", "rule": "Reduce second-half pace and late-game total projection when elimination Game 7 live total rises above pregame by 3+ points and foul environment is balanced rather than accelerating."},
+    {"tag": "HALFTIME_TOTAL_ADDON_BUFFER_REQUIRED", "rule": "Require median edge of 6+ points for correlated halftime over add-ons when pregame over is already held."},
+    {"tag": "CHET_REBOUND_CONVERSION_DOWNGRADE", "rule": "When Chet shows high rebound chances but low adjusted conversion, downgrade raw rebound chance-based overs and shift board share toward Jaylin/guards."},
+    {"tag": "SAS_RIM_OR_3_UPSET_PROFILE", "rule": "When SAS reaches 75%+ rim-or-three frequency with Wembanyama/Castle/Fox/Vassell active, boost upset viability and team total efficiency."},
+    {"tag": "REBOUND_VOLUME_NOT_ENOUGH", "rule": "Do not overrate raw offensive rebound volume if shot quality and three-point efficiency gap favors opponent."}
+  ],
+  "final_grade": {
+    "winner_projection": "A+",
+    "market_price_capture": "A+",
+    "pregame_total": "A",
+    "halftime_liveflow_addon": "C-",
+    "rebound_model_diagnostics": "A-",
+    "overall_session": "A"
+  },
+  "status": "logged_to_rolling_window_series"
+}
