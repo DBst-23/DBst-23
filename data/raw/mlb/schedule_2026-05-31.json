@@ -3,14 +3,14 @@
   "totalItems": 15,
   "totalEvents": 0,
   "totalGames": 15,
-  "totalGamesInProgress": 7,
+  "totalGamesInProgress": 9,
   "dates": [
     {
       "date": "2026-05-31",
       "totalItems": 15,
       "totalEvents": 0,
       "totalGames": 15,
-      "totalGamesInProgress": 7,
+      "totalGamesInProgress": 9,
       "games": [
         {
           "gamePk": 824832,
@@ -41,7 +41,7 @@
                 "ties": 0,
                 "pct": ".492"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 19
             },
@@ -57,7 +57,7 @@
                 "ties": 0,
                 "pct": ".458"
               },
-              "score": 6,
+              "score": 9,
               "splitSquad": false,
               "seriesNumber": 19
             }
@@ -209,7 +209,7 @@
                 "ties": 0,
                 "pct": ".525"
               },
-              "score": 0,
+              "score": 4,
               "splitSquad": false,
               "seriesNumber": 19
             }
@@ -285,7 +285,7 @@
                 "ties": 0,
                 "pct": ".567"
               },
-              "score": 0,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 19
             }
@@ -345,7 +345,7 @@
                 "ties": 0,
                 "pct": ".390"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 19
             },
@@ -361,7 +361,7 @@
                 "ties": 0,
                 "pct": ".636"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 19
             }
@@ -437,7 +437,7 @@
                 "ties": 0,
                 "pct": ".509"
               },
-              "score": 0,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 19
             }
@@ -478,10 +478,11 @@
           "officialDate": "2026-05-31",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "codedGameState": "M",
+            "detailedState": "Manager challenge",
+            "statusCode": "MF",
             "startTimeTBD": false,
+            "reason": "Close play at 1st",
             "abstractGameCode": "L"
           },
           "teams": {
@@ -513,7 +514,7 @@
                 "ties": 0,
                 "pct": ".431"
               },
-              "score": 0,
+              "score": 3,
               "splitSquad": false,
               "seriesNumber": 19
             }
@@ -553,12 +554,12 @@
           "gameDate": "2026-05-31T18:10:00Z",
           "officialDate": "2026-05-31",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -573,7 +574,7 @@
                 "ties": 0,
                 "pct": ".373"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 19
             },
@@ -630,9 +631,9 @@
           "officialDate": "2026-05-31",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "P",
-            "detailedState": "Warmup",
-            "statusCode": "PW",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
             "abstractGameCode": "L"
           },
@@ -705,12 +706,12 @@
           "gameDate": "2026-05-31T18:35:00Z",
           "officialDate": "2026-05-31",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
