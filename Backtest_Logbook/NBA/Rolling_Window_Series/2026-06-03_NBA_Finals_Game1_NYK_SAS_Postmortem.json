@@ -1,0 +1,50 @@
+{
+  "schema_version": "B.003_finals_rolling_window_v1",
+  "entry_type": "standard_postmortem_plus_game2_prep",
+  "sport": "NBA",
+  "series": "2026_NBA_Finals_NYK_SAS",
+  "game_id": "NBA_Finals_Game1_2026-06-03_NYK_SAS",
+  "date": "2026-06-03",
+  "final_score": {"NYK": 105, "SAS": 95, "winner": "NYK", "margin": 10, "total": 200},
+  "team_core": {
+    "possessions": {"NYK": 99, "SAS": 99},
+    "points": {"NYK": 105, "SAS": 95},
+    "shot_quality": {"NYK": 0.53, "SAS": 0.54},
+    "effective_fg_pct": {"NYK": 46.84, "SAS": 42.13},
+    "true_shooting_pct": {"NYK": 50.97, "SAS": 47.03},
+    "three_point": {"NYK": "11/37, 29.73%", "SAS": "11/43, 25.58%"},
+    "rim_or_three_frequency_pct": {"NYK": 69.47, "SAS": 74.16},
+    "rebounds": {"NYK": 59, "SAS": 57},
+    "offensive_rebounds": {"NYK": 16, "SAS": 16},
+    "turnovers": {"NYK": 9, "SAS": 13},
+    "fouls": {"NYK": 23, "SAS": 23}
+  },
+  "postmortem": {
+    "primary_read": "NYK won Game 1 despite SAS having slightly better shot quality and higher rim-or-three frequency. The deciding edge was conversion, turnover control, and defensive rebounding stability. SAS produced a playable shot map but converted poorly from three and lost the turnover battle.",
+    "scoring_read": "NYK and SAS both played at 99 possessions. NYK scored 105 with 50.97% TS and 46.84% eFG. SAS scored 95 with 47.03% TS and 42.13% eFG. SAS had 0.54 shot quality versus NYK 0.53 but failed to convert.",
+    "shot_profile_read": "SAS generated 74.16% rim-or-three frequency but made only 25.58% from three. NYK generated 69.47% rim-or-three frequency and shot 29.73% from three. Neither team shot well, but NYK was less inefficient and better inside the arc.",
+    "rebounding_read": "NYK won total rebounds 59-57 while offensive rebounds were even at 16-16. Josh Hart was the key swing profile with 15 rebounds on 17 chances and 88.2% adjusted chance rate. Towns had huge opportunity volume with 12 rebounds on 25 chances, while Robinson added 6 rebounds in only 13.2 minutes with 3 box outs.",
+    "sas_rebounding_read": "SAS had strong wing rebound conversion: Vassell 9 boards on 10 chances, Harper 8 on 11 chances, Champagnie 10 on 14 chances, Castle 8 on 11 chances. Wembanyama had 12 boards on 22 chances, but NYK still kept the glass neutral enough to win.",
+    "turnover_read": "NYK had 9 turnovers and SAS had 13. SAS also had 8 live-ball turnovers compared to NYK's 4. This was the biggest non-shooting separator because it wiped away SAS' shot-quality advantage.",
+    "foul_read": "Both teams committed 23 fouls and drew 23 fouls. The whistle was balanced and did not create a team-specific distortion. This supports treating Game 1 as a clean efficiency/turnover outcome rather than a referee-driven result."
+  },
+  "game2_prep_flags": [
+    {"tag": "SAS_SHOT_QUALITY_POSITIVE_REGRESSION", "description": "SAS had better shot quality and higher rim-or-three rate but lost due to poor 3P conversion and turnovers. Watch for market overcorrection against SAS."},
+    {"tag": "NYK_HART_REBOUND_ENGINE_ACTIVE", "description": "Josh Hart converted 15 rebounds on 17 chances. Maintain elevated rebound baseline if minutes remain near 27+ and SAS continues long-miss volume."},
+    {"tag": "TOWNS_REBOUND_CHANCE_VOLUME_HIGH", "description": "KAT had 25 rebound chances but only 48% raw chance conversion. Volume supports rebounds, but conversion risk remains."},
+    {"tag": "SAS_LIVE_BALL_TURNOVER_LEAK", "description": "SAS had 8 live-ball turnovers and 13 total turnovers. Downgrade SAS spread/ML if early Game 2 live-ball turnovers persist."},
+    {"tag": "FINALS_GAME1_UNDER_PROFILE", "description": "Game landed 200 on 99 possessions each, showing efficiency drag more than pace drag. Total market should be judged by conversion assumptions, not pace alone."}
+  ],
+  "game2_initial_projection_stub": {
+    "baseline_prior_before_market": {
+      "projected_score": "NYK 103.8 - SAS 101.6",
+      "total_mean": 205.4,
+      "total_median": 204.5,
+      "NYK_win_probability": 55.8,
+      "SAS_win_probability": 44.2,
+      "spread_fair": "NYK -2.2",
+      "notes": "This is a pre-market stub from Game 1 diagnostics only. Needs current Game 2 lines, venue, injuries, and expected minutes before actionable edge classification."
+    }
+  },
+  "status": "logged_to_rolling_window_series"
+}
