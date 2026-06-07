@@ -3,14 +3,14 @@
   "totalItems": 15,
   "totalEvents": 0,
   "totalGames": 15,
-  "totalGamesInProgress": 2,
+  "totalGamesInProgress": 1,
   "dates": [
     {
       "date": "2026-06-07",
       "totalItems": 15,
       "totalEvents": 0,
       "totalGames": 15,
-      "totalGamesInProgress": 2,
+      "totalGamesInProgress": 1,
       "games": [
         {
           "gamePk": 824916,
@@ -1045,13 +1045,12 @@
           "gameDate": "2026-06-07T20:10:00Z",
           "officialDate": "2026-06-07",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "M",
-            "detailedState": "Player challenge",
-            "statusCode": "MJ",
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
-            "reason": "Pitch Result",
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -1061,12 +1060,13 @@
                 "link": "/api/v1/teams/121"
               },
               "leagueRecord": {
-                "wins": 28,
+                "wins": 29,
                 "losses": 36,
                 "ties": 0,
-                "pct": ".438"
+                "pct": ".446"
               },
               "score": 7,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 21
             },
@@ -1078,11 +1078,12 @@
               },
               "leagueRecord": {
                 "wins": 33,
-                "losses": 30,
+                "losses": 31,
                 "ties": 0,
-                "pct": ".524"
+                "pct": ".516"
               },
-              "score": 2,
+              "score": 3,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 21
             }
@@ -1095,6 +1096,7 @@
           "content": {
             "link": "/api/v1/game/823291/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
