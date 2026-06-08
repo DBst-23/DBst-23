@@ -1,0 +1,159 @@
+{
+  "schema_version": "rolling_window_series.v1",
+  "entry_type": "deep_postmortem",
+  "sport": "NBA",
+  "competition": "2026 NBA Finals",
+  "series": "NYK_SAS_Finals_2026",
+  "game_number": 2,
+  "date": "2026-06-05",
+  "matchup": "NYK@SAS",
+  "venue_context": "San Antonio home game",
+  "final_score": {
+    "NYK": 105,
+    "SAS": 104,
+    "total": 209,
+    "margin": "NYK +1"
+  },
+  "closing_market_snapshot": {
+    "moneyline": {
+      "NYK_best_seen": "+216 ProphetX",
+      "SAS_best_seen": "-222 Betano"
+    },
+    "spread": {
+      "NYK_best_seen": "+7.5 -111 3ET",
+      "SAS_best_seen": "-6.5 -107 Proline+",
+      "consensus_zone": "SAS -6.5 to -7.5"
+    },
+    "total": {
+      "best_over_seen": "216.5 -106 Pinnacle",
+      "best_under_seen": "218.5 -115 Betano",
+      "consensus_zone": "216.5 to 218.5"
+    },
+    "team_totals": {
+      "NYK": {
+        "market_zone": "104.5 to 106.5",
+        "kalshi": "105.5 Over -111 / Under -108"
+      },
+      "SAS": {
+        "market_zone": "111.5 to 113.5",
+        "kalshi": "113.5 Over +109 / Under -137"
+      }
+    }
+  },
+  "result_grading": {
+    "NYK_moneyline": "win",
+    "NYK_spread": "win",
+    "SAS_moneyline": "loss",
+    "SAS_spread": "loss",
+    "full_game_under": "win",
+    "full_game_over": "loss",
+    "NYK_team_total_105_5": "market-dependent push/under depending number; final 105",
+    "SAS_team_total_111_5_or_higher": "under"
+  },
+  "core_postmortem": {
+    "headline": "SAS owned the cleaner shot-quality profile but lost the possession economy. NYK won outright through offensive rebounding, extra possessions, and enough perimeter shotmaking to overcome SAS efficiency advantages.",
+    "primary_failure_mode_for_SAS_backers": "Favorite pricing assumed SAS shot quality and home control would translate into margin. It did not account enough for NYK offensive rebounding and SAS live-ball turnover leakage.",
+    "primary_success_mode_for_NYK": "NYK survived a lower shot-quality profile by winning total rebounds 52-45, offensive rebounds 17-7, and creating enough extra possessions to flip a one-point game."
+  },
+  "team_efficiency_summary": {
+    "NYK": {
+      "possessions": 97,
+      "points": 105,
+      "efg_pct": 50.0,
+      "ts_pct": 53.57,
+      "shot_quality": 0.55,
+      "rim_or_3_frequency_pct": 70.79,
+      "rim_fgm_fga": "14/25",
+      "three_pt_fgm_fga": "15/38",
+      "free_throw_points": 16,
+      "turnovers": 15,
+      "live_ball_turnovers": 7,
+      "offensive_rebounds": 17,
+      "total_rebounds": 52
+    },
+    "SAS": {
+      "possessions": 96,
+      "points": 104,
+      "efg_pct": 53.8,
+      "ts_pct": 57.22,
+      "shot_quality": 0.58,
+      "rim_or_3_frequency_pct": 78.48,
+      "rim_fgm_fga": "20/32",
+      "three_pt_fgm_fga": "11/30",
+      "free_throw_points": 19,
+      "turnovers": 16,
+      "live_ball_turnovers": 11,
+      "offensive_rebounds": 7,
+      "total_rebounds": 45
+    }
+  },
+  "possession_economy": {
+    "rebounding_edge": "NYK +7 total rebounds and +10 offensive rebounds",
+    "turnover_edge": "NYK committed one fewer turnover and far fewer live-ball turnovers; SAS live-ball TO rate 68.75% versus NYK 46.67%",
+    "foul_pressure": "SAS drew 23 fouls to NYK's 20, but this did not overcome the rebounding deficit and live-ball turnover damage",
+    "net_read": "NYK's extra shot volume and second-chance layer neutralized SAS's cleaner shot diet."
+  },
+  "player_tracking_rebounding_notes": {
+    "NYK": {
+      "Karl-Anthony Towns": "13 REB, 18 chances, 72.2 REB chance%, 4 box outs with 4 player rebounds on box outs",
+      "Mikal Bridges": "6 REB in 40.9 minutes, 9 chances, strong wing minute load",
+      "Josh Hart": "6 REB in only 18.2 minutes, 11 chances; prior Game 1 15 REB profile remains a rolling-window volatility flag",
+      "Mitchell Robinson": "3 REB, 11 chances, 14.1 minutes; probable/finger status did not remove him from the glass ecosystem"
+    },
+    "SAS": {
+      "Victor Wembanyama": "9 REB, 19 chances, 7 contested rebounds, 77.8 contested REB%; high physical burden but not enough possession closure",
+      "Devin Vassell": "9 REB, 12 chances, 75.0 REB chance%; wing rebounding remains sticky",
+      "Dylan Harper": "6 REB, 9 chances, 66.7 chance%; reliable guard rebound support",
+      "Julian Champagnie": "4 REB on 8 chances after 10 REB in Game 1; regression mattered"
+    }
+  },
+  "market_model_lessons": {
+    "favorite_tax": "SAS was priced as a strong home favorite despite NYK's proven possession/rebounding profile. Game 2 confirms caution against overpricing SAS solely from shot quality and star power.",
+    "total_lesson": "The full-game under landed because the market's 216.5-218.5 close left little room for NYK pace control and SAS late-game half-court drag. Final total: 209.",
+    "team_total_lesson": "SAS TT unders were structurally live at 111.5+ because NYK's defensive rebounding was not elite, but NYK's possession pressure and SAS live-ball turnovers disrupted clean volume. NYK TT around 105.5 was correctly tight; final 105 landed near market median.",
+    "game3_carryover": "For Game 3 in New York, apply a NYK possession-economy bump and reduce SAS favorite inflation. Do not let SAS shot-quality superiority alone create an oversized projection gap."
+  },
+  "rolling_window_tags": [
+    "favorite_failed_outright",
+    "dog_ml_winner",
+    "nyk_possession_economy_edge",
+    "sas_shot_quality_not_enough",
+    "sas_live_ball_turnover_penalty",
+    "nyk_offensive_rebound_spike",
+    "full_game_under_cash",
+    "team_total_market_tight_nyk",
+    "sas_team_total_under_cash",
+    "game3_home_shift_required"
+  ],
+  "game3_preparation_directives": {
+    "baseline_adjustment": "NYK home-court plus possession economy should narrow the spread baseline materially from Game 2 pricing.",
+    "watch_markets_first": [
+      "NYK spread if market still gives inflated SAS respect",
+      "NYK ML if plus-money remains available with model probability above break-even",
+      "SAS team total under if market opens 111.5+ again",
+      "Full-game total only after pace and lineup confirmation"
+    ],
+    "live_flow_watch": [
+      "NYK offensive rebound rate through Q1",
+      "SAS live-ball turnovers",
+      "Wembanyama rim touch volume vs perimeter drift",
+      "Towns/Robinson foul pressure and glass control",
+      "Brunson plus starters non-heave 3P quality"
+    ]
+  },
+  "source_inputs": {
+    "uploaded_files": [
+      "Fouls.text",
+      "Rebounds.text",
+      "Scoring.text",
+      "Shot Distribution .text",
+      "Turnovers .text"
+    ],
+    "user_provided_screenshots": [
+      "closing main game lines",
+      "NYK team total board",
+      "SAS team total board",
+      "final score/closing odds screen"
+    ]
+  }
+}
