@@ -57,7 +57,7 @@
                 "ties": 0,
                 "pct": ".433"
               },
-              "score": 3,
+              "score": 4,
               "splitSquad": false,
               "seriesNumber": 22
             }
@@ -133,7 +133,7 @@
                 "ties": 0,
                 "pct": ".412"
               },
-              "score": 1,
+              "score": 8,
               "splitSquad": false,
               "seriesNumber": 22
             }
@@ -209,7 +209,7 @@
                 "ties": 0,
                 "pct": ".485"
               },
-              "score": 1,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 22
             }
@@ -251,9 +251,10 @@
           "status": {
             "abstractGameState": "Preview",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Delayed Start",
+            "statusCode": "PR",
             "startTimeTBD": false,
+            "reason": "Rain",
             "abstractGameCode": "P"
           },
           "teams": {
@@ -325,12 +326,12 @@
           "gameDate": "2026-06-11T19:10:00Z",
           "officialDate": "2026-06-11",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -402,9 +403,9 @@
           "officialDate": "2026-06-11",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -421,6 +422,7 @@
                 "ties": 0,
                 "pct": ".632"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 22
             },
@@ -436,6 +438,7 @@
                 "ties": 0,
                 "pct": ".515"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 22
             }
