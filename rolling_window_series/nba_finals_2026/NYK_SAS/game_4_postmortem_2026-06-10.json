@@ -20,6 +20,7 @@
       "team_totals":{"NYK":"Over 109.5 -104 / No -117","SAS":"Over 106.5 -132 / No +105"}
     },
     "live_halftime_snapshot": {
+      "live_score_seen":"SAS 76, NYK 49",
       "live_total_seen":"228.5",
       "live_team_totals":{"NYK":"106.5","SAS":"118.5"},
       "lesson":"Live market inflation after a huge SAS scoring burst did not produce enough second-half continuation. Final landed 213 despite strong shot quality and three-point efficiency."
@@ -48,21 +49,21 @@
     "SAS":{"Keldon Johnson":{"box_outs":2,"def_box_outs":2,"team_reb_on_box_outs":2,"player_reb_on_box_outs":0},"Victor Wembanyama":{"box_outs":1,"def_box_outs":1,"team_reb_on_box_outs":1,"player_reb_on_box_outs":1},"Stephon Castle":{"box_outs":1,"off_box_outs":1,"team_reb_on_box_outs":1,"player_reb_on_box_outs":1},"Julian Champagnie":{"box_outs":1,"def_box_outs":1,"team_reb_on_box_outs":1,"player_reb_on_box_outs":1}}
   },
   "deep_postmortem": {
-    "core_read": "Game 4 punished the pregame over because the scoring environment was efficient but not possession-rich enough. Both teams finished with strong three-point outcomes and acceptable shot quality, but 27 combined turnovers and a late-game close-score brake held the total to 213.",
+    "core_read": "Game 4 punished the pregame over because the scoring environment was efficient but not possession-rich enough. Both teams finished with strong three-point outcomes and acceptable shot quality, but 27 combined turnovers and late-game close-score compression held the total to 213.",
     "over_loss_diagnosis": [
-      "Over 216.5 needed only 217 but final landed 213, missing by 3.5.",
-      "SAS created the cleaner rim-or-3 profile at 75.58%, but its above-break three profile was 9/30 and rim finishing was only 10/22.",
+      "Over 216.5 needed 217 but final landed 213, missing by 3.5.",
+      "SAS created the cleaner rim-or-3 profile at 75.58%, but rim finishing was only 10/22 and above-break threes were 9/30.",
       "NYK had excellent efficiency, especially 15/32 from three and 58.89 TS%, but 15 turnovers limited volume.",
-      "Rebound parity at 48-48 prevented either side from creating a major possession extension edge.",
-      "The halftime/live market rose as high as 228.5, but the game state was too vulnerable to close-game pace compression and regression after the frontloaded burst."
+      "Rebound parity at 48-48 prevented either side from creating a major possession-extension edge.",
+      "The halftime/live market showed 228.5, but the game state was vulnerable to pace compression after the frontloaded burst."
     ],
     "what_worked": [
       "The model correctly identified offensive quality: SAS shot quality 0.56 and NYK shot quality 0.54.",
       "The Wembanyama rebound gravity call was strong: 13 rebounds, 19 chances, 9 contested, 43.9 minutes.",
-      "The live-flow framework correctly recognized inflated live total risk after the 228.5 market print."
+      "The live-flow framework correctly flagged inflated live total risk after the 228.5 market print."
     ],
     "what_failed": [
-      "The pregame total model needed stronger close-game pace brake around 216.5+ totals.",
+      "The pregame total model needed a stronger close-game pace brake around 216.5+ totals.",
       "The model overweighted made-three continuation and underweighted turnover drain.",
       "The model treated high shot quality as enough to clear the total without requiring a confirmed possession edge.",
       "The model did not sufficiently penalize NYK turnover profile against SAS pressure."
@@ -74,7 +75,9 @@
       "live_total_inflation",
       "wembanyama_rebound_gravity",
       "nyk_turnover_drag",
-      "rebound_parity_no_extension"
+      "rebound_parity_no_extension",
+      "frontloaded_scoring_regression",
+      "halftime_total_trap"
     ]
   },
   "game5_preparation": {
@@ -99,5 +102,5 @@
     ]
   },
   "source_files": ["Fouls.text", "Rebounds.text", "Scoring.text", "Shot Distribution .text", "Turnovers .text"],
-  "version": "v2_deep_postmortem_user_tracking_added"
+  "version": "v3_deep_postmortem_final_game5_prep"
 }
