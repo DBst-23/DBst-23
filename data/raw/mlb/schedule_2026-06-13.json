@@ -3,14 +3,14 @@
   "totalItems": 15,
   "totalEvents": 0,
   "totalGames": 15,
-  "totalGamesInProgress": 9,
+  "totalGamesInProgress": 8,
   "dates": [
     {
       "date": "2026-06-13",
       "totalItems": 15,
       "totalEvents": 0,
       "totalGames": 15,
-      "totalGamesInProgress": 9,
+      "totalGamesInProgress": 8,
       "games": [
         {
           "gamePk": 823694,
@@ -100,12 +100,12 @@
           "gameDate": "2026-06-13T19:07:00Z",
           "officialDate": "2026-06-13",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -115,12 +115,13 @@
                 "link": "/api/v1/teams/147"
               },
               "leagueRecord": {
-                "wins": 41,
+                "wins": 42,
                 "losses": 27,
                 "ties": 0,
-                "pct": ".603"
+                "pct": ".609"
               },
-              "score": 1,
+              "score": 3,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 23
             },
@@ -132,11 +133,12 @@
               },
               "leagueRecord": {
                 "wins": 34,
-                "losses": 36,
+                "losses": 37,
                 "ties": 0,
-                "pct": ".486"
+                "pct": ".479"
               },
               "score": 1,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 23
             }
@@ -149,6 +151,7 @@
           "content": {
             "link": "/api/v1/game/822802/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
@@ -196,7 +199,7 @@
                 "ties": 0,
                 "pct": ".515"
               },
-              "score": 4,
+              "score": 7,
               "splitSquad": false,
               "seriesNumber": 23
             },
@@ -212,7 +215,7 @@
                 "ties": 0,
                 "pct": ".479"
               },
-              "score": 2,
+              "score": 3,
               "splitSquad": false,
               "seriesNumber": 23
             }
@@ -288,7 +291,7 @@
                 "ties": 0,
                 "pct": ".500"
               },
-              "score": 5,
+              "score": 6,
               "splitSquad": false,
               "seriesNumber": 23
             }
@@ -348,7 +351,7 @@
                 "ties": 0,
                 "pct": ".500"
               },
-              "score": 1,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 23
             },
@@ -440,7 +443,7 @@
                 "ties": 0,
                 "pct": ".471"
               },
-              "score": 1,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 23
             }
@@ -592,7 +595,7 @@
                 "ties": 0,
                 "pct": ".418"
               },
-              "score": 2,
+              "score": 4,
               "splitSquad": false,
               "seriesNumber": 23
             }
@@ -633,10 +636,11 @@
           "officialDate": "2026-06-13",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "codedGameState": "N",
+            "detailedState": "Umpire review",
+            "statusCode": "NN",
             "startTimeTBD": false,
+            "reason": "Fan interference",
             "abstractGameCode": "L"
           },
           "teams": {
@@ -652,7 +656,7 @@
                 "ties": 0,
                 "pct": ".652"
               },
-              "score": 2,
+              "score": 3,
               "splitSquad": false,
               "seriesNumber": 23
             },
@@ -668,7 +672,7 @@
                 "ties": 0,
                 "pct": ".449"
               },
-              "score": 0,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 23
             }
@@ -728,7 +732,7 @@
                 "ties": 0,
                 "pct": ".629"
               },
-              "score": 4,
+              "score": 5,
               "splitSquad": false,
               "seriesNumber": 23
             },
@@ -937,9 +941,9 @@
           "officialDate": "2026-06-13",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -1012,9 +1016,9 @@
           "officialDate": "2026-06-13",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -1086,9 +1090,9 @@
           "officialDate": "2026-06-13",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
