@@ -1,152 +1,60 @@
 {
-  "game_id": "nba_finals_2026_game_4_SAS_at_NYK_2026-06-10",
-  "series_context": {
-    "game_number": 4,
-    "date": "2026-06-10",
-    "matchup": "San Antonio Spurs at New York Knicks",
-    "venue_context": "New York home game",
-    "next_game_prep_target": "Game 5"
-  },
+  "game_id": "nba_finals_2026_game_4_sas_at_nyk_2026-06-10",
+  "series_folder": "rolling_window_series/nba_finals_2026/NYK_SAS",
+  "game_number": 4,
+  "date": "2026-06-10",
+  "matchup": "SAS@NYK",
   "result": {
-    "final_score": {
-      "SAS": 106,
-      "NYK": 107,
-      "total": 213,
-      "winner": "NYK"
+    "final_score": {"SAS": 106, "NYK": 107, "total": 213},
+    "winner": "NYK",
+    "margin": 1
+  },
+  "locked_positions": [
+    {"market":"Full Game Total","selection":"Over 216.5","book":"Kalshi","odds":-112,"stake":5.46,"result":"loss","settled_total":213,"payout":0.0,"profit_loss":-5.46,"miss_margin":3.5}
+  ],
+  "market_context": {
+    "pre_game_snapshot": {
+      "spread":{"SAS":"+2.5 -117","NYK":"-2.5 -104"},
+      "moneyline":{"SAS":"+105","NYK":"-126"},
+      "total":{"over":"216.5 -112","under":"216.5 -112"},
+      "team_totals":{"NYK":"Over 109.5 -104 / No -117","SAS":"Over 106.5 -132 / No +105"}
     },
-    "locked_position": {
-      "market": "Full Game Total",
-      "side": "Over 216.5",
-      "odds": -112,
-      "stake": 5.46,
-      "result": "loss",
-      "outcome_total": 213,
-      "miss_margin": 3.5
+    "live_halftime_snapshot": {
+      "live_total_seen":"228.5",
+      "live_team_totals":{"NYK":"106.5","SAS":"118.5"},
+      "lesson":"Live market inflation after a huge SAS scoring burst did not produce enough second-half continuation. Final landed 213 despite strong shot quality and three-point efficiency."
     }
   },
-  "market_postmortem": {
-    "pre_game_anchor": {
-      "market_total": 216.5,
-      "read": "Model stayed over-sensitive to Game 3 pace and previous live-flow over success; Game 4 closed with the same 216.5 total but finished 213."
-    },
-    "halftime_live_context": {
-      "observed_live_score_near_half": "SAS led heavily, 76-49 in market screenshot context",
-      "live_total_seen": 228.5,
-      "live_team_totals_seen": {
-        "NYK": 106.5,
-        "SAS": 118.5
-      },
-      "key_lesson": "The live market correctly priced a large lead / pace blend, but second-half scoring environment compressed because Knicks won with control rather than pure pace extension."
-    }
-  },
-  "team_four_factors_style_summary": {
-    "scoring": {
-      "SAS": {
-        "possessions": 93,
-        "points": 106,
-        "efg_pct": 51.74,
-        "ts_pct": 54.69,
-        "three_point_rate": 50.0,
-        "shot_quality": 0.56,
-        "three_pt_made_attempted": "17/43",
-        "two_pt_made_attempted": "19/43"
-      },
-      "NYK": {
-        "possessions": 92,
-        "points": 107,
-        "efg_pct": 55.77,
-        "ts_pct": 58.89,
-        "three_point_rate": 41.03,
-        "shot_quality": 0.54,
-        "three_pt_made_attempted": "15/32",
-        "two_pt_made_attempted": "21/46"
-      }
-    },
-    "rebounding": {
-      "SAS": {
-        "total_rebounds": 48,
-        "defensive_rebounds": 33,
-        "offensive_rebounds": 15,
-        "fg_dreb_pct": 73.17,
-        "fg_oreb_pct": 30.61,
-        "z_bounds": 8,
-        "z_bound_pct": 17.78
-      },
-      "NYK": {
-        "total_rebounds": 48,
-        "defensive_rebounds": 36,
-        "offensive_rebounds": 12,
-        "fg_dreb_pct": 69.39,
-        "fg_oreb_pct": 26.83,
-        "z_bounds": 2,
-        "z_bound_pct": 5.41
-      }
-    },
-    "turnovers": {
-      "SAS": {
-        "turnovers": 12,
-        "live_ball_turnovers": 6,
-        "dead_ball_turnovers": 6,
-        "live_ball_turnover_pct": 50.0
-      },
-      "NYK": {
-        "turnovers": 15,
-        "live_ball_turnovers": 10,
-        "dead_ball_turnovers": 5,
-        "live_ball_turnover_pct": 66.67
-      }
-    },
-    "fouls": {
-      "SAS": 21,
-      "NYK": 21,
-      "note": "Both teams finished even in total fouls and fouls drawn; whistle volume did not create enough late-game over extension."
-    }
+  "team_efficiency_summary": {
+    "SAS":{"possessions":93,"points":106,"two_pt":"19/43 44.19%","three_pt":"17/43 39.53%","free_throw_points":17,"efg_pct":51.74,"ts_pct":54.69,"shot_quality":0.56,"rim_or_3_freq_pct":75.58,"rim_fg":"10/22 45.45%","corner_3":"8/13 61.54%","above_break_3":"9/30 30.00%","turnovers":12,"live_ball_turnovers":6,"dead_ball_turnovers":6,"rebounds":48,"defensive_rebounds":33,"offensive_rebounds":15,"fg_dreb_pct":73.17,"fg_oreb_pct":30.61},
+    "NYK":{"possessions":92,"points":107,"two_pt":"21/46 45.65%","three_pt":"15/32 46.88%","free_throw_points":20,"efg_pct":55.77,"ts_pct":58.89,"shot_quality":0.54,"rim_or_3_freq_pct":67.95,"rim_fg":"13/21 61.90%","corner_3":"8/17 47.06%","above_break_3":"7/15 46.67%","turnovers":15,"live_ball_turnovers":10,"dead_ball_turnovers":5,"rebounds":48,"defensive_rebounds":36,"offensive_rebounds":12,"fg_dreb_pct":69.39,"fg_oreb_pct":26.83}
   },
   "player_tracking_rebounding": [
-    {"player":"Victor Wembanyama","team":"SAS","min":43.9,"reb":13,"contested_reb":9,"contested_reb_pct":69.2,"reb_chances":19,"reb_chance_pct":68.4,"deferred_chances":0,"adjusted_reb_chance_pct":68.4,"avg_reb_distance":2.7},
-    {"player":"Karl-Anthony Towns","team":"NYK","min":25.8,"reb":10,"contested_reb":4,"contested_reb_pct":40.0,"reb_chances":15,"reb_chance_pct":66.7,"deferred_chances":2,"adjusted_reb_chance_pct":76.9,"avg_reb_distance":7.1},
-    {"player":"Josh Hart","team":"NYK","min":32.8,"reb":8,"contested_reb":2,"contested_reb_pct":25.0,"reb_chances":14,"reb_chance_pct":57.1,"deferred_chances":1,"adjusted_reb_chance_pct":61.5,"avg_reb_distance":6.8},
-    {"player":"De'Aaron Fox","team":"SAS","min":37.4,"reb":5,"contested_reb":1,"contested_reb_pct":20.0,"reb_chances":15,"reb_chance_pct":33.3,"deferred_chances":0,"adjusted_reb_chance_pct":33.3,"avg_reb_distance":7.6},
-    {"player":"Devin Vassell","team":"SAS","min":40.4,"reb":5,"contested_reb":0,"contested_reb_pct":0.0,"reb_chances":6,"reb_chance_pct":83.3,"deferred_chances":0,"adjusted_reb_chance_pct":83.3,"avg_reb_distance":13.7},
-    {"player":"Julian Champagnie","team":"SAS","min":33.0,"reb":5,"contested_reb":2,"contested_reb_pct":40.0,"reb_chances":10,"reb_chance_pct":50.0,"deferred_chances":0,"adjusted_reb_chance_pct":50.0,"avg_reb_distance":8.6},
-    {"player":"Stephon Castle","team":"SAS","min":25.9,"reb":5,"contested_reb":1,"contested_reb_pct":20.0,"reb_chances":10,"reb_chance_pct":50.0,"deferred_chances":0,"adjusted_reb_chance_pct":50.0,"avg_reb_distance":5.4},
-    {"player":"Jalen Brunson","team":"NYK","min":44.5,"reb":5,"contested_reb":0,"contested_reb_pct":0.0,"reb_chances":10,"reb_chance_pct":50.0,"deferred_chances":0,"adjusted_reb_chance_pct":50.0,"avg_reb_distance":7.5},
-    {"player":"Mitchell Robinson","team":"NYK","min":13.0,"reb":5,"contested_reb":4,"contested_reb_pct":80.0,"reb_chances":10,"reb_chance_pct":50.0,"deferred_chances":0,"adjusted_reb_chance_pct":50.0,"avg_reb_distance":6.7},
-    {"player":"OG Anunoby","team":"NYK","min":41.5,"reb":4,"contested_reb":2,"contested_reb_pct":50.0,"reb_chances":11,"reb_chance_pct":36.4,"deferred_chances":0,"adjusted_reb_chance_pct":36.4,"avg_reb_distance":3.7}
+    {"player":"Victor Wembanyama","team":"SAS","min":43.9,"reb":13,"contested_reb":9,"contested_reb_pct":69.2,"reb_chances":19,"reb_chance_pct":68.4,"deferred_reb_chances":0,"adjusted_reb_chance_pct":68.4,"avg_reb_distance":2.7},
+    {"player":"Karl-Anthony Towns","team":"NYK","min":25.8,"reb":10,"contested_reb":4,"contested_reb_pct":40.0,"reb_chances":15,"reb_chance_pct":66.7,"deferred_reb_chances":2,"adjusted_reb_chance_pct":76.9,"avg_reb_distance":7.1},
+    {"player":"Josh Hart","team":"NYK","min":32.8,"reb":8,"contested_reb":2,"contested_reb_pct":25.0,"reb_chances":14,"reb_chance_pct":57.1,"deferred_reb_chances":1,"adjusted_reb_chance_pct":61.5,"avg_reb_distance":6.8},
+    {"player":"De'Aaron Fox","team":"SAS","min":37.4,"reb":5,"contested_reb":1,"contested_reb_pct":20.0,"reb_chances":15,"reb_chance_pct":33.3,"deferred_reb_chances":0,"adjusted_reb_chance_pct":33.3,"avg_reb_distance":7.6},
+    {"player":"Devin Vassell","team":"SAS","min":40.4,"reb":5,"contested_reb":0,"contested_reb_pct":0.0,"reb_chances":6,"reb_chance_pct":83.3,"deferred_reb_chances":0,"adjusted_reb_chance_pct":83.3,"avg_reb_distance":13.7},
+    {"player":"Julian Champagnie","team":"SAS","min":33.0,"reb":5,"contested_reb":2,"contested_reb_pct":40.0,"reb_chances":10,"reb_chance_pct":50.0,"deferred_reb_chances":0,"adjusted_reb_chance_pct":50.0,"avg_reb_distance":8.6},
+    {"player":"Stephon Castle","team":"SAS","min":25.9,"reb":5,"contested_reb":1,"contested_reb_pct":20.0,"reb_chances":10,"reb_chance_pct":50.0,"deferred_reb_chances":0,"adjusted_reb_chance_pct":50.0,"avg_reb_distance":5.4},
+    {"player":"Jalen Brunson","team":"NYK","min":44.5,"reb":5,"contested_reb":0,"contested_reb_pct":0.0,"reb_chances":10,"reb_chance_pct":50.0,"deferred_reb_chances":0,"adjusted_reb_chance_pct":50.0,"avg_reb_distance":7.5},
+    {"player":"Mitchell Robinson","team":"NYK","min":13.0,"reb":5,"contested_reb":4,"contested_reb_pct":80.0,"reb_chances":10,"reb_chance_pct":50.0,"deferred_reb_chances":0,"adjusted_reb_chance_pct":50.0,"avg_reb_distance":6.7},
+    {"player":"OG Anunoby","team":"NYK","min":41.5,"reb":4,"contested_reb":2,"contested_reb_pct":50.0,"reb_chances":11,"reb_chance_pct":36.4,"deferred_reb_chances":0,"adjusted_reb_chance_pct":36.4,"avg_reb_distance":3.7},
+    {"player":"Dylan Harper","team":"SAS","min":32.3,"reb":4,"contested_reb":1,"contested_reb_pct":25.0,"reb_chances":9,"reb_chance_pct":44.4,"deferred_reb_chances":1,"adjusted_reb_chance_pct":50.0,"avg_reb_distance":6.1},
+    {"player":"Keldon Johnson","team":"SAS","min":18.0,"reb":4,"contested_reb":2,"contested_reb_pct":50.0,"reb_chances":10,"reb_chance_pct":40.0,"deferred_reb_chances":1,"adjusted_reb_chance_pct":44.4,"avg_reb_distance":8.5}
   ],
   "box_out_notes": {
-    "NYK": {
-      "OG Anunoby": {"box_outs":3,"def_box_outs":3,"player_reb_on_box_outs":2},
-      "Mitchell Robinson": {"box_outs":1,"off_box_outs":1,"player_reb_on_box_outs":1},
-      "Karl-Anthony Towns": {"box_outs":1,"def_box_outs":1,"player_reb_on_box_outs":0}
-    },
-    "SAS": {
-      "Keldon Johnson": {"box_outs":2,"def_box_outs":2,"player_reb_on_box_outs":0},
-      "Victor Wembanyama": {"box_outs":1,"def_box_outs":1,"player_reb_on_box_outs":1},
-      "Stephon Castle": {"box_outs":1,"off_box_outs":1,"player_reb_on_box_outs":1},
-      "Julian Champagnie": {"box_outs":1,"def_box_outs":1,"player_reb_on_box_outs":1}
-    }
+    "NYK":{"OG Anunoby":{"box_outs":3,"def_box_outs":3,"team_reb_on_box_outs":3,"player_reb_on_box_outs":2},"Mitchell Robinson":{"box_outs":1,"off_box_outs":1,"team_reb_on_box_outs":1,"player_reb_on_box_outs":1},"Karl-Anthony Towns":{"box_outs":1,"def_box_outs":1,"team_reb_on_box_outs":1,"player_reb_on_box_outs":0}},
+    "SAS":{"Keldon Johnson":{"box_outs":2,"def_box_outs":2,"team_reb_on_box_outs":2,"player_reb_on_box_outs":0},"Victor Wembanyama":{"box_outs":1,"def_box_outs":1,"team_reb_on_box_outs":1,"player_reb_on_box_outs":1},"Stephon Castle":{"box_outs":1,"off_box_outs":1,"team_reb_on_box_outs":1,"player_reb_on_box_outs":1},"Julian Champagnie":{"box_outs":1,"def_box_outs":1,"team_reb_on_box_outs":1,"player_reb_on_box_outs":1}}
   },
-  "model_error_tags": [
-    "FG_total_over_miss_despite_healthy_shot_quality",
-    "pre_game_over_anchor_overweighted_previous_live_flow_success",
-    "SAS_three_point_volume_high_but_late_game_scoring_compressed",
-    "NYK_win_condition_shifted_to_controlled_halfcourt_close",
-    "rebound_environment_balanced_48_48_not_enough_extra_possession_edge",
-    "turnover_count_high_but_not converted into enough pace-extension points"
-  ],
-  "game_5_preparation_flags": {
-    "primary_watch": [
-      "Do not blindly carry over full-game over bias from Game 3 live win or Game 4 early tempo.",
-      "Track Towns minute ceiling and foul sensitivity after only 25.8 minutes in Game 4.",
-      "Track Wembanyama rebound dominance: 13 rebounds, 19 chances, 9 contested boards, 43.9 minutes.",
-      "Watch Knicks possession control if Brunson again clears 42+ minutes.",
-      "Treat SAS 3PA volume as real, but downgrade if market prices full-game total above efficient halfcourt median."
-    ],
-    "liveflow_rules": [
-      "If first-half total is inflated by elite 3P shooting without rim pressure / foul runway, require discount before over entry.",
-      "If NYK trails but Brunson + Hart + OG minutes are heavy, Knicks team-total live overs can be cleaner than full-game over.",
-      "If Towns foul trouble suppresses NYK halfcourt efficiency, avoid chasing total unless pace is materially above 94-possession track."
-    ]
+  "postmortem_tags": ["over_loss","pace_frontload","second_half_suppression","live_total_inflation","rebound_parity","knicks_close_game_resilience","wembanyama_rebound_gravity","game5_prep"],
+  "model_notes": {
+    "what_worked":["The pregame over thesis had efficiency support: SAS 0.56 shot quality, NYK 0.54 shot quality, combined 32 made threes.","Wembanyama rebound dominance was correctly identifiable: 13 rebounds, 19 chances, 9 contested rebounds, 43.9 minutes.","NYK rebound stabilization through Towns/Hart/OG/Robinson showed up despite Towns only playing 25.8 minutes."],
+    "what_failed":["Over 216.5 lost by 3.5 points because final total landed 213.","The model overweighted Game 3 over success and early/live scoring burst carryover.","Live total inflation to 228.5 was not supported by enough second-half possession extension.","Both teams had 48 rebounds and 21 fouls each; neither extra possessions nor whistle volume created the needed late scoring runway."],
+    "game5_adjustments":["Add close-game pace brake after consecutive over exposure in same 216.5 band.","Separate live-over triggers into pace-supported, efficiency-supported, and score-state inflated. Game 4 was too efficiency-supported.","Require possession-count confirmation before buying live overs above 224 after one-sided first-half scoring bursts.","Upgrade Wembanyama rebounds baseline; monitor if book hangs below his 19-chance profile.","Upgrade Towns rebound per-minute ceiling if projected minutes normalize above 32 and foul risk is neutral."]
+  },
+  "game5_watchlist": {
+    "primary_markets":["Full-game total only if model mean clears market by 4+ after pace brake","Wembanyama rebounds over if price does not fully reflect 19 chances / 68.4% conversion","Towns rebounds over if minutes projection rebounds above 32","NYK team total live over only if Brunson/Hart/OG minutes plus pace support align"],
+    "avoid_or_wait":["Avoid blindly carrying full-game over bias from Game 3/Game 4 early pace","Avoid inflated live overs from single-quarter heater without rim pressure and foul runway","Avoid full-game over if market prices above efficient halfcourt median without possession edge"]
   }
 }
