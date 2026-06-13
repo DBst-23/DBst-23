@@ -26,8 +26,8 @@
     }
   },
   "team_efficiency_summary": {
-    "SAS":{"possessions":93,"points":106,"two_pt":"19/43 44.19%","three_pt":"17/43 39.53%","free_throw_points":17,"efg_pct":51.74,"ts_pct":54.69,"shot_quality":0.56,"rim_or_3_freq_pct":75.58,"rim_fg":"10/22 45.45%","corner_3":"8/13 61.54%","above_break_3":"9/30 30.00%","turnovers":12,"live_ball_turnovers":6,"dead_ball_turnovers":6,"rebounds":48,"defensive_rebounds":33,"offensive_rebounds":15,"fg_dreb_pct":73.17,"fg_oreb_pct":30.61},
-    "NYK":{"possessions":92,"points":107,"two_pt":"21/46 45.65%","three_pt":"15/32 46.88%","free_throw_points":20,"efg_pct":55.77,"ts_pct":58.89,"shot_quality":0.54,"rim_or_3_freq_pct":67.95,"rim_fg":"13/21 61.90%","corner_3":"8/17 47.06%","above_break_3":"7/15 46.67%","turnovers":15,"live_ball_turnovers":10,"dead_ball_turnovers":5,"rebounds":48,"defensive_rebounds":36,"offensive_rebounds":12,"fg_dreb_pct":69.39,"fg_oreb_pct":26.83}
+    "SAS":{"possessions":93,"points":106,"two_pt":"19/43 44.19%","three_pt":"17/43 39.53%","free_throw_points":17,"efg_pct":51.74,"ts_pct":54.69,"shot_quality":0.56,"rim_or_3_freq_pct":75.58,"rim_fg":"10/22 45.45%","corner_3":"8/13 61.54%","above_break_3":"9/30 30.00%","turnovers":12,"live_ball_turnovers":6,"dead_ball_turnovers":6,"rebounds":48,"defensive_rebounds":33,"offensive_rebounds":15,"fg_dreb_pct":73.17,"fg_oreb_pct":30.61,"fouls":21,"fouls_drawn":21},
+    "NYK":{"possessions":92,"points":107,"two_pt":"21/46 45.65%","three_pt":"15/32 46.88%","free_throw_points":20,"efg_pct":55.77,"ts_pct":58.89,"shot_quality":0.54,"rim_or_3_freq_pct":67.95,"rim_fg":"13/21 61.90%","corner_3":"8/17 47.06%","above_break_3":"7/15 46.67%","turnovers":15,"live_ball_turnovers":10,"dead_ball_turnovers":5,"rebounds":48,"defensive_rebounds":36,"offensive_rebounds":12,"fg_dreb_pct":69.39,"fg_oreb_pct":26.83,"fouls":21,"fouls_drawn":21}
   },
   "player_tracking_rebounding": [
     {"player":"Victor Wembanyama","team":"SAS","min":43.9,"reb":13,"contested_reb":9,"contested_reb_pct":69.2,"reb_chances":19,"reb_chance_pct":68.4,"deferred_reb_chances":0,"adjusted_reb_chance_pct":68.4,"avg_reb_distance":2.7},
@@ -47,14 +47,57 @@
     "NYK":{"OG Anunoby":{"box_outs":3,"def_box_outs":3,"team_reb_on_box_outs":3,"player_reb_on_box_outs":2},"Mitchell Robinson":{"box_outs":1,"off_box_outs":1,"team_reb_on_box_outs":1,"player_reb_on_box_outs":1},"Karl-Anthony Towns":{"box_outs":1,"def_box_outs":1,"team_reb_on_box_outs":1,"player_reb_on_box_outs":0}},
     "SAS":{"Keldon Johnson":{"box_outs":2,"def_box_outs":2,"team_reb_on_box_outs":2,"player_reb_on_box_outs":0},"Victor Wembanyama":{"box_outs":1,"def_box_outs":1,"team_reb_on_box_outs":1,"player_reb_on_box_outs":1},"Stephon Castle":{"box_outs":1,"off_box_outs":1,"team_reb_on_box_outs":1,"player_reb_on_box_outs":1},"Julian Champagnie":{"box_outs":1,"def_box_outs":1,"team_reb_on_box_outs":1,"player_reb_on_box_outs":1}}
   },
-  "postmortem_tags": ["over_loss","pace_frontload","second_half_suppression","live_total_inflation","rebound_parity","knicks_close_game_resilience","wembanyama_rebound_gravity","game5_prep"],
-  "model_notes": {
-    "what_worked":["The pregame over thesis had efficiency support: SAS 0.56 shot quality, NYK 0.54 shot quality, combined 32 made threes.","Wembanyama rebound dominance was correctly identifiable: 13 rebounds, 19 chances, 9 contested rebounds, 43.9 minutes.","NYK rebound stabilization through Towns/Hart/OG/Robinson showed up despite Towns only playing 25.8 minutes."],
-    "what_failed":["Over 216.5 lost by 3.5 points because final total landed 213.","The model overweighted Game 3 over success and early/live scoring burst carryover.","Live total inflation to 228.5 was not supported by enough second-half possession extension.","Both teams had 48 rebounds and 21 fouls each; neither extra possessions nor whistle volume created the needed late scoring runway."],
-    "game5_adjustments":["Add close-game pace brake after consecutive over exposure in same 216.5 band.","Separate live-over triggers into pace-supported, efficiency-supported, and score-state inflated. Game 4 was too efficiency-supported.","Require possession-count confirmation before buying live overs above 224 after one-sided first-half scoring bursts.","Upgrade Wembanyama rebounds baseline; monitor if book hangs below his 19-chance profile.","Upgrade Towns rebound per-minute ceiling if projected minutes normalize above 32 and foul risk is neutral."]
+  "deep_postmortem": {
+    "core_read": "Game 4 punished the pregame over because the scoring environment was efficient but not possession-rich enough. Both teams finished with strong three-point outcomes and acceptable shot quality, but 27 combined turnovers and a late-game close-score brake held the total to 213.",
+    "over_loss_diagnosis": [
+      "Over 216.5 needed only 217 but final landed 213, missing by 3.5.",
+      "SAS created the cleaner rim-or-3 profile at 75.58%, but its above-break three profile was 9/30 and rim finishing was only 10/22.",
+      "NYK had excellent efficiency, especially 15/32 from three and 58.89 TS%, but 15 turnovers limited volume.",
+      "Rebound parity at 48-48 prevented either side from creating a major possession extension edge.",
+      "The halftime/live market rose as high as 228.5, but the game state was too vulnerable to close-game pace compression and regression after the frontloaded burst."
+    ],
+    "what_worked": [
+      "The model correctly identified offensive quality: SAS shot quality 0.56 and NYK shot quality 0.54.",
+      "The Wembanyama rebound gravity call was strong: 13 rebounds, 19 chances, 9 contested, 43.9 minutes.",
+      "The live-flow framework correctly recognized inflated live total risk after the 228.5 market print."
+    ],
+    "what_failed": [
+      "The pregame total model needed stronger close-game pace brake around 216.5+ totals.",
+      "The model overweighted made-three continuation and underweighted turnover drain.",
+      "The model treated high shot quality as enough to clear the total without requiring a confirmed possession edge.",
+      "The model did not sufficiently penalize NYK turnover profile against SAS pressure."
+    ],
+    "new_tags": [
+      "efficiency_not_enough",
+      "possession_count_required",
+      "close_game_pace_brake",
+      "live_total_inflation",
+      "wembanyama_rebound_gravity",
+      "nyk_turnover_drag",
+      "rebound_parity_no_extension"
+    ]
   },
-  "game5_watchlist": {
-    "primary_markets":["Full-game total only if model mean clears market by 4+ after pace brake","Wembanyama rebounds over if price does not fully reflect 19 chances / 68.4% conversion","Towns rebounds over if minutes projection rebounds above 32","NYK team total live over only if Brunson/Hart/OG minutes plus pace support align"],
-    "avoid_or_wait":["Avoid blindly carrying full-game over bias from Game 3/Game 4 early pace","Avoid inflated live overs from single-quarter heater without rim pressure and foul runway","Avoid full-game over if market prices above efficient halfcourt median without possession edge"]
-  }
+  "game5_preparation": {
+    "series_carry_forward": [
+      "Do not auto-bet over in the 216.5 band unless model mean clears by 4+ AND possession forecast supports it.",
+      "Separate pace-driven overs from efficiency-driven overs. Game 4 was efficiency-supported but possession-constrained.",
+      "Monitor Wembanyama rebound lines aggressively if below his current chance profile.",
+      "Treat Towns rebound props as minutes/foul-risk dependent; 10 rebounds on 25.8 minutes shows ceiling if minutes normalize.",
+      "NYK live overs require turnover suppression confirmation; otherwise points can stall despite hot shooting."
+    ],
+    "priority_markets_for_game5": [
+      "Wembanyama rebounds / PRA",
+      "Towns rebounds if projected 30+ minutes",
+      "Hart rebounds if role stays 32+ minutes",
+      "Full-game total only after pace and possession model confirmation",
+      "Team totals only after comparing shot-quality projection against turnover drag"
+    ],
+    "avoid_rules": [
+      "Avoid buying live overs purely because first-half scoring spikes.",
+      "Avoid totals if turnover projection exceeds 26 combined without compensating foul or OREB runway.",
+      "Avoid pregame over if market rises without a possession-count upgrade."
+    ]
+  },
+  "source_files": ["Fouls.text", "Rebounds.text", "Scoring.text", "Shot Distribution .text", "Turnovers .text"],
+  "version": "v2_deep_postmortem_user_tracking_added"
 }
