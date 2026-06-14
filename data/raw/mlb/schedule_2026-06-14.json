@@ -3,14 +3,14 @@
   "totalItems": 15,
   "totalEvents": 0,
   "totalGames": 15,
-  "totalGamesInProgress": 1,
+  "totalGamesInProgress": 2,
   "dates": [
     {
       "date": "2026-06-14",
       "totalItems": 15,
       "totalEvents": 0,
       "totalGames": 15,
-      "totalGamesInProgress": 1,
+      "totalGamesInProgress": 2,
       "games": [
         {
           "gamePk": 823368,
@@ -57,7 +57,7 @@
                 "ties": 0,
                 "pct": ".507"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 23
             }
@@ -97,12 +97,12 @@
           "gameDate": "2026-06-14T17:35:00Z",
           "officialDate": "2026-06-14",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -173,12 +173,12 @@
           "gameDate": "2026-06-14T17:35:00Z",
           "officialDate": "2026-06-14",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -249,12 +249,12 @@
           "gameDate": "2026-06-14T17:37:00Z",
           "officialDate": "2026-06-14",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -325,12 +325,12 @@
           "gameDate": "2026-06-14T17:40:00Z",
           "officialDate": "2026-06-14",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -393,82 +393,6 @@
           "ifNecessaryDescription": "Normal Game"
         },
         {
-          "gamePk": 824424,
-          "gameGuid": "e5580cef-fe4d-4906-869a-2ea583dfe604",
-          "link": "/api/v1.1/game/824424/feed/live",
-          "gameType": "R",
-          "season": "2026",
-          "gameDate": "2026-06-14T17:40:00Z",
-          "officialDate": "2026-06-14",
-          "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
-            "startTimeTBD": false,
-            "abstractGameCode": "P"
-          },
-          "teams": {
-            "away": {
-              "team": {
-                "id": 116,
-                "name": "Detroit Tigers",
-                "link": "/api/v1/teams/116"
-              },
-              "leagueRecord": {
-                "wins": 29,
-                "losses": 42,
-                "ties": 0,
-                "pct": ".408"
-              },
-              "score": 0,
-              "splitSquad": false,
-              "seriesNumber": 23
-            },
-            "home": {
-              "team": {
-                "id": 114,
-                "name": "Cleveland Guardians",
-                "link": "/api/v1/teams/114"
-              },
-              "leagueRecord": {
-                "wins": 39,
-                "losses": 33,
-                "ties": 0,
-                "pct": ".542"
-              },
-              "score": 0,
-              "splitSquad": false,
-              "seriesNumber": 23
-            }
-          },
-          "venue": {
-            "id": 5,
-            "name": "Progressive Field",
-            "link": "/api/v1/venues/5"
-          },
-          "content": {
-            "link": "/api/v1/game/824424/content"
-          },
-          "gameNumber": 1,
-          "publicFacing": true,
-          "doubleHeader": "N",
-          "gamedayType": "P",
-          "tiebreaker": "N",
-          "calendarEventID": "14-824424-2026-06-14",
-          "seasonDisplay": "2026",
-          "dayNight": "day",
-          "scheduledInnings": 9,
-          "reverseHomeAwayStatus": false,
-          "inningBreakLength": 120,
-          "gamesInSeries": 3,
-          "seriesGameNumber": 3,
-          "seriesDescription": "Regular Season",
-          "recordSource": "S",
-          "ifNecessary": "N",
-          "ifNecessaryDescription": "Normal Game"
-        },
-        {
           "gamePk": 823615,
           "gameGuid": "ebd858fd-beb5-4c09-979a-5c299deabf3a",
           "link": "/api/v1.1/game/823615/feed/live",
@@ -477,12 +401,12 @@
           "gameDate": "2026-06-14T17:40:00Z",
           "officialDate": "2026-06-14",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -1011,9 +935,9 @@
           "officialDate": "2026-06-14",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -1142,6 +1066,83 @@
           "scheduledInnings": 9,
           "reverseHomeAwayStatus": false,
           "inningBreakLength": 145,
+          "gamesInSeries": 3,
+          "seriesGameNumber": 3,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 824424,
+          "gameGuid": "e5580cef-fe4d-4906-869a-2ea583dfe604",
+          "link": "/api/v1.1/game/824424/feed/live",
+          "gameType": "R",
+          "season": "2026",
+          "gameDate": "2026-06-14T17:40:00Z",
+          "officialDate": "2026-09-04",
+          "rescheduleDate": "2026-09-04T18:10:00Z",
+          "rescheduleGameDate": "2026-09-04",
+          "status": {
+            "abstractGameState": "Final",
+            "codedGameState": "D",
+            "detailedState": "Postponed",
+            "statusCode": "DI",
+            "startTimeTBD": false,
+            "reason": "Inclement Weather",
+            "abstractGameCode": "F"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 116,
+                "name": "Detroit Tigers",
+                "link": "/api/v1/teams/116"
+              },
+              "leagueRecord": {
+                "wins": 29,
+                "losses": 42,
+                "ties": 0,
+                "pct": ".408"
+              },
+              "splitSquad": false,
+              "seriesNumber": 23
+            },
+            "home": {
+              "team": {
+                "id": 114,
+                "name": "Cleveland Guardians",
+                "link": "/api/v1/teams/114"
+              },
+              "leagueRecord": {
+                "wins": 39,
+                "losses": 33,
+                "ties": 0,
+                "pct": ".542"
+              },
+              "splitSquad": false,
+              "seriesNumber": 23
+            }
+          },
+          "venue": {
+            "id": 5,
+            "name": "Progressive Field",
+            "link": "/api/v1/venues/5"
+          },
+          "content": {
+            "link": "/api/v1/game/824424/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-824424-2026-06-14",
+          "seasonDisplay": "2026",
+          "dayNight": "day",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
           "gamesInSeries": 3,
           "seriesGameNumber": 3,
           "seriesDescription": "Regular Season",
