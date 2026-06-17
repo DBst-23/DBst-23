@@ -1,15 +1,15 @@
 {
   "copyright": "Copyright 2026 MLB Advanced Media, L.P.  Use of any content on this page acknowledges agreement to the terms posted here http://gdx.mlb.com/components/copyright.txt",
-  "totalItems": 14,
+  "totalItems": 15,
   "totalEvents": 0,
-  "totalGames": 14,
+  "totalGames": 15,
   "totalGamesInProgress": 0,
   "dates": [
     {
       "date": "2026-06-17",
-      "totalItems": 14,
+      "totalItems": 15,
       "totalEvents": 0,
-      "totalGames": 14,
+      "totalGames": 15,
       "totalGamesInProgress": 0,
       "games": [
         {
@@ -37,9 +37,9 @@
               },
               "leagueRecord": {
                 "wins": 32,
-                "losses": 40,
+                "losses": 41,
                 "ties": 0,
-                "pct": ".444"
+                "pct": ".438"
               },
               "splitSquad": false,
               "seriesNumber": 24
@@ -51,10 +51,10 @@
                 "link": "/api/v1/teams/113"
               },
               "leagueRecord": {
-                "wins": 34,
+                "wins": 35,
                 "losses": 37,
                 "ties": 0,
-                "pct": ".479"
+                "pct": ".486"
               },
               "splitSquad": false,
               "seriesNumber": 24
@@ -235,6 +235,83 @@
           "ifNecessaryDescription": "Normal Game"
         },
         {
+          "gamePk": 824912,
+          "gameGuid": "1ad7236c-8adf-471b-b07a-3f43c5c5e44b",
+          "link": "/api/v1.1/game/824912/feed/live",
+          "gameType": "R",
+          "season": "2026",
+          "gameDate": "2026-06-17T18:05:00Z",
+          "officialDate": "2026-06-16",
+          "resumedFrom": "2026-06-16T23:15:00Z",
+          "resumedFromDate": "2026-06-16",
+          "status": {
+            "abstractGameState": "Live",
+            "codedGameState": "U",
+            "detailedState": "Suspended",
+            "statusCode": "UR",
+            "startTimeTBD": false,
+            "reason": "Rain",
+            "abstractGameCode": "L"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 137,
+                "name": "San Francisco Giants",
+                "link": "/api/v1/teams/137"
+              },
+              "leagueRecord": {
+                "wins": 29,
+                "losses": 43,
+                "ties": 0,
+                "pct": ".403"
+              },
+              "splitSquad": false,
+              "seriesNumber": 24
+            },
+            "home": {
+              "team": {
+                "id": 144,
+                "name": "Atlanta Braves",
+                "link": "/api/v1/teams/144"
+              },
+              "leagueRecord": {
+                "wins": 46,
+                "losses": 25,
+                "ties": 0,
+                "pct": ".648"
+              },
+              "splitSquad": false,
+              "seriesNumber": 24
+            }
+          },
+          "venue": {
+            "id": 4705,
+            "name": "Truist Park",
+            "link": "/api/v1/venues/4705"
+          },
+          "content": {
+            "link": "/api/v1/game/824912/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-824912-2026-06-17",
+          "seasonDisplay": "2026",
+          "dayNight": "day",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
+          "gamesInSeries": 3,
+          "seriesGameNumber": 2,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
           "gamePk": 824178,
           "gameGuid": "b75de7d4-4d73-42b7-9a1f-ef175cb246f2",
           "link": "/api/v1.1/game/824178/feed/live",
@@ -259,9 +336,9 @@
               },
               "leagueRecord": {
                 "wins": 30,
-                "losses": 42,
+                "losses": 43,
                 "ties": 0,
-                "pct": ".417"
+                "pct": ".411"
               },
               "splitSquad": false,
               "seriesNumber": 24
@@ -273,10 +350,10 @@
                 "link": "/api/v1/teams/117"
               },
               "leagueRecord": {
-                "wins": 33,
+                "wins": 34,
                 "losses": 41,
                 "ties": 0,
-                "pct": ".446"
+                "pct": ".453"
               },
               "splitSquad": false,
               "seriesNumber": 24
@@ -333,9 +410,9 @@
               },
               "leagueRecord": {
                 "wins": 37,
-                "losses": 34,
+                "losses": 35,
                 "ties": 0,
-                "pct": ".521"
+                "pct": ".514"
               },
               "splitSquad": false,
               "seriesNumber": 24
@@ -347,10 +424,10 @@
                 "link": "/api/v1/teams/138"
               },
               "leagueRecord": {
-                "wins": 39,
+                "wins": 40,
                 "losses": 31,
                 "ties": 0,
-                "pct": ".557"
+                "pct": ".563"
               },
               "splitSquad": false,
               "seriesNumber": 24
@@ -629,9 +706,9 @@
               },
               "leagueRecord": {
                 "wins": 38,
-                "losses": 32,
+                "losses": 33,
                 "ties": 0,
-                "pct": ".543"
+                "pct": ".535"
               },
               "splitSquad": false,
               "seriesNumber": 24
@@ -643,10 +720,10 @@
                 "link": "/api/v1/teams/147"
               },
               "leagueRecord": {
-                "wins": 43,
+                "wins": 44,
                 "losses": 27,
                 "ties": 0,
-                "pct": ".614"
+                "pct": ".620"
               },
               "splitSquad": false,
               "seriesNumber": 24
@@ -777,9 +854,9 @@
               },
               "leagueRecord": {
                 "wins": 39,
-                "losses": 33,
+                "losses": 34,
                 "ties": 0,
-                "pct": ".542"
+                "pct": ".534"
               },
               "splitSquad": false,
               "seriesNumber": 24
@@ -791,10 +868,10 @@
                 "link": "/api/v1/teams/158"
               },
               "leagueRecord": {
-                "wins": 43,
+                "wins": 44,
                 "losses": 26,
                 "ties": 0,
-                "pct": ".623"
+                "pct": ".629"
               },
               "splitSquad": false,
               "seriesNumber": 24
@@ -850,10 +927,10 @@
                 "link": "/api/v1/teams/115"
               },
               "leagueRecord": {
-                "wins": 27,
+                "wins": 28,
                 "losses": 46,
                 "ties": 0,
-                "pct": ".370"
+                "pct": ".378"
               },
               "splitSquad": false,
               "seriesNumber": 24
@@ -866,9 +943,9 @@
               },
               "leagueRecord": {
                 "wins": 38,
-                "losses": 35,
+                "losses": 36,
                 "ties": 0,
-                "pct": ".521"
+                "pct": ".514"
               },
               "splitSquad": false,
               "seriesNumber": 24
