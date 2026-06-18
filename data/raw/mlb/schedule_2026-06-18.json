@@ -3,14 +3,14 @@
   "totalItems": 9,
   "totalEvents": 0,
   "totalGames": 9,
-  "totalGamesInProgress": 2,
+  "totalGamesInProgress": 3,
   "dates": [
     {
       "date": "2026-06-18",
       "totalItems": 9,
       "totalEvents": 0,
       "totalGames": 9,
-      "totalGamesInProgress": 2,
+      "totalGamesInProgress": 3,
       "games": [
         {
           "gamePk": 824748,
@@ -41,7 +41,7 @@
                 "ties": 0,
                 "pct": ".486"
               },
-              "score": 2,
+              "score": 3,
               "splitSquad": false,
               "seriesNumber": 24
             },
@@ -57,7 +57,7 @@
                 "ties": 0,
                 "pct": ".408"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 24
             }
@@ -117,7 +117,7 @@
                 "ties": 0,
                 "pct": ".527"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 24
             },
@@ -133,7 +133,7 @@
                 "ties": 0,
                 "pct": ".634"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 24
             }
@@ -174,9 +174,9 @@
           "officialDate": "2026-06-18",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "P",
-            "detailedState": "Warmup",
-            "statusCode": "PW",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
             "abstractGameCode": "L"
           },
@@ -193,7 +193,7 @@
                 "ties": 0,
                 "pct": ".467"
               },
-              "score": 0,
+              "score": 4,
               "splitSquad": false,
               "seriesNumber": 24
             },
@@ -326,9 +326,9 @@
           "officialDate": "2026-06-18",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -400,9 +400,9 @@
           "officialDate": "2026-06-18",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -419,6 +419,7 @@
                 "ties": 0,
                 "pct": ".528"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 24
             },
@@ -434,6 +435,7 @@
                 "ties": 0,
                 "pct": ".625"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 24
             }
@@ -452,80 +454,6 @@
           "gamedayType": "P",
           "tiebreaker": "N",
           "calendarEventID": "14-823533-2026-06-18",
-          "seasonDisplay": "2026",
-          "dayNight": "night",
-          "scheduledInnings": 9,
-          "reverseHomeAwayStatus": false,
-          "inningBreakLength": 120,
-          "gamesInSeries": 3,
-          "seriesGameNumber": 3,
-          "seriesDescription": "Regular Season",
-          "recordSource": "S",
-          "ifNecessary": "N",
-          "ifNecessaryDescription": "Normal Game"
-        },
-        {
-          "gamePk": 824911,
-          "gameGuid": "6615ed56-32c6-410e-b57b-1ba0fbe4e583",
-          "link": "/api/v1.1/game/824911/feed/live",
-          "gameType": "R",
-          "season": "2026",
-          "gameDate": "2026-06-18T23:15:00Z",
-          "officialDate": "2026-06-18",
-          "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
-            "startTimeTBD": false,
-            "abstractGameCode": "P"
-          },
-          "teams": {
-            "away": {
-              "team": {
-                "id": 137,
-                "name": "San Francisco Giants",
-                "link": "/api/v1/teams/137"
-              },
-              "leagueRecord": {
-                "wins": 31,
-                "losses": 43,
-                "ties": 0,
-                "pct": ".419"
-              },
-              "splitSquad": false,
-              "seriesNumber": 24
-            },
-            "home": {
-              "team": {
-                "id": 144,
-                "name": "Atlanta Braves",
-                "link": "/api/v1/teams/144"
-              },
-              "leagueRecord": {
-                "wins": 46,
-                "losses": 27,
-                "ties": 0,
-                "pct": ".630"
-              },
-              "splitSquad": false,
-              "seriesNumber": 24
-            }
-          },
-          "venue": {
-            "id": 4705,
-            "name": "Truist Park",
-            "link": "/api/v1/venues/4705"
-          },
-          "content": {
-            "link": "/api/v1/game/824911/content"
-          },
-          "gameNumber": 1,
-          "publicFacing": true,
-          "doubleHeader": "N",
-          "gamedayType": "P",
-          "tiebreaker": "N",
-          "calendarEventID": "14-824911-2026-06-18",
           "seasonDisplay": "2026",
           "dayNight": "night",
           "scheduledInnings": 9,
@@ -681,6 +609,83 @@
           "inningBreakLength": 120,
           "gamesInSeries": 4,
           "seriesGameNumber": 1,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 824911,
+          "gameGuid": "6615ed56-32c6-410e-b57b-1ba0fbe4e583",
+          "link": "/api/v1.1/game/824911/feed/live",
+          "gameType": "R",
+          "season": "2026",
+          "gameDate": "2026-06-18T23:15:00Z",
+          "officialDate": "2026-08-31",
+          "rescheduleDate": "2026-08-31T22:05:00Z",
+          "rescheduleGameDate": "2026-08-31",
+          "status": {
+            "abstractGameState": "Final",
+            "codedGameState": "D",
+            "detailedState": "Postponed",
+            "statusCode": "DR",
+            "startTimeTBD": false,
+            "reason": "Rain",
+            "abstractGameCode": "F"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 137,
+                "name": "San Francisco Giants",
+                "link": "/api/v1/teams/137"
+              },
+              "leagueRecord": {
+                "wins": 31,
+                "losses": 43,
+                "ties": 0,
+                "pct": ".419"
+              },
+              "splitSquad": false,
+              "seriesNumber": 24
+            },
+            "home": {
+              "team": {
+                "id": 144,
+                "name": "Atlanta Braves",
+                "link": "/api/v1/teams/144"
+              },
+              "leagueRecord": {
+                "wins": 46,
+                "losses": 27,
+                "ties": 0,
+                "pct": ".630"
+              },
+              "splitSquad": false,
+              "seriesNumber": 24
+            }
+          },
+          "venue": {
+            "id": 4705,
+            "name": "Truist Park",
+            "link": "/api/v1/venues/4705"
+          },
+          "content": {
+            "link": "/api/v1/game/824911/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-824911-2026-06-18",
+          "seasonDisplay": "2026",
+          "dayNight": "night",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
+          "gamesInSeries": 3,
+          "seriesGameNumber": 3,
           "seriesDescription": "Regular Season",
           "recordSource": "S",
           "ifNecessary": "N",
