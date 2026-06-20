@@ -3,14 +3,14 @@
   "totalItems": 14,
   "totalEvents": 0,
   "totalGames": 14,
-  "totalGamesInProgress": 6,
+  "totalGamesInProgress": 5,
   "dates": [
     {
       "date": "2026-06-20",
       "totalItems": 14,
       "totalEvents": 0,
       "totalGames": 14,
-      "totalGamesInProgress": 6,
+      "totalGamesInProgress": 5,
       "games": [
         {
           "gamePk": 824263,
@@ -100,12 +100,12 @@
           "gameDate": "2026-06-20T17:35:00Z",
           "officialDate": "2026-06-20",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -115,12 +115,13 @@
                 "link": "/api/v1/teams/113"
               },
               "leagueRecord": {
-                "wins": 35,
+                "wins": 36,
                 "losses": 39,
                 "ties": 0,
-                "pct": ".473"
+                "pct": ".480"
               },
               "score": 10,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 25
             },
@@ -132,11 +133,12 @@
               },
               "leagueRecord": {
                 "wins": 46,
-                "losses": 28,
+                "losses": 29,
                 "ties": 0,
-                "pct": ".622"
+                "pct": ".613"
               },
               "score": 2,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 25
             }
@@ -149,6 +151,7 @@
           "content": {
             "link": "/api/v1/game/823532/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
@@ -196,7 +199,7 @@
                 "ties": 0,
                 "pct": ".487"
               },
-              "score": 3,
+              "score": 5,
               "splitSquad": false,
               "seriesNumber": 25
             },
@@ -272,7 +275,7 @@
                 "ties": 0,
                 "pct": ".514"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 25
             },
@@ -348,7 +351,7 @@
                 "ties": 0,
                 "pct": ".513"
               },
-              "score": 1,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 25
             },
@@ -424,7 +427,7 @@
                 "ties": 0,
                 "pct": ".413"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 25
             },
@@ -440,7 +443,7 @@
                 "ties": 0,
                 "pct": ".500"
               },
-              "score": 0,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 25
             }
