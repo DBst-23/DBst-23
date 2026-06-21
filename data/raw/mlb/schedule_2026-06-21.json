@@ -543,80 +543,6 @@
           "ifNecessaryDescription": "Normal Game"
         },
         {
-          "gamePk": 824664,
-          "gameGuid": "4fc37bf1-076d-4dbb-892a-2084e92ccd12",
-          "link": "/api/v1.1/game/824664/feed/live",
-          "gameType": "R",
-          "season": "2026",
-          "gameDate": "2026-06-21T18:20:00Z",
-          "officialDate": "2026-06-21",
-          "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
-            "startTimeTBD": false,
-            "abstractGameCode": "P"
-          },
-          "teams": {
-            "away": {
-              "team": {
-                "id": 141,
-                "name": "Toronto Blue Jays",
-                "link": "/api/v1/teams/141"
-              },
-              "leagueRecord": {
-                "wins": 38,
-                "losses": 39,
-                "ties": 0,
-                "pct": ".494"
-              },
-              "splitSquad": false,
-              "seriesNumber": 25
-            },
-            "home": {
-              "team": {
-                "id": 112,
-                "name": "Chicago Cubs",
-                "link": "/api/v1/teams/112"
-              },
-              "leagueRecord": {
-                "wins": 40,
-                "losses": 37,
-                "ties": 0,
-                "pct": ".519"
-              },
-              "splitSquad": false,
-              "seriesNumber": 25
-            }
-          },
-          "venue": {
-            "id": 17,
-            "name": "Wrigley Field",
-            "link": "/api/v1/venues/17"
-          },
-          "content": {
-            "link": "/api/v1/game/824664/content"
-          },
-          "gameNumber": 1,
-          "publicFacing": true,
-          "doubleHeader": "N",
-          "gamedayType": "P",
-          "tiebreaker": "N",
-          "calendarEventID": "14-824664-2026-06-21",
-          "seasonDisplay": "2026",
-          "dayNight": "day",
-          "scheduledInnings": 9,
-          "reverseHomeAwayStatus": false,
-          "inningBreakLength": 120,
-          "gamesInSeries": 3,
-          "seriesGameNumber": 3,
-          "seriesDescription": "Regular Season",
-          "recordSource": "S",
-          "ifNecessary": "N",
-          "ifNecessaryDescription": "Normal Game"
-        },
-        {
           "gamePk": 822883,
           "gameGuid": "500727b3-e22e-408c-8373-24cf9f415006",
           "link": "/api/v1.1/game/822883/feed/live",
@@ -626,9 +552,9 @@
           "officialDate": "2026-06-21",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -645,6 +571,7 @@
                 "ties": 0,
                 "pct": ".520"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 25
             },
@@ -660,6 +587,7 @@
                 "ties": 0,
                 "pct": ".474"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 25
             }
@@ -700,9 +628,9 @@
           "officialDate": "2026-06-21",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -719,6 +647,7 @@
                 "ties": 0,
                 "pct": ".494"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 25
             },
@@ -734,6 +663,7 @@
                 "ties": 0,
                 "pct": ".390"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 25
             }
@@ -774,9 +704,9 @@
           "officialDate": "2026-06-21",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -793,6 +723,7 @@
                 "ties": 0,
                 "pct": ".474"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 25
             },
@@ -808,6 +739,7 @@
                 "ties": 0,
                 "pct": ".513"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 25
             }
@@ -1127,6 +1059,83 @@
           "scheduledInnings": 9,
           "reverseHomeAwayStatus": false,
           "inningBreakLength": 145,
+          "gamesInSeries": 3,
+          "seriesGameNumber": 3,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 824664,
+          "gameGuid": "4fc37bf1-076d-4dbb-892a-2084e92ccd12",
+          "link": "/api/v1.1/game/824664/feed/live",
+          "gameType": "R",
+          "season": "2026",
+          "gameDate": "2026-06-21T18:20:00Z",
+          "officialDate": "2026-08-06",
+          "rescheduleDate": "2026-08-06T18:20:00Z",
+          "rescheduleGameDate": "2026-08-06",
+          "status": {
+            "abstractGameState": "Final",
+            "codedGameState": "D",
+            "detailedState": "Postponed",
+            "statusCode": "DI",
+            "startTimeTBD": false,
+            "reason": "Inclement Weather",
+            "abstractGameCode": "F"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 141,
+                "name": "Toronto Blue Jays",
+                "link": "/api/v1/teams/141"
+              },
+              "leagueRecord": {
+                "wins": 38,
+                "losses": 39,
+                "ties": 0,
+                "pct": ".494"
+              },
+              "splitSquad": false,
+              "seriesNumber": 25
+            },
+            "home": {
+              "team": {
+                "id": 112,
+                "name": "Chicago Cubs",
+                "link": "/api/v1/teams/112"
+              },
+              "leagueRecord": {
+                "wins": 40,
+                "losses": 37,
+                "ties": 0,
+                "pct": ".519"
+              },
+              "splitSquad": false,
+              "seriesNumber": 25
+            }
+          },
+          "venue": {
+            "id": 17,
+            "name": "Wrigley Field",
+            "link": "/api/v1/venues/17"
+          },
+          "content": {
+            "link": "/api/v1/game/824664/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-824664-2026-06-21",
+          "seasonDisplay": "2026",
+          "dayNight": "day",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
           "gamesInSeries": 3,
           "seriesGameNumber": 3,
           "seriesDescription": "Regular Season",
