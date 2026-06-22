@@ -3,14 +3,14 @@
   "totalItems": 13,
   "totalEvents": 0,
   "totalGames": 13,
-  "totalGamesInProgress": 1,
+  "totalGamesInProgress": 3,
   "dates": [
     {
       "date": "2026-06-22",
       "totalItems": 13,
       "totalEvents": 0,
       "totalGames": 13,
-      "totalGamesInProgress": 1,
+      "totalGamesInProgress": 3,
       "games": [
         {
           "gamePk": 824261,
@@ -41,7 +41,7 @@
                 "ties": 0,
                 "pct": ".605"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 26
             },
@@ -97,12 +97,12 @@
           "gameDate": "2026-06-22T22:40:00Z",
           "officialDate": "2026-06-22",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -173,12 +173,12 @@
           "gameDate": "2026-06-22T22:40:00Z",
           "officialDate": "2026-06-22",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -326,12 +326,12 @@
           "gameDate": "2026-06-22T23:07:00Z",
           "officialDate": "2026-06-22",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -394,82 +394,6 @@
           "ifNecessaryDescription": "Normal Game"
         },
         {
-          "gamePk": 823613,
-          "gameGuid": "ce55b309-545c-4652-806b-da9d13baa7d2",
-          "link": "/api/v1.1/game/823613/feed/live",
-          "gameType": "R",
-          "season": "2026",
-          "gameDate": "2026-06-22T23:10:00Z",
-          "officialDate": "2026-06-22",
-          "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
-            "startTimeTBD": false,
-            "abstractGameCode": "P"
-          },
-          "teams": {
-            "away": {
-              "team": {
-                "id": 112,
-                "name": "Chicago Cubs",
-                "link": "/api/v1/teams/112"
-              },
-              "leagueRecord": {
-                "wins": 40,
-                "losses": 37,
-                "ties": 0,
-                "pct": ".519"
-              },
-              "score": 0,
-              "splitSquad": false,
-              "seriesNumber": 26
-            },
-            "home": {
-              "team": {
-                "id": 121,
-                "name": "New York Mets",
-                "link": "/api/v1/teams/121"
-              },
-              "leagueRecord": {
-                "wins": 34,
-                "losses": 43,
-                "ties": 0,
-                "pct": ".442"
-              },
-              "score": 0,
-              "splitSquad": false,
-              "seriesNumber": 26
-            }
-          },
-          "venue": {
-            "id": 3289,
-            "name": "Citi Field",
-            "link": "/api/v1/venues/3289"
-          },
-          "content": {
-            "link": "/api/v1/game/823613/content"
-          },
-          "gameNumber": 1,
-          "publicFacing": true,
-          "doubleHeader": "N",
-          "gamedayType": "P",
-          "tiebreaker": "N",
-          "calendarEventID": "14-823613-2026-06-22",
-          "seasonDisplay": "2026",
-          "dayNight": "night",
-          "scheduledInnings": 9,
-          "reverseHomeAwayStatus": false,
-          "inningBreakLength": 120,
-          "gamesInSeries": 4,
-          "seriesGameNumber": 1,
-          "seriesDescription": "Regular Season",
-          "recordSource": "S",
-          "ifNecessary": "N",
-          "ifNecessaryDescription": "Normal Game"
-        },
-        {
           "gamePk": 824502,
           "gameGuid": "817b9668-de52-42d4-a08c-370e64f4e4bb",
           "link": "/api/v1.1/game/824502/feed/live",
@@ -478,12 +402,12 @@
           "gameDate": "2026-06-22T23:10:00Z",
           "officialDate": "2026-06-22",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -878,6 +802,7 @@
                 "ties": 0,
                 "pct": ".468"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 26
             },
@@ -893,6 +818,7 @@
                 "ties": 0,
                 "pct": ".405"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 26
             }
@@ -993,6 +919,83 @@
           "reverseHomeAwayStatus": false,
           "inningBreakLength": 145,
           "gamesInSeries": 3,
+          "seriesGameNumber": 1,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 823613,
+          "gameGuid": "ce55b309-545c-4652-806b-da9d13baa7d2",
+          "link": "/api/v1.1/game/823613/feed/live",
+          "gameType": "R",
+          "season": "2026",
+          "gameDate": "2026-06-22T23:10:00Z",
+          "officialDate": "2026-06-24",
+          "rescheduleDate": "2026-06-24T17:10:00Z",
+          "rescheduleGameDate": "2026-06-24",
+          "status": {
+            "abstractGameState": "Final",
+            "codedGameState": "D",
+            "detailedState": "Postponed",
+            "statusCode": "DR",
+            "startTimeTBD": false,
+            "reason": "Rain",
+            "abstractGameCode": "F"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 112,
+                "name": "Chicago Cubs",
+                "link": "/api/v1/teams/112"
+              },
+              "leagueRecord": {
+                "wins": 40,
+                "losses": 37,
+                "ties": 0,
+                "pct": ".519"
+              },
+              "splitSquad": false,
+              "seriesNumber": 26
+            },
+            "home": {
+              "team": {
+                "id": 121,
+                "name": "New York Mets",
+                "link": "/api/v1/teams/121"
+              },
+              "leagueRecord": {
+                "wins": 34,
+                "losses": 43,
+                "ties": 0,
+                "pct": ".442"
+              },
+              "splitSquad": false,
+              "seriesNumber": 26
+            }
+          },
+          "venue": {
+            "id": 3289,
+            "name": "Citi Field",
+            "link": "/api/v1/venues/3289"
+          },
+          "content": {
+            "link": "/api/v1/game/823613/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-823613-2026-06-22",
+          "seasonDisplay": "2026",
+          "dayNight": "night",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
+          "gamesInSeries": 4,
           "seriesGameNumber": 1,
           "seriesDescription": "Regular Season",
           "recordSource": "S",
