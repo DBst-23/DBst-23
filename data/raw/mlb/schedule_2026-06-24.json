@@ -3,14 +3,14 @@
   "totalItems": 16,
   "totalEvents": 0,
   "totalGames": 16,
-  "totalGamesInProgress": 2,
+  "totalGamesInProgress": 3,
   "dates": [
     {
       "date": "2026-06-24",
       "totalItems": 16,
       "totalEvents": 0,
       "totalGames": 16,
-      "totalGamesInProgress": 2,
+      "totalGamesInProgress": 3,
       "games": [
         {
           "gamePk": 823850,
@@ -183,9 +183,9 @@
           "officialDate": "2026-06-24",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -202,6 +202,7 @@
                 "ties": 0,
                 "pct": ".532"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 26
             },
@@ -217,6 +218,7 @@
                 "ties": 0,
                 "pct": ".430"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 26
             }
@@ -257,9 +259,9 @@
           "officialDate": "2026-06-24",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "P",
-            "detailedState": "Warmup",
-            "statusCode": "PW",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
             "abstractGameCode": "L"
           },
@@ -368,7 +370,7 @@
                 "ties": 0,
                 "pct": ".388"
               },
-              "score": 3,
+              "score": 6,
               "splitSquad": false,
               "seriesNumber": 26
             }
@@ -409,10 +411,11 @@
           "officialDate": "2026-06-24",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "codedGameState": "M",
+            "detailedState": "Manager challenge",
+            "statusCode": "MO",
             "startTimeTBD": false,
+            "reason": "Fair/foul in outfield",
             "abstractGameCode": "L"
           },
           "teams": {
@@ -428,7 +431,7 @@
                 "ties": 0,
                 "pct": ".469"
               },
-              "score": 2,
+              "score": 5,
               "splitSquad": false,
               "seriesNumber": 26
             },
@@ -732,6 +735,7 @@
                 "ties": 0,
                 "pct": ".544"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 26
             },
@@ -747,6 +751,7 @@
                 "ties": 0,
                 "pct": ".513"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 26
             }
@@ -1110,6 +1115,7 @@
                 "ties": 0,
                 "pct": ".615"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 26
             },
@@ -1125,6 +1131,7 @@
                 "ties": 0,
                 "pct": ".526"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 26
             }
