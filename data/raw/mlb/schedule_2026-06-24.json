@@ -3,14 +3,14 @@
   "totalItems": 16,
   "totalEvents": 0,
   "totalGames": 16,
-  "totalGamesInProgress": 1,
+  "totalGamesInProgress": 2,
   "dates": [
     {
       "date": "2026-06-24",
       "totalItems": 16,
       "totalEvents": 0,
       "totalGames": 16,
-      "totalGamesInProgress": 1,
+      "totalGamesInProgress": 2,
       "games": [
         {
           "gamePk": 823850,
@@ -41,7 +41,7 @@
                 "ties": 0,
                 "pct": ".481"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 26
             },
@@ -57,7 +57,7 @@
                 "ties": 0,
                 "pct": ".513"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 26
             }
@@ -99,12 +99,12 @@
           "rescheduledFrom": "2026-06-22T23:10:00Z",
           "rescheduledFromDate": "2026-06-22",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -252,9 +252,10 @@
           "status": {
             "abstractGameState": "Preview",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Delayed Start",
+            "statusCode": "PR",
             "startTimeTBD": false,
+            "reason": "Rain",
             "abstractGameCode": "P"
           },
           "teams": {
