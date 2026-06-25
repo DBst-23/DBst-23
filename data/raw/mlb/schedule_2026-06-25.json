@@ -3,14 +3,14 @@
   "totalItems": 9,
   "totalEvents": 0,
   "totalGames": 9,
-  "totalGamesInProgress": 0,
+  "totalGamesInProgress": 1,
   "dates": [
     {
       "date": "2026-06-25",
       "totalItems": 9,
       "totalEvents": 0,
       "totalGames": 9,
-      "totalGamesInProgress": 0,
+      "totalGamesInProgress": 1,
       "games": [
         {
           "gamePk": 822961,
@@ -179,12 +179,12 @@
           "gameDate": "2026-06-25T19:45:00Z",
           "officialDate": "2026-06-25",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -330,9 +330,9 @@
           "officialDate": "2026-06-25",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -349,6 +349,7 @@
                 "ties": 0,
                 "pct": ".550"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 26
             },
@@ -364,6 +365,7 @@
                 "ties": 0,
                 "pct": ".506"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 26
             }
@@ -404,9 +406,9 @@
           "officialDate": "2026-06-25",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -423,6 +425,7 @@
                 "ties": 0,
                 "pct": ".475"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 27
             },
@@ -438,6 +441,7 @@
                 "ties": 0,
                 "pct": ".488"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 27
             }
