@@ -1048,12 +1048,12 @@
           "gameDate": "2026-06-28T20:10:00Z",
           "officialDate": "2026-06-28",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -1063,12 +1063,13 @@
                 "link": "/api/v1/teams/119"
               },
               "leagueRecord": {
-                "wins": 53,
+                "wins": 54,
                 "losses": 30,
                 "ties": 0,
-                "pct": ".639"
+                "pct": ".643"
               },
               "score": 4,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 27
             },
@@ -1080,11 +1081,12 @@
               },
               "leagueRecord": {
                 "wins": 43,
-                "losses": 38,
+                "losses": 39,
                 "ties": 0,
-                "pct": ".531"
+                "pct": ".524"
               },
               "score": 2,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 27
             }
@@ -1097,6 +1099,7 @@
           "content": {
             "link": "/api/v1/game/823281/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
@@ -1124,12 +1127,12 @@
           "gameDate": "2026-06-28T23:20:00Z",
           "officialDate": "2026-06-28",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
