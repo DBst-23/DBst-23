@@ -338,9 +338,9 @@
           "officialDate": "2026-07-01",
           "status": {
             "abstractGameState": "Final",
-            "codedGameState": "O",
-            "detailedState": "Game Over",
-            "statusCode": "O",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
             "abstractGameCode": "F"
           },
@@ -436,7 +436,7 @@
                 "ties": 0,
                 "pct": ".419"
               },
-              "score": 0,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 28
             },
@@ -452,7 +452,7 @@
                 "ties": 0,
                 "pct": ".465"
               },
-              "score": 5,
+              "score": 9,
               "splitSquad": false,
               "seriesNumber": 28
             }
@@ -816,6 +816,7 @@
                 "ties": 0,
                 "pct": ".464"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 28
             },
@@ -831,6 +832,7 @@
                 "ties": 0,
                 "pct": ".627"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 28
             }
@@ -890,6 +892,7 @@
                 "ties": 0,
                 "pct": ".535"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 28
             },
@@ -905,6 +908,7 @@
                 "ties": 0,
                 "pct": ".384"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 28
             }
@@ -945,9 +949,9 @@
           "officialDate": "2026-07-01",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -1019,9 +1023,9 @@
           "officialDate": "2026-07-01",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
