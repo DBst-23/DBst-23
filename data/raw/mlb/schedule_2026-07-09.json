@@ -111,9 +111,9 @@
               },
               "leagueRecord": {
                 "wins": 38,
-                "losses": 54,
+                "losses": 55,
                 "ties": 0,
-                "pct": ".413"
+                "pct": ".409"
               },
               "splitSquad": false,
               "seriesNumber": 30
@@ -125,10 +125,10 @@
                 "link": "/api/v1/teams/121"
               },
               "leagueRecord": {
-                "wins": 38,
+                "wins": 39,
                 "losses": 54,
                 "ties": 0,
-                "pct": ".413"
+                "pct": ".419"
               },
               "splitSquad": false,
               "seriesNumber": 30
@@ -235,6 +235,80 @@
           "ifNecessaryDescription": "Normal Game"
         },
         {
+          "gamePk": 824816,
+          "gameGuid": "ae45787c-f7a1-47b6-a9f7-4537892e8c92",
+          "link": "/api/v1.1/game/824816/feed/live",
+          "gameType": "R",
+          "season": "2026",
+          "gameDate": "2026-07-09T17:35:00Z",
+          "officialDate": "2026-07-09",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "S",
+            "detailedState": "Scheduled",
+            "statusCode": "S",
+            "startTimeTBD": false,
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 112,
+                "name": "Chicago Cubs",
+                "link": "/api/v1/teams/112"
+              },
+              "leagueRecord": {
+                "wins": 52,
+                "losses": 40,
+                "ties": 0,
+                "pct": ".565"
+              },
+              "splitSquad": false,
+              "seriesNumber": 30
+            },
+            "home": {
+              "team": {
+                "id": 110,
+                "name": "Baltimore Orioles",
+                "link": "/api/v1/teams/110"
+              },
+              "leagueRecord": {
+                "wins": 42,
+                "losses": 51,
+                "ties": 0,
+                "pct": ".452"
+              },
+              "splitSquad": false,
+              "seriesNumber": 30
+            }
+          },
+          "venue": {
+            "id": 2,
+            "name": "Oriole Park at Camden Yards",
+            "link": "/api/v1/venues/2"
+          },
+          "content": {
+            "link": "/api/v1/game/824816/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-824816-2026-07-09",
+          "seasonDisplay": "2026",
+          "dayNight": "day",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
+          "gamesInSeries": 3,
+          "seriesGameNumber": 3,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
           "gamePk": 823683,
           "gameGuid": "ced804d5-4c18-4515-9c02-fb66ce08da59",
           "link": "/api/v1.1/game/823683/feed/live",
@@ -259,9 +333,9 @@
               },
               "leagueRecord": {
                 "wins": 47,
-                "losses": 45,
+                "losses": 46,
                 "ties": 0,
-                "pct": ".511"
+                "pct": ".505"
               },
               "splitSquad": false,
               "seriesNumber": 30
@@ -273,10 +347,10 @@
                 "link": "/api/v1/teams/142"
               },
               "leagueRecord": {
-                "wins": 45,
+                "wins": 46,
                 "losses": 47,
                 "ties": 0,
-                "pct": ".489"
+                "pct": ".495"
               },
               "splitSquad": false,
               "seriesNumber": 30
@@ -332,10 +406,10 @@
                 "link": "/api/v1/teams/111"
               },
               "leagueRecord": {
-                "wins": 41,
+                "wins": 42,
                 "losses": 48,
                 "ties": 0,
-                "pct": ".461"
+                "pct": ".467"
               },
               "splitSquad": false,
               "seriesNumber": 30
@@ -348,9 +422,9 @@
               },
               "leagueRecord": {
                 "wins": 47,
-                "losses": 43,
+                "losses": 44,
                 "ties": 0,
-                "pct": ".522"
+                "pct": ".516"
               },
               "splitSquad": false,
               "seriesNumber": 30
@@ -372,80 +446,6 @@
           "calendarEventID": "14-824577-2026-07-09",
           "seasonDisplay": "2026",
           "dayNight": "day",
-          "scheduledInnings": 9,
-          "reverseHomeAwayStatus": false,
-          "inningBreakLength": 120,
-          "gamesInSeries": 3,
-          "seriesGameNumber": 3,
-          "seriesDescription": "Regular Season",
-          "recordSource": "S",
-          "ifNecessary": "N",
-          "ifNecessaryDescription": "Normal Game"
-        },
-        {
-          "gamePk": 824816,
-          "gameGuid": "ae45787c-f7a1-47b6-a9f7-4537892e8c92",
-          "link": "/api/v1.1/game/824816/feed/live",
-          "gameType": "R",
-          "season": "2026",
-          "gameDate": "2026-07-09T22:35:00Z",
-          "officialDate": "2026-07-09",
-          "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
-            "startTimeTBD": false,
-            "abstractGameCode": "P"
-          },
-          "teams": {
-            "away": {
-              "team": {
-                "id": 112,
-                "name": "Chicago Cubs",
-                "link": "/api/v1/teams/112"
-              },
-              "leagueRecord": {
-                "wins": 51,
-                "losses": 40,
-                "ties": 0,
-                "pct": ".560"
-              },
-              "splitSquad": false,
-              "seriesNumber": 30
-            },
-            "home": {
-              "team": {
-                "id": 110,
-                "name": "Baltimore Orioles",
-                "link": "/api/v1/teams/110"
-              },
-              "leagueRecord": {
-                "wins": 42,
-                "losses": 50,
-                "ties": 0,
-                "pct": ".457"
-              },
-              "splitSquad": false,
-              "seriesNumber": 30
-            }
-          },
-          "venue": {
-            "id": 2,
-            "name": "Oriole Park at Camden Yards",
-            "link": "/api/v1/venues/2"
-          },
-          "content": {
-            "link": "/api/v1/game/824816/content"
-          },
-          "gameNumber": 1,
-          "publicFacing": true,
-          "doubleHeader": "N",
-          "gamedayType": "P",
-          "tiebreaker": "N",
-          "calendarEventID": "14-824816-2026-07-09",
-          "seasonDisplay": "2026",
-          "dayNight": "night",
           "scheduledInnings": 9,
           "reverseHomeAwayStatus": false,
           "inningBreakLength": 120,
@@ -481,9 +481,9 @@
               },
               "leagueRecord": {
                 "wins": 41,
-                "losses": 50,
+                "losses": 51,
                 "ties": 0,
-                "pct": ".451"
+                "pct": ".446"
               },
               "splitSquad": false,
               "seriesNumber": 30
@@ -495,10 +495,10 @@
                 "link": "/api/v1/teams/116"
               },
               "leagueRecord": {
-                "wins": 41,
+                "wins": 42,
                 "losses": 50,
                 "ties": 0,
-                "pct": ".451"
+                "pct": ".457"
               },
               "splitSquad": false,
               "seriesNumber": 30
@@ -629,9 +629,9 @@
               },
               "leagueRecord": {
                 "wins": 51,
-                "losses": 41,
+                "losses": 42,
                 "ties": 0,
-                "pct": ".554"
+                "pct": ".548"
               },
               "splitSquad": false,
               "seriesNumber": 30
@@ -643,10 +643,10 @@
                 "link": "/api/v1/teams/113"
               },
               "leagueRecord": {
-                "wins": 41,
+                "wins": 42,
                 "losses": 49,
                 "ties": 0,
-                "pct": ".456"
+                "pct": ".462"
               },
               "splitSquad": false,
               "seriesNumber": 30
@@ -703,9 +703,9 @@
               },
               "leagueRecord": {
                 "wins": 58,
-                "losses": 33,
+                "losses": 34,
                 "ties": 0,
-                "pct": ".637"
+                "pct": ".630"
               },
               "splitSquad": false,
               "seriesNumber": 30
@@ -717,10 +717,10 @@
                 "link": "/api/v1/teams/138"
               },
               "leagueRecord": {
-                "wins": 47,
+                "wins": 48,
                 "losses": 43,
                 "ties": 0,
-                "pct": ".522"
+                "pct": ".527"
               },
               "splitSquad": false,
               "seriesNumber": 30
@@ -776,10 +776,10 @@
                 "link": "/api/v1/teams/108"
               },
               "leagueRecord": {
-                "wins": 36,
+                "wins": 37,
                 "losses": 56,
                 "ties": 0,
-                "pct": ".391"
+                "pct": ".398"
               },
               "splitSquad": false,
               "seriesNumber": 30
@@ -792,9 +792,9 @@
               },
               "leagueRecord": {
                 "wins": 46,
-                "losses": 45,
+                "losses": 46,
                 "ties": 0,
-                "pct": ".505"
+                "pct": ".500"
               },
               "splitSquad": false,
               "seriesNumber": 30
@@ -851,9 +851,9 @@
               },
               "leagueRecord": {
                 "wins": 45,
-                "losses": 46,
+                "losses": 47,
                 "ties": 0,
-                "pct": ".495"
+                "pct": ".489"
               },
               "splitSquad": false,
               "seriesNumber": 30
@@ -865,10 +865,10 @@
                 "link": "/api/v1/teams/135"
               },
               "leagueRecord": {
-                "wins": 45,
+                "wins": 46,
                 "losses": 46,
                 "ties": 0,
-                "pct": ".495"
+                "pct": ".500"
               },
               "splitSquad": false,
               "seriesNumber": 30
@@ -925,9 +925,9 @@
               },
               "leagueRecord": {
                 "wins": 38,
-                "losses": 55,
+                "losses": 56,
                 "ties": 0,
-                "pct": ".409"
+                "pct": ".404"
               },
               "splitSquad": false,
               "seriesNumber": 31
