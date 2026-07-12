@@ -3,14 +3,14 @@
   "totalItems": 15,
   "totalEvents": 0,
   "totalGames": 15,
-  "totalGamesInProgress": 2,
+  "totalGamesInProgress": 0,
   "dates": [
     {
       "date": "2026-07-12",
       "totalItems": 15,
       "totalEvents": 0,
       "totalGames": 15,
-      "totalGamesInProgress": 2,
+      "totalGamesInProgress": 0,
       "games": [
         {
           "gamePk": 823358,
@@ -1048,12 +1048,12 @@
           "gameDate": "2026-07-12T20:10:00Z",
           "officialDate": "2026-07-12",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -1063,12 +1063,13 @@
                 "link": "/api/v1/teams/109"
               },
               "leagueRecord": {
-                "wins": 48,
+                "wins": 49,
                 "losses": 47,
                 "ties": 0,
-                "pct": ".505"
+                "pct": ".510"
               },
-              "score": 4,
+              "score": 5,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 31
             },
@@ -1080,11 +1081,12 @@
               },
               "leagueRecord": {
                 "wins": 61,
-                "losses": 35,
+                "losses": 36,
                 "ties": 0,
-                "pct": ".635"
+                "pct": ".629"
               },
               "score": 3,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 31
             }
@@ -1097,6 +1099,7 @@
           "content": {
             "link": "/api/v1/game/823925/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
@@ -1124,12 +1127,12 @@
           "gameDate": "2026-07-12T20:10:00Z",
           "officialDate": "2026-07-12",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -1140,11 +1143,12 @@
               },
               "leagueRecord": {
                 "wins": 45,
-                "losses": 50,
+                "losses": 51,
                 "ties": 0,
-                "pct": ".474"
+                "pct": ".469"
               },
               "score": 4,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 31
             },
@@ -1155,12 +1159,13 @@
                 "link": "/api/v1/teams/135"
               },
               "leagueRecord": {
-                "wins": 47,
+                "wins": 48,
                 "losses": 48,
                 "ties": 0,
-                "pct": ".495"
+                "pct": ".500"
               },
               "score": 5,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 31
             }
@@ -1173,6 +1178,7 @@
           "content": {
             "link": "/api/v1/game/823274/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
