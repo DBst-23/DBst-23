@@ -5,11 +5,16 @@ on:
   schedule:
     - cron: "*/15 * * * *"
 
+concurrency:
+  group: wnba-lineup-monitor
+  cancel-in-progress: true
+
 jobs:
   monitor:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      issues: write
 
     steps:
       - name: Check out repository
@@ -20,14 +25,30 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Restore lineup-monitor state
+        uses: actions/cache/restore@v4
+        with:
+          path: data/wnba_monitor/state.json
+          key: wnba-lineup-state-${{ github.run_id }}
+          restore-keys: |
+            wnba-lineup-state-
+
       - name: Run WNBA lineup monitor
         env:
           SPORTRADAR_API_KEY: ${{ secrets.SPORTRADAR_API_KEY }}
           SPORTRADAR_ACCESS_LEVEL: trial
           SPORTRADAR_WNBA_VERSION: v8
           SPORTRADAR_LANGUAGE: en
-          WNBA_LOOKAHEAD_HOURS: 18
+          WNBA_LOOKAHEAD_HOURS: 24
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python wnba_lineup_monitor.py
+
+      - name: Save lineup-monitor state
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: data/wnba_monitor/state.json
+          key: wnba-lineup-state-${{ github.run_id }}
 
       - name: Upload lineup snapshots
         if: always()
