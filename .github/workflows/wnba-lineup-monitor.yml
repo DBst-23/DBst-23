@@ -1,0 +1,39 @@
+name: WNBA Lineup Monitor
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/15 * * * *"
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run WNBA lineup monitor
+        env:
+          SPORTRADAR_API_KEY: ${{ secrets.SPORTRADAR_API_KEY }}
+          SPORTRADAR_ACCESS_LEVEL: trial
+          SPORTRADAR_WNBA_VERSION: v8
+          SPORTRADAR_LANGUAGE: en
+          WNBA_LOOKAHEAD_HOURS: 18
+        run: python wnba_lineup_monitor.py
+
+      - name: Upload lineup snapshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wnba-lineup-snapshots-${{ github.run_number }}
+          path: data/wnba_monitor/
+          if-no-files-found: warn
+          retention-days: 7
