@@ -1,0 +1,132 @@
+{
+  "registry_id": "WNBA-LF-2026-07-14-PDX-CON-01",
+  "sport": "WNBA",
+  "date": "2026-07-14",
+  "matchup": "Portland Fire at Connecticut Sun",
+  "venue": "Mohegan Sun Arena, Uncasville, CT",
+  "market": "Portland Fire live team total",
+  "selection": "Under 86.5",
+  "odds_american": -125,
+  "stake_usd": 5.0,
+  "potential_profit_usd": 4.0,
+  "sportsbook": "William Hill Nevada",
+  "result": "LOSS",
+  "payout_usd": 0.0,
+  "net_profit_usd": -5.0,
+  "break_even_probability": 0.5556,
+  "final_score": {
+    "Portland Fire": 87,
+    "Connecticut Sun": 90
+  },
+  "bet_margin_points": -0.5,
+  "period_scoring": {
+    "Portland Fire": [23, 17, 23, 24],
+    "Connecticut Sun": [32, 18, 22, 18]
+  },
+  "halftime": {
+    "Portland Fire": 40,
+    "Connecticut Sun": 50,
+    "combined": 90,
+    "portland_points_allowed_for_under_from_halftime": 46,
+    "portland_actual_second_half_points": 47,
+    "second_half_margin_to_under": -1
+  },
+  "portland_full_game": {
+    "points": 87,
+    "fg": "29-60",
+    "fg_pct": 0.483,
+    "three_point": "9-26",
+    "three_point_pct": 0.346,
+    "free_throw": "20-21",
+    "free_throw_pct": 0.952,
+    "offensive_rebounds": 4,
+    "total_rebounds": 24,
+    "assists": 19,
+    "turnovers": 15,
+    "fast_break_points": 16,
+    "points_in_paint": 36,
+    "second_chance_points": 7
+  },
+  "portland_first_half": {
+    "points": 40,
+    "fg": "12-29",
+    "fg_pct": 0.414,
+    "three_point": "4-13",
+    "three_point_pct": 0.308,
+    "free_throw": "12-12",
+    "turnovers": 8,
+    "estimated_possessions": 41.28,
+    "estimated_offensive_rating": 96.9
+  },
+  "portland_second_half": {
+    "points": 47,
+    "fg": "17-31",
+    "fg_pct": 0.548,
+    "three_point": "5-13",
+    "three_point_pct": 0.385,
+    "free_throw": "8-9",
+    "turnovers": 7,
+    "estimated_possessions": 38.96,
+    "estimated_offensive_rating": 120.6
+  },
+  "portland_fourth_quarter": {
+    "points": 24,
+    "fg": "10-18",
+    "fg_pct": 0.556,
+    "three_point": "2-8",
+    "three_point_pct": 0.25,
+    "free_throw": "2-3",
+    "turnovers": 1,
+    "points_in_paint": 14,
+    "second_chance_points": 5,
+    "fast_break_points": 2,
+    "estimated_possessions": 18.32,
+    "estimated_offensive_rating": 131.0
+  },
+  "primary_failure_drivers": [
+    "Portland improved from 41.4% first-half shooting to 54.8% in the second half.",
+    "Portland generated 24 fourth-quarter points on 55.6% shooting with only one turnover.",
+    "Megan Gustafson scored 9 fourth-quarter points and made both of her fourth-quarter three-point attempts.",
+    "Portland produced 14 paint points and 5 second-chance points in the fourth quarter.",
+    "Connecticut committed five fourth-quarter turnovers, helping Portland sustain a comeback environment.",
+    "The game remained competitive late, preserving full offensive intent and comeback pressure rather than creating pace-killing garbage time."
+  ],
+  "signal_classification": "SIGNAL WEAKENED",
+  "process_evaluation": {
+    "grade": "C+",
+    "summary": "The wager missed by only 0.5 points, but it was not purely bad variance. Portland's second-half efficiency and possession quality materially improved. The fourth quarter featured low turnovers, strong paint conversion, second-chance scoring, and sustained comeback urgency.",
+    "what_worked": [
+      "Controlled $5 stake limited downside.",
+      "The line was close to the final distribution and lost by the minimum non-push margin.",
+      "No chase or correlated add-on was recorded."
+    ],
+    "what_failed": [
+      "The Under did not sufficiently price comeback-driven offensive persistence.",
+      "The analysis did not document a live score, game clock, or required remaining scoring rate at placement.",
+      "Portland's improved interior execution and reduced fourth-quarter turnover rate were not captured as invalidation signals.",
+      "Late-game competitive-state risk was understated."
+    ]
+  },
+  "timing_integrity_flag": {
+    "status": "UNRESOLVED",
+    "details": "The ticket displays a 09:42 AM timestamp, but the exact game clock and score when the wager was accepted were not supplied. Halftime-derived thresholds are included for diagnostic comparison only and must not be represented as confirmed placement context."
+  },
+  "framework_patch": {
+    "decision": "MODIFY",
+    "rules_added": [
+      "Every live team-total wager must record score, period, game clock, current team total, and points required at placement.",
+      "Apply a comeback-persistence penalty to team-total Unders when the target team trails by 5-15 points and retains its primary creators.",
+      "Do not treat moderate first-half shooting as an automatic Under signal when second-half paint access is improving.",
+      "Downgrade team-total Unders when the opponent is generating live-ball turnovers or repeated empty possessions that create transition chances.",
+      "Fourth-quarter Under positions require a turnover-suppression check: if the target offense has stabilized ball security, reduce confidence.",
+      "A team-total Under must clear at least 2.5 projected points after game-state and foul-risk adjustments; otherwise pass."
+    ]
+  },
+  "confidence": "HIGH on postgame diagnosis; LOW on reconstruction of pre-bet state",
+  "final_status": "MODIFY",
+  "source_notes": [
+    "William Hill wager screenshots supplied by user.",
+    "WNBA official scorer's report and play-by-play supplied by user.",
+    "Official WNBA game page used for independent matchup verification."
+  ]
+}
