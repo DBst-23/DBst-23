@@ -1,0 +1,92 @@
+{
+  "copyright": "Copyright 2026 MLB Advanced Media, L.P.  Use of any content on this page acknowledges agreement to the terms posted here http://gdx.mlb.com/components/copyright.txt",
+  "totalItems": 1,
+  "totalEvents": 0,
+  "totalGames": 1,
+  "totalGamesInProgress": 0,
+  "dates": [
+    {
+      "date": "2026-07-14",
+      "totalItems": 1,
+      "totalEvents": 0,
+      "totalGames": 1,
+      "totalGamesInProgress": 0,
+      "games": [
+        {
+          "gamePk": 823443,
+          "gameGuid": "38b2a3ca-0768-49d3-b04b-75b82a64196f",
+          "link": "/api/v1.1/game/823443/feed/live",
+          "gameType": "A",
+          "season": "2026",
+          "gameDate": "2026-07-15T00:00:00Z",
+          "officialDate": "2026-07-14",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
+            "startTimeTBD": false,
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 159,
+                "name": "American League All-Stars",
+                "link": "/api/v1/teams/159"
+              },
+              "leagueRecord": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 0,
+                "pct": ".000"
+              },
+              "score": 0,
+              "splitSquad": false
+            },
+            "home": {
+              "team": {
+                "id": 160,
+                "name": "National League All-Stars",
+                "link": "/api/v1/teams/160"
+              },
+              "leagueRecord": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 0,
+                "pct": ".000"
+              },
+              "score": 0,
+              "splitSquad": false
+            }
+          },
+          "venue": {
+            "id": 2681,
+            "name": "Citizens Bank Park",
+            "link": "/api/v1/venues/2681"
+          },
+          "content": {
+            "link": "/api/v1/game/823443/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-823443-2026-07-14",
+          "seasonDisplay": "2026",
+          "dayNight": "night",
+          "description": "96th All-Star Game, in Philadelphia, PA",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
+          "seriesDescription": "MLB All-Star Game",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        }
+      ],
+      "events": []
+    }
+  ]
+}
