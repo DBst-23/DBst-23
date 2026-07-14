@@ -3,7 +3,7 @@ name: WNBA Lineup Monitor
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: "*/5 * * * *"
 
 concurrency:
   group: wnba-lineup-monitor
@@ -40,6 +40,12 @@ jobs:
           SPORTRADAR_WNBA_VERSION: v8
           SPORTRADAR_LANGUAGE: en
           WNBA_LOOKAHEAD_HOURS: 24
+          WNBA_PRETIP_WINDOW_MINUTES: 90
+          WNBA_POSTTIP_GRACE_MINUTES: 15
+          WNBA_MAX_SUMMARY_REQUESTS_PER_RUN: 3
+          PUSHOVER_APP_TOKEN: ${{ secrets.PUSHOVER_APP_TOKEN }}
+          PUSHOVER_USER_KEY: ${{ secrets.PUSHOVER_USER_KEY }}
+          PUSHOVER_DEVICE: ${{ secrets.PUSHOVER_DEVICE }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python wnba_lineup_monitor.py
 
