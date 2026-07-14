@@ -1,0 +1,79 @@
+{
+  "registry_id": "WNBA-PG-2026-07-14-WAS-TOR-01",
+  "sport": "WNBA",
+  "date": "2026-07-14",
+  "matchup": "Washington Mystics at Toronto Tempo",
+  "market_type": "pregame full-game total",
+  "selection": "Under 171.5",
+  "odds_american": -110,
+  "stake_usd": 3.0,
+  "potential_profit_usd": 2.73,
+  "potential_payout_usd": 5.73,
+  "sportsbook": "William Hill Nevada",
+  "ticket_timestamp_local": "2026-07-14 11:26 AM",
+  "game_time_local": "2026-07-14 4:00 PM",
+  "status": "OPEN",
+  "break_even_probability": 0.5238,
+  "market_snapshot": {
+    "washington_spread": "-2 -110",
+    "toronto_spread": "+2 -110",
+    "washington_moneyline": -130,
+    "toronto_moneyline": 110,
+    "full_game_total": 171.5,
+    "washington_team_total": 86.5,
+    "toronto_team_total": 85.5,
+    "market_implied_score": {
+      "Washington": 86.75,
+      "Toronto": 84.75
+    }
+  },
+  "model_snapshot": {
+    "projected_final_mean": 165.5,
+    "projected_final_median": 165.0,
+    "fair_total_range": "165-166",
+    "edge_points": 6.0,
+    "raw_estimated_under_probability": 0.684,
+    "discounted_working_under_probability_range": "0.59-0.63",
+    "estimated_over_probability_range": "0.37-0.41",
+    "confidence_tier": "B-watch",
+    "recommended_stake_class": "small controlled pregame position"
+  },
+  "context": {
+    "washington_record": "11-10",
+    "toronto_record": "10-13",
+    "season_series": "Washington leads 2-0",
+    "washington_injuries_publicly_reported": "none",
+    "toronto_absences_publicly_reported": [
+      "Brittney Sykes - foot",
+      "Kiki Rice - ankle",
+      "Temi Fagbenle - concussion"
+    ]
+  },
+  "thesis": [
+    "William Hill total of 171.5 sits approximately six points above the working fair-total midpoint.",
+    "Toronto's recent high-scoring results may have inflated the market anchor.",
+    "Toronto's perimeter creation is concentrated because of multiple guard absences.",
+    "Washington possesses the stronger projected defensive-rebounding and interior-control profile.",
+    "The small stake accounts for uncertainty around Toronto's recent shooting form and close-game foul risk."
+  ],
+  "main_risks": [
+    "Marina Mabrey sustains elite shot-making and creates efficient secondary offense.",
+    "Washington's interior scoring proves highly sustainable against Toronto's switching defense.",
+    "Live-ball turnovers create transition scoring.",
+    "A close finish introduces intentional fouling or overtime risk."
+  ],
+  "live_flow_plan": {
+    "primary_action": "Monitor rather than automatically add to the position.",
+    "no_chase_rule": true,
+    "halftime_requirements": [
+      "Record halftime score and live full-game total.",
+      "Calculate required second-half points.",
+      "Assess pace, paint scoring, turnovers, offensive rebounds, free-throw rate, and number of independent scorers.",
+      "Only add a second position if it independently clears the required edge threshold."
+    ]
+  },
+  "sources": [
+    "William Hill Nevada ticket and market screenshots supplied by user.",
+    "Current matchup reporting confirming third meeting, Washington's 2-0 season-series lead, and Toronto injury absences."
+  ]
+}
