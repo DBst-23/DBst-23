@@ -1,0 +1,198 @@
+{
+  "sport": "WNBA",
+  "workflow": "LIVE-FLOW",
+  "date": "2026-07-15",
+  "matchup": {
+    "away": "Los Angeles Sparks",
+    "home": "Minnesota Lynx",
+    "venue": "Target Center",
+    "attendance": 16410,
+    "officials": [
+      "Tim Greene",
+      "Toni Patillo",
+      "Jason Alabanza"
+    ]
+  },
+  "availability": {
+    "los_angeles": {
+      "Kelsey Plum": "NWT - left lower leg",
+      "Alissa Pili": "inactive",
+      "Cameron Brink": "active; returned and played 14:50"
+    },
+    "minnesota": {
+      "Napheesa Collier": "DND - left ankle surgery",
+      "Dorka Juhasz": "DND - right knee soreness",
+      "Emma Cechova": "DND - right ACL surgery"
+    }
+  },
+  "market": {
+    "pregame_total": 182.5,
+    "halftime_score": {
+      "los_angeles": 39,
+      "minnesota": 37,
+      "combined": 76
+    },
+    "halftime_live_total": 166.5,
+    "end_third_score": {
+      "los_angeles": 67,
+      "minnesota": 68,
+      "combined": 135
+    },
+    "end_third_displayed_total": 181.5,
+    "wager": {
+      "selection": "Under 182.5",
+      "odds": -120,
+      "stake": 7.5,
+      "potential_profit": 6.25,
+      "potential_return": 13.75,
+      "placed_time_local": "2026-07-15 11:39",
+      "sportsbook": "William Hill",
+      "result": "LOSS",
+      "net_profit": -7.5
+    }
+  },
+  "result": {
+    "final_score": {
+      "los_angeles": 87,
+      "minnesota": 96,
+      "combined": 183,
+      "margin": 9
+    },
+    "quarter_scores": {
+      "los_angeles": [18, 21, 28, 20],
+      "minnesota": [12, 25, 31, 28]
+    },
+    "fourth_quarter_points": 48,
+    "maximum_fourth_quarter_points_to_win": 47,
+    "wager_result_margin": -0.5,
+    "pregame_total_result": "OVER by 0.5 points",
+    "end_third_under_result": "LOSS by 0.5 points"
+  },
+  "team_stats": {
+    "los_angeles": {
+      "fg": "31/65",
+      "fg_pct": 47.7,
+      "three_pt": "9/28",
+      "three_pt_pct": 32.1,
+      "ft": "16/19",
+      "ft_pct": 84.2,
+      "offensive_rebounds": 5,
+      "total_rebounds": 31,
+      "assists": 22,
+      "turnovers": 17,
+      "points_off_turnovers_allowed": 30,
+      "points_in_paint": 32,
+      "second_chance_points": 11,
+      "fast_break_points": 9,
+      "estimated_possessions": 85.36,
+      "estimated_offensive_rating": 101.92
+    },
+    "minnesota": {
+      "fg": "34/68",
+      "fg_pct": 50.0,
+      "three_pt": "8/25",
+      "three_pt_pct": 32.0,
+      "ft": "20/24",
+      "ft_pct": 83.3,
+      "offensive_rebounds": 7,
+      "total_rebounds": 25,
+      "assists": 21,
+      "turnovers": 11,
+      "points_off_turnovers_allowed": 14,
+      "points_in_paint": 34,
+      "second_chance_points": 11,
+      "fast_break_points": 16,
+      "estimated_possessions": 82.56,
+      "estimated_offensive_rating": 116.28
+    },
+    "estimated_game_possessions": 83.96
+  },
+  "live_flow_postmortem": {
+    "strike_point": {
+      "period": "End of third quarter",
+      "score": "Minnesota 68, Los Angeles 67",
+      "combined_points": 135,
+      "bet_line": 182.5,
+      "required_fourth_quarter_ceiling": 47,
+      "actual_fourth_quarter_points": 48
+    },
+    "why_the_under_was_reasonable": [
+      "The wager had a 47-point fourth-quarter allowance after the teams averaged 45 points across the first three quarters",
+      "The first half produced only 76 points and both teams were 2-for-23 combined from three",
+      "Los Angeles had already committed 17 turnovers through three quarters, creating a plausible path to empty late possessions",
+      "The wager lost by the minimum possible margin of one-half point"
+    ],
+    "why_the_under_failed": [
+      "The third quarter had already accelerated to 59 points, signaling that the first-half pace and efficiency environment was no longer controlling the game",
+      "Minnesota entered the fourth quarter only 2-for-16 from three, leaving substantial positive shooting regression risk",
+      "Minnesota then shot 6-for-9 from three and 9-for-15 overall in the fourth quarter, scoring 28 points",
+      "The one-point game state preserved full starter usage and offensive urgency rather than creating a clock-draining environment",
+      "Los Angeles turnovers had become a Minnesota offense generator: the Lynx finished with 30 points off 20 Sparks turnovers",
+      "Minnesota's transition and turnover pressure created scoring without requiring long half-court possessions"
+    ],
+    "decision_grade": {
+      "result_grade": "Loss",
+      "process_grade": "C+",
+      "classification": "Thin-edge wager with insufficient safety margin",
+      "variance_component": "High - lost by 0.5 and Minnesota made six fourth-quarter threes",
+      "process_error": "The strike anchored too heavily to the low-scoring first half and underweighted the 59-point third quarter, close-game state, turnover-generated offense and Minnesota three-point regression"
+    },
+    "counterfactual": {
+      "under_183_5": "WIN",
+      "under_183_0": "PUSH",
+      "under_182_5": "LOSS",
+      "recommended_action_at_182_5": "PASS unless model projection is 178.5 or lower",
+      "recommended_minimum_edge_for_end_third_total": "At least 4.0 projected points because one-quarter totals carry high variance"
+    },
+    "model_lessons": [
+      "At end of third quarter, weight the most recent quarter more heavily than first-half scoring",
+      "Apply a close-game pace and starter-retention adjustment when the margin is four points or fewer",
+      "Treat extreme three-point underperformance by a strong offense as an over-risk, not automatic under support",
+      "Convert live turnovers into points-off-turnover pressure rather than counting turnovers only as empty possessions",
+      "Require a four-point projection cushion for fourth-quarter full-game totals before staking",
+      "A half-point loss can still contain a process flaw; do not classify it as pure bad luck"
+    ],
+    "classification": {
+      "primary_tag": "END_3Q_UNDER_LOST_TO_SHOOTING_REGRESSION",
+      "secondary_tags": [
+        "HALF_POINT_LOSS",
+        "MINNESOTA_3PT_REGRESSION",
+        "CLOSE_GAME_STARTER_RETENTION",
+        "TURNOVER_GENERATED_OFFENSE",
+        "THIRD_QUARTER_ACCELERATION",
+        "INSUFFICIENT_EDGE_BUFFER",
+        "CONFIRMED_WAGER_LOSS"
+      ],
+      "confidence": "High"
+    }
+  },
+  "model_fuel": {
+    "end_third_features": {
+      "combined_points": 135,
+      "bet_total": 182.5,
+      "remaining_points_allowance": 47,
+      "quarter_total_mean_first_three": 45.0,
+      "quarter_total_median_first_three": 46.0,
+      "third_quarter_points": 59,
+      "margin": 1,
+      "minnesota_three_pt_through_three": "2/16",
+      "los_angeles_turnovers_through_three": 17,
+      "minnesota_points_off_turnovers_through_three": 27
+    },
+    "fourth_quarter_outcome": {
+      "combined_points": 48,
+      "minnesota_points": 28,
+      "los_angeles_points": 20,
+      "minnesota_fg": "9/15",
+      "minnesota_three_pt": "6/9",
+      "los_angeles_fg": "7/17",
+      "los_angeles_three_pt": "2/7"
+    },
+    "target_label": {
+      "under_182_5": 0,
+      "fourth_quarter_over_47_5": 1,
+      "pregame_over_182_5": 1
+    }
+  },
+  "summary": "Minnesota won 96-87 and the game finished at 183, defeating the William Hill Under 182.5 wager by one-half point. The Under had a logical 47-point fourth-quarter allowance, but the strike did not sufficiently adjust for the 59-point third quarter, the one-point game state, Minnesota's extreme 2-for-16 three-point mark through three quarters, and turnover-generated offense. Minnesota's 6-for-9 fourth-quarter three-point shooting supplied the decisive positive regression. The loss contains meaningful variance, but the correct process classification is a thin-edge wager that should have been passed without a larger projection cushion."
+}
