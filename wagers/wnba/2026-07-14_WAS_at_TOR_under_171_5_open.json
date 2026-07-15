@@ -7,13 +7,19 @@
   "selection": "Under 171.5",
   "odds_american": -110,
   "stake_usd": 3.0,
-  "potential_profit_usd": 2.73,
-  "potential_payout_usd": 5.73,
+  "payout_usd": 5.73,
+  "net_profit_usd": 2.73,
   "sportsbook": "William Hill Nevada",
   "ticket_timestamp_local": "2026-07-14 11:26 AM",
-  "game_time_local": "2026-07-14 4:00 PM",
-  "status": "OPEN",
+  "game_time_local": "2026-07-14 4:05 PM",
+  "status": "WON",
   "break_even_probability": 0.5238,
+  "final_score": {
+    "Washington Mystics": 79,
+    "Toronto Tempo": 62,
+    "combined": 141
+  },
+  "result_margin_points": 30.5,
   "market_snapshot": {
     "washington_spread": "-2 -110",
     "toronto_spread": "+2 -110",
@@ -34,46 +40,30 @@
     "edge_points": 6.0,
     "raw_estimated_under_probability": 0.684,
     "discounted_working_under_probability_range": "0.59-0.63",
-    "estimated_over_probability_range": "0.37-0.41",
     "confidence_tier": "B-watch",
     "recommended_stake_class": "small controlled pregame position"
   },
   "context": {
-    "washington_record": "11-10",
-    "toronto_record": "10-13",
-    "season_series": "Washington leads 2-0",
+    "washington_record_pre_game": "11-10",
+    "toronto_record_pre_game": "10-13",
+    "season_series_pre_game": "Washington led 2-0",
     "washington_injuries_publicly_reported": "none",
-    "toronto_absences_publicly_reported": [
+    "toronto_absences": [
       "Brittney Sykes - foot",
       "Kiki Rice - ankle",
-      "Temi Fagbenle - concussion"
+      "Temi Fagbenle - concussion protocol"
     ]
   },
-  "thesis": [
-    "William Hill total of 171.5 sits approximately six points above the working fair-total midpoint.",
-    "Toronto's recent high-scoring results may have inflated the market anchor.",
-    "Toronto's perimeter creation is concentrated because of multiple guard absences.",
-    "Washington possesses the stronger projected defensive-rebounding and interior-control profile.",
-    "The small stake accounts for uncertainty around Toronto's recent shooting form and close-game foul risk."
+  "thesis_result": "CONFIRMED",
+  "settlement_notes": [
+    "The final total of 141 finished 30.5 points below the wager line.",
+    "Toronto's short-handed creation profile produced only 62 points.",
+    "Washington controlled the paint and offensive glass without creating enough combined scoring to threaten the full-game Under.",
+    "No overtime or intentional-foul tail materially threatened the ticket."
   ],
-  "main_risks": [
-    "Marina Mabrey sustains elite shot-making and creates efficient secondary offense.",
-    "Washington's interior scoring proves highly sustainable against Toronto's switching defense.",
-    "Live-ball turnovers create transition scoring.",
-    "A close finish introduces intentional fouling or overtime risk."
-  ],
-  "live_flow_plan": {
-    "primary_action": "Monitor rather than automatically add to the position.",
-    "no_chase_rule": true,
-    "halftime_requirements": [
-      "Record halftime score and live full-game total.",
-      "Calculate required second-half points.",
-      "Assess pace, paint scoring, turnovers, offensive rebounds, free-throw rate, and number of independent scorers.",
-      "Only add a second position if it independently clears the required edge threshold."
-    ]
-  },
   "sources": [
-    "William Hill Nevada ticket and market screenshots supplied by user.",
-    "Current matchup reporting confirming third meeting, Washington's 2-0 season-series lead, and Toronto injury absences."
+    "William Hill Nevada settlement screenshot supplied by user.",
+    "WNBA official scorer's report and play-by-play supplied by user.",
+    "Contemporary matchup reporting used to verify Toronto injury context and Washington's prior 2-0 season-series lead."
   ]
 }
