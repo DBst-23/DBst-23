@@ -1,0 +1,217 @@
+{
+  "postmortem_id": "WNBA-PM-2026-07-14-WAS-TOR-01",
+  "date": "2026-07-14",
+  "matchup": "Washington Mystics at Toronto Tempo",
+  "venue": "Coca-Cola Coliseum, Toronto, ON",
+  "final_score": {
+    "Washington Mystics": 79,
+    "Toronto Tempo": 62,
+    "combined": 141
+  },
+  "wagers": [
+    {
+      "registry_id": "WNBA-PG-2026-07-14-WAS-TOR-01",
+      "market": "Full-game total",
+      "timing": "Pregame",
+      "selection": "Under 171.5",
+      "odds_american": -110,
+      "stake_usd": 3.0,
+      "payout_usd": 5.73,
+      "net_profit_usd": 2.73,
+      "result": "WON",
+      "margin_points": 30.5
+    },
+    {
+      "registry_id": "WNBA-LF-2026-07-14-WAS-TOR-02",
+      "market": "Live full-game total",
+      "timing": "Halftime",
+      "score_at_entry": {
+        "Washington Mystics": 26,
+        "Toronto Tempo": 32,
+        "combined": 58
+      },
+      "selection": "Under 142.5",
+      "odds_american": -115,
+      "stake_usd": 10.7,
+      "payout_usd": 20.0,
+      "net_profit_usd": 9.3,
+      "result": "WON",
+      "margin_points": 1.5,
+      "required_second_half_points_to_lose": 85,
+      "actual_second_half_points": 83
+    }
+  ],
+  "portfolio_result": {
+    "total_staked_usd": 13.7,
+    "total_payout_usd": 25.73,
+    "net_profit_usd": 12.03,
+    "roi_on_staked_capital": 0.8781,
+    "record": "2-0"
+  },
+  "score_progression": {
+    "quarter_scores": {
+      "Washington Mystics": [12, 14, 26, 27],
+      "Toronto Tempo": [17, 15, 13, 17]
+    },
+    "halftime": {
+      "Washington Mystics": 26,
+      "Toronto Tempo": 32,
+      "combined": 58
+    },
+    "end_of_third": {
+      "Washington Mystics": 52,
+      "Toronto Tempo": 45,
+      "combined": 97
+    },
+    "second_half": {
+      "Washington Mystics": 53,
+      "Toronto Tempo": 30,
+      "combined": 83
+    }
+  },
+  "team_metrics": {
+    "Washington Mystics": {
+      "fg": "30-74",
+      "fg_pct": 0.405,
+      "three_point": "4-23",
+      "three_point_pct": 0.174,
+      "free_throw": "15-19",
+      "free_throw_pct": 0.789,
+      "offensive_rebounds": 17,
+      "total_rebounds": 46,
+      "assists": 19,
+      "turnovers": 11,
+      "points_in_paint": 52,
+      "second_chance_points": 20,
+      "fast_break_points": 6
+    },
+    "Toronto Tempo": {
+      "fg": "23-65",
+      "fg_pct": 0.354,
+      "three_point": "7-26",
+      "three_point_pct": 0.269,
+      "free_throw": "9-10",
+      "free_throw_pct": 0.9,
+      "offensive_rebounds": 5,
+      "total_rebounds": 26,
+      "assists": 15,
+      "turnovers": 10,
+      "points_in_paint": 24,
+      "second_chance_points": 3,
+      "fast_break_points": 0
+    }
+  },
+  "estimated_possessions": {
+    "Washington Mystics": 76.36,
+    "Toronto Tempo": 74.4,
+    "average_game_possessions": 75.38,
+    "combined_offensive_rating": 187.05
+  },
+  "pregame_thesis_vs_actual": {
+    "market_total": 171.5,
+    "model_mean": 165.5,
+    "model_median": 165.0,
+    "actual_total": 141,
+    "model_error_vs_actual_mean": 24.5,
+    "market_error_vs_actual": 30.5,
+    "classification": "SIGNAL CONFIRMED, MAGNITUDE UNDERESTIMATED",
+    "confirmed_components": [
+      "Toronto's short-handed perimeter creation failed to sustain efficient offense.",
+      "Washington's superior interior and defensive-rebounding profile materially shaped the game.",
+      "Toronto's recent high-scoring games were not representative of this matchup environment.",
+      "The market total was materially inflated relative to the matchup's actual scoring distribution."
+    ],
+    "missed_components": [
+      "The model underestimated how severely Toronto's half-court offense would collapse.",
+      "The model did not fully price Washington's offensive-rebounding dominance and its effect on suppressing Toronto transition opportunities.",
+      "The pregame fair total remained too high despite correct directional positioning."
+    ]
+  },
+  "halftime_live_flow_evaluation": {
+    "halftime_score": 58,
+    "live_total": 142.5,
+    "required_second_half_points_for_over": 85,
+    "actual_second_half_points": 83,
+    "result_margin_points": 1.5,
+    "classification": "VALID EDGE, HIGHER VOLATILITY THAN PREGAME TICKET",
+    "why_it_won": [
+      "Toronto scored only 30 second-half points on 32.3% shooting.",
+      "Toronto produced only four second-half paint points and three second-chance points.",
+      "Washington's 53-point second half was strong but not enough to clear the live total because Toronto remained structurally suppressed.",
+      "The game moved away from close-game foul risk as Washington expanded the lead to 17."
+    ],
+    "risk_realized": [
+      "Washington's positive shooting regression arrived exactly as expected, scoring 53 after halftime.",
+      "The live Under survived by only 1.5 points, confirming that the halftime add-on carried meaningful positive-regression risk.",
+      "The second position was materially more volatile than the pregame position and should not be graded as an A+ outcome solely because it won."
+    ],
+    "process_grade": "B+",
+    "note": "The live wager was placed despite a prior pass recommendation. The result validates the number but not automatic override behavior. Future overrides must be logged with the user's independent rationale and stake justification."
+  },
+  "rebound_environment": {
+    "Washington_offensive_rebound_edge": 12,
+    "Washington_total_rebound_edge": 20,
+    "Washington_second_chance_edge": 17,
+    "interpretation": "Washington's frontcourt dominance created sustainable Mystics scoring while simultaneously limiting Toronto's transition and possession quality. This was not merely a cold-shooting Under; it was an asymmetric possession-control game."
+  },
+  "rotation_and_fatigue_notes": [
+    "Toronto played without Brittney Sykes, Kiki Rice, and Temi Fagbenle.",
+    "Marina Mabrey shot 3-of-13 and committed four turnovers in 30:06.",
+    "Isabelle Harrison fouled out in 21:17, further weakening Toronto's interior resistance.",
+    "Washington received 50 combined points and 24 rebounds from Kiki Iriafen and Shakira Austin.",
+    "Washington's frontcourt depth allowed sustained interior pressure across both halves."
+  ],
+  "player_signals": {
+    "Kiki Iriafen": {
+      "line": "25 points, 14 rebounds, 4 offensive rebounds",
+      "signal": "CONFIRMED interior dominance and offensive-glass edge"
+    },
+    "Shakira Austin": {
+      "line": "17 points, 10 rebounds, 3 blocks",
+      "signal": "CONFIRMED paint-control and rim-protection edge"
+    },
+    "Marina Mabrey": {
+      "line": "8 points, 3-of-13 FG, 4 turnovers",
+      "signal": "CONFIRMED concentrated-creation failure under defensive pressure"
+    },
+    "Julie Allemand": {
+      "line": "15 points, 5 rebounds, 2 assists",
+      "signal": "Secondary scoring existed but did not create a sustainable team offense"
+    }
+  },
+  "patch_evaluation": {
+    "decision": "MODIFY",
+    "retain": [
+      "Short-handed primary-creator concentration remains a strong team-total and full-game Under input.",
+      "Interior control plus defensive rebounding should be treated as a total-suppression pathway even when the advantaged team scores efficiently.",
+      "Recent high-scoring game logs must be opponent-adjusted before anchoring the current total."
+    ],
+    "add": [
+      "Create a Frontcourt Possession Control score combining offensive-rebound differential, paint-attempt differential, rim protection, and opponent transition suppression.",
+      "Create a Creator Fragility score using active ball-handlers, primary-creator usage concentration, opponent blitz capability, and backup initiation quality.",
+      "At halftime, distinguish shooting regression capacity by team rather than applying one combined regression assumption.",
+      "For correlated add-ons, require the new live wager to clear edge independently and log an override reason when it conflicts with the model recommendation.",
+      "Do not grade a live wager by win margin alone; compare actual remaining points against the entry requirement and expected variance."
+    ],
+    "revert": []
+  },
+  "retraining_flags": [
+    "Increase weight on active-handler depth in Toronto-like injury states.",
+    "Increase interaction weight between offensive-rebound dominance and opponent transition suppression.",
+    "Recalibrate live second-half variance after extremely low first-half three-point shooting.",
+    "Track foul-out risk for thin frontcourts as a late-game possession-quality variable."
+  ],
+  "final_assessment": {
+    "signal_status": "SIGNAL CONFIRMED",
+    "pregame_process_grade": "A-",
+    "live_add_on_process_grade": "B+",
+    "overall_process_grade": "A-",
+    "confidence": "HIGH",
+    "final_status": "MODIFY"
+  },
+  "sources": [
+    "William Hill Nevada settlement screenshot supplied by user.",
+    "WNBA official scorer's report and play-by-play supplied by user.",
+    "Contemporary matchup reporting confirming Toronto's key absences and Washington's 2-0 season-series lead entering the game."
+  ]
+}
