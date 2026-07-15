@@ -1,0 +1,161 @@
+{
+  "sport": "WNBA",
+  "workflow": "LIVE-FLOW",
+  "date": "2026-07-15",
+  "matchup": {
+    "away": "Seattle Storm",
+    "home": "Chicago Sky",
+    "venue": "Wintrust Arena",
+    "attendance": 9025,
+    "officials": [
+      "Maj Forsberg",
+      "Randy Richardson",
+      "Kelly Broomfield"
+    ]
+  },
+  "availability": {
+    "seattle": {
+      "Ezi Magbegor": "NWT - facial injury",
+      "Taina Mair": "inactive"
+    },
+    "chicago": {
+      "Kamilla Cardoso": "DND - right knee",
+      "DiJonai Carrington": "DND - foot",
+      "Skylar Diggins": "DND - right knee",
+      "Westbeld": "inactive"
+    }
+  },
+  "market": {
+    "pregame_total": 171.0,
+    "halftime_score": {
+      "seattle": 44,
+      "chicago": 56,
+      "combined": 100
+    },
+    "halftime_live_total": 182.5,
+    "halftime_team_totals": {
+      "seattle": 86.5,
+      "chicago": 96.5
+    },
+    "confirmed_wager": null,
+    "wager_status": "No confirmed wager was recorded for this matchup"
+  },
+  "result": {
+    "final_score": {
+      "seattle": 90,
+      "chicago": 95,
+      "combined": 185,
+      "margin": 5
+    },
+    "quarter_scores": {
+      "seattle": [19, 25, 25, 21],
+      "chicago": [26, 30, 21, 18]
+    },
+    "second_half_score": {
+      "seattle": 46,
+      "chicago": 39,
+      "combined": 85
+    },
+    "pregame_total_result": "OVER by 14.0 points",
+    "halftime_total_result": "OVER by 2.5 points",
+    "seattle_halftime_team_total_result": "OVER by 3.5 points",
+    "chicago_halftime_team_total_result": "UNDER by 1.5 points"
+  },
+  "team_stats": {
+    "seattle": {
+      "fg": "36/78",
+      "fg_pct": 46.2,
+      "three_pt": "4/25",
+      "three_pt_pct": 16.0,
+      "ft": "14/23",
+      "ft_pct": 60.9,
+      "offensive_rebounds": 16,
+      "total_rebounds": 45,
+      "assists": 24,
+      "turnovers": 16,
+      "points_in_paint": 56,
+      "second_chance_points": 16,
+      "fast_break_points": 17,
+      "estimated_possessions": 88.12,
+      "estimated_offensive_rating": 102.13
+    },
+    "chicago": {
+      "fg": "35/74",
+      "fg_pct": 47.3,
+      "three_pt": "11/32",
+      "three_pt_pct": 34.4,
+      "ft": "14/19",
+      "ft_pct": 73.7,
+      "offensive_rebounds": 6,
+      "total_rebounds": 29,
+      "assists": 27,
+      "turnovers": 14,
+      "points_in_paint": 46,
+      "second_chance_points": 11,
+      "fast_break_points": 6,
+      "estimated_possessions": 90.36,
+      "estimated_offensive_rating": 105.13
+    },
+    "estimated_game_possessions": 89.24
+  },
+  "live_flow_postmortem": {
+    "halftime_read": {
+      "score_environment": "Extremely elevated at 100 first-half points",
+      "chicago_shooting": "60.0% FG and 40.0% from three created clear regression risk",
+      "seattle_scoring_support": "Seattle produced 44 despite 18.2% from three and 50.0% FT, supported by 28 paint points, 10 offensive rebounds, and 40 field-goal attempts",
+      "structural_signal": "The scoring environment was not driven solely by unsustainable perimeter shooting; Seattle's rim pressure, offensive rebounding and possession volume created a durable over path",
+      "best_decision": "Pass on halftime under 182.5; lean over only at small stake because Chicago regression and late-game execution risk limited the margin"
+    },
+    "what_decided_game_total": [
+      "Seattle scored 90 while making only four threes, proving the total was carried by interior volume rather than three-point variance alone",
+      "Seattle generated 56 paint points, 16 offensive rebounds, 16 second-chance points and 17 fast-break points",
+      "Chicago's first-half 60.0% shooting regressed to 35.9% in the second half, but Seattle answered with 46 second-half points",
+      "The fourth quarter remained competitive enough to preserve starter minutes and late fouling, producing 39 points",
+      "Chicago's 27 assists on 35 made field goals reflected strong ball movement and repeatable shot creation"
+    ],
+    "model_lessons": [
+      "Do not auto-fade a 100-point first half when the trailing team has strong rim and offensive-rebound indicators",
+      "Separate shooting regression from possession and shot-quality regression",
+      "Low three-point percentage can be an over-positive indicator when paint scoring and offensive rebounding are already carrying the offense",
+      "At halftime, weight offensive rebounds, paint attempts, free-throw opportunities and game competitiveness alongside raw field-goal percentage",
+      "A halftime under needs multiple confirming brakes: declining shot volume, weak rim access, low foul pressure, slower substitutions or a widening blowout"
+    ],
+    "classification": {
+      "primary_tag": "HALFTIME_OVER_SURVIVES_SHOOTING_REGRESSION",
+      "secondary_tags": [
+        "PAINT_DOMINANCE",
+        "OFFENSIVE_REBOUND_PRESSURE",
+        "HIGH_POSSESSION_GAME",
+        "COMPETITIVE_FOURTH_QUARTER",
+        "CHICAGO_SHOOTING_REGRESSION",
+        "SEATTLE_THREE_POINT_UNDERPERFORMANCE",
+        "NO_CONFIRMED_WAGER"
+      ],
+      "confidence": "High"
+    }
+  },
+  "model_fuel": {
+    "positive_features": {
+      "halftime_combined_points": 100,
+      "halftime_live_total": 182.5,
+      "required_second_half_points_for_over": 83,
+      "actual_second_half_points": 85,
+      "seattle_halftime_offensive_rebounds": 10,
+      "seattle_final_offensive_rebounds": 16,
+      "seattle_final_paint_points": 56,
+      "game_estimated_possessions": 89.24,
+      "final_margin": 5
+    },
+    "regression_features": {
+      "chicago_first_half_fg_pct": 60.0,
+      "chicago_second_half_fg_pct": 35.9,
+      "chicago_first_half_points": 56,
+      "chicago_second_half_points": 39
+    },
+    "target_label": {
+      "halftime_total_over_182_5": 1,
+      "pregame_total_over_171_0": 1
+    }
+  },
+  "summary": "Chicago won 95-90. The pregame over 171 cleared by 14 and the halftime over 182.5 cleared by 2.5. Chicago's extreme first-half shooting did regress, but Seattle's paint scoring, offensive rebounding and sustained possession volume kept the game above the live number. The clean model lesson is to avoid reflexively attacking a halftime under when the apparent shooting inflation is paired with durable interior and possession-based scoring support."
+}
