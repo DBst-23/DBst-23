@@ -9,7 +9,7 @@ on:
         type: boolean
         default: true
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "2,7,12,17,22,27,32,37,42,47,52,57 * * * *"
 
 concurrency:
   group: wnba-lineup-monitor
@@ -81,6 +81,21 @@ jobs:
           if payload.get("status") != 1:
               raise SystemExit(f"Pushover rejected test: {payload}")
           print("Pushover test notification sent successfully.")
+          PY
+
+      - name: Patch first-team lineup alert threshold
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("wnba_lineup_monitor.py")
+          text = path.read_text(encoding="utf-8")
+          old = "if first_complete_lineup or complete_lineup_change:\n            dispatch_alert(snapshot, changed=complete_lineup_change)"
+          new = "if changed and len(signature) in {5, 10}:\n            dispatch_alert(snapshot, changed=bool(previous_signature))"
+          if old not in text:
+              raise SystemExit("Expected alert condition was not found in wnba_lineup_monitor.py")
+          path.write_text(text.replace(old, new), encoding="utf-8")
+          print("Alert threshold patched: notify at 5 starters and again at 10 starters.")
           PY
 
       - name: Run WNBA lineup monitor
