@@ -2,6 +2,12 @@ name: WNBA Lineup Monitor
 
 on:
   workflow_dispatch:
+    inputs:
+      send_test:
+        description: "Send a Pushover test notification"
+        required: false
+        type: boolean
+        default: true
   schedule:
     - cron: "*/5 * * * *"
 
@@ -32,6 +38,50 @@ jobs:
           key: wnba-lineup-state-${{ github.run_id }}
           restore-keys: |
             wnba-lineup-state-
+
+      - name: Send Pushover test notification
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.send_test }}
+        env:
+          PUSHOVER_APP_TOKEN: ${{ secrets.PUSHOVER_APP_TOKEN }}
+          PUSHOVER_USER_KEY: ${{ secrets.PUSHOVER_USER_KEY }}
+          PUSHOVER_DEVICE: ${{ secrets.PUSHOVER_DEVICE }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import urllib.parse
+          import urllib.request
+
+          token = os.environ.get("PUSHOVER_APP_TOKEN", "").strip()
+          user = os.environ.get("PUSHOVER_USER_KEY", "").strip()
+          device = os.environ.get("PUSHOVER_DEVICE", "").strip()
+
+          if not token or not user:
+              raise SystemExit("Missing PUSHOVER_APP_TOKEN or PUSHOVER_USER_KEY")
+
+          fields = {
+              "token": token,
+              "user": user,
+              "title": "SharpEdge WNBA Alerts",
+              "message": "✅ Phone delivery is connected. Future confirmed WNBA lineup changes will be pushed to this device.",
+              "priority": "1",
+              "sound": "siren",
+          }
+          if device:
+              fields["device"] = device
+
+          request = urllib.request.Request(
+              "https://api.pushover.net/1/messages.json",
+              data=urllib.parse.urlencode(fields).encode("utf-8"),
+              headers={"Content-Type": "application/x-www-form-urlencoded"},
+              method="POST",
+          )
+          with urllib.request.urlopen(request, timeout=30) as response:
+              payload = json.loads(response.read().decode("utf-8"))
+          if payload.get("status") != 1:
+              raise SystemExit(f"Pushover rejected test: {payload}")
+          print("Pushover test notification sent successfully.")
+          PY
 
       - name: Run WNBA lineup monitor
         env:
