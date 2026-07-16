@@ -1,0 +1,94 @@
+{
+  "copyright": "Copyright 2026 MLB Advanced Media, L.P.  Use of any content on this page acknowledges agreement to the terms posted here http://gdx.mlb.com/components/copyright.txt",
+  "totalItems": 1,
+  "totalEvents": 0,
+  "totalGames": 1,
+  "totalGamesInProgress": 0,
+  "dates": [
+    {
+      "date": "2026-07-16",
+      "totalItems": 1,
+      "totalEvents": 0,
+      "totalGames": 1,
+      "totalGamesInProgress": 0,
+      "games": [
+        {
+          "gamePk": 823440,
+          "gameGuid": "ad2a6657-f704-4bc6-8a93-4fa49f7f58ce",
+          "link": "/api/v1.1/game/823440/feed/live",
+          "gameType": "R",
+          "season": "2026",
+          "gameDate": "2026-07-16T23:10:00Z",
+          "officialDate": "2026-07-16",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "S",
+            "detailedState": "Scheduled",
+            "statusCode": "S",
+            "startTimeTBD": false,
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 121,
+                "name": "New York Mets",
+                "link": "/api/v1/teams/121"
+              },
+              "leagueRecord": {
+                "wins": 40,
+                "losses": 57,
+                "ties": 0,
+                "pct": ".412"
+              },
+              "splitSquad": false,
+              "seriesNumber": 32
+            },
+            "home": {
+              "team": {
+                "id": 143,
+                "name": "Philadelphia Phillies",
+                "link": "/api/v1/teams/143"
+              },
+              "leagueRecord": {
+                "wins": 54,
+                "losses": 43,
+                "ties": 0,
+                "pct": ".557"
+              },
+              "splitSquad": false,
+              "seriesNumber": 32
+            }
+          },
+          "venue": {
+            "id": 2681,
+            "name": "Citizens Bank Park",
+            "link": "/api/v1/venues/2681"
+          },
+          "content": {
+            "link": "/api/v1/game/823440/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-823440-2026-07-16",
+          "seasonDisplay": "2026",
+          "dayNight": "night",
+          "description": "Moved from 7/17",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 145,
+          "gamesInSeries": 3,
+          "seriesGameNumber": 1,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        }
+      ],
+      "events": []
+    }
+  ]
+}
