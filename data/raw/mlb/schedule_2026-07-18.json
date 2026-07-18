@@ -43,6 +43,7 @@
                 "ties": 0,
                 "pct": ".515"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 32
             },
@@ -58,6 +59,7 @@
                 "ties": 0,
                 "pct": ".526"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 32
             }
@@ -173,9 +175,9 @@
           "officialDate": "2026-07-18",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -238,160 +240,12 @@
           "ifNecessaryDescription": "Normal Game"
         },
         {
-          "gamePk": 822790,
-          "gameGuid": "f13fc3e6-469a-4c64-bf34-c0379b19097e",
-          "link": "/api/v1.1/game/822790/feed/live",
-          "gameType": "R",
-          "season": "2026",
-          "gameDate": "2026-07-18T19:07:00Z",
-          "officialDate": "2026-07-18",
-          "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
-            "startTimeTBD": false,
-            "abstractGameCode": "P"
-          },
-          "teams": {
-            "away": {
-              "team": {
-                "id": 145,
-                "name": "Chicago White Sox",
-                "link": "/api/v1/teams/145"
-              },
-              "leagueRecord": {
-                "wins": 51,
-                "losses": 45,
-                "ties": 0,
-                "pct": ".531"
-              },
-              "splitSquad": false,
-              "seriesNumber": 32
-            },
-            "home": {
-              "team": {
-                "id": 141,
-                "name": "Toronto Blue Jays",
-                "link": "/api/v1/teams/141"
-              },
-              "leagueRecord": {
-                "wins": 45,
-                "losses": 52,
-                "ties": 0,
-                "pct": ".464"
-              },
-              "splitSquad": false,
-              "seriesNumber": 32
-            }
-          },
-          "venue": {
-            "id": 14,
-            "name": "Rogers Centre",
-            "link": "/api/v1/venues/14"
-          },
-          "content": {
-            "link": "/api/v1/game/822790/content"
-          },
-          "gameNumber": 1,
-          "publicFacing": true,
-          "doubleHeader": "N",
-          "gamedayType": "P",
-          "tiebreaker": "N",
-          "calendarEventID": "14-822790-2026-07-18",
-          "seasonDisplay": "2026",
-          "dayNight": "day",
-          "scheduledInnings": 9,
-          "reverseHomeAwayStatus": false,
-          "inningBreakLength": 120,
-          "gamesInSeries": 3,
-          "seriesGameNumber": 2,
-          "seriesDescription": "Regular Season",
-          "recordSource": "S",
-          "ifNecessary": "N",
-          "ifNecessaryDescription": "Normal Game"
-        },
-        {
-          "gamePk": 824331,
-          "gameGuid": "9a25d381-4397-4fc8-bfec-bcdc1e018fb1",
-          "link": "/api/v1.1/game/824331/feed/live",
-          "gameType": "R",
-          "season": "2026",
-          "gameDate": "2026-07-18T19:10:00Z",
-          "officialDate": "2026-07-18",
-          "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
-            "startTimeTBD": false,
-            "abstractGameCode": "P"
-          },
-          "teams": {
-            "away": {
-              "team": {
-                "id": 113,
-                "name": "Cincinnati Reds",
-                "link": "/api/v1/teams/113"
-              },
-              "leagueRecord": {
-                "wins": 44,
-                "losses": 52,
-                "ties": 0,
-                "pct": ".458"
-              },
-              "splitSquad": false,
-              "seriesNumber": 32
-            },
-            "home": {
-              "team": {
-                "id": 115,
-                "name": "Colorado Rockies",
-                "link": "/api/v1/teams/115"
-              },
-              "leagueRecord": {
-                "wins": 39,
-                "losses": 60,
-                "ties": 0,
-                "pct": ".394"
-              },
-              "splitSquad": false,
-              "seriesNumber": 32
-            }
-          },
-          "venue": {
-            "id": 19,
-            "name": "Coors Field",
-            "link": "/api/v1/venues/19"
-          },
-          "content": {
-            "link": "/api/v1/game/824331/content"
-          },
-          "gameNumber": 1,
-          "publicFacing": true,
-          "doubleHeader": "N",
-          "gamedayType": "P",
-          "tiebreaker": "N",
-          "calendarEventID": "14-824331-2026-07-18",
-          "seasonDisplay": "2026",
-          "dayNight": "day",
-          "scheduledInnings": 9,
-          "reverseHomeAwayStatus": false,
-          "inningBreakLength": 120,
-          "gamesInSeries": 3,
-          "seriesGameNumber": 2,
-          "seriesDescription": "Regular Season",
-          "recordSource": "S",
-          "ifNecessary": "N",
-          "ifNecessaryDescription": "Normal Game"
-        },
-        {
           "gamePk": 823441,
           "gameGuid": "5be75958-7bdc-4a44-a533-2772f7e38306",
           "link": "/api/v1.1/game/823441/feed/live",
           "gameType": "R",
           "season": "2026",
-          "gameDate": "2026-07-18T20:05:00Z",
+          "gameDate": "2026-07-18T19:05:00Z",
           "officialDate": "2026-07-18",
           "status": {
             "abstractGameState": "Preview",
@@ -447,6 +301,156 @@
           "gamedayType": "P",
           "tiebreaker": "N",
           "calendarEventID": "14-823441-2026-07-18",
+          "seasonDisplay": "2026",
+          "dayNight": "day",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
+          "gamesInSeries": 3,
+          "seriesGameNumber": 2,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 822790,
+          "gameGuid": "f13fc3e6-469a-4c64-bf34-c0379b19097e",
+          "link": "/api/v1.1/game/822790/feed/live",
+          "gameType": "R",
+          "season": "2026",
+          "gameDate": "2026-07-18T19:07:00Z",
+          "officialDate": "2026-07-18",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
+            "startTimeTBD": false,
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 145,
+                "name": "Chicago White Sox",
+                "link": "/api/v1/teams/145"
+              },
+              "leagueRecord": {
+                "wins": 51,
+                "losses": 45,
+                "ties": 0,
+                "pct": ".531"
+              },
+              "score": 0,
+              "splitSquad": false,
+              "seriesNumber": 32
+            },
+            "home": {
+              "team": {
+                "id": 141,
+                "name": "Toronto Blue Jays",
+                "link": "/api/v1/teams/141"
+              },
+              "leagueRecord": {
+                "wins": 45,
+                "losses": 52,
+                "ties": 0,
+                "pct": ".464"
+              },
+              "score": 0,
+              "splitSquad": false,
+              "seriesNumber": 32
+            }
+          },
+          "venue": {
+            "id": 14,
+            "name": "Rogers Centre",
+            "link": "/api/v1/venues/14"
+          },
+          "content": {
+            "link": "/api/v1/game/822790/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-822790-2026-07-18",
+          "seasonDisplay": "2026",
+          "dayNight": "day",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
+          "gamesInSeries": 3,
+          "seriesGameNumber": 2,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 824331,
+          "gameGuid": "9a25d381-4397-4fc8-bfec-bcdc1e018fb1",
+          "link": "/api/v1.1/game/824331/feed/live",
+          "gameType": "R",
+          "season": "2026",
+          "gameDate": "2026-07-18T19:10:00Z",
+          "officialDate": "2026-07-18",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
+            "startTimeTBD": false,
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 113,
+                "name": "Cincinnati Reds",
+                "link": "/api/v1/teams/113"
+              },
+              "leagueRecord": {
+                "wins": 44,
+                "losses": 52,
+                "ties": 0,
+                "pct": ".458"
+              },
+              "splitSquad": false,
+              "seriesNumber": 32
+            },
+            "home": {
+              "team": {
+                "id": 115,
+                "name": "Colorado Rockies",
+                "link": "/api/v1/teams/115"
+              },
+              "leagueRecord": {
+                "wins": 39,
+                "losses": 60,
+                "ties": 0,
+                "pct": ".394"
+              },
+              "splitSquad": false,
+              "seriesNumber": 32
+            }
+          },
+          "venue": {
+            "id": 19,
+            "name": "Coors Field",
+            "link": "/api/v1/venues/19"
+          },
+          "content": {
+            "link": "/api/v1/game/824331/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-824331-2026-07-18",
           "seasonDisplay": "2026",
           "dayNight": "day",
           "scheduledInnings": 9,
