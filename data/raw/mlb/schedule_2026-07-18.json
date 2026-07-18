@@ -3,14 +3,14 @@
   "totalItems": 16,
   "totalEvents": 0,
   "totalGames": 16,
-  "totalGamesInProgress": 4,
+  "totalGamesInProgress": 9,
   "dates": [
     {
       "date": "2026-07-18",
       "totalItems": 16,
       "totalEvents": 0,
       "totalGames": 16,
-      "totalGamesInProgress": 4,
+      "totalGamesInProgress": 9,
       "games": [
         {
           "gamePk": 824414,
@@ -104,9 +104,9 @@
           "officialDate": "2026-07-18",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -177,12 +177,12 @@
           "gameDate": "2026-07-18T18:20:00Z",
           "officialDate": "2026-07-18",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "O",
+            "detailedState": "Game Over",
+            "statusCode": "O",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -193,11 +193,12 @@
               },
               "leagueRecord": {
                 "wins": 49,
-                "losses": 49,
+                "losses": 50,
                 "ties": 0,
-                "pct": ".500"
+                "pct": ".495"
               },
-              "score": 1,
+              "score": 2,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 32
             },
@@ -208,12 +209,13 @@
                 "link": "/api/v1/teams/112"
               },
               "leagueRecord": {
-                "wins": 54,
+                "wins": 55,
                 "losses": 43,
                 "ties": 0,
-                "pct": ".557"
+                "pct": ".561"
               },
-              "score": 5,
+              "score": 6,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 32
             }
@@ -226,6 +228,7 @@
           "content": {
             "link": "/api/v1/game/824657/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
@@ -289,7 +292,7 @@
                 "ties": 0,
                 "pct": ".551"
               },
-              "score": 2,
+              "score": 6,
               "splitSquad": false,
               "seriesNumber": 32
             }
@@ -365,7 +368,7 @@
                 "ties": 0,
                 "pct": ".464"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 32
             }
@@ -425,7 +428,7 @@
                 "ties": 0,
                 "pct": ".458"
               },
-              "score": 1,
+              "score": 3,
               "splitSquad": false,
               "seriesNumber": 32
             },
@@ -441,7 +444,7 @@
                 "ties": 0,
                 "pct": ".394"
               },
-              "score": 7,
+              "score": 10,
               "splitSquad": false,
               "seriesNumber": 32
             }
@@ -482,9 +485,9 @@
           "officialDate": "2026-07-18",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "P",
-            "detailedState": "Warmup",
-            "statusCode": "PW",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
             "abstractGameCode": "L"
           },
@@ -501,7 +504,7 @@
                 "ties": 0,
                 "pct": ".480"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 32
             },
@@ -558,9 +561,9 @@
           "officialDate": "2026-07-18",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "P",
-            "detailedState": "Warmup",
-            "statusCode": "PW",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
             "abstractGameCode": "L"
           },
@@ -577,7 +580,7 @@
                 "ties": 0,
                 "pct": ".495"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 32
             },
@@ -593,7 +596,7 @@
                 "ties": 0,
                 "pct": ".398"
               },
-              "score": 0,
+              "score": 3,
               "splitSquad": false,
               "seriesNumber": 32
             }
@@ -634,9 +637,9 @@
           "officialDate": "2026-07-18",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "P",
-            "detailedState": "Warmup",
-            "statusCode": "PW",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
             "abstractGameCode": "L"
           },
@@ -669,7 +672,7 @@
                 "ties": 0,
                 "pct": ".505"
               },
-              "score": 0,
+              "score": 4,
               "splitSquad": false,
               "seriesNumber": 32
             }
@@ -709,13 +712,12 @@
           "gameDate": "2026-07-18T20:10:00Z",
           "officialDate": "2026-07-18",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Delayed Start",
-            "statusCode": "PI",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "reason": "Inclement Weather",
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -787,9 +789,9 @@
           "officialDate": "2026-07-18",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "P",
-            "detailedState": "Warmup",
-            "statusCode": "PW",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
             "abstractGameCode": "L"
           },
@@ -806,7 +808,7 @@
                 "ties": 0,
                 "pct": ".505"
               },
-              "score": 0,
+              "score": 3,
               "splitSquad": false,
               "seriesNumber": 32
             },
@@ -822,7 +824,7 @@
                 "ties": 0,
                 "pct": ".583"
               },
-              "score": 0,
+              "score": 5,
               "splitSquad": false,
               "seriesNumber": 32
             }
@@ -863,9 +865,9 @@
           "officialDate": "2026-07-18",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "P",
-            "detailedState": "Warmup",
-            "statusCode": "PW",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
             "abstractGameCode": "L"
           },
@@ -882,7 +884,7 @@
                 "ties": 0,
                 "pct": ".531"
               },
-              "score": 0,
+              "score": 3,
               "splitSquad": false,
               "seriesNumber": 32
             },
@@ -898,7 +900,7 @@
                 "ties": 0,
                 "pct": ".619"
               },
-              "score": 0,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 32
             }
@@ -958,6 +960,7 @@
                 "ties": 0,
                 "pct": ".433"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 32
             },
@@ -973,6 +976,7 @@
                 "ties": 0,
                 "pct": ".490"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 32
             }
@@ -991,80 +995,6 @@
           "gamedayType": "P",
           "tiebreaker": "N",
           "calendarEventID": "14-823116-2026-07-18",
-          "seasonDisplay": "2026",
-          "dayNight": "night",
-          "scheduledInnings": 9,
-          "reverseHomeAwayStatus": false,
-          "inningBreakLength": 145,
-          "gamesInSeries": 3,
-          "seriesGameNumber": 2,
-          "seriesDescription": "Regular Season",
-          "recordSource": "S",
-          "ifNecessary": "N",
-          "ifNecessaryDescription": "Normal Game"
-        },
-        {
-          "gamePk": 823523,
-          "gameGuid": "c33b8ea4-7695-4d74-9fb8-0dd2251856e4",
-          "link": "/api/v1.1/game/823523/feed/live",
-          "gameType": "R",
-          "season": "2026",
-          "gameDate": "2026-07-19T00:08:00Z",
-          "officialDate": "2026-07-18",
-          "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
-            "startTimeTBD": false,
-            "abstractGameCode": "P"
-          },
-          "teams": {
-            "away": {
-              "team": {
-                "id": 119,
-                "name": "Los Angeles Dodgers",
-                "link": "/api/v1/teams/119"
-              },
-              "leagueRecord": {
-                "wins": 62,
-                "losses": 36,
-                "ties": 0,
-                "pct": ".633"
-              },
-              "splitSquad": false,
-              "seriesNumber": 32
-            },
-            "home": {
-              "team": {
-                "id": 147,
-                "name": "New York Yankees",
-                "link": "/api/v1/teams/147"
-              },
-              "leagueRecord": {
-                "wins": 54,
-                "losses": 43,
-                "ties": 0,
-                "pct": ".557"
-              },
-              "splitSquad": false,
-              "seriesNumber": 32
-            }
-          },
-          "venue": {
-            "id": 3313,
-            "name": "Yankee Stadium",
-            "link": "/api/v1/venues/3313"
-          },
-          "content": {
-            "link": "/api/v1/game/823523/content"
-          },
-          "gameNumber": 1,
-          "publicFacing": true,
-          "doubleHeader": "N",
-          "gamedayType": "P",
-          "tiebreaker": "N",
-          "calendarEventID": "14-823523-2026-07-18",
           "seasonDisplay": "2026",
           "dayNight": "night",
           "scheduledInnings": 9,
@@ -1218,6 +1148,83 @@
           "scheduledInnings": 9,
           "reverseHomeAwayStatus": false,
           "inningBreakLength": 120,
+          "gamesInSeries": 3,
+          "seriesGameNumber": 2,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 823523,
+          "gameGuid": "c33b8ea4-7695-4d74-9fb8-0dd2251856e4",
+          "link": "/api/v1.1/game/823523/feed/live",
+          "gameType": "R",
+          "season": "2026",
+          "gameDate": "2026-07-19T00:08:00Z",
+          "officialDate": "2026-07-19",
+          "rescheduleDate": "2026-07-19T16:35:00Z",
+          "rescheduleGameDate": "2026-07-19",
+          "status": {
+            "abstractGameState": "Final",
+            "codedGameState": "D",
+            "detailedState": "Postponed",
+            "statusCode": "DI",
+            "startTimeTBD": false,
+            "reason": "Inclement Weather",
+            "abstractGameCode": "F"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 119,
+                "name": "Los Angeles Dodgers",
+                "link": "/api/v1/teams/119"
+              },
+              "leagueRecord": {
+                "wins": 62,
+                "losses": 36,
+                "ties": 0,
+                "pct": ".633"
+              },
+              "splitSquad": false,
+              "seriesNumber": 32
+            },
+            "home": {
+              "team": {
+                "id": 147,
+                "name": "New York Yankees",
+                "link": "/api/v1/teams/147"
+              },
+              "leagueRecord": {
+                "wins": 54,
+                "losses": 43,
+                "ties": 0,
+                "pct": ".557"
+              },
+              "splitSquad": false,
+              "seriesNumber": 32
+            }
+          },
+          "venue": {
+            "id": 3313,
+            "name": "Yankee Stadium",
+            "link": "/api/v1/venues/3313"
+          },
+          "content": {
+            "link": "/api/v1/game/823523/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-823523-2026-07-18",
+          "seasonDisplay": "2026",
+          "dayNight": "night",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 145,
           "gamesInSeries": 3,
           "seriesGameNumber": 2,
           "seriesDescription": "Regular Season",
