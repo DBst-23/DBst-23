@@ -1,0 +1,104 @@
+{
+  "event_id": "WNBA_2026-07-17_CON_at_PHX_LIVEFLOW_TT_UNDER_92_5",
+  "sport": "WNBA",
+  "date": "2026-07-17",
+  "matchup": {
+    "away_team": "Connecticut Sun",
+    "home_team": "Phoenix Mercury",
+    "final_score": {
+      "Connecticut Sun": 96,
+      "Phoenix Mercury": 83
+    }
+  },
+  "market": {
+    "type": "live_team_total",
+    "team": "Connecticut Sun",
+    "selection": "under",
+    "line": 92.5,
+    "american_odds": -115,
+    "stake_usd": 10.0,
+    "potential_profit_usd": 8.7,
+    "result": "loss",
+    "net_profit_usd": -10.0
+  },
+  "entry_state": {
+    "game_phase": "halftime",
+    "score": {
+      "Connecticut Sun": 54,
+      "Phoenix Mercury": 37
+    },
+    "required_second_half_points_to_win": 38,
+    "model_projection_at_entry": {
+      "mean_range": [94.0, 95.0],
+      "median_estimate": 94.5,
+      "direction": "over_lean",
+      "bet_alignment": "opposed_model"
+    },
+    "classification": "user_override_accepted_by_process"
+  },
+  "outcome_decomposition": {
+    "connecticut_second_half_points": 42,
+    "third_quarter_points": 19,
+    "fourth_quarter_points": 23,
+    "margin_vs_line": 3.5,
+    "loss_trigger": "late_fourth_quarter_free_throw_environment",
+    "key_sequence": {
+      "score_at_3Q_end": 73,
+      "points_needed_to_cash_entering_4Q": 19,
+      "points_scored_in_4Q": 23,
+      "connecticut_fourth_quarter_free_throws": "12-of-14",
+      "points_from_final_3_17": 6
+    }
+  },
+  "diagnosis": {
+    "primary_leak": "No hard veto when wager direction contradicted model projection.",
+    "secondary_leaks": [
+      "Lead-based slowdown assumption was overweighted.",
+      "Foul and free-throw tail risk was underweighted.",
+      "Phoenix comeback pressure and extended starter usage were not modeled strongly enough.",
+      "Live team-total entry lacked a minimum edge threshold.",
+      "Process allowed a narrative override without recalculating win probability and expected value."
+    ],
+    "what_worked": [
+      "Regression signal was partly correct: Connecticut fell from 54 first-half points to 42 second-half points.",
+      "Third-quarter pace read was strong: Connecticut scored only 19.",
+      "The original model mean of 94-95 was close to the 96-point result."
+    ]
+  },
+  "audit_tags": [
+    "MODEL_DIRECTION_CORRECT",
+    "PROCESS_OVERRIDE_FAILURE",
+    "HALFTIME_TEAM_TOTAL",
+    "BLOWOUT_FALSE_UNDER",
+    "FOUL_TAIL_RISK",
+    "NO_EDGE_BET",
+    "LIVE_FLOW"
+  ],
+  "required_patches": [
+    {
+      "patch_id": "LF-001",
+      "name": "Model Direction Veto",
+      "rule": "Do not approve a live wager opposite the model mean unless a documented market-moving input changes the projection by at least 2.5 points."
+    },
+    {
+      "patch_id": "LF-002",
+      "name": "Minimum Edge Gate",
+      "rule": "Require projected win probability to exceed sportsbook break-even probability by at least 4 percentage points."
+    },
+    {
+      "patch_id": "LF-003",
+      "name": "Late Foul Tail Module",
+      "rule": "Add score-margin, comeback pressure, team-foul state, and end-game free-throw distributions to live totals."
+    },
+    {
+      "patch_id": "LF-004",
+      "name": "Blowout Split",
+      "rule": "Separate true clock-kill blowouts from competitive comeback games; large halftime leads do not automatically imply an under."
+    },
+    {
+      "patch_id": "LF-005",
+      "name": "Override Labeling",
+      "rule": "Any user override must be logged as PASS/NO-BET by the model unless the recalculated edge clears the gate."
+    }
+  ]
+}
