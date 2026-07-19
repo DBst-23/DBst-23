@@ -1,0 +1,221 @@
+{
+  "sport": "WNBA",
+  "workflow": "LIVE-FLOW",
+  "date": "2026-07-18",
+  "matchup": {
+    "away": "Washington Mystics",
+    "home": "Golden State Valkyries",
+    "venue": "Chase Center",
+    "attendance": 18064,
+    "attendance_note": "Sellout",
+    "officials": [
+      "Tim Greene",
+      "Charles Watson",
+      "Kelly Broomfield"
+    ]
+  },
+  "availability": {
+    "washington": {},
+    "golden_state": {
+      "Juste Jocyte": "inactive - left foot soreness",
+      "Prechtel": "inactive",
+      "Sowah": "inactive"
+    }
+  },
+  "market": {
+    "halftime_score": {
+      "washington": 28,
+      "golden_state": 33,
+      "combined": 61,
+      "margin": 5
+    },
+    "halftime_live_total": 137.5,
+    "wager": {
+      "selection": "Under 137.5",
+      "odds": -115,
+      "stake": 5.0,
+      "potential_profit": 4.35,
+      "potential_return": 9.35,
+      "placed_time_local": "2026-07-18 18:26",
+      "sportsbook": "William Hill",
+      "result": "LOSS",
+      "net_profit": -5.0
+    },
+    "model_projection_at_strike": null,
+    "projection_note": "No verified model projection was preserved in the supplied record; do not backfill one after the result."
+  },
+  "result": {
+    "final_score": {
+      "washington": 69,
+      "golden_state": 74,
+      "combined": 143,
+      "margin": 5
+    },
+    "quarter_scores": {
+      "washington": [18, 10, 29, 12],
+      "golden_state": [13, 20, 19, 22]
+    },
+    "second_half_score": {
+      "washington": 41,
+      "golden_state": 41,
+      "combined": 82
+    },
+    "second_half_points_allowed_to_win": 76,
+    "second_half_points_for_push": 76.5,
+    "actual_second_half_points": 82,
+    "wager_result_margin": -5.5,
+    "full_game_total_result": "Over 137.5 by 5.5 points"
+  },
+  "team_stats": {
+    "washington": {
+      "fg": "27/60",
+      "fg_pct": 45.0,
+      "three_pt": "6/23",
+      "three_pt_pct": 26.1,
+      "ft": "9/11",
+      "ft_pct": 81.8,
+      "offensive_rebounds": 11,
+      "total_rebounds": 37,
+      "assists": 18,
+      "turnovers": 14,
+      "points_in_paint": 40,
+      "second_chance_points": 11,
+      "fast_break_points": 2,
+      "estimated_possessions": 72.64,
+      "estimated_offensive_rating": 94.99
+    },
+    "golden_state": {
+      "fg": "24/59",
+      "fg_pct": 40.7,
+      "three_pt": "12/33",
+      "three_pt_pct": 36.4,
+      "ft": "14/20",
+      "ft_pct": 70.0,
+      "offensive_rebounds": 8,
+      "total_rebounds": 26,
+      "assists": 21,
+      "turnovers": 8,
+      "points_in_paint": 16,
+      "second_chance_points": 9,
+      "fast_break_points": 4,
+      "estimated_possessions": 72.76,
+      "estimated_offensive_rating": 101.70
+    },
+    "estimated_game_possessions": 72.70
+  },
+  "live_flow_postmortem": {
+    "strike_point": {
+      "period": "Halftime",
+      "score": "Golden State 33, Washington 28",
+      "combined_points": 61,
+      "bet_line": 137.5,
+      "required_second_half_ceiling_to_win": 76,
+      "actual_second_half_points": 82
+    },
+    "why_the_under_was_reasonable": [
+      "The first half produced only 61 points, so the wager had a 76-point second-half allowance and could survive a 15-point acceleration from the first half",
+      "Washington shot 34.4 percent overall and 21.4 percent from three in the first half",
+      "Golden State shot only 38.7 percent overall and generated just six first-half paint points",
+      "The game ultimately played at an estimated pace near 72.7 possessions, which is a genuinely slow environment",
+      "The final game still contained only 143 points, confirming that the original Under thesis was directionally close rather than fundamentally detached from the matchup"
+    ],
+    "why_the_under_failed": [
+      "Washington's first-half shooting was too poor to project forward without a regression adjustment; the Mystics moved from 34.4 percent in the first half to 57.1 percent in the second half",
+      "Washington scored 29 points in the third quarter on 11-for-15 shooting, including 8-for-10 in the paint, creating an immediate 48-point quarter despite the slow possession environment",
+      "The third quarter became whistle-heavy: the teams attempted 17 free throws after combining for only eight attempts in the first half",
+      "Golden State's first-half three-point profile was already volume-heavy at 18 attempts, leaving continued perimeter scoring upside even without strong overall field-goal efficiency",
+      "The five-point halftime margin preserved a competitive game and full rotation urgency; there was no blowout-based clock suppression",
+      "Golden State then made five of eight threes in the fourth quarter, including four decisive threes during the closing comeback",
+      "The Under depended on both teams sustaining first-half inefficiency, but the line already granted 76.5 second-half points and therefore required a stronger reason than raw first-half scoring alone"
+    ],
+    "decision_grade": {
+      "result_grade": "Loss",
+      "process_grade": "B-",
+      "classification": "Reasonable slow-pace Under that underweighted shooting and free-throw regression",
+      "variance_component": "Moderate - the game remained slow, but Washington shot 73.3 percent in the third quarter and Golden State shot 62.5 percent from three in the fourth",
+      "process_error": "The strike correctly identified a low-possession environment but anchored too heavily to first-half conversion rates and did not reserve enough probability for Washington paint regression, increased whistle volume and close-game starter retention"
+    },
+    "counterfactual": {
+      "under_143_5": "WIN",
+      "under_143_0": "PUSH",
+      "under_142_5": "LOSS",
+      "under_137_5": "LOSS",
+      "recommended_action_at_137_5": "Pass unless the verified model projection is 132.5 or lower",
+      "recommended_minimum_edge_for_halftime_full_game_total": "At least 4.5 projected points after regression and game-state adjustments"
+    },
+    "model_lessons": [
+      "Keep pace and shooting efficiency as separate model components; a slow game can still beat an Under through concentrated shooting quarters",
+      "Apply explicit shooting regression to any team below 35 percent from the field or below 25 percent from three at halftime",
+      "Apply a free-throw regression feature when first-half attempts are unusually low relative to rim pressure and foul counts",
+      "Weight paint access more heavily than first-half paint scoring; Washington finished with 40 paint points despite having only 14 at halftime",
+      "Add a close-game starter-retention adjustment whenever the halftime margin is six points or fewer",
+      "Do not approve a halftime Under based only on raw score and projected pace; require a verified projection at least 4.5 points below market",
+      "Preserve the model projection at the moment of every strike. A bet without a stored projection cannot be fully audited for edge quality"
+    ],
+    "classification": {
+      "primary_tag": "HALFTIME_UNDER_LOST_TO_EFFICIENCY_REGRESSION",
+      "secondary_tags": [
+        "SLOW_PACE_CORRECT",
+        "WASHINGTON_THIRD_QUARTER_SPIKE",
+        "FIRST_HALF_SHOOTING_REGRESSION",
+        "FREE_THROW_REGRESSION",
+        "CLOSE_GAME_STARTER_RETENTION",
+        "GOLDEN_STATE_FOURTH_QUARTER_THREES",
+        "MISSING_VERIFIED_MODEL_PROJECTION",
+        "INSUFFICIENT_EDGE_DOCUMENTATION",
+        "CONFIRMED_WAGER_LOSS"
+      ],
+      "confidence": "High"
+    }
+  },
+  "model_fuel": {
+    "halftime_features": {
+      "combined_points": 61,
+      "washington_points": 28,
+      "golden_state_points": 33,
+      "margin": 5,
+      "estimated_first_half_possessions_per_team": 37.34,
+      "estimated_full_game_pace": 74.68,
+      "washington_fg_pct": 34.4,
+      "washington_three_pt_pct": 21.4,
+      "golden_state_fg_pct": 38.7,
+      "golden_state_three_pt_attempts": 18,
+      "combined_first_half_fta": 8,
+      "live_total": 137.5,
+      "remaining_points_allowance": 76.5
+    },
+    "third_quarter_outcome": {
+      "combined_points": 48,
+      "washington_points": 29,
+      "golden_state_points": 19,
+      "washington_fg": "11/15",
+      "washington_fg_pct": 73.3,
+      "washington_paint_fg": "8/10",
+      "combined_fta": 17
+    },
+    "fourth_quarter_outcome": {
+      "combined_points": 34,
+      "washington_points": 12,
+      "golden_state_points": 22,
+      "washington_fg": "5/13",
+      "washington_three_pt": "0/4",
+      "golden_state_fg": "7/13",
+      "golden_state_three_pt": "5/8"
+    },
+    "second_half_outcome": {
+      "combined_points": 82,
+      "washington_points": 41,
+      "golden_state_points": 41,
+      "washington_fg_pct": 57.1,
+      "golden_state_fg_pct": 42.9,
+      "combined_fta": 23
+    },
+    "target_label": {
+      "under_137_5": 0,
+      "second_half_over_76_5": 1,
+      "third_quarter_over_47_5": 1,
+      "full_game_over_137_5": 1
+    }
+  },
+  "summary": "Golden State defeated Washington 74-69, producing 143 total points and defeating the William Hill halftime Under 137.5 wager by 5.5 points. The Under was supported by a genuine low-possession environment and a 61-point first half, but the strike underweighted regression risk. Washington improved from 34.4 percent shooting in the first half to 57.1 percent after halftime and scored 29 points in the third quarter on 11-for-15 shooting. The whistle environment also changed sharply, with 23 second-half free-throw attempts after only eight in the first half. Golden State's five fourth-quarter threes supplied the final scoring push. This was not a reckless wager, but it lacked a preserved model projection and therefore lacked auditable proof of a sufficient edge. The correct process grade is B-minus: pace read correctly, efficiency and free-throw regression underweighted."
+}
