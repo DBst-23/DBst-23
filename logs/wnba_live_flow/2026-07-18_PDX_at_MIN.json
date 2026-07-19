@@ -1,0 +1,229 @@
+{
+  "sport": "WNBA",
+  "workflow": "LIVE-FLOW",
+  "date": "2026-07-18",
+  "matchup": {
+    "away": "Portland Fire",
+    "home": "Minnesota Lynx",
+    "venue": "Target Center",
+    "attendance": 12101,
+    "officials": [
+      "Angelica Suffren",
+      "Teresa Stuck",
+      "Sarah Williams"
+    ]
+  },
+  "availability": {
+    "portland": {
+      "Megan Gustafson": "NWT - personal",
+      "Karlie Samuelson": "DND - left middle finger",
+      "Holly Winterburn": "NWT - personal",
+      "Feagin": "inactive"
+    },
+    "minnesota": {
+      "Napheesa Collier": "DND - left ankle",
+      "Emma Cechova": "DND - right knee",
+      "King": "inactive"
+    }
+  },
+  "market": {
+    "pregame_open_total": 171.5,
+    "pregame_wager": {
+      "selection": "Under 173.5",
+      "odds": -115,
+      "stake": 5.0,
+      "placed_time_local": "2026-07-18 11:38",
+      "sportsbook": "William Hill",
+      "result": "LOSS",
+      "net_profit": -5.0
+    },
+    "halftime_score": {
+      "portland": 39,
+      "minnesota": 47,
+      "combined": 86,
+      "margin": 8
+    },
+    "halftime_live_wager": {
+      "selection": "Minnesota Lynx team total Under 94.5",
+      "odds": -105,
+      "stake": 10.0,
+      "potential_profit": 9.52,
+      "potential_return": 19.52,
+      "placed_time_local": "2026-07-18 17:46",
+      "sportsbook": "William Hill",
+      "result": "LOSS",
+      "net_profit": -10.0
+    },
+    "total_staked": 15.0,
+    "total_net_profit": -15.0
+  },
+  "result": {
+    "final_score": {
+      "portland": 93,
+      "minnesota": 101,
+      "combined": 194,
+      "margin": 8
+    },
+    "quarter_scores": {
+      "portland": [16, 23, 21, 33],
+      "minnesota": [24, 23, 28, 26]
+    },
+    "second_half_score": {
+      "portland": 54,
+      "minnesota": 54,
+      "combined": 108
+    },
+    "pregame_under_result_margin": -20.5,
+    "minnesota_team_total_result_margin": -6.5,
+    "minnesota_second_half_points_allowed_to_win": 47,
+    "minnesota_actual_second_half_points": 54
+  },
+  "team_stats": {
+    "portland": {
+      "fg": "37/77",
+      "fg_pct": 48.1,
+      "three_pt": "13/30",
+      "three_pt_pct": 43.3,
+      "ft": "6/7",
+      "ft_pct": 85.7,
+      "offensive_rebounds": 9,
+      "total_rebounds": 33,
+      "assists": 24,
+      "turnovers": 11,
+      "points_in_paint": 46,
+      "second_chance_points": 18,
+      "fast_break_points": 9,
+      "estimated_possessions": 82.08,
+      "estimated_offensive_rating": 113.30
+    },
+    "minnesota": {
+      "fg": "41/75",
+      "fg_pct": 54.7,
+      "three_pt": "9/23",
+      "three_pt_pct": 39.1,
+      "ft": "10/13",
+      "ft_pct": 76.9,
+      "offensive_rebounds": 8,
+      "total_rebounds": 34,
+      "assists": 29,
+      "turnovers": 10,
+      "points_in_paint": 54,
+      "second_chance_points": 12,
+      "fast_break_points": 18,
+      "estimated_possessions": 82.72,
+      "estimated_offensive_rating": 122.10
+    },
+    "estimated_game_possessions": 82.40
+  },
+  "live_flow_postmortem": {
+    "strike_point": {
+      "period": "Halftime",
+      "score": "Minnesota 47, Portland 39",
+      "combined_points": 86,
+      "bet_line": "Minnesota team total Under 94.5",
+      "required_minnesota_second_half_ceiling": 47,
+      "actual_minnesota_second_half_points": 54
+    },
+    "what_supported_the_under": [
+      "Minnesota needed 48 second-half points to defeat the team-total wager after scoring 47 in the first half",
+      "The Lynx had eight first-half turnovers, creating an apparent path toward empty possessions",
+      "Portland had recently shown improved defensive form and held Minnesota to 23 points in the second quarter",
+      "The market line provided a small buffer above a simple first-half doubling projection of 94"
+    ],
+    "why_the_under_failed": [
+      "Minnesota's first-half process was already highly efficient: 55.6 percent shooting, 30 paint points on 15-for-21 shooting and 14 assists",
+      "The game was not truly slow. Estimated first-half pace was approximately 82.6 possessions over a full game, so the low free-throw volume disguised an ordinary-to-fast possession environment",
+      "Only six total first-half free throws created substantial whistle and free-throw regression risk for the second half",
+      "Minnesota committed zero turnovers in the third quarter and scored 28 points, immediately removing most of the Under's margin",
+      "Portland remained competitive enough to retain Minnesota's primary rotation and offensive urgency rather than creating a low-intensity closeout",
+      "The fourth quarter became a high-efficiency shooting exchange: Portland scored 33 on 68.4 percent shooting and Minnesota scored 26 on 61.1 percent shooting",
+      "Minnesota finished with 29 assists, 54 paint points and a 122.1 estimated offensive rating, confirming that the offense was structurally clean rather than merely running hot"
+    ],
+    "decision_grade": {
+      "pregame_total_process_grade": "D+",
+      "halftime_team_total_process_grade": "C-",
+      "result_grade": "Two losses",
+      "classification": "Under positions entered without sufficient edge against a healthy-efficiency and normal-pace environment",
+      "variance_component": "Moderate - Portland's 70 percent fourth-quarter three-point shooting was extreme, but Minnesota's team-total loss was already threatened by strong paint efficiency and ball movement",
+      "primary_process_error": "The model treated low first-half scoring and low free-throw volume as under evidence while underweighting possession count, paint conversion, assist quality, zero-turnover upside and competitive-game starter retention"
+    },
+    "counterfactual": {
+      "pregame_under_194_5": "WIN",
+      "pregame_under_194_0": "PUSH",
+      "pregame_under_173_5": "LOSS",
+      "minnesota_team_total_under_101_5": "WIN",
+      "minnesota_team_total_under_101_0": "PUSH",
+      "minnesota_team_total_under_94_5": "LOSS",
+      "recommended_halftime_action_at_94_5": "PASS",
+      "recommended_minimum_team_total_edge": "At least 4.0 projected points after pace, shot-quality and rotation adjustments"
+    },
+    "model_lessons": [
+      "Separate scoring pace from possession pace; low free-throw volume can suppress the scoreboard without indicating a slow game",
+      "At halftime, calculate estimated possessions and offensive efficiency before using raw score as the primary anchor",
+      "Flag teams shooting at least 55 percent with 70 percent-plus paint conversion and strong assist creation as unsafe team-total Under candidates",
+      "Treat unusually low first-half free-throw volume as second-half Over risk unless the officiating crew and rim-attempt profile support persistence",
+      "Do not count turnovers as future Under support without testing whether they are stable, lineup-driven or likely to regress",
+      "Apply a competitive-game retention adjustment when the favorite leads by fewer than 12 points at halftime",
+      "Require at least a four-point model cushion for live team totals; a projected number near the sportsbook line is a pass, not an investment",
+      "Do not stack a pregame game Under and a correlated live favorite team-total Under unless the live evidence independently strengthens the original thesis"
+    ],
+    "classification": {
+      "primary_tag": "HALFTIME_TEAM_TOTAL_UNDER_MISREAD_EFFICIENCY",
+      "secondary_tags": [
+        "CORRELATED_UNDER_EXPOSURE",
+        "INSUFFICIENT_EDGE_BUFFER",
+        "PACE_MISCLASSIFICATION",
+        "LOW_FT_REGRESSION_RISK",
+        "PAINT_EFFICIENCY_IGNORED",
+        "ASSIST_QUALITY_IGNORED",
+        "STARTER_RETENTION",
+        "FOURTH_QUARTER_SHOOTING_SPIKE",
+        "CONFIRMED_WAGER_LOSSES"
+      ],
+      "confidence": "High"
+    }
+  },
+  "model_fuel": {
+    "halftime_features": {
+      "combined_points": 86,
+      "minnesota_points": 47,
+      "portland_points": 39,
+      "margin": 8,
+      "estimated_first_half_possessions_per_team": 41.32,
+      "estimated_full_game_pace": 82.64,
+      "minnesota_fg_pct": 55.6,
+      "minnesota_paint_fg": "15/21",
+      "minnesota_assists": 14,
+      "minnesota_turnovers": 8,
+      "combined_first_half_fta": 6,
+      "minnesota_team_total_line": 94.5,
+      "remaining_minnesota_points_allowance": 47
+    },
+    "second_half_outcome": {
+      "combined_points": 108,
+      "portland_points": 54,
+      "minnesota_points": 54,
+      "portland_fg_pct": 51.4,
+      "portland_three_pt": "10/17",
+      "minnesota_fg_pct": 53.8,
+      "minnesota_three_pt": "5/12",
+      "minnesota_turnovers": 2
+    },
+    "fourth_quarter_outcome": {
+      "combined_points": 59,
+      "portland_points": 33,
+      "minnesota_points": 26,
+      "portland_fg": "13/19",
+      "portland_three_pt": "7/10",
+      "minnesota_fg": "11/18",
+      "minnesota_three_pt": "2/5"
+    },
+    "target_label": {
+      "pregame_under_173_5": 0,
+      "minnesota_team_total_under_94_5": 0,
+      "second_half_over_87_5": 1,
+      "minnesota_second_half_over_47_5": 1
+    }
+  },
+  "summary": "Minnesota defeated Portland 101-93, producing 194 total points. The pregame Under 173.5 lost by 20.5 points, and the halftime Minnesota team-total Under 94.5 lost by 6.5 points after the Lynx scored 54 in the second half. The central leak was not simply bad fourth-quarter variance. At halftime, Minnesota was already shooting 55.6 percent, converting 15 of 21 paint attempts and generating 14 assists at an estimated full-game pace above 82 possessions. The model over-weighted the raw 86-point halftime score and eight Minnesota turnovers while under-weighting shot quality, low free-throw regression risk, turnover regression and starter retention. This should have been a pass at 94.5, and the correlated exposure to both a pregame game Under and a live Minnesota team-total Under amplified the loss."
+}
