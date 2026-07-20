@@ -1,0 +1,156 @@
+{
+  "event_id": "WNBA_2026-07-19_CON_at_PHX_LIVEFLOW_PHO_TT_OVER_81_5",
+  "sport": "WNBA",
+  "date": "2026-07-19",
+  "matchup": {
+    "away_team": "Connecticut Sun",
+    "home_team": "Phoenix Mercury",
+    "venue": "Mortgage Matchup Center",
+    "final_score": {
+      "Connecticut Sun": 63,
+      "Phoenix Mercury": 72
+    }
+  },
+  "market": {
+    "type": "live_team_total",
+    "team": "Phoenix Mercury",
+    "selection": "over",
+    "line": 81.5,
+    "american_odds": -120,
+    "stake_usd": 10.0,
+    "potential_profit_usd": 8.33,
+    "result": "loss",
+    "net_profit_usd": -10.0
+  },
+  "entry_state": {
+    "game_phase": "halftime",
+    "score": {
+      "Connecticut Sun": 33,
+      "Phoenix Mercury": 43
+    },
+    "required_second_half_points_to_win": 39,
+    "sportsbook_break_even_probability_pct": 54.55,
+    "model_projection_at_entry": {
+      "mean": 83.8,
+      "median_range": [
+        83.0,
+        84.0
+      ],
+      "estimated_win_probability_pct_range": [
+        58.0,
+        60.0
+      ],
+      "estimated_edge_pct_range": [
+        3.45,
+        5.45
+      ],
+      "direction": "over"
+    },
+    "first_half_profile": {
+      "points": 43,
+      "field_goals": "17-of-34",
+      "three_pointers": "2-of-9",
+      "free_throws": "7-of-9",
+      "points_in_paint": 26,
+      "fast_break_points": 10,
+      "points_off_opponent_turnovers": 16,
+      "estimated_possessions": 40.74,
+      "estimated_offensive_rating": 105.5
+    },
+    "classification": "model_approved_live_flow_strike"
+  },
+  "outcome_decomposition": {
+    "phoenix_second_half_points": 29,
+    "third_quarter_points": 11,
+    "fourth_quarter_points": 18,
+    "final_team_total": 72,
+    "margin_vs_line": -9.5,
+    "points_short_of_cash": 10,
+    "second_half_profile": {
+      "field_goals": "9-of-29",
+      "field_goal_pct": 31.0,
+      "three_pointers": "0-of-6",
+      "free_throws": "11-of-14",
+      "estimated_possessions": 37.4,
+      "estimated_offensive_rating": 77.5
+    },
+    "loss_trigger": "third_quarter_offensive_collapse_combined_with_second_half_pace compression",
+    "key_sequence": {
+      "score_at_halftime": 43,
+      "score_at_3Q_end": 54,
+      "points_needed_entering_4Q": 28,
+      "points_scored_in_4Q": 18,
+      "largest_lead": 10,
+      "second_half_three_point_makes": 0
+    }
+  },
+  "diagnosis": {
+    "primary_leak": "The model treated Phoenix's 43-point first half as sufficiently repeatable without discounting the unstable scoring created by Connecticut turnovers and transition opportunities.",
+    "secondary_leaks": [
+      "First-half points off turnovers and fast-break scoring were not regressed aggressively enough.",
+      "A likely second-half possession decline with Phoenix protecting a double-digit lead was underweighted.",
+      "Phoenix's weak perimeter profile was not penalized enough; the Mercury were 2-of-9 from three at halftime and finished 0-of-6 after halftime.",
+      "The projection distribution was too narrow around the mean and understated left-tail scoring risk.",
+      "The quoted edge barely cleared the minimum threshold and should not have qualified as a full $10 strike after fragility adjustments."
+    ],
+    "what_worked": [
+      "The market identification was coherent: Phoenix had 43 at halftime and needed only 39 in the second half.",
+      "Phoenix continued generating paint and free-throw opportunities, scoring 18 paint points and attempting 14 free throws after halftime.",
+      "The stake was capped at $10 and no correlated add-on was made."
+    ],
+    "what_failed": [
+      "Phoenix scored only 11 points in the third quarter on 4-of-17 shooting.",
+      "The Mercury went 0-of-6 from three in the second half.",
+      "Estimated second-half pace fell by roughly 8 percent from the first-half rate.",
+      "Second-half offensive efficiency dropped from approximately 105.5 to 77.5 points per 100 possessions."
+    ]
+  },
+  "audit_tags": [
+    "LIVE_FLOW",
+    "HALFTIME_TEAM_TOTAL",
+    "MODEL_DIRECTION_WRONG",
+    "TRANSITION_SCORING_REGRESSION",
+    "POINTS_OFF_TURNOVERS_REGRESSION",
+    "SECOND_HALF_PACE_COMPRESSION",
+    "THIRD_QUARTER_COLLAPSE",
+    "PERIMETER_FAILURE",
+    "EDGE_OVERSTATEMENT",
+    "STAKE_GATE_FAILURE"
+  ],
+  "required_patches": [
+    {
+      "patch_id": "LF-006",
+      "name": "Unstable Scoring Discount",
+      "rule": "At halftime, discount points generated from opponent turnovers and fast breaks toward team baseline before projecting a team total. Apply the larger discount when those categories account for at least 30 percent of first-half scoring."
+    },
+    {
+      "patch_id": "LF-007",
+      "name": "Lead-State Pace Compression",
+      "rule": "For teams leading by 8 or more at halftime, apply a second-half possession reduction unless the opponent projects to maintain comeback pressure and efficient scoring."
+    },
+    {
+      "patch_id": "LF-008",
+      "name": "Perimeter Fragility Penalty",
+      "rule": "Reduce over projections when a team has low three-point volume or efficiency and the over depends on sustained paint conversion above baseline."
+    },
+    {
+      "patch_id": "LF-009",
+      "name": "Left-Tail Expansion",
+      "rule": "Increase team-total variance when the offense is dependent on transition, turnovers, or free throws rather than stable half-court shot quality."
+    },
+    {
+      "patch_id": "LF-010",
+      "name": "Full-Stake Edge Gate",
+      "rule": "A full live stake requires at least a 6 percentage-point edge after all fragility and game-state adjustments. Edges of 4 to 5.9 points are half-stake only; below 4 points is a pass."
+    }
+  ],
+  "process_verdict": {
+    "bet_quality": "marginal_prebet_edge_overstated",
+    "result_quality": "clear_model_miss_not_bad_beat",
+    "future_action": "downgrade similar halftime team-total overs to pass or half-stake until LF-006 through LF-010 are implemented and backtested"
+  },
+  "source": {
+    "official_game_id": "1022600193",
+    "official_box_score_url": "https://www.wnba.com/game/1022600193/boxscore"
+  }
+}
