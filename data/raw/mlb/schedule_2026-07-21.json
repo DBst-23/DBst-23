@@ -22,9 +22,9 @@
           "officialDate": "2026-07-21",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -96,9 +96,9 @@
           "officialDate": "2026-07-21",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -161,80 +161,6 @@
           "ifNecessaryDescription": "Normal Game"
         },
         {
-          "gamePk": 823519,
-          "gameGuid": "c6132857-b1f0-4099-a683-7b88eee4dc0c",
-          "link": "/api/v1.1/game/823519/feed/live",
-          "gameType": "R",
-          "season": "2026",
-          "gameDate": "2026-07-21T23:05:00Z",
-          "officialDate": "2026-07-21",
-          "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
-            "startTimeTBD": false,
-            "abstractGameCode": "P"
-          },
-          "teams": {
-            "away": {
-              "team": {
-                "id": 134,
-                "name": "Pittsburgh Pirates",
-                "link": "/api/v1/teams/134"
-              },
-              "leagueRecord": {
-                "wins": 52,
-                "losses": 49,
-                "ties": 0,
-                "pct": ".515"
-              },
-              "splitSquad": false,
-              "seriesNumber": 33
-            },
-            "home": {
-              "team": {
-                "id": 147,
-                "name": "New York Yankees",
-                "link": "/api/v1/teams/147"
-              },
-              "leagueRecord": {
-                "wins": 56,
-                "losses": 44,
-                "ties": 0,
-                "pct": ".560"
-              },
-              "splitSquad": false,
-              "seriesNumber": 33
-            }
-          },
-          "venue": {
-            "id": 3313,
-            "name": "Yankee Stadium",
-            "link": "/api/v1/venues/3313"
-          },
-          "content": {
-            "link": "/api/v1/game/823519/content"
-          },
-          "gameNumber": 1,
-          "publicFacing": true,
-          "doubleHeader": "N",
-          "gamedayType": "P",
-          "tiebreaker": "N",
-          "calendarEventID": "14-823519-2026-07-21",
-          "seasonDisplay": "2026",
-          "dayNight": "night",
-          "scheduledInnings": 9,
-          "reverseHomeAwayStatus": false,
-          "inningBreakLength": 120,
-          "gamesInSeries": 3,
-          "seriesGameNumber": 2,
-          "seriesDescription": "Regular Season",
-          "recordSource": "S",
-          "ifNecessary": "N",
-          "ifNecessaryDescription": "Normal Game"
-        },
-        {
           "gamePk": 822787,
           "gameGuid": "1a9cc8bd-8857-459e-b17a-bdb278994b21",
           "link": "/api/v1.1/game/822787/feed/live",
@@ -244,9 +170,9 @@
           "officialDate": "2026-07-21",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -1110,6 +1036,83 @@
           "gamedayType": "P",
           "tiebreaker": "N",
           "calendarEventID": "14-823114-2026-07-21",
+          "seasonDisplay": "2026",
+          "dayNight": "night",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
+          "gamesInSeries": 3,
+          "seriesGameNumber": 2,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 823519,
+          "gameGuid": "c6132857-b1f0-4099-a683-7b88eee4dc0c",
+          "link": "/api/v1.1/game/823519/feed/live",
+          "gameType": "R",
+          "season": "2026",
+          "gameDate": "2026-07-21T23:05:00Z",
+          "officialDate": "2026-07-22",
+          "rescheduleDate": "2026-07-22T23:05:00Z",
+          "rescheduleGameDate": "2026-07-22",
+          "status": {
+            "abstractGameState": "Final",
+            "codedGameState": "D",
+            "detailedState": "Postponed",
+            "statusCode": "DR",
+            "startTimeTBD": false,
+            "reason": "Rain",
+            "abstractGameCode": "F"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 134,
+                "name": "Pittsburgh Pirates",
+                "link": "/api/v1/teams/134"
+              },
+              "leagueRecord": {
+                "wins": 52,
+                "losses": 49,
+                "ties": 0,
+                "pct": ".515"
+              },
+              "splitSquad": false,
+              "seriesNumber": 33
+            },
+            "home": {
+              "team": {
+                "id": 147,
+                "name": "New York Yankees",
+                "link": "/api/v1/teams/147"
+              },
+              "leagueRecord": {
+                "wins": 56,
+                "losses": 44,
+                "ties": 0,
+                "pct": ".560"
+              },
+              "splitSquad": false,
+              "seriesNumber": 33
+            }
+          },
+          "venue": {
+            "id": 3313,
+            "name": "Yankee Stadium",
+            "link": "/api/v1/venues/3313"
+          },
+          "content": {
+            "link": "/api/v1/game/823519/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-823519-2026-07-21",
           "seasonDisplay": "2026",
           "dayNight": "night",
           "scheduledInnings": 9,
