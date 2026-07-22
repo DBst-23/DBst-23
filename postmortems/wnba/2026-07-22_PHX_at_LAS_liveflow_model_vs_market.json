@@ -1,0 +1,202 @@
+{
+  "postmortem_id": "WNBA-PM-2026-07-22-PHX-LAS-01",
+  "date": "2026-07-22",
+  "matchup": "Phoenix Mercury at Los Angeles Sparks",
+  "venue": "Crypto.com Arena, Los Angeles, CA",
+  "paper_trade": true,
+  "final_score": {
+    "Phoenix Mercury": 86,
+    "Los Angeles Sparks": 82,
+    "combined": 168,
+    "margin_phoenix": 4
+  },
+  "score_progression": {
+    "quarter_scores": {
+      "Phoenix Mercury": [19, 24, 17, 26],
+      "Los Angeles Sparks": [18, 23, 19, 22]
+    },
+    "halftime": {
+      "Phoenix Mercury": 43,
+      "Los Angeles Sparks": 41,
+      "combined": 84,
+      "margin_phoenix": 2
+    },
+    "second_half": {
+      "Phoenix Mercury": 43,
+      "Los Angeles Sparks": 41,
+      "combined": 84,
+      "margin_phoenix": 2
+    }
+  },
+  "halftime_model": {
+    "projected_final_score": {
+      "Phoenix Mercury": 85.5,
+      "Los Angeles Sparks": 84.0,
+      "combined": 169.5,
+      "margin_phoenix": 1.5
+    },
+    "median_total": 169.0,
+    "primary_directional_lean": "Los Angeles Sparks team total under 85.5",
+    "spread_fair_line": "Phoenix -1.5"
+  },
+  "halftime_market": {
+    "spread": "Phoenix -1.5",
+    "full_game_total": 169.0,
+    "phoenix_team_total": 86.5,
+    "los_angeles_team_total": 85.5
+  },
+  "model_vs_actual": {
+    "full_game_total_error": 1.5,
+    "phoenix_team_total_error": 0.5,
+    "los_angeles_team_total_error": 2.0,
+    "final_margin_error": 2.5,
+    "winner_projection_correct": true,
+    "total_direction": "UNDER",
+    "total_direction_correct": true,
+    "primary_team_total_lean_result": "WON",
+    "primary_team_total_margin_points": 3.5
+  },
+  "market_vs_actual": {
+    "full_game_total_error": 1.0,
+    "phoenix_team_total_error": 0.5,
+    "los_angeles_team_total_error": 3.5,
+    "final_margin_error": 2.5,
+    "spread_result": "Phoenix -1.5 covered by 2.5 points",
+    "full_game_total_result": "Under 169 won by 1 point",
+    "phoenix_team_total_result": "Under 86.5 won by 0.5 points",
+    "los_angeles_team_total_result": "Under 85.5 won by 3.5 points"
+  },
+  "comparison_summary": {
+    "spread": "Model and market tied at Phoenix -1.5; actual Phoenix margin was 4.",
+    "full_game_total": "Market was 0.5 points closer than the model mean, but the model median matched the market and both were directionally correct.",
+    "phoenix_team_total": "Model and market were equally accurate at 0.5 points from actual.",
+    "los_angeles_team_total": "Model was materially sharper, missing by 2.0 compared with the market's 3.5-point error.",
+    "overall": "Near-pin total projection with the clearest model edge appearing on the Sparks team-total under."
+  },
+  "team_metrics": {
+    "Phoenix Mercury": {
+      "fg": "35-74",
+      "fg_pct": 0.473,
+      "three_point": "7-27",
+      "three_point_pct": 0.259,
+      "free_throw": "9-13",
+      "free_throw_pct": 0.692,
+      "offensive_rebounds": 7,
+      "total_rebounds": 33,
+      "assists": 28,
+      "turnovers": 12,
+      "points_in_paint": 54,
+      "second_chance_points": 4,
+      "fast_break_points": 20
+    },
+    "Los Angeles Sparks": {
+      "fg": "28-70",
+      "fg_pct": 0.4,
+      "three_point": "9-28",
+      "three_point_pct": 0.321,
+      "free_throw": "17-21",
+      "free_throw_pct": 0.81,
+      "offensive_rebounds": 10,
+      "total_rebounds": 37,
+      "assists": 20,
+      "turnovers": 18,
+      "points_in_paint": 36,
+      "second_chance_points": 15,
+      "fast_break_points": 3
+    }
+  },
+  "halftime_diagnosis_vs_actual": {
+    "confirmed_components": [
+      "Los Angeles' weak transition production persisted; the Sparks finished with only 3 fast-break points.",
+      "Phoenix's interior creation remained the more reliable scoring source, producing 54 paint points on 27-of-36 paint shooting.",
+      "Los Angeles' turnover instability persisted and intensified, ending with 18 turnovers that produced 17 Phoenix points.",
+      "The game remained close enough to preserve late scoring pressure, but not enough to break the projected total band.",
+      "Phoenix sustained offensive efficiency despite poor three-point shooting by shifting toward rim scoring and connective playmaking."
+    ],
+    "missed_components": [
+      "The model slightly underestimated Phoenix's closing efficiency, especially a 26-point fourth quarter on 12-of-18 shooting.",
+      "The model slightly overestimated Los Angeles' final scoring because fourth-quarter free-throw conversion collapsed to 1-of-3 and half-court turnovers remained costly.",
+      "The exact margin was wider than projected because Phoenix won the fourth quarter 26-22 after entering it tied."
+    ]
+  },
+  "second_half_mechanics": {
+    "third_quarter": {
+      "Phoenix Mercury": 17,
+      "Los Angeles Sparks": 19,
+      "combined": 36,
+      "note": "The game tied 60-60 after three, validating the narrow spread projection and temporarily strengthening overtime risk."
+    },
+    "fourth_quarter": {
+      "Phoenix Mercury": 26,
+      "Los Angeles Sparks": 22,
+      "combined": 48,
+      "note": "Phoenix separated through 66.7% shooting, 20 paint points on 10-of-10, and cleaner execution."
+    },
+    "decisive_edges": [
+      "Phoenix: +18 paint points",
+      "Phoenix: +17 fast-break points",
+      "Phoenix: +8 assists",
+      "Phoenix: 6 fewer turnovers",
+      "Los Angeles: +11 second-chance points, but this did not offset transition and turnover deficits"
+    ]
+  },
+  "player_signals": {
+    "Alyssa Thomas": {
+      "line": "19 points, 11 rebounds, 15 assists, 3 steals",
+      "signal": "Confirmed as the central live-flow stabilizer and late-game creation hub."
+    },
+    "Kahleah Copper": {
+      "line": "21 points on 10-of-16 shooting",
+      "signal": "Confirmed Phoenix's best direct scoring outlet despite five fouls."
+    },
+    "Natasha Mack": {
+      "line": "10 points, 2 blocks in 15:18",
+      "signal": "Bench interior production was materially underpriced by the market-facing team-total split."
+    },
+    "Rae Burrell": {
+      "line": "20 points, 4 turnovers",
+      "signal": "Scoring volume kept Los Angeles competitive, but turnover cost limited team-total upside."
+    },
+    "Dearica Hamby": {
+      "line": "18 points, 10 rebounds, 5 assists",
+      "signal": "Strong interior production, but Los Angeles lacked enough secondary transition and guard efficiency."
+    }
+  },
+  "patch_evaluation": {
+    "decision": "MODIFY",
+    "retain": [
+      "At halftime, team-total decomposition can reveal sharper edges than the full-game total alone.",
+      "Transition asymmetry and turnover quality remain essential live indicators.",
+      "Interior scoring sustainability should be weighted more heavily than raw three-point regression when a team has an elite facilitator and rim pressure."
+    ],
+    "add": [
+      "Create a live Paint Sustainability score using paint attempts, paint efficiency, rim assists, and opponent rim resistance.",
+      "Create a Transition Conversion differential using fast-break attempts, points, turnover origin, and live-ball turnover rate.",
+      "When model and market full-game totals are within one point, prioritize team-total markets where component projections differ more materially.",
+      "Add fourth-quarter foul-state context for primary scorers, but do not automatically downgrade when bench interior replacement is producing efficiently.",
+      "Track halftime-to-final team-total error separately from total error to identify which offense the model is mispricing."
+    ],
+    "revert": []
+  },
+  "retraining_flags": [
+    "Increase weight on Phoenix-style connective passing and paint conversion when perimeter shooting is weak.",
+    "Increase penalty for Sparks-style live-ball turnover exposure and poor transition generation.",
+    "Calibrate fourth-quarter scoring distributions for tied games with asymmetric interior efficiency.",
+    "Preserve team-total under value when offensive rebounding is strong but conversion efficiency and transition output remain poor."
+  ],
+  "final_assessment": {
+    "signal_status": "SIGNAL CONFIRMED",
+    "model_total_grade": "A",
+    "model_spread_grade": "A-",
+    "team_total_grade": "A",
+    "overall_process_grade": "A",
+    "confidence": "HIGH",
+    "final_status": "MODIFY",
+    "headline": "Near-pin total projection; Sparks team-total under was the sharpest model-over-market edge."
+  },
+  "sources": [
+    "WNBA official scorer's report and play-by-play supplied by user.",
+    "William Hill Nevada halftime market screenshots supplied by user.",
+    "WNBA official game page used as an external matchup reference."
+  ]
+}
