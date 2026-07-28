@@ -3,14 +3,14 @@
   "totalItems": 16,
   "totalEvents": 0,
   "totalGames": 16,
-  "totalGamesInProgress": 0,
+  "totalGamesInProgress": 1,
   "dates": [
     {
       "date": "2026-07-28",
       "totalItems": 16,
       "totalEvents": 0,
       "totalGames": 16,
-      "totalGamesInProgress": 0,
+      "totalGamesInProgress": 1,
       "games": [
         {
           "gamePk": 824490,
@@ -23,12 +23,12 @@
           "rescheduledFrom": "2026-07-27T23:10:00Z",
           "rescheduledFromDate": "2026-07-27",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -523,80 +523,6 @@
           "gamedayType": "P",
           "tiebreaker": "N",
           "calendarEventID": "14-822703-2026-07-28",
-          "seasonDisplay": "2026",
-          "dayNight": "night",
-          "scheduledInnings": 9,
-          "reverseHomeAwayStatus": false,
-          "inningBreakLength": 120,
-          "gamesInSeries": 3,
-          "seriesGameNumber": 2,
-          "seriesDescription": "Regular Season",
-          "recordSource": "S",
-          "ifNecessary": "N",
-          "ifNecessaryDescription": "Normal Game"
-        },
-        {
-          "gamePk": 823598,
-          "gameGuid": "7a6ffe53-a1bc-4cb6-8314-3ea558399636",
-          "link": "/api/v1.1/game/823598/feed/live",
-          "gameType": "R",
-          "season": "2026",
-          "gameDate": "2026-07-28T23:10:00Z",
-          "officialDate": "2026-07-28",
-          "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
-            "startTimeTBD": false,
-            "abstractGameCode": "P"
-          },
-          "teams": {
-            "away": {
-              "team": {
-                "id": 144,
-                "name": "Atlanta Braves",
-                "link": "/api/v1/teams/144"
-              },
-              "leagueRecord": {
-                "wins": 62,
-                "losses": 44,
-                "ties": 0,
-                "pct": ".585"
-              },
-              "splitSquad": false,
-              "seriesNumber": 35
-            },
-            "home": {
-              "team": {
-                "id": 121,
-                "name": "New York Mets",
-                "link": "/api/v1/teams/121"
-              },
-              "leagueRecord": {
-                "wins": 45,
-                "losses": 62,
-                "ties": 0,
-                "pct": ".421"
-              },
-              "splitSquad": false,
-              "seriesNumber": 35
-            }
-          },
-          "venue": {
-            "id": 3289,
-            "name": "Citi Field",
-            "link": "/api/v1/venues/3289"
-          },
-          "content": {
-            "link": "/api/v1/game/823598/content"
-          },
-          "gameNumber": 1,
-          "publicFacing": true,
-          "doubleHeader": "N",
-          "gamedayType": "P",
-          "tiebreaker": "N",
-          "calendarEventID": "14-823598-2026-07-28",
           "seasonDisplay": "2026",
           "dayNight": "night",
           "scheduledInnings": 9,
@@ -1196,6 +1122,84 @@
           "inningBreakLength": 120,
           "gamesInSeries": 3,
           "seriesGameNumber": 1,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 823598,
+          "gameGuid": "7a6ffe53-a1bc-4cb6-8314-3ea558399636",
+          "link": "/api/v1.1/game/823598/feed/live",
+          "gameType": "R",
+          "season": "2026",
+          "gameDate": "2026-07-28T23:10:00Z",
+          "officialDate": "2026-07-29",
+          "rescheduleDate": "2026-07-29T23:10:00Z",
+          "rescheduleGameDate": "2026-07-29",
+          "status": {
+            "abstractGameState": "Final",
+            "codedGameState": "D",
+            "detailedState": "Postponed",
+            "statusCode": "DI",
+            "startTimeTBD": false,
+            "reason": "Inclement Weather",
+            "abstractGameCode": "F"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 144,
+                "name": "Atlanta Braves",
+                "link": "/api/v1/teams/144"
+              },
+              "leagueRecord": {
+                "wins": 62,
+                "losses": 44,
+                "ties": 0,
+                "pct": ".585"
+              },
+              "splitSquad": false,
+              "seriesNumber": 35
+            },
+            "home": {
+              "team": {
+                "id": 121,
+                "name": "New York Mets",
+                "link": "/api/v1/teams/121"
+              },
+              "leagueRecord": {
+                "wins": 45,
+                "losses": 62,
+                "ties": 0,
+                "pct": ".421"
+              },
+              "splitSquad": false,
+              "seriesNumber": 35
+            }
+          },
+          "venue": {
+            "id": 3289,
+            "name": "Citi Field",
+            "link": "/api/v1/venues/3289"
+          },
+          "content": {
+            "link": "/api/v1/game/823598/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-823598-2026-07-28",
+          "seasonDisplay": "2026",
+          "dayNight": "night",
+          "description": "Makeup 7/29",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
+          "gamesInSeries": 3,
+          "seriesGameNumber": 2,
           "seriesDescription": "Regular Season",
           "recordSource": "S",
           "ifNecessary": "N",
