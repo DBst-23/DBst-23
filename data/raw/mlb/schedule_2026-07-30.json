@@ -3,14 +3,14 @@
   "totalItems": 10,
   "totalEvents": 0,
   "totalGames": 10,
-  "totalGamesInProgress": 0,
+  "totalGamesInProgress": 2,
   "dates": [
     {
       "date": "2026-07-30",
       "totalItems": 10,
       "totalEvents": 0,
       "totalGames": 10,
-      "totalGamesInProgress": 0,
+      "totalGamesInProgress": 2,
       "games": [
         {
           "gamePk": 822946,
@@ -337,12 +337,12 @@
           "gameDate": "2026-07-30T23:10:00Z",
           "officialDate": "2026-07-30",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -415,9 +415,10 @@
           "status": {
             "abstractGameState": "Preview",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Delayed Start",
+            "statusCode": "PR",
             "startTimeTBD": false,
+            "reason": "Rain",
             "abstractGameCode": "P"
           },
           "teams": {
@@ -489,12 +490,12 @@
           "gameDate": "2026-07-30T23:15:00Z",
           "officialDate": "2026-07-30",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -509,7 +510,7 @@
                 "ties": 0,
                 "pct": ".505"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 36
             },
@@ -585,6 +586,7 @@
                 "ties": 0,
                 "pct": ".523"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 35
             },
@@ -600,6 +602,7 @@
                 "ties": 0,
                 "pct": ".417"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 35
             }
@@ -659,6 +662,7 @@
                 "ties": 0,
                 "pct": ".426"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 36
             },
@@ -674,6 +678,7 @@
                 "ties": 0,
                 "pct": ".509"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 36
             }
@@ -733,6 +738,7 @@
                 "ties": 0,
                 "pct": ".486"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 35
             },
@@ -748,6 +754,7 @@
                 "ties": 0,
                 "pct": ".630"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 35
             }
