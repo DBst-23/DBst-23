@@ -1,0 +1,30 @@
+jobs:
+  - id: mlb_stats_daily
+    enabled: true
+    url: "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date={{today}}"
+    headers: {}
+    params: {}
+    out_path: "data/raw/mlb/schedule_{{today}}.json"
+
+  - id: onyx_odds_board
+    enabled: true
+    url: "https://api.onyx.example.com/v1/odds/mlb"
+    headers:
+      Authorization: "Bearer {{env.ONXY_ODDS_API_KEY}}"
+    params:
+      markets: "game,team_totals,player_props"
+    out_path: "data/raw/onyx/odds_board_{{today}}.json"
+
+  - id: perplexity_lookup_example
+    enabled: false
+    url: "https://api.perplexity.ai/chat/completions"
+    method: "POST"
+    headers:
+      Authorization: "Bearer {{env.PERPLEXITY_API_KEY}}"
+      Content-Type: "application/json"
+    body_json:
+      model: "sonar-pro"
+      messages:
+        - role: "user"
+          content: "Return latest MLB league-average K% by month in JSON."
+    out_path: "data/raw/perplexity/k_rate_lookup_{{today}}.json"
