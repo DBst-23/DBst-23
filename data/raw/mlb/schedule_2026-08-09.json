@@ -3,14 +3,14 @@
   "totalItems": 15,
   "totalEvents": 0,
   "totalGames": 15,
-  "totalGamesInProgress": 11,
+  "totalGamesInProgress": 10,
   "dates": [
     {
       "date": "2026-08-09",
       "totalItems": 15,
       "totalEvents": 0,
       "totalGames": 15,
-      "totalGamesInProgress": 11,
+      "totalGamesInProgress": 10,
       "games": [
         {
           "gamePk": 822700,
@@ -21,12 +21,12 @@
           "gameDate": "2026-08-09T16:15:00Z",
           "officialDate": "2026-08-09",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -37,11 +37,12 @@
               },
               "leagueRecord": {
                 "wins": 56,
-                "losses": 60,
+                "losses": 61,
                 "ties": 0,
-                "pct": ".483"
+                "pct": ".479"
               },
               "score": 1,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 38
             },
@@ -52,12 +53,13 @@
                 "link": "/api/v1/teams/120"
               },
               "leagueRecord": {
-                "wins": 58,
+                "wins": 59,
                 "losses": 61,
                 "ties": 0,
-                "pct": ".487"
+                "pct": ".492"
               },
               "score": 7,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 38
             }
@@ -70,6 +72,7 @@
           "content": {
             "link": "/api/v1/game/822700/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
@@ -133,7 +136,7 @@
                 "ties": 0,
                 "pct": ".552"
               },
-              "score": 1,
+              "score": 3,
               "splitSquad": false,
               "seriesNumber": 38
             }
@@ -193,7 +196,7 @@
                 "ties": 0,
                 "pct": ".432"
               },
-              "score": 9,
+              "score": 10,
               "splitSquad": false,
               "seriesNumber": 38
             },
@@ -285,7 +288,7 @@
                 "ties": 0,
                 "pct": ".525"
               },
-              "score": 4,
+              "score": 5,
               "splitSquad": false,
               "seriesNumber": 38
             }
@@ -345,7 +348,7 @@
                 "ties": 0,
                 "pct": ".598"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 38
             },
@@ -437,7 +440,7 @@
                 "ties": 0,
                 "pct": ".500"
               },
-              "score": 3,
+              "score": 10,
               "splitSquad": false,
               "seriesNumber": 38
             }
@@ -497,7 +500,7 @@
                 "ties": 0,
                 "pct": ".576"
               },
-              "score": 3,
+              "score": 4,
               "splitSquad": false,
               "seriesNumber": 39
             },
@@ -513,7 +516,7 @@
                 "ties": 0,
                 "pct": ".415"
               },
-              "score": 0,
+              "score": 2,
               "splitSquad": false,
               "seriesNumber": 38
             }
@@ -650,7 +653,7 @@
                 "ties": 0,
                 "pct": ".492"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 38
             },
@@ -666,7 +669,7 @@
                 "ties": 0,
                 "pct": ".624"
               },
-              "score": 1,
+              "score": 3,
               "splitSquad": false,
               "seriesNumber": 38
             }
@@ -742,7 +745,7 @@
                 "ties": 0,
                 "pct": ".496"
               },
-              "score": 1,
+              "score": 3,
               "splitSquad": false,
               "seriesNumber": 39
             }
@@ -802,7 +805,7 @@
                 "ties": 0,
                 "pct": ".479"
               },
-              "score": 2,
+              "score": 5,
               "splitSquad": false,
               "seriesNumber": 38
             },
