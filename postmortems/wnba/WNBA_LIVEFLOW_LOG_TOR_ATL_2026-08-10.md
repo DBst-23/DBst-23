@@ -1,204 +1,92 @@
-# WNBA LIVE-FLOW Log — Toronto Tempo at Atlanta Dream — 3Q Checkpoint
+# WNBA LIVE-FLOW Postmortem — Toronto Tempo at Atlanta Dream
 
-## Game ID
-
+## Final
 - Date: 2026-08-10
-- Matchup: Toronto Tempo at Atlanta Dream
-- Venue: Gateway Center Arena @ College Park, Atlanta, GA
-- Checkpoint: End of 3rd Quarter
-- Score: Atlanta 80, Toronto 67
-- Through-3Q Total: 147
-- Atlanta Lead: 13
-- Status: LIVE-FLOW MARKET COMPARED — PASS / NO STRIKE
+- 3Q checkpoint: Atlanta 80, Toronto 67
+- Final: Atlanta 97, Toronto 83
+- Final total: 180
+- Final margin: Atlanta +14
+- Decision at checkpoint: PASS / NO STRIKE
 
----
+## Frozen SharpEdge Projection
+- 4Q: Atlanta 24, Toronto 22
+- 4Q total: 46
+- Final: Atlanta 104, Toronto 89
+- Full-game spread: Atlanta -15
+- Full-game total: 193
+- Atlanta team total: 104
+- Toronto team total: 89
 
-## 1. Through-3Q State
+## William Hill at 3Q
+- Spread: Atlanta -15.5
+- Total: 192.5
+- Atlanta TT: 104.5
+- Toronto TT: 88.5
+- Maximum model-market gap: 0.5 point
 
-### Toronto Tempo
-- Points: 67
-- FG: 26/53 (49.1%)
-- 3PT: 9/22 (40.9%)
-- FT: 6/10 (60.0%)
-- Rebounds: 17
-- Assists: 16
-- Turnovers: 10
-- Fouls: 19
-- Paint Points: 34
-- Fast Break Points: 6
-- Second-Chance Points: 4
+## Actual 4Q
+- Atlanta 17, Toronto 16
+- 4Q total: 33
+- 4Q margin: Atlanta +1
 
-### Atlanta Dream
-- Points: 80
-- FG: 25/50 (50.0%)
-- 3PT: 10/24 (41.7%)
-- FT: 20/27 (74.1%)
-- Rebounds: 31
-- Assists: 20
-- Turnovers: 10
-- Fouls: 12
-- Paint Points: 30
-- Fast Break Points: 1
-- Second-Chance Points: 6
+## Projection vs Actual
+| Component | Projection | Actual | Error |
+|---|---:|---:|---:|
+| Atlanta 4Q | 24 | 17 | -7 |
+| Toronto 4Q | 22 | 16 | -6 |
+| 4Q total | 46 | 33 | -13 |
+| 4Q margin | ATL +2 | ATL +1 | 1 |
+| Atlanta final | 104 | 97 | -7 |
+| Toronto final | 89 | 83 | -6 |
+| Full total | 193 | 180 | -13 |
+| Final margin | ATL +15 | ATL +14 | 1 |
 
-### Quarter Scores
-- Q1: Atlanta 24, Toronto 22
-- Q2: Atlanta 30, Toronto 17
-- Q3: Toronto 28, Atlanta 26
+## Market Outcome
+- Atlanta -15.5 did not cover; Toronto +15.5 covered by 1.5.
+- Under 192.5 finished 12.5 points below the line.
+- Atlanta finished 7.5 below 104.5.
+- Toronto finished 5.5 below 88.5.
 
----
+## Evaluation
+The PASS was correct process. Every available market was only 0.5 point from the frozen model, so there was no meaningful pre-result separation. The final outcome should not be treated as a missed opportunity.
 
-## 2. Key LIVE-FLOW Read
+The strongest model hit was margin calibration: SharpEdge ATL +15 versus actual ATL +14, only a one-point error. The 4Q margin call was also strong: projected ATL +2, actual ATL +1.
 
-1. Atlanta owns a major rebounding advantage despite equal turnovers: 31-17 on the glass through three quarters.
-2. Toronto's offense is being materially supported by strong perimeter shooting, especially Marina Mabrey (24 points, 6/10 from three through 3Q).
-3. Atlanta's scoring profile is broader and more stable: 20 assists, strong rim/paint creation, and a large free-throw-volume edge.
-4. Toronto has accumulated 19 team fouls, with Isabelle Harrison at four and multiple rotation players at three. That increases Atlanta's late-game free-throw and bonus pathways.
-5. Atlanta's 20/27 FT production is a major component of the 80-point output and should not simply be extrapolated at the same rate.
-6. Toronto cut a 25-point Atlanta lead to 13 by the end of Q3, so the final-quarter projection respects comeback momentum rather than blindly extending the maximum lead.
-7. Both teams are above 40% from three through three quarters; some combined perimeter cooling is more likely than a continued shooting spike.
+The main miss was the scoring environment. The model projected 46 fourth-quarter points and got 33. Both team totals were therefore overstated: Atlanta by 7 and Toronto by 6. This was a shared pace/efficiency miss rather than a team-allocation miss.
 
----
+## Model Lesson
+Keep the market-blind workflow and no-action discipline when market and model are in equilibrium. Modify the fourth-quarter scoring layer by adding stronger late-game scoring compression when a team enters Q4 with a double-digit lead, especially after elevated 3-point shooting and large earlier free-throw volume.
 
-## 3. SharpEdge Market-Blind Projection — FROZEN BEFORE MARKET
-
-### Projected 4th Quarter
-- Toronto: 22
-- Atlanta: 24
-- 4Q Fair Spread: Atlanta -2
-- 4Q Fair Total: 46
-
-### Projected Final
-- Toronto Tempo: 89
-- Atlanta Dream: 104
-- SharpEdge Fair Full-Game Spread: Atlanta -15
-- SharpEdge Fair Full-Game Total: 193
-- SharpEdge Fair Atlanta Team Total: 104
-- SharpEdge Fair Toronto Team Total: 89
-
-### Practical Fair Ranges
-- Atlanta final points: 101-106
-- Toronto final points: 86-92
-- Full-game total: 188-198
-- Final Atlanta margin: 11-19
-
----
-
-## 4. William Hill Market Comparison
-
-Market captured after the market-blind projection was frozen.
-
-### Full-Game Spread
-- SharpEdge fair: Atlanta -15
-- William Hill: Atlanta -15.5 (-120) / Toronto +15.5 (-110)
-- Separation: 0.5 point toward Toronto
-- Strike threshold: 4.0+ points
-- Decision: PASS
-
-### Full-Game Total
-- SharpEdge fair: 193
-- William Hill: Over 192.5 (-120) / Under 192.5 (-110)
-- Separation: 0.5 point toward Over
-- Strike threshold: 5.0+ points
-- Decision: PASS
-
-### Atlanta Team Total
-- SharpEdge fair: 104
-- William Hill: Over 104.5 (-105) / Under 104.5 (-125)
-- Separation: 0.5 point toward Under
-- Strike threshold: 4.0+ points
-- Decision: PASS
-
-### Toronto Team Total
-- SharpEdge fair: 89
-- William Hill: Over 88.5 (-105) / Under 88.5 (-125)
-- Separation: 0.5 point toward Over
-- Strike threshold: 4.0+ points
-- Decision: PASS
-
-### Market Verdict
-The sportsbook and SharpEdge projection are essentially in equilibrium across every available market. No line provides enough model-to-market separation to justify exposure. This is a disciplined no-bet checkpoint.
-
----
-
-## 5. Strike Thresholds
-
-- Spread: prefer >= 4.0 points model-to-market separation; 5+ is premium.
-- Total: prefer >= 5.0 points separation unless possession/rotation evidence is unusually strong.
-- Team total: prefer >= 4.0 points separation.
-- Avoid stacking strongly correlated positions unless one market is materially more mispriced.
-- Do not chase a worse number after comparison.
-
----
-
-## 6. Clean Machine-Readable Record
+## Classification
+- PASS decision: CORRECT PROCESS
+- Spread model: STRONG HIT
+- 4Q margin model: STRONG HIT
+- Full-game total model: MISS HIGH
+- Team-total models: MISS HIGH
+- Edge-threshold discipline: CONFIRMED
+- Patch: strengthen fourth-quarter scoring compression
 
 ```yaml
 game_id: WNBA_2026-08-10_TOR_ATL
 checkpoint: end_3q
-score:
-  TOR: 67
-  ATL: 80
-through_3q_total: 147
-lead: ATL_13
-team_stats:
-  TOR:
-    fg: 26/53
-    fg_pct: 49.1
-    three_pt: 9/22
-    three_pt_pct: 40.9
-    ft: 6/10
-    ft_pct: 60.0
-    rebounds: 17
-    assists: 16
-    turnovers: 10
-    fouls: 19
-  ATL:
-    fg: 25/50
-    fg_pct: 50.0
-    three_pt: 10/24
-    three_pt_pct: 41.7
-    ft: 20/27
-    ft_pct: 74.1
-    rebounds: 31
-    assists: 20
-    turnovers: 10
-    fouls: 12
-model_frozen:
-  fourth_quarter_score:
-    TOR: 22
-    ATL: 24
-  fourth_quarter_total: 46
-  fourth_quarter_spread: ATL_-2
-  final_score:
-    TOR: 89
-    ATL: 104
-  full_game_total: 193
-  full_game_spread: ATL_-15
-  team_totals:
-    TOR: 89
-    ATL: 104
+model:
+  q4: {TOR: 22, ATL: 24, total: 46}
+  final: {TOR: 89, ATL: 104, total: 193, margin: ATL_15}
 market:
-  sportsbook: William_Hill
-  spread:
-    TOR: +15.5_-110
-    ATL: -15.5_-120
-  total:
-    over: 192.5_-120
-    under: 192.5_-110
-  team_totals:
-    ATL:
-      over: 104.5_-105
-      under: 104.5_-125
-    TOR:
-      over: 88.5_-105
-      under: 88.5_-125
-edges:
-  spread_points: 0.5_TOR
-  total_points: 0.5_OVER
-  atl_team_total_points: 0.5_UNDER
-  tor_team_total_points: 0.5_OVER
-market_seen: true
-wager_status: PASS_NO_STRIKE
-pass_reason: no_market_exceeded_minimum_edge_threshold
+  spread: ATL_-15.5
+  total: 192.5
+  atl_tt: 104.5
+  tor_tt: 88.5
+actual:
+  q4: {TOR: 16, ATL: 17, total: 33}
+  final: {TOR: 83, ATL: 97, total: 180, margin: ATL_14}
+errors:
+  q4_total: -13
+  full_total: -13
+  final_margin: 1
+postmortem:
+  pass_decision: correct_process
+  spread_model: strong_hit
+  total_model: miss_high
+  patch: stronger_q4_scoring_compression
 ```
