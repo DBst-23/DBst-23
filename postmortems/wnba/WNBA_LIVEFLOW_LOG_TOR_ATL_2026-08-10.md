@@ -9,7 +9,7 @@
 - Score: Atlanta 80, Toronto 67
 - Through-3Q Total: 147
 - Atlanta Lead: 13
-- Status: LIVE-FLOW ACTIVE — market-blind projection frozen before sportsbook comparison
+- Status: LIVE-FLOW MARKET COMPARED — PASS / NO STRIKE
 
 ---
 
@@ -50,17 +50,17 @@
 
 ## 2. Key LIVE-FLOW Read
 
-1. Atlanta owns a major possession-security/rebounding advantage despite equal turnovers: 31-17 on the glass through three quarters.
+1. Atlanta owns a major rebounding advantage despite equal turnovers: 31-17 on the glass through three quarters.
 2. Toronto's offense is being materially supported by strong perimeter shooting, especially Marina Mabrey (24 points, 6/10 from three through 3Q).
-3. Atlanta's scoring profile is broader and more stable: five starters in double figures or near it, 20 assists, strong rim/paint creation, and a large free-throw-volume edge.
+3. Atlanta's scoring profile is broader and more stable: 20 assists, strong rim/paint creation, and a large free-throw-volume edge.
 4. Toronto has accumulated 19 team fouls, with Isabelle Harrison at four and multiple rotation players at three. That increases Atlanta's late-game free-throw and bonus pathways.
 5. Atlanta's 20/27 FT production is a major component of the 80-point output and should not simply be extrapolated at the same rate.
-6. Toronto cut a 25-point Atlanta lead to 13 by the end of Q3, so the final-quarter projection must respect comeback momentum rather than blindly extending the maximum lead.
+6. Toronto cut a 25-point Atlanta lead to 13 by the end of Q3, so the final-quarter projection respects comeback momentum rather than blindly extending the maximum lead.
 7. Both teams are above 40% from three through three quarters; some combined perimeter cooling is more likely than a continued shooting spike.
 
 ---
 
-## 3. SharpEdge Market-Blind Projection — FROZEN
+## 3. SharpEdge Market-Blind Projection — FROZEN BEFORE MARKET
 
 ### Projected 4th Quarter
 - Toronto: 22
@@ -84,16 +84,40 @@
 
 ---
 
-## 4. Market Comparison Status
+## 4. William Hill Market Comparison
 
-**DO NOT BACKFIT.** The above projection is frozen before sportsbook lines are viewed.
+Market captured after the market-blind projection was frozen.
 
-Awaiting live market screenshot for:
-- Full-game spread
-- Full-game total
-- Atlanta team total
-- Toronto team total
-- Any available 4Q lines
+### Full-Game Spread
+- SharpEdge fair: Atlanta -15
+- William Hill: Atlanta -15.5 (-120) / Toronto +15.5 (-110)
+- Separation: 0.5 point toward Toronto
+- Strike threshold: 4.0+ points
+- Decision: PASS
+
+### Full-Game Total
+- SharpEdge fair: 193
+- William Hill: Over 192.5 (-120) / Under 192.5 (-110)
+- Separation: 0.5 point toward Over
+- Strike threshold: 5.0+ points
+- Decision: PASS
+
+### Atlanta Team Total
+- SharpEdge fair: 104
+- William Hill: Over 104.5 (-105) / Under 104.5 (-125)
+- Separation: 0.5 point toward Under
+- Strike threshold: 4.0+ points
+- Decision: PASS
+
+### Toronto Team Total
+- SharpEdge fair: 89
+- William Hill: Over 88.5 (-105) / Under 88.5 (-125)
+- Separation: 0.5 point toward Over
+- Strike threshold: 4.0+ points
+- Decision: PASS
+
+### Market Verdict
+The sportsbook and SharpEdge projection are essentially in equilibrium across every available market. No line provides enough model-to-market separation to justify exposure. This is a disciplined no-bet checkpoint.
 
 ---
 
@@ -154,6 +178,27 @@ model_frozen:
   team_totals:
     TOR: 89
     ATL: 104
-market_seen: false
-wager_status: awaiting_market_comparison
+market:
+  sportsbook: William_Hill
+  spread:
+    TOR: +15.5_-110
+    ATL: -15.5_-120
+  total:
+    over: 192.5_-120
+    under: 192.5_-110
+  team_totals:
+    ATL:
+      over: 104.5_-105
+      under: 104.5_-125
+    TOR:
+      over: 88.5_-105
+      under: 88.5_-125
+edges:
+  spread_points: 0.5_TOR
+  total_points: 0.5_OVER
+  atl_team_total_points: 0.5_UNDER
+  tor_team_total_points: 0.5_OVER
+market_seen: true
+wager_status: PASS_NO_STRIKE
+pass_reason: no_market_exceeded_minimum_edge_threshold
 ```
