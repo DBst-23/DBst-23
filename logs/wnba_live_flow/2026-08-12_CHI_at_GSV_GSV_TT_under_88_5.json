@@ -1,0 +1,169 @@
+{
+  "sport": "WNBA",
+  "date": "2026-08-12",
+  "matchup": "Chicago Sky at Golden State Valkyries",
+  "phase": "LIVE-FLOW",
+  "status": "FINAL_GRADED_LOSS",
+  "trigger_state": {
+    "score": {
+      "chicago": 40,
+      "golden_state": 43
+    },
+    "combined_points": 83,
+    "period": "HALFTIME"
+  },
+  "sharpedge_projection": {
+    "market_blind_projected_score": {
+      "chicago": 80,
+      "golden_state": 83
+    },
+    "market_blind_full_game_total": 163.0,
+    "market_blind_second_half": {
+      "chicago": 40,
+      "golden_state": 40,
+      "combined": 80
+    },
+    "pre_wager_working_golden_state_team_total_fair": 84.5,
+    "sportsbook_golden_state_team_total": 88.5,
+    "working_gap_points_toward_under": 4.0,
+    "note": "SharpEdge projected its own lines before sportsbook comparison. The initial market-blind score split was GSV 83, CHI 80; the working pre-wager GSV team-total fair used for the strike was approximately 84.5."
+  },
+  "wager": {
+    "market": "Golden State Valkyries Team Total",
+    "selection": "Under 88.5",
+    "american_odds": -125,
+    "stake_usd": 10.0,
+    "potential_profit_usd": 8.0,
+    "total_payout_usd": 18.0,
+    "sportsbook": "William Hill",
+    "placed_local_time": "2026-08-12 20:07 PT",
+    "ticket_id": "2ebe0ec0-96c4-11f1-b764-7b0a946ce410",
+    "result": "LOSS",
+    "net_usd": -10.0
+  },
+  "official_result": {
+    "chicago": 71,
+    "golden_state": 91,
+    "final_total": 162,
+    "golden_state_margin": 20,
+    "golden_state_team_total_margin_vs_bet": 2.5,
+    "second_half": {
+      "chicago": 31,
+      "golden_state": 48,
+      "combined": 79
+    },
+    "projection_error": {
+      "full_game_total_points": -1.0,
+      "chicago_team_total_points": -9.0,
+      "golden_state_team_total_points_vs_initial_blind_projection": 8.0,
+      "golden_state_team_total_points_vs_working_fair": 6.5
+    }
+  },
+  "halftime_diagnostics": {
+    "chicago": {
+      "points": 40,
+      "fg_pct": 58.6,
+      "three_pct": 50.0,
+      "turnovers": 10,
+      "offensive_rebounds": 1,
+      "fta": 4
+    },
+    "golden_state": {
+      "points": 43,
+      "fg_pct": 42.4,
+      "three_pct": 35.7,
+      "turnovers": 4,
+      "steals": 8,
+      "offensive_rebounds": 3,
+      "fta": 14
+    },
+    "quarter_split": {
+      "golden_state_q1": 16,
+      "golden_state_q2": 27,
+      "chicago_q1": 24,
+      "chicago_q2": 16
+    },
+    "bench_ignition": {
+      "tiffany_hayes_first_half": "11 points in 8:54, 4-5 FG, 3 steals, +11",
+      "kaila_charles_first_half": "5 points in 11:16 on 2-8 FG; meaningful shot volume despite poor conversion"
+    },
+    "key_read": "The combined total environment was read correctly, but the scoring-share allocation was not. Chicago's hot shooting and turnover burden created strong negative-regression risk for Chicago, while Golden State's steals, free throws, Q2 surge and bench activity created upside in Golden State's share of the remaining points."
+  },
+  "postmortem": {
+    "primary_failure": "TEAM_TOTAL_ALLOCATION_FAILURE",
+    "secondary_failures": [
+      "DEFENSE_TO_OFFENSE_CONVERSION_UNDERWEIGHTED",
+      "QUARTER_REGIME_SHIFT_UNDERWEIGHTED",
+      "BENCH_IGNITION_UNDERWEIGHTED",
+      "DERIVATIVE_SELECTION_ERROR",
+      "POINT_ESTIMATE_WITHOUT_TEAM_TOTAL_TAIL_GATE"
+    ],
+    "what_we_got_right": [
+      "The market-blind full-game total projection was 163 and the official final was 162, only one point away.",
+      "SharpEdge projected approximately 80 second-half combined points; the actual second half produced 79.",
+      "The expectation that Chicago's first-half shooting efficiency would not hold was directionally correct: Chicago fell from 58.6% FG in the first half to 29.4% FG in the second half and scored only 31 after halftime."
+    ],
+    "what_we_missed": [
+      "We split the expected second-half scoring approximately 40-40. The actual split was Golden State 48, Chicago 31. The miss was allocation, not total pace/scoring environment.",
+      "Golden State already had 8 steals at halftime while Chicago had 10 turnovers. That was not merely a defensive statistic; it was a forward-looking source of transition possessions and easier Golden State scoring opportunities.",
+      "Chicago's 58.6% first-half shooting and 50% three-point shooting were masking possession instability. If Chicago regressed, some of the lost Chicago efficiency could convert into Golden State runouts and a larger share of the same overall scoring pie.",
+      "Golden State's quarter-level regime had already changed. After scoring 16 in Q1, the Valkyries scored 27 in Q2. Using the 43-point halftime aggregate as a neutral anchor understated the possibility that the Q2 offensive/defensive state would persist.",
+      "Tiffany Hayes had 11 points in only 8:54 with 3 steals and a +11 first-half plus/minus. That was a live role/impact signal. Golden State also had meaningful bench shot volume from Kaila Charles despite poor first-half conversion. The bench had more second-half scoring upside than the team-total under projection allowed.",
+      "The full-game under thesis and the Golden State team-total under were not the same bet. Our full-total projection could be correct while the distribution of points between teams moved sharply toward Golden State, which is exactly what happened.",
+      "A four-point working gap versus the 88.5 team total was not large enough to justify strong confidence without an upper-tail distribution check. Golden State needed only 45.5 second-half points to beat 88.5 and ultimately scored 48."
+    ],
+    "second_half_mechanics": {
+      "golden_state_points": 48,
+      "chicago_points": 31,
+      "golden_state_fg_pct": 60.0,
+      "golden_state_three_pct": 42.9,
+      "golden_state_ft_pct": 90.0,
+      "chicago_fg_pct": 29.4,
+      "chicago_three_pct": 23.1,
+      "golden_state_second_half_steals": 8,
+      "chicago_second_half_turnovers": 8,
+      "golden_state_second_half_fast_break_points": 9,
+      "golden_state_third_quarter_points": 29,
+      "golden_state_fourth_quarter_points": 19
+    },
+    "full_game_defensive_conversion": {
+      "golden_state_steals": 16,
+      "chicago_turnovers": 18,
+      "chicago_points_allowed_off_turnovers": 25,
+      "golden_state_fast_break_points": 15,
+      "note": "Golden State finished with a franchise-record 16 steals, confirming that the first-half disruption signal was persistent rather than random noise."
+    },
+    "model_patch": {
+      "name": "LIVEFLOW_TEAM_TOTAL_ALLOCATION_GATE_v1",
+      "rules": [
+        "Project the combined remaining-game scoring environment first, then allocate those points between teams with an explicit scoring-share layer. Do not derive team totals by simple halftime extrapolation.",
+        "Scoring-share allocation must include turnover differential, steals, transition opportunities, offensive-rebound share, free-throw generation, and live rotation/usage signals.",
+        "When one team has 7+ halftime steals or the opponent has 9+ halftime turnovers, flag DEFENSE_TO_OFFENSE_CASCADE and widen that team's upper scoring tail before approving a team-total Under.",
+        "Add a quarter-regime check. If Q2 scoring differs sharply from Q1 because of sustainable opportunity signals such as steals, rim pressure, free throws or rotation changes, weight the most recent quarter more heavily than the simple first-half average.",
+        "Track bench ignition separately. A reserve producing high points/usage plus defensive events in limited first-half minutes should trigger a rotation-upside flag rather than being treated as noise.",
+        "Before selecting a derivative team total, run a consistency test: identify which team is expected to create the full-game total edge. If the total Under is driven mainly by the opponent's expected shooting regression, an Under on the non-regressing team's total may be structurally misaligned.",
+        "For team-total Unders, require a probability/tail gate in addition to point-edge. A 3-5 point mean gap is not automatically actionable when the projected upper quartile can still clear the sportsbook line."
+      ]
+    },
+    "new_tags": [
+      "TEAM_TOTAL_ALLOCATION_MISS",
+      "DEFENSE_TO_OFFENSE_CASCADE",
+      "HALFTIME_STEAL_PRESSURE",
+      "Q2_REGIME_SHIFT",
+      "BENCH_IGNITION",
+      "DERIVATIVE_MISALIGNMENT",
+      "TEAM_TOTAL_UPPER_TAIL_RISK"
+    ],
+    "grade": "MODEL_TOTAL_READ_GOOD_DERIVATIVE_SELECTION_BAD",
+    "lesson": "The combined scoring model was nearly exact; the failure came from assigning too little of the remaining scoring to Golden State. LIVE-FLOW must separate total-environment forecasting from team-share allocation. When a defense is already generating steals and the opponent is surviving on hot shooting, that same regression can suppress the opponent while feeding transition offense to the other side."
+  },
+  "audit_notes": [
+    "Projection was produced before sportsbook comparison.",
+    "Initial market-blind projected final: Golden State 83, Chicago 80, total 163.",
+    "Working pre-wager Golden State fair team total referenced in chat: approximately 84.5.",
+    "William Hill Golden State team total at execution: 88.5 Under -125.",
+    "Official final supplied by user: Golden State 91, Chicago 71, total 162.",
+    "The wager lost by 2.5 points.",
+    "This case should be retained as a derivative-allocation failure, not a full-game total model failure."
+  ]
+}
