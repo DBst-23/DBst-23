@@ -74,14 +74,26 @@ Because Minnesota TT Under and full-game Under are strongly correlated, the clea
 - Bet: Minnesota Lynx team total UNDER 101.5
 - Odds: -115
 - Stake: $10.00
-- Potential payout: $18.70
-- Potential profit: $8.70
+- Payout: $18.70
+- Net profit: **+$8.70**
 - Time placed: 2026-08-12 7:56 PM PT
 - Game state at decision: halftime, Minnesota 57 — Portland 33
 - Model line at lock: Minnesota team total 98
 - Book line at lock: 101.5
 - Edge at lock: 3.5 points to the UNDER
-- Status: LOCKED / AWAITING FINAL
+- Result: **WIN**
+
+## Final Result
+- Final: Minnesota 85 — Portland 81
+- Final total: 166
+- Minnesota second half: 28
+- Portland second half: 48
+- Second-half total: 76
+- Minnesota TT Under 101.5: **won by 16.5 points**
+- Frozen Minnesota projection: 98; actual 85; projection error: **13 points high**
+- Frozen Portland projection: 76; actual 81; projection error: **5 points low**
+- Frozen total projection: 174; actual 166; projection error: **8 points high**
+- Hypothetical full-game Under 178.5 also would have won by 12.5 points.
 
 ## Volatility / State Tags
 - HIGH_PACE_EFFICIENCY_DIVERGENCE
@@ -90,9 +102,15 @@ Because Minnesota TT Under and full-game Under are strongly correlated, the clea
 - BLOWOUT_ROTATION_VARIANCE
 - GARBAGE_TIME_SCORING_RISK
 - MARKET_OVERPRICES_MINNESOTA_CONTINUATION
+- DOMINANT_FIRST_HALF_CONTINUATION_FADE
+- FAVORITE_OFFENSE_DECELERATION
+- TRAILING_TEAM_REGRESSION_SURGE
+- TEAM_TOTAL_DERIVATIVE_OUTPERFORMS_PARENT
 
 ## Calibration Notes
-This is not treated as a simple '57+33=180 pace' extrapolation. Minnesota should cool from extreme three-point efficiency, while Portland should rebound from a 10-point second quarter, 21.4% Q2 field-goal shooting, and 3/8 first-half free throws. High first-half possession volume keeps the upper tail alive despite the lopsided score. The most balanced market-blind center is 174, with a wider-than-normal variance band because the second half can be shaped heavily by rotations and garbage time.
+This was not a simple 57+33=180 pace extrapolation. Minnesota cooled dramatically from extreme first-half perimeter efficiency, while Portland rebounded from a 10-point second quarter, 21.4% Q2 field-goal shooting, and 3/8 first-half free throws. The high first-half possession environment kept Portland's comeback ceiling alive, but Minnesota's own scoring distribution shifted much lower than the model center.
+
+The wager was correct, but the final should not be graded as a perfect projection. SharpEdge projected Minnesota 98 and the Lynx finished at 85. The betting edge survived because the sportsbook was even higher at 101.5 and because the underlying regression/blowout thesis pointed in the correct direction. This is a market-selection win with a conservative lesson: preserve the signal, recalibrate the magnitude.
 
 ```yaml
 game_id: WNBA_2026-08-12_MIN_POR
@@ -134,7 +152,21 @@ wager:
   profit_usd: 8.70
   placed_at_pt: 2026-08-12T19:56:00-07:00
   edge_points: 3.5
-  status: LOCKED_AWAITING_FINAL
+  status: WIN
+actual:
+  final:
+    MIN: 85
+    POR: 81
+    total: 166
+  second_half:
+    MIN: 28
+    POR: 48
+    total: 76
+  min_tt_margin_to_line: -16.5
+  model_error:
+    MIN: 13
+    POR: -5
+    total: 8
 volatility_tags:
   - HIGH_PACE_EFFICIENCY_DIVERGENCE
   - MINNESOTA_PERIMETER_REGRESSION_RISK
@@ -142,5 +174,9 @@ volatility_tags:
   - BLOWOUT_ROTATION_VARIANCE
   - GARBAGE_TIME_SCORING_RISK
   - MARKET_OVERPRICES_MINNESOTA_CONTINUATION
-status: WAGER_LOCKED_AWAITING_FINAL
+  - DOMINANT_FIRST_HALF_CONTINUATION_FADE
+  - FAVORITE_OFFENSE_DECELERATION
+  - TRAILING_TEAM_REGRESSION_SURGE
+  - TEAM_TOTAL_DERIVATIVE_OUTPERFORMS_PARENT
+status: FINAL_GRADED_WIN
 ```
