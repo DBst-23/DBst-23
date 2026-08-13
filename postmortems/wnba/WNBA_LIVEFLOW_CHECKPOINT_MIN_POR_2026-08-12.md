@@ -46,12 +46,36 @@ Key structural notes:
 - Minnesota team total: LEAN UNDER only if market is materially above 98.
 - Portland team total: LEAN OVER only if market is materially below 76.
 
+## Market Reveal
+William Hill halftime/live market after the freeze:
+- Minnesota -25.5 (-120) / Portland +25.5 (-110)
+- Full-game total 178.5: Over -120 / Under -110
+- Minnesota team total 101.5: Over -115 / Under -115
+- Portland team total 76.5: Over -110 / Under -120
+
+## Model vs Market
+| Market | Book | SharpEdge | Gap | Classification |
+|---|---:|---:|---:|---|
+| Full-game total | 178.5 | 174 | 4.5 points lower | UNDER value |
+| Minnesota team total | 101.5 | 98 | 3.5 points lower | STRONGEST clean UNDER candidate |
+| Portland team total | 76.5 | 76 | 0.5 points lower | PASS / essentially fair |
+| Spread | MIN -25.5 | MIN -22 | 3.5 points toward POR | Portland +25.5 lean |
+
+## LIVE-FLOW Strike Hierarchy
+1. **Minnesota team total UNDER 101.5 (-115)** — preferred strike. Minnesota needs 45 second-half points to reach 102, while the frozen model projects 41. Blowout/rotation variance specifically works in favor of this angle because Minnesota leads by 24 at halftime and can reduce starter minutes and late-game offensive urgency.
+2. **Full-game UNDER 178.5 (-110)** — actionable secondary edge. The book requires 89+ second-half points to beat the over; SharpEdge projects 84. Risk is Portland's expected positive shooting regression and garbage-time scoring.
+3. **Portland +25.5 (-110)** — viable side lean because SharpEdge fair margin is Minnesota -22, but garbage-time side variance is high.
+4. Portland team total 76.5 — PASS. The market is essentially sitting on the model center.
+
+Because Minnesota TT Under and full-game Under are strongly correlated, the cleanest single exposure is Minnesota TT Under 101.5 rather than stacking both at full size.
+
 ## Volatility / State Tags
 - HIGH_PACE_EFFICIENCY_DIVERGENCE
 - MINNESOTA_PERIMETER_REGRESSION_RISK
 - PORTLAND_SHOOTING_REGRESSION_UP
 - BLOWOUT_ROTATION_VARIANCE
 - GARBAGE_TIME_SCORING_RISK
+- MARKET_OVERPRICES_MINNESOTA_CONTINUATION
 
 ## Calibration Notes
 This is not treated as a simple '57+33=180 pace' extrapolation. Minnesota should cool from extreme three-point efficiency, while Portland should rebound from a 10-point second quarter, 21.4% Q2 field-goal shooting, and 3/8 first-half free throws. High first-half possession volume keeps the upper tail alive despite the lopsided score. The most balanced market-blind center is 174, with a wider-than-normal variance band because the second half can be shaped heavily by rotations and garbage time.
@@ -62,7 +86,7 @@ checkpoint: halftime
 score_at_checkpoint:
   MIN: 57
   POR: 33
-market_seen: false
+market_seen: true
 estimated_first_half_possessions_per_team: 42.6
 model:
   second_half:
@@ -80,11 +104,19 @@ fair_lines:
   total: 174
   min_tt: 98
   por_tt: 76
+market:
+  spread: MIN_-25.5
+  total: 178.5
+  min_tt: 101.5
+  por_tt: 76.5
+preferred_strike: MIN_TT_UNDER_101.5
+secondary_strike: FULL_GAME_UNDER_178.5
 volatility_tags:
   - HIGH_PACE_EFFICIENCY_DIVERGENCE
   - MINNESOTA_PERIMETER_REGRESSION_RISK
   - PORTLAND_SHOOTING_REGRESSION_UP
   - BLOWOUT_ROTATION_VARIANCE
   - GARBAGE_TIME_SCORING_RISK
-status: FROZEN_AWAITING_MARKET
+  - MARKET_OVERPRICES_MINNESOTA_CONTINUATION
+status: MARKET_COMPARED
 ```
