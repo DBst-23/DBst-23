@@ -69,6 +69,20 @@ William Hill halftime/live market after the freeze:
 
 Because Minnesota TT Under and full-game Under are strongly correlated, the cleanest single exposure is Minnesota TT Under 101.5 rather than stacking both at full size.
 
+## Executed Wager
+- Sportsbook: William Hill
+- Bet: Minnesota Lynx team total UNDER 101.5
+- Odds: -115
+- Stake: $10.00
+- Potential payout: $18.70
+- Potential profit: $8.70
+- Time placed: 2026-08-12 7:56 PM PT
+- Game state at decision: halftime, Minnesota 57 — Portland 33
+- Model line at lock: Minnesota team total 98
+- Book line at lock: 101.5
+- Edge at lock: 3.5 points to the UNDER
+- Status: LOCKED / AWAITING FINAL
+
 ## Volatility / State Tags
 - HIGH_PACE_EFFICIENCY_DIVERGENCE
 - MINNESOTA_PERIMETER_REGRESSION_RISK
@@ -111,6 +125,16 @@ market:
   por_tt: 76.5
 preferred_strike: MIN_TT_UNDER_101.5
 secondary_strike: FULL_GAME_UNDER_178.5
+wager:
+  sportsbook: William_Hill
+  market: MIN_TT_UNDER_101.5
+  odds: -115
+  stake_usd: 10.00
+  payout_usd: 18.70
+  profit_usd: 8.70
+  placed_at_pt: 2026-08-12T19:56:00-07:00
+  edge_points: 3.5
+  status: LOCKED_AWAITING_FINAL
 volatility_tags:
   - HIGH_PACE_EFFICIENCY_DIVERGENCE
   - MINNESOTA_PERIMETER_REGRESSION_RISK
@@ -118,5 +142,5 @@ volatility_tags:
   - BLOWOUT_ROTATION_VARIANCE
   - GARBAGE_TIME_SCORING_RISK
   - MARKET_OVERPRICES_MINNESOTA_CONTINUATION
-status: MARKET_COMPARED
+status: WAGER_LOCKED_AWAITING_FINAL
 ```
