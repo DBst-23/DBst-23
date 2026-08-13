@@ -89,6 +89,82 @@
           "ifNecessaryDescription": "Normal Game"
         },
         {
+          "gamePk": 824561,
+          "gameGuid": "0bc0414a-4362-49d5-8cfb-43f3ee540ef3",
+          "link": "/api/v1.1/game/824561/feed/live",
+          "gameType": "R",
+          "season": "2026",
+          "gameDate": "2026-08-13T17:10:00Z",
+          "officialDate": "2026-08-13",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
+            "startTimeTBD": false,
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 113,
+                "name": "Cincinnati Reds",
+                "link": "/api/v1/teams/113"
+              },
+              "leagueRecord": {
+                "wins": 57,
+                "losses": 62,
+                "ties": 0,
+                "pct": ".479"
+              },
+              "score": 0,
+              "splitSquad": false,
+              "seriesNumber": 39
+            },
+            "home": {
+              "team": {
+                "id": 145,
+                "name": "Chicago White Sox",
+                "link": "/api/v1/teams/145"
+              },
+              "leagueRecord": {
+                "wins": 62,
+                "losses": 57,
+                "ties": 0,
+                "pct": ".521"
+              },
+              "score": 0,
+              "splitSquad": false,
+              "seriesNumber": 39
+            }
+          },
+          "venue": {
+            "id": 4,
+            "name": "Rate Field",
+            "link": "/api/v1/venues/4"
+          },
+          "content": {
+            "link": "/api/v1/game/824561/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-824561-2026-08-13",
+          "seasonDisplay": "2026",
+          "dayNight": "day",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
+          "gamesInSeries": 3,
+          "seriesGameNumber": 3,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
           "gamePk": 823829,
           "gameGuid": "35e1468e-9445-46a3-b303-bf02f593a873",
           "link": "/api/v1.1/game/823829/feed/live",
@@ -174,9 +250,9 @@
           "officialDate": "2026-08-13",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -193,6 +269,7 @@
                 "ties": 0,
                 "pct": ".463"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 39
             },
@@ -208,6 +285,7 @@
                 "ties": 0,
                 "pct": ".567"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 39
             }
@@ -239,80 +317,6 @@
           "ifNecessaryDescription": "Normal Game"
         },
         {
-          "gamePk": 824561,
-          "gameGuid": "0bc0414a-4362-49d5-8cfb-43f3ee540ef3",
-          "link": "/api/v1.1/game/824561/feed/live",
-          "gameType": "R",
-          "season": "2026",
-          "gameDate": "2026-08-13T18:10:00Z",
-          "officialDate": "2026-08-13",
-          "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
-            "startTimeTBD": false,
-            "abstractGameCode": "P"
-          },
-          "teams": {
-            "away": {
-              "team": {
-                "id": 113,
-                "name": "Cincinnati Reds",
-                "link": "/api/v1/teams/113"
-              },
-              "leagueRecord": {
-                "wins": 57,
-                "losses": 62,
-                "ties": 0,
-                "pct": ".479"
-              },
-              "splitSquad": false,
-              "seriesNumber": 39
-            },
-            "home": {
-              "team": {
-                "id": 145,
-                "name": "Chicago White Sox",
-                "link": "/api/v1/teams/145"
-              },
-              "leagueRecord": {
-                "wins": 62,
-                "losses": 57,
-                "ties": 0,
-                "pct": ".521"
-              },
-              "splitSquad": false,
-              "seriesNumber": 39
-            }
-          },
-          "venue": {
-            "id": 4,
-            "name": "Rate Field",
-            "link": "/api/v1/venues/4"
-          },
-          "content": {
-            "link": "/api/v1/game/824561/content"
-          },
-          "gameNumber": 1,
-          "publicFacing": true,
-          "doubleHeader": "N",
-          "gamedayType": "P",
-          "tiebreaker": "N",
-          "calendarEventID": "14-824561-2026-08-13",
-          "seasonDisplay": "2026",
-          "dayNight": "day",
-          "scheduledInnings": 9,
-          "reverseHomeAwayStatus": false,
-          "inningBreakLength": 120,
-          "gamesInSeries": 3,
-          "seriesGameNumber": 3,
-          "seriesDescription": "Regular Season",
-          "recordSource": "S",
-          "ifNecessary": "N",
-          "ifNecessaryDescription": "Normal Game"
-        },
-        {
           "gamePk": 822776,
           "gameGuid": "44bba815-7eac-4ba6-8d95-7be90e3d0f2f",
           "link": "/api/v1.1/game/822776/feed/live",
@@ -322,9 +326,9 @@
           "officialDate": "2026-08-13",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
