@@ -1,0 +1,56 @@
+{
+  "sport": "WNBA",
+  "date": "2026-08-12",
+  "matchup": "Toronto Tempo at Dallas Wings",
+  "phase": "LIVE-FLOW",
+  "status": "LOCKED_PENDING_RESULT",
+  "trigger_state": {
+    "score": {
+      "toronto": 37,
+      "dallas": 45
+    },
+    "period": "Q3",
+    "game_clock": "9:45",
+    "timeout": "Toronto"
+  },
+  "sharpedge_projection": {
+    "full_game_total": 164.5,
+    "projected_score": {
+      "toronto": 79,
+      "dallas": 86
+    },
+    "initial_market_reference_total": 177.5,
+    "initial_gap_points": 13.0,
+    "lock_market_total": 176.5,
+    "lock_gap_points": 12.0,
+    "pre_lock_read": "Strong UNDER edge; market moved down one point before execution but remained substantially above SharpEdge fair total."
+  },
+  "wager": {
+    "market": "Full Game Total",
+    "selection": "Under 176.5",
+    "american_odds": -110,
+    "stake_usd": 10.0,
+    "potential_profit_usd": 9.09,
+    "total_payout_usd": 19.09,
+    "sportsbook": "William Hill",
+    "placed_local_time": "2026-08-12 18:11 PT"
+  },
+  "market_context": {
+    "previous_snapshot": {
+      "total": 177.5,
+      "under_odds": -120
+    },
+    "executed_snapshot": {
+      "total": 176.5,
+      "under_odds": -110
+    },
+    "line_movement_points_toward_sharpedge": 1.0,
+    "interpretation": "Market moved one point toward the SharpEdge projection before lock. Despite the worse number, execution retained a 12-point model-versus-market cushion and improved price from -120 to -110."
+  },
+  "audit_notes": [
+    "Projection was produced before sportsbook comparison.",
+    "Primary LIVE-FLOW recommendation was full-game UNDER.",
+    "Do not grade until official final score is supplied or verified.",
+    "Postmortem should compare final total, second-half scoring, closing/live movement, and whether the 12-point projection gap was realized."
+  ]
+}
