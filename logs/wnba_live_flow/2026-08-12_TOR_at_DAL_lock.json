@@ -3,12 +3,13 @@
   "date": "2026-08-12",
   "matchup": "Toronto Tempo at Dallas Wings",
   "phase": "LIVE-FLOW",
-  "status": "LOCKED_PENDING_RESULT",
+  "status": "FINAL_GRADED_LOSS",
   "trigger_state": {
     "score": {
       "toronto": 37,
       "dallas": 45
     },
+    "combined_points": 82,
     "period": "Q3",
     "game_clock": "9:45",
     "timeout": "Toronto"
@@ -23,6 +24,8 @@
     "initial_gap_points": 13.0,
     "lock_market_total": 176.5,
     "lock_gap_points": 12.0,
+    "projected_remaining_points_from_lock": 82.5,
+    "projected_remaining_scoring_rate_ppm": 4.18,
     "pre_lock_read": "Strong UNDER edge; market moved down one point before execution but remained substantially above SharpEdge fair total."
   },
   "wager": {
@@ -33,7 +36,22 @@
     "potential_profit_usd": 9.09,
     "total_payout_usd": 19.09,
     "sportsbook": "William Hill",
-    "placed_local_time": "2026-08-12 18:11 PT"
+    "placed_local_time": "2026-08-12 18:11 PT",
+    "result": "LOSS",
+    "net_usd": -10.0
+  },
+  "official_result": {
+    "toronto": 88,
+    "dallas": 94,
+    "final_total": 182,
+    "margin": "Dallas +6",
+    "points_after_lock": 100,
+    "actual_remaining_scoring_rate_ppm": 5.06,
+    "miss_vs_projection_points": 17.5,
+    "over_market_by_points": 5.5,
+    "second_half_total": 100,
+    "third_quarter_total": 46,
+    "fourth_quarter_total": 54
   },
   "market_context": {
     "previous_snapshot": {
@@ -45,12 +63,87 @@
       "under_odds": -110
     },
     "line_movement_points_toward_sharpedge": 1.0,
-    "interpretation": "Market moved one point toward the SharpEdge projection before lock. Despite the worse number, execution retained a 12-point model-versus-market cushion and improved price from -120 to -110."
+    "market_implied_remaining_points_at_lock": 94.5,
+    "market_implied_remaining_scoring_rate_ppm": 4.78,
+    "interpretation": "The sportsbook was materially closer to the realized second-half scoring environment than SharpEdge. The one-point move toward the under was not confirmation of the 164.5 model number."
+  },
+  "halftime_diagnostics": {
+    "score": "Dallas 45-37",
+    "combined_points": 82,
+    "estimated_possessions_per_team_first_half": 42.3,
+    "estimated_full_game_pace_if_sustained": 84.6,
+    "toronto_fg_pct": 36.6,
+    "toronto_3p_pct": 22.2,
+    "dallas_fg_pct": 44.7,
+    "dallas_3p_pct": 40.0,
+    "toronto_offensive_rebounds": 9,
+    "dallas_offensive_rebounds": 1,
+    "toronto_turnovers": 9,
+    "dallas_turnovers": 3,
+    "combined_first_half_fta": 8,
+    "key_read": "The 82-point halftime score looked moderate, but possession volume was already high. Toronto's poor shooting was suppressing the scoreboard and created meaningful positive-regression risk."
+  },
+  "postmortem": {
+    "primary_failure": "PACE_EFFICIENCY_DECOMPOSITION_FAILURE",
+    "secondary_failures": [
+      "SHOOTING_REGRESSION_RISK_UNDERWEIGHTED",
+      "WHISTLE_REGIME_VOLATILITY_UNDERMODELED",
+      "LARGE_MODEL_MARKET_GAP_OVERCONFIDENCE",
+      "SINGLE_POINT_PROJECTION_WITHOUT_TAIL_RISK_GATE"
+    ],
+    "what_we_missed": [
+      "We treated the modest first-half score as evidence of a low-scoring environment instead of separating pace from efficiency. First-half possession volume was approximately 42 possessions per team, an ~84.6-possession full-game pace if sustained, which was not an under-friendly base state.",
+      "Toronto was only 36.6% from the field and 22.2% from three at halftime. A large portion of the apparent under edge depended on those depressed shooting rates continuing. That regression risk was not charged against the projection strongly enough.",
+      "The game had 79 combined first-half field-goal attempts plus substantial offensive-rebound activity, signaling repeated scoring opportunities even though the points had not yet converted.",
+      "The second-half whistle environment changed sharply. The teams attempted 36 second-half free throws versus only 8 in the first half. That produced stoppages and efficient points and made the low first-half foul/FTA environment a poor extrapolation anchor.",
+      "Toronto's fourth-quarter shooting spike was extreme: 64.7% FG and 57.1% from three, producing 30 points. That specific heater was not predictable, but a robust projection should have carried enough upper-tail variance that a 176.5 under was not treated as safely insulated merely because the mean projection sat at 164.5.",
+      "The market's 176.5 required only 94.5 more points from the lock state. SharpEdge projected 82.5 more. Actual remaining scoring was 100. The market was much closer to the true scoring environment than our model, so the 12-point disagreement was evidence requiring diagnosis, not automatic extra confidence."
+    ],
+    "quarter_breakdown": {
+      "Q1": 44,
+      "Q2": 38,
+      "Q3": 46,
+      "Q4": 54,
+      "pattern": "The game did not decelerate. Scoring re-accelerated after halftime and reached its highest level in Q4."
+    },
+    "second_half_mechanics": {
+      "toronto_points": 51,
+      "dallas_points": 49,
+      "combined": 100,
+      "toronto_second_half_fg_pct": 48.6,
+      "dallas_second_half_fg_pct": 43.8,
+      "combined_second_half_fta": 36,
+      "toronto_fourth_quarter_points": 30,
+      "toronto_fourth_quarter_fg_pct": 64.7,
+      "toronto_fourth_quarter_3p_pct": 57.1
+    },
+    "model_patch": {
+      "name": "LIVEFLOW_TOTALS_PACE_REGRESSION_GAP_GATE_v1",
+      "rules": [
+        "Always estimate live possessions/pace separately from points scored before projecting a total.",
+        "If observed scoring is low while estimated pace is high, apply an efficiency-regression penalty to under confidence rather than extrapolating the raw scoreboard rate.",
+        "Flag UNDERs when either team is materially below normal shooting efficiency with normal/high shot volume; depressed conversion is not the same as depressed opportunity.",
+        "Track first-half FTA and team-foul state, but widen the second-half scoring distribution because whistle regimes can change abruptly.",
+        "When SharpEdge differs from the live market by 8+ points, require a diagnostic confirmation gate: pace, shot volume, ORB, FTA, turnover environment, and shooting-regression risk must all support the same side before labeling the edge strong.",
+        "For live totals, report a distribution/range and over-under probability, not only a single fair-total point estimate. A large mean cushion cannot be treated as safety without tail-risk support."
+      ]
+    },
+    "new_tags": [
+      "HIGH_PACE_LOW_SCORE_MIRAGE",
+      "EFFICIENCY_REGRESSION_TRAP",
+      "SECOND_HALF_WHISTLE_EXPANSION",
+      "MARKET_GAP_FALSE_CONFIDENCE",
+      "FOURTH_QUARTER_SCORING_SPIKE"
+    ],
+    "grade": "MODEL_MISS_AND_BET_LOSS",
+    "lesson": "The core mistake was reading low realized scoring as low scoring pressure. Opportunity volume was already high. Going forward, LIVE-FLOW totals must be built from possessions and opportunity first, efficiency second, with regression and volatility explicitly priced before comparing to the sportsbook."
   },
   "audit_notes": [
     "Projection was produced before sportsbook comparison.",
     "Primary LIVE-FLOW recommendation was full-game UNDER.",
-    "Do not grade until official final score is supplied or verified.",
-    "Postmortem should compare final total, second-half scoring, closing/live movement, and whether the 12-point projection gap was realized."
+    "Official final supplied by user: Dallas 94, Toronto 88, total 182.",
+    "Under 176.5 lost by 5.5 points.",
+    "SharpEdge fair total of 164.5 missed the official final by 17.5 points.",
+    "This result should be retained as a model-failure case, not dismissed as only fourth-quarter variance."
   ]
 }
