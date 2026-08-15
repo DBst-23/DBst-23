@@ -1,0 +1,59 @@
+{
+  "game_id": "WNBA_2026-08-14_POR_SEA",
+  "mode": "LIVE-FLOW_MARKET_BLIND_HALFTIME",
+  "status": "FROZEN_BEFORE_MARKET",
+  "halftime": {
+    "score": {"POR": 48, "SEA": 36},
+    "total": 84,
+    "estimated_possessions_per_team": 45.7,
+    "POR": {
+      "fg_pct": 42.9,
+      "three_pct": 31.6,
+      "ft_pct": 75.0,
+      "fga": 42,
+      "fta": 8,
+      "orb": 8,
+      "turnovers": 8
+    },
+    "SEA": {
+      "fg_pct": 30.8,
+      "three_pct": 22.2,
+      "ft_pct": 88.9,
+      "fga": 39,
+      "fta": 9,
+      "orb": 5,
+      "turnovers": 8
+    }
+  },
+  "model": {
+    "projected_second_half_score": {"POR": 42, "SEA": 45},
+    "projected_second_half_total": 87.0,
+    "projected_final_score": {"POR": 90, "SEA": 81},
+    "fair_full_game_total": 171.0,
+    "fair_full_game_spread": "POR -9",
+    "fair_team_totals": {"POR": 90.0, "SEA": 81.0},
+    "confidence": {
+      "combined_total": "moderate",
+      "team_allocation": "moderate-low",
+      "spread": "low-moderate"
+    },
+    "projection_band": {
+      "second_half_total": [82, 94],
+      "full_game_total": [166, 178]
+    }
+  },
+  "diagnostic_tags": [
+    "SEA_POSITIVE_SHOOTING_REGRESSION",
+    "POR_SCORER_CONCENTRATION_REGRESSION",
+    "HIGH_MISS_ENVIRONMENT",
+    "SECOND_HALF_ALLOCATION_UNCERTAINTY",
+    "HOME_TRAILING_URGENCY"
+  ],
+  "notes": [
+    "Seattle first-half scoring is materially depressed by 30.8% FG and 22.2% 3PT shooting despite roughly 46 possessions.",
+    "Portland's aggregate efficiency is not extreme, but Holly Winterburn and Bridget Carleton account for 29 of 48 points and carry concentration/regression risk.",
+    "Turnovers are even at 8-8, so the halftime margin is driven more by shot-making and rebounding/second-chance opportunity than a turnover cascade.",
+    "Portland owns an 8-5 offensive-rebound edge and 26-20 total-rebound edge, supporting some continuation but not enough to project a repeat 12-point half margin.",
+    "Under current LIVEFLOW_TEAM_TOTAL_ALLOCATION_GATE_v1, combined-total confidence is higher than team-total or spread confidence."
+  ]
+}
