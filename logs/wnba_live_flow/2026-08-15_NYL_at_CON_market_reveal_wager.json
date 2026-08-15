@@ -1,7 +1,7 @@
 {
   "game_id": "WNBA_2026-08-15_NYL_CON",
   "mode": "LIVE-FLOW_MARKET_REVEAL_WAGER",
-  "status": "WAGER_PLACED_PENDING_RESULT",
+  "status": "FINAL_WON",
   "halftime": {
     "score": {"NYL": 46, "CON": 37},
     "total": 83
@@ -22,6 +22,12 @@
     "con_team_total": 79.0,
     "spread": "NYL -7"
   },
+  "sharpedge_implied_second_half": {
+    "NYL": 40.0,
+    "CON": 42.0,
+    "combined": 82.0,
+    "allocation_margin": "CON +2"
+  },
   "decision": {
     "initial_preference": "CON team total Over 75.5",
     "initial_reason": "Connecticut required 39 second-half points to clear 75.5 and showed strong positive shooting-regression indicators after a 3-for-17 second quarter and 2-for-14 first-half three-point shooting.",
@@ -30,12 +36,35 @@
     "odds": -105,
     "stake": 10.0,
     "ticket_payout": 19.52,
-    "placed_at_local": "2026-08-15T10:54:00-07:00"
+    "profit": 9.52,
+    "placed_at_local": "2026-08-15T10:54:00-07:00",
+    "result": "WIN"
+  },
+  "final": {
+    "score": {"NYL": 82, "CON": 75},
+    "total": 157,
+    "margin": "NYL +7",
+    "second_half": {"NYL": 36, "CON": 38, "combined": 74},
+    "wager_margin_points": 7.5
+  },
+  "projection_review": {
+    "NYL_final_projection_error": -4.0,
+    "CON_final_projection_error": -4.0,
+    "full_game_total_projection_error": -8.0,
+    "second_half_total_projection_error": -8.0,
+    "projected_second_half_allocation_margin": "CON +2",
+    "actual_second_half_allocation_margin": "CON +2",
+    "spread_projection": "NYL -7",
+    "actual_final_margin": "NYL -7",
+    "spread_margin_error": 0.0
   },
   "edge_snapshot": {
     "nyl_tt_under_89_5_vs_fair": 3.5,
     "con_tt_over_75_5_vs_fair": 3.5,
-    "con_tt_over_77_5_vs_fair": 1.5
+    "con_tt_over_77_5_vs_fair": 1.5,
+    "nyl_actual_vs_book_team_total": -7.5,
+    "con_actual_vs_initial_book_team_total": -0.5,
+    "con_actual_vs_moved_book_team_total": -2.5
   },
   "diagnostic_tags": [
     "LIVEFLOW_TEAM_TOTAL_ALLOCATION_GATE_v1",
@@ -43,12 +72,17 @@
     "DERIVATIVE_REPRICING",
     "NYL_TEAM_TOTAL_OVERPRICED",
     "CON_POSITIVE_SHOOTING_REGRESSION",
-    "STEWARD_REGRESSION_COUNTER_RISK"
+    "SECOND_HALF_ALLOCATION_DIRECTION_HIT",
+    "ABSOLUTE_SCORING_LEVEL_OVERPROJECTED",
+    "PIVOT_AVOIDED_ORIGINAL_LOSS",
+    "SPREAD_FAIR_LINE_EXACT_HIT"
   ],
   "notes": [
-    "The original Connecticut Over 75.5 thesis was valid at the initial number but no longer met the same value threshold after the line moved two points to 77.5.",
-    "The NYL 89.5 team total did not move, leaving a 3.5-point gap versus the SharpEdge fair projection of 86.",
-    "This is a market-selection pivot, not a reversal of the original game-environment read.",
-    "The wager tests whether derivative repricing can identify the cleaner surviving edge after the preferred side is steamed away."
+    "The final NYL team total of 82 finished 7.5 points below the wager line of 89.5, producing a clean win.",
+    "The original Connecticut Over 75.5 would also have lost by 0.5 points; after the market move to 77.5 it would have lost by 2.5 points. The derivative pivot therefore both preserved value and avoided the original losing position.",
+    "SharpEdge overestimated the absolute second-half scoring level by 8 points, projecting 82 remaining points versus 74 actual.",
+    "Despite that level error, the allocation layer was directionally exact: SharpEdge projected Connecticut to outscore New York by 2 in the second half, and Connecticut actually won the second half 38-36.",
+    "The pre-market spread fair line of NYL -7 matched the final 82-75 margin exactly.",
+    "This result supports separating total-level calibration from team-share allocation and supports rescanning correlated derivatives when a preferred line is steamed toward fair value."
   ]
 }
