@@ -1,0 +1,87 @@
+{
+  "sport": "WNBA",
+  "date": "2026-08-13",
+  "matchup": "Washington Mystics at Las Vegas Aces",
+  "phase": "LIVE-FLOW",
+  "status": "FINAL_GRADED_LOSS",
+  "trigger_state": {
+    "period": "HALFTIME",
+    "score": {
+      "washington": 32,
+      "las_vegas": 38
+    },
+    "combined_points": 70
+  },
+  "sharpedge_projection": {
+    "market_blind_projected_score": {
+      "washington": 70,
+      "las_vegas": 82
+    },
+    "market_blind_full_game_total": 152,
+    "market_blind_second_half": {
+      "washington": 38,
+      "las_vegas": 44,
+      "combined": 82
+    },
+    "sportsbook_full_game_total": 158.5,
+    "gap_points_toward_under": 6.5
+  },
+  "wager": {
+    "market": "Full Game Total",
+    "selection": "Under 158.5",
+    "american_odds": -115,
+    "stake_usd": 5.0,
+    "sportsbook": "William Hill",
+    "placed_local_time": "2026-08-13 19:59 PT",
+    "ticket_id": "3924e190-978c-11f1-b3b1-9b1297e6ac15",
+    "result": "LOSS",
+    "net_usd": -5.0
+  },
+  "official_result": {
+    "washington": 76,
+    "las_vegas": 83,
+    "final_total": 159,
+    "margin_vs_bet": 0.5,
+    "second_half": {
+      "washington": 44,
+      "las_vegas": 45,
+      "combined": 89
+    },
+    "projection_error": {
+      "full_game_total_points": 7,
+      "washington_team_total_points": 6,
+      "las_vegas_team_total_points": 1
+    }
+  },
+  "postmortem": {
+    "primary_failure": "WASHINGTON_SCORING_UPSIDE_UNDERQUANTIFIED",
+    "supporting_evidence": [
+      "Las Vegas was projected at 82 and finished at 83, so the Aces side of the total was essentially calibrated.",
+      "Washington was projected at 70 and finished at 76, creating six of the seven total points of projection error.",
+      "Washington reduced turnovers from 11 in the first half to 6 in the second half.",
+      "Washington improved from 1/5 FT in the first half to 7/11 FT in the second half.",
+      "Washington scored 28 second-half paint points after 22 in the first half.",
+      "Shakira Austin scored 22 second-half points on 9/11 FG after entering halftime at 3/9 FG."
+    ],
+    "model_patch": "LIVEFLOW_REGRESSION_TRANSLATION_GATE_v1",
+    "exposure_patch": "LIVEFLOW_CORRELATED_DERIVATIVE_EXPOSURE_GATE_v1",
+    "correlated_exposure_cluster": "WAS_SCORING_SUPPRESSION_UNDER_THESIS",
+    "lesson": "The full-game Under was not an independent edge from the Washington team-total Under. Both depended on Washington remaining suppressed. Once Washington's turnover, free-throw and interior finishing regression materialized, both derivatives failed together. Treat them as one thesis and cap combined exposure."
+  },
+  "tags": [
+    "REGRESSION_ACKNOWLEDGED_UNDERQUANTIFIED",
+    "TURNOVER_REGRESSION_TRANSLATION_MISS",
+    "FT_REGRESSION_TRANSLATION_MISS",
+    "INTERIOR_FINISHING_REGRESSION_MISS",
+    "PAINT_FLOOR_UNDERWEIGHTED",
+    "SHARED_THESIS_CORRELATED_EXPOSURE",
+    "DERIVATIVE_DUPLICATION_RISK"
+  ],
+  "audit_notes": [
+    "Projection was produced and frozen before sportsbook comparison.",
+    "Frozen SharpEdge full-game total: 152.",
+    "William Hill offered Under 158.5 at -115.",
+    "Official final total was 159, losing the wager by 0.5 point.",
+    "This ticket shared the same Washington scoring-suppression thesis as the Washington team-total Under 75.5 ticket."
+  ]
+}
