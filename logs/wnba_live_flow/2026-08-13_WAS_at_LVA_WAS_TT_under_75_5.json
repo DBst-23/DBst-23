@@ -1,0 +1,119 @@
+{
+  "sport": "WNBA",
+  "date": "2026-08-13",
+  "matchup": "Washington Mystics at Las Vegas Aces",
+  "phase": "LIVE-FLOW",
+  "status": "FINAL_GRADED_LOSS",
+  "trigger_state": {
+    "period": "HALFTIME",
+    "score": {
+      "washington": 32,
+      "las_vegas": 38
+    },
+    "combined_points": 70
+  },
+  "sharpedge_projection": {
+    "market_blind_projected_score": {
+      "washington": 70,
+      "las_vegas": 82
+    },
+    "market_blind_full_game_total": 152,
+    "market_blind_second_half": {
+      "washington": 38,
+      "las_vegas": 44,
+      "combined": 82
+    },
+    "fair_lines": {
+      "spread": "LVA -12",
+      "total": 152,
+      "las_vegas_team_total": 82,
+      "washington_team_total": 70
+    },
+    "sportsbook_washington_team_total": 75.5,
+    "gap_points_toward_under": 5.5
+  },
+  "wager": {
+    "market": "Washington Mystics Team Total",
+    "selection": "Under 75.5",
+    "american_odds": -120,
+    "stake_usd": 10.0,
+    "sportsbook": "William Hill",
+    "placed_local_time": "2026-08-13 19:58 PT",
+    "ticket_id": "1465d670-978c-11f1-9a9f-8df2172ebdb4",
+    "result": "LOSS",
+    "net_usd": -10.0
+  },
+  "official_result": {
+    "washington": 76,
+    "las_vegas": 83,
+    "final_total": 159,
+    "washington_team_total_margin_vs_bet": 0.5,
+    "second_half": {
+      "washington": 44,
+      "las_vegas": 45,
+      "combined": 89
+    },
+    "projection_error": {
+      "washington_team_total_points": 6,
+      "las_vegas_team_total_points": 1,
+      "full_game_total_points": 7
+    }
+  },
+  "halftime_diagnostics": {
+    "washington": {
+      "points": 32,
+      "fg_pct": 45.2,
+      "three_pct": 37.5,
+      "ft": "1/5",
+      "turnovers": 11,
+      "rebounds": 20,
+      "points_in_paint": 22
+    },
+    "las_vegas": {
+      "points": 38,
+      "fg_pct": 38.7,
+      "three_pct": 26.7,
+      "ft": "10/11",
+      "turnovers": 6,
+      "rebounds": 14
+    },
+    "key_live_flags": [
+      "WAS_TURNOVER_REGRESSION_UP",
+      "WAS_FT_REGRESSION_UP",
+      "WAS_PAINT_PRODUCTION_STABLE",
+      "CLOSE_GAME_ROTATION_SECURITY"
+    ],
+    "shakira_austin_halftime": "7 points, 3-9 FG, 6 rebounds in 13:33"
+  },
+  "second_half_mechanics": {
+    "washington_points": 44,
+    "washington_fg_pct": 56.7,
+    "washington_three_pct": 42.9,
+    "washington_ft": "7/11",
+    "washington_turnovers": 6,
+    "washington_points_in_paint": 28,
+    "shakira_austin_points": 22,
+    "shakira_austin_fg": "9/11",
+    "shakira_austin_ft": "4/5"
+  },
+  "postmortem": {
+    "primary_failure": "REGRESSION_ACKNOWLEDGED_UNDERQUANTIFIED",
+    "secondary_failures": [
+      "TURNOVER_REGRESSION_TRANSLATION_MISS",
+      "FT_REGRESSION_TRANSLATION_MISS",
+      "INTERIOR_FINISHING_REGRESSION_MISS",
+      "PAINT_FLOOR_UNDERWEIGHTED",
+      "TEAM_TOTAL_UPPER_TAIL_RISK"
+    ],
+    "lesson": "Washington's first-half scoring was suppressed by 11 turnovers and 1/5 free-throw shooting while its paint production remained structurally strong. SharpEdge identified those positive-regression channels but only projected 38 second-half points. Washington scored 44, led by Shakira Austin's 22 second-half points on 9/11 shooting. Regression signals must be converted into explicit points and upper-tail adjustments rather than remaining narrative-only notes.",
+    "model_patch": "LIVEFLOW_REGRESSION_TRANSLATION_GATE_v1",
+    "correlated_exposure_cluster": "WAS_SCORING_SUPPRESSION_UNDER_THESIS"
+  },
+  "audit_notes": [
+    "Projection was produced and frozen before sportsbook comparison.",
+    "Frozen fair Washington team total: 70.",
+    "William Hill offered Washington team total Under 75.5 at -120.",
+    "Washington finished with 76, losing the wager by 0.5 point.",
+    "This ticket shared the same Washington scoring-suppression thesis as the full-game Under 158.5 ticket and should not be treated as an independent model edge."
+  ]
+}
