@@ -1,0 +1,54 @@
+{
+  "game_id": "WNBA_2026-08-15_NYL_CON",
+  "mode": "LIVE-FLOW_MARKET_REVEAL_WAGER",
+  "status": "WAGER_PLACED_PENDING_RESULT",
+  "halftime": {
+    "score": {"NYL": 46, "CON": 37},
+    "total": 83
+  },
+  "market_reveal_initial": {
+    "full_game_total": 166.5,
+    "nyl_team_total": 89.5,
+    "con_team_total": 75.5,
+    "spread": "NYL -11.5"
+  },
+  "market_move_before_wager": {
+    "con_team_total": 77.5,
+    "nyl_team_total": 89.5
+  },
+  "sharpedge_fair_lines_pre_market": {
+    "full_game_total": 165.0,
+    "nyl_team_total": 86.0,
+    "con_team_total": 79.0,
+    "spread": "NYL -7"
+  },
+  "decision": {
+    "initial_preference": "CON team total Over 75.5",
+    "initial_reason": "Connecticut required 39 second-half points to clear 75.5 and showed strong positive shooting-regression indicators after a 3-for-17 second quarter and 2-for-14 first-half three-point shooting.",
+    "pivot_trigger": "CON team total moved from 75.5 to 77.5 while NYL team total remained 89.5, materially compressing the Connecticut edge while preserving the New York under edge.",
+    "final_wager": "NYL team total Under 89.5",
+    "odds": -105,
+    "stake": 10.0,
+    "ticket_payout": 19.52,
+    "placed_at_local": "2026-08-15T10:54:00-07:00"
+  },
+  "edge_snapshot": {
+    "nyl_tt_under_89_5_vs_fair": 3.5,
+    "con_tt_over_75_5_vs_fair": 3.5,
+    "con_tt_over_77_5_vs_fair": 1.5
+  },
+  "diagnostic_tags": [
+    "LIVEFLOW_TEAM_TOTAL_ALLOCATION_GATE_v1",
+    "MARKET_MOVE_EDGE_COMPRESSION",
+    "DERIVATIVE_REPRICING",
+    "NYL_TEAM_TOTAL_OVERPRICED",
+    "CON_POSITIVE_SHOOTING_REGRESSION",
+    "STEWARD_REGRESSION_COUNTER_RISK"
+  ],
+  "notes": [
+    "The original Connecticut Over 75.5 thesis was valid at the initial number but no longer met the same value threshold after the line moved two points to 77.5.",
+    "The NYL 89.5 team total did not move, leaving a 3.5-point gap versus the SharpEdge fair projection of 86.",
+    "This is a market-selection pivot, not a reversal of the original game-environment read.",
+    "The wager tests whether derivative repricing can identify the cleaner surviving edge after the preferred side is steamed away."
+  ]
+}
