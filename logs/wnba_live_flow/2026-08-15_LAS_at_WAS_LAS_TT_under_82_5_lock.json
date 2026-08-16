@@ -3,7 +3,7 @@
   "date": "2026-08-15",
   "matchup": "Los Angeles Sparks at Washington Mystics",
   "phase": "LIVE-FLOW",
-  "status": "LOCKED_PENDING_RESULT",
+  "status": "FINAL_WIN",
   "trigger_state": {
     "period": "HALFTIME",
     "score": {
@@ -66,7 +66,27 @@
     "sportsbook": "William Hill",
     "placed_local_time": "2026-08-15 17:21 PT",
     "ticket_id": "7881da00-9908-11f1-b3b1-9b1297e6ac15",
-    "result": "PENDING"
+    "result": "WIN",
+    "final_team_points": 70,
+    "line_cushion_points": 12.5,
+    "profit_usd": 8.33
+  },
+  "final_result": {
+    "los_angeles": 70,
+    "washington": 80,
+    "full_game_total": 150,
+    "actual_spread": "WAS -10",
+    "second_half": {
+      "los_angeles": 31,
+      "washington": 39,
+      "combined": 70
+    },
+    "projection_error": {
+      "los_angeles_team_total_projection_minus_actual": 8.5,
+      "washington_team_total_projection_minus_actual": 4.0,
+      "full_game_total_projection_minus_actual": 12.5,
+      "projected_margin_was_minus_actual_margin": -4.5
+    }
   },
   "halftime_diagnostics": {
     "los_angeles": {
@@ -92,19 +112,36 @@
       "points_in_paint": 34
     }
   },
+  "postmortem_validation": {
+    "los_angeles_second_half_fg_pct": 33.3,
+    "los_angeles_second_half_three_pct": 23.1,
+    "los_angeles_fourth_quarter_points": 12,
+    "los_angeles_fourth_quarter_fg_pct": 25.0,
+    "los_angeles_fourth_quarter_three_pct": 16.7,
+    "los_angeles_fourth_quarter_turnovers": 6,
+    "washington_final_points_in_paint": 60,
+    "washington_final_offensive_rebounds": 11,
+    "washington_final_total_rebounds": 43,
+    "diagnosis": "LA scoring fragility and shooting-regression thesis validated. The derivative selection correctly isolated the more vulnerable scoring side."
+  },
   "tags": [
     "LIVEFLOW",
     "MARKET_BLIND_PROJECTION",
     "DERIVATIVE_SELECTION",
     "EFFICIENCY_REGRESSION_TRAP",
     "TEAM_TOTAL_ALLOCATION_GATE",
-    "LIVEFLOW_TOTALS_PACE_REGRESSION_GAP_GATE_v1"
+    "LIVEFLOW_TOTALS_PACE_REGRESSION_GAP_GATE_v1",
+    "DERIVATIVE_SELECTION_VALIDATED",
+    "LOW_VOLUME_SCORING_FRAGILITY",
+    "THREE_POINT_REGRESSION_CONFIRMED",
+    "FOURTH_QUARTER_OFFENSIVE_COLLAPSE"
   ],
   "audit_notes": [
     "SharpEdge projections were frozen before sportsbook lines were revealed.",
     "Frozen LA team total projection: 78.5.",
     "William Hill opening screenshot showed LA team total Under 82.5 at -110; executed ticket was Under 82.5 at -120.",
     "The executed line retained a 4.0-point projection cushion despite the price move.",
-    "This file records the lock only; final result and postmortem remain pending."
+    "LA finished at 70, producing a 12.5-point winning cushion below the wager line.",
+    "The full-game Under 169.5 and Washington team-total Under 88.5 also would have won, but SharpEdge correctly prioritized the LA team-total derivative under the pre-existing gate structure."
   ]
 }
