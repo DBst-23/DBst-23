@@ -1,0 +1,68 @@
+{
+  "game_id": "WNBA_2026-08-15_LAS_WAS",
+  "mode": "LIVE-FLOW_PRE_MARKET_PROJECTION",
+  "status": "MARKET_BLIND_PROJECTION_LOCKED",
+  "halftime": {
+    "score": {"LAS": 39, "WAS": 41},
+    "total": 80
+  },
+  "first_half_profile": {
+    "LAS": {
+      "fg": "14/31",
+      "fg_pct": 45.2,
+      "three_pt": "6/13",
+      "three_pt_pct": 46.2,
+      "ft": "5/5",
+      "oreb": 1,
+      "turnovers": 7,
+      "paint_points": 16,
+      "second_chance_points": 2
+    },
+    "WAS": {
+      "fg": "19/41",
+      "fg_pct": 46.3,
+      "three_pt": "2/15",
+      "three_pt_pct": 13.3,
+      "ft": "1/3",
+      "oreb": 7,
+      "turnovers": 4,
+      "paint_points": 34,
+      "second_chance_points": 8
+    }
+  },
+  "sharpedge_fair_lines_pre_market": {
+    "full_game_total": 162.5,
+    "LAS_team_total": 78.5,
+    "WAS_team_total": 84.0,
+    "spread": "WAS -5.5",
+    "projected_final": {"LAS": 78.5, "WAS": 84.0}
+  },
+  "second_half_projection": {
+    "LAS_points": 39.5,
+    "WAS_points": 43.0,
+    "combined_points": 82.5,
+    "margin": "WAS +3.5"
+  },
+  "diagnostic_read": {
+    "pace": "roughly neutral / normal WNBA possession environment",
+    "LAS_regression": "negative perimeter regression risk after 6-for-13 (46.2%) from three",
+    "WAS_regression": "positive perimeter regression potential after 2-for-15 (13.3%) from three",
+    "WAS_process_edge": "Washington generated 41 FGA, 7 offensive rebounds, 34 paint points and only 4 turnovers",
+    "LAS_process_risk": "Los Angeles stayed within two despite only 31 FGA and relied heavily on hot three-point shooting",
+    "allocation_edge": "Washington owns the stronger underlying possession and shot-quality profile entering the second half"
+  },
+  "diagnostic_tags": [
+    "LIVEFLOW_TEAM_TOTAL_ALLOCATION_GATE_v1",
+    "EFFICIENCY_REGRESSION_TRAP",
+    "PERIMETER_REGRESSION_DIVERGENCE",
+    "PAINT_PRESSURE_ADVANTAGE",
+    "OFFENSIVE_REBOUNDING_EDGE",
+    "DERIVATIVE_MISALIGNMENT_WATCH"
+  ],
+  "notes": [
+    "Projection was locked before sportsbook halftime/live lines were revealed.",
+    "The game total is not projected as a major pace outlier; the key edge is allocation toward Washington.",
+    "Washington's 13.3% first-half three-point rate creates upside while Los Angeles' 46.2% three-point rate creates downside regression risk.",
+    "Primary market-selection interest should be Washington team total Over or Los Angeles team total Under if the revealed derivative prices materially diverge from these fair lines."
+  ]
+}
