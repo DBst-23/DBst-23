@@ -1,0 +1,110 @@
+{
+  "sport": "WNBA",
+  "date": "2026-08-15",
+  "matchup": "Los Angeles Sparks at Washington Mystics",
+  "phase": "LIVE-FLOW",
+  "status": "LOCKED_PENDING_RESULT",
+  "trigger_state": {
+    "period": "HALFTIME",
+    "score": {
+      "los_angeles": 39,
+      "washington": 41
+    },
+    "combined_points": 80
+  },
+  "sharpedge_projection": {
+    "projection_order": "MARKET_BLIND_FIRST",
+    "market_blind_projected_score": {
+      "los_angeles": 78.5,
+      "washington": 84.0
+    },
+    "market_blind_full_game_total": 162.5,
+    "market_blind_second_half": {
+      "los_angeles": 39.5,
+      "washington": 43.0,
+      "combined": 82.5
+    },
+    "fair_lines": {
+      "spread": "WAS -5.5",
+      "total": 162.5,
+      "washington_team_total": 84.0,
+      "los_angeles_team_total": 78.5
+    }
+  },
+  "sportsbook_reveal": {
+    "sportsbook": "William Hill",
+    "full_game_total": 169.5,
+    "spread": "WAS -7.0",
+    "washington_team_total": 88.5,
+    "los_angeles_team_total": 82.5,
+    "los_angeles_team_total_under_odds": -110,
+    "observed_edge_points": {
+      "full_game_total_toward_under": 7.0,
+      "washington_team_total_toward_under": 4.5,
+      "los_angeles_team_total_toward_under": 4.0
+    }
+  },
+  "selection_logic": {
+    "primary_market": "Los Angeles Sparks Team Total Under",
+    "reason": "LA first-half scoring relied on 46.2% three-point shooting despite only 31 FGA, 1 offensive rebound, 7 turnovers and 16 paint points. SharpEdge projected only 39.5 second-half LA points versus the market-implied 43.5. Washington's 2/15 first-half three-point shooting created positive-regression risk, making the LA derivative cleaner than Washington team-total Under.",
+    "full_total_gate": "PASS_NO_BET",
+    "full_total_gate_reason": "SharpEdge total 162.5 was 7.0 points below market 169.5, short of the 8+ point LIVEFLOW_TOTALS_PACE_REGRESSION_GAP_GATE_v1 confirmation threshold.",
+    "market_priority": [
+      "LAS_TT_UNDER_82_5",
+      "FULL_GAME_UNDER_169_5_LEAN_ONLY",
+      "WAS_TT_UNDER_88_5_PASS",
+      "SPREAD_PASS"
+    ]
+  },
+  "wager": {
+    "market": "Los Angeles Sparks Team Total Points Live",
+    "selection": "Under 82.5",
+    "american_odds": -120,
+    "stake_usd": 10.0,
+    "to_win_usd": 8.33,
+    "payout_usd": 18.33,
+    "sportsbook": "William Hill",
+    "placed_local_time": "2026-08-15 17:21 PT",
+    "ticket_id": "7881da00-9908-11f1-b3b1-9b1297e6ac15",
+    "result": "PENDING"
+  },
+  "halftime_diagnostics": {
+    "los_angeles": {
+      "points": 39,
+      "fg_pct": 45.2,
+      "three_pct": 46.2,
+      "three_fg": "6/13",
+      "ft": "5/5",
+      "fga": 31,
+      "offensive_rebounds": 1,
+      "turnovers": 7,
+      "points_in_paint": 16
+    },
+    "washington": {
+      "points": 41,
+      "fg_pct": 46.3,
+      "three_pct": 13.3,
+      "three_fg": "2/15",
+      "ft": "1/3",
+      "fga": 41,
+      "offensive_rebounds": 7,
+      "turnovers": 4,
+      "points_in_paint": 34
+    }
+  },
+  "tags": [
+    "LIVEFLOW",
+    "MARKET_BLIND_PROJECTION",
+    "DERIVATIVE_SELECTION",
+    "EFFICIENCY_REGRESSION_TRAP",
+    "TEAM_TOTAL_ALLOCATION_GATE",
+    "LIVEFLOW_TOTALS_PACE_REGRESSION_GAP_GATE_v1"
+  ],
+  "audit_notes": [
+    "SharpEdge projections were frozen before sportsbook lines were revealed.",
+    "Frozen LA team total projection: 78.5.",
+    "William Hill opening screenshot showed LA team total Under 82.5 at -110; executed ticket was Under 82.5 at -120.",
+    "The executed line retained a 4.0-point projection cushion despite the price move.",
+    "This file records the lock only; final result and postmortem remain pending."
+  ]
+}
