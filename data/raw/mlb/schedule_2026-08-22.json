@@ -3,14 +3,14 @@
   "totalItems": 15,
   "totalEvents": 0,
   "totalGames": 15,
-  "totalGamesInProgress": 1,
+  "totalGamesInProgress": 2,
   "dates": [
     {
       "date": "2026-08-22",
       "totalItems": 15,
       "totalEvents": 0,
       "totalGames": 15,
-      "totalGamesInProgress": 1,
+      "totalGamesInProgress": 2,
       "games": [
         {
           "gamePk": 823509,
@@ -256,9 +256,9 @@
           "officialDate": "2026-08-22",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "P",
-            "detailedState": "Warmup",
-            "statusCode": "PW",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
             "abstractGameCode": "L"
           },
@@ -1111,6 +1111,7 @@
                 "ties": 0,
                 "pct": ".488"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 42
             },
@@ -1126,6 +1127,7 @@
                 "ties": 0,
                 "pct": ".535"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 42
             }
