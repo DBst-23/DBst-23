@@ -1,0 +1,68 @@
+{
+  "sport": "WNBA",
+  "date": "2026-08-22",
+  "matchup": "Atlanta Dream at Phoenix Mercury",
+  "phase": "LIVE-FLOW",
+  "status": "MARKET_BLIND_PROJECTION_FROZEN",
+  "trigger_state": {
+    "period": "END_OF_3Q",
+    "score": {
+      "atlanta": 73,
+      "phoenix": 68
+    },
+    "combined_points": 141,
+    "quarter_scores": {
+      "atlanta": [29, 21, 23],
+      "phoenix": [18, 17, 33]
+    }
+  },
+  "market_blind_projection": {
+    "projection_order": "PROJECT_FIRST_MARKET_SECOND",
+    "projected_fourth_quarter": {
+      "atlanta": 22,
+      "phoenix": 22,
+      "combined": 44
+    },
+    "projected_final_score": {
+      "atlanta": 95,
+      "phoenix": 90
+    },
+    "fair_full_game_total": 185.0,
+    "fair_live_spread": "Atlanta -5",
+    "fair_team_totals": {
+      "atlanta": 94.5,
+      "phoenix": 90.5
+    },
+    "strike_band_total": {
+      "under_trigger": 190.5,
+      "over_trigger": 179.5
+    }
+  },
+  "diagnostics": {
+    "atlanta_through_3q": {
+      "points": 73,
+      "fg_pct": 47.5,
+      "three_pct": 30.0,
+      "fta": 7,
+      "turnovers": 7,
+      "paint_points": 38
+    },
+    "phoenix_through_3q": {
+      "points": 68,
+      "fg_pct": 45.1,
+      "three_pct": 47.6,
+      "fta": 15,
+      "turnovers": 13,
+      "paint_points": 22
+    },
+    "q3_context": {
+      "atlanta_points": 23,
+      "phoenix_points": 33,
+      "phoenix_fg_pct": 59.1,
+      "phoenix_three_pct": 71.4,
+      "kahleah_copper_q3_points": 18
+    },
+    "key_read": "Phoenix's 33-point third quarter materially accelerated the live total, but it was driven by 59.1% field-goal shooting, 71.4% from three and an 18-point quarter from Kahleah Copper. Atlanta's offense has been steadier across all three quarters and has generated 38 paint points with only seven turnovers. SharpEdge expects Phoenix's perimeter efficiency to regress in the fourth while the five-point game state and likely late-game fouling keep the fourth-quarter floor from collapsing. Frozen fair: approximately 44 fourth-quarter points and 185 full-game points."
+  },
+  "execution_rule": "Do not alter this projection after sportsbook lines are viewed. Compare market to frozen fair and strike only if the gap clears the preset edge threshold."
+}
