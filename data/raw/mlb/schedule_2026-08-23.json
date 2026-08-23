@@ -3,14 +3,14 @@
   "totalItems": 15,
   "totalEvents": 0,
   "totalGames": 15,
-  "totalGamesInProgress": 14,
+  "totalGamesInProgress": 9,
   "dates": [
     {
       "date": "2026-08-23",
       "totalItems": 15,
       "totalEvents": 0,
       "totalGames": 15,
-      "totalGamesInProgress": 14,
+      "totalGamesInProgress": 9,
       "games": [
         {
           "gamePk": 824799,
@@ -21,12 +21,12 @@
           "gameDate": "2026-08-23T17:35:00Z",
           "officialDate": "2026-08-23",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -36,12 +36,13 @@
                 "link": "/api/v1/teams/139"
               },
               "leagueRecord": {
-                "wins": 76,
+                "wins": 77,
                 "losses": 53,
                 "ties": 0,
-                "pct": ".589"
+                "pct": ".592"
               },
               "score": 3,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 42
             },
@@ -53,11 +54,12 @@
               },
               "leagueRecord": {
                 "wins": 63,
-                "losses": 67,
+                "losses": 68,
                 "ties": 0,
-                "pct": ".485"
+                "pct": ".481"
               },
               "score": 1,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 42
             }
@@ -70,6 +72,7 @@
           "content": {
             "link": "/api/v1/game/824799/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
@@ -97,12 +100,12 @@
           "gameDate": "2026-08-23T17:35:00Z",
           "officialDate": "2026-08-23",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -113,11 +116,12 @@
               },
               "leagueRecord": {
                 "wins": 66,
-                "losses": 65,
+                "losses": 66,
                 "ties": 0,
-                "pct": ".504"
+                "pct": ".500"
               },
               "score": 4,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 43
             },
@@ -128,12 +132,13 @@
                 "link": "/api/v1/teams/143"
               },
               "leagueRecord": {
-                "wins": 72,
+                "wins": 73,
                 "losses": 58,
                 "ties": 0,
-                "pct": ".554"
+                "pct": ".557"
               },
-              "score": 4,
+              "score": 6,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 42
             }
@@ -146,6 +151,7 @@
           "content": {
             "link": "/api/v1/game/823421/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
@@ -173,12 +179,12 @@
           "gameDate": "2026-08-23T17:35:00Z",
           "officialDate": "2026-08-23",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -189,11 +195,12 @@
               },
               "leagueRecord": {
                 "wins": 64,
-                "losses": 67,
+                "losses": 68,
                 "ties": 0,
-                "pct": ".489"
+                "pct": ".485"
               },
               "score": 3,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 43
             },
@@ -204,12 +211,13 @@
                 "link": "/api/v1/teams/147"
               },
               "leagueRecord": {
-                "wins": 73,
+                "wins": 74,
                 "losses": 56,
                 "ties": 0,
-                "pct": ".566"
+                "pct": ".569"
               },
-              "score": 7,
+              "score": 8,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 42
             }
@@ -222,6 +230,7 @@
           "content": {
             "link": "/api/v1/game/823507/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
@@ -249,12 +258,12 @@
           "gameDate": "2026-08-23T17:40:00Z",
           "officialDate": "2026-08-23",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -265,11 +274,12 @@
               },
               "leagueRecord": {
                 "wins": 61,
-                "losses": 70,
+                "losses": 71,
                 "ties": 0,
-                "pct": ".466"
+                "pct": ".462"
               },
               "score": 2,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 42
             },
@@ -280,12 +290,13 @@
                 "link": "/api/v1/teams/146"
               },
               "leagueRecord": {
-                "wins": 66,
+                "wins": 67,
                 "losses": 64,
                 "ties": 0,
-                "pct": ".508"
+                "pct": ".511"
               },
               "score": 6,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 42
             }
@@ -298,6 +309,7 @@
           "content": {
             "link": "/api/v1/game/823827/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
@@ -345,7 +357,7 @@
                 "ties": 0,
                 "pct": ".473"
               },
-              "score": 6,
+              "score": 7,
               "splitSquad": false,
               "seriesNumber": 42
             },
@@ -421,7 +433,7 @@
                 "ties": 0,
                 "pct": ".385"
               },
-              "score": 6,
+              "score": 7,
               "splitSquad": false,
               "seriesNumber": 42
             },
@@ -477,12 +489,12 @@
           "gameDate": "2026-08-23T18:10:00Z",
           "officialDate": "2026-08-23",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "O",
+            "detailedState": "Game Over",
+            "statusCode": "O",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -493,11 +505,12 @@
               },
               "leagueRecord": {
                 "wins": 59,
-                "losses": 71,
+                "losses": 72,
                 "ties": 0,
-                "pct": ".454"
+                "pct": ".450"
               },
-              "score": 0,
+              "score": 1,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 42
             },
@@ -508,12 +521,13 @@
                 "link": "/api/v1/teams/145"
               },
               "leagueRecord": {
-                "wins": 67,
+                "wins": 68,
                 "losses": 62,
                 "ties": 0,
-                "pct": ".519"
+                "pct": ".523"
               },
-              "score": 0,
+              "score": 2,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 43
             }
@@ -526,6 +540,7 @@
           "content": {
             "link": "/api/v1/game/824558/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
@@ -741,7 +756,7 @@
                 "ties": 0,
                 "pct": ".543"
               },
-              "score": 2,
+              "score": 5,
               "splitSquad": false,
               "seriesNumber": 42
             }
@@ -817,7 +832,7 @@
                 "ties": 0,
                 "pct": ".608"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 42
             }
@@ -893,7 +908,7 @@
                 "ties": 0,
                 "pct": ".477"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 42
             }
@@ -969,7 +984,7 @@
                 "ties": 0,
                 "pct": ".538"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 42
             }
@@ -1105,6 +1120,7 @@
                 "ties": 0,
                 "pct": ".577"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 43
             },
@@ -1120,6 +1136,7 @@
                 "ties": 0,
                 "pct": ".623"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 42
             }
