@@ -1,0 +1,150 @@
+{
+  "sport": "WNBA",
+  "date": "2026-08-22",
+  "matchup": "Atlanta Dream at Phoenix Mercury",
+  "phase": "LIVE-FLOW",
+  "status": "FINAL_NO_BET_CORRECT_PASS",
+  "trigger_state": {
+    "period": "END_3Q",
+    "score": {
+      "atlanta": 73,
+      "phoenix": 68
+    },
+    "combined_points": 141
+  },
+  "sharpedge_projection": {
+    "projection_order": "MARKET_BLIND_FIRST",
+    "market_blind_full_game_total": 185.0,
+    "market_blind_expected_q4_combined_points": 44.0,
+    "market_blind_spread_range": "Atlanta -2 to -3",
+    "sportsbook_full_game_total": 186.5,
+    "gap_points_toward_under": 1.5,
+    "sportsbook_implied_q4_combined_points": 45.5,
+    "book_team_totals": {
+      "atlanta": 97.5,
+      "phoenix": 89.5
+    },
+    "sportsbook_spread": "Atlanta -7.5 (+100) / Phoenix +7.5 (-130)",
+    "classification": "NO_BET",
+    "reason": "Model-market separation was only 1.5 points toward the Under, below the LIVE-FLOW strike threshold for an end-of-third-quarter market."
+  },
+  "wager": {
+    "placed": false,
+    "sportsbook": "William Hill",
+    "stake_usd": 0.0,
+    "result": "NO_BET",
+    "net_usd": 0.0
+  },
+  "checkpoint_diagnostics": {
+    "quarter_scoring": {
+      "atlanta_q1": 29,
+      "phoenix_q1": 18,
+      "atlanta_q2": 21,
+      "phoenix_q2": 17,
+      "atlanta_q3": 23,
+      "phoenix_q3": 33
+    },
+    "atlanta_through_3q": {
+      "points": 73,
+      "fg_pct": 47.5,
+      "three_pct": 30.0,
+      "ft_pct": 85.7,
+      "fga": 61,
+      "three_pa": 30,
+      "fta": 7,
+      "turnovers": 7,
+      "offensive_rebounds": 6,
+      "defensive_rebounds": 20
+    },
+    "phoenix_through_3q": {
+      "points": 68,
+      "fg_pct": 45.1,
+      "three_pct": 47.6,
+      "ft_pct": 80.0,
+      "fga": 51,
+      "three_pa": 21,
+      "fta": 15,
+      "turnovers": 13,
+      "offensive_rebounds": 6,
+      "defensive_rebounds": 22
+    },
+    "phoenix_q3_spike": {
+      "points": 33,
+      "fg_pct": 59.1,
+      "three_pct": 71.4,
+      "kahleah_copper_points": 18
+    },
+    "key_read": "Phoenix's 33-point third quarter was powered by extreme shooting efficiency and created a reasonable regression case, but the sportsbook had already moved to 186.5. SharpEdge's frozen 185.0 fair produced only a 1.5-point Under gap, which was insufficient for a strike given fourth-quarter foul and efficiency volatility."
+  },
+  "official_result": {
+    "atlanta": 99,
+    "phoenix": 89,
+    "final_total": 188,
+    "atlanta_margin": 10,
+    "fourth_quarter": {
+      "atlanta": 26,
+      "phoenix": 21,
+      "combined": 47
+    },
+    "projection_error_actual_minus_projection": {
+      "full_game_total_points": 3.0,
+      "q4_combined_points": 3.0
+    },
+    "market_error_actual_minus_line": 1.5
+  },
+  "postmortem": {
+    "grade": "CORRECT_PASS_PROCESS_WIN",
+    "primary_success": "CAPITAL_PRESERVED_BY_EDGE_THRESHOLD",
+    "what_we_got_right": [
+      "SharpEdge froze a 185.0 market-blind fair total before sportsbook comparison.",
+      "William Hill posted 186.5, leaving only 1.5 points of theoretical Under edge, and SharpEdge correctly refused to force the wager.",
+      "Phoenix's third-quarter shooting spike was recognized as regression-prone without assuming that team regression automatically meant full-game Under value.",
+      "The no-bet decision avoided a losing Under; the game finished 188.",
+      "Fourth-quarter volatility was correctly respected at the decision stage."
+    ],
+    "important_game_mechanics": [
+      "Phoenix did regress from 33 Q3 points to 21 Q4 points, but Atlanta scored 26 in the fourth quarter and prevented total-game regression from materializing enough.",
+      "Atlanta shot 53.3% in Q4 and Phoenix shot 54.5%.",
+      "The teams combined for 19 fourth-quarter free-throw attempts and made 16, keeping the scoring floor elevated.",
+      "Angel Reese scored 13 points in the fourth quarter on 5-for-5 shooting and finished with a career-high 31 points.",
+      "Atlanta committed only one fourth-quarter turnover, preserving offensive efficiency and possession quality."
+    ],
+    "risk_notes": [
+      "A 1.5-point theoretical edge at -115 is too thin to absorb fourth-quarter variance.",
+      "Late-game foul rates can erase modest Under edges quickly, particularly in competitive games with star offensive concentration.",
+      "Do not equate regression in one team's scoring with sufficient regression in the full-game total."
+    ],
+    "model_reinforcement": {
+      "name": "LIVEFLOW_END3Q_EDGE_THRESHOLD_v1",
+      "rules": [
+        "At end-of-third-quarter checkpoints, require a larger model-market gap than 1-2 points before attacking a total.",
+        "Continue freezing market-blind projection before sportsbook comparison.",
+        "Separate team-level regression from full-game regression; the opposing offense can offset the decline.",
+        "Explicitly account for late free-throw and foul volatility as upside tail risk to live Unders.",
+        "Log disciplined passes with the same audit detail as wagers so no-bet decisions become training data."
+      ]
+    },
+    "new_tags": [
+      "NO_BET_DISCIPLINE",
+      "MARKET_BLIND_PROJECTION",
+      "EDGE_BELOW_THRESHOLD",
+      "END3Q_VOLATILITY",
+      "PHOENIX_Q3_EFFICIENCY_SPIKE",
+      "PARTIAL_REGRESSION_ONLY",
+      "ATLANTA_INTERIOR_SCORING_PERSISTED",
+      "LATE_FREE_THROW_PRESSURE",
+      "CAPITAL_PRESERVED"
+    ],
+    "lesson": "This checkpoint validates the pass discipline. SharpEdge had 185.0 against 186.5, only a 1.5-point Under gap. Phoenix did cool in Q4, but Atlanta stayed efficient and the teams combined for 47 points, producing a 188 final. The important result is that insufficient edge was not converted into unnecessary bankroll exposure."
+  },
+  "execution_notes": [
+    "SharpEdge projected its own lines before sportsbook comparison.",
+    "Frozen fair full-game total: 185.0.",
+    "William Hill end-of-third-quarter live total: 186.5 (-115 both sides).",
+    "Model-market gap: 1.5 points toward Under.",
+    "Decision: NO BET.",
+    "Official final: Atlanta 99, Phoenix 89; total 188.",
+    "A hypothetical Under 186.5 would have lost by 1.5 points.",
+    "Bankroll exposure avoided: $0."
+  ]
+}
