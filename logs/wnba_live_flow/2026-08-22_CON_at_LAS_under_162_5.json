@@ -3,7 +3,7 @@
   "date": "2026-08-22",
   "matchup": "Connecticut Sun at Los Angeles Sparks",
   "phase": "LIVE-FLOW",
-  "status": "LIVE_WAGER_OPEN",
+  "status": "FINAL_GRADED_WIN",
   "trigger_state": {
     "period": "HALFTIME",
     "score": {
@@ -50,9 +50,9 @@
     "total_payout_usd": 28.04,
     "sportsbook": "William Hill",
     "placed_local_time": "2026-08-22 18:59 PT",
-    "ticket_id_visible_partial": "56f36230-9e96-11f1-88e9-57e48…",
-    "result": "PENDING",
-    "net_usd": null
+    "ticket_id": "56f36230-9e96-11f1-88e9-57e482d8be11",
+    "result": "WIN",
+    "net_usd": 13.04
   },
   "halftime_diagnostics": {
     "connecticut": {
@@ -87,6 +87,74 @@
     },
     "key_read": "The 80-point halftime total was inflated by Los Angeles' 32-point first quarter on 78.6% shooting. Q2 collapsed to 26 combined points. SharpEdge projected 76 second-half points before seeing the sportsbook, while William Hill's 162.5 implied approximately 82.5 second-half points. Both team-total projections also sat below market, supporting the full-game Under rather than relying on a single-team regression thesis."
   },
+  "official_result": {
+    "connecticut": 68,
+    "los_angeles": 77,
+    "final_total": 145,
+    "los_angeles_margin": 9,
+    "margin_to_under_line_points": 17.5,
+    "second_half": {
+      "connecticut": 32,
+      "los_angeles": 33,
+      "combined": 65
+    },
+    "quarter_scoring": {
+      "connecticut_q3": 10,
+      "los_angeles_q3": 22,
+      "connecticut_q4": 22,
+      "los_angeles_q4": 11
+    },
+    "projection_error_actual_minus_projection": {
+      "full_game_total_points": -11.0,
+      "connecticut_team_total_points": -5.0,
+      "los_angeles_team_total_points": -6.0,
+      "second_half_total_points": -11.0
+    }
+  },
+  "postmortem": {
+    "grade": "STRONG_MODEL_WIN",
+    "primary_success": "TOTAL_ENVIRONMENT_AND_TEAM_SHARE_ALIGNED",
+    "what_we_got_right": [
+      "The market-blind 156 total was directionally and structurally correct before sportsbook comparison; the game finished 145.",
+      "The full-game market offered 162.5, creating a 6.5-point pre-wager edge versus SharpEdge fair and a 17.5-point final cushion.",
+      "Both team totals were projected below the sportsbook numbers, which made the full-game Under a cleaner derivative than isolating only one team.",
+      "The first-quarter 54-point scoring burst was correctly treated as unstable rather than the new game regime. The next three quarters produced only 26, 32 and 33 combined points.",
+      "Los Angeles' Q1 78.6% field-goal shooting regressed sharply and did not re-establish itself as a sustainable scoring environment.",
+      "Connecticut's weak perimeter offense persisted: 15.4% from three at halftime and 16.7% for the full game.",
+      "The projected 76-point second half was conservative relative to the market's implied 82.5 and the actual second half came in even lower at 65."
+    ],
+    "important_game_mechanics": [
+      "Connecticut scored only 10 points in Q3 on 25.0% shooting, preserving the Under even while Los Angeles scored efficiently in the quarter.",
+      "Los Angeles then scored only 11 points in Q4 and committed 10 fourth-quarter turnovers.",
+      "Los Angeles finished with 25 turnovers and Connecticut recorded 15 steals, but those extra-possession events did not convert into enough efficient offense to threaten the total.",
+      "Dearica Hamby was ejected on a flagrant-2 with 8:39 remaining in Q4. This was a post-wager event that likely added downside to Los Angeles scoring, but it was not part of the original edge and should not receive credit in the pre-wager model assessment."
+    ],
+    "risk_notes": [
+      "The final result should not cause the model to over-tighten totals simply because this Under won by a large margin. The pre-wager edge was 6.5 points, not 17.5 points.",
+      "Los Angeles' 25 turnovers and Connecticut's 15 steals represent a transition-volatility pathway that can sometimes create Overs. The fact that it did not here reflects poor conversion, not the absence of risk.",
+      "Late-game ejection and game-state effects widened the final Under margin and should be treated as realized variance rather than repeatable forecast signal."
+    ],
+    "model_reinforcement": {
+      "name": "LIVEFLOW_HALFTIME_REGIME_CONFIRMATION_v1",
+      "rules": [
+        "When a high-scoring first quarter is followed by a materially slower second quarter, do not anchor the live total to the first-half average. Separate quarter regimes and identify which one is supported by sustainable possession and efficiency signals.",
+        "Prefer the full-game total when both independently projected team totals point in the same direction versus market; this reduces team-share allocation risk.",
+        "Continue requiring market-blind projection before sportsbook comparison and preserve the frozen fair number in the audit trail.",
+        "Track persistent three-point inefficiency separately from raw field-goal percentage. A team that is generating attempts but failing badly from three can suppress the total even if two-point scoring remains functional.",
+        "Do not retroactively attribute edge to ejections, injuries or other post-wager events. Log them as realized variance unless they were visible at execution."
+      ]
+    },
+    "new_tags": [
+      "MARKET_BLIND_EDGE_CONFIRMED",
+      "Q1_SCORING_REGRESSION",
+      "Q2_REGIME_CONFIRMATION",
+      "BOTH_TEAM_TOTALS_UNDER_MARKET",
+      "FULL_GAME_DERIVATIVE_ALIGNMENT",
+      "PERSISTENT_THREE_POINT_SUPPRESSION",
+      "POST_WAGER_EJECTION_VARIANCE"
+    ],
+    "lesson": "This was the cleaner version of the LIVE-FLOW total process: build the fair number first, identify that both team scoring shares sit below market, then attack the combined total. The 162.5 market required 82.5 second-half points while SharpEdge projected 76; only 65 were scored. The win validates the structure more than the final 17.5-point margin."
+  },
   "execution_notes": [
     "SharpEdge projected its own lines before sportsbook comparison.",
     "Frozen fair full-game total: 156.",
@@ -95,7 +163,8 @@
     "Los Angeles team-total projection: 83 versus market 85.5.",
     "Connecticut team-total projection: 73 versus market 76.5.",
     "Spread was considered efficient: SharpEdge Los Angeles -10 versus market -9.5, so no spread wager was recommended.",
-    "Stake: $15.00; to win: $13.04; total payout if won: $28.04.",
-    "Result remains pending and should be graded in the postmortem after the final score is known."
+    "Stake: $15.00; profit: $13.04; total payout: $28.04.",
+    "Official final: Los Angeles 77, Connecticut 68; total 145.",
+    "Under 162.5 won by 17.5 points."
   ]
 }
