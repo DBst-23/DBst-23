@@ -1,0 +1,101 @@
+{
+  "sport": "WNBA",
+  "date": "2026-08-22",
+  "matchup": "Connecticut Sun at Los Angeles Sparks",
+  "phase": "LIVE-FLOW",
+  "status": "LIVE_WAGER_OPEN",
+  "trigger_state": {
+    "period": "HALFTIME",
+    "score": {
+      "connecticut": 36,
+      "los_angeles": 44
+    },
+    "combined_points": 80
+  },
+  "sharpedge_projection": {
+    "projection_order": "MARKET_BLIND_FIRST",
+    "market_blind_projected_score": {
+      "connecticut": 73,
+      "los_angeles": 83
+    },
+    "market_blind_full_game_total": 156.0,
+    "market_blind_second_half": {
+      "connecticut": 37,
+      "los_angeles": 39,
+      "combined": 76
+    },
+    "sportsbook_full_game_total": 162.5,
+    "gap_points_toward_under": 6.5,
+    "sportsbook_implied_second_half_points": 82.5,
+    "projection_gap_second_half_points": 6.5,
+    "book_team_totals": {
+      "los_angeles": 85.5,
+      "connecticut": 76.5
+    },
+    "sharpedge_team_totals": {
+      "los_angeles": 83.0,
+      "connecticut": 73.0
+    },
+    "spread_projection": "Los Angeles -10",
+    "sportsbook_spread": "Los Angeles -9.5",
+    "classification": "STRIKE",
+    "primary_attack": "Full Game Under 162.5"
+  },
+  "wager": {
+    "market": "Total Points Live",
+    "selection": "Under 162.5",
+    "american_odds": -115,
+    "stake_usd": 15.0,
+    "potential_profit_usd": 13.04,
+    "total_payout_usd": 28.04,
+    "sportsbook": "William Hill",
+    "placed_local_time": "2026-08-22 18:59 PT",
+    "ticket_id_visible_partial": "56f36230-9e96-11f1-88e9-57e48…",
+    "result": "PENDING",
+    "net_usd": null
+  },
+  "halftime_diagnostics": {
+    "connecticut": {
+      "points": 36,
+      "fg_pct": 35.1,
+      "three_pct": 15.4,
+      "ft_pct": 80.0,
+      "fga": 37,
+      "three_pa": 13,
+      "fta": 10,
+      "turnovers": 6,
+      "offensive_rebounds": 4,
+      "defensive_rebounds": 13
+    },
+    "los_angeles": {
+      "points": 44,
+      "fg_pct": 45.2,
+      "three_pct": 40.0,
+      "ft_pct": 80.0,
+      "fga": 31,
+      "three_pa": 10,
+      "fta": 15,
+      "turnovers": 8,
+      "offensive_rebounds": 4,
+      "defensive_rebounds": 19
+    },
+    "quarter_split": {
+      "connecticut_q1": 22,
+      "connecticut_q2": 14,
+      "los_angeles_q1": 32,
+      "los_angeles_q2": 12
+    },
+    "key_read": "The 80-point halftime total was inflated by Los Angeles' 32-point first quarter on 78.6% shooting. Q2 collapsed to 26 combined points. SharpEdge projected 76 second-half points before seeing the sportsbook, while William Hill's 162.5 implied approximately 82.5 second-half points. Both team-total projections also sat below market, supporting the full-game Under rather than relying on a single-team regression thesis."
+  },
+  "execution_notes": [
+    "SharpEdge projected its own lines before sportsbook comparison.",
+    "Frozen fair full-game total: 156.",
+    "William Hill live total at execution: 162.5, Under -115.",
+    "Primary market gap: 6.5 points toward the Under.",
+    "Los Angeles team-total projection: 83 versus market 85.5.",
+    "Connecticut team-total projection: 73 versus market 76.5.",
+    "Spread was considered efficient: SharpEdge Los Angeles -10 versus market -9.5, so no spread wager was recommended.",
+    "Stake: $15.00; to win: $13.04; total payout if won: $28.04.",
+    "Result remains pending and should be graded in the postmortem after the final score is known."
+  ]
+}
