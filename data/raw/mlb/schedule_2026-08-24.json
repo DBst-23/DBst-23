@@ -3,14 +3,14 @@
   "totalItems": 10,
   "totalEvents": 0,
   "totalGames": 10,
-  "totalGamesInProgress": 3,
+  "totalGamesInProgress": 4,
   "dates": [
     {
       "date": "2026-08-24",
       "totalItems": 10,
       "totalEvents": 0,
       "totalGames": 10,
-      "totalGamesInProgress": 3,
+      "totalGamesInProgress": 4,
       "games": [
         {
           "gamePk": 824235,
@@ -41,7 +41,7 @@
                 "ties": 0,
                 "pct": ".592"
               },
-              "score": 2,
+              "score": 3,
               "splitSquad": false,
               "seriesNumber": 43
             },
@@ -98,11 +98,10 @@
           "officialDate": "2026-08-24",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "M",
-            "detailedState": "Player challenge",
-            "statusCode": "MJ",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "reason": "Pitch Result",
             "abstractGameCode": "L"
           },
           "teams": {
@@ -194,7 +193,7 @@
                 "ties": 0,
                 "pct": ".385"
               },
-              "score": 0,
+              "score": 1,
               "splitSquad": false,
               "seriesNumber": 43
             },
@@ -251,9 +250,9 @@
           "officialDate": "2026-08-24",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "P",
-            "detailedState": "Warmup",
-            "statusCode": "PW",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
             "abstractGameCode": "L"
           },
@@ -726,6 +725,7 @@
                 "ties": 0,
                 "pct": ".473"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 43
             },
@@ -741,6 +741,7 @@
                 "ties": 0,
                 "pct": ".400"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 43
             }
