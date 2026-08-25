@@ -84,6 +84,37 @@ Net: The first-half 73 is too low to extrapolate directly. Both teams carry mate
 - Los Angeles TT: fair 79. Over pressure begins around 75.5-76.5 or lower; Under pressure begins around 82.5 or higher.
 - Atlanta TT: fair 78. Over pressure begins around 74.5-75.5 or lower; Under pressure begins around 81.5 or higher.
 
+## Market Reveal
+- Full-game spread: Los Angeles +7.5 (-137) / Atlanta -7.5 (+109)
+- Full-game total: 169.5, Over +165 / Under -209
+- Atlanta team total: 87.5, Over +109 / Under -263
+
+### Market Comparison
+- Spread gap: SharpEdge LA -1 vs market LA +7.5 = 8.5-point disagreement toward Los Angeles.
+- Total gap: SharpEdge 157 vs market 169.5 = 12.5-point disagreement toward the Under.
+- Atlanta TT gap: SharpEdge 78 vs market 87.5 = 9.5-point disagreement toward the Under.
+
+Initial execution read: the Under directions were strong, but the displayed prices at -209 full-game and -263 Atlanta TT were too expensive to purchase directly under normal SharpEdge price discipline.
+
+## Executed Position
+Rather than pay the punitive -263 on Atlanta Under 87.5, the position was laddered down to an alternate strike:
+
+- Platform: Kalshi
+- Position: NO on Atlanta Dream over 84.5
+- Equivalent: Atlanta Dream Under 84.5
+- Entry price: +101
+- Cost: $19.60
+- Max payout: $39.39
+- Effective break-even from ticket economics: 49.76%
+- SharpEdge Atlanta TT projection: 78
+- Executed strike gap: 6.5 points toward the Under
+- Standard max-price threshold: -125
+- Threshold status: WITHIN THRESHOLD / FAVORABLE PLUS-MONEY ENTRY
+- Current displayed market chance after entry in screenshot: 48%
+- Status: OPEN
+
+Execution note: three points of line cushion were intentionally surrendered, moving from 87.5 to 84.5, in exchange for a major price improvement from -263 to +101 while retaining a material 6.5-point edge versus the frozen model center.
+
 ## Volatility / State Tags
 - BOTH_TEAMS_3P_REGRESSION_UP_STRONG
 - ATL_TURNOVER_REGRESSION_UP
@@ -97,6 +128,11 @@ Net: The first-half 73 is too low to extrapolate directly. Both teams carry mate
 - COMPETITIVE_GAME_STATE
 - SECOND_HALF_SCORING_UP
 - MARKET_BLIND_PROJECTION_FROZEN_HALFTIME
+- ATL_TEAM_TOTAL_UNDER
+- ALT_LINE_EXECUTION
+- LADDER_DOWN_FOR_PRICE
+- PLUS_MONEY_ENTRY
+- PRICE_LOGGING_REQUIRED
 
 ```yaml
 game_id: WNBA_2026-08-24_ATL_LAS
@@ -126,5 +162,23 @@ central_ranges:
   LAS: 75-84
   total: 151-165
   margin: LAS_by_7_to_ATL_by_6
-status: HALFTIME_MARKET_BLIND_PROJECTION_FROZEN_AWAITING_MARKET
+market_reveal:
+  spread: LAS_+7_5_-137__ATL_-7_5_+109
+  total: 169.5
+  total_under_price_american: -209
+  atl_tt: 87.5
+  atl_tt_under_price_american: -263
+execution:
+  platform: Kalshi
+  position: NO_ATL_OVER_84_5
+  equivalent: ATL_UNDER_84_5
+  entry_price_american: 101
+  cost: 19.60
+  max_payout: 39.39
+  effective_break_even_probability: 0.4976
+  edge_points: 6.5
+  standard_max_price_american: -125
+  price_threshold_exception: false
+  status: OPEN
+status: HALFTIME_MARKET_REVEALED_POSITION_OPEN
 ```
