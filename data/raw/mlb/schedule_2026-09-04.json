@@ -24,10 +24,11 @@
           "rescheduledFromDate": "2026-06-14",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Delayed Start",
+            "statusCode": "PR",
             "startTimeTBD": false,
+            "reason": "Rain",
             "abstractGameCode": "P"
           },
           "teams": {
@@ -43,6 +44,7 @@
                 "ties": 0,
                 "pct": ".460"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 46
             },
@@ -58,6 +60,7 @@
                 "ties": 0,
                 "pct": ".500"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 46
             }
