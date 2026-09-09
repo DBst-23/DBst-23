@@ -1,0 +1,33 @@
+name: charlotte_update
+on:
+  workflow_dispatch:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.comment.body, '/charlotte update api-runner')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Apply template files
+        run: |
+          python scripts/apply_template.py templates/api_runner .
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: charlotte api-runner update"
+          branch: charlotte/api-runner-update
+          title: "Charlotte: API runner update"
+          body: "Automated update from Charlotte Bot."
+          labels: automation, charlotte
