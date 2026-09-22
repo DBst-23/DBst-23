@@ -3,14 +3,14 @@
   "totalItems": 16,
   "totalEvents": 0,
   "totalGames": 16,
-  "totalGamesInProgress": 0,
+  "totalGamesInProgress": 1,
   "dates": [
     {
       "date": "2026-09-22",
       "totalItems": 16,
       "totalEvents": 0,
       "totalGames": 16,
-      "totalGamesInProgress": 0,
+      "totalGamesInProgress": 1,
       "games": [
         {
           "gamePk": 823543,
@@ -23,12 +23,12 @@
           "rescheduledFrom": "2026-05-23T17:35:00Z",
           "rescheduledFromDate": "2026-05-23",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -43,6 +43,7 @@
                 "ties": 0,
                 "pct": ".613"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 51
             },
@@ -58,6 +59,7 @@
                 "ties": 0,
                 "pct": ".574"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 51
             }
