@@ -3,14 +3,14 @@
   "totalItems": 12,
   "totalEvents": 0,
   "totalGames": 12,
-  "totalGamesInProgress": 3,
+  "totalGamesInProgress": 1,
   "dates": [
     {
       "date": "2026-09-24",
       "totalItems": 12,
       "totalEvents": 0,
       "totalGames": 12,
-      "totalGamesInProgress": 3,
+      "totalGamesInProgress": 1,
       "games": [
         {
           "gamePk": 823326,
@@ -21,12 +21,12 @@
           "gameDate": "2026-09-24T16:35:00Z",
           "officialDate": "2026-09-24",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -37,11 +37,12 @@
               },
               "leagueRecord": {
                 "wins": 77,
-                "losses": 81,
+                "losses": 82,
                 "ties": 0,
-                "pct": ".487"
+                "pct": ".484"
               },
               "score": 1,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 52
             },
@@ -52,12 +53,13 @@
                 "link": "/api/v1/teams/134"
               },
               "leagueRecord": {
-                "wins": 80,
+                "wins": 81,
                 "losses": 78,
                 "ties": 0,
-                "pct": ".506"
+                "pct": ".509"
               },
-              "score": 1,
+              "score": 2,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 51
             }
@@ -70,6 +72,7 @@
           "content": {
             "link": "/api/v1/game/823326/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
@@ -97,12 +100,12 @@
           "gameDate": "2026-09-24T18:10:00Z",
           "officialDate": "2026-09-24",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -112,12 +115,13 @@
                 "link": "/api/v1/teams/145"
               },
               "leagueRecord": {
-                "wins": 81,
+                "wins": 82,
                 "losses": 77,
                 "ties": 0,
-                "pct": ".513"
+                "pct": ".516"
               },
-              "score": 3,
+              "score": 9,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 52
             },
@@ -129,11 +133,12 @@
               },
               "leagueRecord": {
                 "wins": 68,
-                "losses": 90,
+                "losses": 91,
                 "ties": 0,
-                "pct": ".430"
+                "pct": ".428"
               },
-              "score": 0,
+              "score": 1,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 51
             }
@@ -146,6 +151,7 @@
           "content": {
             "link": "/api/v1/game/824059/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
@@ -173,12 +179,12 @@
           "gameDate": "2026-09-24T18:20:00Z",
           "officialDate": "2026-09-24",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -189,11 +195,12 @@
               },
               "leagueRecord": {
                 "wins": 78,
-                "losses": 80,
+                "losses": 81,
                 "ties": 0,
-                "pct": ".494"
+                "pct": ".491"
               },
-              "score": 0,
+              "score": 1,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 51
             },
@@ -204,12 +211,13 @@
                 "link": "/api/v1/teams/112"
               },
               "leagueRecord": {
-                "wins": 87,
+                "wins": 88,
                 "losses": 71,
                 "ties": 0,
-                "pct": ".551"
+                "pct": ".553"
               },
-              "score": 0,
+              "score": 2,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 52
             }
@@ -222,6 +230,7 @@
           "content": {
             "link": "/api/v1/game/824623/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
@@ -249,12 +258,12 @@
           "gameDate": "2026-09-24T18:35:00Z",
           "officialDate": "2026-09-24",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "P",
-            "detailedState": "Warmup",
-            "statusCode": "PW",
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -265,11 +274,12 @@
               },
               "leagueRecord": {
                 "wins": 73,
-                "losses": 85,
+                "losses": 86,
                 "ties": 0,
-                "pct": ".462"
+                "pct": ".459"
               },
-              "score": 0,
+              "score": 1,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 51
             },
@@ -280,12 +290,13 @@
                 "link": "/api/v1/teams/140"
               },
               "leagueRecord": {
-                "wins": 78,
+                "wins": 79,
                 "losses": 80,
                 "ties": 0,
-                "pct": ".494"
+                "pct": ".497"
               },
-              "score": 0,
+              "score": 3,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 51
             }
@@ -298,6 +309,7 @@
           "content": {
             "link": "/api/v1/game/822842/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
@@ -325,12 +337,12 @@
           "gameDate": "2026-09-24T19:10:00Z",
           "officialDate": "2026-09-24",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -345,7 +357,7 @@
                 "ties": 0,
                 "pct": ".532"
               },
-              "score": 0,
+              "score": 12,
               "splitSquad": false,
               "seriesNumber": 52
             },
@@ -361,7 +373,7 @@
                 "ties": 0,
                 "pct": ".361"
               },
-              "score": 0,
+              "score": 6,
               "splitSquad": false,
               "seriesNumber": 51
             }
@@ -401,12 +413,12 @@
           "gameDate": "2026-09-24T22:05:00Z",
           "officialDate": "2026-09-24",
           "status": {
-            "abstractGameState": "Preview",
+            "abstractGameState": "Live",
             "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "detailedState": "Warmup",
+            "statusCode": "PW",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "L"
           },
           "teams": {
             "away": {
@@ -421,6 +433,7 @@
                 "ties": 0,
                 "pct": ".627"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 51
             },
@@ -436,6 +449,7 @@
                 "ties": 0,
                 "pct": ".551"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 51
             }
@@ -476,9 +490,9 @@
           "officialDate": "2026-09-24",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -495,6 +509,7 @@
                 "ties": 0,
                 "pct": ".519"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 51
             },
@@ -510,6 +525,7 @@
                 "ties": 0,
                 "pct": ".538"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 51
             }
@@ -550,9 +566,9 @@
           "officialDate": "2026-09-24",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -569,6 +585,7 @@
                 "ties": 0,
                 "pct": ".608"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 51
             },
@@ -584,6 +601,7 @@
                 "ties": 0,
                 "pct": ".576"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 51
             }
@@ -624,9 +642,9 @@
           "officialDate": "2026-09-24",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
@@ -643,6 +661,7 @@
                 "ties": 0,
                 "pct": ".462"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 51
             },
@@ -658,6 +677,7 @@
                 "ties": 0,
                 "pct": ".589"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 53
             }
@@ -772,9 +792,9 @@
           "officialDate": "2026-09-24",
           "status": {
             "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
             "startTimeTBD": false,
             "abstractGameCode": "P"
           },
