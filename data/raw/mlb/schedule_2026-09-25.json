@@ -162,9 +162,9 @@
           "ifNecessaryDescription": "Normal Game"
         },
         {
-          "gamePk": 823489,
-          "gameGuid": "be90ca26-45d5-422b-a4d0-02a67a627cd7",
-          "link": "/api/v1.1/game/823489/feed/live",
+          "gamePk": 823491,
+          "gameGuid": "dbeebdfb-85cd-4c42-9091-659f44387cc0",
+          "link": "/api/v1.1/game/823491/feed/live",
           "gameType": "R",
           "season": "2026",
           "gameDate": "2026-09-25T20:05:00Z",
@@ -215,20 +215,19 @@
             "link": "/api/v1/venues/3313"
           },
           "content": {
-            "link": "/api/v1/game/823489/content"
+            "link": "/api/v1/game/823491/content"
           },
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "Y",
           "gamedayType": "P",
           "tiebreaker": "N",
-          "calendarEventID": "14-823489-2026-09-25",
+          "calendarEventID": "14-823491-2026-09-25",
           "seasonDisplay": "2026",
           "dayNight": "night",
-          "description": "Makeup of 9/26 PPD",
           "scheduledInnings": 9,
           "reverseHomeAwayStatus": false,
-          "inningBreakLength": 145,
+          "inningBreakLength": 120,
           "gamesInSeries": 3,
           "seriesGameNumber": 1,
           "seriesDescription": "Regular Season",
@@ -237,9 +236,9 @@
           "ifNecessaryDescription": "Normal Game"
         },
         {
-          "gamePk": 823491,
-          "gameGuid": "dbeebdfb-85cd-4c42-9091-659f44387cc0",
-          "link": "/api/v1.1/game/823491/feed/live",
+          "gamePk": 823489,
+          "gameGuid": "be90ca26-45d5-422b-a4d0-02a67a627cd7",
+          "link": "/api/v1.1/game/823489/feed/live",
           "gameType": "R",
           "season": "2026",
           "gameDate": "2026-09-25T20:10:00Z",
@@ -290,21 +289,22 @@
             "link": "/api/v1/venues/3313"
           },
           "content": {
-            "link": "/api/v1/game/823491/content"
+            "link": "/api/v1/game/823489/content"
           },
           "gameNumber": 2,
           "publicFacing": true,
           "doubleHeader": "Y",
           "gamedayType": "P",
           "tiebreaker": "N",
-          "calendarEventID": "14-823491-2026-09-25",
+          "calendarEventID": "14-823489-2026-09-25",
           "seasonDisplay": "2026",
           "dayNight": "night",
+          "description": "Makeup of 9/26 PPD",
           "scheduledInnings": 9,
           "reverseHomeAwayStatus": false,
-          "inningBreakLength": 120,
+          "inningBreakLength": 145,
           "gamesInSeries": 3,
-          "seriesGameNumber": 2,
+          "seriesGameNumber": 1,
           "seriesDescription": "Regular Season",
           "recordSource": "S",
           "ifNecessary": "N",
