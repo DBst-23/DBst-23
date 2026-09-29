@@ -1,5 +1,10 @@
 # WNBA LIVE-FLOW Checkpoint — Seattle Storm at Golden State Valkyries
 
+## Status
+**CLOSED — graded WIN**
+
+Final postmortem: `postmortems/wnba/WNBA_LIVEFLOW_POSTMORTEM_SEA_GS_2026-09-19.md`
+
 ## Market-Blind Freeze
 - Date: 2026-09-19
 - Checkpoint: End of 3rd Quarter
@@ -68,11 +73,22 @@ SharpEdge's frozen total was approximately 146.5, too close to market for a clea
 - Platform: Kalshi
 - Contract: **No · Golden State over 90.5 points scored**
 - Equivalent sports-betting expression: **Golden State Valkyries team total UNDER 90.5**
-- Entry probability shown: 99%
+- Displayed market probability at entry: 99%
 - Cost: $9.60
-- Max payout: $9.69
-- Status at capture: OPEN POSITION
+- Max payout shown at entry: $9.69
 - Execution status: 🔒 LOCKED IN
+
+## Final Grade
+- Final score: Golden State 70, Seattle 57
+- Golden State final points: 70
+- Ticket: **WIN**
+- Paid out: $9.69
+- Profit: +$0.09
+- ROI: +0.94%
+- Under cushion: 20.5 points
+- Frozen GS projection error: -17 points
+- Frozen full-total projection error: -20 points
+- Primary calibration lesson: blowout-scoring lower tail remained too weak.
 
 ## Risk / Correlation Note
 Do not treat the Seattle TT under and Golden State TT under as independent edges. Both are materially driven by the same low-Q4 scoring / blowout-decay regime. One position is the preferred expression unless a separately validated, non-correlated signal appears.
@@ -104,22 +120,19 @@ market:
   total: 145.5
   gs_tt: 90.5
   sea_tt: 65.5
-separation:
-  spread_points: 9.0
-  total_points: 1.0
-  gs_tt_points: 3.5
-  sea_tt_points: 6.0
 execution:
   platform: Kalshi
   contract: NO_GS_OVER_90.5
   equivalent_market: GS_TT_UNDER_90.5
-  displayed_probability_pct: 99
+  displayed_market_probability_pct: 99
   cost_usd: 9.60
-  max_payout_usd: 9.69
-  status: LOCKED_IN_OPEN
-strike_hierarchy:
-  primary: GS_TT_UNDER_90.5
-  secondary: SEA_TT_UNDER_65.5
-  pass: FULL_GAME_TOTAL_145.5
-status: LIVEFLOW_LOCKED
+  payout_usd: 9.69
+  profit_usd: 0.09
+  roi_pct: 0.94
+  result: WIN
+final:
+  SEA: 57
+  GS: 70
+  total: 127
+status: CLOSED_WIN
 ```
