@@ -1,15 +1,15 @@
 {
   "copyright": "Copyright 2026 MLB Advanced Media, L.P.  Use of any content on this page acknowledges agreement to the terms posted here http://gdx.mlb.com/components/copyright.txt",
-  "totalItems": 3,
+  "totalItems": 1,
   "totalEvents": 0,
-  "totalGames": 3,
+  "totalGames": 1,
   "totalGamesInProgress": 0,
   "dates": [
     {
       "date": "2026-10-01",
-      "totalItems": 3,
+      "totalItems": 1,
       "totalEvents": 0,
-      "totalGames": 3,
+      "totalGames": 1,
       "totalGamesInProgress": 0,
       "games": [
         {
@@ -18,7 +18,7 @@
           "link": "/api/v1.1/game/849844/feed/live",
           "gameType": "F",
           "season": "2026",
-          "gameDate": "2026-10-01T18:00:00Z",
+          "gameDate": "2026-10-02T00:00:00Z",
           "officialDate": "2026-10-01",
           "status": {
             "abstractGameState": "Preview",
@@ -75,7 +75,7 @@
           "tiebreaker": "N",
           "calendarEventID": "14-849844-2026-10-01",
           "seasonDisplay": "2026",
-          "dayNight": "day",
+          "dayNight": "night",
           "description": "NL Wild Card 'A' Game 3",
           "scheduledInnings": 9,
           "reverseHomeAwayStatus": false,
@@ -86,156 +86,6 @@
           "recordSource": "S",
           "ifNecessary": "N",
           "ifNecessaryDescription": "Normal Game"
-        },
-        {
-          "gamePk": 849847,
-          "gameGuid": "c93d0a99-8392-4611-848f-fda4023373d8",
-          "link": "/api/v1.1/game/849847/feed/live",
-          "gameType": "F",
-          "season": "2026",
-          "gameDate": "2026-10-02T00:00:00Z",
-          "officialDate": "2026-10-01",
-          "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
-            "startTimeTBD": false,
-            "abstractGameCode": "P"
-          },
-          "teams": {
-            "away": {
-              "team": {
-                "id": 111,
-                "name": "Boston Red Sox",
-                "link": "/api/v1/teams/111"
-              },
-              "leagueRecord": {
-                "wins": 0,
-                "losses": 1,
-                "ties": 0,
-                "pct": ".000"
-              },
-              "splitSquad": false,
-              "seriesNumber": 2
-            },
-            "home": {
-              "team": {
-                "id": 147,
-                "name": "New York Yankees",
-                "link": "/api/v1/teams/147"
-              },
-              "leagueRecord": {
-                "wins": 1,
-                "losses": 0,
-                "ties": 0,
-                "pct": "1.000"
-              },
-              "splitSquad": false,
-              "seriesNumber": 2
-            }
-          },
-          "venue": {
-            "id": 3313,
-            "name": "Yankee Stadium",
-            "link": "/api/v1/venues/3313"
-          },
-          "content": {
-            "link": "/api/v1/game/849847/content"
-          },
-          "gameNumber": 1,
-          "publicFacing": true,
-          "doubleHeader": "N",
-          "gamedayType": "P",
-          "tiebreaker": "N",
-          "calendarEventID": "14-849847-2026-10-01",
-          "seasonDisplay": "2026",
-          "dayNight": "night",
-          "description": "AL Wild Card 'B' Game 3",
-          "scheduledInnings": 9,
-          "reverseHomeAwayStatus": false,
-          "inningBreakLength": 145,
-          "gamesInSeries": 3,
-          "seriesGameNumber": 3,
-          "seriesDescription": "AL Wild Card Series",
-          "recordSource": "S",
-          "ifNecessary": "Y",
-          "ifNecessaryDescription": "If Necessary Game"
-        },
-        {
-          "gamePk": 849840,
-          "gameGuid": "27ffeb6a-3e08-46dc-b5f6-bacf90375237",
-          "link": "/api/v1.1/game/849840/feed/live",
-          "gameType": "F",
-          "season": "2026",
-          "gameDate": "2026-10-02T02:00:00Z",
-          "officialDate": "2026-10-01",
-          "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
-            "startTimeTBD": false,
-            "abstractGameCode": "P"
-          },
-          "teams": {
-            "away": {
-              "team": {
-                "id": 112,
-                "name": "Chicago Cubs",
-                "link": "/api/v1/teams/112"
-              },
-              "leagueRecord": {
-                "wins": 0,
-                "losses": 1,
-                "ties": 0,
-                "pct": ".000"
-              },
-              "splitSquad": false,
-              "seriesNumber": 4
-            },
-            "home": {
-              "team": {
-                "id": 135,
-                "name": "San Diego Padres",
-                "link": "/api/v1/teams/135"
-              },
-              "leagueRecord": {
-                "wins": 1,
-                "losses": 0,
-                "ties": 0,
-                "pct": "1.000"
-              },
-              "splitSquad": false,
-              "seriesNumber": 4
-            }
-          },
-          "venue": {
-            "id": 2680,
-            "name": "Petco Park",
-            "link": "/api/v1/venues/2680"
-          },
-          "content": {
-            "link": "/api/v1/game/849840/content"
-          },
-          "gameNumber": 1,
-          "publicFacing": true,
-          "doubleHeader": "N",
-          "gamedayType": "P",
-          "tiebreaker": "N",
-          "calendarEventID": "14-849840-2026-10-01",
-          "seasonDisplay": "2026",
-          "dayNight": "night",
-          "description": "NL Wild Card 'B' Game 3",
-          "scheduledInnings": 9,
-          "reverseHomeAwayStatus": false,
-          "inningBreakLength": 145,
-          "gamesInSeries": 3,
-          "seriesGameNumber": 3,
-          "seriesDescription": "NL Wild Card Series",
-          "recordSource": "S",
-          "ifNecessary": "Y",
-          "ifNecessaryDescription": "If Necessary Game"
         }
       ],
       "events": []
