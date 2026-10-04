@@ -3,14 +3,14 @@
   "totalItems": 2,
   "totalEvents": 0,
   "totalGames": 2,
-  "totalGamesInProgress": 1,
+  "totalGamesInProgress": 0,
   "dates": [
     {
       "date": "2026-10-04",
       "totalItems": 2,
       "totalEvents": 0,
       "totalGames": 2,
-      "totalGamesInProgress": 1,
+      "totalGamesInProgress": 0,
       "games": [
         {
           "gamePk": 849825,
@@ -21,12 +21,12 @@
           "gameDate": "2026-10-04T20:00:00Z",
           "officialDate": "2026-10-04",
           "status": {
-            "abstractGameState": "Live",
-            "codedGameState": "I",
-            "detailedState": "In Progress",
-            "statusCode": "I",
+            "abstractGameState": "Final",
+            "codedGameState": "O",
+            "detailedState": "Game Over",
+            "statusCode": "O",
             "startTimeTBD": false,
-            "abstractGameCode": "L"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -37,11 +37,12 @@
               },
               "leagueRecord": {
                 "wins": 0,
-                "losses": 1,
+                "losses": 2,
                 "ties": 0,
                 "pct": ".000"
               },
-              "score": 1,
+              "score": 3,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 3
             },
@@ -52,12 +53,13 @@
                 "link": "/api/v1/teams/158"
               },
               "leagueRecord": {
-                "wins": 1,
+                "wins": 2,
                 "losses": 0,
                 "ties": 0,
                 "pct": "1.000"
               },
-              "score": 0,
+              "score": 4,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 3
             }
@@ -70,6 +72,7 @@
           "content": {
             "link": "/api/v1/game/849825/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
@@ -118,6 +121,7 @@
                 "ties": 0,
                 "pct": ".000"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 4
             },
@@ -133,6 +137,7 @@
                 "ties": 0,
                 "pct": "1.000"
               },
+              "score": 0,
               "splitSquad": false,
               "seriesNumber": 4
             }
