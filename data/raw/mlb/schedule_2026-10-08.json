@@ -1,15 +1,15 @@
 {
   "copyright": "Copyright 2026 MLB Advanced Media, L.P.  Use of any content on this page acknowledges agreement to the terms posted here http://gdx.mlb.com/components/copyright.txt",
-  "totalItems": 2,
+  "totalItems": 1,
   "totalEvents": 0,
-  "totalGames": 2,
+  "totalGames": 1,
   "totalGamesInProgress": 0,
   "dates": [
     {
       "date": "2026-10-08",
-      "totalItems": 2,
+      "totalItems": 1,
       "totalEvents": 0,
-      "totalGames": 2,
+      "totalGames": 1,
       "totalGamesInProgress": 0,
       "games": [
         {
@@ -18,7 +18,7 @@
           "link": "/api/v1.1/game/849832/feed/live",
           "gameType": "D",
           "season": "2026",
-          "gameDate": "2026-10-08T21:00:00Z",
+          "gameDate": "2026-10-09T00:00:00Z",
           "officialDate": "2026-10-08",
           "status": {
             "abstractGameState": "Preview",
@@ -75,7 +75,7 @@
           "tiebreaker": "N",
           "calendarEventID": "14-849832-2026-10-08",
           "seasonDisplay": "2026",
-          "dayNight": "day",
+          "dayNight": "night",
           "description": "ALDS 'B' Game 4",
           "scheduledInnings": 9,
           "reverseHomeAwayStatus": false,
@@ -86,81 +86,6 @@
           "recordSource": "S",
           "ifNecessary": "N",
           "ifNecessaryDescription": "Normal Game"
-        },
-        {
-          "gamePk": 849837,
-          "gameGuid": "b49bde8e-c251-44a1-8d7d-d798bfd41f8c",
-          "link": "/api/v1.1/game/849837/feed/live",
-          "gameType": "D",
-          "season": "2026",
-          "gameDate": "2026-10-09T00:00:00Z",
-          "officialDate": "2026-10-08",
-          "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "S",
-            "detailedState": "Scheduled",
-            "statusCode": "S",
-            "startTimeTBD": false,
-            "abstractGameCode": "P"
-          },
-          "teams": {
-            "away": {
-              "team": {
-                "id": 139,
-                "name": "Tampa Bay Rays",
-                "link": "/api/v1/teams/139"
-              },
-              "leagueRecord": {
-                "wins": 2,
-                "losses": 0,
-                "ties": 0,
-                "pct": "1.000"
-              },
-              "splitSquad": false,
-              "seriesNumber": 1
-            },
-            "home": {
-              "team": {
-                "id": 147,
-                "name": "New York Yankees",
-                "link": "/api/v1/teams/147"
-              },
-              "leagueRecord": {
-                "wins": 0,
-                "losses": 2,
-                "ties": 0,
-                "pct": ".000"
-              },
-              "splitSquad": false,
-              "seriesNumber": 1
-            }
-          },
-          "venue": {
-            "id": 3313,
-            "name": "Yankee Stadium",
-            "link": "/api/v1/venues/3313"
-          },
-          "content": {
-            "link": "/api/v1/game/849837/content"
-          },
-          "gameNumber": 1,
-          "publicFacing": true,
-          "doubleHeader": "N",
-          "gamedayType": "P",
-          "tiebreaker": "N",
-          "calendarEventID": "14-849837-2026-10-08",
-          "seasonDisplay": "2026",
-          "dayNight": "night",
-          "description": "ALDS 'A' Game 4",
-          "scheduledInnings": 9,
-          "reverseHomeAwayStatus": false,
-          "inningBreakLength": 175,
-          "gamesInSeries": 5,
-          "seriesGameNumber": 4,
-          "seriesDescription": "AL Division Series",
-          "recordSource": "S",
-          "ifNecessary": "Y",
-          "ifNecessaryDescription": "If Necessary Game"
         }
       ],
       "events": []
