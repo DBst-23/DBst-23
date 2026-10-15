@@ -21,12 +21,12 @@
           "gameDate": "2026-10-15T17:00:00Z",
           "officialDate": "2026-10-15",
           "status": {
-            "abstractGameState": "Preview",
-            "codedGameState": "P",
-            "detailedState": "Pre-Game",
-            "statusCode": "P",
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
             "startTimeTBD": false,
-            "abstractGameCode": "P"
+            "abstractGameCode": "F"
           },
           "teams": {
             "away": {
@@ -37,11 +37,12 @@
               },
               "leagueRecord": {
                 "wins": 1,
-                "losses": 1,
+                "losses": 2,
                 "ties": 0,
-                "pct": ".500"
+                "pct": ".333"
               },
-              "score": 0,
+              "score": 2,
+              "isWinner": false,
               "splitSquad": false,
               "seriesNumber": 1
             },
@@ -52,12 +53,13 @@
                 "link": "/api/v1/teams/114"
               },
               "leagueRecord": {
-                "wins": 1,
+                "wins": 2,
                 "losses": 1,
                 "ties": 0,
-                "pct": ".500"
+                "pct": ".667"
               },
-              "score": 0,
+              "score": 3,
+              "isWinner": true,
               "splitSquad": false,
               "seriesNumber": 1
             }
@@ -70,6 +72,7 @@
           "content": {
             "link": "/api/v1/game/849818/content"
           },
+          "isTie": false,
           "gameNumber": 1,
           "publicFacing": true,
           "doubleHeader": "N",
