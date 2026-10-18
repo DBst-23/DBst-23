@@ -3,14 +3,14 @@
   "totalItems": 1,
   "totalEvents": 0,
   "totalGames": 1,
-  "totalGamesInProgress": 0,
+  "totalGamesInProgress": 1,
   "dates": [
     {
       "date": "2026-10-18",
       "totalItems": 1,
       "totalEvents": 0,
       "totalGames": 1,
-      "totalGamesInProgress": 0,
+      "totalGamesInProgress": 1,
       "games": [
         {
           "gamePk": 849817,
@@ -24,9 +24,9 @@
           "rescheduledFromDate": "2026-10-16",
           "status": {
             "abstractGameState": "Live",
-            "codedGameState": "P",
-            "detailedState": "Warmup",
-            "statusCode": "PW",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
             "startTimeTBD": false,
             "abstractGameCode": "L"
           },
@@ -43,7 +43,7 @@
                 "ties": 0,
                 "pct": ".500"
               },
-              "score": 0,
+              "score": 3,
               "splitSquad": false,
               "seriesNumber": 1
             },
