@@ -1,0 +1,114 @@
+{
+  "game_id": "NBA_20261021_GSW_AT_LAL",
+  "season": "2026-27",
+  "mode": "ghost_paper_only",
+  "source": "user_supplied_official_scorers_report",
+  "status": "graded",
+  "sample_tier": 0,
+  "halftime": {
+    "GSW": 52,
+    "LAL": 66,
+    "total": 118
+  },
+  "final": {
+    "GSW": 105,
+    "LAL": 127,
+    "total": 232,
+    "margin_LAL": 22
+  },
+  "actual_second_half": {
+    "GSW": 53,
+    "LAL": 61,
+    "total": 114,
+    "margin_LAL": 8
+  },
+  "frozen_projection": {
+    "GSW_2h_mean": 56,
+    "LAL_2h_mean": 58.5,
+    "total_2h_mean": 114.5,
+    "GSW_final_mean": 108,
+    "LAL_final_mean": 124.5,
+    "total_final_mean": 232.5,
+    "margin_LAL_mean": 16.5
+  },
+  "errors_actual_minus_prediction": {
+    "GSW_2h": -3,
+    "LAL_2h": 2.5,
+    "total_2h": -0.5,
+    "GSW_final": -3,
+    "LAL_final": 2.5,
+    "total_final": -0.5,
+    "margin_LAL": 5.5
+  },
+  "ghost_markets": [
+    {
+      "market": "GSW full game team total UNDER 111.5",
+      "american_odds": -105,
+      "model_probability": 0.659,
+      "implied_probability": 0.5121951219512195,
+      "result": "WIN",
+      "actual": 105
+    },
+    {
+      "market": "Full game UNDER 236.5",
+      "american_odds": -110,
+      "model_probability": 0.623,
+      "implied_probability": 0.5238095238095238,
+      "result": "WIN",
+      "actual": 232
+    },
+    {
+      "market": "LAL full game -13.5",
+      "american_odds": -120,
+      "model_probability": 0.598,
+      "implied_probability": 0.5454545454545454,
+      "result": "WIN",
+      "actual_margin": 22
+    }
+  ],
+  "ghost_record": {
+    "wins": 3,
+    "losses": 0,
+    "real_wagers": 0,
+    "real_pnl": 0,
+    "hypothetical_flat_one_unit_roi": 0.89827,
+    "correlated_markets": true
+  },
+  "third_quarter": {
+    "GSW": 16,
+    "LAL": 36
+  },
+  "fourth_quarter": {
+    "GSW": 37,
+    "LAL": 25
+  },
+  "notes": [
+    "34-point LAL lead after Q3; heavy garbage time Q4",
+    "Curry and Doncic 0 Q4 minutes",
+    "Model total accuracy does not validate components",
+    "Original forecast manual-parameter exploratory simulation, not calibrated"
+  ],
+  "patch_overall": "MODIFY",
+  "patches": {
+    "KEEP": [
+      "frozen_baseline_before_market",
+      "halftime_total_estimator_under_observation",
+      "scorer_report_grade_audit"
+    ],
+    "MODIFY": [
+      "garbage_time_aware_minutes",
+      "3PT_regression_not_automatic",
+      "LAL_paint_quality_adjustment",
+      "late_game_variance_heteroskedasticity"
+    ],
+    "REVERT": [
+      "treat_3_correlated_ghosts_as_independent",
+      "promote_single_game_win_as_proven_edge"
+    ]
+  },
+  "links": {
+    "forecast": "liveflow/nba/ghost/2026-10-21_GSW_AT_LAL_halftime_freeze.md",
+    "market": "liveflow/nba/ghost/2026-10-21_GSW_AT_LAL_halftime_market_compare.md",
+    "postmortem": "postmortems/nba/2026-10-21_GSW_AT_LAL_GHOST001_POSTMORTEM.md"
+  }
+}
