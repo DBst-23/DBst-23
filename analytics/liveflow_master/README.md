@@ -37,3 +37,10 @@ These fields intentionally separate:
 
 ## Next ingestion checkpoint
 Extend standardized records to the remaining **294 unread source files** in the manifest, including historical NBA playoffs and WNBA postmortems, with exclusion classifications for documents that are not betting opportunities. Re-run manual source audits before statistics.
+
+## Game-level accuracy registry (2026-10-27)
+New: `nba_halftime_game_accuracy_v1.json` contains **5 unique NBA halftime games** reconstructed from October 2026 postmortems, with one frozen checkpoint per game and separately nested markets.
+
+**Current convenience-sample diagnostics:** Regulation-total model MAE **7.414 points** across 5 games; official-final-total (including OT) MAE **12.614 points**. **Only 4 of 5 games have a documented full-game book total line**. The fifth (MIN @ CLE) had 26 overtime points and a regulation-only model. Thus these are descriptive diagnostics **not** a validated market-beating record; some sportsbook screenshots were at a different score/clock from freeze.
+
+The source position ledger `standardized_records_v1.json` is preserved unchanged as an event/selection-level subsidiary. This new registry is **one row per game/checkpoint**, with nested market comparisons and source paths, preventing each correlated position from masquerading as another independent game. Dates, regulation-only/OT settlement, missing odds, and discrepancies preserved. Other older NBA and WNBA source files await review.
