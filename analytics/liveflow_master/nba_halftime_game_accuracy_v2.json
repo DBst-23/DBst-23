@@ -1,0 +1,855 @@
+{
+  "schema_version": "2.0",
+  "registry_id": "NBA_HALFTIME_GAME_ACCURACY_V2",
+  "generated_date": "2026-10-27",
+  "repository": "DBst-23/DBst-23",
+  "scope": "October 2026 five-game sample plus selected 2026 playoff halftime records; incomplete historical coverage",
+  "source_position_registry": "analytics/liveflow_master/standardized_records_v1.json",
+  "evaluation_unit": "one game / halftime forecast",
+  "metrics_definition": {
+    "total_error": "actual minus model",
+    "market_error": "absolute actual minus quoted midpoint line, not sportsbook forecast probability",
+    "market_fair_margin": "home point margin",
+    "overtime": "regulation forecast compared separately with regulation and full-game result"
+  },
+  "summary": {
+    "total_games": 10,
+    "playoff_games_added": 5,
+    "full_total_model_forecasts_present": 7,
+    "full_total_model_mae": 9.51,
+    "note": "Nonrandom convenience sample. Three playoff records are market-only; not included in total-projection model MAE. One source's spreads vs team totals inconsistent. OT settlement and quote-time mismatches preserved. NO validated betting edge."
+  },
+  "games": [
+    {
+      "game_id": "NBA_20261021_GSW_AT_LAL",
+      "date": "2026-10-21",
+      "league": "NBA",
+      "checkpoint": "HALFTIME",
+      "away_team": "GSW",
+      "home_team": "LAL",
+      "halftime": {
+        "away": 52,
+        "home": 66,
+        "total": 118
+      },
+      "forecast": {
+        "away_final": 108,
+        "home_final": 124.5,
+        "full_game_total": 232.5,
+        "second_half_total": 114.5,
+        "home_margin": 16.5,
+        "forecast_target": "regulation_only",
+        "freeze_timestamp": null
+      },
+      "actual": {
+        "away_final": 105,
+        "home_final": 127,
+        "final_total": 232,
+        "overtime": false,
+        "regulation": {
+          "away": 105,
+          "home": 127
+        },
+        "regulation_total": 232,
+        "second_half_regulation": {
+          "away": 53,
+          "home": 61,
+          "total": 114
+        },
+        "home_margin": 22
+      },
+      "accuracy": {
+        "total_error_final": -0.5,
+        "total_abs_error_final": 0.5,
+        "total_error_regulation": -0.5,
+        "home_margin_error_final": 5.5,
+        "away_team_error_final": -3,
+        "home_team_error_final": 2.5,
+        "second_half_error_regulation": -0.5
+      },
+      "market_comparisons": [
+        {
+          "type": "full_game_total",
+          "line": 236.5,
+          "selection": "Under",
+          "odds": -110,
+          "actual": 232,
+          "absolute_error": 4.5
+        },
+        {
+          "type": "team_total",
+          "team": "away",
+          "line": 111.5,
+          "selection": "Under",
+          "odds": -105,
+          "actual": 105,
+          "absolute_error": 6.5
+        },
+        {
+          "type": "spread_home_margin",
+          "line": 13.5,
+          "selection": "LAL -13.5",
+          "odds": -120,
+          "actual": 22,
+          "absolute_error": 8.5
+        }
+      ],
+      "source_paths": [
+        "liveflow/nba/ghost/2026-10-21_GSW_AT_LAL_GHOST001_RESULT.json",
+        "liveflow/nba/ghost/2026-10-21_GSW_AT_LAL_GHOST001_RESULT.json"
+      ],
+      "data_quality_flags": [
+        "pre-market freeze recorded; probabilities uncalibrated",
+        "same-game correlated ghost selections"
+      ],
+      "execution": "paper_only"
+    },
+    {
+      "game_id": "NBA_20261023_NYK_AT_BOS",
+      "date": "2026-10-23",
+      "league": "NBA",
+      "checkpoint": "HALFTIME",
+      "away_team": "NYK",
+      "home_team": "BOS",
+      "halftime": {
+        "away": 49,
+        "home": 50,
+        "total": 99
+      },
+      "forecast": {
+        "away_final": 102.483,
+        "home_final": 104.977,
+        "full_game_total": 207.46,
+        "second_half_total": 108.46,
+        "home_margin": 2.494,
+        "forecast_target": "regulation_only",
+        "freeze_timestamp": null
+      },
+      "actual": {
+        "away_final": 103,
+        "home_final": 107,
+        "final_total": 210,
+        "overtime": false,
+        "regulation": {
+          "away": 103,
+          "home": 107
+        },
+        "regulation_total": 210,
+        "second_half_regulation": {
+          "away": 54,
+          "home": 57,
+          "total": 111
+        },
+        "home_margin": 4
+      },
+      "accuracy": {
+        "total_error_final": 2.54,
+        "total_abs_error_final": 2.54,
+        "total_error_regulation": 2.54,
+        "home_margin_error_final": 1.506,
+        "away_team_error_final": 0.517,
+        "home_team_error_final": 2.023,
+        "second_half_error_regulation": 2.54
+      },
+      "market_comparisons": [
+        {
+          "type": "full_game_total",
+          "line": 205.5,
+          "selection": "Over",
+          "odds": -110,
+          "actual": 210,
+          "absolute_error": 4.5
+        },
+        {
+          "type": "team_total",
+          "team": "home",
+          "line": 103.5,
+          "selection": "Over",
+          "odds": -110,
+          "actual": 107,
+          "absolute_error": 3.5
+        },
+        {
+          "type": "spread_home_margin",
+          "line": 2.5,
+          "selection": "BOS -2.5",
+          "odds": -105,
+          "actual": 4,
+          "absolute_error": 1.5
+        }
+      ],
+      "source_paths": [
+        "liveflow/nba/ghost/2026-10-23_NYK_AT_BOS_postmortem.md"
+      ],
+      "data_quality_flags": [
+        "book screen captured Q3 11:39 (21 seconds after halftime), not synchronized",
+        "spread was PASS, not selected",
+        "book identity not independently verified"
+      ],
+      "execution": "paper_only"
+    },
+    {
+      "game_id": "NBA_20261023_MEM_AT_GSW",
+      "date": "2026-10-23",
+      "league": "NBA",
+      "checkpoint": "HALFTIME",
+      "away_team": "MEM",
+      "home_team": "GSW",
+      "halftime": {
+        "away": 60,
+        "home": 56,
+        "total": 116
+      },
+      "forecast": {
+        "away_final": 114,
+        "home_final": 115,
+        "full_game_total": 229,
+        "second_half_total": 113,
+        "home_margin": 1,
+        "forecast_target": "regulation_only",
+        "freeze_timestamp": null
+      },
+      "actual": {
+        "away_final": 111,
+        "home_final": 108,
+        "final_total": 219,
+        "overtime": false,
+        "regulation": {
+          "away": 111,
+          "home": 108
+        },
+        "regulation_total": 219,
+        "second_half_regulation": {
+          "away": 51,
+          "home": 52,
+          "total": 103
+        },
+        "home_margin": -3
+      },
+      "accuracy": {
+        "total_error_final": -10,
+        "total_abs_error_final": 10,
+        "total_error_regulation": -10,
+        "home_margin_error_final": -4,
+        "away_team_error_final": -3,
+        "home_team_error_final": -7,
+        "second_half_error_regulation": -10
+      },
+      "market_comparisons": [
+        {
+          "type": "full_game_total",
+          "line": 231.5,
+          "selection": "not selected",
+          "odds": -115,
+          "actual": 219,
+          "absolute_error": 12.5
+        },
+        {
+          "type": "team_total",
+          "team": "away",
+          "line": 115.5,
+          "selection": "not selected",
+          "odds": -115,
+          "actual": 111,
+          "absolute_error": 4.5
+        },
+        {
+          "type": "team_total",
+          "team": "home",
+          "line": 116.5,
+          "selection": "not selected",
+          "odds": -120,
+          "actual": 108,
+          "absolute_error": 8.5
+        },
+        {
+          "type": "spread_home_margin",
+          "line": -2,
+          "selection": "MEM +2 - selected",
+          "odds": -115,
+          "actual": -3,
+          "absolute_error": 1
+        }
+      ],
+      "source_paths": [
+        "liveflow/nba/ghost/2026-10-23_MEM_AT_GSW_GHOST003_final_postmortem.md"
+      ],
+      "data_quality_flags": [
+        "market screen showed MEM 62 vs official halftime 60; comparison not time aligned",
+        "model forecast approximate, not calibrated"
+      ],
+      "execution": "paper_only"
+    },
+    {
+      "game_id": "NBA_20261026_GSW_AT_DEN",
+      "date": "2026-10-26",
+      "league": "NBA",
+      "checkpoint": "HALFTIME",
+      "away_team": "GSW",
+      "home_team": "DEN",
+      "halftime": {
+        "away": 60,
+        "home": 56,
+        "total": 116
+      },
+      "forecast": {
+        "away_final": 114,
+        "home_final": 116,
+        "full_game_total": 230,
+        "second_half_total": 114,
+        "home_margin": 2,
+        "forecast_target": "regulation_only",
+        "freeze_timestamp": null
+      },
+      "actual": {
+        "away_final": 134,
+        "home_final": 114,
+        "final_total": 248,
+        "overtime": false,
+        "regulation": {
+          "away": 134,
+          "home": 114
+        },
+        "regulation_total": 248,
+        "second_half_regulation": {
+          "away": 74,
+          "home": 58,
+          "total": 132
+        },
+        "home_margin": -20
+      },
+      "accuracy": {
+        "total_error_final": 18,
+        "total_abs_error_final": 18,
+        "total_error_regulation": 18,
+        "home_margin_error_final": -22,
+        "away_team_error_final": 20,
+        "home_team_error_final": -2,
+        "second_half_error_regulation": 18
+      },
+      "market_comparisons": [
+        {
+          "type": "full_game_total",
+          "line": 237.5,
+          "selection": "Under",
+          "odds": -105,
+          "actual": 248,
+          "absolute_error": 10.5
+        },
+        {
+          "type": "team_total",
+          "team": "away",
+          "line": 117.5,
+          "selection": "Under",
+          "odds": -105,
+          "actual": 134,
+          "absolute_error": 16.5
+        },
+        {
+          "type": "team_total",
+          "team": "home",
+          "line": 119.5,
+          "selection": "Under",
+          "odds": -105,
+          "actual": 114,
+          "absolute_error": 5.5
+        },
+        {
+          "type": "spread_home_margin",
+          "line": 2.5,
+          "selection": "DEN -2.5 pass",
+          "odds": -115,
+          "actual": -20,
+          "absolute_error": 22.5
+        }
+      ],
+      "source_paths": [
+        "liveflow/nba/ghost/2026-10-26_GSW_AT_DEN_halftime_postmortem.md"
+      ],
+      "data_quality_flags": [
+        "original separate spread prediction DEN -1 conflicted with DEN 116 / GSW 114 implies DEN +2",
+        "100k simulation assertion unverified"
+      ],
+      "execution": "paper_only"
+    },
+    {
+      "game_id": "NBA_20261026_MIN_AT_CLE",
+      "date": "2026-10-26",
+      "league": "NBA",
+      "checkpoint": "HALFTIME",
+      "away_team": "MIN",
+      "home_team": "CLE",
+      "halftime": {
+        "away": 60,
+        "home": 50,
+        "total": 110
+      },
+      "forecast": {
+        "away_final": 112.98,
+        "home_final": 106.99,
+        "full_game_total": 219.97,
+        "second_half_total": 109.97,
+        "home_margin": -5.99,
+        "forecast_target": "regulation_only",
+        "freeze_timestamp": null
+      },
+      "actual": {
+        "away_final": 125,
+        "home_final": 127,
+        "final_total": 252,
+        "overtime": true,
+        "regulation": {
+          "away": 113,
+          "home": 113
+        },
+        "regulation_total": 226,
+        "second_half_regulation": {
+          "away": 53,
+          "home": 63,
+          "total": 116
+        },
+        "home_margin": 2
+      },
+      "accuracy": {
+        "total_error_final": 32.03,
+        "total_abs_error_final": 32.03,
+        "total_error_regulation": 6.03,
+        "home_margin_error_final": 7.99,
+        "away_team_error_final": 12.02,
+        "home_team_error_final": 20.01,
+        "second_half_error_regulation": 6.03
+      },
+      "market_comparisons": [
+        {
+          "type": "team_total",
+          "team": "away",
+          "line": 117.5,
+          "selection": "Under flagged/not confirmed selected",
+          "odds": null,
+          "price_multiplier": 1.97,
+          "actual": 125,
+          "absolute_error": 7.5
+        },
+        {
+          "type": "team_total",
+          "team": "home",
+          "line": 111.5,
+          "selection": "Under flagged/not confirmed selected",
+          "odds": null,
+          "price_multiplier": 1.83,
+          "actual": 127,
+          "absolute_error": 15.5
+        }
+      ],
+      "source_paths": [
+        "liveflow/nba/ghost/2026-10-26_MIN_AT_CLE_GHOST004_premarket_frozen.md",
+        "liveflow/nba/ghost/2026-10-26_MIN_AT_CLE_GHOST004_market_snapshot_01.md"
+      ],
+      "data_quality_flags": [
+        "overtime: forecast regulation only, official final includes 26 OT points",
+        "market screenshot appears exchange-like, not confirmed William Hill",
+        "no contemporaneous full game total line verified"
+      ],
+      "execution": "paper_only",
+      "regulation": {
+        "away": 113,
+        "home": 113
+      }
+    },
+    {
+      "game_id": "NBA_20260510_SAS_AT_MIN_G4",
+      "date": "2026-05-10",
+      "league": "NBA",
+      "checkpoint": "HALFTIME",
+      "away_team": "SAS",
+      "home_team": "MIN",
+      "halftime": {
+        "away": 56,
+        "home": 60,
+        "total": 116
+      },
+      "forecast": {
+        "away_final": 106.5,
+        "home_final": 116.5,
+        "full_game_total": 221.5,
+        "second_half_total": 105.5,
+        "home_margin": 5.5,
+        "forecast_target": "regulation_only",
+        "freeze_timestamp": null
+      },
+      "actual": {
+        "away_final": 109,
+        "home_final": 114,
+        "final_total": 223,
+        "overtime": false,
+        "regulation": {
+          "away": 109,
+          "home": 114
+        },
+        "regulation_total": 223,
+        "second_half_regulation": {
+          "away": 53,
+          "home": 54,
+          "total": 107
+        },
+        "home_margin": 5
+      },
+      "accuracy": {
+        "total_error_final": 1.5,
+        "total_abs_error_final": 1.5,
+        "total_error_regulation": 1.5,
+        "home_margin_error_final": -0.5,
+        "away_team_error_final": 2.5,
+        "home_team_error_final": -2.5,
+        "second_half_error_regulation": 1.5
+      },
+      "market_comparisons": [],
+      "source_paths": [
+        "Backtest_Logbook/NBA/Rolling_Window_Series/2026-05-10_SAS_MIN_Game4_Halftime_Postmortem.json"
+      ],
+      "data_quality_flags": [
+        "Postmortem gives model snapshot but exact forecast freeze timestamp unverified",
+        "MIN TT, SAS TT and total forecasts from postmortem; 106.5+116.5=223, does not equal stated full total 221.5; retained original discrepancies",
+        "No verified halftime book prices in selected source",
+        "Margin independently quoted +5.5 vs team-scoring implied +10"
+      ],
+      "execution": "unknown_not_assumed",
+      "era": "2026_NBA_PLAYOFFS",
+      "recorded_market_selections": [
+        {
+          "market": "MIN team total",
+          "side": "Over 111.5 or 112.5",
+          "odds": null,
+          "result": "111.5 over wins; 112.5 over wins",
+          "status": "unverified intended market"
+        }
+      ]
+    },
+    {
+      "game_id": "NBA_20260503_ORL_AT_DET_G7",
+      "date": "2026-05-03",
+      "league": "NBA",
+      "checkpoint": "HALFTIME",
+      "away_team": "ORL",
+      "home_team": "DET",
+      "halftime": {
+        "away": 49,
+        "home": 60,
+        "total": 109
+      },
+      "forecast": {
+        "away_final": null,
+        "home_final": null,
+        "full_game_total": 208,
+        "second_half_total": 98.5,
+        "home_margin": null,
+        "forecast_target": "regulation_only",
+        "freeze_timestamp": null
+      },
+      "actual": {
+        "away_final": 94,
+        "home_final": 116,
+        "final_total": 210,
+        "overtime": false,
+        "regulation": {
+          "away": 94,
+          "home": 116
+        },
+        "regulation_total": 210,
+        "second_half_regulation": {
+          "away": 45,
+          "home": 56,
+          "total": 101
+        },
+        "home_margin": 22
+      },
+      "accuracy": {
+        "total_error_final": 2,
+        "total_abs_error_final": 2,
+        "total_error_regulation": 2,
+        "home_margin_error_final": null,
+        "away_team_error_final": null,
+        "home_team_error_final": null,
+        "second_half_error_regulation": 2.5
+      },
+      "market_comparisons": [
+        {
+          "type": "full_game_total",
+          "line": 206.5,
+          "odds_over": -108,
+          "odds_under": -112,
+          "actual": 210,
+          "absolute_error": 3.5
+        },
+        {
+          "type": "team_total",
+          "team": "away",
+          "line": 97.5,
+          "actual": 94,
+          "absolute_error": 3.5
+        },
+        {
+          "type": "team_total",
+          "team": "home",
+          "line": 111.5,
+          "actual": 116,
+          "absolute_error": 4.5
+        }
+      ],
+      "source_paths": [
+        "data/nba/liveflow/2026-05-03/LIVEFLOW_DET_ORL_G7_HALFTIME_SNAPSHOT_V1.json",
+        null
+      ],
+      "data_quality_flags": [
+        "Snapshot says model projected 2H 98.5, combined with halftime 109 => 207.5, while independently stated full-game mean 208; retained original values",
+        "Halftime NO NEW BET; preexisting under 191.5 earlier is NOT halftime entry",
+        "Book screenshot platform not reverified"
+      ],
+      "execution": "halftime_pass_preexisting_ticket",
+      "era": "2026_NBA_PLAYOFFS"
+    },
+    {
+      "game_id": "NBA_20260517_CLE_AT_DET_G7",
+      "date": "2026-05-17",
+      "league": "NBA",
+      "checkpoint": "HALFTIME",
+      "away_team": "CLE",
+      "home_team": "DET",
+      "halftime": {
+        "away": 64,
+        "home": 47,
+        "total": 111
+      },
+      "forecast": {
+        "away_final": null,
+        "home_final": null,
+        "full_game_total": null,
+        "second_half_total": null,
+        "home_margin": null,
+        "forecast_target": "regulation_only",
+        "freeze_timestamp": null
+      },
+      "actual": {
+        "away_final": 125,
+        "home_final": 94,
+        "final_total": 219,
+        "overtime": false,
+        "regulation": {
+          "away": 125,
+          "home": 94
+        },
+        "regulation_total": 219,
+        "second_half_regulation": {
+          "away": 61,
+          "home": 47,
+          "total": 108
+        },
+        "home_margin": -31
+      },
+      "accuracy": {
+        "total_error_final": null,
+        "total_abs_error_final": null,
+        "total_error_regulation": null,
+        "home_margin_error_final": null,
+        "away_team_error_final": null,
+        "home_team_error_final": null,
+        "second_half_error_regulation": null
+      },
+      "market_comparisons": [
+        {
+          "type": "full_game_total",
+          "line": 214.5,
+          "actual": 219,
+          "absolute_error": 4.5
+        },
+        {
+          "type": "team_total",
+          "team": "away",
+          "line": 112.5,
+          "actual": 125,
+          "absolute_error": 12.5
+        },
+        {
+          "type": "team_total",
+          "team": "home",
+          "line": 101.5,
+          "actual": 94,
+          "absolute_error": 7.5
+        }
+      ],
+      "source_paths": [
+        "Backtest_Logbook/NBA/Rolling_Window_Series/2026-05-17_CLE_DET_Game7_LiveFlow_Halftime.json",
+        "Backtest_Logbook/NBA/Rolling_Window_Series/2026-05-17_CLE_DET_Game7_Final_Postmortem.json"
+      ],
+      "data_quality_flags": [
+        "Halftime market captured but only pregame total model mean 211.8 exists in final postmortem: NOT a halftime model projection",
+        "Pregame Over 205.5 bet and rebound prop are preexisting, not new halftime wagers",
+        "Halftime total 214.5 is quote, not model forecast"
+      ],
+      "execution": "halftime_monitor_preexisting_pregame_tickets",
+      "era": "2026_NBA_PLAYOFFS",
+      "pregame_model_total_mean_211_8_excluded_from_halftime_scoring": true
+    },
+    {
+      "game_id": "NBA_20260430_DEN_AT_MIN_G6",
+      "date": "2026-04-30",
+      "league": "NBA",
+      "checkpoint": "HALFTIME",
+      "away_team": "DEN",
+      "home_team": "MIN",
+      "halftime": {
+        "away": 50,
+        "home": 57,
+        "total": 107
+      },
+      "forecast": {
+        "away_final": null,
+        "home_final": null,
+        "full_game_total": null,
+        "second_half_total": null,
+        "home_margin": null,
+        "forecast_target": "regulation_only",
+        "freeze_timestamp": null
+      },
+      "actual": {
+        "away_final": 98,
+        "home_final": 110,
+        "final_total": 208,
+        "overtime": false,
+        "regulation": {
+          "away": 98,
+          "home": 110
+        },
+        "regulation_total": 208,
+        "second_half_regulation": {
+          "away": 48,
+          "home": 53,
+          "total": 101
+        },
+        "home_margin": 12
+      },
+      "accuracy": {
+        "total_error_final": null,
+        "total_abs_error_final": null,
+        "total_error_regulation": null,
+        "home_margin_error_final": null,
+        "away_team_error_final": null,
+        "home_team_error_final": null,
+        "second_half_error_regulation": null
+      },
+      "market_comparisons": [
+        {
+          "type": "full_game_total",
+          "line": 219.5,
+          "actual": 208,
+          "absolute_error": 11.5
+        },
+        {
+          "type": "team_total",
+          "team": "home",
+          "line": 109.5,
+          "actual": 110,
+          "absolute_error": 0.5
+        },
+        {
+          "type": "team_total",
+          "team": "away",
+          "line": 112.5,
+          "actual": 98,
+          "absolute_error": 14.5
+        }
+      ],
+      "source_paths": [
+        "liveflow/nba/2026-04-30_DEN_MIN_HALFTIME_liveflow_report.md",
+        "postmortems/nba/2026-04-30_DEN_MIN_G6_POSTMORTEM.md"
+      ],
+      "data_quality_flags": [
+        "Halftime report includes market, but no numerically frozen full game forecast located in these source files",
+        "Market 109.5 yes -132 from halftime report differs from postmortem ticket +123-type return; separate snapshots, unresolved timing/side pricing",
+        "Minnesota TT investment not assumed to be placed exactly at halftime"
+      ],
+      "execution": "reported_wager_timing_unverified",
+      "era": "2026_NBA_PLAYOFFS"
+    },
+    {
+      "game_id": "NBA_20260511_DET_AT_CLE_G4",
+      "date": "2026-05-11",
+      "league": "NBA",
+      "checkpoint": "HALFTIME",
+      "away_team": "DET",
+      "home_team": "CLE",
+      "halftime": {
+        "away": 56,
+        "home": 52,
+        "total": 108
+      },
+      "forecast": {
+        "away_final": null,
+        "home_final": null,
+        "full_game_total": null,
+        "second_half_total": null,
+        "home_margin": null,
+        "forecast_target": "regulation_only",
+        "freeze_timestamp": null
+      },
+      "actual": {
+        "away_final": 103,
+        "home_final": 112,
+        "final_total": 215,
+        "overtime": false,
+        "regulation": {
+          "away": 103,
+          "home": 112
+        },
+        "regulation_total": 215,
+        "second_half_regulation": {
+          "away": 47,
+          "home": 60,
+          "total": 107
+        },
+        "home_margin": 9
+      },
+      "accuracy": {
+        "total_error_final": null,
+        "total_abs_error_final": null,
+        "total_error_regulation": null,
+        "home_margin_error_final": null,
+        "away_team_error_final": null,
+        "home_team_error_final": null,
+        "second_half_error_regulation": null
+      },
+      "market_comparisons": [
+        {
+          "type": "full_game_total",
+          "line": 211.5,
+          "actual": 215,
+          "absolute_error": 3.5
+        },
+        {
+          "type": "team_total",
+          "team": "home",
+          "line": 106.5,
+          "actual": 112,
+          "absolute_error": 5.5
+        },
+        {
+          "type": "team_total",
+          "team": "away",
+          "line": 106.5,
+          "actual": 103,
+          "absolute_error": 3.5
+        }
+      ],
+      "source_paths": [
+        "Backtest_Logbook/NBA/Rolling_Window_Series/2026-05-11_DET_CLE_Game4_GhostBet_Postmortem.json"
+      ],
+      "data_quality_flags": [
+        "Ghost CLE TT over 106.5 documented as +100 at selection (a halftime snapshot line exists); 106.5+106.5 team totals alone imply 213 not exact 211.5 full total",
+        "No numeric frozen total/team scoring forecast in source; do not reinterpret chosen threshold as projection",
+        "Ghost wager only; zero bankroll according to source"
+      ],
+      "execution": "ghost_only",
+      "era": "2026_NBA_PLAYOFFS"
+    }
+  ]
+}
