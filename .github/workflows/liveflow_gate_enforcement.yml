@@ -1,0 +1,33 @@
+name: NBA LIVE-FLOW Strict Gate Enforcement
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "liveflow/nba/sync_gate.py"
+      - "liveflow/nba/strict_registry.py"
+      - "tests/test_liveflow_sync_gate.py"
+      - "tests/test_liveflow_strict_registry.py"
+      - ".github/workflows/liveflow_gate_enforcement.yml"
+  pull_request:
+    paths:
+      - "liveflow/nba/sync_gate.py"
+      - "liveflow/nba/strict_registry.py"
+      - "tests/test_liveflow_sync_gate.py"
+      - "tests/test_liveflow_strict_registry.py"
+      - ".github/workflows/liveflow_gate_enforcement.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-strict-admission:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Verify pass, score mismatch, timestamps, and duplicate denial
+        run: python -m unittest tests.test_liveflow_sync_gate tests.test_liveflow_strict_registry -v
