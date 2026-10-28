@@ -297,7 +297,7 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     p.add_argument("--date", required=False, default=datetime.utcnow().strftime("%Y-%m-%d"),
                    help="Slate date (YYYY-MM-DD)")
     p.add_argument("--mode", required=False, default="both",
-                   choices=["liveflow", "backtest", "both", "engine_verify"],
+                   choices=["liveflow", "backtest", "both", "engine_verify", "strict_admit"],
                    help="Execution mode")
     p.add_argument("--slate", required=False, default="",
                    help="Path to slate JSON (list of games or {'games': [...]})")
@@ -306,6 +306,10 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     p.add_argument("--out", required=False, default=DEFAULT_OUTPUT_DIR, help="Output dir")
     p.add_argument("--logs", required=False, default=DEFAULT_LOG_DIR, help="Log dir")
     p.add_argument("--tag", required=False, default="", help="Optional tag for this run")
+
+    p.add_argument("--freeze", default="", help="Immutable model-first halftime JSON for strict admission")
+    p.add_argument("--market", default="", help="Timestamped sportsbook JSON for strict admission")
+    p.add_argument("--registry", default="analytics/liveflow_master/nba_halftime_strict_accuracy_v1.json", help="Strict cohort output")
 
     # GitHub Action compatibility aliases
     p.add_argument("--date-str", dest="date", required=False, help="Alias for --date")
@@ -327,6 +331,15 @@ def cli() -> None:
 
     ensure_dir(args.out)
     ensure_dir(args.logs)
+
+    # STRICT ADMISSION: no simulation or legacy writer can bypass this gate.
+    if args.mode == "strict_admit":
+        if not args.freeze or not args.market:
+            raise ValueError("strict_admit requires --freeze and --market; no fallback")
+        from liveflow.nba.strict_registry import append_checkpoint
+        verdict = append_checkpoint(args.freeze, args.market, args.registry)
+        print("[STRICT REGISTRY] " + json.dumps(verdict, sort_keys=True))
+        return
 
     # ENGINE VERIFY (isolated)
     if args.mode == "engine_verify":
