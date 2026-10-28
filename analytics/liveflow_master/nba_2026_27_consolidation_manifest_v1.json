@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "created_date": "2026-10-28",
+  "primary_repository": "DBst-23/DBst-23",
+  "base_registry": "analytics/liveflow_master/nba_halftime_game_accuracy_v2.json",
+  "policy": {
+    "future_nba_postmortem_path": "liveflow/nba/ghost/YYYY-MM-DD_AWAY_AT_HOME_checkpoint_postmortem.md",
+    "never_overwrite_original_freezes": true,
+    "checkpoint_specific_metrics": true,
+    "keep_regulation_and_overtime_separate": true,
+    "exclude_ghost_from_roi": true,
+    "do_not_treat_uncalibrated_heuristics_as_simulations": true,
+    "do_not_mix_q1_q3_and_halftime_accuracy": true
+  },
+  "reconciliation": [
+    {
+      "game_id": "NBA_20261026_GSW_AT_DEN",
+      "status": "already_in_base_registry",
+      "note": "Q1 and halftime market records migrated as supplementary evidence; stale Q1 projection not halftime model."
+    },
+    {
+      "game_id": "NBA_20261026_MIN_AT_CLE",
+      "status": "already_in_base_registry_at_halftime",
+      "note": "Q3 postmortem migrated as distinct checkpoint; must not replace or double-count halftime record."
+    },
+    {
+      "game_id": "NBA_20261027_POR_AT_LAL",
+      "status": "new_halftime_record_pending_registry_append",
+      "note": "Independent original freeze and market snapshot verified in target repo; source legacy postmortem falsely says not fetchable at writing; book 68-75 vs official 68-73, score mismatch. Projection POR123 LAL133 total256; actual POR136 LAL129 total265; no OT; ghost only; exclude verified edge rankings."
+    },
+    {
+      "game_id": "NBA_20261027_BKN_AT_BOS",
+      "status": "new_halftime_record_pending_registry_append",
+      "note": "Independent freeze and market snapshot verified in target repo. Projection BKN117 BOS119 total236; regulation 117-117 total234; OT final BKN124 BOS125 total249. No actual wager; no calibrated EV; evaluate regulation separately from official settlement."
+    }
+  ],
+  "migrated_files": [
+    {
+      "source": "DBst-23/mlb-betting-model/logs/nba_2026-10-26_GSW_at_DEN_Q1_model_first.md",
+      "destination": "liveflow/nba/ghost/2026-10-26_GSW_AT_DEN_Q1_model_first_legacy.md",
+      "original_blob_sha": "b76808aa1ab0337db3efcfe2a981a718f0717e1e"
+    },
+    {
+      "source": "DBst-23/mlb-betting-model/logs/nba_2026-10-26_GSW_at_DEN_halftime_market.md",
+      "destination": "liveflow/nba/ghost/2026-10-26_GSW_AT_DEN_halftime_market_legacy.md",
+      "original_blob_sha": "77c4ab69b485c6026077e905255249abe948053e"
+    },
+    {
+      "source": "DBst-23/mlb-betting-model/postmortems/nba_2026-10-26_MIN_at_CLE_liveflow_Q3.md",
+      "destination": "liveflow/nba/ghost/2026-10-26_MIN_AT_CLE_Q3_postmortem_legacy.md",
+      "original_blob_sha": "0b002609de71eb773febc0a4d6d8bd521829807b"
+    },
+    {
+      "source": "DBst-23/mlb-betting-model/postmortems/nba_2026-10-27_POR_at_LAL_liveflow_halftime.md",
+      "destination": "liveflow/nba/ghost/2026-10-27_POR_AT_LAL_halftime_postmortem_legacy.md",
+      "original_blob_sha": "1d3e74e7406ba5d94c2998cb5afd10e03210b25c"
+    }
+  ],
+  "data_quality_warnings": [
+    "Original prediction clock timestamps unavailable for several records; checkpoint time is not precise wall clock",
+    "POR-LAL halftime sportsbook and official score differ by two points",
+    "MIN-CLE Q3 and halftime are separate checkpoints and must not be conflated",
+    "OT-inclusive final scoring is distinct from regulation-only forecasts",
+    "No confirmed cash wagers in migrated records",
+    "Legacy postmortem claims about missing target repo files are historically preserved, not current truth"
+  ]
+}
