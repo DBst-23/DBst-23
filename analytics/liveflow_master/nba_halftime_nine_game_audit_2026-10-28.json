@@ -1,0 +1,201 @@
+{
+  "audit_date": "2026-10-28",
+  "registry_source": "analytics/liveflow_master/nba_halftime_game_accuracy_v2.json",
+  "registry_blob_sha": "733f5116c36de0c6aabacc7ccec2ac8ecbcde546",
+  "method": "Game-level halftime checkpoint only. Forecast vs actual regulation; market line vs actual regulation as diagnostic only. Sportsbook full-game totals generally include OT; regulation comparisons are not a fair executable-market benchmark for OT games. Missing timestamps never inferred.",
+  "counts": {
+    "scored_games": 9,
+    "paired_total_lines": 7,
+    "missing_total_lines": 2,
+    "strictly_comparable_candidates": 1,
+    "exact_wall_clock_verified": 0
+  },
+  "metrics": {
+    "all_nine_model_regulation_mae": 5.73,
+    "paired_model_regulation_mae": 6.291,
+    "paired_market_regulation_mae": 7.5,
+    "paired_model_minus_market_mae": -1.209,
+    "strict_candidate_model_mae": 0.5,
+    "strict_candidate_market_mae": 4.5
+  },
+  "games": [
+    {
+      "game_id": "NBA_20261021_GSW_AT_LAL",
+      "forecast": 232.5,
+      "regulation_actual": 232,
+      "model_abs_error": 0.5,
+      "market_total": 236.5,
+      "market_abs_error": 4.5,
+      "model_minus_market_abs_error": -4,
+      "timing_status": "PREMARKET_CLAIM_ONLY",
+      "freeze_timestamp": null,
+      "market_timestamp": null,
+      "market_source_qc": null,
+      "verified_comparable": true,
+      "notes": [
+        "pre-market freeze recorded; probabilities uncalibrated",
+        "same-game correlated ghost selections"
+      ]
+    },
+    {
+      "game_id": "NBA_20261023_NYK_AT_BOS",
+      "forecast": 207.46,
+      "regulation_actual": 210,
+      "model_abs_error": 2.54,
+      "market_total": 205.5,
+      "market_abs_error": 4.5,
+      "model_minus_market_abs_error": -1.96,
+      "timing_status": "ASYNCHRONOUS_Q3_21_SECONDS",
+      "freeze_timestamp": null,
+      "market_timestamp": null,
+      "market_source_qc": null,
+      "verified_comparable": false,
+      "notes": [
+        "book screen captured Q3 11:39 (21 seconds after halftime), not synchronized",
+        "spread was PASS, not selected",
+        "book identity not independently verified"
+      ]
+    },
+    {
+      "game_id": "NBA_20261023_MEM_AT_GSW",
+      "forecast": 229,
+      "regulation_actual": 219,
+      "model_abs_error": 10,
+      "market_total": 231.5,
+      "market_abs_error": 12.5,
+      "model_minus_market_abs_error": -2.5,
+      "timing_status": "SCORE_STATE_MISMATCH",
+      "freeze_timestamp": null,
+      "market_timestamp": null,
+      "market_source_qc": null,
+      "verified_comparable": false,
+      "notes": [
+        "market screen showed MEM 62 vs official halftime 60; comparison not time aligned",
+        "model forecast approximate, not calibrated"
+      ]
+    },
+    {
+      "game_id": "NBA_20261026_GSW_AT_DEN",
+      "forecast": 230,
+      "regulation_actual": 248,
+      "model_abs_error": 18,
+      "market_total": 237.5,
+      "market_abs_error": 10.5,
+      "model_minus_market_abs_error": 7.5,
+      "timing_status": "RETROSPECTIVE_NO_SEPARATE_FREEZE",
+      "freeze_timestamp": null,
+      "market_timestamp": null,
+      "market_source_qc": null,
+      "verified_comparable": false,
+      "notes": [
+        "original separate spread prediction DEN -1 conflicted with DEN 116 / GSW 114 implies DEN +2",
+        "100k simulation assertion unverified"
+      ]
+    },
+    {
+      "game_id": "NBA_20261026_MIN_AT_CLE",
+      "forecast": 219.97,
+      "regulation_actual": 226,
+      "model_abs_error": 6.03,
+      "market_total": null,
+      "market_abs_error": null,
+      "model_minus_market_abs_error": null,
+      "timing_status": "PREMARKET_CLAIM_ONLY",
+      "freeze_timestamp": null,
+      "market_timestamp": null,
+      "market_source_qc": "UNVERIFIED_EXCHANGE_NO_TOTAL",
+      "verified_comparable": false,
+      "notes": [
+        "overtime: forecast regulation only, official final includes 26 OT points",
+        "market screenshot appears exchange-like, not confirmed William Hill",
+        "no contemporaneous full game total line verified"
+      ]
+    },
+    {
+      "game_id": "NBA_20260510_SAS_AT_MIN_G4",
+      "forecast": 221.5,
+      "regulation_actual": 223,
+      "model_abs_error": 1.5,
+      "market_total": null,
+      "market_abs_error": null,
+      "model_minus_market_abs_error": null,
+      "timing_status": "POSTMORTEM_ONLY_NO_FREEZE",
+      "freeze_timestamp": null,
+      "market_timestamp": null,
+      "market_source_qc": null,
+      "verified_comparable": false,
+      "notes": [
+        "Postmortem gives model snapshot but exact forecast freeze timestamp unverified",
+        "MIN TT, SAS TT and total forecasts from postmortem; 106.5+116.5=223, does not equal stated full total 221.5; retained original discrepancies",
+        "No verified halftime book prices in selected source",
+        "Margin independently quoted +5.5 vs team-scoring implied +10"
+      ]
+    },
+    {
+      "game_id": "NBA_20260503_ORL_AT_DET_G7",
+      "forecast": 208,
+      "regulation_actual": 210,
+      "model_abs_error": 2,
+      "market_total": 206.5,
+      "market_abs_error": 3.5,
+      "model_minus_market_abs_error": -1.5,
+      "timing_status": "MARKET_AND_MODEL_SAME_SNAPSHOT_NO_PREMARKET_PROOF",
+      "freeze_timestamp": null,
+      "market_timestamp": null,
+      "market_source_qc": "UNVERIFIED_BOOK",
+      "verified_comparable": false,
+      "notes": [
+        "Snapshot says model projected 2H 98.5, combined with halftime 109 => 207.5, while independently stated full-game mean 208; retained original values",
+        "Halftime NO NEW BET; preexisting under 191.5 earlier is NOT halftime entry",
+        "Book screenshot platform not reverified"
+      ]
+    },
+    {
+      "game_id": "NBA_20261027_POR_AT_LAL",
+      "forecast": 256,
+      "regulation_actual": 265,
+      "model_abs_error": 9,
+      "market_total": 254.5,
+      "market_abs_error": 10.5,
+      "model_minus_market_abs_error": -1.5,
+      "timing_status": "SCORE_STATE_MISMATCH",
+      "freeze_timestamp": null,
+      "market_timestamp": null,
+      "market_source_qc": null,
+      "verified_comparable": false,
+      "notes": [
+        "William Hill screenshot showed POR 68 LAL 75, official halftime POR 68 LAL 73: score mismatch; exclude from verified edge performance",
+        "Exact wall-clock freeze and market screenshot timestamps unavailable",
+        "Forecast heuristic not calibrated Monte Carlo",
+        "No confirmed wager; ghost-only"
+      ]
+    },
+    {
+      "game_id": "NBA_20261027_BKN_AT_BOS",
+      "forecast": 236,
+      "regulation_actual": 234,
+      "model_abs_error": 2,
+      "market_total": 227.5,
+      "market_abs_error": 6.5,
+      "model_minus_market_abs_error": -4.5,
+      "timing_status": "PREMARKET_CLAIM_ONLY",
+      "freeze_timestamp": null,
+      "market_timestamp": null,
+      "market_source_qc": null,
+      "verified_comparable": false,
+      "notes": [
+        "15 OT points: regulation-only forecast; final total includes OT",
+        "Exact wall-clock freeze and market screenshot timestamps unavailable",
+        "Heuristic uncalibrated; no verified wagers"
+      ]
+    }
+  ],
+  "interpretation": [
+    "Pairwise benchmark is descriptive only, not validated fair synchronized comparison; several screenshots have score mismatches or Q3 delays.",
+    "Full-game sportsbook totals usually include overtime while forecast is regulation-only; BKN-BOS OT game market regulation comparison is not settlement-equivalent.",
+    "No game has verified exact wall-clock premarket model freeze and matched sportsbook screenshot capture times in registry.",
+    "Do not infer model superiority, betting edge, or ROI from these figures.",
+    "GSW-LAL is only provisional same-score premarket claim; no exact capture timestamps.",
+    "ORL-DET combined market/model snapshot cannot establish forecast before odds; SAS-MIN postmortem cannot establish original premarket freeze."
+  ]
+}
