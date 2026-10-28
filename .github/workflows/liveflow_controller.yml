@@ -4,11 +4,19 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "Mode to run: engine_verify | liveflow | backtest"
+        description: "Mode to run: engine_verify | liveflow | backtest | strict_admit"
         required: true
         default: "engine_verify"
       date_str:
         description: "Date string (YYYY-MM-DD) if needed"
+        required: false
+        default: ""
+      freeze_path:
+        description: "Immutable forecast JSON (required for strict_admit)"
+        required: false
+        default: ""
+      market_path:
+        description: "Market quote JSON (required for strict_admit)"
         required: false
         default: ""
       slate_path:
@@ -37,6 +45,9 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
+      - name: Validate strict gate unit tests
+        run: python -m unittest discover -s tests -p "test_liveflow*gate*.py" -v
+
       - name: Run LiveFlow_Backtest_Controller
         env:
           AIRTABLE_API_KEY: ${{ secrets.AIRTABLE_API_KEY }}
@@ -49,4 +60,6 @@ jobs:
             --mode "${{ inputs.mode }}" \
             --date-str "${{ inputs.date_str }}" \
             --slate-path "${{ inputs.slate_path }}" \
-            --overlays-path "${{ inputs.overlays_path }}"
+            --overlays-path "${{ inputs.overlays_path }}" \
+            --freeze "${{ inputs.freeze_path }}" \
+            --market "${{ inputs.market_path }}"
