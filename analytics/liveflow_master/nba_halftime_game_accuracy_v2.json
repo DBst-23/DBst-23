@@ -1,9 +1,9 @@
 {
   "schema_version": "2.0",
   "registry_id": "NBA_HALFTIME_GAME_ACCURACY_V2",
-  "generated_date": "2026-10-27",
+  "generated_date": "2026-10-28",
   "repository": "DBst-23/DBst-23",
-  "scope": "October 2026 five-game sample plus selected 2026 playoff halftime records; incomplete historical coverage",
+  "scope": "October 2026 seven-game sample plus selected 2026 playoff halftime records; incomplete historical coverage",
   "source_position_registry": "analytics/liveflow_master/standardized_records_v1.json",
   "evaluation_unit": "one game / halftime forecast",
   "metrics_definition": {
@@ -13,11 +13,13 @@
     "overtime": "regulation forecast compared separately with regulation and full-game result"
   },
   "summary": {
-    "total_games": 10,
+    "total_games": 12,
     "playoff_games_added": 5,
-    "full_total_model_forecasts_present": 7,
-    "full_total_model_mae": 9.51,
-    "note": "Nonrandom convenience sample. Three playoff records are market-only; not included in total-projection model MAE. One source's spreads vs team totals inconsistent. OT settlement and quote-time mismatches preserved. NO validated betting edge."
+    "full_total_model_forecasts_present": 9,
+    "full_total_model_mae": 5.73,
+    "note": "Nonrandom convenience sample; one record per game/halftime checkpoint. Regulation-only total MAE recomputed from numeric frozen forecasts vs regulation actual, excluding market-only entries. OT settlement separately preserved. POR-LAL sportsbook/official score mismatch; ghost bets excluded from ROI. No validated betting edge.",
+    "full_total_model_regulation_mae": 5.73,
+    "overtime_games": 2
   },
   "games": [
     {
@@ -850,6 +852,213 @@
       ],
       "execution": "ghost_only",
       "era": "2026_NBA_PLAYOFFS"
+    },
+    {
+      "game_id": "NBA_20261027_POR_AT_LAL",
+      "date": "2026-10-27",
+      "league": "NBA",
+      "checkpoint": "HALFTIME",
+      "away_team": "POR",
+      "home_team": "LAL",
+      "halftime": {
+        "away": 68,
+        "home": 73,
+        "total": 141
+      },
+      "forecast": {
+        "away_final": 123,
+        "home_final": 133,
+        "full_game_total": 256,
+        "second_half_total": 115,
+        "home_margin": 10,
+        "forecast_target": "regulation_only",
+        "freeze_timestamp": null
+      },
+      "actual": {
+        "away_final": 136,
+        "home_final": 129,
+        "final_total": 265,
+        "overtime": false,
+        "regulation": {
+          "away": 136,
+          "home": 129
+        },
+        "regulation_total": 265,
+        "second_half_regulation": {
+          "away": 68,
+          "home": 56,
+          "total": 124
+        },
+        "home_margin": -7
+      },
+      "accuracy": {
+        "total_error_final": 9,
+        "total_abs_error_final": 9,
+        "total_error_regulation": 9,
+        "home_margin_error_final": -17,
+        "away_team_error_final": 13,
+        "home_team_error_final": -4,
+        "second_half_error_regulation": 9
+      },
+      "market_comparisons": [
+        {
+          "type": "full_game_total",
+          "line": 254.5,
+          "odds_over": -115,
+          "odds_under": -115,
+          "actual": 265,
+          "absolute_error": 10.5
+        },
+        {
+          "type": "team_total",
+          "team": "home",
+          "line": 128.5,
+          "odds_over": -120,
+          "odds_under": -110,
+          "actual": 129,
+          "absolute_error": 0.5
+        },
+        {
+          "type": "team_total",
+          "team": "away",
+          "line": 124.5,
+          "odds_over": -115,
+          "odds_under": -115,
+          "actual": 136,
+          "absolute_error": 11.5
+        },
+        {
+          "type": "spread_home_margin",
+          "line": 5.5,
+          "odds_home": -115,
+          "odds_away": -115,
+          "actual": -7,
+          "absolute_error": 12.5
+        },
+        {
+          "type": "moneyline",
+          "odds_home": -220,
+          "odds_away": 175,
+          "actual_winner": "POR"
+        }
+      ],
+      "source_paths": [
+        "liveflow/nba/ghost/2026-10-27_POR_AT_LAL_halftime_freeze.md",
+        "liveflow/nba/ghost/2026-10-27_POR_AT_LAL_halftime_market_snapshot_01.md",
+        "liveflow/nba/ghost/2026-10-27_POR_AT_LAL_halftime_postmortem_legacy.md"
+      ],
+      "data_quality_flags": [
+        "William Hill screenshot showed POR 68 LAL 75, official halftime POR 68 LAL 73: score mismatch; exclude from verified edge performance",
+        "Exact wall-clock freeze and market screenshot timestamps unavailable",
+        "Forecast heuristic not calibrated Monte Carlo",
+        "No confirmed wager; ghost-only"
+      ],
+      "execution": "paper_only",
+      "forecast_evidence": "frozen_premarket_file",
+      "market_snapshot_timestamp": null
+    },
+    {
+      "game_id": "NBA_20261027_BKN_AT_BOS",
+      "date": "2026-10-27",
+      "league": "NBA",
+      "checkpoint": "HALFTIME",
+      "away_team": "BKN",
+      "home_team": "BOS",
+      "halftime": {
+        "away": 61,
+        "home": 56,
+        "total": 117
+      },
+      "forecast": {
+        "away_final": 117,
+        "home_final": 119,
+        "full_game_total": 236,
+        "second_half_total": 119,
+        "home_margin": 2,
+        "forecast_target": "regulation_only",
+        "freeze_timestamp": null
+      },
+      "actual": {
+        "away_final": 124,
+        "home_final": 125,
+        "final_total": 249,
+        "overtime": true,
+        "regulation": {
+          "away": 117,
+          "home": 117
+        },
+        "regulation_total": 234,
+        "second_half_regulation": {
+          "away": 56,
+          "home": 61,
+          "total": 117
+        },
+        "home_margin": 1
+      },
+      "accuracy": {
+        "total_error_final": 13,
+        "total_abs_error_final": 13,
+        "total_error_regulation": -2,
+        "home_margin_error_final": -1,
+        "away_team_error_final": 7,
+        "home_team_error_final": 6,
+        "second_half_error_regulation": -2
+      },
+      "market_comparisons": [
+        {
+          "type": "full_game_total",
+          "line": 227.5,
+          "odds_over": -115,
+          "odds_under": -115,
+          "actual": 249,
+          "absolute_error": 21.5
+        },
+        {
+          "type": "team_total",
+          "team": "away",
+          "line": 111.5,
+          "odds_over": -125,
+          "odds_under": -105,
+          "actual": 124,
+          "absolute_error": 12.5
+        },
+        {
+          "type": "team_total",
+          "team": "home",
+          "line": 116.5,
+          "odds_over": -105,
+          "odds_under": -125,
+          "actual": 125,
+          "absolute_error": 8.5
+        },
+        {
+          "type": "spread_home_margin",
+          "line": 5.5,
+          "odds_home": -120,
+          "odds_away": -110,
+          "actual": 1,
+          "absolute_error": 4.5
+        },
+        {
+          "type": "moneyline",
+          "odds_home": -240,
+          "odds_away": 185,
+          "actual_winner": "BOS"
+        }
+      ],
+      "source_paths": [
+        "liveflow/nba/ghost/2026-10-27_BKN_AT_BOS_halftime_freeze.md",
+        "liveflow/nba/ghost/2026-10-27_BKN_AT_BOS_halftime_market_snapshot_01.md",
+        "liveflow/nba/ghost/2026-10-27_BKN_AT_BOS_halftime_postmortem.md"
+      ],
+      "data_quality_flags": [
+        "15 OT points: regulation-only forecast; final total includes OT",
+        "Exact wall-clock freeze and market screenshot timestamps unavailable",
+        "Heuristic uncalibrated; no verified wagers"
+      ],
+      "execution": "paper_only",
+      "forecast_evidence": "frozen_premarket_file",
+      "market_snapshot_timestamp": null
     }
   ]
 }
