@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "game_id": "2026-10-28_MIA_AT_ATL",
+  "checkpoint": "halftime",
+  "source": "User-provided NBA official scorer first-half and Q1/Q2 play-by-play",
+  "market_lines_seen": false,
+  "market_odds_seen": false,
+  "first_half": {
+    "MIA": 69,
+    "ATL": 56,
+    "total": 125,
+    "margin_MIA": 13,
+    "fg": {
+      "MIA": "29/55",
+      "ATL": "23/46"
+    },
+    "three": {
+      "MIA": "6/16",
+      "ATL": "6/15"
+    },
+    "fta": {
+      "MIA": 7,
+      "ATL": 5
+    },
+    "offensive_rebounds": {
+      "MIA": 8,
+      "ATL": 3
+    },
+    "turnovers": {
+      "MIA": 7,
+      "ATL": 9
+    }
+  },
+  "estimated_possessions_first_half": {
+    "MIA": 57.08,
+    "ATL": 54.2,
+    "average": 55.64,
+    "method": "FGA-ORB+TO+0.44*FTA; approximate"
+  },
+  "model_first_projection": {
+    "second_half_points": {
+      "MIA": 59,
+      "ATL": 56,
+      "total": 115
+    },
+    "full_game_points": {
+      "MIA": 128,
+      "ATL": 112,
+      "total": 240
+    },
+    "second_half_total_range": [
+      109,
+      122
+    ],
+    "full_game_total_range": [
+      234,
+      247
+    ],
+    "second_half_spread": "MIA -3",
+    "full_game_spread": "MIA -16"
+  },
+  "cautions": [
+    "Early season team strength priors unavailable; heuristic not calibrated forecast",
+    "High first-half shooting and few free throws; regression uncertain",
+    "No live sportsbook lines, vig or injury update provided",
+    "Not a betting recommendation or verified edge"
+  ],
+  "freeze_note": "Generated without sportsbook prices; creation commit establishes GitHub recording time, not necessarily exact model generation wall-clock."
+}
