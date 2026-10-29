@@ -13,13 +13,14 @@
     "overtime": "regulation forecast compared separately with regulation and full-game result"
   },
   "summary": {
-    "total_games": 12,
+    "total_games": 13,
     "playoff_games_added": 5,
     "full_total_model_forecasts_present": 9,
     "full_total_model_mae": 5.73,
-    "note": "Nonrandom convenience sample; one record per game/halftime checkpoint. Regulation-only total MAE recomputed from numeric frozen forecasts vs regulation actual, excluding market-only entries. OT settlement separately preserved. POR-LAL sportsbook/official score mismatch; ghost bets excluded from ROI. No validated betting edge.",
+    "note": "Nonrandom convenience sample; regulation-only total MAE restricted to independently frozen numeric forecasts. NYK-CHI 2026-10-28 conversational projections are unverified and excluded from verified MAE. OT settlement separately preserved. POR-LAL scoreboard mismatch. Ghost bets excluded from ROI. No validated betting edge.",
     "full_total_model_regulation_mae": 5.73,
-    "overtime_games": 2
+    "overtime_games": 2,
+    "conversation_reconstructed_unverified_games": 1
   },
   "games": [
     {
@@ -1058,6 +1059,109 @@
       ],
       "execution": "paper_only",
       "forecast_evidence": "frozen_premarket_file",
+      "market_snapshot_timestamp": null
+    },
+    {
+      "game_id": "NBA_20261028_NYK_AT_CHI",
+      "date": "2026-10-28",
+      "league": "NBA",
+      "checkpoint": "HALFTIME",
+      "away_team": "NYK",
+      "home_team": "CHI",
+      "halftime": {
+        "away": 56,
+        "home": 62,
+        "total": 118
+      },
+      "forecast": {
+        "away_final": 113,
+        "home_final": 116.5,
+        "full_game_total": 229.5,
+        "second_half_total": 111.5,
+        "home_margin": 3.5,
+        "forecast_target": "regulation_only",
+        "freeze_timestamp": null
+      },
+      "actual": {
+        "away_final": 133,
+        "home_final": 127,
+        "final_total": 260,
+        "overtime": false,
+        "regulation": {
+          "away": 133,
+          "home": 127
+        },
+        "regulation_total": 260,
+        "second_half_regulation": {
+          "away": 77,
+          "home": 65,
+          "total": 142
+        },
+        "home_margin": -6
+      },
+      "accuracy": {
+        "total_error_final": 30.5,
+        "total_abs_error_final": 30.5,
+        "total_error_regulation": 30.5,
+        "home_margin_error_final": -9.5,
+        "away_team_error_final": 20,
+        "home_team_error_final": 10.5,
+        "second_half_error_regulation": 30.5
+      },
+      "market_comparisons": [
+        {
+          "type": "full_game_total",
+          "line": 232.5,
+          "odds_over": -115,
+          "odds_under": -115,
+          "actual": 260,
+          "absolute_error": 27.5
+        },
+        {
+          "type": "team_total",
+          "team": "away",
+          "line": 117.5,
+          "odds_over": -105,
+          "odds_under": -125,
+          "actual": 133,
+          "absolute_error": 15.5
+        },
+        {
+          "type": "team_total",
+          "team": "home",
+          "line": 115.5,
+          "odds_over": -125,
+          "odds_under": -105,
+          "actual": 127,
+          "absolute_error": 11.5
+        },
+        {
+          "type": "spread_home_margin",
+          "line": -1.5,
+          "odds_home": -115,
+          "odds_away": -115,
+          "actual": -6,
+          "absolute_error": 4.5
+        },
+        {
+          "type": "moneyline",
+          "odds_home": 110,
+          "odds_away": -140,
+          "actual_winner": "NYK"
+        }
+      ],
+      "source_paths": [
+        "liveflow/nba/ghost/2026-10-28_NYK_AT_CHI_halftime_postmortem.md"
+      ],
+      "data_quality_flags": [
+        "Forecast is reconstructed from conversational working baseline; no independently authenticated pre-market freeze in GitHub",
+        "Exclude from verified-frozen forecast MAE and betting edge calibration",
+        "Exact wall-clock freeze and screenshot timestamps unavailable",
+        "No confirmed wager; paper-only",
+        "Official scorer's report supplied in conversation; screenshot halftime score matches official"
+      ],
+      "execution": "paper_only",
+      "forecast_evidence": "conversation_reconstructed_unverified",
       "market_snapshot_timestamp": null
     }
   ]
