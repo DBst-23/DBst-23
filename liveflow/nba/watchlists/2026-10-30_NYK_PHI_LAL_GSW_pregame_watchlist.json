@@ -1,0 +1,133 @@
+{
+  "date": "2026-10-30",
+  "session": "NBA LIVE-FLOW halftime hunt",
+  "status": "PRE-GAME WATCHLIST / NO MODEL FREEZE",
+  "source": "User-provided lineup screenshots and typed market snapshot; sportsbook identity and snapshot times not independently verified",
+  "matchups": [
+    {
+      "id": "NYK@PHI",
+      "scheduled_tip_pdt": "16:30",
+      "venue_from_user": "Wells Fargo Center",
+      "records": {
+        "NYK": "2-3",
+        "PHI": "4-1"
+      },
+      "lineups": {
+        "NYK": [
+          "J. Brunson",
+          "M. Bridges",
+          "J. Hart",
+          "O. Anunoby",
+          "K. Towns (probable)"
+        ],
+        "PHI": [
+          "T. Maxey",
+          "V. Edgecombe",
+          "K. Caldwell-Pope",
+          "L. James",
+          "J. Embiid"
+        ]
+      },
+      "injuries": {
+        "NYK": [
+          "K. Towns probable",
+          "J. Alvarado out"
+        ],
+        "PHI": [
+          "J. Brown doubtful",
+          "D. Barlow out",
+          "T. Fall out",
+          "J. Walker out"
+        ]
+      },
+      "screenshot": {
+        "moneyline_NYK": -150,
+        "spread_NYK": -3.5,
+        "total": 226
+      },
+      "typed": {
+        "spread_open_NYK": -0.5,
+        "spread_current_NYK": -1.5,
+        "spread_price_NYK": -117,
+        "spread_price_PHI": -106,
+        "total_open": 230.5,
+        "total_current": 227,
+        "moneyline_open_NYK": -152,
+        "moneyline_current_NYK": -129,
+        "moneyline_open_PHI": -192,
+        "moneyline_current_PHI": 108
+      },
+      "flags": [
+        "Typed PHI opening ML -192 conflicts with NYK opening ML -152; verify",
+        "Screenshot spread NYK -3.5 differs from typed NYK -1.5",
+        "Confirm lineup and official venue before tip"
+      ]
+    },
+    {
+      "id": "LAL@GSW",
+      "scheduled_tip_pdt": "19:00",
+      "venue_from_user": "Oakland Arena",
+      "records": {
+        "LAL": "4-1",
+        "GSW": "2-3"
+      },
+      "lineups": {
+        "LAL": [
+          "L. Doncic",
+          "A. Reaves",
+          "Q. Grimes",
+          "M. Thybulle",
+          "W. Kessler"
+        ],
+        "GSW": [
+          "S. Curry",
+          "B. Podziemski",
+          "Y. Lendeborg",
+          "G. Niang",
+          "D. Green"
+        ]
+      },
+      "injuries": {
+        "LAL": [
+          "A. Thiero out",
+          "Z. Williams out"
+        ],
+        "GSW": [
+          "G. Santos questionable",
+          "J. Butler out",
+          "M. Moody out",
+          "K. Porzingis out"
+        ]
+      },
+      "screenshot": {
+        "moneyline_LAL": -145,
+        "spread_LAL": -3,
+        "total": 234.5
+      },
+      "typed": {
+        "spread_open_LAL": -1.5,
+        "spread_current_LAL": -2.5,
+        "spread_price_LAL": -115,
+        "spread_price_GSW": -107,
+        "total_open": 233.5,
+        "total_current": 234.5,
+        "moneyline_open_LAL": 0,
+        "moneyline_current_LAL": -146,
+        "moneyline_open_GSW": 0,
+        "moneyline_current_GSW": 122
+      },
+      "flags": [
+        "Venue Oakland Arena is user-provided and unverified; confirm before game",
+        "Moneyline opening values 0 are missing data, not valid odds",
+        "Screenshot spread LAL -3 differs from typed -2.5"
+      ]
+    }
+  ],
+  "protocol": [
+    "Pregame market snapshots are context only; no halftime forecast or EV claimed",
+    "At official halftime obtain score, possessions, team box score, play-by-play, lineup/injury changes",
+    "Freeze 2H/full-game forecast with timestamp before viewing halftime market",
+    "Then compare market odds, compute calibrated probabilities and EV only if inputs support them",
+    "No wagers logged unless explicitly confirmed"
+  ]
+}
