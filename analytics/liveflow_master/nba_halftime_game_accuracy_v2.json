@@ -13,14 +13,14 @@
     "overtime": "regulation forecast compared separately with regulation and full-game result"
   },
   "summary": {
-    "total_games": 13,
+    "total_games": 14,
     "playoff_games_added": 5,
     "full_total_model_forecasts_present": 9,
     "full_total_model_mae": 5.73,
-    "note": "Nonrandom convenience sample; regulation-only total MAE restricted to independently frozen numeric forecasts. NYK-CHI 2026-10-28 conversational projections are unverified and excluded from verified MAE. OT settlement separately preserved. POR-LAL scoreboard mismatch. Ghost bets excluded from ROI. No validated betting edge.",
+    "note": "Nonrandom convenience sample; verified regulation MAE 5.73 remains restricted to nine authenticated numeric forecasts. NYK-CHI and NYK-PHI conversation forecasts excluded. No confirmed wagers or calibrated betting edge.",
     "full_total_model_regulation_mae": 5.73,
     "overtime_games": 2,
-    "conversation_reconstructed_unverified_games": 1
+    "conversation_reconstructed_unverified_games": 2
   },
   "games": [
     {
@@ -1159,6 +1159,108 @@
         "Exact wall-clock freeze and screenshot timestamps unavailable",
         "No confirmed wager; paper-only",
         "Official scorer's report supplied in conversation; screenshot halftime score matches official"
+      ],
+      "execution": "paper_only",
+      "forecast_evidence": "conversation_reconstructed_unverified",
+      "market_snapshot_timestamp": null
+    },
+    {
+      "game_id": "NBA_20261030_NYK_AT_PHI",
+      "date": "2026-10-30",
+      "league": "NBA",
+      "checkpoint": "HALFTIME",
+      "away_team": "NYK",
+      "home_team": "PHI",
+      "halftime": {
+        "away": 44,
+        "home": 53,
+        "total": 97
+      },
+      "forecast": {
+        "away_final": 97,
+        "home_final": 104,
+        "full_game_total": 201,
+        "second_half_total": 104,
+        "home_margin": 7,
+        "forecast_target": "regulation_only",
+        "freeze_timestamp": null
+      },
+      "actual": {
+        "away_final": 93,
+        "home_final": 98,
+        "final_total": 191,
+        "overtime": false,
+        "regulation": {
+          "away": 93,
+          "home": 98
+        },
+        "regulation_total": 191,
+        "second_half_regulation": {
+          "away": 49,
+          "home": 45,
+          "total": 94
+        },
+        "home_margin": 5
+      },
+      "accuracy": {
+        "total_error_final": -10,
+        "total_abs_error_final": 10,
+        "total_error_regulation": -10,
+        "home_margin_error_final": -2,
+        "away_team_error_final": -4,
+        "home_team_error_final": -6,
+        "second_half_error_regulation": -10
+      },
+      "market_comparisons": [
+        {
+          "type": "full_game_total",
+          "line": 205.5,
+          "odds_over": -115,
+          "odds_under": -115,
+          "actual": 191,
+          "absolute_error": 14.5
+        },
+        {
+          "type": "team_total",
+          "team": "away",
+          "line": 100.5,
+          "odds_over": -105,
+          "odds_under": -125,
+          "actual": 93,
+          "absolute_error": 7.5
+        },
+        {
+          "type": "team_total",
+          "team": "home",
+          "line": 105.5,
+          "odds_over": -115,
+          "odds_under": -115,
+          "actual": 98,
+          "absolute_error": 7.5
+        },
+        {
+          "type": "spread_home_margin",
+          "line": 5.5,
+          "odds_home": -125,
+          "odds_away": -105,
+          "actual": 5,
+          "absolute_error": 0.5
+        },
+        {
+          "type": "moneyline",
+          "odds_home": -260,
+          "odds_away": 200,
+          "actual_winner": "PHI"
+        }
+      ],
+      "source_paths": [
+        "liveflow/nba/ghost/2026-10-30_NYK_AT_PHI_halftime_postmortem.md"
+      ],
+      "data_quality_flags": [
+        "Conversational forecast not independently authenticated as pre-market freeze",
+        "Exact screenshot timestamps unavailable",
+        "No calibrated probability or verified wager",
+        "Official halftime matches screenshot"
       ],
       "execution": "paper_only",
       "forecast_evidence": "conversation_reconstructed_unverified",
