@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "registry_id": "NBA_HALFTIME_GAME_ACCURACY_V2",
-  "generated_date": "2026-10-28",
+  "generated_date": "2026-10-30",
   "repository": "DBst-23/DBst-23",
   "scope": "October 2026 seven-game sample plus selected 2026 playoff halftime records; incomplete historical coverage",
   "source_position_registry": "analytics/liveflow_master/standardized_records_v1.json",
@@ -13,14 +13,14 @@
     "overtime": "regulation forecast compared separately with regulation and full-game result"
   },
   "summary": {
-    "total_games": 14,
+    "total_games": 15,
     "playoff_games_added": 5,
     "full_total_model_forecasts_present": 9,
     "full_total_model_mae": 5.73,
-    "note": "Nonrandom convenience sample; verified regulation MAE 5.73 remains restricted to nine authenticated numeric forecasts. NYK-CHI and NYK-PHI conversation forecasts excluded. No confirmed wagers or calibrated betting edge.",
+    "note": "Nonrandom convenience sample; verified regulation MAE 5.73 remains restricted to nine authenticated numeric forecasts. NYK-CHI, NYK-PHI and LAL-GSW conversation forecasts excluded. No confirmed wagers or calibrated betting edge.",
     "full_total_model_regulation_mae": 5.73,
     "overtime_games": 2,
-    "conversation_reconstructed_unverified_games": 2
+    "conversation_reconstructed_unverified_games": 3
   },
   "games": [
     {
@@ -1265,6 +1265,90 @@
       "execution": "paper_only",
       "forecast_evidence": "conversation_reconstructed_unverified",
       "market_snapshot_timestamp": null
+    },
+    {
+      "game_id": "NBA_20261030_LAL_AT_GSW",
+      "date": "2026-10-30",
+      "league": "NBA",
+      "checkpoint": "HALFTIME",
+      "away_team": "LAL",
+      "home_team": "GSW",
+      "venue": "Chase Center, San Francisco, CA",
+      "halftime": {
+        "away": 53,
+        "home": 53,
+        "total": 106
+      },
+      "forecast": {
+        "away_final": 108,
+        "home_final": 110,
+        "full_game_total": 218,
+        "second_half_total": 112,
+        "home_margin": 2,
+        "forecast_target": "regulation_only",
+        "freeze_timestamp": null,
+        "provenance": "Q3-opening GitHub record preserved frozen-model numbers; independent original halftime pre-market freeze unverified"
+      },
+      "actual": {
+        "away_final": 95,
+        "home_final": 112,
+        "final_total": 207,
+        "overtime": false,
+        "regulation": {
+          "away": 95,
+          "home": 112
+        },
+        "regulation_total": 207,
+        "second_half_regulation": {
+          "away": 42,
+          "home": 59,
+          "total": 101
+        },
+        "home_margin": 17
+      },
+      "accuracy": {
+        "total_error_final": -11,
+        "total_abs_error_final": 11,
+        "total_error_regulation": -11,
+        "home_margin_error_final": 15,
+        "away_team_error_final": -13,
+        "home_team_error_final": 2,
+        "second_half_error_regulation": -11
+      },
+      "market_comparisons": [
+        {
+          "checkpoint": "prior halftime snapshot",
+          "market": "full total",
+          "line": 220.5,
+          "under_odds": -105,
+          "paper_result": "under wins"
+        },
+        {
+          "checkpoint": "Q3 opening 12:00",
+          "market": "full total",
+          "line": 219.5,
+          "under_odds": -115,
+          "paper_result": "under wins"
+        },
+        {
+          "checkpoint": "Q3 opening 12:00",
+          "market": "GSW +1.5",
+          "odds": -120,
+          "paper_result": "GSW covers"
+        }
+      ],
+      "source_paths": [
+        "liveflow/nba/ghost/2026-10-30_LAL_AT_GSW_Q3_OPEN_MARKET_ADJUSTMENT.json",
+        "liveflow/nba/ghost/2026-10-30_LAL_AT_GSW_halftime_postmortem.md"
+      ],
+      "data_quality_flags": [
+        "official quarter, half and final sums reconcile",
+        "original independent halftime freeze timestamp unverified",
+        "exclude from authenticated MAE",
+        "no confirmed wager",
+        "Q3 opening market not equivalent to halftime freeze"
+      ],
+      "execution": "paper_only_no_confirmed_wager"
     }
   ]
 }
