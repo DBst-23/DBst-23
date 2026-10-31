@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "game_date": "2026-10-31",
+  "matchup": "POR @ UTA",
+  "venue": "Delta Center, Salt Lake City, UT",
+  "phase": "HALFTIME",
+  "status": "MODEL_FIRST_PRE_MARKET_FREEZE",
+  "source": "User-provided NBA official first-half scorer report and Q1/Q2 play-by-play",
+  "halftime": {
+    "POR": 59,
+    "UTA": 42,
+    "total": 101,
+    "margin_POR": 17,
+    "quarters": {
+      "POR": [
+        27,
+        32
+      ],
+      "UTA": [
+        18,
+        24
+      ]
+    }
+  },
+  "first_half": {
+    "POR": {
+      "fg": "15/33",
+      "three": "6/16",
+      "ft": "23/26",
+      "turnovers": 11
+    },
+    "UTA": {
+      "fg": "13/40",
+      "three": "5/20",
+      "ft": "11/16",
+      "turnovers": 9
+    }
+  },
+  "model": {
+    "method": "Transparent halftime heuristic; NOT trained/calibrated simulation",
+    "second_half_points": {
+      "POR": 53,
+      "UTA": 54,
+      "total": 107
+    },
+    "final_score": {
+      "POR": 112,
+      "UTA": 96
+    },
+    "full_game_total": 208,
+    "final_margin_POR": 16,
+    "second_half_margin_UTA": 1,
+    "mean_full_game_total": null,
+    "median_full_game_total": null,
+    "simulation_count": 0,
+    "probabilities": null,
+    "ev": null
+  },
+  "rationale": [
+    "Utah 32.5% FG and 25% 3PT likely have some positive shooting regression, but no quantified rate.",
+    "Portland generated 23 made free throws on 26 attempts in first half, unusually high scoring contribution that may normalize.",
+    "Portland's +17 lead raises late rotation/tempo and game-state uncertainty.",
+    "Portland's second quarter 8/13 FG and 13/15 FT unlikely to be mechanically extrapolated."
+  ],
+  "volatility_flags": [
+    "FIRST_HALF_FREE_THROW_ASYMMETRY",
+    "UTA_SHOOTING_REGRESSION",
+    "POR_LARGE_LEAD_GAME_STATE",
+    "ROTATION_FOUL_RISK"
+  ],
+  "market_lines_viewed": false,
+  "ghost_pick_status": "AWAITING_HALFTIME_MARKET",
+  "real_wager": false
+}
