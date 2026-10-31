@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0",
+  "game_id": "NBA_20261031_POR_AT_UTA",
+  "date": "2026-10-31",
+  "source": "User-provided NBA official scorer report and previously committed William Hill halftime snapshot",
+  "halftime": {
+    "POR": 59,
+    "UTA": 42,
+    "total": 101,
+    "margin_POR": 17
+  },
+  "frozen_projection": {
+    "POR": 112,
+    "UTA": 96,
+    "total": 208,
+    "second_half_total": 107,
+    "margin_POR": 16,
+    "provenance": "2026-10-31_POR_AT_UTA_HALFTIME_MARKET_SNAPSHOT.json",
+    "model_type": "heuristic, uncalibrated"
+  },
+  "actual": {
+    "POR": 112,
+    "UTA": 90,
+    "total": 202,
+    "second_half": {
+      "POR": 53,
+      "UTA": 48,
+      "total": 101
+    },
+    "margin_POR": 22,
+    "quarters": {
+      "POR": [
+        27,
+        32,
+        29,
+        24
+      ],
+      "UTA": [
+        18,
+        24,
+        22,
+        26
+      ]
+    },
+    "overtime": false
+  },
+  "error_actual_minus_projection": {
+    "POR": 0,
+    "UTA": -6,
+    "total": -6,
+    "second_half_total": -6,
+    "margin_POR": 6
+  },
+  "william_hill_halftime": {
+    "total": 212.5,
+    "over": -125,
+    "under": -105,
+    "spread_POR": -15.5,
+    "spread_POR_odds": -120,
+    "spread_UTA": 15.5,
+    "spread_UTA_odds": -110,
+    "moneyline_POR": -2500,
+    "moneyline_UTA": 1000,
+    "team_total_POR": 113.5,
+    "team_total_UTA": 97.5
+  },
+  "market_grades": {
+    "total_under_212_5": "WIN",
+    "total_over_212_5": "LOSS",
+    "POR_minus_15_5": "WIN",
+    "UTA_plus_15_5": "LOSS",
+    "POR_ML": "WIN",
+    "UTA_ML": "LOSS",
+    "POR_team_under_113_5": "WIN",
+    "POR_team_over_113_5": "LOSS",
+    "UTA_team_under_97_5": "WIN",
+    "UTA_team_over_97_5": "LOSS",
+    "market_total_error_actual_minus_line": -10.5,
+    "model_total_abs_error": 6,
+    "market_total_abs_error": 10.5,
+    "model_vs_market_total_abs_error_improvement": 4.5
+  },
+  "ghost_pick": {
+    "id": "GHOST_001",
+    "selection": "Under 212.5",
+    "odds": -105,
+    "result": "WIN",
+    "real_stake": 0,
+    "actual_profit": 0,
+    "hypothetical_profit_per_1_unit": 0.952381,
+    "breakeven_probability": 0.512195,
+    "estimated_win_probability": null,
+    "expected_value": null,
+    "edge": null,
+    "simulations_run": 0
+  },
+  "diagnostics": {
+    "halftime_total": 101,
+    "actual_second_half_total": 101,
+    "model_second_half_total": 107,
+    "half_to_half_scoring_change": 0,
+    "second_half_UTA_shooting": "16/38 FG 42.1%, 6/20 3PT 30%",
+    "second_half_POR_shooting": "16/43 FG 37.2%, 10/28 3PT 35.7%",
+    "notes": [
+      "Under succeeded; cannot infer calibrated +EV from one result.",
+      "Portland second-half points 53 vs halftime 59; Utah 48 vs halftime 42.",
+      "Utah second-half scoring increased six points while Portland fell six; total held at 101.",
+      "Portland won by 22; projection margin 16, spread POR -15.5 covered.",
+      "Portland second-half three-point shooting 10/28 despite overall FG 37.2%.",
+      "Late-game rotation/garbage time possible based on play-by-play; not established as causal."
+    ]
+  },
+  "status": "FINAL_GRADED_PAPER_ONLY",
+  "source_paths": [
+    "liveflow/nba/ghost/2026-10-31_POR_AT_UTA_HALFTIME_MARKET_SNAPSHOT.json"
+  ]
+}
