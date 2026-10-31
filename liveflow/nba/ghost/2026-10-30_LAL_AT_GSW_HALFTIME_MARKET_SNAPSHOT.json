@@ -1,0 +1,62 @@
+{
+  "game_id": "NBA_20261030_LAL_AT_GSW",
+  "date": "2026-10-30",
+  "checkpoint": "HALFTIME",
+  "source": "user_provided_William_Hill_Nevada_screenshots",
+  "score": {
+    "LAL": 53,
+    "GSW": 53
+  },
+  "market": {
+    "full_total": {
+      "line": 220.5,
+      "over_american": -125,
+      "under_american": -105
+    },
+    "spread": {
+      "LAL": {
+        "line": -2.5,
+        "american": -115
+      },
+      "GSW": {
+        "line": 2.5,
+        "american": -115
+      }
+    },
+    "moneyline": {
+      "LAL": -130,
+      "GSW": 100
+    },
+    "team_totals": {
+      "LAL": {
+        "line": 109.5,
+        "over": -125,
+        "under": -105
+      },
+      "GSW": {
+        "line": 109.5,
+        "over": -105,
+        "under": -125
+      }
+    }
+  },
+  "frozen_forecast": {
+    "path": "liveflow/nba/ghost/2026-10-30_LAL_AT_GSW_HALFTIME_MODEL_FIRST.json",
+    "commit": "a1a43c050104b63a40b4a589ca83cbf0398a7271",
+    "full_total": 218,
+    "LAL": 108,
+    "GSW": 110,
+    "second_half_total": 112,
+    "GSW_margin": 2
+  },
+  "comparisons": {
+    "market_total_minus_model": 2.5,
+    "model_LAL_TT_minus_market": -1.5,
+    "model_GSW_TT_minus_market": 0.5,
+    "model_GSW_margin_minus_market_implied_LAL_margin": 4.5
+  },
+  "candidate": "Under 220.5 (-105) directionally aligns with frozen projection; 2.5-point difference is not validated positive EV",
+  "probabilities": "NOT_CALIBRATED",
+  "bet_status": "NO_CONFIRMED_WAGER",
+  "integrity": "Market observed after model-first GitHub commit; do not alter forecast"
+}
