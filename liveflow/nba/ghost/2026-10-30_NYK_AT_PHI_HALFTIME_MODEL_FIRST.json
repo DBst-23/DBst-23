@@ -1,0 +1,72 @@
+{
+  "schema": "sharpedge_liveflow_model_first_v1",
+  "game_id": "2026-10-30_NYK_AT_PHI",
+  "date": "2026-10-30",
+  "phase": "HALFTIME",
+  "source": "user-provided NBA official scorer report and play-by-play",
+  "freeze_type": "model_first_before_market",
+  "market_lines_seen": false,
+  "wall_clock_freeze_timestamp": "not independently authenticated",
+  "halftime": {
+    "NYK": 44,
+    "PHI": 53,
+    "total": 97,
+    "margin_PHI": 9,
+    "quarters": {
+      "NYK": [
+        21,
+        23
+      ],
+      "PHI": [
+        29,
+        24
+      ]
+    }
+  },
+  "first_half": {
+    "NYK": {
+      "fg": "17/41",
+      "three": "7/22",
+      "ft": "3/4",
+      "oreb": 6,
+      "turnovers": 8
+    },
+    "PHI": {
+      "fg": "22/40",
+      "three": "5/17",
+      "ft": "4/6",
+      "oreb": 3,
+      "turnovers": 5
+    }
+  },
+  "projection": {
+    "second_half": {
+      "NYK": 53,
+      "PHI": 51,
+      "total": 104,
+      "margin_NYK": 2
+    },
+    "full_game": {
+      "NYK": 97,
+      "PHI": 104,
+      "total": 201,
+      "margin_PHI": 7
+    },
+    "second_half_total_planning_range": [
+      96,
+      112
+    ],
+    "full_game_total_planning_range": [
+      193,
+      209
+    ]
+  },
+  "method": "Heuristic pace/efficiency regression using user-provided halftime box score; no calibrated Monte Carlo or independently verified sportsbook prices",
+  "status": "GHOST_RESEARCH_ONLY",
+  "cautions": [
+    "NYK shooting regression and PHI FG efficiency normalization are assumptions",
+    "No calibrated probabilities, medians or betting edge asserted",
+    "No synchronized market snapshot yet",
+    "No wager"
+  ]
+}
