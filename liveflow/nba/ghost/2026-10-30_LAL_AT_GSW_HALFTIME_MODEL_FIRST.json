@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "game_id": "NBA_20261030_LAL_AT_GSW",
+  "date": "2026-10-30",
+  "checkpoint": "HALFTIME",
+  "status": "MODEL_FIRST_PRE_MARKET_FREEZE",
+  "source": "user_supplied_official_nba_first_half_box_and_play_by_play",
+  "halftime": {
+    "LAL": 53,
+    "GSW": 53,
+    "total": 106,
+    "quarters": {
+      "Q1": {
+        "LAL": 38,
+        "GSW": 15
+      },
+      "Q2": {
+        "LAL": 15,
+        "GSW": 38
+      }
+    },
+    "team_3pt": {
+      "LAL": "8/23",
+      "GSW": "12/23"
+    },
+    "team_turnovers": {
+      "LAL": 13,
+      "GSW": 14
+    }
+  },
+  "model": {
+    "method": "transparent_heuristic_not_calibrated_monte_carlo",
+    "second_half": {
+      "LAL": 55,
+      "GSW": 57,
+      "total": 112
+    },
+    "full_game": {
+      "LAL": 108,
+      "GSW": 110,
+      "total": 218
+    },
+    "projected_margin": "GSW +2",
+    "median_total": null,
+    "simulation_count": 0,
+    "probability_distribution": null
+  },
+  "drivers": [
+    "Q1/Q2 mirror-image 23-point swings signal extreme volatility",
+    "GSW 12/23 three-point shooting (52.2%) likely to cool",
+    "LAL 13 first-half turnovers and GSW 14 first-half turnovers could normalize",
+    "Luka Doncic 24 first-half points, 5/12 from three",
+    "LAL 2nd-quarter 0/9 three-point shooting likely to rebound",
+    "106 first-half points despite high three-point volume"
+  ],
+  "market": {
+    "status": "NOT_VIEWED",
+    "william_hill_lines": null
+  },
+  "integrity": {
+    "pre_market_freeze": true,
+    "pre_market_snapshot_unavailable": true,
+    "model_is_not_validated_probability_engine": true,
+    "real_bet": false,
+    "postmarket_changes_to_forecast_prohibited": true
+  }
+}
