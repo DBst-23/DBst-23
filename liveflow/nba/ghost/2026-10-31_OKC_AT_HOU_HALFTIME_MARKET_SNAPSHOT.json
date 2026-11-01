@@ -1,0 +1,61 @@
+{
+  "game_id": "NBA_20261031_OKC_AT_HOU",
+  "status": "MARKET_CAPTURED_GHOST_PASS_PRE_OUTCOME",
+  "source": "User-provided William Hill Nevada halftime screenshots",
+  "snapshot_time": "not provided",
+  "score": {
+    "OKC": 51,
+    "HOU": 62
+  },
+  "model_freeze": "liveflow/nba/ghost/2026-10-31_OKC_AT_HOU_HALFTIME_MODEL_FIRST.json",
+  "model": {
+    "total": 220,
+    "OKC": 106,
+    "HOU": 114,
+    "hou_margin": 8,
+    "simulation_count": 0,
+    "method": "uncalibrated heuristic"
+  },
+  "market": {
+    "full_total": {
+      "line": 220.5,
+      "over": -110,
+      "under": -120
+    },
+    "spread": {
+      "OKC_plus_8_5": -110,
+      "HOU_minus_8_5": -120
+    },
+    "moneyline": {
+      "OKC": 290,
+      "HOU": -400
+    },
+    "team_totals": {
+      "HOU": {
+        "line": 114.5,
+        "over": -115,
+        "under": -115
+      },
+      "OKC": {
+        "line": 105.5,
+        "over": -125,
+        "under": -105
+      }
+    }
+  },
+  "break_even_probabilities": {
+    "under_220_5_at_minus_120": 0.5454545454545454,
+    "over_220_5_at_minus_110": 0.5238095238095238,
+    "OKC_over_105_5_at_minus_125": 0.5555555555555556,
+    "HOU_under_114_5_at_minus_115": 0.5348837209302325
+  },
+  "market_minus_model": {
+    "total": 0.5,
+    "HOU_team": 0.5,
+    "OKC_team": -0.5,
+    "hou_spread": 0.5
+  },
+  "ghost_decision": "PASS",
+  "reason": "No material model-to-market gap and no calibrated win probability exceeding vig-adjusted break-even threshold.",
+  "real_money_staked": 0
+}
