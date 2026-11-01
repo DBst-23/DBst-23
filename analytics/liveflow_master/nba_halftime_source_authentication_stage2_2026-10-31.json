@@ -1,0 +1,147 @@
+{
+  "audit_id": "NBA_HALFTIME_PROSPECTIVE_AUTHENTICATION_STAGE2",
+  "audit_date": "2026-10-31",
+  "repository": "DBst-23/DBst-23",
+  "clarification": "User supplied halftime screenshots in chat for every postmortem. Missing precise screenshot capture metadata is not missing screenshots and is not evidence of late submission. GitHub commit time is upload time, not screenshot capture time.",
+  "method": "Fetched each forecast blob at earliest identified commit, compared numeric fields to current master registry, verified NBA official quarter scores and final outcomes via nba.com; exact independent final wall-clock timestamps and screenshot EXIF/chat attachment timestamps not available.",
+  "games": [
+    {
+      "game_id": "NBA_20261026_MIN_AT_CLE",
+      "forecast_commit": "c21e3b2687",
+      "forecast_utc": "2026-10-27T00:17:02Z",
+      "market_commit": "38b48a2e10",
+      "market_utc": "2026-10-27T00:18:44Z",
+      "forecast_values": {
+        "MIN": 112.98,
+        "CLE": 106.99,
+        "total": 219.97,
+        "second_half_total": 109.97
+      },
+      "registry_match": true,
+      "halftime": {
+        "MIN": 60,
+        "CLE": 50
+      },
+      "official_final": {
+        "MIN": 125,
+        "CLE": 127,
+        "OT": true,
+        "regulation_total": 226
+      },
+      "nba_source": "https://www.nba.com/game/min-vs-cle-0022600120/play-by-play",
+      "snapshot_score_matches": true,
+      "provenance": "commit_order_verified_user_halftime_screenshot_reported",
+      "limitations": [
+        "Market interface appears exchange-style, not verified William Hill",
+        "Exact image capture and final-result timestamp not independently established",
+        "Regulation forecast versus OT final: evaluate against regulation"
+      ]
+    },
+    {
+      "game_id": "NBA_20261027_BKN_AT_BOS",
+      "forecast_commit": "9e454a2b19",
+      "forecast_utc": "2026-10-28T00:46:49Z",
+      "market_commit": "d6e603ef95",
+      "market_utc": "2026-10-28T00:47:44Z",
+      "forecast_values": {
+        "BKN": 117,
+        "BOS": 119,
+        "total": 236,
+        "second_half_total": 119
+      },
+      "registry_match": true,
+      "halftime": {
+        "BKN": 61,
+        "BOS": 56
+      },
+      "official_final": {
+        "BKN": 124,
+        "BOS": 125,
+        "OT": true,
+        "regulation_total": 234
+      },
+      "nba_source": "https://www.nba.com/game/bkn-vs-bos-0022600128",
+      "snapshot_score_matches": true,
+      "provenance": "commit_order_verified_user_halftime_screenshot_reported",
+      "limitations": [
+        "Exact image capture and final-result timestamp not independently established",
+        "Regulation forecast versus OT final: evaluate against regulation"
+      ]
+    },
+    {
+      "game_id": "NBA_20261027_POR_AT_LAL",
+      "forecast_commit": "428176fb7f",
+      "forecast_utc": "2026-10-28T04:26:51Z",
+      "market_commit": "9333ffdaac",
+      "market_utc": "2026-10-28T04:29:48Z",
+      "forecast_values": {
+        "POR": 123,
+        "LAL": 133,
+        "total": 256,
+        "second_half_total": 115
+      },
+      "registry_match": true,
+      "halftime": {
+        "POR": 68,
+        "LAL": 73
+      },
+      "official_final": {
+        "POR": 136,
+        "LAL": 129,
+        "OT": false
+      },
+      "nba_source": "https://www.nba.com/game/por-vs-lal-0022600131",
+      "snapshot_score_matches": false,
+      "snapshot_score": {
+        "POR": 68,
+        "LAL": 75
+      },
+      "provenance": "commit_order_verified_screenshot_score_discrepancy",
+      "limitations": [
+        "Official halftime Lakers 73, market screenshot Lakers 75",
+        "Exact image capture and final-result timestamp not independently established",
+        "Do not compare as synchronized market without score resolution"
+      ]
+    },
+    {
+      "game_id": "NBA_20261031_OKC_AT_HOU",
+      "forecast_commit": "3447b6cbe0",
+      "forecast_utc": "2026-11-01T01:45:09Z",
+      "market_commit": "45454155f9",
+      "market_utc": "2026-11-01T01:45:55Z",
+      "forecast_values": {
+        "OKC": 106,
+        "HOU": 114,
+        "total": 220,
+        "second_half_total": 107
+      },
+      "registry_match": true,
+      "halftime": {
+        "OKC": 51,
+        "HOU": 62
+      },
+      "official_final": {
+        "OKC": 98,
+        "HOU": 119,
+        "OT": false
+      },
+      "nba_source": "https://www.nba.com/game/okc-vs-hou-0022600153/blueprint",
+      "snapshot_score_matches": true,
+      "provenance": "commit_order_verified_user_halftime_screenshot_reported",
+      "limitations": [
+        "Exact image capture and final-result timestamp not independently established"
+      ]
+    }
+  ],
+  "summary": {
+    "earliest_forecast_blob_matches_registry": 4,
+    "forecast_commit_before_market_commit": 4,
+    "official_final_and_quarter_scores_correspond": 4,
+    "screenshot_score_matches_official_half": 3,
+    "screenshot_score_discrepancy": 1,
+    "independently_verified_exact_final_wall_clock": 0,
+    "fully_prospectively_certified_with_independent_time": 0
+  },
+  "next_step": "Recover original chat attachment message timestamp or EXIF and reliable game final timestamp for each; preserve screenshot as user-provided halftime evidence even without EXIF. Resolve POR@LAL 2-point sportsbook scoreboard mismatch.",
+  "classification": "Strong contemporaneous evidence for four games, not proof of exact capture time or certified predictive edge; no change to authenticated MAE."
+}
