@@ -13,11 +13,11 @@
     "overtime": "regulation forecast compared separately with regulation and full-game result"
   },
   "summary": {
-    "total_games": 15,
+    "total_games": 16,
     "playoff_games_added": 5,
     "full_total_model_forecasts_present": 9,
     "full_total_model_mae": 5.73,
-    "note": "Nonrandom convenience sample; verified regulation MAE 5.73 remains restricted to nine authenticated numeric forecasts. NYK-CHI, NYK-PHI and LAL-GSW conversation forecasts excluded. No confirmed wagers or calibrated betting edge.",
+    "note": "Nonrandom convenience sample; authenticated regulation MAE 5.73 remains restricted to nine authenticated numeric forecasts. OKC-HOU added as an uncalibrated heuristic, with freeze timestamp unverified; excluded from authenticated MAE. No calibrated betting edge or confirmed wager.",
     "full_total_model_regulation_mae": 5.73,
     "overtime_games": 2,
     "conversation_reconstructed_unverified_games": 3
@@ -1349,6 +1349,116 @@
         "Q3 opening market not equivalent to halftime freeze"
       ],
       "execution": "paper_only_no_confirmed_wager"
+    },
+    {
+      "game_id": "NBA_20261031_OKC_AT_HOU",
+      "date": "2026-10-31",
+      "league": "NBA",
+      "checkpoint": "HALFTIME",
+      "away_team": "OKC",
+      "home_team": "HOU",
+      "venue": "Toyota Center, Houston, TX",
+      "halftime": {
+        "away": 51,
+        "home": 62,
+        "total": 113
+      },
+      "forecast": {
+        "away_final": 106,
+        "home_final": 114,
+        "full_game_total": 220,
+        "second_half_total": 107,
+        "home_margin": 8,
+        "forecast_target": "regulation_only",
+        "freeze_timestamp": null,
+        "model_method": "uncalibrated heuristic; zero simulations",
+        "simulation_count": 0,
+        "calibrated_probability": null
+      },
+      "actual": {
+        "away_final": 98,
+        "home_final": 119,
+        "final_total": 217,
+        "overtime": false,
+        "regulation": {
+          "away": 98,
+          "home": 119
+        },
+        "regulation_total": 217,
+        "second_half_regulation": {
+          "away": 47,
+          "home": 57,
+          "total": 104
+        },
+        "home_margin": 21
+      },
+      "accuracy": {
+        "total_error_final": -3,
+        "total_abs_error_final": 3,
+        "total_error_regulation": -3,
+        "home_margin_error_final": 13,
+        "away_team_error_final": -8,
+        "home_team_error_final": 5,
+        "second_half_error_regulation": -3
+      },
+      "market_comparisons": [
+        {
+          "type": "full_game_total",
+          "line": 220.5,
+          "odds_over": -110,
+          "odds_under": -120,
+          "actual": 217,
+          "absolute_error": 3.5,
+          "retrospective_under_result": "WIN"
+        },
+        {
+          "type": "team_total",
+          "team": "away",
+          "line": 105.5,
+          "odds_over": -125,
+          "odds_under": -105,
+          "actual": 98,
+          "absolute_error": 7.5
+        },
+        {
+          "type": "team_total",
+          "team": "home",
+          "line": 114.5,
+          "odds_over": -115,
+          "odds_under": -115,
+          "actual": 119,
+          "absolute_error": 4.5
+        },
+        {
+          "type": "spread_home_margin",
+          "line": 8.5,
+          "odds_home": -120,
+          "odds_away": -110,
+          "actual": 21,
+          "absolute_error": 12.5
+        },
+        {
+          "type": "moneyline",
+          "odds_home": -400,
+          "odds_away": 290,
+          "actual_winner": "HOU"
+        }
+      ],
+      "source_paths": [
+        "liveflow/nba/ghost/2026-10-31_OKC_AT_HOU_HALFTIME_MODEL_FIRST.json",
+        "liveflow/nba/ghost/2026-10-31_OKC_AT_HOU_HALFTIME_MARKET_SNAPSHOT.json",
+        "liveflow/nba/ghost/2026-10-31_OKC_AT_HOU_HALFTIME_POSTMORTEM.json"
+      ],
+      "data_quality_flags": [
+        "Heuristic uncalibrated model; no Monte Carlo distribution or validated edge",
+        "Model-first snapshot exists but original freeze timestamp unavailable; exclude from authenticated freeze-only MAE pending independent verification",
+        "Official quarter/half/final totals reconcile",
+        "Prospective GHOST PASS; no bet or realized profit"
+      ],
+      "execution": "paper_only_no_wager",
+      "forecast_evidence": "github_model_first_snapshot_timestamp_unverified",
+      "market_snapshot_timestamp": null,
+      "price_qualification": "PASS_UNCALIBRATED"
     }
   ]
 }
