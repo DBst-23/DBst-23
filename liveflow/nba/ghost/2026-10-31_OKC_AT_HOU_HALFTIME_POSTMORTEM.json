@@ -1,0 +1,135 @@
+{
+  "schema_version": "1.0",
+  "game_id": "NBA_20261031_OKC_AT_HOU",
+  "date": "2026-10-31",
+  "status": "FINAL_GRADED_PAPER_ONLY",
+  "venue": "Toyota Center, Houston, TX",
+  "source": "User-provided NBA official scorer report final, halves, quarters and play-by-play",
+  "halftime": {
+    "OKC": 51,
+    "HOU": 62,
+    "total": 113,
+    "hou_margin": 11
+  },
+  "frozen_model": {
+    "method": "uncalibrated heuristic; no Monte Carlo",
+    "simulation_count": 0,
+    "projected_final": {
+      "OKC": 106,
+      "HOU": 114,
+      "total": 220,
+      "hou_margin": 8
+    },
+    "projected_second_half": {
+      "OKC": 55,
+      "HOU": 52,
+      "total": 107
+    },
+    "forecast_probability": null
+  },
+  "actual": {
+    "quarters": {
+      "OKC": [
+        26,
+        25,
+        24,
+        23
+      ],
+      "HOU": [
+        35,
+        27,
+        30,
+        27
+      ]
+    },
+    "final": {
+      "OKC": 98,
+      "HOU": 119,
+      "total": 217,
+      "hou_margin": 21
+    },
+    "second_half": {
+      "OKC": 47,
+      "HOU": 57,
+      "total": 104
+    },
+    "overtime": false
+  },
+  "forecast_errors_actual_minus_projection": {
+    "OKC_final": -8,
+    "HOU_final": 5,
+    "full_total": -3,
+    "hou_margin": 13,
+    "OKC_second_half": -8,
+    "HOU_second_half": 5,
+    "second_half_total": -3
+  },
+  "william_hill_halftime": {
+    "full_total": {
+      "line": 220.5,
+      "over": -110,
+      "under": -120
+    },
+    "spread": {
+      "OKC_plus_8_5": -110,
+      "HOU_minus_8_5": -120
+    },
+    "moneyline": {
+      "OKC": 290,
+      "HOU": -400
+    },
+    "team_totals": {
+      "HOU": {
+        "line": 114.5,
+        "over": -115,
+        "under": -115
+      },
+      "OKC": {
+        "line": 105.5,
+        "over": -125,
+        "under": -105
+      }
+    }
+  },
+  "retrospective_market_grades": {
+    "under_220_5": "WIN",
+    "over_220_5": "LOSS",
+    "HOU_minus_8_5": "WIN",
+    "OKC_plus_8_5": "LOSS",
+    "HOU_moneyline": "WIN",
+    "OKC_moneyline": "LOSS",
+    "HOU_over_114_5": "WIN",
+    "HOU_under_114_5": "LOSS",
+    "OKC_under_105_5": "WIN",
+    "OKC_over_105_5": "LOSS"
+  },
+  "prospective_ghost_decision": "PASS",
+  "ghost_bet_placed": false,
+  "real_money_staked": 0,
+  "realized_betting_profit": 0,
+  "diagnostics": {
+    "HOU_three_point_first_half": "8/19 (42.1%)",
+    "HOU_three_point_second_half": "10/22 (45.5%)",
+    "HOU_three_point_final": "18/41 (43.9%)",
+    "OKC_three_point_first_half": "4/16 (25.0%)",
+    "OKC_three_point_second_half": "6/16 (37.5%)",
+    "OKC_three_point_final": "10/32 (31.2%)",
+    "HOU_lead_at_halftime": 11,
+    "HOU_lead_at_final": 21,
+    "largest_HOU_lead": 27,
+    "notable": "Houston's 3PT accuracy remained elevated instead of regressing, but total still landed 3 points below model. OKC 2H scoring underperformed model by 8 while HOU exceeded by 5. SGA scored 26, 8 after halftime and did not play Q4; Durant scored 14 and did not play Q4. Bench/rotation effects matter."
+  },
+  "price_qualification": "UNDETERMINED_UNCALIBRATED_PASS",
+  "calibrated_win_probability": null,
+  "edge_percentage_points": null,
+  "expected_value": null,
+  "source_paths": [
+    "liveflow/nba/ghost/2026-10-31_OKC_AT_HOU_HALFTIME_MODEL_FIRST.json",
+    "liveflow/nba/ghost/2026-10-31_OKC_AT_HOU_HALFTIME_MARKET_SNAPSHOT.json"
+  ],
+  "notes": [
+    "Market grading is retrospective only, not evidence of bets placed or a qualified pregame edge.",
+    "Heuristic projected intervals are not probability distributions; no implied hit rates or simulation mean/median.",
+    "Do not revise original pre-outcome model or PASS record."
+  ]
+}
