@@ -1,0 +1,53 @@
+{
+  "game_id": "NBA_20261031_SAC_AT_MEM",
+  "phase": "HALFTIME_MODEL_FIRST",
+  "status": "HEURISTIC_UNCALIBRATED",
+  "source": "User supplied official first-half scorer report and play-by-play",
+  "market_data_seen": false,
+  "halftime": {
+    "SAC": 55,
+    "MEM": 66,
+    "total": 121
+  },
+  "observations": {
+    "SAC_FGA": 43,
+    "MEM_FGA": 44,
+    "SAC_3PM": 7,
+    "SAC_3PA": 22,
+    "MEM_3PM": 13,
+    "MEM_3PA": 24,
+    "SAC_TOV": 7,
+    "MEM_TOV": 12,
+    "MEM_Q2_3PM": 9,
+    "MEM_Q2_3PA": 13,
+    "SAC_Q2_3PM": 6,
+    "SAC_Q2_3PA": 14,
+    "memphis_three_point_regression_risk": true,
+    "memphis_foul_trouble": "Jerami Grant 4; Javon Small 3",
+    "sacramento_notes": "Sabonis 0 FGA, Acuff Jr 5/8 3PT"
+  },
+  "projection": {
+    "second_half": {
+      "SAC": 54,
+      "MEM": 56,
+      "total": 110
+    },
+    "full_game": {
+      "SAC": 109,
+      "MEM": 122,
+      "total": 231,
+      "memphis_margin": 13
+    },
+    "heuristic_intervals": {
+      "full_game_total_approx_80pct": [
+        209,
+        253
+      ],
+      "second_half_total_approx_80pct": [
+        88,
+        132
+      ]
+    }
+  },
+  "limitations": "Illustrative scenario intervals only; not derived from fitted residuals or Monte Carlo. No calibrated probabilities, mean/median distribution, or EV. Market comparison and bet selection deferred."
+}
