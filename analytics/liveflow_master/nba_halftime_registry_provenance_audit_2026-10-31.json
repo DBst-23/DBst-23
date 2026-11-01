@@ -1,0 +1,317 @@
+{
+  "audit_id": "NBA_HALFTIME_MASTER_ACCURACY_PROVENANCE_AUDIT_V1",
+  "audit_date": "2026-10-31",
+  "source_registry": "analytics/liveflow_master/nba_halftime_game_accuracy_v2.json",
+  "source_blob_sha": "e30fe74b2da5597f16f248298d9ae2644e58b7f3",
+  "scope": "Registry-only metadata/provenance audit; source files not individually authenticated against historical commit timestamps",
+  "counts": {
+    "total": 16,
+    "numeric_total": 13,
+    "missing_numeric_total": 3,
+    "with_freeze_timestamp": 0,
+    "with_market_snapshot_timestamp": 0,
+    "with_market_rows": 15,
+    "overtime": 2,
+    "by_classification": {
+      "recorded_freeze_timestamp_unverified": 4,
+      "historical_numeric_provenance_unverified": 5,
+      "no_numeric_halftime_forecast": 3,
+      "retrospective_unverified": 3,
+      "uncalibrated_heuristic_timestamp_unverified": 1
+    }
+  },
+  "findings": [
+    "Registry's reported authenticated MAE 5.73 across nine is a historical registry assertion, NOT independently reauthenticated by this audit; provenance and time order need original commit verification.",
+    "All 16 forecast.freeze_timestamp fields are null; no proof of precise pre-market sequencing in registry alone.",
+    "Market screenshots have timing/score/platform mismatches for some games; cannot treat all quoted prices as contemporaneously executable.",
+    "Missing historical market prices and paired sides prevent consistent no-vig benchmarks and EV grading.",
+    "No validated out-of-sample calibrated probabilities or uncertainty bounds; no supported betting EV.",
+    "Two overtime games must be scored on regulation-only basis for regulation forecasts; sportsbook full-game settlement can include OT.",
+    "SAS@MIN team score projections sum to 223, while stored full total is 221.5 and independent margin is inconsistent; retain and flag.",
+    "GSW@DEN has an unverified 100k simulation assertion and contradictory margin description; do not promote to calibrated model.",
+    "OKC@HOU has simulation_count=0, is uncalibrated heuristic, freeze timestamp unverified; preserve exclusion from authenticated MAE."
+  ],
+  "next_action": "Individually fetch original prediction, market and postmortem sources; verify commit chronology and score consistency, then create immutable prospective forecast timestamp/odds capture before G1.",
+  "release_gate": "G0",
+  "calibrated_betting_probability_established": false,
+  "real_money_edge_established": false,
+  "rows": [
+    {
+      "game_id": "NBA_20261021_GSW_AT_LAL",
+      "classification": "recorded_freeze_timestamp_unverified",
+      "has_numeric_total": true,
+      "freeze_timestamp_present": false,
+      "source_count": 2,
+      "has_market": true,
+      "market_snapshot_timestamp_present": false,
+      "has_overtime": false,
+      "source_flags": [
+        "pre-market freeze recorded; probabilities uncalibrated",
+        "same-game correlated ghost selections"
+      ],
+      "calibrated_probability_present": false,
+      "execution": "paper_only"
+    },
+    {
+      "game_id": "NBA_20261023_NYK_AT_BOS",
+      "classification": "historical_numeric_provenance_unverified",
+      "has_numeric_total": true,
+      "freeze_timestamp_present": false,
+      "source_count": 1,
+      "has_market": true,
+      "market_snapshot_timestamp_present": false,
+      "has_overtime": false,
+      "source_flags": [
+        "book screen captured Q3 11:39 (21 seconds after halftime), not synchronized",
+        "spread was PASS, not selected",
+        "book identity not independently verified"
+      ],
+      "calibrated_probability_present": false,
+      "execution": "paper_only"
+    },
+    {
+      "game_id": "NBA_20261023_MEM_AT_GSW",
+      "classification": "historical_numeric_provenance_unverified",
+      "has_numeric_total": true,
+      "freeze_timestamp_present": false,
+      "source_count": 1,
+      "has_market": true,
+      "market_snapshot_timestamp_present": false,
+      "has_overtime": false,
+      "source_flags": [
+        "market screen showed MEM 62 vs official halftime 60; comparison not time aligned",
+        "model forecast approximate, not calibrated"
+      ],
+      "calibrated_probability_present": false,
+      "execution": "paper_only"
+    },
+    {
+      "game_id": "NBA_20261026_GSW_AT_DEN",
+      "classification": "historical_numeric_provenance_unverified",
+      "has_numeric_total": true,
+      "freeze_timestamp_present": false,
+      "source_count": 1,
+      "has_market": true,
+      "market_snapshot_timestamp_present": false,
+      "has_overtime": false,
+      "source_flags": [
+        "original separate spread prediction DEN -1 conflicted with DEN 116 / GSW 114 implies DEN +2",
+        "100k simulation assertion unverified"
+      ],
+      "calibrated_probability_present": false,
+      "execution": "paper_only"
+    },
+    {
+      "game_id": "NBA_20261026_MIN_AT_CLE",
+      "classification": "recorded_freeze_timestamp_unverified",
+      "has_numeric_total": true,
+      "freeze_timestamp_present": false,
+      "source_count": 2,
+      "has_market": true,
+      "market_snapshot_timestamp_present": false,
+      "has_overtime": true,
+      "source_flags": [
+        "overtime: forecast regulation only, official final includes 26 OT points",
+        "market screenshot appears exchange-like, not confirmed William Hill",
+        "no contemporaneous full game total line verified"
+      ],
+      "calibrated_probability_present": false,
+      "execution": "paper_only"
+    },
+    {
+      "game_id": "NBA_20260510_SAS_AT_MIN_G4",
+      "classification": "historical_numeric_provenance_unverified",
+      "has_numeric_total": true,
+      "freeze_timestamp_present": false,
+      "source_count": 1,
+      "has_market": false,
+      "market_snapshot_timestamp_present": false,
+      "has_overtime": false,
+      "source_flags": [
+        "Postmortem gives model snapshot but exact forecast freeze timestamp unverified",
+        "MIN TT, SAS TT and total forecasts from postmortem; 106.5+116.5=223, does not equal stated full total 221.5; retained original discrepancies",
+        "No verified halftime book prices in selected source",
+        "Margin independently quoted +5.5 vs team-scoring implied +10"
+      ],
+      "calibrated_probability_present": false,
+      "execution": "unknown_not_assumed"
+    },
+    {
+      "game_id": "NBA_20260503_ORL_AT_DET_G7",
+      "classification": "historical_numeric_provenance_unverified",
+      "has_numeric_total": true,
+      "freeze_timestamp_present": false,
+      "source_count": 1,
+      "has_market": true,
+      "market_snapshot_timestamp_present": false,
+      "has_overtime": false,
+      "source_flags": [
+        "Snapshot says model projected 2H 98.5, combined with halftime 109 => 207.5, while independently stated full-game mean 208; retained original values",
+        "Halftime NO NEW BET; preexisting under 191.5 earlier is NOT halftime entry",
+        "Book screenshot platform not reverified"
+      ],
+      "calibrated_probability_present": false,
+      "execution": "halftime_pass_preexisting_ticket"
+    },
+    {
+      "game_id": "NBA_20260517_CLE_AT_DET_G7",
+      "classification": "no_numeric_halftime_forecast",
+      "has_numeric_total": false,
+      "freeze_timestamp_present": false,
+      "source_count": 2,
+      "has_market": true,
+      "market_snapshot_timestamp_present": false,
+      "has_overtime": false,
+      "source_flags": [
+        "Halftime market captured but only pregame total model mean 211.8 exists in final postmortem: NOT a halftime model projection",
+        "Pregame Over 205.5 bet and rebound prop are preexisting, not new halftime wagers",
+        "Halftime total 214.5 is quote, not model forecast"
+      ],
+      "calibrated_probability_present": false,
+      "execution": "halftime_monitor_preexisting_pregame_tickets"
+    },
+    {
+      "game_id": "NBA_20260430_DEN_AT_MIN_G6",
+      "classification": "no_numeric_halftime_forecast",
+      "has_numeric_total": false,
+      "freeze_timestamp_present": false,
+      "source_count": 2,
+      "has_market": true,
+      "market_snapshot_timestamp_present": false,
+      "has_overtime": false,
+      "source_flags": [
+        "Halftime report includes market, but no numerically frozen full game forecast located in these source files",
+        "Market 109.5 yes -132 from halftime report differs from postmortem ticket +123-type return; separate snapshots, unresolved timing/side pricing",
+        "Minnesota TT investment not assumed to be placed exactly at halftime"
+      ],
+      "calibrated_probability_present": false,
+      "execution": "reported_wager_timing_unverified"
+    },
+    {
+      "game_id": "NBA_20260511_DET_AT_CLE_G4",
+      "classification": "no_numeric_halftime_forecast",
+      "has_numeric_total": false,
+      "freeze_timestamp_present": false,
+      "source_count": 1,
+      "has_market": true,
+      "market_snapshot_timestamp_present": false,
+      "has_overtime": false,
+      "source_flags": [
+        "Ghost CLE TT over 106.5 documented as +100 at selection (a halftime snapshot line exists); 106.5+106.5 team totals alone imply 213 not exact 211.5 full total",
+        "No numeric frozen total/team scoring forecast in source; do not reinterpret chosen threshold as projection",
+        "Ghost wager only; zero bankroll according to source"
+      ],
+      "calibrated_probability_present": false,
+      "execution": "ghost_only"
+    },
+    {
+      "game_id": "NBA_20261027_POR_AT_LAL",
+      "classification": "recorded_freeze_timestamp_unverified",
+      "has_numeric_total": true,
+      "freeze_timestamp_present": false,
+      "source_count": 3,
+      "has_market": true,
+      "market_snapshot_timestamp_present": false,
+      "has_overtime": false,
+      "source_flags": [
+        "William Hill screenshot showed POR 68 LAL 75, official halftime POR 68 LAL 73: score mismatch; exclude from verified edge performance",
+        "Exact wall-clock freeze and market screenshot timestamps unavailable",
+        "Forecast heuristic not calibrated Monte Carlo",
+        "No confirmed wager; ghost-only"
+      ],
+      "calibrated_probability_present": false,
+      "execution": "paper_only"
+    },
+    {
+      "game_id": "NBA_20261027_BKN_AT_BOS",
+      "classification": "recorded_freeze_timestamp_unverified",
+      "has_numeric_total": true,
+      "freeze_timestamp_present": false,
+      "source_count": 3,
+      "has_market": true,
+      "market_snapshot_timestamp_present": false,
+      "has_overtime": true,
+      "source_flags": [
+        "15 OT points: regulation-only forecast; final total includes OT",
+        "Exact wall-clock freeze and market screenshot timestamps unavailable",
+        "Heuristic uncalibrated; no verified wagers"
+      ],
+      "calibrated_probability_present": false,
+      "execution": "paper_only"
+    },
+    {
+      "game_id": "NBA_20261028_NYK_AT_CHI",
+      "classification": "retrospective_unverified",
+      "has_numeric_total": true,
+      "freeze_timestamp_present": false,
+      "source_count": 1,
+      "has_market": true,
+      "market_snapshot_timestamp_present": false,
+      "has_overtime": false,
+      "source_flags": [
+        "Forecast is reconstructed from conversational working baseline; no independently authenticated pre-market freeze in GitHub",
+        "Exclude from verified-frozen forecast MAE and betting edge calibration",
+        "Exact wall-clock freeze and screenshot timestamps unavailable",
+        "No confirmed wager; paper-only",
+        "Official scorer's report supplied in conversation; screenshot halftime score matches official"
+      ],
+      "calibrated_probability_present": false,
+      "execution": "paper_only"
+    },
+    {
+      "game_id": "NBA_20261030_NYK_AT_PHI",
+      "classification": "retrospective_unverified",
+      "has_numeric_total": true,
+      "freeze_timestamp_present": false,
+      "source_count": 1,
+      "has_market": true,
+      "market_snapshot_timestamp_present": false,
+      "has_overtime": false,
+      "source_flags": [
+        "Conversational forecast not independently authenticated as pre-market freeze",
+        "Exact screenshot timestamps unavailable",
+        "No calibrated probability or verified wager",
+        "Official halftime matches screenshot"
+      ],
+      "calibrated_probability_present": false,
+      "execution": "paper_only"
+    },
+    {
+      "game_id": "NBA_20261030_LAL_AT_GSW",
+      "classification": "retrospective_unverified",
+      "has_numeric_total": true,
+      "freeze_timestamp_present": false,
+      "source_count": 2,
+      "has_market": true,
+      "market_snapshot_timestamp_present": false,
+      "has_overtime": false,
+      "source_flags": [
+        "official quarter, half and final sums reconcile",
+        "original independent halftime freeze timestamp unverified",
+        "exclude from authenticated MAE",
+        "no confirmed wager",
+        "Q3 opening market not equivalent to halftime freeze"
+      ],
+      "calibrated_probability_present": false,
+      "execution": "paper_only_no_confirmed_wager"
+    },
+    {
+      "game_id": "NBA_20261031_OKC_AT_HOU",
+      "classification": "uncalibrated_heuristic_timestamp_unverified",
+      "has_numeric_total": true,
+      "freeze_timestamp_present": false,
+      "source_count": 3,
+      "has_market": true,
+      "market_snapshot_timestamp_present": false,
+      "has_overtime": false,
+      "source_flags": [
+        "Heuristic uncalibrated model; no Monte Carlo distribution or validated edge",
+        "Model-first snapshot exists but original freeze timestamp unavailable; exclude from authenticated freeze-only MAE pending independent verification",
+        "Official quarter/half/final totals reconcile",
+        "Prospective GHOST PASS; no bet or realized profit"
+      ],
+      "calibrated_probability_present": false,
+      "execution": "paper_only_no_wager"
+    }
+  ]
+}
