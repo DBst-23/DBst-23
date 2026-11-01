@@ -1,0 +1,86 @@
+{
+  "audit_id": "NBA_HALFTIME_SOURCE_AUTHENTICATION_STAGE1",
+  "date": "2026-10-31",
+  "repository": "DBst-23/DBst-23",
+  "scope": "Commit-history path queries for 16 registry games; four matched forecast/market pairs authenticated for GitHub ordering, other games source-file chronology incomplete",
+  "evidence_standard": "GitHub committer timestamps and file path commit history show order of repository writes; they do NOT independently prove actual forecast creation time, bookmaker screenshot capture time, halftime clock, or official game final time. Author/committer metadata can be manipulated; GitHub push receipt is stronger and was not separately retrieved.",
+  "paired_order_verified": [
+    {
+      "game": "NBA_20261026_MIN_AT_CLE",
+      "forecast": {
+        "sha": "c21e3b2687",
+        "utc": "2026-10-27T00:17:02Z"
+      },
+      "market": {
+        "sha": "38b48a2e10",
+        "utc": "2026-10-27T00:18:44Z"
+      },
+      "delta_seconds": 102
+    },
+    {
+      "game": "NBA_20261027_BKN_AT_BOS",
+      "forecast": {
+        "sha": "9e454a2b19",
+        "utc": "2026-10-28T00:46:49Z"
+      },
+      "market": {
+        "sha": "d6e603ef95",
+        "utc": "2026-10-28T00:47:44Z"
+      },
+      "postmortem": {
+        "sha": "6253d35d00",
+        "utc": "2026-10-28T02:41:43Z"
+      },
+      "delta_seconds": 55
+    },
+    {
+      "game": "NBA_20261027_POR_AT_LAL",
+      "forecast": {
+        "sha": "428176fb7f",
+        "utc": "2026-10-28T04:26:51Z"
+      },
+      "market": {
+        "sha": "9333ffdaac",
+        "utc": "2026-10-28T04:29:48Z"
+      },
+      "postmortem": {
+        "sha": "0db59c4227",
+        "utc": "2026-10-28T21:11:08Z"
+      },
+      "delta_seconds": 177,
+      "warning": "Legacy postmortem incorrectly claimed paths were not fetchable; they are now fetched in commit-history queries. Book halftime score mismatch remains."
+    },
+    {
+      "game": "NBA_20261031_OKC_AT_HOU",
+      "forecast": {
+        "sha": "3447b6cbe0",
+        "utc": "2026-11-01T01:45:09Z"
+      },
+      "market": {
+        "sha": "45454155f9",
+        "utc": "2026-11-01T01:45:55Z"
+      },
+      "postmortem": {
+        "sha": "7fd5a572e0",
+        "utc": "2026-11-01T04:48:19Z"
+      },
+      "delta_seconds": 46
+    }
+  ],
+  "counts": {
+    "registry_games": 16,
+    "forecast_before_market_commit_pairs": 4,
+    "postmortem_commit_after_market_in_checked_pairs": 3,
+    "full_independent_pre_final_authentication": 0
+  },
+  "unresolved": [
+    "No authoritative screenshot acquisition timestamps or independent official final timestamps joined to file commits.",
+    "No external pre-commit timestamp attestation or independently validated sportsbook quotes.",
+    "For other 12 registry games, evidence consists of postmortem-only, single-source snapshots, Q3 adjustment, or missing numeric forecasts; no verified premarket pair established in this stage.",
+    "Market capture scores can differ from official halftime, especially POR@LAL and MEM@GSW.",
+    "Commit ordering is not sufficient to certify prospective prediction prior to actual outcome when game clock and final timestamp are not independently checked.",
+    "No calibrated probabilistic forecast or validated EV is established."
+  ],
+  "policy": "Do not upgrade registry authenticated MAE or edge metrics based solely on this audit; classify four as GIT_COMMIT_ORDER_VERIFIED_ONLY, not fully prospective certified.",
+  "next_step": "For each paired game, fetch original blob at earliest commit, compare projected numbers to registry, verify official scheduled game/final timestamps from authoritative source, inspect market snapshot and exact halftime score; then audit remaining 12."
+}
