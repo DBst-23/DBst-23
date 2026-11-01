@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0",
+  "game_id": "NBA_20261031_SAC_AT_MEM",
+  "date": "2026-10-31",
+  "status": "FINAL_GRADED_MODEL_ONLY",
+  "venue": "FedExForum, Memphis TN",
+  "source": "User-provided NBA official scorer's report final box, quarter splits, and play-by-play",
+  "halftime": {
+    "SAC": 55,
+    "MEM": 66,
+    "total": 121,
+    "mem_margin": 11
+  },
+  "frozen_model": {
+    "classification": "HEURISTIC_UNCALIBRATED",
+    "market_data_seen_at_freeze": false,
+    "second_half": {
+      "SAC": 54,
+      "MEM": 56,
+      "total": 110
+    },
+    "final": {
+      "SAC": 109,
+      "MEM": 122,
+      "total": 231,
+      "mem_margin": 13
+    },
+    "illustrative_80pct_total_interval": [
+      209,
+      253
+    ],
+    "interval_calibrated": false
+  },
+  "actual": {
+    "quarters": {
+      "SAC": [
+        21,
+        34,
+        25,
+        25
+      ],
+      "MEM": [
+        27,
+        39,
+        42,
+        28
+      ]
+    },
+    "final": {
+      "SAC": 105,
+      "MEM": 136,
+      "total": 241,
+      "mem_margin": 31
+    },
+    "second_half": {
+      "SAC": 50,
+      "MEM": 70,
+      "total": 120
+    },
+    "overtime": false
+  },
+  "errors_actual_minus_frozen": {
+    "SAC": -4,
+    "MEM": 14,
+    "total": 10,
+    "mem_margin": 18,
+    "second_half_SAC": -4,
+    "second_half_MEM": 14,
+    "second_half_total": 10
+  },
+  "drivers": {
+    "MEM_second_half_FG": "24/41 (58.5%)",
+    "MEM_second_half_3P": "6/14 (42.9%)",
+    "MEM_first_half_3P": "13/24 (54.2%)",
+    "MEM_third_quarter_points": 42,
+    "SAC_second_half_FG": "17/43 (39.5%)",
+    "SAC_second_half_3P": "4/16 (25.0%)",
+    "MEM_second_half_points_in_paint": 34,
+    "SAC_second_half_points_in_paint": 22,
+    "MEM_second_half_turnovers": 5,
+    "SAC_second_half_turnovers": 9,
+    "analysis": "Memphis 3P percentage regressed from 54.2% to 42.9% but maintained very efficient 2H scoring (58.5% FG) and a 42-point Q3; model overestimated how much shooting regression would suppress Memphis output. Causal attribution not proven."
+  },
+  "market": {
+    "william_hill_halftime_snapshot_verified": false,
+    "lines": null,
+    "market_grades": null
+  },
+  "ghost": {
+    "prospective_selection_verified": false,
+    "result": "NOT_GRADED",
+    "real_wager_verified": false,
+    "real_profit_usd": 0
+  },
+  "accuracy_registry_eligibility": "numeric forecast present in pre-existing GitHub halftime model-first artifact; exact pre-outcome freeze time not independently verified; exclude from authenticated nine-forecast MAE pending verification",
+  "source_paths": [
+    "liveflow/nba/ghost/2026-10-31_SAC_AT_MEM_HALFTIME_MODEL_FIRST.json"
+  ],
+  "data_quality_flags": [
+    "No verified William Hill halftime lines or prices available",
+    "Heuristic forecast; no calibrated Monte Carlo probabilities or EV",
+    "Illustrative 80% interval not calibrated; coverage cannot be assessed statistically",
+    "User supplied official scorer's report; independent official source not checked"
+  ]
+}
