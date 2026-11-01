@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "game_id": "NBA_20261031_OKC_AT_HOU",
+  "status": "PROSPECTIVE_HEURISTIC_MODEL_FREEZE",
+  "source": "User supplied NBA official halftime box and play-by-play",
+  "halftime": {
+    "OKC": 51,
+    "HOU": 62,
+    "total": 113
+  },
+  "quarter_scores": {
+    "OKC": [
+      26,
+      25
+    ],
+    "HOU": [
+      35,
+      27
+    ]
+  },
+  "model_method": "Heuristic pace, shooting regression, fouls and rotation; NOT Monte Carlo; uncalibrated",
+  "simulation_count": 0,
+  "projected_second_half": {
+    "OKC": 55,
+    "HOU": 52,
+    "total": 107
+  },
+  "projected_final": {
+    "OKC": 106,
+    "HOU": 114,
+    "total": 220,
+    "hou_margin": 8
+  },
+  "projection_intervals_heuristic_not_calibrated": {
+    "final_total": [
+      204,
+      237
+    ],
+    "hou_margin": [
+      -7,
+      22
+    ]
+  },
+  "notes": [
+    "Houston 8/19 3PT (42.1%) vs OKC 4/16 (25%): anticipate partial convergence",
+    "HOU 14/16 FT vs OKC 7/8, HOU 8 ORB vs OKC 6",
+    "Hartenstein 3 PF, Sengun 3 PF at half; monitor availability",
+    "Houston led by 21 then 11 at halftime",
+    "No sportsbook halftime price supplied; no validated probability/EV or ghost pick"
+  ],
+  "market_status": "AWAITING_WILLIAM_HILL_SNAPSHOT",
+  "real_money_staked": 0
+}
