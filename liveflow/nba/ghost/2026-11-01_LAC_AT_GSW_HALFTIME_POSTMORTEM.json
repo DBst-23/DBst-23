@@ -1,0 +1,65 @@
+{
+  "game_id": "NBA_20261101_LAC_AT_GSW",
+  "date": "2026-11-01",
+  "source": "NBA official scorer report supplied by user",
+  "quarters": {
+    "LAC": [
+      37,
+      20,
+      28,
+      27
+    ],
+    "GSW": [
+      29,
+      34,
+      29,
+      32
+    ]
+  },
+  "halftime": {
+    "LAC": 57,
+    "GSW": 63
+  },
+  "forecast": {
+    "LAC": 110,
+    "GSW": 118,
+    "total": 228,
+    "GSW_margin": 8,
+    "second_half_total": 108
+  },
+  "actual": {
+    "LAC": 112,
+    "GSW": 124,
+    "total": 236,
+    "GSW_margin": 12,
+    "second_half_total": 116
+  },
+  "error_actual_minus_forecast": {
+    "LAC": 2,
+    "GSW": 6,
+    "total": 8,
+    "margin": 4,
+    "second_half_total": 8
+  },
+  "market_results": {
+    "under_231_5": "loss",
+    "LAC_under_113_5": "win",
+    "GSW_minus_5_5": "win",
+    "GSW_under_118_5": "loss"
+  },
+  "analysis": "Golden State scored 61 second-half points and shot 11-for-21 from three after halftime; the expected offensive regression did not occur. Clippers scored 55 after halftime, recovering from their 20-point second quarter.",
+  "decision": "GHOST_PASS",
+  "actual_wagers": 0,
+  "real_profit_usd": 0,
+  "simulation_count": 0,
+  "calibrated_probability": null,
+  "freeze_timestamp_utc": null,
+  "market_snapshot_timestamp_utc": null,
+  "provenance_flags": [
+    "model freeze chronology not independently verified",
+    "market screenshot capture time unknown",
+    "retrospective market grading is not wager performance"
+  ],
+  "model_source": "liveflow/nba/ghost/2026-11-01_LAC_AT_GSW_HALFTIME_MODEL_FIRST.json",
+  "market_source": "liveflow/nba/ghost/2026-11-01_LAC_AT_GSW_HALFTIME_MARKET_SNAPSHOT.json"
+}
