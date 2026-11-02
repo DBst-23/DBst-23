@@ -1,0 +1,56 @@
+{
+  "game_id": "NBA_20261101_LAC_AT_GSW",
+  "phase": "HALFTIME_MARKET_SNAPSHOT",
+  "source": "user-supplied sportsbook screenshots in conversation",
+  "halftime": {
+    "LAC": 57,
+    "GSW": 63
+  },
+  "market": {
+    "full_total": {
+      "line": 231.5,
+      "over": -115,
+      "under": -115
+    },
+    "spread": {
+      "LAC_plus_5_5": -110,
+      "GSW_minus_5_5": -120
+    },
+    "moneyline": {
+      "LAC": 200,
+      "GSW": -260
+    },
+    "team_totals": {
+      "LAC": {
+        "line": 113.5,
+        "over": -105,
+        "under": -125
+      },
+      "GSW": {
+        "line": 118.5,
+        "over": -115,
+        "under": -115
+      }
+    }
+  },
+  "market_capture_timestamp_utc": null,
+  "market_book": "not independently verified",
+  "model_first_path": "liveflow/nba/ghost/2026-11-01_LAC_AT_GSW_HALFTIME_MODEL_FIRST.json",
+  "model_first_blob_sha": "360022156a6b8711646d9ff42d9ac6bd6b76fa77",
+  "model_forecast": {
+    "LAC": 110,
+    "GSW": 118,
+    "total": 228,
+    "margin_GSW": 8,
+    "second_half_total": 108
+  },
+  "decision": "GHOST_PASS",
+  "execution": "paper_only_zero_wager",
+  "probability": null,
+  "ev": null,
+  "flags": [
+    "market snapshot capture time unverified",
+    "halftime window still open at snapshot unverified",
+    "no calibrated probability or simulated distribution"
+  ]
+}
