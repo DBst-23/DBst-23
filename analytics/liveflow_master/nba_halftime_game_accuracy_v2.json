@@ -13,11 +13,11 @@
     "overtime": "regulation forecast compared separately with regulation and full-game result"
   },
   "summary": {
-    "total_games": 16,
+    "total_games": 17,
     "playoff_games_added": 5,
     "full_total_model_forecasts_present": 9,
     "full_total_model_mae": 5.73,
-    "note": "Nonrandom convenience sample; authenticated regulation MAE 5.73 remains restricted to nine authenticated numeric forecasts. OKC-HOU added as an uncalibrated heuristic, with freeze timestamp unverified; excluded from authenticated MAE. No calibrated betting edge or confirmed wager.",
+    "note": "Nonrandom convenience sample; authenticated regulation MAE 5.73 remains restricted to nine authenticated numeric forecasts. OKC-HOU added as an uncalibrated heuristic, with freeze timestamp unverified; excluded from authenticated MAE. No calibrated betting edge or confirmed wager. LAC-GSW Nov 1 appended as uncalibrated heuristic; excluded from authenticated MAE.",
     "full_total_model_regulation_mae": 5.73,
     "overtime_games": 2,
     "conversation_reconstructed_unverified_games": 3
@@ -1459,6 +1459,92 @@
       "forecast_evidence": "github_model_first_snapshot_timestamp_unverified",
       "market_snapshot_timestamp": null,
       "price_qualification": "PASS_UNCALIBRATED"
+    },
+    {
+      "game_id": "NBA_20261101_LAC_AT_GSW",
+      "date": "2026-11-01",
+      "league": "NBA",
+      "checkpoint": "HALFTIME",
+      "away_team": "LAC",
+      "home_team": "GSW",
+      "halftime": {
+        "away": 57,
+        "home": 63,
+        "total": 120
+      },
+      "forecast": {
+        "away_final": 110,
+        "home_final": 118,
+        "full_game_total": 228,
+        "second_half_total": 108,
+        "home_margin": 8,
+        "forecast_target": "regulation_only",
+        "freeze_timestamp": null
+      },
+      "actual": {
+        "away_final": 112,
+        "home_final": 124,
+        "final_total": 236,
+        "overtime": false,
+        "regulation_total": 236,
+        "second_half_regulation": {
+          "away": 55,
+          "home": 61,
+          "total": 116
+        },
+        "home_margin": 12
+      },
+      "accuracy": {
+        "total_error_final": 8,
+        "total_abs_error_final": 8,
+        "total_error_regulation": 8,
+        "home_margin_error_final": 4,
+        "away_team_error_final": 2,
+        "home_team_error_final": 6,
+        "second_half_error_regulation": 8
+      },
+      "market_comparisons": [
+        {
+          "type": "full_game_total",
+          "line": 231.5,
+          "selection": "Under",
+          "odds": -115,
+          "actual": 236,
+          "result": "LOSS",
+          "execution": "not_placed"
+        },
+        {
+          "type": "team_total",
+          "team": "away",
+          "line": 113.5,
+          "selection": "Under",
+          "odds": -125,
+          "actual": 112,
+          "result": "WIN",
+          "execution": "not_placed"
+        },
+        {
+          "type": "spread_home_margin",
+          "line": 5.5,
+          "selection": "GSW -5.5",
+          "odds": -120,
+          "actual": 12,
+          "result": "WIN",
+          "execution": "not_placed"
+        }
+      ],
+      "source_paths": [
+        "liveflow/nba/ghost/2026-11-01_LAC_AT_GSW_HALFTIME_MODEL_FIRST.json",
+        "liveflow/nba/ghost/2026-11-01_LAC_AT_GSW_HALFTIME_MARKET_SNAPSHOT.json",
+        "liveflow/nba/ghost/2026-11-01_LAC_AT_GSW_HALFTIME_POSTMORTEM.json"
+      ],
+      "data_quality_flags": [
+        "uncalibrated heuristic; zero simulations",
+        "freeze timestamp and market screenshot timestamp unverified",
+        "market grades retrospective only"
+      ],
+      "execution": "paper_only",
+      "model_authentication": "not_authenticated_for_MAE"
     }
   ]
 }
