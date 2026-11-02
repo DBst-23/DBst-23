@@ -1,0 +1,147 @@
+{
+  "schema_version": "1.0",
+  "study_id": "NBA_HALFTIME_SHOOTING_VOLATILITY_PILOT_2026_11_02",
+  "status": "EXPLORATORY_NON_PREDICTIVE",
+  "created_date": "2026-11-02",
+  "objective": "Test whether first-half high three-point accuracy predicts second-half regression; establish data coverage before inference",
+  "selection": "Convenience sample from existing SharpEdge postmortems with explicit first- and second-half 3PT makes/attempts; NOT random or exhaustive; no historical league-wide baseline",
+  "unit": "team-game",
+  "inclusion": "both halves numeric 3PM/3PA with 3PA>0, halftime known",
+  "rows": [
+    {
+      "game": "NBA_20261101_LAC_AT_GSW",
+      "team": "GSW",
+      "h1": [
+        11,
+        28
+      ],
+      "h2": [
+        11,
+        21
+      ],
+      "points": [
+        63,
+        61
+      ],
+      "source": "liveflow/nba/ghost/2026-11-01_LAC_AT_GSW_HALFTIME_POSTMORTEM.json",
+      "evidence": "user-supplied half box scores",
+      "h1_pct": 39.29,
+      "h2_pct": 52.38,
+      "delta_pp": 13.09,
+      "h2_minus_h1_points": -2
+    },
+    {
+      "game": "NBA_20261101_LAC_AT_GSW",
+      "team": "LAC",
+      "h1": [
+        8,
+        21
+      ],
+      "h2": [
+        6,
+        18
+      ],
+      "points": [
+        57,
+        55
+      ],
+      "source": "liveflow/nba/ghost/2026-11-01_LAC_AT_GSW_HALFTIME_POSTMORTEM.json",
+      "evidence": "user-supplied half box scores",
+      "h1_pct": 38.1,
+      "h2_pct": 33.33,
+      "delta_pp": -4.77,
+      "h2_minus_h1_points": -2
+    },
+    {
+      "game": "NBA_20261031_OKC_AT_HOU",
+      "team": "HOU",
+      "h1": [
+        8,
+        19
+      ],
+      "h2": [
+        10,
+        22
+      ],
+      "points": [
+        62,
+        57
+      ],
+      "source": "liveflow/nba/ghost/2026-10-31_OKC_AT_HOU_HALFTIME_POSTMORTEM.json",
+      "h1_pct": 42.11,
+      "h2_pct": 45.45,
+      "delta_pp": 3.34,
+      "h2_minus_h1_points": -5
+    },
+    {
+      "game": "NBA_20261031_OKC_AT_HOU",
+      "team": "OKC",
+      "h1": [
+        4,
+        16
+      ],
+      "h2": [
+        6,
+        16
+      ],
+      "points": [
+        51,
+        47
+      ],
+      "source": "liveflow/nba/ghost/2026-10-31_OKC_AT_HOU_HALFTIME_POSTMORTEM.json",
+      "h1_pct": 25,
+      "h2_pct": 37.5,
+      "delta_pp": 12.5,
+      "h2_minus_h1_points": -4
+    },
+    {
+      "game": "NBA_20261031_SAC_AT_MEM",
+      "team": "MEM",
+      "h1": [
+        13,
+        24
+      ],
+      "h2": [
+        6,
+        14
+      ],
+      "points": [
+        66,
+        70
+      ],
+      "source": "liveflow/nba/ghost/2026-10-31_SAC_AT_MEM_HALFTIME_POSTMORTEM.json",
+      "h1_pct": 54.17,
+      "h2_pct": 42.86,
+      "delta_pp": -11.31,
+      "h2_minus_h1_points": 4
+    }
+  ],
+  "high_shooting_threshold_first_half_pct": 40,
+  "high_group": {
+    "n": 2,
+    "teams": [
+      "HOU",
+      "MEM"
+    ],
+    "individual_regressions": 1,
+    "first_half_3pm": 21,
+    "first_half_3pa": 43,
+    "second_half_3pm": 16,
+    "second_half_3pa": 36,
+    "pooled_first_half_pct": 48.84,
+    "pooled_second_half_pct": 44.44
+  },
+  "findings": [
+    "High-shooting subset includes Houston (42.1% to 45.5%) and Memphis (54.2% to 42.9%); one rose, one fell.",
+    "Memphis scored more points in 2H (70) than 1H (66) despite lower three-point percentage, so 3PT regression alone did not imply scoring regression.",
+    "Golden State increased from 39.3% 1H to 52.4% 2H and scored 61 after halftime versus 63 before; 1H is below predeclared 40% cutoff.",
+    "Sample is selected post hoc, only 5 team-games, lacks pace/possessions, opponent strength, injury rotation, attempt-mix, rest and a proper comparison baseline; no meaningful predictability test or p-value is justified.",
+    "Regression toward a population shooting rate is a statistical expectation under a stable process, not evidence that a profitable second-half betting signal exists."
+  ],
+  "conclusion": "NOT DEMONSTRATED: no reliable evidence from this convenience sample that similar first-half shooting profiles predict second-half scoring regression or offer market edge.",
+  "next_required_test": "Build season-scale team-game halftime dataset with 3PM/3PA both halves, possessions, lineup/rotation, rest, score, opponent, timestamped halftime odds; chronological walk-forward benchmark vs baseline and no-vig market; evaluate probability calibration and EV out of sample.",
+  "betting_release_gate": "G0_GHOST_PASS",
+  "calibrated_probability": null,
+  "estimated_edge": null,
+  "simulation_count": 0
+}
