@@ -1,0 +1,29 @@
+name: NBA 2025-26 halftime historical ingestion
+on:
+  workflow_dispatch:
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install nba_api pandas
+      - name: Acquire official half splits and reconcile
+        run: |
+          mkdir -p data/nba
+          python analytics/liveflow_master/acquire_2025_26_halves.py --out data/nba/2025_26_team_halves.csv --audit data/nba/2025_26_ingestion_audit.json
+      - name: Upload audit and data even if incomplete
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nba-2025-26-halves-and-audit
+          path: |
+            data/nba/2025_26_team_halves.csv
+            data/nba/2025_26_ingestion_audit.json
+          if-no-files-found: warn
