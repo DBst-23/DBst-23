@@ -1,0 +1,71 @@
+{
+  "game_id": "NBA_20261101_LAC_AT_GSW",
+  "phase": "HALFTIME_MODEL_FIRST",
+  "source": "user_provided_official_nba_first_half_scorer_report_and_play_by_play",
+  "halftime": {
+    "LAC": 57,
+    "GSW": 63,
+    "total": 120
+  },
+  "quarters": {
+    "Q1": {
+      "LAC": 37,
+      "GSW": 29
+    },
+    "Q2": {
+      "LAC": 20,
+      "GSW": 34
+    }
+  },
+  "inputs": {
+    "LAC": {
+      "FGA": 48,
+      "FGM": 21,
+      "threePA": 20,
+      "threePM": 8,
+      "FTA": 7,
+      "ORB": 8,
+      "TO": 6
+    },
+    "GSW": {
+      "FGA": 46,
+      "FGM": 24,
+      "threePA": 28,
+      "threePM": 11,
+      "FTA": 4,
+      "ORB": 6,
+      "TO": 5
+    },
+    "notable": "LAC 2Q 20 points on 8/26 FG; GSW 2Q 34 on 13/22; GSW 11/28 3P in half; absent Curry, Butler, Green, Moody, Porzingis."
+  },
+  "projection": {
+    "second_half": {
+      "LAC": 53,
+      "GSW": 55,
+      "total": 108
+    },
+    "final": {
+      "LAC": 110,
+      "GSW": 118,
+      "total": 228,
+      "GSW_margin": 8
+    },
+    "estimated_second_half_total_range_uncalibrated": [
+      94,
+      123
+    ],
+    "estimated_final_total_range_uncalibrated": [
+      214,
+      243
+    ]
+  },
+  "model_type": "transparent heuristic, not Monte Carlo",
+  "simulation_count": 0,
+  "calibrated_probabilities": null,
+  "mean_median_distribution": null,
+  "market_data_seen": false,
+  "freeze_timestamp_utc": null,
+  "provenance_note": "Created before user provides any sportsbook lines; cannot independently verify exact halftime freeze timestamp or that Q3 has not begun.",
+  "execution": "paper_only_pending_market_and_clock_verification",
+  "decision": "NO BET pending timing and price validation"
+}
