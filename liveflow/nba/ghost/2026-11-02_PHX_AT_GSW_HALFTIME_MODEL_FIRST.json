@@ -1,0 +1,80 @@
+{
+  "game_id": "NBA_20261102_PHX_AT_GSW",
+  "phase": "HALFTIME_MODEL_FIRST",
+  "source": "user_provided_official_NBA_halftime_scorer_report_and_play_by_play",
+  "halftime": {
+    "PHX": 57,
+    "GSW": 51,
+    "total": 108
+  },
+  "quarters": {
+    "Q1": {
+      "PHX": 31,
+      "GSW": 19
+    },
+    "Q2": {
+      "PHX": 26,
+      "GSW": 32
+    }
+  },
+  "inputs": {
+    "PHX": {
+      "FGA": 37,
+      "FGM": 19,
+      "threePA": 14,
+      "threePM": 6,
+      "FTA": 14,
+      "FTM": 13,
+      "ORB": 3,
+      "TO": 7,
+      "estimated_possessions": 47.16
+    },
+    "GSW": {
+      "FGA": 44,
+      "FGM": 18,
+      "threePA": 24,
+      "threePM": 7,
+      "FTA": 10,
+      "FTM": 8,
+      "ORB": 6,
+      "TO": 6,
+      "estimated_possessions": 48.4
+    }
+  },
+  "context": {
+    "GSW": "Curry active; GSW 7/24 three, Q1 2/15 and Q2 5/9; Lendeborg 3 fouls",
+    "PHX": "Booker 16 points, Bridges 11; PHX 13/14 FT; Ighodaro 3 fouls",
+    "inactives": "GSW Butler, Horford, Moody, Porzingis, Santos; PHX Williams and G-League two-ways"
+  },
+  "projection": {
+    "second_half": {
+      "PHX": 53,
+      "GSW": 58,
+      "total": 111,
+      "GSW_margin": 5
+    },
+    "final": {
+      "PHX": 110,
+      "GSW": 109,
+      "total": 219,
+      "PHX_margin": 1
+    },
+    "second_half_total_range_uncalibrated": [
+      96,
+      127
+    ],
+    "final_total_range_uncalibrated": [
+      204,
+      235
+    ]
+  },
+  "method": "transparent heuristic; 1H possessions ~48 per team; moderate GSW perimeter regression and PHX foul/FT normalization; no season-trained calibration",
+  "simulation_count": 0,
+  "calibrated_probabilities": null,
+  "mean_median_distribution": null,
+  "market_data_seen": false,
+  "freeze_timestamp_utc": null,
+  "provenance_note": "User report shows Q2 ended 8:14 PM Pacific; local time context ~8:23 PM Pacific. Q3 may already have started; cannot certify pre-Q3 freeze. No market lines supplied.",
+  "execution": "paper_only; not authorized for live betting without clock verification",
+  "decision": "NO BET"
+}
