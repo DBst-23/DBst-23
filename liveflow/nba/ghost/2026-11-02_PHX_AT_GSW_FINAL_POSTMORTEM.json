@@ -1,0 +1,130 @@
+{
+  "game_id": "NBA_20261102_PHX_AT_GSW",
+  "phase": "FINAL_POSTMORTEM",
+  "date": "2026-11-02",
+  "venue": "Chase Center, San Francisco",
+  "source": "user-provided NBA official final box, quarter reports and play-by-play",
+  "linked_market_snapshot": "liveflow/nba/ghost/2026-11-02_PHX_AT_GSW_HALFTIME_MARKET_SNAPSHOT.json",
+  "halftime": {
+    "PHX": 57,
+    "GSW": 51,
+    "total": 108
+  },
+  "quarter_scores": {
+    "Q1": {
+      "PHX": 31,
+      "GSW": 19
+    },
+    "Q2": {
+      "PHX": 26,
+      "GSW": 32
+    },
+    "Q3": {
+      "PHX": 36,
+      "GSW": 42
+    },
+    "Q4": {
+      "PHX": 20,
+      "GSW": 23
+    }
+  },
+  "frozen_forecast_from_market_snapshot": {
+    "PHX": 110,
+    "GSW": 109,
+    "total": 219,
+    "second_half_total": 111,
+    "margin_PHX": 1
+  },
+  "actual": {
+    "PHX": 113,
+    "GSW": 116,
+    "total": 229,
+    "second_half": {
+      "PHX": 56,
+      "GSW": 65,
+      "total": 121
+    },
+    "margin_PHX": -3,
+    "winner": "GSW"
+  },
+  "forecast_errors_actual_minus_prediction": {
+    "PHX": 3,
+    "GSW": 7,
+    "total": 10,
+    "second_half_total": 10,
+    "margin_PHX": -4,
+    "absolute_total_error": 10,
+    "absolute_team_score_errors": {
+      "PHX": 3,
+      "GSW": 7
+    },
+    "absolute_margin_error": 4
+  },
+  "halftime_market": {
+    "PHX_spread": -2.5,
+    "PHX_spread_odds": -115,
+    "GSW_spread": 2.5,
+    "GSW_spread_odds": -115,
+    "PHX_moneyline": -140,
+    "GSW_moneyline": 110,
+    "total": 217.5,
+    "over_odds": -115,
+    "under_odds": -115,
+    "PHX_team_total": 109.5,
+    "GSW_team_total": 107.5,
+    "team_total_over_under_odds": -115
+  },
+  "hypothetical_market_settlement_not_recommendations": {
+    "over_217_5": "WIN",
+    "under_217_5": "LOSS",
+    "PHX_minus_2_5": "LOSS",
+    "GSW_plus_2_5": "WIN",
+    "PHX_moneyline": "LOSS",
+    "GSW_moneyline": "WIN",
+    "PHX_team_total_over_109_5": "WIN",
+    "PHX_team_total_under_109_5": "LOSS",
+    "GSW_team_total_over_107_5": "WIN",
+    "GSW_team_total_under_107_5": "LOSS"
+  },
+  "diagnostics": {
+    "Q3_total": 78,
+    "Q4_total": 43,
+    "Q3_vs_Q4_total_difference": 35,
+    "GSW_Q3_points": 42,
+    "PHX_Q3_points": 36,
+    "GSW_Q4_points": 23,
+    "PHX_Q4_points": 20,
+    "GSW_second_half_free_throws_made": 23,
+    "GSW_second_half_free_throws_attempted": 27,
+    "PHX_second_half_free_throws_made": 9,
+    "PHX_second_half_free_throws_attempted": 16,
+    "GSW_second_half_Curry_points": 25,
+    "GSW_second_half_Curry_three_pointers_made": 4,
+    "GSW_Q3_Curry_points": 18,
+    "GSW_Q3_Curry_three_pointers_made": 4,
+    "events": [
+      "Draymond Green ejected at 10:00 Q3 on second technical",
+      "Jordan Goodwin right calf injury, did not return",
+      "Devin Booker fouled out with 57.6 seconds remaining in Q4"
+    ]
+  },
+  "interpretation": [
+    "Model underestimated second-half total by 10, concentrated in 78-point Q3; 43-point Q4 offset part of the surge.",
+    "GSW scored 65 second-half points versus PHX 56, reversing halftime six-point deficit.",
+    "GSW second-half free throw volume and Curry third-quarter shooting are observable contributors, not proven causal attribution.",
+    "Model total 219 exceeded market 217.5 by only 1.5; no calibrated probability, verified edge or positive EV established."
+  ],
+  "audit": {
+    "execution": "PAPER_ONLY",
+    "actual_wager_count": 0,
+    "realized_profit_loss": 0,
+    "calibrated_probabilities": null,
+    "simulation_count": 0,
+    "clv": null,
+    "halftime_snapshot_timestamp_verified": false,
+    "model_first_independent_file_verified": false,
+    "forecast_origin": "frozen_forecast fields in prior committed halftime market snapshot",
+    "grade": "FORECAST_MISS_TOTAL_10_POINTS; GHOST_PASS",
+    "follow_up": "Review third-quarter scoring variance, Curry role/shot volume and free-throw sensitivity; do not retroactively change frozen forecast."
+  }
+}
