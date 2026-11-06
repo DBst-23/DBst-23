@@ -1,0 +1,51 @@
+{
+  "protocol": "SharpEdge NBA LIVE-FLOW model-first GHOST freeze",
+  "game_date": "2026-11-05",
+  "matchup": "MIA@GSW",
+  "state": "HALFTIME",
+  "source": "User-supplied NBA official first-half scorer report and play-by-play; no market lines observed",
+  "score_h1": {
+    "MIA": 53,
+    "GSW": 53,
+    "total": 106
+  },
+  "h1": {
+    "MIA": {
+      "fga": 44,
+      "fta": 8,
+      "orb": 3,
+      "tov": 11,
+      "three_pm": 8,
+      "three_pa": 23,
+      "poss_est": 55.52
+    },
+    "GSW": {
+      "fga": 43,
+      "fta": 4,
+      "orb": 2,
+      "tov": 9,
+      "three_pm": 9,
+      "three_pa": 25,
+      "poss_est": 51.76
+    }
+  },
+  "possessions_estimate_method": "FGA+0.44*FTA-ORB+TOV; average team estimates 53.64; box-score possession approximation only",
+  "forecast": {
+    "MIA_h2": 55,
+    "GSW_h2": 57,
+    "h2_total": 112,
+    "final_MIA": 108,
+    "final_GSW": 110,
+    "full_game_total": 218,
+    "GSW_margin": 2
+  },
+  "reasoning": [
+    "First-half 106 points on approx 53.64 team possessions implies approx 0.988 points per team possession; projected modest second-half efficiency normalization.",
+    "Combined first-half 3P 17/48 (35.4%), not an extreme hot-shooting signal.",
+    "Miami 11 turnovers vs GSW 9; Warriors 4 FTA vs Miami 8; foul/FT volatility is a meaningful risk.",
+    "Home-court tilt to GSW is qualitative, not an empirically calibrated win probability."
+  ],
+  "uncertainty": "Heuristic point projection only. No trained season-scale simulation or calibrated probabilities; no valid EV, edge, median or game-line probabilities available. Market comparison must follow immutable freeze.",
+  "bet_status": "GHOST ONLY / NO BET",
+  "created_at_context": "2026-11-05 halftime user report"
+}
