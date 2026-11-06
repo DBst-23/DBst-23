@@ -1,0 +1,59 @@
+{
+  "game": "2026-11-05 MIA@GSW",
+  "stage": "HALFTIME_MARKET_REVEAL",
+  "model_freeze_commit": "ef12e7f44d29a228600f740ac809c1dc42451905",
+  "halftime_score": {
+    "MIA": 53,
+    "GSW": 53
+  },
+  "frozen_model": {
+    "final_total": 218,
+    "second_half_total": 112,
+    "final_MIA": 108,
+    "final_GSW": 110,
+    "GSW_margin": 2
+  },
+  "market_source": "User-provided sportsbook screenshots; sportsbook not independently verified",
+  "market": {
+    "full_total": {
+      "line": 221.5,
+      "over_american": -115,
+      "under_american": -115
+    },
+    "spread": {
+      "MIA": 3.5,
+      "GSW": -3.5,
+      "american": -115
+    },
+    "moneyline": {
+      "MIA": 135,
+      "GSW": -170
+    },
+    "team_totals": {
+      "GSW": {
+        "line": 111.5,
+        "over_american": -120,
+        "under_american": -110
+      },
+      "MIA": {
+        "line": 108.5,
+        "over_american": -125,
+        "under_american": -105
+      }
+    }
+  },
+  "model_market_differences_points": {
+    "full_total_market_minus_model": 3.5,
+    "GSW_team_total_market_minus_model": 1.5,
+    "MIA_team_total_market_minus_model": 0.5,
+    "GSW_favored_margin_market_minus_model": 1.5
+  },
+  "candidate_directions": [
+    "Under 221.5 (-115)",
+    "Miami +3.5 (-115)",
+    "GSW team under 111.5 (-110)",
+    "Miami team under 108.5 (-105)"
+  ],
+  "note": "Directions are comparisons of uncalibrated point estimates, not verified positive expected value. Full-game under 221.5 corresponds to second-half 115.5 threshold given halftime 106. No actual second-half-only market line shown.",
+  "status": "GHOST PASS $0; no calibrated distributions, probabilities or EV"
+}
