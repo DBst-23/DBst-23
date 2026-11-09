@@ -1,0 +1,174 @@
+{
+  "schema_version": "sharpedge_liveflow_postmortem_v1",
+  "game_id": "NBA_20261108_MIA_AT_SAC",
+  "date": "2026-11-08",
+  "venue": "Golden 1 Center, Sacramento, CA",
+  "source": [
+    "user-provided official NBA scorer report and play-by-play",
+    "user-provided Novig matched and settled ticket screenshots",
+    "previously frozen SharpEdge projection cited in ticket record"
+  ],
+  "final": {
+    "MIA": 114,
+    "SAC": 108,
+    "total": 222,
+    "winner": "MIA",
+    "quarters": {
+      "MIA": [
+        34,
+        34,
+        23,
+        23
+      ],
+      "SAC": [
+        30,
+        29,
+        22,
+        27
+      ]
+    },
+    "halves": {
+      "first": {
+        "MIA": 68,
+        "SAC": 59,
+        "total": 127
+      },
+      "second": {
+        "MIA": 46,
+        "SAC": 49,
+        "total": 95
+      }
+    }
+  },
+  "ticket": {
+    "provider": "Novig",
+    "market": "full_game_total_over",
+    "line": 240.5,
+    "status": "LOST",
+    "matched": true,
+    "initial_screenshot_amount_usd": 10,
+    "settlement_screenshot_amount_usd": 9.79,
+    "displayed_potential_payout_usd": 20.62,
+    "actual_cash_loss_usd": null,
+    "actual_cash_loss_note": "Settlement screenshot shows Amount $9.79 versus initial $10.00. Trade credit label visible. Do not equate displayed amount with cash loss without ledger.",
+    "ticket_id": "dee235074cce",
+    "displayed_percentage": 46,
+    "displayed_percentage_interpretation": "unverified",
+    "initial_payout_based_break_even_probability": 0.4849660523763336,
+    "settlement_amount_based_break_even_probability_if_amount_represents_true_risk": 0.47478176527643057,
+    "over_missed_by_points": 18.5,
+    "minimum_winning_total": 241,
+    "points_short_of_win": 19,
+    "laddered_up_from_line": 238.5,
+    "ladder_increment": 2,
+    "original_line_result": "also lost (222 < 238.5)"
+  },
+  "frozen_model": {
+    "projected_final_total": 244,
+    "projected_second_half_total": 117,
+    "projected_total_from_first_half": 127,
+    "projected_over_240_5_probability": 0.5866,
+    "probability_status": "illustrative uncalibrated normal assumption; not a validated Monte Carlo output",
+    "projected_median": null,
+    "simulation_count": null
+  },
+  "audit": {
+    "actual_final_total": 222,
+    "forecast_error_actual_minus_prediction": -22,
+    "absolute_error": 22,
+    "second_half_actual": 95,
+    "second_half_forecast_error": -22,
+    "second_half_first_half_difference": -32,
+    "market_line_minus_actual": 18.5,
+    "forecast_minus_market_line": 3.5,
+    "forecast_direction": "overestimated scoring",
+    "win_loss": "LOSS",
+    "bet_result": "OVER_240_5_LOST"
+  },
+  "first_half": {
+    "MIA": {
+      "FGM": 26,
+      "FGA": 47,
+      "three_made": 11,
+      "three_attempts": 23,
+      "FTM": 5,
+      "FTA": 10,
+      "OREB": 4,
+      "TO": 3,
+      "fg_pct": 55.3,
+      "three_pct": 47.8,
+      "estimated_possessions": 50.4
+    },
+    "SAC": {
+      "FGM": 22,
+      "FGA": 39,
+      "three_made": 7,
+      "three_attempts": 19,
+      "FTM": 8,
+      "FTA": 9,
+      "OREB": 5,
+      "TO": 12,
+      "fg_pct": 56.4,
+      "three_pct": 36.8,
+      "estimated_possessions": 49.96
+    }
+  },
+  "second_half": {
+    "MIA": {
+      "FGM": 18,
+      "FGA": 41,
+      "three_made": 7,
+      "three_attempts": 20,
+      "FTM": 3,
+      "FTA": 8,
+      "OREB": 4,
+      "TO": 10,
+      "fg_pct": 43.9,
+      "three_pct": 35,
+      "estimated_possessions": 50.52
+    },
+    "SAC": {
+      "FGM": 16,
+      "FGA": 43,
+      "three_made": 4,
+      "three_attempts": 18,
+      "FTM": 13,
+      "FTA": 14,
+      "OREB": 5,
+      "TO": 8,
+      "fg_pct": 37.2,
+      "three_pct": 22.2,
+      "estimated_possessions": 52.16
+    }
+  },
+  "estimated_possessions_formula": "FGA + 0.44*FTA - OREB + TO; descriptive estimate, not play-by-play possession count",
+  "diagnosis": [
+    {
+      "tag": "HALFTIME_SHOOTING_REGRESSION",
+      "evidence": "MIA FG 55.3% -> 43.9%, SAC FG 56.4% -> 37.2%; combined 3P 18/42 (42.9%) -> 11/38 (28.9%)",
+      "interpretation": "Major shooting-efficiency contraction; primary observed explanation for 2H underperformance."
+    },
+    {
+      "tag": "PACE_VS_EFFICIENCY",
+      "evidence": "Estimated combined team possessions H1 100.36 versus H2 102.68",
+      "interpretation": "Possession estimates did not fall; lower scoring was mainly efficiency, not slower pace."
+    },
+    {
+      "tag": "FREE_THROW_VOLUME",
+      "evidence": "Combined FTA H1 19 versus H2 22; MIA 5/10 H1 versus 3/8 H2",
+      "interpretation": "No combined FTA volume collapse; cannot attribute scoring drop simply to fewer fouls."
+    },
+    {
+      "tag": "MODEL_OVERCONFIDENCE_UNVERIFIED",
+      "evidence": "Illustrative 58.7% was not backed by walk-forward calibration",
+      "interpretation": "Probability and +EV claim not validated; must not be used to infer profitable edge."
+    }
+  ],
+  "notes": [
+    "User-provided report contains OCR artifacts; period totals and primary shooting/turnover fields reconcile to final score.",
+    "The market was entered at halftime after 127 first-half points; ticket needed 114 or more second-half points to win; actual 95.",
+    "A 238.5 original-line Over would also have lost.",
+    "No claim that one losing bet disproves a strategy; archive for out-of-sample aggregate validation."
+  ],
+  "next_protocol_action": "Keep future LIVE-FLOW total signals paper-only until walk-forward residual distribution, shooting-regression features, and market-price calibration are validated."
+}
