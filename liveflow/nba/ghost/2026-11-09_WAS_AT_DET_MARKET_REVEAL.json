@@ -1,6 +1,6 @@
 {
   "game_id": "NBA_20261109_WAS_AT_DET",
-  "phase": "MARKET_REVEAL_AND_EXPLORATORY_DISTRIBUTION",
+  "phase": "FINAL_POSTMORTEM_SETTLED",
   "frozen_projection_commit": "2e0fd747e262dde1cc107de477aca7f541b95216",
   "source": "User-supplied screenshot, Pro BB (M), showing Live Q2 58-68",
   "market": {
@@ -54,6 +54,97 @@
     "method": "Normal CDF approximation of continuous score totals and margins, not empirical Monte Carlo, not calibrated. Sensitivity to assumed mean and SD is material."
   },
   "ev": "NOT COMPUTABLE WITHOUT ACTUAL PAYOUT ODDS",
-  "status": "GHOST_PASS_NO_BET",
-  "stake_usd": 0
+  "status": "FINAL_SETTLED_LOSS",
+  "stake_usd": 0,
+  "wager": {
+    "source": "User-supplied settled ticket screenshot",
+    "market": "Full game total OVER 233.5",
+    "stake_usd": 4.9,
+    "potential_total_payout_usd": 9.43,
+    "potential_net_profit_usd": 4.53,
+    "actual_payout_usd": 0,
+    "realized_pnl_usd": -4.9,
+    "settlement": "LOST",
+    "ticket_displayed_probability_pct": 50.5,
+    "implied_break_even_from_payout_pct": 52,
+    "notes": "50.5% is displayed platform probability, not a verified calibrated SharpEdge probability. Ticket placed 5:29 PM; exact order execution odds not separately supplied."
+  },
+  "final_actual": {
+    "WAS": 111,
+    "DET": 122,
+    "total": 233,
+    "DET_margin": 11,
+    "quarters": {
+      "WAS": [
+        32,
+        26,
+        29,
+        24
+      ],
+      "DET": [
+        31,
+        37,
+        35,
+        19
+      ]
+    },
+    "halftime": {
+      "WAS": 58,
+      "DET": 68,
+      "total": 126
+    },
+    "second_half": {
+      "WAS": 53,
+      "DET": 54,
+      "total": 107
+    },
+    "game_duration": "2:31"
+  },
+  "postmortem": {
+    "over_line": 233.5,
+    "over_shortfall_points": 1,
+    "model_total": 241,
+    "actual_total": 233,
+    "total_prediction_error_actual_minus_model": -8,
+    "second_half_model": 115,
+    "second_half_actual": 107,
+    "second_half_error": -8,
+    "team_model": {
+      "WAS": 113,
+      "DET": 128
+    },
+    "team_actual": {
+      "WAS": 111,
+      "DET": 122
+    },
+    "team_errors": {
+      "WAS": -2,
+      "DET": -6
+    },
+    "margin_model_DET": 15,
+    "margin_actual_DET": 11,
+    "margin_error": -4,
+    "quarter_totals": [
+      63,
+      63,
+      64,
+      43
+    ],
+    "fourth_quarter_total": 43,
+    "third_quarter_total": 64,
+    "late_scoring_collapse": "Q4 43 points versus Q3 64; DET 19 in Q4 versus 35 Q3. Over 233.5 needed >=234 and final was 233.",
+    "first_half_vs_second_half_total": {
+      "first_half": 126,
+      "second_half": 107,
+      "difference": -19
+    },
+    "drivers": [
+      "Second half scored 107, 8 below frozen 115 estimate.",
+      "Q4 total 43; DET Q4 19 after 35 in Q3.",
+      "DET 3/12 3P in second half, WAS 5/22 3P.",
+      "Detroit won by 11, 4 below frozen DET margin of 15."
+    ],
+    "model_calibration": "Uncalibrated exploratory distribution; cannot infer reliable edge from a single loss.",
+    "record_correction": "Earlier GHOST_PASS_NO_BET status reflected model decision, but user now supplied evidence of a real $4.90 wager. Reclassified as actual settled loss; prior snapshot preserved in Git history."
+  }
 }
