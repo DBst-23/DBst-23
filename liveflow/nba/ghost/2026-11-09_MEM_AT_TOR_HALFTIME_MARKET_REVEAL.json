@@ -57,5 +57,12 @@
     "Simulation uncalibrated, no validated edge or EV",
     "No cross-matchup data used"
   ],
-  "status": "GHOST_PASS_PENDING_EXECUTABLE_PRICES_AND_CALIBRATION"
+  "status": "FINAL_GHOST_PASS_NO_STRIKE",
+  "decision": {
+    "strike": false,
+    "stake_usd": 0,
+    "decision_source": "User explicitly confirmed no strike",
+    "reason": "No wager placed; retain as model-vs-market observation only",
+    "settlement": "NOT_APPLICABLE_NO_BET"
+  }
 }
