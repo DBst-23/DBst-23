@@ -1,0 +1,110 @@
+{
+  "schema_version": "sharpedge_nba_liveflow_postmortem_v1",
+  "date": "2026-11-09",
+  "matchup": "MEM @ TOR",
+  "venue": "Scotiabank Arena, Toronto",
+  "source": "User-provided NBA official scorer report and play-by-play",
+  "decision_tag": "NO_STRIKE",
+  "wager_placed": false,
+  "stake_usd": 0,
+  "score_by_quarter": {
+    "MEM": [
+      25,
+      34,
+      30,
+      29
+    ],
+    "TOR": [
+      26,
+      27,
+      28,
+      21
+    ]
+  },
+  "halftime": {
+    "MEM": 59,
+    "TOR": 53,
+    "total": 112,
+    "margin_mem": 6
+  },
+  "second_half": {
+    "MEM": 59,
+    "TOR": 49,
+    "total": 108,
+    "margin_mem": 10
+  },
+  "final": {
+    "MEM": 118,
+    "TOR": 102,
+    "total": 220,
+    "margin_mem": 16
+  },
+  "first_half_team_stats": {
+    "MEM": {
+      "fgm": 22,
+      "fga": 42,
+      "three_pm": 7,
+      "three_pa": 16,
+      "ftm": 8,
+      "fta": 8,
+      "orb": 7,
+      "tov": 10
+    },
+    "TOR": {
+      "fgm": 19,
+      "fga": 42,
+      "three_pm": 6,
+      "three_pa": 15,
+      "ftm": 9,
+      "fta": 14,
+      "orb": 8,
+      "tov": 8
+    }
+  },
+  "second_half_team_stats": {
+    "MEM": {
+      "fgm": 20,
+      "fga": 37,
+      "three_pm": 9,
+      "three_pa": 18,
+      "ftm": 10,
+      "fta": 11,
+      "orb": 5,
+      "tov": 8
+    },
+    "TOR": {
+      "fgm": 20,
+      "fga": 48,
+      "three_pm": 7,
+      "three_pa": 23,
+      "ftm": 2,
+      "fta": 3,
+      "orb": 7,
+      "tov": 6
+    }
+  },
+  "estimated_possessions": {
+    "formula": "FGA - ORB + TOV + 0.44*FTA",
+    "first_half_MEM": 48.52,
+    "first_half_TOR": 48.16,
+    "second_half_MEM": 44.84,
+    "second_half_TOR": 48.32,
+    "notes": "Box-score possession estimates are approximate and not play-by-play possession counts."
+  },
+  "observations": [
+    "Toronto shot 9/27 FG (33.3%) and 3/12 3PT in Q4, scoring 21.",
+    "Memphis shot 8/13 FG (61.5%) and 5/7 3PT in Q4, scoring 29.",
+    "Toronto second-half 2/3 FT versus 9/14 first half.",
+    "Memphis led by as many as 16; Toronto narrowed to one at 9:58 Q4 before Memphis pulled away.",
+    "Toronto missing Scottie Barnes and Immanuel Quickley per supplied inactive report."
+  ],
+  "audit": {
+    "prior_frozen_model_projection_available": false,
+    "halftime_market_snapshot_available": false,
+    "calibrated_simulation_available": false,
+    "market_ev_or_edge_verifiable": false,
+    "postmortem_assessment": "Decision discipline recorded as NO_STRIKE. Cannot evaluate whether a bet would have had positive expected value or whether abstention was optimal without timestamped pre-outcome model and odds.",
+    "lookahead_control": "Do not use final score to retroactively invent halftime probabilities or an actionable edge."
+  },
+  "next_action": "Attach timestamped NO_STRIKE decision record, frozen projection, and sportsbook odds if they exist; then calculate forecast error and counterfactual probabilities."
+}
