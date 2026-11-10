@@ -99,12 +99,40 @@
     "Toronto missing Scottie Barnes and Immanuel Quickley per supplied inactive report."
   ],
   "audit": {
-    "prior_frozen_model_projection_available": false,
-    "halftime_market_snapshot_available": false,
+    "prior_frozen_model_projection_available": true,
+    "halftime_market_snapshot_available": true,
     "calibrated_simulation_available": false,
     "market_ev_or_edge_verifiable": false,
-    "postmortem_assessment": "Decision discipline recorded as NO_STRIKE. Cannot evaluate whether a bet would have had positive expected value or whether abstention was optimal without timestamped pre-outcome model and odds.",
-    "lookahead_control": "Do not use final score to retroactively invent halftime probabilities or an actionable edge."
+    "postmortem_assessment": "Original sequential LIVE-FLOW record recovered: frozen projection and user-provided market screenshot existed before final result. NO_STRIKE decision preserved; market displayed percentages are not confirmed payout odds, so exact EV remains unverified.",
+    "lookahead_control": "Do not use final score to retroactively invent halftime probabilities or an actionable edge.",
+    "correction": "Prior postmortem incorrectly marked frozen model and market screenshot unavailable. Both were supplied in sequential workflow; corrected after retrieval of earlier conversation context."
   },
-  "next_action": "Attach timestamped NO_STRIKE decision record, frozen projection, and sportsbook odds if they exist; then calculate forecast error and counterfactual probabilities."
+  "next_action": "Attach timestamped NO_STRIKE decision record, frozen projection, and sportsbook odds if they exist; then calculate forecast error and counterfactual probabilities.",
+  "pre_outcome_frozen_projection": {
+    "second_half_MEM": 56,
+    "second_half_TOR": 53,
+    "second_half_total": 109,
+    "final_MEM": 115,
+    "final_TOR": 106,
+    "final_total": 221,
+    "final_MEM_margin": 9,
+    "simulation_note": "300,000 exploratory simulations mentioned in original prior analysis; no calibrated probability distribution verified"
+  },
+  "pre_outcome_market_screenshot": {
+    "MEM_spread": -5.5,
+    "full_game_total": 221.5,
+    "displayed_MEM_win_percent": 67,
+    "displayed_MEM_spread_percent": 47,
+    "displayed_over_percent": 53,
+    "actual_payout_odds_available": false
+  },
+  "forecast_error": {
+    "total_actual_minus_projected": -1,
+    "mem_points_actual_minus_projected": 3,
+    "tor_points_actual_minus_projected": -4,
+    "mem_margin_actual_minus_projected": 7,
+    "second_half_total_actual_minus_projected": -1,
+    "second_half_MEM_actual_minus_projected": 3,
+    "second_half_TOR_actual_minus_projected": -4
+  }
 }
