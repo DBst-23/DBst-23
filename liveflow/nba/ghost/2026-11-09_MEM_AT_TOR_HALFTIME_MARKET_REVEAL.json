@@ -1,0 +1,61 @@
+{
+  "matchup_id": "NBA_2026-11-09_MEM_AT_TOR",
+  "phase": "HALFTIME_MARKET_REVEAL",
+  "isolation": {
+    "namespace": "liveflow/nba/ghost/2026-11-09_MEM_AT_TOR",
+    "excluded": "NBA_2026-11-09_WAS_AT_DET",
+    "no_cross_matchup_data": true
+  },
+  "source": "User supplied screenshot IMG_2666.jpeg",
+  "score": {
+    "MEM": 59,
+    "TOR": 53
+  },
+  "screenshot_label": "Live Q2 (possibly stale UI period label)",
+  "market": {
+    "spread": {
+      "MEM": -5.5,
+      "displayed_MEM_percent": 47,
+      "TOR": 5.5,
+      "displayed_TOR_percent": 54
+    },
+    "total": {
+      "line": 221.5,
+      "displayed_over_percent": 53,
+      "displayed_under_percent": 53
+    },
+    "winner": {
+      "displayed_MEM_percent": 67,
+      "displayed_TOR_percent": 34
+    },
+    "traded_usd": 2125049,
+    "platform": "unverified screenshot; percentages resemble prediction market prices, not American odds"
+  },
+  "frozen_model": {
+    "MEM_final": 115,
+    "TOR_final": 106,
+    "total": 221,
+    "MEM_margin": 9,
+    "simulation": {
+      "MEM_win": 0.73696,
+      "MEM_cover_minus_5_5": 0.59778,
+      "over_219_5": 0.5309,
+      "over_223_5": 0.4501
+    }
+  },
+  "comparisons": {
+    "spread_model_minus_market_margin_points": 3.5,
+    "MEM_cover_minus_5_5_model_minus_displayed_percent_pp": 12.78,
+    "MEM_winner_model_minus_displayed_percent_pp": 6.7,
+    "full_total_model_minus_market_points": -0.5,
+    "over_221_5_approx_percent": 49,
+    "under_221_5_approx_percent": 51
+  },
+  "cautions": [
+    "Displayed percentages are not confirmed executable sportsbook prices; fees and spreads unknown",
+    "Over/under probability at 221.5 interpolated from simulation grid, not directly sampled",
+    "Simulation uncalibrated, no validated edge or EV",
+    "No cross-matchup data used"
+  ],
+  "status": "GHOST_PASS_PENDING_EXECUTABLE_PRICES_AND_CALIBRATION"
+}
