@@ -1,0 +1,99 @@
+{
+  "schema": "sharpedge.liveflow.model_first.v1",
+  "matchup_id": "NBA_2026-11-09_MEM_AT_TOR",
+  "isolation": {
+    "namespace": "liveflow/nba/ghost/2026-11-09_MEM_AT_TOR",
+    "no_cross_matchup_features": true,
+    "excluded_matchup": "NBA_2026-11-09_WAS_AT_DET",
+    "market_data_seen": false
+  },
+  "source": "User supplied official first-half NBA scorer report and play-by-play",
+  "phase": "HALFTIME",
+  "score": {
+    "MEM": 59,
+    "TOR": 53,
+    "total": 112
+  },
+  "first_half": {
+    "MEM": {
+      "fga": 43,
+      "fta": 8,
+      "orb": 7,
+      "tov": 9,
+      "three_made": 7,
+      "three_attempts": 16,
+      "points": 59,
+      "estimated_possessions": 48.52
+    },
+    "TOR": {
+      "fga": 42,
+      "fta": 14,
+      "orb": 8,
+      "tov": 8,
+      "three_made": 6,
+      "three_attempts": 15,
+      "points": 53,
+      "estimated_possessions": 48.16
+    },
+    "estimated_average_possessions": 48.34
+  },
+  "model_first": {
+    "second_half": {
+      "MEM": 56,
+      "TOR": 53,
+      "total": 109
+    },
+    "final": {
+      "MEM": 115,
+      "TOR": 106,
+      "total": 221,
+      "margin_MEM": 9
+    },
+    "confidence": "exploratory_uncalibrated"
+  },
+  "simulation": {
+    "draws": 300000,
+    "seed": 20261109,
+    "method": "independent normal team residuals SD10 with shared pace shock SD7, second-half means MEM56 TOR53; continuous proxy",
+    "final_total": {
+      "mean": 221.01,
+      "median": 221.03,
+      "p10": 195.5,
+      "p90": 246.5
+    },
+    "team_final": {
+      "MEM": {
+        "mean": 115.01,
+        "median": 115.02
+      },
+      "TOR": {
+        "mean": 106,
+        "median": 106
+      }
+    },
+    "margin_MEM": {
+      "mean": 9,
+      "median": 8.99
+    },
+    "probabilities": {
+      "MEM_win": 0.73696,
+      "MEM_cover_minus_5_5": 0.59778,
+      "MEM_cover_minus_8_5": 0.51359,
+      "over_211_5": 0.6846,
+      "over_215_5": 0.6094,
+      "over_219_5": 0.5309,
+      "over_223_5": 0.4501,
+      "over_227_5": 0.372,
+      "over_231_5": 0.2992,
+      "over_235_5": 0.2335
+    }
+  },
+  "market_status": "SEALED_NO_MARKET_REVEAL",
+  "bet_status": "GHOST_PASS_PENDING_MARKET_AND_CALIBRATION",
+  "limitations": [
+    "Model means and variance are assumptions, not fitted or out-of-sample validated",
+    "Continuous score approximation; thresholds are illustrative",
+    "No sportsbook prices provided; implied probability, EV and edge cannot be calculated",
+    "Injury report source text is partially garbled; do not infer missing details"
+  ]
+}
