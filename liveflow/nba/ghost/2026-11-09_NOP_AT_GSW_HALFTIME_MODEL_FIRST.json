@@ -1,0 +1,97 @@
+{
+  "schema": "sharpedge.liveflow.model_first.v1",
+  "matchup_id": "NBA_2026-11-09_NOP_AT_GSW",
+  "isolation": {
+    "namespace": "liveflow/nba/ghost/2026-11-09_NOP_AT_GSW",
+    "no_cross_matchup_features": true,
+    "market_data_seen": false
+  },
+  "source": "User-provided first-half NBA official scorer report and play-by-play",
+  "phase": "HALFTIME",
+  "score": {
+    "NOP": 43,
+    "GSW": 72,
+    "total": 115,
+    "margin_GSW": 29
+  },
+  "first_half": {
+    "NOP": {
+      "fga": 45,
+      "fta": 8,
+      "orb": 3,
+      "tov": 5,
+      "three_made": 3,
+      "three_attempts": 17,
+      "points": 43,
+      "estimated_possessions": 50.52
+    },
+    "GSW": {
+      "fga": 48,
+      "fta": 7,
+      "orb": 4,
+      "tov": 3,
+      "three_made": 12,
+      "three_attempts": 23,
+      "points": 72,
+      "estimated_possessions": 50.08
+    },
+    "estimated_average_possessions": 50.3
+  },
+  "observations": [
+    "GSW 12/23 3P (52.2%) versus NOP 3/17 (17.6%)",
+    "GSW 14 fast-break points versus NOP 2",
+    "GSW +29 at halftime; blowout rotation and pace uncertainty",
+    "GSW 23 assists and 3 turnovers versus NOP 11 assists and 5 turnovers",
+    "NOP key inactive Williamson, Murphy III, Missi per user-provided report"
+  ],
+  "model_first": {
+    "second_half": {
+      "NOP": 49,
+      "GSW": 55,
+      "total": 104
+    },
+    "final": {
+      "NOP": 92,
+      "GSW": 127,
+      "total": 219,
+      "margin_GSW": 35
+    },
+    "confidence": "exploratory_uncalibrated"
+  },
+  "simulation": {
+    "draws": 200000,
+    "seed": 20261109,
+    "method": "seeded Box-Muller normal proxy; shared 2H shock SD6, independent team residual SD9, 2H means NOP49 GSW55; no fitted calibration",
+    "final_total": {
+      "mean": 218.96222022281472,
+      "median": 218.9742341495621,
+      "p10": 196.54000102721213,
+      "p90": 241.35571313336914
+    },
+    "margin_GSW": {
+      "mean": 35.0082029759891,
+      "median": 35.00949384779862
+    },
+    "probabilities": {
+      "GSW_win": 0.99713,
+      "GSW_cover_minus_19_5": 0.88748,
+      "GSW_cover_minus_24_5": 0.79505,
+      "GSW_cover_minus_29_5": 0.66847,
+      "over_207_5": 0.74251,
+      "over_211_5": 0.6641900000000001,
+      "over_215_5": 0.57746,
+      "over_219_5": 0.48819,
+      "over_223_5": 0.39849,
+      "over_227_5": 0.313825,
+      "over_231_5": 0.23706499999999997
+    }
+  },
+  "market_status": "SEALED_NO_MARKET_REVEAL",
+  "bet_status": "GHOST_PASS_PENDING_MARKET_AND_CALIBRATION",
+  "limitations": [
+    "Model means and variance are judgmental, not out-of-sample calibrated",
+    "Scores simulated continuously, not integer count process",
+    "No sportsbook market or payout odds seen; edge/EV cannot be computed",
+    "Large halftime lead creates unusual rotation and garbage-time uncertainty"
+  ]
+}
