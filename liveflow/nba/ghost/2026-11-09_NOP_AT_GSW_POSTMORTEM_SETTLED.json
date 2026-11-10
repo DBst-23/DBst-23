@@ -1,0 +1,138 @@
+{
+  "schema": "sharpedge.liveflow.postmortem.v1",
+  "matchup_id": "NBA_2026-11-09_NOP_AT_GSW",
+  "date": "2026-11-09",
+  "status": "FINAL_SETTLED",
+  "source_provenance": {
+    "game": "User-provided NBA official scorer final box, quarter boxes and play-by-play",
+    "settlement": "User-provided Novig WON ticket screenshot",
+    "pre_market_projection": "liveflow/nba/ghost/2026-11-09_NOP_AT_GSW_HALFTIME_MODEL_FIRST.json",
+    "matched_ticket": "liveflow/nba/ghost/2026-11-09_NOP_AT_GSW_NOVIG_MATCHED_TICKET.json",
+    "halftime_confirmation": "liveflow/nba/ghost/2026-11-09_NOP_AT_GSW_HALFTIME_CONFIRMATION.json"
+  },
+  "game": {
+    "venue": "Chase Center, San Francisco, CA",
+    "officials": [
+      "Ben Taylor",
+      "Nate Green",
+      "Brandon Schwab"
+    ],
+    "periods": {
+      "NOP": [
+        20,
+        23,
+        22,
+        22
+      ],
+      "GSW": [
+        35,
+        37,
+        40,
+        26
+      ]
+    },
+    "halftime": {
+      "NOP": 43,
+      "GSW": 72,
+      "total": 115,
+      "GSW_margin": 29
+    },
+    "second_half": {
+      "NOP": 44,
+      "GSW": 66,
+      "total": 110,
+      "GSW_margin": 22
+    },
+    "final": {
+      "NOP": 87,
+      "GSW": 138,
+      "total": 225,
+      "GSW_margin": 51
+    },
+    "second_half_by_quarter": {
+      "Q3_total": 62,
+      "Q4_total": 48
+    },
+    "final_team_stats": {
+      "NOP": {
+        "fg": "29/80",
+        "three": "8/28",
+        "ft": "21/24",
+        "rebounds": 31,
+        "assists": 21,
+        "turnovers": 13
+      },
+      "GSW": {
+        "fg": "50/91",
+        "three": "21/44",
+        "ft": "17/19",
+        "rebounds": 50,
+        "assists": 37,
+        "turnovers": 11
+      }
+    }
+  },
+  "frozen_forecast": {
+    "second_half": {
+      "NOP": 49,
+      "GSW": 55,
+      "total": 104
+    },
+    "final": {
+      "NOP": 92,
+      "GSW": 127,
+      "total": 219,
+      "margin_GSW": 35
+    },
+    "total_simulation_mean": 218.96222022281472,
+    "total_simulation_median": 218.9742341495621,
+    "draws": 200000,
+    "confidence": "exploratory_uncalibrated"
+  },
+  "forecast_errors": {
+    "second_half_NOP_actual_minus_projected": -5,
+    "second_half_GSW_actual_minus_projected": 11,
+    "second_half_total_actual_minus_projected": 6,
+    "final_NOP_actual_minus_projected": -5,
+    "final_GSW_actual_minus_projected": 11,
+    "final_total_actual_minus_projected": 6,
+    "final_GSW_margin_actual_minus_projected": 16
+  },
+  "ticket": {
+    "platform": "Novig",
+    "selection": "Under 225.5",
+    "market_type": "Full-game total",
+    "ticket_id": "71a6e519cd4a",
+    "displayed_percent": 51,
+    "settled_status": "WON",
+    "settled_total": 225,
+    "winning_margin_points": 0.5,
+    "amount_display_usd": 4.9,
+    "paid_display_usd": 9.34,
+    "net_payout_minus_amount_usd": 4.44,
+    "realized_roi_on_displayed_amount": 0.9061224489795918,
+    "break_even_from_settlement_amount": 0.524625267665953,
+    "prior_execution_snapshot_amount_usd": 5,
+    "amount_discrepancy_usd": -0.1,
+    "trade_credit_badge": true,
+    "cash_equivalence_unverified": true,
+    "live_take_order_points_earned": 15
+  },
+  "diagnostics": {
+    "market_threshold_second_half_under_max": 110,
+    "actual_second_half_total": 110,
+    "third_quarter_total": 62,
+    "fourth_quarter_total": 48,
+    "GSW_second_half_points": 66,
+    "notes": [
+      "Under cashed by only 0.5 points; projected second-half total 104 missed by 6 points.",
+      "GSW scored 66 second-half points versus frozen 55, despite large halftime lead; blowout did not suppress third-quarter scoring (GSW Q3 40).",
+      "Q4 combined 48 points helped keep total at 225; rotation/garbage-time effects were nonlinear.",
+      "GSW first-half 3P 12/23 (52.2%) and finished 21/44 (47.7%); hot shooting remained elevated.",
+      "Novig prior execution snapshot displayed $5.00 amount; final WON screenshot shows $4.90. Use $4.90 for realized ledger and preserve discrepancy.",
+      "WON outcome is not proof of model calibration or repeatable positive expected value."
+    ]
+  },
+  "ledger_classification": "WIN_REALIZED_UNCALIBRATED_MODEL",
+  "isolation": "NOP_AT_GSW only; no changes to other matchup files or frozen forecast"
+}
