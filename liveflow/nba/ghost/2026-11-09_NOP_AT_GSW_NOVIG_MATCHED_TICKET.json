@@ -1,0 +1,45 @@
+{
+  "schema": "sharpedge.liveflow.execution.v1",
+  "matchup_id": "NBA_2026-11-09_NOP_AT_GSW",
+  "source": "User-uploaded Novig matched ticket screenshot",
+  "platform": "Novig",
+  "selection": "Under 225.5",
+  "market_type": "Full-game total",
+  "status": "MATCHED",
+  "stake_display_usd": 5,
+  "to_pay_display_usd": 9.34,
+  "potential_net_profit_usd": 4.34,
+  "break_even_probability": 0.5353319057815846,
+  "implied_decimal_payout_multiple": 1.8679999999999999,
+  "displayed_percent": 51,
+  "displayed_percent_label": "Unclear meaning; 51% differs from 53.53% payout-derived break-even",
+  "trade_credit_badge": true,
+  "trade_credit_effect": "Ticket displays TRADE CREDIT; cash-equivalent value and withdrawal restrictions unverified",
+  "placed_time_display": "8:11PM",
+  "score_display": {
+    "NOP": 43,
+    "GSW": 72,
+    "total": 115
+  },
+  "period_display": "Live Q2",
+  "halftime_confirmed": false,
+  "frozen_model_first_path": "liveflow/nba/ghost/2026-11-09_NOP_AT_GSW_HALFTIME_MODEL_FIRST.json",
+  "market_reveal_path": "liveflow/nba/ghost/2026-11-09_NOP_AT_GSW_MARKET_REVEAL.json",
+  "frozen_model_total": 219,
+  "model_total_margin_below_selected_line": 6.5,
+  "exploratory_probability_estimate": {
+    "under_225_5_approx": 0.64,
+    "method": "Rough interpolation/extrapolation of earlier uncalibrated model distribution; not newly simulated or validated",
+    "indicative_ev_usd": 0.9775999999999998,
+    "indicative_roi": 0.19551999999999992
+  },
+  "cautions": [
+    "Ticket was already placed; do not label this a pre-bet model-approved wager",
+    "Screenshot explicitly says Live Q2; 115 points is not confirmed halftime, so halftime-based projection may be invalid",
+    "Trade credit and payout mechanics require verification",
+    "Model uncalibrated; illustrative probability and EV are not validated",
+    "No final result or settlement visible"
+  ],
+  "outcome": "PENDING",
+  "isolation": "NOP_AT_GSW only; original model-first and reveal files unchanged"
+}
