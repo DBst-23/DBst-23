@@ -1,0 +1,59 @@
+{
+  "game_id": "NBA_20261109_WAS_AT_DET",
+  "phase": "MARKET_REVEAL_AND_EXPLORATORY_DISTRIBUTION",
+  "frozen_projection_commit": "2e0fd747e262dde1cc107de477aca7f541b95216",
+  "source": "User-supplied screenshot, Pro BB (M), showing Live Q2 58-68",
+  "market": {
+    "WAS_spread": 11.5,
+    "DET_spread": -11.5,
+    "full_total": 233.5,
+    "displayed_percentages": {
+      "WAS_spread": 48,
+      "DET_spread": 53,
+      "over": 51,
+      "under": 54,
+      "WAS_winner": 12,
+      "DET_winner": 89
+    },
+    "note": "Displayed percentages are platform indicators; no decimal or American payout odds supplied. Over/under percentages sum to 105%, spread to 101%, winners to 101%; do not interpret as model win probabilities or confirmed bookmaker prices."
+  },
+  "model": {
+    "WAS_final": 113,
+    "DET_final": 128,
+    "total": 241,
+    "DET_margin": 15,
+    "second_half_total": 115
+  },
+  "difference": {
+    "total_vs_market": 7.5,
+    "DET_margin_vs_market": 3.5
+  },
+  "illustrative_normal_model": {
+    "total_mean": 241,
+    "total_median": 241,
+    "total_sd_scenarios": [
+      16,
+      20,
+      24
+    ],
+    "over_233_5_probabilities": [
+      0.6804,
+      0.6462,
+      0.6227
+    ],
+    "under_233_5_probabilities": [
+      0.3196,
+      0.3538,
+      0.3773
+    ],
+    "margin_mean": 15,
+    "margin_median": 15,
+    "margin_sd_assumed": 12,
+    "DET_minus_11_5_probability": 0.6147,
+    "DET_win_probability": 0.8944,
+    "method": "Normal CDF approximation of continuous score totals and margins, not empirical Monte Carlo, not calibrated. Sensitivity to assumed mean and SD is material."
+  },
+  "ev": "NOT COMPUTABLE WITHOUT ACTUAL PAYOUT ODDS",
+  "status": "GHOST_PASS_NO_BET",
+  "stake_usd": 0
+}
