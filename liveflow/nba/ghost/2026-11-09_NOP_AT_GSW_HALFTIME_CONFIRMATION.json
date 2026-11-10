@@ -1,0 +1,31 @@
+{
+  "schema": "sharpedge.liveflow.game_state_confirmation.v1",
+  "matchup_id": "NBA_2026-11-09_NOP_AT_GSW",
+  "confirmation_source": "User explicitly verified halftime after Novig UI showed stale Live Q2 label",
+  "confirmed_phase": "HALFTIME",
+  "confirmed_score": {
+    "NOP": 43,
+    "GSW": 72,
+    "total": 115
+  },
+  "effect": "Removes timing ambiguity from frozen halftime model and matched ticket; model-first forecast remains unchanged",
+  "frozen_model_first_path": "liveflow/nba/ghost/2026-11-09_NOP_AT_GSW_HALFTIME_MODEL_FIRST.json",
+  "matched_ticket_path": "liveflow/nba/ghost/2026-11-09_NOP_AT_GSW_NOVIG_MATCHED_TICKET.json",
+  "ticket": {
+    "selection": "Under 225.5",
+    "stake_usd": 5,
+    "displayed_to_pay_usd": 9.34,
+    "break_even_probability": 0.5353319057815846
+  },
+  "frozen_projection": {
+    "full_game_total": 219,
+    "second_half_total": 104,
+    "implied_max_second_half_points_for_under_225_5": 110
+  },
+  "status": "CONFIRMED_HALFTIME_TICKET_MATCHED_AWAITING_RESULT",
+  "notes": [
+    "User confirmation supersedes stale Live Q2 screenshot label",
+    "Simulation is exploratory and not out-of-sample calibrated",
+    "Do not modify frozen pre-market model"
+  ]
+}
