@@ -1,0 +1,74 @@
+{
+  "game_id": "NBA_20261109_WAS_AT_DET",
+  "phase": "HALFTIME_MODEL_FIRST_FROZEN",
+  "source": "User-supplied NBA official first-half scorer report and play-by-play",
+  "market_seen": false,
+  "halftime": {
+    "WAS": 58,
+    "DET": 68,
+    "total": 126,
+    "DET_margin": 10,
+    "quarters": {
+      "WAS": [
+        32,
+        26
+      ],
+      "DET": [
+        31,
+        37
+      ]
+    }
+  },
+  "first_half": {
+    "WAS": {
+      "FGA": 41,
+      "FTA": 19,
+      "ORB": 6,
+      "TO": 12,
+      "three_made": 4,
+      "three_attempts": 14,
+      "estimated_possessions": 55.36
+    },
+    "DET": {
+      "FGA": 52,
+      "FTA": 17,
+      "ORB": 8,
+      "TO": 4,
+      "three_made": 5,
+      "three_attempts": 20,
+      "estimated_possessions": 55.48
+    }
+  },
+  "model_first_heuristic": {
+    "second_half": {
+      "WAS": 55,
+      "DET": 60,
+      "total": 115,
+      "DET_margin": 5
+    },
+    "final": {
+      "WAS": 113,
+      "DET": 128,
+      "total": 241,
+      "DET_margin": 15
+    },
+    "estimated_second_half_total_plausible_band": [
+      101,
+      130
+    ],
+    "note": "Point estimates and broad judgment band, not a fitted Monte Carlo or calibrated probability distribution. No market data used."
+  },
+  "factors": [
+    "First-half possession count elevated at roughly 55 per team; assume some second-half pace moderation.",
+    "WAS 12 turnovers versus DET 4: potential WAS turnover regression but Detroit ball-security edge is material.",
+    "Anthony Davis 30 points on 10/11 FG and 8/9 FT in H1: extreme efficiency likely to moderate; WAS scoring concentrated.",
+    "DET 5/20 three-point shooting (25%) may rebound, but no automatic hot-shooting assumption.",
+    "WAS 12/19 FT (63.2%), DET 15/17 (88.2%); FT efficiency may normalize.",
+    "Cade Cunningham, Ausar Thompson and Ronald Holland II 3 personal fouls; Kyshawn George 3.",
+    "DET Jalen Duren inactive; foul/rotation constraints affect frontcourt."
+  ],
+  "decision": "GHOST_PASS_NO_BET",
+  "stake_usd": 0,
+  "calibration": "UNAVAILABLE",
+  "market_snapshot": "NOT_YET_RECEIVED"
+}
