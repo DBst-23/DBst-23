@@ -1,0 +1,56 @@
+{
+  "schema": "sharpedge.liveflow.market_reveal.v1",
+  "matchup_id": "NBA_2026-11-09_NOP_AT_GSW",
+  "model_first_path": "liveflow/nba/ghost/2026-11-09_NOP_AT_GSW_HALFTIME_MODEL_FIRST.json",
+  "isolation": "NOP_AT_GSW only; model-first file unchanged; no cross-matchup features",
+  "source": "User market screenshot",
+  "market": {
+    "NOP_plus_29_5_display_percent": 59,
+    "GSW_minus_29_5_display_percent": 54,
+    "over_224_5_display_percent": 54,
+    "under_224_5_display_percent": 48,
+    "NOP_win_display_percent": 1,
+    "GSW_win_display_percent": 99
+  },
+  "percent_meaning": "Unverified: could be contract price or implied probability; no confirmed American odds",
+  "frozen_model": {
+    "second_half_total": 104,
+    "final_total": 219,
+    "GSW_margin": 35
+  },
+  "market_comparison": {
+    "total": 224.5,
+    "GSW_spread": -29.5,
+    "implied_second_half_total": 109.5,
+    "total_difference_model_minus_market": -5.5,
+    "GSW_margin_difference_model_minus_market": 5.5
+  },
+  "exploratory_probabilities": {
+    "GSW_cover_minus_29_5": 0.66847,
+    "NOP_cover_plus_29_5": 0.33153,
+    "under_224_5_approx": 0.623,
+    "over_224_5_approx": 0.377,
+    "method": "GSW cover from frozen 200k simulations; total approximate interpolation from frozen neighboring total probabilities"
+  },
+  "conditional_contract_price_only": {
+    "assumptions": "Only if displayed percentage is actual executable YES contract price, ignoring fees",
+    "GSW_minus_29_5": {
+      "price": 0.54,
+      "probability": 0.66847,
+      "edge": 0.12846999999999997,
+      "roi": 0.23790740740740723
+    },
+    "under_224_5": {
+      "price": 0.48,
+      "probability": 0.623,
+      "edge": 0.14300000000000002,
+      "roi": 0.2979166666666666
+    }
+  },
+  "bet_status": "GHOST_PASS_PENDING_PRICE_VERIFICATION_AND_CALIBRATION",
+  "limitations": [
+    "Screenshot does not verify prices or platform",
+    "Simulation not out-of-sample calibrated",
+    "Blowout rotation uncertainty"
+  ]
+}
