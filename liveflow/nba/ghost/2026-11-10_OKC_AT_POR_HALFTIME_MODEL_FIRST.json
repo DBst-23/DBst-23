@@ -1,0 +1,111 @@
+{
+  "schema": "sharpedge.liveflow.model_first.v1",
+  "matchup_id": "NBA_2026-11-10_OKC_AT_POR",
+  "phase": "HALFTIME",
+  "market_data_seen": false,
+  "isolation": {
+    "namespace": "liveflow/nba/ghost/2026-11-10_OKC_AT_POR",
+    "no_cross_matchup_features": true
+  },
+  "source": "User supplied first-half official scorer report and play-by-play",
+  "halftime": {
+    "OKC": 59,
+    "POR": 59,
+    "total": 118
+  },
+  "first_half": {
+    "OKC": {
+      "fga": 41,
+      "fta": 16,
+      "orb": 4,
+      "tov": 5,
+      "fgm": 21,
+      "three_made": 3,
+      "three_attempts": 11,
+      "estimated_possessions": 49.04
+    },
+    "POR": {
+      "fga": 46,
+      "fta": 16,
+      "orb": 7,
+      "tov": 4,
+      "fgm": 18,
+      "three_made": 8,
+      "three_attempts": 24,
+      "estimated_possessions": 50.04
+    }
+  },
+  "model_first": {
+    "second_half": {
+      "OKC": 58,
+      "POR": 55,
+      "total": 113
+    },
+    "final": {
+      "OKC": 117,
+      "POR": 114,
+      "total": 231,
+      "margin_OKC": 3
+    },
+    "confidence": "exploratory_uncalibrated"
+  },
+  "simulation": {
+    "draws": 300000,
+    "seed": 20261110,
+    "method": "2H means OKC58 POR55, shared pace shock normal SD7 and independent team residuals normal SD10, continuous proxy",
+    "total": {
+      "mean": 230.962,
+      "median": 230.944,
+      "p10": 205.54,
+      "p90": 256.43
+    },
+    "team_final": {
+      "OKC": {
+        "mean": 116.985,
+        "median_approx": 117
+      },
+      "POR": {
+        "mean": 113.976,
+        "median_approx": 114
+      }
+    },
+    "margin_OKC_mean": 3.009,
+    "probabilities": {
+      "OKC_win": 0.58399,
+      "OKC_cover_minus_1_5": 0.54292,
+      "OKC_cover_minus_3_5": 0.48672,
+      "OKC_cover_minus_5_5": 0.43082,
+      "over_223_5": 0.64657,
+      "over_227_5": 0.56913,
+      "over_231_5": 0.48867,
+      "over_235_5": 0.40908,
+      "over_239_5": 0.3334,
+      "OKC_team_over_109_5": 0.73152,
+      "OKC_team_over_113_5": 0.61285,
+      "OKC_team_over_117_5": 0.48368,
+      "OKC_team_over_121_5": 0.35536,
+      "OKC_team_over_125_5": 0.24136,
+      "POR_team_over_107_5": 0.70265,
+      "POR_team_over_111_5": 0.58106,
+      "POR_team_over_115_5": 0.45103,
+      "POR_team_over_119_5": 0.32507,
+      "POR_team_over_123_5": 0.21702
+    }
+  },
+  "market_status": "SEALED_NO_MARKET_REVEAL",
+  "bet_status": "GHOST_PASS_PENDING_MARKET_AND_CALIBRATION",
+  "postgame_tracking": {
+    "final_score": null,
+    "OKC_team_total_error": null,
+    "POR_team_total_error": null,
+    "full_total_error": null,
+    "margin_error": null,
+    "closing_lines": null
+  },
+  "limitations": [
+    "Means and variance assumed, not trained or calibrated",
+    "No actual sportsbook prices, fees or EV",
+    "Continuous approximation to integer scores",
+    "Source injury list partly garbled"
+  ]
+}
