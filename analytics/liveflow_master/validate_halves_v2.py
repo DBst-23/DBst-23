@@ -95,14 +95,16 @@ def main():
                     "3pa": stat(halves[half_index][team], *fields["3pa"])
                 })
             reg = sum(stat(q[team], *fields["points"]) for q in quarters)
-            if reg > official[team]:
-                raise ValueError(f"Regulation points exceed final for {team}")
+            if reg != official[team]:
+                raise ValueError(
+                    f"OFFICIAL_SCORE_MISMATCH team={team} regulation={reg} "
+                    f"official_final={official[team]}. This smoke test requires "
+                    "a regulation-only game; overtime and incomplete endpoint "
+                    "responses must not be marked PASS."
+                )
         audit["team_halves"] = comparisons
         audit["official_final_points"] = official
-        audit["overtime_possible"] = any(
-            sum(stat(q[t], *fields["points"]) for q in quarters) < official[t]
-            for t in official
-        )
+        audit["score_reconciliation"] = "REGULATION_EQUALS_OFFICIAL_FINAL"
         audit["status"] = "PASS"
     except Exception as exc:
         audit["error_type"] = type(exc).__name__
