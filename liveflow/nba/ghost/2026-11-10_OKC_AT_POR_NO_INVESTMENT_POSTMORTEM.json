@@ -1,0 +1,256 @@
+{
+  "schema": "sharpedge.liveflow.postmortem.v1",
+  "matchup_id": "NBA_2026-11-10_OKC_AT_POR",
+  "date": "2026-11-10",
+  "venue": "Moda Center, Portland OR",
+  "source": "User-supplied official NBA final, quarterly, half box scores and play-by-play",
+  "classification": "GHOST_NO_INVESTMENT",
+  "investment_usd": 0,
+  "realized_pnl_usd": 0,
+  "links": {
+    "frozen_model": "liveflow/nba/ghost/2026-11-10_OKC_AT_POR_HALFTIME_MODEL_FIRST.json",
+    "market_reveal": "liveflow/nba/ghost/2026-11-10_OKC_AT_POR_HALFTIME_MARKET_REVEAL.json"
+  },
+  "frozen_model_unchanged": true,
+  "halftime": {
+    "OKC": 59,
+    "POR": 59,
+    "total": 118
+  },
+  "quarters": {
+    "Q1": {
+      "OKC": 27,
+      "POR": 26
+    },
+    "Q2": {
+      "OKC": 32,
+      "POR": 33
+    },
+    "Q3": {
+      "OKC": 21,
+      "POR": 38
+    },
+    "Q4": {
+      "OKC": 23,
+      "POR": 26
+    }
+  },
+  "frozen_forecast": {
+    "second_half": {
+      "OKC": 58,
+      "POR": 55,
+      "total": 113
+    },
+    "final": {
+      "OKC": 117,
+      "POR": 114,
+      "total": 231,
+      "margin_OKC": 3
+    },
+    "simulation_draws": 300000,
+    "simulation_total_mean": 230.962,
+    "simulation_total_median": 230.944,
+    "simulation_OKC_mean": 116.985,
+    "simulation_POR_mean": 113.976,
+    "simulation_OKC_win_probability": 0.58399,
+    "confidence": "exploratory_uncalibrated"
+  },
+  "actual": {
+    "second_half": {
+      "OKC": 44,
+      "POR": 64,
+      "total": 108
+    },
+    "final": {
+      "OKC": 103,
+      "POR": 123,
+      "total": 226,
+      "margin_OKC": -20
+    },
+    "winner": "POR"
+  },
+  "forecast_error_actual_minus_forecast": {
+    "second_half": {
+      "OKC": -14,
+      "POR": 9,
+      "total": -5
+    },
+    "final": {
+      "OKC": -14,
+      "POR": 9,
+      "total": -5,
+      "margin_OKC": -23
+    },
+    "absolute_final_total_error": 5,
+    "absolute_margin_error": 23
+  },
+  "halves": {
+    "first": {
+      "OKC": {
+        "points": 59,
+        "fgm": 21,
+        "fga": 41,
+        "three_made": 3,
+        "three_attempts": 11,
+        "fta": 16,
+        "orb": 4,
+        "tov": 5,
+        "estimated_possessions": 49.04
+      },
+      "POR": {
+        "points": 59,
+        "fgm": 18,
+        "fga": 46,
+        "three_made": 8,
+        "three_attempts": 24,
+        "fta": 16,
+        "orb": 7,
+        "tov": 4,
+        "estimated_possessions": 50.04
+      }
+    },
+    "second": {
+      "OKC": {
+        "points": 44,
+        "fgm": 16,
+        "fga": 43,
+        "three_made": 5,
+        "three_attempts": 11,
+        "fta": 11,
+        "orb": 7,
+        "tov": 7,
+        "estimated_possessions": 47.84
+      },
+      "POR": {
+        "points": 64,
+        "fgm": 22,
+        "fga": 45,
+        "three_made": 11,
+        "three_attempts": 26,
+        "fta": 10,
+        "orb": 4,
+        "tov": 4,
+        "estimated_possessions": 49.4
+      }
+    }
+  },
+  "market_at_halftime": {
+    "spread": {
+      "OKC": -2.5,
+      "OKC_odds": -110,
+      "POR": 2.5,
+      "POR_odds": -120
+    },
+    "moneyline": {
+      "OKC": -135,
+      "POR": 105
+    },
+    "game_total": 232.5,
+    "total_over_odds": -115,
+    "total_under_odds": -115,
+    "team_total": {
+      "OKC": 117.5,
+      "POR": 116.5,
+      "over_odds": -105,
+      "under_odds": -125
+    }
+  },
+  "market_settlements": [
+    {
+      "market": "POR under 116.5",
+      "model_probability_approx": 0.5811,
+      "model_ev_roi_approx": 0.0461,
+      "result": "LOSS",
+      "actual": 123
+    },
+    {
+      "market": "OKC moneyline",
+      "model_probability": 0.58399,
+      "model_ev_roi_approx": 0.0166,
+      "result": "LOSS",
+      "actual": "POR win"
+    },
+    {
+      "market": "Full game under 232.5",
+      "model_probability_approx": 0.53004,
+      "result": "WIN",
+      "actual": 226
+    },
+    {
+      "market": "Full game over 232.5",
+      "result": "LOSS"
+    },
+    {
+      "market": "OKC -2.5",
+      "result": "LOSS"
+    },
+    {
+      "market": "POR +2.5",
+      "result": "WIN"
+    },
+    {
+      "market": "OKC over 117.5",
+      "result": "LOSS"
+    },
+    {
+      "market": "OKC under 117.5",
+      "result": "WIN"
+    },
+    {
+      "market": "POR over 116.5",
+      "result": "WIN"
+    },
+    {
+      "market": "POR moneyline",
+      "result": "WIN"
+    }
+  ],
+  "diagnostics": {
+    "decisive_period": "Q3 POR38 OKC21 (+17 POR)",
+    "third_quarter_POR": {
+      "fg": "14/26",
+      "three": "7/14",
+      "points": 38
+    },
+    "third_quarter_OKC": {
+      "fg": "7/21",
+      "three": "2/5",
+      "points": 21
+    },
+    "OKC_shooting_1H": "21/41 51.2% FG; 3/11 27.3% 3P",
+    "OKC_shooting_2H": "16/43 37.2% FG; 5/11 45.5% 3P",
+    "POR_shooting_1H": "18/46 39.1% FG; 8/24 33.3% 3P",
+    "POR_shooting_2H": "22/45 48.9% FG; 11/26 42.3% 3P",
+    "OKC_star_SGA": {
+      "first_half_points": 20,
+      "second_half_points": 6,
+      "third_quarter_points": 6,
+      "fourth_quarter_minutes": 0
+    },
+    "POR_Lillard": {
+      "first_half_points": 12,
+      "third_quarter_points": 13,
+      "second_half_points": 13,
+      "fourth_quarter_minutes": 0
+    },
+    "POR_Avdija": {
+      "first_half_points": 11,
+      "second_half_points": 13
+    },
+    "garbage_time": "Both teams used reserves for final 4:34 after POR led 118-96",
+    "possession_note": "Estimated possessions via FGA-ORB+TOV+0.44*FTA; team totals can differ due to end-of-period and free-throw possession conventions"
+  },
+  "hypotheses_to_backtest": [
+    "Halftime tie score can conceal shooting-regression asymmetry; compare 1H eFG%, shot mix, and free throw rates without treating single game as proof",
+    "Test volatility and correlation for third-quarter scoring runs rather than assuming fixed normal residuals",
+    "Model minutes/rotation uncertainty and late-game garbage time under blowout conditions",
+    "Audit star concentration and rotation sensitivity: SGA played 12 second-half minutes and none in Q4",
+    "Calibrate team-total and moneyline probabilities using walk-forward out-of-sample data; evaluate Brier score/log loss and reliability curves"
+  ],
+  "cautions": [
+    "This is one ghost result, not proof of a systematic failure or successful patch",
+    "Do not refit frozen pregame or halftime predictions with outcome information",
+    "Model probabilities and theoretical EV were uncalibrated; nominal positive EV picks lost",
+    "No real bet, no realized financial loss or win"
+  ]
+}
