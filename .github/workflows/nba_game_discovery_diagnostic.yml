@@ -1,0 +1,23 @@
+name: NBA game discovery diagnostic
+on:
+  workflow_dispatch:
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check alternate NBA schedule discovery
+        run: python analytics/liveflow_master/diagnose_game_discovery.py
+      - name: Upload diagnostic report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nba-game-discovery-diagnostic
+          path: data/nba/game_discovery_diagnostic.json
+          if-no-files-found: warn
