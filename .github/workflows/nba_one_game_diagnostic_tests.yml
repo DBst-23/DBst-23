@@ -1,0 +1,23 @@
+name: NBA one-game diagnostic unit tests
+on:
+  push:
+    branches:
+      - diagnostics/nba-one-game-20261111
+  pull_request:
+    paths:
+      - "analytics/liveflow_master/diagnose_sportsdataio_game.py"
+      - "analytics/liveflow_master/test_diagnose_sportsdataio_game.py"
+      - ".github/workflows/nba_one_game_diagnostic_tests.yml"
+jobs:
+  offline-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run offline diagnostic tests (no API key needed)
+        run: python -m unittest discover -s analytics/liveflow_master -p 'test_diagnose_sportsdataio_game.py' -v
