@@ -1,0 +1,39 @@
+name: api_pipeline
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "15 * * * *"   # runs hourly at :15
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Configure env
+        env:
+          PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
+          MLB_API_KEY:        ${{ secrets.MLB_API_KEY }}
+          ONXY_ODDS_API_KEY:  ${{ secrets.ONXY_ODDS_API_KEY }}
+        run: echo "Keys configured via GitHub Secrets"
+      - name: Run jobs
+        env:
+          PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
+          MLB_API_KEY:        ${{ secrets.MLB_API_KEY }}
+          ONXY_ODDS_API_KEY:  ${{ secrets.ONXY_ODDS_API_KEY }}
+        run: python runner.py
+      - name: Upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-data-${{ github.run_id }}
+          path: |
+            data/raw
+            data/logs
