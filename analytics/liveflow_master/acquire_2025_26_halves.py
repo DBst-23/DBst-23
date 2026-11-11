@@ -19,8 +19,16 @@ def val(row,*names):
 def main():
     p=argparse.ArgumentParser();p.add_argument("--out",required=True);p.add_argument("--audit");p.add_argument("--sleep",type=float,default=1.0);p.add_argument("--limit",type=int,default=0);a=p.parse_args()
     from nba_api.stats.endpoints import leaguegamefinder,boxscoretraditionalv3
-    finder=retry(lambda:leaguegamefinder.LeagueGameFinder(season_nullable="2025-26",season_type_nullable="Regular Season",league_id_nullable="00"))
-    df=finder.get_data_frames()[0]
+    try:
+        finder=retry(lambda:leaguegamefinder.LeagueGameFinder(season_nullable="2025-26",season_type_nullable="Regular Season",league_id_nullable="00",timeout=30))
+        df=finder.get_data_frames()[0]
+    except Exception as exc:
+        audit_path=Path(a.audit or a.out+".audit.json")
+        audit_path.parent.mkdir(parents=True,exist_ok=True)
+        audit={"status":"BLOCKED_AT_GAME_DISCOVERY","season":"2025-26","games_discovered":0,"games_validated":0,"team_rows":0,"error_type":type(exc).__name__,"error":str(exc),"endpoint":"stats.nba.com LeagueGameFinder","generated_utc":datetime.now(timezone.utc).isoformat()}
+        audit_path.write_text(json.dumps(audit,indent=2))
+        print(json.dumps(audit,indent=2),file=sys.stderr)
+        sys.exit(3)
     df=df[df.GAME_ID.astype(str).str.zfill(10).str.startswith("002")]
     dates={str(x.GAME_ID).zfill(10):str(x.GAME_DATE)[:10] for x in df.itertuples()}
     ids=sorted(dates)
