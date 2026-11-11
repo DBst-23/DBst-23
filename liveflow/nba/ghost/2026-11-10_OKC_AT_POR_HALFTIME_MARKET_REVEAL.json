@@ -1,0 +1,113 @@
+{
+  "schema": "sharpedge.liveflow.market_reveal.v1",
+  "matchup_id": "NBA_2026-11-10_OKC_AT_POR",
+  "phase": "HALFTIME_MARKET_REVEAL",
+  "frozen_model_path": "liveflow/nba/ghost/2026-11-10_OKC_AT_POR_HALFTIME_MODEL_FIRST.json",
+  "frozen_model_unchanged": true,
+  "source": "User halftime sportsbook screenshots IMG_2711.jpeg IMG_2712.jpeg",
+  "market": {
+    "spread": {
+      "OKC": {
+        "line": -2.5,
+        "odds": -110
+      },
+      "POR": {
+        "line": 2.5,
+        "odds": -120
+      }
+    },
+    "moneyline": {
+      "OKC": -135,
+      "POR": 105
+    },
+    "total": {
+      "line": 232.5,
+      "over": -115,
+      "under": -115
+    },
+    "team_totals": {
+      "OKC": {
+        "line": 117.5,
+        "over": -105,
+        "under": -125
+      },
+      "POR": {
+        "line": 116.5,
+        "over": -105,
+        "under": -125
+      }
+    }
+  },
+  "frozen_projection": {
+    "OKC": 117,
+    "POR": 114,
+    "total": 231,
+    "margin_OKC": 3
+  },
+  "line_differences": {
+    "margin_OKC": 0.5,
+    "game_total": -1.5,
+    "OKC_team_total": -0.5,
+    "POR_team_total": -2.5
+  },
+  "exploratory_model_comparison": {
+    "OKC_ML": {
+      "p": 0.58399,
+      "breakeven": 0.57447,
+      "ev_roi": 0.0166
+    },
+    "OKC_minus_2_5": {
+      "p_approx": 0.5141,
+      "breakeven": 0.52381,
+      "ev_roi": -0.0185
+    },
+    "POR_plus_2_5": {
+      "p_approx": 0.4859,
+      "breakeven": 0.54545,
+      "ev_roi": -0.1092
+    },
+    "over_232_5": {
+      "p_approx": 0.46996,
+      "breakeven": 0.53488,
+      "ev_roi": -0.1213
+    },
+    "under_232_5": {
+      "p_approx": 0.53004,
+      "breakeven": 0.53488,
+      "ev_roi": -0.00905
+    },
+    "OKC_over_117_5": {
+      "p": 0.48368,
+      "breakeven": 0.5122,
+      "ev_roi": -0.0557
+    },
+    "OKC_under_117_5": {
+      "p": 0.51632,
+      "breakeven": 0.55556,
+      "ev_roi": -0.0706
+    },
+    "POR_over_116_5": {
+      "p_approx": 0.4189,
+      "breakeven": 0.5122,
+      "ev_roi": -0.1822
+    },
+    "POR_under_116_5": {
+      "p_approx": 0.5811,
+      "breakeven": 0.55556,
+      "ev_roi": 0.0461
+    }
+  },
+  "method": "300k frozen Monte Carlo for exact stored thresholds; other thresholds analytic normal interpolation using frozen assumed scoring model; all uncalibrated and illustrative, EV before fees",
+  "bet_status": "GHOST_PASS_UNCALIBRATED",
+  "postgame_tracking": {
+    "actual_final": null,
+    "OKC_error": null,
+    "POR_error": null,
+    "total_error": null
+  },
+  "limitations": [
+    "Prices are a snapshot",
+    "Nominal positive EV is not validated betting edge",
+    "No outcome information used"
+  ]
+}
