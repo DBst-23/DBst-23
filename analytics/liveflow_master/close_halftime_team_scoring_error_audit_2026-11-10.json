@@ -1,0 +1,190 @@
+{
+  "schema": "sharpedge.liveflow.close_halftime_error_audit.v1",
+  "created": "2026-11-10",
+  "status": "PRELIMINARY_CONVENIENCE_SAMPLE_NOT_SEASON_WIDE",
+  "criteria": "abs(away_1H_points-home_1H_points)<=5; both frozen team final projections available; compare regulation final where OT",
+  "source_paths": [
+    "analytics/liveflow_master/nba_halftime_game_accuracy_v2.json",
+    "liveflow/nba/ghost/2026-11-10_OKC_AT_POR_HALFTIME_MODEL_FIRST.json",
+    "liveflow/nba/ghost/2026-11-10_OKC_AT_POR_NO_INVESTMENT_POSTMORTEM.json"
+  ],
+  "summary": {
+    "source_registry_games": 17,
+    "registry_close_games": 8,
+    "registry_close_games_with_both_team_forecasts": 7,
+    "with_nov10": 8,
+    "mean_abs_total_error_from_team_forecasts": 7.192499999999999,
+    "median_abs_total_error_from_team_forecasts": 7,
+    "mean_abs_margin_error": 11.18825,
+    "median_abs_margin_error": 10,
+    "margin_error_ge_10": 4,
+    "margin_error_ge_15": 4,
+    "margin_error_ge_20": 2,
+    "abs_total_error_le_5_and_abs_margin_error_ge_15": 1
+  },
+  "rows": [
+    {
+      "id": "NBA_20261023_NYK_AT_BOS",
+      "halftime_gap": 1,
+      "away_error": 0.5169999999999959,
+      "home_error": 2.022999999999996,
+      "total_error": 2.539999999999992,
+      "margin_error": 1.5060000000000002,
+      "abs_total_error": 2.539999999999992,
+      "abs_margin_error": 1.5060000000000002,
+      "max_team_abs_error": 2.022999999999996,
+      "total_from_team_forecast": 207.46,
+      "reported_total": 207.46,
+      "provenance_flags": [
+        "book screen captured Q3 11:39 (21 seconds after halftime), not synchronized",
+        "spread was PASS, not selected",
+        "book identity not independently verified"
+      ],
+      "overtime": false
+    },
+    {
+      "id": "NBA_20261023_MEM_AT_GSW",
+      "halftime_gap": 4,
+      "away_error": -3,
+      "home_error": -7,
+      "total_error": -10,
+      "margin_error": -4,
+      "abs_total_error": 10,
+      "abs_margin_error": 4,
+      "max_team_abs_error": 7,
+      "total_from_team_forecast": 229,
+      "reported_total": 229,
+      "provenance_flags": [
+        "market screen showed MEM 62 vs official halftime 60; comparison not time aligned",
+        "model forecast approximate, not calibrated"
+      ],
+      "overtime": false
+    },
+    {
+      "id": "NBA_20261026_GSW_AT_DEN",
+      "halftime_gap": 4,
+      "away_error": 20,
+      "home_error": -2,
+      "total_error": 18,
+      "margin_error": -22,
+      "abs_total_error": 18,
+      "abs_margin_error": 22,
+      "max_team_abs_error": 20,
+      "total_from_team_forecast": 230,
+      "reported_total": 230,
+      "provenance_flags": [
+        "original separate spread prediction DEN -1 conflicted with DEN 116 / GSW 114 implies DEN +2",
+        "100k simulation assertion unverified"
+      ],
+      "overtime": false
+    },
+    {
+      "id": "NBA_20260510_SAS_AT_MIN_G4",
+      "halftime_gap": 4,
+      "away_error": 2.5,
+      "home_error": -2.5,
+      "total_error": 0,
+      "margin_error": -5,
+      "abs_total_error": 0,
+      "abs_margin_error": 5,
+      "max_team_abs_error": 2.5,
+      "total_from_team_forecast": 223,
+      "reported_total": 221.5,
+      "provenance_flags": [
+        "Postmortem gives model snapshot but exact forecast freeze timestamp unverified",
+        "MIN TT, SAS TT and total forecasts from postmortem; 106.5+116.5=223, does not equal stated full total 221.5; retained original discrepancies",
+        "No verified halftime book prices in selected source",
+        "Margin independently quoted +5.5 vs team-scoring implied +10"
+      ],
+      "overtime": false
+    },
+    {
+      "id": "NBA_20261027_POR_AT_LAL",
+      "halftime_gap": 5,
+      "away_error": 13,
+      "home_error": -4,
+      "total_error": 9,
+      "margin_error": -17,
+      "abs_total_error": 9,
+      "abs_margin_error": 17,
+      "max_team_abs_error": 13,
+      "total_from_team_forecast": 256,
+      "reported_total": 256,
+      "provenance_flags": [
+        "William Hill screenshot showed POR 68 LAL 75, official halftime POR 68 LAL 73: score mismatch; exclude from verified edge performance",
+        "Exact wall-clock freeze and market screenshot timestamps unavailable",
+        "Forecast heuristic not calibrated Monte Carlo",
+        "No confirmed wager; ghost-only"
+      ],
+      "overtime": false
+    },
+    {
+      "id": "NBA_20261027_BKN_AT_BOS",
+      "halftime_gap": 5,
+      "away_error": 0,
+      "home_error": -2,
+      "total_error": -2,
+      "margin_error": -2,
+      "abs_total_error": 2,
+      "abs_margin_error": 2,
+      "max_team_abs_error": 2,
+      "total_from_team_forecast": 236,
+      "reported_total": 236,
+      "provenance_flags": [
+        "15 OT points: regulation-only forecast; final total includes OT",
+        "Exact wall-clock freeze and market screenshot timestamps unavailable",
+        "Heuristic uncalibrated; no verified wagers"
+      ],
+      "overtime": true
+    },
+    {
+      "id": "NBA_20261030_LAL_AT_GSW",
+      "halftime_gap": 0,
+      "away_error": -13,
+      "home_error": 2,
+      "total_error": -11,
+      "margin_error": 15,
+      "abs_total_error": 11,
+      "abs_margin_error": 15,
+      "max_team_abs_error": 13,
+      "total_from_team_forecast": 218,
+      "reported_total": 218,
+      "provenance_flags": [
+        "official quarter, half and final sums reconcile",
+        "original independent halftime freeze timestamp unverified",
+        "exclude from authenticated MAE",
+        "no confirmed wager",
+        "Q3 opening market not equivalent to halftime freeze"
+      ],
+      "overtime": false
+    },
+    {
+      "id": "NBA_2026-11-10_OKC_AT_POR",
+      "halftime_gap": 0,
+      "away_error": -14,
+      "home_error": 9,
+      "total_error": -5,
+      "margin_error": 23,
+      "abs_total_error": 5,
+      "abs_margin_error": 23,
+      "max_team_abs_error": 14,
+      "total_from_team_forecast": 231,
+      "reported_total": 231,
+      "provenance_flags": [
+        "original frozen file verified in repository",
+        "2026-27 prospective ghost"
+      ],
+      "overtime": false
+    }
+  ],
+  "limitations": [
+    "Not a season-wide historical audit: 2025-26 complete half-score CSV not found/verified",
+    "Selected historical registry is a convenience sample with mixed freeze provenance and one reconstructed/unverified freeze",
+    "SAS@MIN forecast team scores sum 223, while quoted full total 221.5; total error here is calculated from team forecasts, discrepancy retained",
+    "For overtime games, regulation score is used and not full final",
+    "Margin error sign convention actual home margin minus projected home margin",
+    "No calibrated probability, ROI or edge inference from these counts",
+    "Only Nov 10 game added outside historical registry; do not mutate frozen records"
+  ],
+  "next": "Acquire and validate full 2025-26 halves dataset; compute same cohort by season; generate chronological OOS team-score predictions and compare to naive historical 2H baseline"
+}
