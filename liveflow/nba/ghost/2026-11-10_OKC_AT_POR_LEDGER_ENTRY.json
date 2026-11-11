@@ -1,0 +1,35 @@
+{
+  "schema": "sharpedge.liveflow.ledger_entry.v1",
+  "matchup_id": "NBA_2026-11-10_OKC_AT_POR",
+  "date": "2026-11-10",
+  "mode": "GHOST",
+  "stake_usd": 0,
+  "pnl_usd": 0,
+  "decision": "NO_INVESTMENT",
+  "halftime": "OKC59 POR59",
+  "frozen_final": "OKC117 POR114",
+  "actual_final": "OKC103 POR123",
+  "projected_total": 231,
+  "actual_total": 226,
+  "total_error_actual_minus_projected": -5,
+  "projected_OKC_margin": 3,
+  "actual_OKC_margin": -20,
+  "margin_error": -23,
+  "projected_second_half": "OKC58 POR55",
+  "actual_second_half": "OKC44 POR64",
+  "flagged_ghost_signals": [
+    {
+      "market": "POR under 116.5 -125",
+      "theoretical_ev_roi": 0.0461,
+      "result": "LOSS"
+    },
+    {
+      "market": "OKC ML -135",
+      "theoretical_ev_roi": 0.0166,
+      "result": "LOSS"
+    }
+  ],
+  "postmortem_path": "liveflow/nba/ghost/2026-11-10_OKC_AT_POR_NO_INVESTMENT_POSTMORTEM.json",
+  "status": "POSTMORTEM_COMPLETE",
+  "calibration_status": "UNCALIBRATED"
+}
