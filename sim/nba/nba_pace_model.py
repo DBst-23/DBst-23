@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 
 @dataclass
@@ -34,7 +34,7 @@ class TeamPaceProfile:
 class GamePaceInputs:
     home: TeamPaceProfile
     away: TeamPaceProfile
-    context: PaceContext = PaceContext()
+    context: PaceContext = field(default_factory=PaceContext)
 
 
 def _blend_baseline_pace(home: TeamPaceProfile, away: TeamPaceProfile) -> float:
