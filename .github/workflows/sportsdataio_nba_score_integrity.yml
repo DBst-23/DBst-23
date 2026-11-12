@@ -1,0 +1,96 @@
+name: SportsDataIO NBA Historical Score Integrity
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      SPORTSDATAIO_API_KEY: ${{ secrets.SPORTSDATAIO_API_KEY }}
+    steps:
+      - name: Extract historical final and quarter scores for independent verification
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, os, sys, urllib.request, urllib.error
+          from datetime import datetime, timezone
+
+          date = "2025-12-25"
+          key = os.environ.get("SPORTSDATAIO_API_KEY", "")
+          report = {
+              "provider": "SportsDataIO",
+              "date": date,
+              "checked_utc": datetime.now(timezone.utc).isoformat(),
+              "status": "NOT_RUN",
+              "http_status": None,
+              "games": [],
+              "games_returned": 0,
+              "quarter_values_present": False,
+              "independent_reference": None,
+              "independent_scores_verified": False,
+              "safe_for_training": False,
+              "warning": "Trial responses may scramble numeric values. This artifact is UNVERIFIED and MUST NOT be used for training."
+          }
+          try:
+              if not key:
+                  report["status"] = "MISSING_SECRET"
+              else:
+                  req = urllib.request.Request(
+                      f"https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/{date}",
+                      headers={"Ocp-Apim-Subscription-Key": key, "Accept": "application/json"}
+                  )
+                  with urllib.request.urlopen(req, timeout=25) as response:
+                      report["http_status"] = response.status
+                      payload = json.load(response)
+                  if not isinstance(payload, list):
+                      report["status"] = "INVALID_RESPONSE_SHAPE"
+                  else:
+                      report["games_returned"] = len(payload)
+                      for game in payload:
+                          if not isinstance(game, dict):
+                              continue
+                          quarters = game.get("Quarters")
+                          # Preserve the provider's quarter records without assuming field names or scoring semantics.
+                          if not isinstance(quarters, list):
+                              quarters = []
+                          report["games"].append({
+                              "game_id": game.get("GameID"),
+                              "home": game.get("HomeTeam"),
+                              "away": game.get("AwayTeam"),
+                              "status": game.get("Status"),
+                              "home_score": game.get("HomeTeamScore"),
+                              "away_score": game.get("AwayTeamScore"),
+                              "quarters": quarters,
+                          })
+                      report["quarter_values_present"] = any(g["quarters"] for g in report["games"])
+                      report["status"] = "EXTRACTED_AWAITING_INDEPENDENT_VERIFICATION" if report["games"] else "NO_GAMES"
+          except urllib.error.HTTPError as exc:
+              report["http_status"] = exc.code
+              report["status"] = "HTTP_ERROR"
+          except Exception as exc:
+              report["status"] = "REQUEST_FAILED"
+              report["error_type"] = type(exc).__name__
+
+          os.makedirs("diagnostics", exist_ok=True)
+          with open("diagnostics/sportsdataio_nba_score_integrity.json", "w") as f:
+              json.dump(report, f, indent=2, default=str)
+          # Print status only. Never print the key or unverified scores to job logs.
+          print(json.dumps({k: report[k] for k in ("status", "http_status", "games_returned",
+                                                   "quarter_values_present", "independent_scores_verified",
+                                                   "safe_for_training")}, indent=2))
+          if report["status"] != "EXTRACTED_AWAITING_INDEPENDENT_VERIFICATION":
+              sys.exit(2)
+          PY
+      - name: Upload quarantined score inspection artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sportsdataio-nba-score-integrity-unverified
+          path: diagnostics/sportsdataio_nba_score_integrity.json
+          if-no-files-found: warn
+          retention-days: 14
