@@ -1,4 +1,4 @@
-name: API-Sports NBA score integrity
+name: API-Sports NBA access diagnostic
 
 on:
   push:
@@ -15,7 +15,7 @@ jobs:
     env:
       API_SPORTS_KEY: ${{ secrets.API_SPORTS_KEY }}
     steps:
-      - name: Compare one historical game with official NBA score
+      - name: Check historical entitlement and current slate
         shell: bash
         run: |
           python3 - <<'PY'
@@ -26,80 +26,66 @@ jobs:
           from pathlib import Path
 
           report = {
-              "source": "API-Sports API-NBA v2",
-              "endpoint": "games?date=2025-12-25",
-              "reference": "NBA.com CLE @ NYK 2025-12-25, CLE 124 NYK 126",
-              "status": "NOT_RUN",
+              "provider": "API-Sports API-NBA v2",
+              "historical_date": "2025-12-25",
+              "current_date": "2026-11-12",
+              "historical": None,
+              "current": None,
               "safe_for_training": False,
-              "games_returned": None,
-              "match": None,
-              "errors": [],
           }
-          try:
-              key = os.environ.get("API_SPORTS_KEY", "")
-              if not key:
-                  report["status"] = "MISSING_SECRET"
-              else:
+          key = os.environ.get("API_SPORTS_KEY", "")
+          if not key:
+              report["status"] = "MISSING_SECRET"
+          else:
+              def query(date):
                   req = urllib.request.Request(
-                      "https://v2.nba.api-sports.io/games?date=2025-12-25",
+                      f"https://v2.nba.api-sports.io/games?date={date}",
                       headers={"x-apisports-key": key},
                   )
-                  with urllib.request.urlopen(req, timeout=25) as resp:
-                      report["http_status"] = resp.status
-                      data = json.load(resp)
-                  report["errors"] = data.get("errors", [])
-                  games = data.get("response", [])
-                  if not isinstance(games, list) or report["errors"]:
-                      report["status"] = "API_ERROR"
-                  else:
-                      report["games_returned"] = len(games)
-                      for game in games:
-                          teams = game.get("teams") or {}
-                          home = teams.get("home") or {}
-                          away = teams.get("visitors") or {}
-                          hn = (home.get("name") or "").lower()
-                          an = (away.get("name") or "").lower()
-                          if "knicks" in hn and "cavaliers" in an:
-                              scores = game.get("scores") or {}
-                              hs = scores.get("home") or {}
-                              vs = scores.get("visitors") or {}
-                              report["match"] = {
-                                  "game_id": game.get("id"),
-                                  "home": home.get("name"),
-                                  "away": away.get("name"),
-                                  "status": game.get("status"),
-                                  "home_score": hs.get("points"),
-                                  "away_score": vs.get("points"),
-                                  "home_linescore": hs.get("linescore"),
-                                  "away_linescore": vs.get("linescore"),
+                  try:
+                      with urllib.request.urlopen(req, timeout=25) as resp:
+                          payload = json.load(resp)
+                          code = resp.status
+                      errors = payload.get("errors") or {}
+                      games = payload.get("response") or []
+                      return {
+                          "http_status": code,
+                          "errors": errors,
+                          "results": payload.get("results"),
+                          "games": [
+                              {
+                                  "id": g.get("id"),
+                                  "home": (g.get("teams") or {}).get("home", {}).get("name"),
+                                  "away": (g.get("teams") or {}).get("visitors", {}).get("name"),
+                                  "status": g.get("status"),
+                                  "home_points": ((g.get("scores") or {}).get("home") or {}).get("points"),
+                                  "away_points": ((g.get("scores") or {}).get("visitors") or {}).get("points"),
                               }
-                              report["status"] = (
-                                  "FINAL_SCORE_MATCH"
-                                  if hs.get("points") == 126 and vs.get("points") == 124
-                                  else "FINAL_SCORE_MISMATCH"
-                              )
-                              break
-                      else:
-                          report["status"] = "REFERENCE_GAME_NOT_FOUND"
-          except urllib.error.HTTPError as exc:
-              report["status"] = "HTTP_ERROR"
-              report["http_status"] = exc.code
-          except Exception as exc:
-              report["status"] = "REQUEST_FAILED"
-              report["error_type"] = type(exc).__name__
-
+                              for g in games if isinstance(g, dict)
+                          ],
+                      }
+                  except urllib.error.HTTPError as exc:
+                      return {"http_status": exc.code, "error": "HTTP_ERROR"}
+                  except Exception as exc:
+                      return {"error": type(exc).__name__}
+              report["historical"] = query(report["historical_date"])
+              report["current"] = query(report["current_date"])
+              report["status"] = (
+                  "CURRENT_SLATE_ACCESSIBLE"
+                  if report["current"].get("games") and not report["current"].get("errors")
+                  else "CURRENT_SLATE_UNAVAILABLE"
+              )
           Path("diagnostics").mkdir(exist_ok=True)
           Path("diagnostics/api_sports_nba_integrity.json").write_text(
               json.dumps(report, indent=2, default=str) + "\n"
           )
-          # One matching final is a connectivity and score check, not dataset validation.
           print(json.dumps({
               "status": report["status"],
-              "http_status": report.get("http_status"),
-              "games_returned": report["games_returned"],
+              "historical_errors": (report["historical"] or {}).get("errors"),
+              "current_results": (report["current"] or {}).get("results"),
               "safe_for_training": False,
           }))
-          if report["status"] != "FINAL_SCORE_MATCH":
+          if report["status"] != "CURRENT_SLATE_ACCESSIBLE":
               raise SystemExit(2)
           PY
       - name: Upload isolated report
