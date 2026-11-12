@@ -1,0 +1,28 @@
+name: Official NBA first-half game book probe
+
+on:
+  push:
+    branches: [diagnostics/nba-gamebook-halftime-20261112]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check PDF text utility
+        run: command -v pdftotext || (sudo apt-get update -qq && sudo apt-get install -y poppler-utils)
+      - name: Compare official halftime box score with API-NBA
+        run: python3 scripts/probe_nba_gamebook_halftime.py
+      - name: Upload compact diagnostic report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: official-nba-halftime-probe
+          path: diagnostics/nba_gamebook_halftime_probe.json
+          if-no-files-found: warn
+          retention-days: 14
