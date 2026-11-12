@@ -39,6 +39,38 @@ def inspect(text: str, case: dict) -> dict:
         scores[side] = int(match.group(1)) if match else None
     player_lines = re.findall(r"^\s*\d{1,2}\s+[^\n]+\d{2}:\d{2}\s+\d+",
                               first_half, flags=re.M)
+    # The two 120:00 rows in the FIRST HALF page are away and home totals.
+    # MIN is 120:00 team minutes for each half; the next 16 cells are the
+    # standard FGM, FGA, 3PM, 3PA, FTM, FTA, OR, DR, REB, AST, PF, STL,
+    # TOV, BLK, +/-, PTS fields.
+    total_rows = []
+    for line in first_half.splitlines():
+        match = re.match(r"^\s*120:00\s+(.+)$", line)
+        if not match:
+            continue
+        fields = match.group(1).split()
+        if len(fields) == 16 and all(re.fullmatch(r"-?\d+", f) for f in fields):
+            total_rows.append([int(f) for f in fields])
+    totals = {}
+    for side, fields in zip(("away", "home"), total_rows):
+        fgm, fga, tpm, tpa, ftm, fta = fields[:6]
+        totals[side] = {
+            "fgm": fgm, "fga": fga, "three_made": tpm,
+            "three_attempted": tpa, "ftm": ftm, "fta": fta,
+            "offensive_rebounds": fields[6], "defensive_rebounds": fields[7],
+            "total_rebounds": fields[8], "assists": fields[9],
+            "personal_fouls": fields[10], "steals": fields[11],
+            "turnovers": fields[12], "blocks": fields[13],
+            "points": fields[15],
+        }
+        totals[side]["valid_arithmetic"] = (
+            fields[15] == 2 * fgm + tpm + ftm
+            and 0 <= tpm <= tpa <= fga
+            and 0 <= tpm <= fgm <= fga
+            and 0 <= ftm <= fta
+            and fields[6] + fields[7] == fields[8]
+            and fields[15] == scores[side]
+        )
     return {
         "season": case["season"],
         "api_nba_game_id": case["api_game_id"],
@@ -48,6 +80,10 @@ def inspect(text: str, case: dict) -> dict:
                                  and scores["home"] == case["expected_home"]),
         "player_stat_lines": len(player_lines),
         "team_totals_lines": len(re.findall(r"\b120:00\b", first_half)),
+        "team_totals": totals,
+        "team_totals_valid": (
+            len(totals) == 2 and all(t["valid_arithmetic"] for t in totals.values())
+        ),
         "play_by_play": "OFFICIAL PLAY-BY-PLAY" in text,
     }
 
@@ -89,8 +125,9 @@ def main() -> None:
     Path("diagnostics/nba_gamebook_season_audit.json").write_text(
         json.dumps(report, indent=2) + "\n")
     print(json.dumps(report))
-    if report["matched"] != len(rows):
-        raise SystemExit("Official game books did not all match API-NBA scores")
+    if (report["matched"] != len(rows)
+            or not all(r.get("team_totals_valid") for r in rows)):
+        raise SystemExit("Official first-half scores or team totals failed validation")
 
 
 if __name__ == "__main__":
