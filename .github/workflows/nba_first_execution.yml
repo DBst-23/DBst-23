@@ -1,0 +1,30 @@
+name: SharpEdge NBA First Engine Execution
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/nba_first_execution_smoke.py'
+      - 'sim/nba/**'
+      - 'sim/nba_runner.py'
+      - 'config/nba.inputs.sample.json'
+      - '.github/workflows/nba_first_execution.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  first-execution:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run one-game engine smoke test (sample data, no betting)
+        run: python3 -m scripts.nba_first_execution_smoke
+      - name: Upload first execution report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sharpedge-first-execution
+          path: outputs/nba/first_execution_report.json
+          if-no-files-found: warn
