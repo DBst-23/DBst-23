@@ -1,0 +1,25 @@
+name: SharpEdge NBA Half-Split Validation v2
+on:
+  workflow_dispatch:
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: python -m pip install nba_api pandas
+      - name: Validate one historical game against independent quarters
+        run: python analytics/liveflow_master/validate_halves_v2.py --audit data/nba/half_split_smoke_audit.json
+      - name: Upload audit even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nba-half-split-validation-v2
+          path: data/nba/half_split_smoke_audit.json
+          if-no-files-found: warn
