@@ -1,0 +1,75 @@
+name: SportsDataIO NBA Access Diagnostic
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      SPORTSDATAIO_API_KEY: ${{ secrets.SPORTSDATAIO_API_KEY }}
+    steps:
+      - name: Probe NBA historical games endpoint (metadata only)
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, os, sys, urllib.request, urllib.error
+          from datetime import datetime, timezone
+
+          key = os.environ.get("SPORTSDATAIO_API_KEY", "")
+          report = {
+              "provider": "SportsDataIO",
+              "endpoint": "GamesByDate",
+              "requested_date": "2025-12-25",
+              "checked_utc": datetime.now(timezone.utc).isoformat(),
+              "key_present": bool(key),
+              "http_status": None,
+              "response_is_list": False,
+              "games_returned": None,
+              "quarter_fields_verified": False,
+              "historical_scores_authenticated": False,
+              "safe_for_training": False,
+          }
+          if not key:
+              report["result"] = "MISSING_SECRET"
+          else:
+              url = "https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/2025-12-25"
+              req = urllib.request.Request(
+                  url, headers={"Ocp-Apim-Subscription-Key": key, "Accept": "application/json"}
+              )
+              try:
+                  with urllib.request.urlopen(req, timeout=20) as response:
+                      report["http_status"] = response.status
+                      data = json.load(response)
+                  report["response_is_list"] = isinstance(data, list)
+                  if isinstance(data, list):
+                      report["games_returned"] = len(data)
+                      report["available_fields"] = sorted(data[0].keys()) if data else []
+                      report["result"] = "ACCESSIBLE_UNVERIFIED_DATA"
+                  else:
+                      report["result"] = "UNEXPECTED_RESPONSE_SHAPE"
+              except urllib.error.HTTPError as exc:
+                  report["http_status"] = exc.code
+                  report["result"] = "HTTP_ERROR"
+              except Exception as exc:
+                  report["result"] = "REQUEST_FAILED"
+                  report["error_type"] = type(exc).__name__
+
+          os.makedirs("diagnostics", exist_ok=True)
+          with open("diagnostics/sportsdataio_nba_access.json", "w") as f:
+              json.dump(report, f, indent=2)
+          print(json.dumps(report, indent=2))
+          if report["result"] != "ACCESSIBLE_UNVERIFIED_DATA":
+              sys.exit(2)
+          PY
+      - name: Upload safe diagnostic report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sportsdataio-nba-access-diagnostic
+          path: diagnostics/sportsdataio_nba_access.json
+          if-no-files-found: warn
