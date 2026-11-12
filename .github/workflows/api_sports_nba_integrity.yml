@@ -1,0 +1,112 @@
+name: API-Sports NBA score integrity
+
+on:
+  push:
+    branches: [diagnostics/api-sports-nba-integrity-20261112]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      API_SPORTS_KEY: ${{ secrets.API_SPORTS_KEY }}
+    steps:
+      - name: Compare one historical game with official NBA score
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import urllib.error
+          import urllib.request
+          from pathlib import Path
+
+          report = {
+              "source": "API-Sports API-NBA v2",
+              "endpoint": "games?date=2025-12-25",
+              "reference": "NBA.com CLE @ NYK 2025-12-25, CLE 124 NYK 126",
+              "status": "NOT_RUN",
+              "safe_for_training": False,
+              "games_returned": None,
+              "match": None,
+              "errors": [],
+          }
+          try:
+              key = os.environ.get("API_SPORTS_KEY", "")
+              if not key:
+                  report["status"] = "MISSING_SECRET"
+              else:
+                  req = urllib.request.Request(
+                      "https://v2.nba.api-sports.io/games?date=2025-12-25",
+                      headers={"x-apisports-key": key},
+                  )
+                  with urllib.request.urlopen(req, timeout=25) as resp:
+                      report["http_status"] = resp.status
+                      data = json.load(resp)
+                  report["errors"] = data.get("errors", [])
+                  games = data.get("response", [])
+                  if not isinstance(games, list) or report["errors"]:
+                      report["status"] = "API_ERROR"
+                  else:
+                      report["games_returned"] = len(games)
+                      for game in games:
+                          teams = game.get("teams") or {}
+                          home = teams.get("home") or {}
+                          away = teams.get("visitors") or {}
+                          hn = (home.get("name") or "").lower()
+                          an = (away.get("name") or "").lower()
+                          if "knicks" in hn and "cavaliers" in an:
+                              scores = game.get("scores") or {}
+                              hs = scores.get("home") or {}
+                              vs = scores.get("visitors") or {}
+                              report["match"] = {
+                                  "game_id": game.get("id"),
+                                  "home": home.get("name"),
+                                  "away": away.get("name"),
+                                  "status": game.get("status"),
+                                  "home_score": hs.get("points"),
+                                  "away_score": vs.get("points"),
+                                  "home_linescore": hs.get("linescore"),
+                                  "away_linescore": vs.get("linescore"),
+                              }
+                              report["status"] = (
+                                  "FINAL_SCORE_MATCH"
+                                  if hs.get("points") == 126 and vs.get("points") == 124
+                                  else "FINAL_SCORE_MISMATCH"
+                              )
+                              break
+                      else:
+                          report["status"] = "REFERENCE_GAME_NOT_FOUND"
+          except urllib.error.HTTPError as exc:
+              report["status"] = "HTTP_ERROR"
+              report["http_status"] = exc.code
+          except Exception as exc:
+              report["status"] = "REQUEST_FAILED"
+              report["error_type"] = type(exc).__name__
+
+          Path("diagnostics").mkdir(exist_ok=True)
+          Path("diagnostics/api_sports_nba_integrity.json").write_text(
+              json.dumps(report, indent=2, default=str) + "\n"
+          )
+          # One matching final is a connectivity and score check, not dataset validation.
+          print(json.dumps({
+              "status": report["status"],
+              "http_status": report.get("http_status"),
+              "games_returned": report["games_returned"],
+              "safe_for_training": False,
+          }))
+          if report["status"] != "FINAL_SCORE_MATCH":
+              raise SystemExit(2)
+          PY
+      - name: Upload isolated report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-sports-nba-integrity
+          path: diagnostics/api_sports_nba_integrity.json
+          if-no-files-found: warn
+          retention-days: 14
