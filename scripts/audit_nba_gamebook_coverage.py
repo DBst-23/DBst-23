@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter, defaultdict
+from datetime import datetime
 import json
 from pathlib import Path
 import re
@@ -64,6 +65,18 @@ def parse_first_half(text: str, row: dict) -> dict:
          if re.search(r"OFFICIAL SCORER'S REPORT\s+FIRST HALF", p)), "")
     if not page:
         return {"status": "missing_first_half_page"}
+    date_match = re.search(
+        r"\b(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\s+"
+        r"([A-Z][a-z]+\s+\d{1,2},\s+\d{4})\b", page)
+    if not date_match:
+        return {"status": "missing_printed_game_date"}
+    try:
+        printed_date = datetime.strptime(date_match.group(1), "%B %d, %Y").date()
+    except ValueError:
+        return {"status": "invalid_printed_game_date"}
+    if printed_date.isoformat() != row["game_date_eastern"]:
+        return {"status": "printed_game_date_mismatch",
+                "pdf_date": printed_date.isoformat()}
     visitor = re.search(r"^\s*VISITOR:\s*(.+)$", page, flags=re.M)
     home = re.search(r"^\s*HOME:\s*(.+)$", page, flags=re.M)
     if not visitor or not home:
