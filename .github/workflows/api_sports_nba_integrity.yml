@@ -66,9 +66,11 @@ jobs:
           else:
               query("leagues", "leagues")
               query("seasons", "seasons")
-              historical = query("season_2025", "games",
-                                 {"league": "standard", "season": "2025"})
-              report["queries"]["season_2025"]["finished_count"] = sum(
+              query("season_2025", "games",
+                    {"league": "standard", "season": "2025"})
+              historical = query("season_2024", "games",
+                                 {"league": "standard", "season": "2024"})
+              report["queries"]["season_2024"]["finished_count"] = sum(
                   str((g.get("status") or {}).get("short")) == "3"
                   for g in historical if isinstance(g, dict))
               finished = next(
@@ -102,8 +104,8 @@ jobs:
               json.dumps(report, indent=2, default=str) + "\n")
           print(json.dumps({
               "status": report["status"],
-              "season_results": report["queries"].get("season_2025", {}).get("results"),
-              "season_errors": report["queries"].get("season_2025", {}).get("errors"),
+              "season_results": report["queries"].get("season_2024", {}).get("results"),
+              "season_errors": report["queries"].get("season_2024", {}).get("errors"),
               "sample_finished_id": (report["sample_finished_game"] or {}).get("id"),
               "safe_for_training": False}))
           if not key:
