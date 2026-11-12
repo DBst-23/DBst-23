@@ -141,7 +141,8 @@ def build(season_games: dict[int, list[dict]]) -> tuple[list[dict], list[dict], 
                                            "final_home", "final_away"],
         "safe_for_betting_edge_backtest": False,
         "note": "No archived halftime odds or halftime team/player stat snapshots. "
-                "A season outcome dataset alone cannot measure betting EV or calibration.",
+                "Betting EV requires timestamped halftime prices; probability calibration "
+                "requires an independently fitted model and chronological holdout.",
     }
     return accepted, quarantine, summary
 
