@@ -1,0 +1,33 @@
+name: LIVE-FLOW halftime chronological baseline
+
+on:
+  push:
+    branches: [feature/liveflow-halftime-chronological-baseline-20261112]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  baseline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      API_SPORTS_KEY: ${{ secrets.API_SPORTS_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build validated halftime outcomes
+        run: python3 scripts/api_sports_halftime_backfill.py --output-dir nba_halftime_artifact
+      - name: Evaluate chronological holdout
+        run: |
+          python3 scripts/liveflow_halftime_baseline.py \
+            --dataset nba_halftime_artifact/halftime_outcomes.jsonl \
+            --output nba_halftime_artifact/chronological_baseline.json
+      - name: Upload dataset, quarantine, and backtest report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: liveflow-halftime-baseline
+          path: nba_halftime_artifact/
+          if-no-files-found: warn
+          retention-days: 30
