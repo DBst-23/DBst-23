@@ -68,11 +68,60 @@ jobs:
               query("seasons", "seasons")
               query("season_2025", "games",
                     {"league": "standard", "season": "2025"})
+              for season in ("2022", "2023"):
+                  older = query("season_" + season, "games",
+                                {"league": "standard", "season": season})
+                  report["queries"]["season_" + season]["finished_count"] = sum(
+                      str((g.get("status") or {}).get("short")) == "3"
+                      for g in older if isinstance(g, dict))
               historical = query("season_2024", "games",
                                  {"league": "standard", "season": "2024"})
               report["queries"]["season_2024"]["finished_count"] = sum(
                   str((g.get("status") or {}).get("short")) == "3"
                   for g in historical if isinstance(g, dict))
+              from collections import Counter
+              stages = Counter(str(g.get("stage")) for g in historical
+                               if isinstance(g, dict))
+              report["queries"]["season_2024"]["stages"] = dict(stages)
+              audit = {"finished": 0, "halftime_scores_complete": 0,
+                       "quarter_sum_matches_final": 0,
+                       "quarter_sum_mismatch": 0,
+                       "missing_quarters": 0, "examples_by_stage": {}}
+              for game in historical:
+                  if not isinstance(game, dict):
+                      continue
+                  stage = str(game.get("stage"))
+                  if stage not in audit["examples_by_stage"]:
+                      audit["examples_by_stage"][stage] = {
+                          "id": game.get("id"),
+                          "date": (game.get("date") or {}).get("start"),
+                          "status": (game.get("status") or {}).get("short")}
+                  if str((game.get("status") or {}).get("short")) != "3":
+                      continue
+                  audit["finished"] += 1
+                  scores = game.get("scores") or {}
+                  halves = []
+                  totals_ok = []
+                  for side in ("home", "visitors"):
+                      score = scores.get(side) or {}
+                      lines = score.get("linescore") or []
+                      try:
+                          quarters = [int(x) for x in lines]
+                          halves.append(len(quarters) >= 2 and
+                                        all(x >= 0 for x in quarters[:2]))
+                          totals_ok.append(sum(quarters) == int(score["points"]))
+                      except (ValueError, TypeError, KeyError):
+                          halves.append(False)
+                          totals_ok.append(False)
+                  if all(halves):
+                      audit["halftime_scores_complete"] += 1
+                  else:
+                      audit["missing_quarters"] += 1
+                  if all(totals_ok):
+                      audit["quarter_sum_matches_final"] += 1
+                  else:
+                      audit["quarter_sum_mismatch"] += 1
+              report["season_2024_audit"] = audit
               finished = next(
                   (g for g in historical if isinstance(g, dict)
                    and str((g.get("status") or {}).get("short")) == "3"),
