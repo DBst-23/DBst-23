@@ -1,0 +1,28 @@
+name: Build API-NBA halftime outcome dataset
+
+on:
+  push:
+    branches: [feature/api-nba-halftime-backfill-20261112]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      API_SPORTS_KEY: ${{ secrets.API_SPORTS_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch and validate accessible NBA seasons
+        run: python3 scripts/api_sports_halftime_backfill.py --output-dir nba_halftime_artifact
+      - name: Upload isolated dataset and quarantine report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-nba-halftime-outcomes
+          path: nba_halftime_artifact/
+          if-no-files-found: warn
+          retention-days: 30
