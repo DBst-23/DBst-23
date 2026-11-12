@@ -1,4 +1,4 @@
-name: API-Sports NBA access diagnostic
+name: API-Sports NBA season access diagnostic
 
 on:
   push:
@@ -15,85 +15,105 @@ jobs:
     env:
       API_SPORTS_KEY: ${{ secrets.API_SPORTS_KEY }}
     steps:
-      - name: Check historical entitlement and current slate
+      - name: Check league, seasons, season feed, and a finished game
         shell: bash
         run: |
           python3 - <<'PY'
           import json
           import os
           import urllib.error
+          import urllib.parse
           import urllib.request
           from pathlib import Path
 
-          report = {
-              "provider": "API-Sports API-NBA v2",
-              "historical_date": "2025-12-25",
-              "current_date": "2026-11-13",
-              "date_note": "UTC API date for US evening November 12 slate",
-              "historical": None,
-              "current": None,
-              "safe_for_training": False,
-          }
           key = os.environ.get("API_SPORTS_KEY", "")
+          report = {"provider": "API-Sports API-NBA v2",
+                    "queries": {}, "sample_finished_game": None,
+                    "team_statistics": None, "safe_for_training": False}
+
+          def query(label, path, params=None):
+              url = "https://v2.nba.api-sports.io/" + path
+              if params:
+                  url += "?" + urllib.parse.urlencode(params)
+              request = urllib.request.Request(
+                  url, headers={"x-apisports-key": key})
+              try:
+                  with urllib.request.urlopen(request, timeout=45) as response:
+                      data = json.load(response)
+                      status = response.status
+                  games = data.get("response") or []
+                  report["queries"][label] = {
+                      "path": path, "parameters": params or {},
+                      "http_status": status, "errors": data.get("errors") or {},
+                      "results": data.get("results"),
+                      "sample_values": (
+                          games[:5] if label in ("leagues", "seasons")
+                          else None),
+                  }
+                  return games
+              except urllib.error.HTTPError as exc:
+                  report["queries"][label] = {
+                      "path": path, "parameters": params or {},
+                      "http_status": exc.code, "error": "HTTP_ERROR"}
+              except Exception as exc:
+                  report["queries"][label] = {
+                      "path": path, "parameters": params or {},
+                      "error": type(exc).__name__}
+              return []
+
           if not key:
               report["status"] = "MISSING_SECRET"
           else:
-              def query(date):
-                  req = urllib.request.Request(
-                      f"https://v2.nba.api-sports.io/games?date={date}",
-                      headers={"x-apisports-key": key},
-                  )
-                  try:
-                      with urllib.request.urlopen(req, timeout=25) as resp:
-                          payload = json.load(resp)
-                          code = resp.status
-                      errors = payload.get("errors") or {}
-                      games = payload.get("response") or []
-                      return {
-                          "http_status": code,
-                          "errors": errors,
-                          "results": payload.get("results"),
-                          "games": [
-                              {
-                                  "id": g.get("id"),
-                                  "home": (g.get("teams") or {}).get("home", {}).get("name"),
-                                  "away": (g.get("teams") or {}).get("visitors", {}).get("name"),
-                                  "status": g.get("status"),
-                                  "home_points": ((g.get("scores") or {}).get("home") or {}).get("points"),
-                                  "away_points": ((g.get("scores") or {}).get("visitors") or {}).get("points"),
-                              }
-                              for g in games if isinstance(g, dict)
-                          ],
-                      }
-                  except urllib.error.HTTPError as exc:
-                      return {"http_status": exc.code, "error": "HTTP_ERROR"}
-                  except Exception as exc:
-                      return {"error": type(exc).__name__}
-              report["historical"] = query(report["historical_date"])
-              report["current"] = query(report["current_date"])
+              query("leagues", "leagues")
+              query("seasons", "seasons")
+              historical = query("season_2025", "games",
+                                 {"league": "standard", "season": "2025"})
+              report["queries"]["season_2025"]["finished_count"] = sum(
+                  str((g.get("status") or {}).get("short")) == "3"
+                  for g in historical if isinstance(g, dict))
+              finished = next(
+                  (g for g in historical if isinstance(g, dict)
+                   and str((g.get("status") or {}).get("short")) == "3"),
+                  None)
+              if finished:
+                  report["sample_finished_game"] = {
+                      "id": finished.get("id"),
+                      "date": finished.get("date"),
+                      "league": finished.get("league"),
+                      "season": finished.get("season"),
+                      "stage": finished.get("stage"),
+                      "status": finished.get("status"),
+                      "teams": finished.get("teams"),
+                      "scores": finished.get("scores"),
+                      "periods": finished.get("periods"),
+                  }
+                  stats = query("sample_team_stats", "games/statistics",
+                                {"id": finished["id"]})
+                  report["team_statistics"] = stats[:2]
               report["status"] = (
-                  "CURRENT_SLATE_ACCESSIBLE"
-                  if report["current"].get("games") and not report["current"].get("errors")
-                  else "CURRENT_SLATE_UNAVAILABLE"
-              )
+                  "HISTORICAL_SEASON_ACCESSIBLE" if finished else
+                  "HISTORICAL_SEASON_RESTRICTED_OR_EMPTY")
+              report["note"] = (
+                  "Finished quarter scores can reconstruct halftime score; "
+                  "final game statistics are not halftime snapshots, and "
+                  "halftime odds require separately timestamped data.")
           Path("diagnostics").mkdir(exist_ok=True)
-          Path("diagnostics/api_sports_nba_integrity.json").write_text(
-              json.dumps(report, indent=2, default=str) + "\n"
-          )
+          Path("diagnostics/api_sports_nba_season.json").write_text(
+              json.dumps(report, indent=2, default=str) + "\n")
           print(json.dumps({
               "status": report["status"],
-              "historical_errors": (report["historical"] or {}).get("errors"),
-              "current_results": (report["current"] or {}).get("results"),
-              "safe_for_training": False,
-          }))
-          if report["status"] != "CURRENT_SLATE_ACCESSIBLE":
+              "season_results": report["queries"].get("season_2025", {}).get("results"),
+              "season_errors": report["queries"].get("season_2025", {}).get("errors"),
+              "sample_finished_id": (report["sample_finished_game"] or {}).get("id"),
+              "safe_for_training": False}))
+          if not key:
               raise SystemExit(2)
           PY
-      - name: Upload isolated report
+      - name: Upload isolated diagnostic
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: api-sports-nba-integrity
-          path: diagnostics/api_sports_nba_integrity.json
+          name: api-sports-nba-season
+          path: diagnostics/api_sports_nba_season.json
           if-no-files-found: warn
           retention-days: 14
