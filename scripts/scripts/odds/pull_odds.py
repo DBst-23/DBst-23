@@ -94,12 +94,12 @@ def fetch_odds() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
     r = requests.get(url, params=params, timeout=20)
     meta = {
         "status_code": r.status_code,
-        "url": r.url,
+        "endpoint": url,
         "pulled_at_utc": utc_now_iso(),
     }
 
     if r.status_code != 200:
-        meta["error"] = r.text[:500]
+        meta["error"] = f"HTTP {r.status_code}"
         return [], meta
 
     data = r.json()
@@ -212,13 +212,11 @@ def airtable_create_records(rows: List[Dict[str, Any]]) -> Dict[str, Any]:
         resp = requests.post(url, headers=headers, json=payload, timeout=25)
         
         print("Airtable status:", resp.status_code)
-        print("Airtable response:", resp.text[:500])
 
         if resp.status_code not in (200, 201):
             errors.append(
                 {
                     "status_code": resp.status_code,
-                    "response": resp.text[:800],
                     "batch_start": i,
                     "batch_count": len(batch),
                 }
