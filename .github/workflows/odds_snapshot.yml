@@ -1,13 +1,12 @@
-name: Odds Snapshot Engine
+name: Odds Snapshot Engine (paused)
 
 on:
-  schedule:
-    - cron: "*/30 * * * *"        # every 30 minutes all day
-    - cron: "*/5 16-23 * * *"     # aggressive pull pre-tip (PT)
   workflow_dispatch:
 
 jobs:
   pull-odds:
+    # Resume only after the odds storage location and logging are reviewed.
+    if: ${{ false }}
     runs-on: ubuntu-latest
 
     steps:
