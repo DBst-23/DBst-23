@@ -1,0 +1,47 @@
+# NBA LIVE-FLOW halftime forecast and postmortem integrity audit
+
+Audit date: 2026-11-13. Scope: current `analytics/liveflow_master/nba_halftime_game_accuracy_v2.json` (blob `f9a8c62ea9dcdaa813344cac0c45764d0798365b`), its 17 game rows, and all 29 distinct non-null paths named in those rows. All 29 paths were readable on `main`. I also fetched separately named original model-first files for GSW@LAL, NYK@BOS, and MEM@GSW where the registry itself linked only a postmortem or result file. Earlier 12-row and 16-row audits describe older snapshots; do not use their counts for this registry.
+
+**This is a repository evidence audit, not independent verification of the underlying NBA score sheets, sportsbook screenshots, copyright permission, historical tip/period times, or actual bets.** Original uploaded reports and screenshot capture metadata are not generally present as independently inspectable artifacts in the linked registry paths. Do not use this report to bypass the source-rights hold established in PR #45. No API call, paid odds request, model fit, or alteration to a frozen forecast was made.
+
+## Counts and release gates
+
+- 17 unique game IDs; 14 rows contain a numeric full-game-total forecast; 3 contain no numeric halftime full-game-total forecast.
+- Eight rows have a distinct model-first/premarket artifact identifiable in the linked files or a separately fetched original. This is **document order evidence**, not proof of a real-world premarket or pre-Q3 timestamp. Six numeric rows have only retrospective, same-snapshot, or Q3-record provenance for the forecast. Three rows are market/postmortem context without a numeric halftime forecast.
+- **0/17** registry `forecast.freeze_timestamp` values are non-null. The linked files do not establish a verified UTC forecast creation time paired with a verified market screenshot capture time and licensed Q2-end/Q3-start clocks. Git commit time can show that one repository artifact preceded another, but not when a quote appeared on a book or whether Q3 had begun.
+- The registry's nine-game regulation-total MAE recomputes to **5.73 points**, but its historical "authenticated" label is **not reauthenticated by this audit**. Those nine are a selected convenience cohort, including retrospective and same-snapshot values; do not treat 5.73 as prospective, out-of-sample or betting-edge performance. Five additional numeric rows are not part of that historical nine-game calculation.
+- Two games have overtime. For a `regulation_only` forecast, use end-of-regulation scores for forecast accuracy; sportsbook full-game settlement may include overtime.
+- All 29 named linked files exist, but the registry contains one repeated path (GSW@LAL) and one null path (ORL@DET). Path presence alone does not establish underlying data provenance or rights.
+- **No row is approved for calibrated betting probability, synchronized market edge, or ROI attribution.** The 2023–25 Odds API sample is a different set of games and cannot be joined to these 2026 observations as if it were the same cohort.
+
+## Row-level classification
+
+`M` = a separate model-first/premarket artifact exists, with real-world clock and bookmaker sequencing still unverified. `R` = numeric value preserved only retrospectively, in a combined snapshot, or at Q3 open; no independent premarket freeze shown. `N` = no numeric halftime full-game-total forecast. "Score OK" means **internal arithmetic only**, not independent source verification.
+
+| Game | Evidence | Source, score, timing and outcome disposition |
+| --- | --- | --- |
+| 2026-10-21 GSW @ LAL | M | Separate halftime freeze is discoverable through the result file's `links.forecast`; 52+66=118 and final 105+127=232 reconcile. Registry repeats its result path instead of linking original freeze and market files. Forecast is hand-set exploratory; exact freeze/screenshot clocks unverified. Paper-only. |
+| 2026-10-23 NYK @ BOS | M | Separate frozen commit `2c4ea33` exists; Q1/Q2, 49–50 half, 103–107 final reconcile. Linked postmortem says the compared screenshot was **Q3 11:39**, 21 seconds after halftime, NYK already 51 rather than 49. Do not grade it as a synchronized halftime book quote. |
+| 2026-10-23 MEM @ GSW | M | Separate freeze exists; 60–56 half and 111–108 final reconcile. Screen showed MEM **62**, not 60; market-adjusted scenario must not replace the original halftime forecast. |
+| 2026-10-26 GSW @ DEN | R | Registry links retrospective postmortem only; 60–56 half and 134–114 final reconcile. Source separately describes DEN -1 while projected team scores imply DEN +2. Claimed 100k-draw simulation is not reproducibly evidenced there. No separately located original freeze in the linked path. |
+| 2026-10-26 MIN @ CLE | M | Separate premarket model file and later screenshot note; 60–50 half, **113–113 regulation**, 125–127 after OT reconcile. Model target is regulation, whereas market settlement may include OT. Screenshot uses exchange-style multiples; operator not verified as William Hill. No exact clock. |
+| 2026-05-10 SAS @ MIN G4 | R | Only final postmortem linked; 56–60 half and 109–114 final reconcile. Forecast **106.5+116.5=223**, but reported total forecast is **221.5**; team forecasts imply MIN +10, while separate margin forecast is +5.5. Preserve all originals and do not silently harmonize them. |
+| 2026-05-03 ORL @ DET G7 | R | Combined halftime market/model snapshot, with no distinct premarket lock; 49–60 half and 94–116 final reconcile. `109+98.5=207.5` versus separately reported 208 mean (0.5 difference); one null source path. Earlier under 191.5 was **not** a new halftime bet. |
+| 2026-05-17 CLE @ DET G7 | N | Halftime market and final postmortem exist; 64–47 half and 125–94 final reconcile. The 211.8 mean is a **pregame** model value, not a halftime forecast. Existing ticket cannot be graded as a new halftime strike. |
+| 2026-04-30 DEN @ MIN G6 | N | Halftime report and final postmortem exist; 50–57 half and 98–110 final reconcile. No frozen numeric full-game forecast; halftime team-total quote and postmortem ticket price differ, with entry timing unresolved. Postmortem explicitly cites an NBA gamebook PDF; rights remain gated. |
+| 2026-05-11 DET @ CLE G4 | N | Final postmortem records 56–52 half and 103–112 final, with quarter sums coherent. Ghost CLE team-total selection and market threshold are **not** a numeric model forecast. No actual bankroll stake is evidenced for that ghost position. |
+| 2026-10-27 POR @ LAL | M | Distinct freeze and later market file; 68–73 half and 136–129 final reconcile. William Hill screen shows **68–75**, a two-point score-state mismatch. Exact screenshot time absent; exclude synchronized edge grading. |
+| 2026-10-27 BKN @ BOS | M | Distinct freeze and later market file; 61–56 half, **117–117 regulation**, 124–125 after OT reconcile. Grade regulation-only 236 projection against **234**, not 249; market settlement horizon differs. No exact screenshot capture time. |
+| 2026-10-28 NYK @ CHI | R | Postmortem reconstructs conversational projection; 56–62 half and 133–127 final reconcile. No independently authenticated premarket GitHub freeze or screenshot timestamp. |
+| 2026-10-30 NYK @ PHI | R | Postmortem quotes conversational forecast; 44–53 half and 93–98 final reconcile. No independently authenticated premarket GitHub freeze or screenshot timestamp. |
+| 2026-10-30 LAL @ GSW | R | 53–53 half and 95–112 final reconcile. Numeric forecast appears in a **Q3 12:00 market adjustment** file; it does not prove a distinct premarket halftime freeze. Q3 quote is not a halftime-window price. |
+| 2026-10-31 OKC @ HOU | M | Distinct model-first, market, and final files; 51–62 half and 98–119 final reconcile. Model explicitly has zero simulations and the market file says snapshot time "not provided"; paper-only. |
+| 2026-11-01 LAC @ GSW | M | Distinct model-first, market, and final files; 57–63 half and 112–124 final reconcile. Both `freeze_timestamp_utc` and `market_capture_timestamp_utc` are null; book not independently verified; uncalibrated heuristic. |
+
+## Method and immediate use
+
+I checked unique IDs, linked-file existence, null/duplicate paths, the registry's halftime, regulation, overtime and final arithmetic, and forecast identities where components exist (team scores versus total/margin, halftime plus second-half estimate versus full-game total). I read each linked source for whether it is a model-first artifact, retrospective postmortem, market screenshot transcription, or a mixed snapshot. I did not infer a wall-clock from a filename, commit message, `HALFTIME` label, or API scheduled start.
+
+These records remain valuable for **descriptive diagnosis**: forecast error, direction of team scoring misses, foul/pace hypotheses, and improving the prospective capture protocol. Before promoting any record to a strict historical backtest, obtain a rights-cleared source for the relevant game state and period clocks; preserve an immutable model-first artifact with actual UTC capture time; verify book, market type, quote/score/capture time, Q2-end/Q3-start and latency; verify final regulation/OT result from an approved source; and test chronologically on a larger, defined cohort. Do not reconstruct missing timestamps or rewrite original forecasts.
+
+The 17-row registry is a scoped cohort, **not an inventory of all NBA files in the repository**; unregistered postmortems may exist. Reconcile the broader source manifest separately before claiming complete historical coverage.
