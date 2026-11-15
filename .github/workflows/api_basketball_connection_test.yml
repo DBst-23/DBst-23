@@ -1,0 +1,50 @@
+name: SharpEdge API-Basketball Connection Test
+
+on:
+  workflow_dispatch:
+    inputs:
+      game_id:
+        description: 'API-Basketball game ID (not API-NBA ID)'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout connector branch
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify API secret exists
+        env:
+          APISPORTS_BASKETBALL_KEY: ${{ secrets.APISPORTS_BASKETBALL_KEY }}
+        run: |
+          if [ -z "$APISPORTS_BASKETBALL_KEY" ]; then
+            echo "::error::APISPORTS_BASKETBALL_KEY is not configured"
+            exit 1
+          fi
+          echo "API secret is configured (value not displayed)."
+      - name: Query one game and validate rebounds
+        env:
+          APISPORTS_BASKETBALL_KEY: ${{ secrets.APISPORTS_BASKETBALL_KEY }}
+          GAME_ID: ${{ inputs.game_id }}
+        run: |
+          python - <<'PY'
+          import os
+          from modules.api_basketball_rebounds import fetch_player_game_stats, normalize_player_rebounds
+          game_id = int(os.environ["GAME_ID"])
+          payload = fetch_player_game_stats(game_id=game_id)
+          rows = normalize_player_rebounds(payload)
+          print(f"API request accepted; response rows: {len(payload['response'])}")
+          print(f"Valid player rebound records: {len(rows)}")
+          if not rows:
+              raise SystemExit("No valid player rebound records; verify game ID, league and data coverage.")
+          print("PASS: API-Basketball player rebound records retrieved.")
+          PY
