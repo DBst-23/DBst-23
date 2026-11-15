@@ -69,6 +69,17 @@ def _player_rebound_projection(player: Dict[str, Any], game_context: Dict[str, A
     }
 
 
+def _line_hit(rebounds: int, player: Dict[str, Any]) -> bool:
+    """Preserve legacy integer N+ targets; evaluate half-point sportsbook lines exactly."""
+    line = float(player.get("line", 0) or 0)
+    side = str(player.get("side", "over")).lower()
+    if side == "under":
+        return rebounds < line
+    if side != "over":
+        raise ValueError(f"Unsupported rebound side: {side}")
+    return rebounds >= line if line.is_integer() else rebounds > line
+
+
 def simulate_player_rebounds(
     player: Dict[str, Any],
     game_context: Dict[str, Any],
@@ -79,7 +90,7 @@ def simulate_player_rebounds(
     projection = _player_rebound_projection(player, game_context)
 
     results: List[int] = []
-    threshold = int(player.get("line", 0) or 0)
+    threshold = float(player.get("line", 0) or 0)
 
     for _ in range(iterations):
         chances = _poisson_sample(projection["expected_chances"], rng)
@@ -88,7 +99,7 @@ def simulate_player_rebounds(
             rebounds += _bernoulli(projection["conversion"], rng)
         results.append(rebounds)
 
-    hit_prob = sum(1 for x in results if x >= threshold) / iterations if threshold > 0 else 0.0
+    hit_prob = sum(1 for x in results if _line_hit(x, player)) / iterations if threshold > 0 else 0.0
 
     return {
         "player": player.get("name", "UNKNOWN"),
@@ -129,7 +140,7 @@ def simulate_rebound_combo(
             for _ in range(chances):
                 rebounds += _bernoulli(projection["conversion"], rng)
             leg_results[player["name"]] = rebounds
-            if rebounds >= int(player.get("line", 0) or 0):
+            if _line_hit(rebounds, player):
                 leg_hit_counts[idx] += 1
             else:
                 all_hit = False
@@ -144,7 +155,7 @@ def simulate_rebound_combo(
         leg_summaries.append(
             {
                 "player": player["name"],
-                "line": int(player.get("line", 0) or 0),
+                "line": float(player.get("line", 0) or 0),
                 "mean": round(mean(rebounds_list), 3),
                 "median": round(median(rebounds_list), 3),
                 "hit_probability": round(leg_hit_counts[idx] / iterations, 4),
