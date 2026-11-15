@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
     inputs:
       game_id:
-        description: 'API-Basketball game ID (not API-NBA ID)'
-        required: true
+        description: 'Optional API-Basketball game ID; leave blank to discover NBA games'
+        required: false
         type: string
 
 permissions:
@@ -33,20 +33,48 @@ jobs:
             exit 1
           fi
           echo "API secret is configured (value not displayed)."
-      - name: Query one game and validate rebounds
+      - name: Discover games and validate player rebounds
         env:
           APISPORTS_BASKETBALL_KEY: ${{ secrets.APISPORTS_BASKETBALL_KEY }}
           GAME_ID: ${{ inputs.game_id }}
         run: |
           python - <<'PY'
+          import json
           import os
+          from urllib.parse import urlencode
+          from urllib.request import Request, urlopen
           from modules.api_basketball_rebounds import fetch_player_game_stats, normalize_player_rebounds
-          game_id = int(os.environ["GAME_ID"])
-          payload = fetch_player_game_stats(game_id=game_id)
-          rows = normalize_player_rebounds(payload)
-          print(f"API request accepted; response rows: {len(payload['response'])}")
-          print(f"Valid player rebound records: {len(rows)}")
-          if not rows:
-              raise SystemExit("No valid player rebound records; verify game ID, league and data coverage.")
-          print("PASS: API-Basketball player rebound records retrieved.")
+
+          def api_get(path, params):
+              url = "https://v1.basketball.api-sports.io" + path + "?" + urlencode(params)
+              req = Request(url, headers={"x-apisports-key": os.environ["APISPORTS_BASKETBALL_KEY"]})
+              with urlopen(req, timeout=25) as response:
+                  payload = json.load(response)
+              if payload.get("errors"):
+                  raise RuntimeError("API reported an error: " + str(payload["errors"]))
+              return payload.get("response", [])
+
+          game_id = os.environ.get("GAME_ID", "").strip()
+          if game_id:
+              ids = [int(game_id)]
+              print("Checking supplied API-Basketball game ID.")
+          else:
+              ids = []
+              for season in ("2024-2025", "2023-2024"):
+                  games = api_get("/games", {"league": 12, "season": season})
+                  print(f"NBA league 12 season {season}: {len(games)} games returned")
+                  ids = [g["id"] for g in reversed(games) if isinstance(g, dict) and isinstance(g.get("id"), int)]
+                  if ids:
+                      break
+              if not ids:
+                  raise SystemExit("No games returned. Check NBA league ID and season coverage.")
+          for candidate in ids[:12]:
+              payload = fetch_player_game_stats(game_id=candidate)
+              rows = normalize_player_rebounds(payload)
+              print(f"Game {candidate}: raw rows={len(payload['response'])}; normalized rebounds={len(rows)}")
+              if rows:
+                  print("PASS: Retrieved authenticated API-Basketball player rebounds.")
+                  break
+          else:
+              raise SystemExit("API access worked, but no usable player rebound records were found; check endpoint coverage and response schema.")
           PY
