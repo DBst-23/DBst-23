@@ -1,0 +1,102 @@
+name: SharpEdge Historical Rebound Reproducibility
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'run_historical_rebound_sim.py'
+      - 'modules/api_basketball_rebounds.py'
+      - 'tests/test_historical_rebound_sim.py'
+      - '.github/workflows/historical_rebound_reproducibility.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  historical-rebound:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run baseline unit tests
+        run: python -m unittest discover -s tests -p 'test_historical_rebound_sim.py' -v
+      - name: Fetch actual NBA player-game records and verify deterministic replay
+        env:
+          APISPORTS_BASKETBALL_KEY: ${{ secrets.APISPORTS_BASKETBALL_KEY }}
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          from collections import defaultdict
+          from pathlib import Path
+          from urllib.parse import urlencode
+          from urllib.request import Request, urlopen
+          from modules.api_basketball_rebounds import fetch_player_game_stats, normalize_player_rebounds
+          from run_historical_rebound_sim import simulate
+
+          if not os.environ.get("APISPORTS_BASKETBALL_KEY"):
+              raise SystemExit("FAIL: GitHub secret APISPORTS_BASKETBALL_KEY is unavailable")
+          url = "https://v1.basketball.api-sports.io/games?" + urlencode({"league": 12, "season": "2024-2025"})
+          req = Request(url, headers={"x-apisports-key": os.environ["APISPORTS_BASKETBALL_KEY"]})
+          with urlopen(req, timeout=30) as response:
+              payload = json.load(response)
+          if payload.get("errors") or not isinstance(payload.get("response"), list):
+              raise SystemExit("FAIL: Cannot retrieve authenticated NBA schedule")
+          games = payload["response"]
+          print(f"Authenticated NBA game schedule: {len(games)} entries")
+          # Collect multiple real games. Restrict to completed games with distinct IDs;
+          # the same player must appear in >=3 games, with positive minutes.
+          game_ids = []
+          for g in reversed(games):
+              if isinstance(g, dict) and isinstance(g.get("id"), int) and g["id"] not in game_ids:
+                  game_ids.append(g["id"])
+              if len(game_ids) >= 30:
+                  break
+          by_player = defaultdict(list)
+          seen = set()
+          for game_id in game_ids:
+              try:
+                  rows = normalize_player_rebounds(fetch_player_game_stats(game_id=game_id))
+              except Exception as exc:
+                  print(f"Game {game_id}: skipped ({type(exc).__name__})")
+                  continue
+              for r in rows:
+                  if isinstance(r.get("player_id"), int) and isinstance(r.get("game_id"), int) and (r["player_id"], r["game_id"]) not in seen and isinstance(r.get("minutes"), (int, float)) and r["minutes"] > 0:
+                      seen.add((r["player_id"], r["game_id"]))
+                      by_player[r["player_id"]].append(r)
+              candidates = [(pid, rs) for pid, rs in by_player.items() if len(rs) >= 3]
+              if candidates:
+                  break
+          else:
+              raise SystemExit("FAIL: No player with 3 distinct real NBA game records found in 30 games")
+          pid, records = sorted(candidates, key=lambda item: (-len(item[1]), item[0]))[0]
+          records = sorted(records, key=lambda r: r["game_id"])
+          # No target game is being predicted here: this is a reproducibility smoke test
+          # on historical inputs, not a leakage-free retrospective forecast.
+          Path("historical_rebounds_snapshot.json").write_text(json.dumps(records, indent=2, sort_keys=True) + "\n")
+          line = 7.5
+          first = simulate(records, pid, line, seed=42, iterations=10000)
+          second = simulate(json.loads(Path("historical_rebounds_snapshot.json").read_text()), pid, line, seed=42, iterations=10000)
+          if first != second:
+              raise SystemExit("FAIL: Same snapshot and seed produced different simulation outputs")
+          if abs(first["over_probability"] + first["under_probability"] + first["push_probability"] - 1) > 0.000001:
+              raise SystemExit("FAIL: Probabilities do not sum to 1")
+          digest = hashlib.sha256(json.dumps(records, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+          first["input_sha256"] = digest
+          Path("historical_rebound_simulation.json").write_text(json.dumps(first, indent=2, sort_keys=True) + "\n")
+          print("PASS: Authenticated historical NBA player-game records and deterministic replay")
+          print(json.dumps({k: first[k] for k in ("player_id", "player_name", "historical_game_ids", "mean", "median", "over_probability", "under_probability", "push_probability", "input_sha256")}, indent=2))
+          PY
+      - name: Upload reproducibility evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: historical-rebound-reproducibility
+          path: |
+            historical_rebounds_snapshot.json
+            historical_rebound_simulation.json
+          if-no-files-found: ignore
