@@ -1,0 +1,27 @@
+name: Rebound Walk-Forward Backtest Tests
+
+on:
+  pull_request:
+    paths:
+      - 'modules/rebound_walk_forward_backtest.py'
+      - 'tests/test_rebound_walk_forward_backtest.py'
+      - 'modules/api_basketball_game_dates.py'
+      - 'tests/test_api_basketball_game_dates.py'
+      - '.github/workflows/rebound_walk_forward_tests.yml'
+  push:
+    branches:
+      - sharpedge/leakage-free-rebound-backtest
+  workflow_dispatch:
+
+jobs:
+  unittest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify leakage-free walk-forward tests
+        run: |
+          python -m unittest discover -s tests -p 'test_rebound_walk_forward_backtest.py' -v
+          python -m unittest discover -s tests -p 'test_api_basketball_game_dates.py' -v
