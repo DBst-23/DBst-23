@@ -8,6 +8,8 @@ on:
       - 'modules/api_basketball_game_dates.py'
       - 'modules/rebound_walk_forward_backtest.py'
       - 'tests/test_rebound_backtest_v1_1.py'
+      - 'modules/rebound_probability_calibration.py'
+      - 'tests/test_rebound_calibration_v1_2.py'
       - '.github/workflows/authenticated_rebound_walk_forward.yml'
 
 permissions:
@@ -24,12 +26,16 @@ jobs:
           python-version: '3.11'
       - name: Test walk-forward probabilities and leakage guard
         run: python -m unittest discover -s tests -p 'test_rebound_backtest_v1_1.py'
+      - name: Test V1.2 chronological calibration and same-day isolation
+        run: python -m unittest discover -s tests -p 'test_rebound_calibration_v1_2.py'
       - name: Run historical chronological backtest on authenticated NBA records
         env:
           APISPORTS_BASKETBALL_KEY: ${{ secrets.APISPORTS_BASKETBALL_KEY }}
           SHARPEDGE_MAX_GAMES: '180'
           SHARPEDGE_TARGET_PREDICTIONS: '200'
         run: python run_authenticated_rebound_walk_forward.py
+      - name: Evaluate V1.2 prequential calibration
+        run: python -m modules.rebound_probability_calibration --input authenticated_rebound_walk_forward.json --output rebound_calibration_v1_2.json
       - name: Upload verified dated records and backtest evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -38,4 +44,5 @@ jobs:
           path: |
             verified_nba_rebound_records.json
             authenticated_rebound_walk_forward.json
+            rebound_calibration_v1_2.json
           if-no-files-found: ignore
