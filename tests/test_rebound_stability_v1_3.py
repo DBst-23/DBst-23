@@ -28,7 +28,7 @@ class StabilityTests(unittest.TestCase):
         self.assertEqual(result["summary"]["months_improved"], 1)
         self.assertEqual(result["summary"]["months_worsened"], 1)
         self.assertAlmostEqual(result["cohorts"][0]["delta_calibrated_minus_raw"], -0.32)
-        self.assertAlmostEqual(result["cohorts"][1]["delta_calibrated_minus_raw"], -0.17)
+        self.assertAlmostEqual(result["cohorts"][1]["delta_calibrated_minus_raw"], 0.17)
 
     def test_reject_same_day_or_future_calibration(self):
         for cutoff in ("2024-10-20", "2024-10-21"):
