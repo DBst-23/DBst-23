@@ -78,27 +78,43 @@ def simulate_player_rebounds(
     rng = random.Random(seed)
     projection = _player_rebound_projection(player, game_context)
 
+    if iterations <= 0:
+        raise ValueError("iterations must be positive")
+    line = float(player.get("line", 0) or 0)
+    direction = str(player.get("direction", "over")).lower().strip()
+    if direction not in {"over", "under"}:
+        raise ValueError("direction must be over or under")
     results: List[int] = []
-    threshold = int(player.get("line", 0) or 0)
+    # Use the blended projection, including recent form, in the actual simulation.
+    effective_chances = projection["mean_rebounds"] / projection["conversion"]
 
     for _ in range(iterations):
-        chances = _poisson_sample(projection["expected_chances"], rng)
+        chances = _poisson_sample(effective_chances, rng)
         rebounds = 0
         for _ in range(chances):
             rebounds += _bernoulli(projection["conversion"], rng)
         results.append(rebounds)
 
-    hit_prob = sum(1 for x in results if x >= threshold) / iterations if threshold > 0 else 0.0
+    over_prob = sum(x > line for x in results) / iterations
+    under_prob = sum(x < line for x in results) / iterations
+    push_prob = sum(x == line for x in results) / iterations
+    hit_prob = over_prob if direction == "over" else under_prob
+    distribution = {str(n): results.count(n) / iterations for n in sorted(set(results))}
 
     return {
         "player": player.get("name", "UNKNOWN"),
-        "line": threshold,
+        "line": line,
+        "direction": direction,
         "iterations": iterations,
         "mean": round(mean(results), 3),
         "median": round(median(results), 3),
         "min": min(results) if results else 0,
         "max": max(results) if results else 0,
         "hit_probability": round(hit_prob, 4),
+        "over_probability": round(over_prob, 4),
+        "under_probability": round(under_prob, 4),
+        "push_probability": round(push_prob, 4),
+        "distribution": distribution,
         "expected_chances": round(projection["expected_chances"], 3),
         "conversion": round(projection["conversion"], 4),
         "results": results,
@@ -111,6 +127,8 @@ def simulate_rebound_combo(
     iterations: int = 10000,
     seed: Optional[int] = 42,
 ) -> Dict[str, Any]:
+    if iterations <= 0:
+        raise ValueError("iterations must be positive")
     rng = random.Random(seed)
     prepared = [_player_rebound_projection(p, game_context) for p in players]
 
@@ -124,12 +142,16 @@ def simulate_rebound_combo(
 
         for idx, player in enumerate(players):
             projection = prepared[idx]
-            chances = _poisson_sample(projection["expected_chances"], rng)
+            chances = _poisson_sample(projection["mean_rebounds"] / projection["conversion"], rng)
             rebounds = 0
             for _ in range(chances):
                 rebounds += _bernoulli(projection["conversion"], rng)
             leg_results[player["name"]] = rebounds
-            if rebounds >= int(player.get("line", 0) or 0):
+            line = float(player.get("line", 0) or 0)
+            direction = str(player.get("direction", "over")).lower().strip()
+            if direction not in {"over", "under"}:
+                raise ValueError("direction must be over or under")
+            if (rebounds > line if direction == "over" else rebounds < line):
                 leg_hit_counts[idx] += 1
             else:
                 all_hit = False
@@ -144,7 +166,8 @@ def simulate_rebound_combo(
         leg_summaries.append(
             {
                 "player": player["name"],
-                "line": int(player.get("line", 0) or 0),
+                "line": float(player.get("line", 0) or 0),
+                "direction": str(player.get("direction", "over")).lower().strip(),
                 "mean": round(mean(rebounds_list), 3),
                 "median": round(median(rebounds_list), 3),
                 "hit_probability": round(leg_hit_counts[idx] / iterations, 4),
