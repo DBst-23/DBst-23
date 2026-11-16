@@ -17,8 +17,9 @@ from modules.rebound_walk_forward_backtest import backtest
 
 SEASON = "2024-2025"
 LEAGUE = 12
-MAX_GAMES = 60
-MIN_PLAYER_GAMES = 5
+MAX_GAMES = int(os.getenv('SHARPEDGE_MAX_GAMES', '180'))
+MIN_PLAYER_GAMES = 4
+TARGET_PREDICTIONS = int(os.getenv('SHARPEDGE_TARGET_PREDICTIONS', '200'))
 
 
 def main():
@@ -44,6 +45,8 @@ def main():
     by_player = defaultdict(list)
     seen = set()
     scanned = 0
+    if not 1 <= MAX_GAMES <= 1387 or not 1 <= TARGET_PREDICTIONS <= 100000:
+        raise ValueError('Invalid scan limits')
     for game in candidates:
         if scanned >= MAX_GAMES:
             break
@@ -62,18 +65,16 @@ def main():
                     raise RuntimeError("Box-score game ID does not match requested schedule game")
                 seen.add(pair)
                 by_player[pid].append(row)
-        if any(len(records) >= MIN_PLAYER_GAMES for records in by_player.values()):
-            break
     eligible = [(pid, records) for pid, records in by_player.items() if len(records) >= MIN_PLAYER_GAMES]
     if not eligible:
-        raise RuntimeError(f"No player with {MIN_PLAYER_GAMES} actual distinct games among {scanned} schedule games")
-    pid, records = sorted(eligible, key=lambda x: (-len(x[1]), x[0]))[0]
-    # Each date is independently checked against the matching authenticated
-    # schedule entry by the existing strict date verifier.
+        raise RuntimeError(f"No player with {MIN_PLAYER_GAMES} distinct games in {scanned} scanned games")
     def schedule_fetcher(game_id):
         if game_id not in schedule:
             raise RuntimeError(f"Missing authenticated schedule game {game_id}")
         return {"response": [schedule[game_id]], "errors": []}
+    # Preserve every eligible player. The backtester groups players and
+    # restricts each target to strictly earlier dates, never game IDs.
+    records = [row for _, player_rows in sorted(eligible) for row in player_rows]
     dated = enrich_verified_dates(records, schedule_fetcher=schedule_fetcher)
     result = backtest(dated, line=4.5, min_games=3, window=10)
     if result["summary"]["predictions"] < 1:
@@ -81,13 +82,16 @@ def main():
     for prediction in result["predictions"]:
         if not prediction["training_last_date"] < prediction["game_date"]:
             raise RuntimeError("Chronological training leakage detected")
+    result["summary"]["target_predictions"] = TARGET_PREDICTIONS
+    result["summary"]["target_met"] = result["summary"]["predictions"] >= TARGET_PREDICTIONS
+    result["summary"]["eligible_players"] = len(eligible)
     Path("verified_nba_rebound_records.json").write_text(json.dumps(dated, indent=2, sort_keys=True) + "\n")
     result["provenance"] = {
         "league": LEAGUE, "season": SEASON, "authenticated_schedule_entries": len(schedule),
-        "scanned_games": scanned, "player_id": pid,
+        "scanned_games": scanned, "eligible_players": len(eligible),
         "verified_records": len(dated),
         "input_sha256": hashlib.sha256(json.dumps(dated, sort_keys=True, separators=(",", ":")).encode()).hexdigest(),
-        "note": "Historical chronological smoke backtest; limited sample and illustrative line, not sportsbook edge."
+        "note": "Multi-player chronological baseline; illustrative line, no market odds or betting edge. Sample-size target is reported, not assumed."
     }
     Path("authenticated_rebound_walk_forward.json").write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
     print(json.dumps({"provenance": result["provenance"], "summary": result["summary"]}, indent=2))
