@@ -9,10 +9,11 @@ from modules.rebound_monte_carlo import (
 def print_player_card(result: dict) -> None:
     print("=" * 64)
     print(f"PLAYER: {result['player']}")
-    print(f"LINE: {result['line']}+")
+    print(f"LINE: {result['direction'].upper()} {result['line']}")
     print(f"MEAN: {result['mean']}")
     print(f"MEDIAN: {result['median']}")
     print(f"HIT PROBABILITY: {result['hit_probability']:.2%}")
+    print(f"OVER / UNDER / PUSH: {result['over_probability']:.2%} / {result['under_probability']:.2%} / {result['push_probability']:.2%}")
     print(f"EXPECTED CHANCES: {result['expected_chances']}")
     print(f"CONVERSION: {result['conversion']:.2%}")
     print(f"RANGE: {result['min']} to {result['max']}")
@@ -25,7 +26,7 @@ def print_combo_card(result: dict) -> None:
     print("LEGS:")
     for leg in result["leg_summaries"]:
         print(
-            f"- {leg['player']} {leg['line']}+ | mean={leg['mean']} | "
+            f"- {leg['player']} {leg['direction'].upper()} {leg['line']} | mean={leg['mean']} | "
             f"median={leg['median']} | hit={leg['hit_probability']:.2%}"
         )
     print("#" * 64)
