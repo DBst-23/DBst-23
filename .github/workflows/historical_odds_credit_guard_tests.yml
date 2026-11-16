@@ -1,0 +1,23 @@
+name: Historical Odds Credit Guard Offline Tests
+on:
+  pull_request:
+    paths:
+      - 'modules/historical_odds_credit_guard.py'
+      - 'modules/historical_odds_private_cache.py'
+      - 'tests/test_historical_odds_credit_guard.py'
+      - 'tests/test_historical_odds_private_cache.py'
+      - '.github/workflows/historical_odds_credit_guard_tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  offline-guard-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate persistent ledger and private cache without API calls
+        run: python -m unittest discover -s tests -p 'test_historical_odds_*.py' -v
