@@ -1,0 +1,36 @@
+name: Authenticated NBA Rebound Walk-Forward
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'run_authenticated_rebound_walk_forward.py'
+      - 'modules/api_basketball_game_dates.py'
+      - 'modules/rebound_walk_forward_backtest.py'
+      - '.github/workflows/authenticated_rebound_walk_forward.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  authenticated-backtest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run historical chronological backtest on authenticated NBA records
+        env:
+          APISPORTS_BASKETBALL_KEY: ${{ secrets.APISPORTS_BASKETBALL_KEY }}
+        run: python run_authenticated_rebound_walk_forward.py
+      - name: Upload verified dated records and backtest evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: authenticated-nba-rebound-walk-forward
+          path: |
+            verified_nba_rebound_records.json
+            authenticated_rebound_walk_forward.json
+          if-no-files-found: ignore
