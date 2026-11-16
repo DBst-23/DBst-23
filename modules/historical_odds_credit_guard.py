@@ -36,6 +36,7 @@ class CreditLedger:
             reserved INTEGER NOT NULL CHECK(reserved > 0),
             actual INTEGER, status TEXT NOT NULL CHECK(status IN ('reserved','settled','uncertain')),
             CHECK(actual IS NULL OR (actual >= 0 AND actual <= reserved)))""")
+        self.db.execute("CREATE UNIQUE INDEX IF NOT EXISTS one_paid_request_per_fingerprint ON reservations(fingerprint)")
         self.db.execute("BEGIN IMMEDIATE")
         try:
             row = self.db.execute("SELECT cap,baseline FROM budget WHERE id=1").fetchone()
@@ -68,6 +69,10 @@ class CreditLedger:
             if prior:
                 if prior != (fingerprint, worst_case_credits):
                     raise ReservationConflict("Request ID reused for different request or cost")
+                self.db.execute("COMMIT")
+                return False
+            duplicate = self.db.execute("SELECT request_id FROM reservations WHERE fingerprint=?", (fingerprint,)).fetchone()
+            if duplicate:
                 self.db.execute("COMMIT")
                 return False
             if self.remaining() < worst_case_credits:
