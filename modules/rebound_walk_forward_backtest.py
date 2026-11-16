@@ -14,7 +14,7 @@ import random
 from collections import defaultdict
 from datetime import date
 from pathlib import Path
-from statistics import mean
+from statistics import mean, median
 
 
 def _validate(row: dict) -> dict:
@@ -95,6 +95,20 @@ def backtest(rows: list[dict], *, line: float = 4.5, min_games: int = 3,
                 continue
             lam = mean(r["total_rebounds"] for r in prior)
             over, under, push = _poisson_probabilities(lam, line)
+            # Full integer rebound PMF (tail aggregated for numerical stability).
+            pmf = []
+            term = math.exp(-lam)
+            for k in range(max(40, int(lam * 5 + 30))):
+                pmf.append(term)
+                term *= lam / (k + 1)
+            pmf[-1] += max(0.0, 1.0 - sum(pmf))
+            cdf = 0.0
+            projected_median = 0
+            for k, probability in enumerate(pmf):
+                cdf += probability
+                if cdf >= 0.5:
+                    projected_median = k
+                    break
             actual = target["total_rebounds"]
             outcome = "over" if actual > line else "under" if actual < line else "push"
             # Binary Brier score for over, including pushes as non-over;
@@ -109,6 +123,8 @@ def backtest(rows: list[dict], *, line: float = 4.5, min_games: int = 3,
                 "training_last_date": max(r["game_date"] for r in prior),
                 "training_games": len(prior),
                 "projected_mean": round(lam, 6),
+                "projected_median": projected_median,
+                "rebound_distribution": [round(x, 10) for x in pmf],
                 "actual_rebounds": actual,
                 "line": line,
                 "over_probability": round(over, 8),
@@ -118,6 +134,15 @@ def backtest(rows: list[dict], *, line: float = 4.5, min_games: int = 3,
                 "over_brier": round(brier, 8),
             })
     settled = [p for p in predictions if p["outcome"] != "push"]
+    calibration = []
+    for lower in range(0, 10):
+        lo, hi = lower / 10, (lower + 1) / 10
+        bucket = [p for p in settled if lo <= p["over_probability"] < hi or (lower == 9 and p["over_probability"] == 1)]
+        calibration.append({
+            "bin_lower": lo, "bin_upper": hi, "count": len(bucket),
+            "mean_predicted_over": round(mean(p["over_probability"] for p in bucket), 6) if bucket else None,
+            "observed_over_rate": round(mean(int(p["outcome"] == "over") for p in bucket), 6) if bucket else None,
+        })
     return {
         "model": "walk_forward_historical_poisson_v1",
         "source": "api_basketball_v1",
@@ -126,8 +151,11 @@ def backtest(rows: list[dict], *, line: float = 4.5, min_games: int = 3,
         "window": window,
         "seed": seed,
         "predictions": predictions,
+        "calibration_bins": calibration,
         "summary": {
             "predictions": len(predictions),
+            "players": len({p["player_id"] for p in predictions}),
+            "median_absolute_error": round(median(abs(p["projected_median"] - p["actual_rebounds"]) for p in predictions), 6) if predictions else None,
             "skipped_insufficient_history": skipped,
             "settled_predictions": len(settled),
             "pushes": len(predictions) - len(settled),
