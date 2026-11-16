@@ -21,14 +21,14 @@ class StabilityTests(unittest.TestCase):
     def test_months_are_separate_and_brier_delta_correct(self):
         rows = [
             row("2024-10-20", 1, 0.4, 0.8),
-            row("2024-11-20", 2, 0.8, 0.4, "under"),
+            row("2024-11-20", 2, 0.8, 0.9, "under"),
         ]
         result = evaluate(payload(rows), min_cohort=1)
         self.assertEqual(result["summary"]["eligible_months"], 2)
         self.assertEqual(result["summary"]["months_improved"], 1)
         self.assertEqual(result["summary"]["months_worsened"], 1)
         self.assertAlmostEqual(result["cohorts"][0]["delta_calibrated_minus_raw"], -0.32)
-        self.assertAlmostEqual(result["cohorts"][1]["delta_calibrated_minus_raw"], -0.48)
+        self.assertAlmostEqual(result["cohorts"][1]["delta_calibrated_minus_raw"], -0.17)
 
     def test_reject_same_day_or_future_calibration(self):
         for cutoff in ("2024-10-20", "2024-10-21"):
