@@ -1,0 +1,28 @@
+name: Halftime Collector Offline Validation
+on:
+  push:
+    branches:
+      - step-2l2-halftime-odds-paper-bridge
+  pull_request:
+    paths:
+      - 'scripts/odds/halftime_event_collector.py'
+      - 'tests/test_halftime_event_collector.py'
+      - '.github/workflows/halftime-collector-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  offline-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      SHARPEDGE_ALLOW_PAID_ODDS: 'NO'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile collector and tests
+        run: python -m py_compile scripts/odds/halftime_event_collector.py tests/test_halftime_event_collector.py
+      - name: Run offline tests (no secrets, no API calls)
+        run: python -m unittest discover -s tests -p 'test_halftime_event_collector.py' -v
