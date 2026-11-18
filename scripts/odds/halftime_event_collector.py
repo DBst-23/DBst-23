@@ -42,7 +42,8 @@ def load_json(path, default):
 def atomic_json(path, obj):
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(path.suffix + ".tmp")
-    tmp.write_text(json.dumps(obj, indent=2, sort_keys=True) + "\n")
+    tmp.write_text(json.dumps(obj, indent=2, sort_keys=True) + "
+")
     os.replace(tmp, path)
 
 
@@ -50,7 +51,13 @@ def normalize(payload, captured_at, q2_end, q3_start, latency_seconds):
     """No guessed halftime clocks. Reject quotes lacking per-market freshness."""
     if not isinstance(payload, dict) or not payload.get("id"):
         raise ValueError("Expected a single event object with id")
-    if latency_seconds < 0:\n        raise ValueError("Latency must be nonnegative")\n    if q2_end and q3_start and q2_end >= q3_start:\n        raise ValueError("Q2 end must precede Q3 start")\n    if captured_at.tzinfo is None:\n        raise ValueError("Capture timestamp must be timezone-aware")\n    cutoff = q3_start - dt.timedelta(seconds=latency_seconds) if q3_start else None
+    if latency_seconds < 0:
+        raise ValueError("Latency must be nonnegative")
+    if q2_end and q3_start and q2_end >= q3_start:
+        raise ValueError("Q2 end must precede Q3 start")
+    if captured_at.tzinfo is None:
+        raise ValueError("Capture timestamp must be timezone-aware")
+    cutoff = q3_start - dt.timedelta(seconds=latency_seconds) if q3_start else None
     rows = []
     for book in payload.get("bookmakers", []):
         for market in book.get("markets", []):
