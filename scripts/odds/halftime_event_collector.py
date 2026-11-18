@@ -118,8 +118,8 @@ def main():
     p.add_argument("--q2-end", help="Licensed UTC ISO timestamp")
     p.add_argument("--q3-start", help="Licensed UTC ISO timestamp")
     p.add_argument("--latency-seconds", type=int, default=30)
-    p.add_argument("--max-credits", type=int, default=60)
-    p.add_argument("--budget-cap", type=int, default=60)
+    p.add_argument("--max-credits", type=int, default=30)
+    p.add_argument("--budget-cap", type=int, default=30)
     p.add_argument("--ledger", type=Path, default=Path("private/odds_2l2_budget.json"))
     p.add_argument("--out", type=Path, default=Path("private/halftime_registry_odds.json"))
     args = p.parse_args()
@@ -134,6 +134,10 @@ def main():
     if args.live:
         if os.getenv("SHARPEDGE_ALLOW_PAID_ODDS") != "YES":
             p.error("Paid request disabled: set SHARPEDGE_ALLOW_PAID_ODDS=YES explicitly")
+        # Fail closed: local JSON reservation is not concurrency-safe or durable
+        # across ephemeral runners. Paid execution requires a separate audited
+        # transactional reservation service; no paid network call is reachable.
+        p.error("Paid mode locked pending durable, atomic cross-run credit reservation and verified provider cost")
         if not args.event_id:
             p.error("--event-id required for live requests")
         key = os.getenv("ODDS_API_KEY", "").strip()
