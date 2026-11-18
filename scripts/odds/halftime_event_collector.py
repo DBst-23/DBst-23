@@ -42,8 +42,7 @@ def load_json(path, default):
 def atomic_json(path, obj):
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(path.suffix + ".tmp")
-    tmp.write_text(json.dumps(obj, indent=2, sort_keys=True) + "
-")
+    tmp.write_text(json.dumps(obj, indent=2, sort_keys=True) + "\n")
     os.replace(tmp, path)
 
 
