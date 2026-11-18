@@ -1,0 +1,24 @@
+name: NBA LiveFlow Paper Scoreboard Monitor
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/5 * * * *'
+permissions:
+  contents: read
+jobs:
+  scoreboard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Fetch public NBA scoreboard (no paid APIs)
+        run: python scripts/nba_live_scoreboard_monitor.py
+      - name: Upload timestamped snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: nba-scoreboard-${{ github.run_id }}
+          path: data/nba/live_scoreboard_latest.json
+          retention-days: 7
