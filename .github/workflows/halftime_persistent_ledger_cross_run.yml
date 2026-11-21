@@ -1,0 +1,82 @@
+name: Halftime persistent ledger cross-run proof (NO API calls)
+on:
+  workflow_dispatch:
+    inputs:
+      phase:
+        description: 'Run A = reserve; Run B = verify duplicate denial'
+        required: true
+        type: choice
+        options: [reserve, verify]
+      test_id:
+        description: 'Same unique identifier for both runs (letters/numbers/hyphens)'
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  cross-run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    environment: odds-ledger-test
+    env:
+      SHARPEDGE_ODDS_POSTGRES_DSN: ${{ secrets.SHARPEDGE_ODDS_POSTGRES_DSN }}
+      TEST_PHASE: ${{ inputs.phase }}
+      TEST_ID: ${{ inputs.test_id }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install 'psycopg[binary]>=3.1,<4'
+      - name: Verify persistent reservation across separate workflow runs
+        run: |
+          python - <<'PY'
+          import os, re, sys
+          import psycopg
+          from scripts.odds import persistent_credit_ledger as ledger
+
+          dsn = os.environ.get("SHARPEDGE_ODDS_POSTGRES_DSN", "").strip()
+          phase = os.environ["TEST_PHASE"]
+          test_id = os.environ["TEST_ID"]
+          if not dsn:
+              sys.exit("FAIL CLOSED: configure SHARPEDGE_ODDS_POSTGRES_DSN secret in odds-ledger-test environment")
+          if not re.fullmatch(r"[A-Za-z0-9-]{8,64}", test_id):
+              sys.exit("Invalid test_id: use 8-64 letters, numbers or hyphens")
+          budget_id = "cross-run-proof-" + test_id
+          request_id = ledger.request_identity("basketball_nba", "TEST_EVENT_" + test_id, "us", ("totals_h2", "spreads_h2", "h2h_h2"))
+          with psycopg.connect(dsn, connect_timeout=5, sslmode="require") as conn:
+              if phase == "reserve":
+                  # A fresh test_id must not be silently reused or reset.
+                  with conn.transaction():
+                      with conn.cursor() as cur:
+                          cur.execute(ledger.SCHEMA)
+                          cur.execute("INSERT INTO sharpedge_odds_budget (budget_id, cap) VALUES (%s, 30) ON CONFLICT DO NOTHING", (budget_id,))
+                          cur.execute("SELECT reserved FROM sharpedge_odds_budget WHERE budget_id = %s", (budget_id,))
+                          if cur.fetchone()[0] != 0:
+                              sys.exit("Test ID already used; choose a fresh test_id")
+                  ledger.reserve(conn, budget_id, request_id, 20, 30)
+                  print("RUN A PASS: 20 credits reserved in persistent database. Run B with same test_id on NEW workflow run.")
+              elif phase == "verify":
+                  with conn.cursor() as cur:
+                      cur.execute("SELECT cap, reserved FROM sharpedge_odds_budget WHERE budget_id = %s", (budget_id,))
+                      row = cur.fetchone()
+                      if row != (30, 20):
+                          sys.exit(f"RUN B FAIL: expected persisted budget (30,20), found {row}")
+                  try:
+                      ledger.reserve(conn, budget_id, request_id, 20, 30)
+                  except ledger.ReservationDenied as exc:
+                      if "Duplicate" not in str(exc):
+                          raise
+                  else:
+                      sys.exit("RUN B FAIL: duplicate reservation accepted")
+                  with conn.cursor() as cur:
+                      cur.execute("SELECT COUNT(*), COALESCE(SUM(credits),0) FROM sharpedge_odds_reservations WHERE budget_id = %s", (budget_id,))
+                      counts = cur.fetchone()
+                      cur.execute("SELECT reserved FROM sharpedge_odds_budget WHERE budget_id = %s", (budget_id,))
+                      reserved = cur.fetchone()[0]
+                  if counts != (1, 20) or reserved != 20:
+                      sys.exit(f"RUN B FAIL: reservations={counts}, reserved={reserved}")
+                  print("RUN B PASS: persisted across independent Actions runs; duplicate rejected; one reservation, 20 credits.")
+              else:
+                  sys.exit("Invalid phase")
+          PY
