@@ -14,6 +14,11 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
+try:
+    from . import persistent_credit_ledger as credit_ledger
+except ImportError:
+    import persistent_credit_ledger as credit_ledger
+
 BASE = "https://api.the-odds-api.com/v4"
 MARKETS = ("totals_h2", "spreads_h2", "h2h_h2")
 UTC = dt.timezone.utc
@@ -115,6 +120,22 @@ def live_fetch(event_id, sport, regions, markets, key):
         raise RuntimeError("Odds API HTTP " + str(error.code)) from None
 
 
+def reserve_live_budget(event_id, sport, regions, credits, cap, connect):
+    """Reserve once in shared PostgreSQL before any provider request.
+
+    The connection factory is injected so offline tests never use a database.
+    A missing/invalid DSN or uninitialized budget fails closed.
+    """
+    dsn = os.getenv("SHARPEDGE_ODDS_POSTGRES_DSN", "").strip()
+    budget_id = os.getenv("SHARPEDGE_ODDS_BUDGET_ID", "").strip()
+    if not dsn or not budget_id:
+        raise credit_ledger.ReservationDenied("Shared PostgreSQL DSN and budget ID required")
+    request_id = credit_ledger.request_identity(sport, event_id, regions, MARKETS)
+    with connect(dsn, connect_timeout=5) as connection:
+        credit_ledger.reserve(connection, budget_id, request_id, credits, cap)
+    return budget_id, request_id
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--fixture", type=Path, help="Offline provider event JSON (default mode)")
@@ -127,7 +148,6 @@ def main():
     p.add_argument("--latency-seconds", type=int, default=30)
     p.add_argument("--max-credits", type=int, default=30)
     p.add_argument("--budget-cap", type=int, default=30)
-    p.add_argument("--ledger", type=Path, default=Path("private/odds_2l2_budget.json"))
     p.add_argument("--out", type=Path, default=Path("private/halftime_registry_odds.json"))
     args = p.parse_args()
     if args.live == bool(args.fixture):
@@ -141,38 +161,35 @@ def main():
     if args.live:
         if os.getenv("SHARPEDGE_ALLOW_PAID_ODDS") != "YES":
             p.error("Paid request disabled: set SHARPEDGE_ALLOW_PAID_ODDS=YES explicitly")
-        # Fail closed: local JSON reservation is not concurrency-safe or durable
-        # across ephemeral runners. Paid execution requires a separate audited
-        # transactional reservation service; no paid network call is reachable.
-        p.error("Paid mode locked pending durable, atomic cross-run credit reservation and verified provider cost")
+        # SAFETY LOCK: integration is review-only until a real PostgreSQL
+        # concurrency test, provider cost verification and explicit paid approval.
+        p.error("Paid mode locked: PostgreSQL integration is staged, not released")
         if not args.event_id:
             p.error("--event-id required for live requests")
         key = os.getenv("ODDS_API_KEY", "").strip()
         if not key:
             p.error("ODDS_API_KEY required; never commit it")
-        # A durable single-writer ledger must be shared across runs. No
-        # automatic retries. Reserve before the call, including failures.
-        ledger = args.ledger
-        if not ledger.exists():
-            p.error("Initialize the persistent private budget ledger manually before paid requests")
-        state = load_json(ledger, {})
-        if state.get("version") != 1 or not isinstance(state.get("reserved_credits"), int):
-            p.error("Invalid budget ledger")
-        call_id = hashlib.sha256((args.sport + "|" + args.event_id + "|" + ",".join(MARKETS)).encode()).hexdigest()
-        if call_id in state.get("requests", {}):
-            p.error("Duplicate event/market request blocked by persistent ledger")
-        if state["reserved_credits"] + args.max_credits > args.budget_cap:
-            p.error("Persistent credit cap exceeded")
-        state.setdefault("requests", {})[call_id] = {"reserved": args.max_credits, "at": iso(now), "status": "reserved"}
-        state["reserved_credits"] += args.max_credits
-        atomic_json(ledger, state)
-        payload, headers = live_fetch(args.event_id, args.sport, args.regions, MARKETS, key)
-        # Never persist API keys or full raw provider payload to public repositories.
-        state["requests"][call_id]["status"] = "requested"
-        for header in ("x-requests-last", "x-requests-remaining", "x-requests-used"):
-            if header in headers:
-                state["requests"][call_id][header] = headers[header]
-        atomic_json(ledger, state)
+        try:
+            import psycopg
+        except ImportError:
+            p.error("psycopg required for shared PostgreSQL budget reservation")
+        try:
+            budget_id, call_id = reserve_live_budget(
+                args.event_id, args.sport, args.regions,
+                args.max_credits, args.budget_cap, psycopg.connect,
+            )
+        except (credit_ledger.ReservationDenied, ValueError) as exc:
+            p.error("Paid request denied: " + str(exc))
+        # No automatic retry. A failed/ambiguous HTTP request consumes its
+        # reservation; never refund credits based on uncertain provider billing.
+        try:
+            payload, headers = live_fetch(args.event_id, args.sport, args.regions, MARKETS, key)
+        except Exception:
+            with psycopg.connect(os.environ["SHARPEDGE_ODDS_POSTGRES_DSN"], connect_timeout=5) as connection:
+                credit_ledger.mark_result(connection, budget_id, call_id, "unknown")
+            raise
+        with psycopg.connect(os.environ["SHARPEDGE_ODDS_POSTGRES_DSN"], connect_timeout=5) as connection:
+            credit_ledger.mark_result(connection, budget_id, call_id, "requested")
     else:
         payload = load_json(args.fixture, None)
     if args.event_id and payload.get("id") != args.event_id:
