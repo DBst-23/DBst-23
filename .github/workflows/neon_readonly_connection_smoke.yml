@@ -1,0 +1,44 @@
+name: Neon connection smoke test (read-only, NO API calls)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  neon-read-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    environment: odds-ledger-test
+    env:
+      SHARPEDGE_ODDS_POSTGRES_DSN: ${{ secrets.SHARPEDGE_ODDS_POSTGRES_DSN }}
+    steps:
+      - name: Install PostgreSQL driver
+        run: python -m pip install 'psycopg[binary]>=3.1,<4'
+      - name: Verify Neon connectivity with SELECT 1 only
+        shell: bash
+        run: |
+          python - <<'PY'
+          import os
+          import sys
+          import psycopg
+
+          dsn = os.environ.get("SHARPEDGE_ODDS_POSTGRES_DSN", "").strip()
+          if not dsn:
+              sys.exit("FAIL CLOSED: SHARPEDGE_ODDS_POSTGRES_DSN is missing from the odds-ledger-test environment")
+          try:
+              # Read-only session; no schema changes, writes, or external odds API calls.
+              with psycopg.connect(
+                  dsn,
+                  connect_timeout=8,
+                  sslmode="require",
+                  options="-c default_transaction_read_only=on -c statement_timeout=10000",
+              ) as conn:
+                  with conn.cursor() as cur:
+                      cur.execute("SELECT 1")
+                      if cur.fetchone() != (1,):
+                          sys.exit("FAIL: unexpected SELECT 1 response")
+              print("PASS: Neon PostgreSQL connection established; SELECT 1 returned 1 (read-only).")
+          except Exception as exc:
+              # Never print exception text: it can contain connection details.
+              print("FAIL: Neon connection or SELECT 1 failed; review secret, environment access, and network settings.")
+              sys.exit(1)
+          PY
