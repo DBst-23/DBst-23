@@ -66,8 +66,9 @@ def normalize(payload, captured_at, q2_end, q3_start, latency_seconds):
             updated = timestamp(market.get("last_update"))
             eligible = bool(
                 q2_end and cutoff and updated
-                and q2_end <= updated < cutoff
-                and captured_at < cutoff
+                and q2_end <= captured_at < cutoff
+                and q2_end <= updated <= captured_at
+                and updated < cutoff
             )
             for outcome in market.get("outcomes", []):
                 if outcome.get("price") is None:
