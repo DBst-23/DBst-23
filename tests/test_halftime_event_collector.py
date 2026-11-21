@@ -2,10 +2,12 @@
 import datetime as dt
 import importlib.util
 import pathlib
+import sys
 import unittest
 from unittest import mock
 
 SCRIPT = pathlib.Path(__file__).resolve().parents[1] / "scripts" / "odds" / "halftime_event_collector.py"
+sys.path.insert(0, str(SCRIPT.parent))  # Resolve sibling persistent_credit_ledger in direct-file import.
 spec = importlib.util.spec_from_file_location("halftime_event_collector", SCRIPT)
 collector = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(collector)
