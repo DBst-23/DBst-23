@@ -33,7 +33,7 @@ def worker(dsn, budget, request, start, result):
 class RealPostgresTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.conn = psycopg.connect(DSN, connect_timeout=5)
+        cls.conn = psycopg.connect(DSN, connect_timeout=5, autocommit=True)
         cls.conn.execute(ledger.SCHEMA)
         cls.conn.commit()
 
