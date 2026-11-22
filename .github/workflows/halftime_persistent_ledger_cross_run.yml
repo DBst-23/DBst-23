@@ -19,7 +19,7 @@ jobs:
     timeout-minutes: 5
     environment: odds-ledger-test
     env:
-      SHARPEDGE_ODDS_POSTGRES_DSN: ${{ secrets.SHARPEDGE_ODDS_POSTGRES_DSN }}
+      SHARPEDGE_ODDS_POSTGRES_DSN: ${{ secrets.NEON_DATABASE_URL }}
       TEST_PHASE: ${{ inputs.phase }}
       TEST_ID: ${{ inputs.test_id }}
     steps:
