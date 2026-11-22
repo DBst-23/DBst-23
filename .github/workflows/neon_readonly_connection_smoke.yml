@@ -9,7 +9,7 @@ jobs:
     timeout-minutes: 5
     environment: odds-ledger-test
     env:
-      SHARPEDGE_ODDS_POSTGRES_DSN: ${{ secrets.NEON_DATABASE_URL }}
+      SHARPEDGE_ODDS_POSTGRES_DSN: ${{ secrets.SHARPEDGE_ODDS_POSTGRES_DSN }}
     steps:
       - name: Install PostgreSQL driver
         run: python -m pip install 'psycopg[binary]>=3.1,<4'
@@ -23,7 +23,7 @@ jobs:
 
           dsn = os.environ.get("SHARPEDGE_ODDS_POSTGRES_DSN", "").strip()
           if not dsn:
-              sys.exit("FAIL CLOSED: SHARPEDGE_ODDS_POSTGRES_DSN is missing from the odds-ledger-test environment")
+              sys.exit("FAIL CLOSED: SHARPEDGE_ODDS_POSTGRES_DSN secret unavailable to this job (check repository/environment scope)")
           try:
               # Read-only session; no schema changes, writes, or external odds API calls.
               with psycopg.connect(
@@ -38,7 +38,15 @@ jobs:
                           sys.exit("FAIL: unexpected SELECT 1 response")
               print("PASS: Neon PostgreSQL connection established; SELECT 1 returned 1 (read-only).")
           except Exception as exc:
-              # Never print exception text: it can contain connection details.
-              print("FAIL: Neon connection or SELECT 1 failed; review secret, environment access, and network settings.")
+              # Classify by exception type only: NEVER print exception text, DSN, hostname or credentials.
+              if isinstance(exc, psycopg.OperationalError):
+                  category = "CONNECTION_OR_AUTHENTICATION"
+              elif isinstance(exc, psycopg.errors.InsufficientPrivilege):
+                  category = "DATABASE_PERMISSION"
+              elif isinstance(exc, psycopg.Error):
+                  category = "DATABASE_QUERY"
+              else:
+                  category = "UNEXPECTED_RUNTIME"
+              print(f"FAIL: Neon read-only smoke test category={category}; no connection details logged.")
               sys.exit(1)
           PY
