@@ -16,8 +16,10 @@ import urllib.request
 
 try:
     from . import persistent_credit_ledger as credit_ledger
+    from . import odds_credit_accounting as quota
 except ImportError:
     import persistent_credit_ledger as credit_ledger
+    import odds_credit_accounting as quota
 
 BASE = "https://api.the-odds-api.com/v4"
 MARKETS = ("totals_h2", "spreads_h2", "h2h_h2")
@@ -107,10 +109,14 @@ def normalize(payload, captured_at, q2_end, q3_start, latency_seconds):
 def live_fetch(event_id, sport, regions, markets, key, *, clock=None):
     url = BASE + "/sports/" + urllib.parse.quote(sport, safe="") + "/events/" + urllib.parse.quote(event_id, safe="") + "/odds"
     query = urllib.parse.urlencode({
-        "apiKey": key, "regions": regions, "markets": ",".join(markets),
+        "regions": regions, "markets": ",".join(markets),
         "oddsFormat": "american", "dateFormat": "iso",
     })
-    request = urllib.request.Request(url + "?" + query, headers={"User-Agent": "SharpEdge-Paper-Research/2L2"})
+    # Send credentials as a header, never in an exception-prone URL.
+    request = urllib.request.Request(
+        url + "?" + query,
+        headers={"User-Agent": "SharpEdge-Paper-Research/2L2", "x-api-key": key},
+    )
     try:
         with urllib.request.urlopen(request, timeout=20) as response:
             body = response.read()
@@ -135,6 +141,9 @@ def reserve_live_budget(event_id, sport, regions, credits, cap, connect):
     budget_id = os.getenv("SHARPEDGE_ODDS_BUDGET_ID", "").strip()
     if not dsn or not budget_id:
         raise credit_ledger.ReservationDenied("Shared PostgreSQL DSN and budget ID required")
+    required = quota.worst_case_credits(MARKETS, regions)
+    if type(credits) is not int or credits < required:
+        raise credit_ledger.ReservationDenied("Reservation below verified event-odds cost ceiling")
     request_id = credit_ledger.request_identity(sport, event_id, regions, MARKETS)
     with connect(dsn, connect_timeout=5) as connection:
         credit_ledger.reserve(connection, budget_id, request_id, credits, cap)
@@ -178,22 +187,34 @@ def main():
         except ImportError:
             p.error("psycopg required for shared PostgreSQL budget reservation")
         try:
+            max_expected = quota.worst_case_credits(MARKETS, args.regions)
+            if max_expected > args.max_credits:
+                p.error("Paid request denied: maximum charge exceeds per-call credit allowance")
             budget_id, call_id = reserve_live_budget(
                 args.event_id, args.sport, args.regions,
-                args.max_credits, args.budget_cap, psycopg.connect,
+                max_expected, args.budget_cap, psycopg.connect,
             )
         except (credit_ledger.ReservationDenied, ValueError) as exc:
             p.error("Paid request denied: " + str(exc))
         # No automatic retry. A failed/ambiguous HTTP request consumes its
         # reservation; never refund credits based on uncertain provider billing.
         try:
-            payload, headers, captured_at = live_fetch(args.event_id, args.sport, args.regions, MARKETS, key)
+            payload, headers, captured_at = live_fetch(
+                args.event_id, args.sport, args.regions, MARKETS, key,
+            )
+            if not isinstance(payload, dict) or payload.get("id") != args.event_id:
+                raise quota.CreditAccountingError("Event ID mismatch or invalid provider response")
+            report = quota.reconcile_event_usage(
+                headers, payload, MARKETS, args.regions, max_expected,
+            )
+            with psycopg.connect(os.environ["SHARPEDGE_ODDS_POSTGRES_DSN"], connect_timeout=5) as connection:
+                credit_ledger.reconcile_usage(connection, budget_id, call_id, report)
         except Exception:
+            # Never release the reserved cap after an ambiguous provider response.
+            # Do not retry an HTTP request even if billing metadata is missing.
             with psycopg.connect(os.environ["SHARPEDGE_ODDS_POSTGRES_DSN"], connect_timeout=5) as connection:
                 credit_ledger.mark_result(connection, budget_id, call_id, "unknown")
             raise
-        with psycopg.connect(os.environ["SHARPEDGE_ODDS_POSTGRES_DSN"], connect_timeout=5) as connection:
-            credit_ledger.mark_result(connection, budget_id, call_id, "requested")
     else:
         payload = load_json(args.fixture, None)
         # Fixture-only mode has no network response; capture its local load time.
