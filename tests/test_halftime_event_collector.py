@@ -1,6 +1,7 @@
 """Offline, zero-credit tests for SharpEdge halftime event collector."""
 import datetime as dt
 import importlib.util
+import json
 import pathlib
 import sys
 import unittest
@@ -73,6 +74,56 @@ class HalftimeCollectorTests(unittest.TestCase):
     def test_reversed_clocks_rejected(self):
         with self.assertRaises(ValueError):
             collector.normalize(self.payload, self.captured, self.q3, self.q2, 30)
+
+    def simulate_http_receipt(self, when):
+        """Offline HTTP stub: clock must be read AFTER response.read() completes."""
+        observed = []
+        fixture = self.payload
+
+        class FakeResponse:
+            headers = {"x-requests-last": "0"}
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *args):
+                return False
+
+            def read(self):
+                observed.append("response_body_read")
+                return json.dumps(fixture).encode("utf-8")
+
+        def receipt_clock():
+            observed.append("receipt_clock")
+            return t(when)
+
+        with mock.patch.object(collector.urllib.request, "urlopen", return_value=FakeResponse()) as urlopen:
+            payload, headers, captured_at = collector.live_fetch(
+                "test-event", "basketball_nba", "us", collector.MARKETS,
+                "OFFLINE_FAKE_KEY", clock=receipt_clock,
+            )
+        urlopen.assert_called_once()
+        self.assertEqual(observed, ["response_body_read", "receipt_clock"])
+        self.assertEqual(headers["x-requests-last"], "0")
+        rows = collector.normalize(payload, captured_at, self.q2, self.q3, 30)
+        self.assertEqual(len(rows), 2)
+        self.assertTrue(all(not row["training_eligible"] for row in rows))
+        self.assertTrue(all(row["captured_at_utc"] == when for row in rows))
+        return rows
+
+    def test_http_response_after_q3_starts_is_ineligible(self):
+        # Request could have begun during halftime. Only receipt time matters.
+        rows = self.simulate_http_receipt("2026-11-16T20:26:05Z")
+        self.assertTrue(all(not row["timing_eligible"] for row in rows))
+
+    def test_http_response_at_exact_latency_cutoff_is_ineligible(self):
+        # Cutoff is 30s before 20:26:00Z; equality is deliberately rejected.
+        rows = self.simulate_http_receipt("2026-11-16T20:25:30Z")
+        self.assertTrue(all(not row["timing_eligible"] for row in rows))
+
+    def test_http_response_before_latency_cutoff_can_be_eligible(self):
+        rows = self.simulate_http_receipt("2026-11-16T20:25:29Z")
+        self.assertTrue(all(row["timing_eligible"] for row in rows))
 
     def test_paid_mode_is_locked_even_with_opt_in(self):
         import sys
