@@ -151,6 +151,31 @@ class RealPostgresTests(unittest.TestCase):
         self.assertEqual(status, "reserved")
         self.assertEqual(self.snapshot()[0], 3)
 
+    def test_finalized_usage_cannot_be_downgraded_to_unknown(self):
+        with psycopg.connect(DSN) as conn:
+            ledger.reserve(conn, self.budget, "finalized", 3, 30)
+            ledger.reconcile_usage(
+                conn, self.budget, "finalized",
+                {"charge": 2, "used": 42, "remaining": 958},
+            )
+        with psycopg.connect(DSN) as conn:
+            with self.assertRaises(ledger.ReservationDenied):
+                ledger.mark_result(conn, self.budget, "finalized", "unknown")
+        with psycopg.connect(DSN) as conn:
+            status = conn.execute(
+                "SELECT status FROM sharpedge_odds_reservations "
+                "WHERE budget_id=%s AND request_id=%s",
+                (self.budget, "finalized"),
+            ).fetchone()
+            charge = conn.execute(
+                "SELECT reported_charge FROM sharpedge_odds_usage_audit "
+                "WHERE budget_id=%s AND request_id=%s",
+                (self.budget, "finalized"),
+            ).fetchone()
+        self.assertEqual(status, ("requested",))
+        self.assertEqual(charge, (2,))
+        self.assertEqual(self.snapshot()[0], 3)
+
     def test_invalid_usage_report_has_no_side_effects(self):
         with psycopg.connect(DSN) as conn:
             ledger.reserve(conn, self.budget, "invalid-header", 3, 30)
