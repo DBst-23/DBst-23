@@ -1,0 +1,52 @@
+name: NBA team totals William Hill/Caesars one-credit probe (MANUAL ONLY)
+on:
+  workflow_dispatch:
+    inputs:
+      phase:
+        description: 'preflight=FREE event lookup; probe=ONE credit max, Nov 27 near halftime'
+        type: choice
+        required: true
+        default: preflight
+        options: [preflight, probe]
+      confirmation:
+        description: 'For probe only type AUTHORIZE_ONE_CREDIT; leave empty for free preflight'
+        required: false
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: sharpedge-williamhill-nba-h2-one-credit-probe
+  cancel-in-progress: false
+jobs:
+  williamhill-teamtotal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    environment: odds-ledger-test
+    env:
+      ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+      SHARPEDGE_ODDS_POSTGRES_DSN: ${{ secrets.SHARPEDGE_ODDS_POSTGRES_DSN }}
+      PROBE_PHASE: ${{ inputs.phase }}
+      PROBE_CONFIRMATION: ${{ inputs.confirmation }}
+    steps:
+      - name: Fail closed on any branch other than main
+        shell: bash
+        run: |
+          test "$GITHUB_REF" = "refs/heads/main" || { echo "Wrong branch. No provider calls."; exit 1; }
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile and run OFFLINE zero-credit safety tests
+        shell: bash
+        run: |
+          python -m py_compile scripts/odds/one_credit_teamtotals_probe.py tests/test_one_credit_teamtotals_probe.py
+          python -m unittest discover -s tests -p 'test_one_credit_teamtotals_probe.py' -v
+      - name: Install PostgreSQL driver for durable single-probe hold
+        if: ${{ inputs.phase == 'probe' }}
+        run: python -m pip install 'psycopg[binary]>=3.1,<4'
+      - name: Free preflight OR one explicitly confirmed paid probe
+        shell: bash
+        run: |
+          python scripts/odds/one_credit_teamtotals_probe.py \
+            --phase "$PROBE_PHASE" \
+            --confirmation "$PROBE_CONFIRMATION"
