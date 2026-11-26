@@ -6,8 +6,9 @@ Provider reference: https://the-odds-api.com/liveapi/guides/v4/
 """
 from collections.abc import Mapping
 
-# Deliberately limit the pilot to the established NBA second-half market bundle.
-PILOT_MARKETS = frozenset(("totals_h2", "spreads_h2", "h2h_h2"))
+# Limit the pilot to NBA second-half markets, including each team's 2H total.
+# The Odds API counts one unique market key, not one per team, in a region.
+PILOT_MARKETS = frozenset(("totals_h2", "spreads_h2", "h2h_h2", "team_totals_h2"))
 VALID_REGIONS = frozenset(("us", "us2", "uk", "eu", "au"))
 USAGE_FIELDS = ("x-requests-last", "x-requests-used", "x-requests-remaining")
 
