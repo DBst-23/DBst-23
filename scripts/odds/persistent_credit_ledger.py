@@ -21,6 +21,19 @@ CREATE TABLE IF NOT EXISTS sharpedge_odds_reservations (
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     PRIMARY KEY (budget_id, request_id)
 );
+CREATE TABLE IF NOT EXISTS sharpedge_odds_usage_audit (
+    budget_id TEXT NOT NULL,
+    request_id TEXT NOT NULL,
+    reserved_credits INTEGER NOT NULL CHECK (reserved_credits > 0),
+    reported_charge INTEGER NOT NULL CHECK (reported_charge >= 0),
+    provider_used INTEGER NOT NULL CHECK (provider_used >= 0),
+    provider_remaining INTEGER NOT NULL CHECK (provider_remaining >= 0),
+    observed_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    PRIMARY KEY (budget_id, request_id),
+    FOREIGN KEY (budget_id, request_id)
+        REFERENCES sharpedge_odds_reservations(budget_id, request_id),
+    CHECK (reported_charge <= reserved_credits)
+);
 """
 
 class ReservationDenied(Exception):
@@ -74,3 +87,50 @@ def mark_result(connection, budget_id, request_id, status):
                         (status, budget_id, request_id))
             if cur.rowcount != 1:
                 raise ReservationDenied("Unknown reservation")
+
+def reconcile_usage(connection, budget_id, request_id, report):
+    """Append one validated provider usage report and finish the reservation.
+
+    IMPORTANT: The full pre-call reservation remains charged against the local
+    safety cap even if the provider billed less. Never silently free credits
+    on a timeout, malformed header, or ambiguous outcome.
+
+    The usage table is immutable per (budget_id, request_id). Status update
+    and usage insert are in the same PostgreSQL transaction.
+    """
+    if not isinstance(report, dict) or set(report) != {"charge", "used", "remaining"}:
+        raise ReservationDenied("Missing or malformed verified usage report")
+    if any(type(report[key]) is not int or report[key] < 0 for key in report):
+        raise ReservationDenied("Invalid usage values")
+    if report["charge"] > report["used"]:
+        raise ReservationDenied("Provider usage counters inconsistent")
+    with connection.transaction():
+        with connection.cursor() as cur:
+            cur.execute(
+                "SELECT credits, status FROM sharpedge_odds_reservations "
+                "WHERE budget_id = %s AND request_id = %s FOR UPDATE",
+                (budget_id, request_id),
+            )
+            row = cur.fetchone()
+            if row is None:
+                raise ReservationDenied("Unknown reservation")
+            hold, status = row
+            if status != "reserved":
+                raise ReservationDenied("Reservation already finalized")
+            if report["charge"] > hold:
+                raise ReservationDenied("Provider usage exceeded reserved ceiling")
+            cur.execute(
+                "INSERT INTO sharpedge_odds_usage_audit "
+                "(budget_id, request_id, reserved_credits, reported_charge, "
+                "provider_used, provider_remaining) VALUES (%s, %s, %s, %s, %s, %s)",
+                (budget_id, request_id, hold, report["charge"],
+                 report["used"], report["remaining"]),
+            )
+            cur.execute(
+                "UPDATE sharpedge_odds_reservations SET status = 'requested' "
+                "WHERE budget_id = %s AND request_id = %s AND status = 'reserved'",
+                (budget_id, request_id),
+            )
+            if cur.rowcount != 1:
+                raise ReservationDenied("Reservation status changed")
+    return True
