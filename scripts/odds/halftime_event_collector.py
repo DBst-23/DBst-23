@@ -22,7 +22,7 @@ except ImportError:
     import odds_credit_accounting as quota
 
 BASE = "https://api.the-odds-api.com/v4"
-MARKETS = ("totals_h2", "spreads_h2", "h2h_h2")
+MARKETS = ("totals_h2", "spreads_h2", "h2h_h2", "team_totals_h2")
 UTC = dt.timezone.utc
 
 
@@ -80,6 +80,15 @@ def normalize(payload, captured_at, q2_end, q3_start, latency_seconds):
             for outcome in market.get("outcomes", []):
                 if outcome.get("price") is None:
                     continue
+                # Provider describes each team-total selection with its team
+                # name. Never infer or manufacture a team when absent.
+                selection_team = (
+                    outcome.get("description")
+                    if key == "team_totals_h2"
+                    and outcome.get("description") in (payload.get("home_team"), payload.get("away_team"))
+                    and outcome.get("description") is not None
+                    else None
+                )
                 rows.append({
                     "provider": "the_odds_api",
                     "event_id": payload["id"],
@@ -91,6 +100,8 @@ def normalize(payload, captured_at, q2_end, q3_start, latency_seconds):
                     "book_title": book.get("title"),
                     "market": key,
                     "outcome_name": outcome.get("name"),
+                    "outcome_description": outcome.get("description"),
+                    "team_total_team": selection_team,
                     "line": outcome.get("point"),
                     "odds": outcome["price"],
                     "market_last_update_utc": iso(updated),
@@ -98,12 +109,43 @@ def normalize(payload, captured_at, q2_end, q3_start, latency_seconds):
                     "q2_end_utc": iso(q2_end),
                     "q3_start_utc": iso(q3_start),
                     "decision_cutoff_utc": iso(cutoff),
-                    "timing_eligible": eligible,
+                    "timing_eligible": bool(
+                        eligible and (key != "team_totals_h2" or selection_team is not None)
+                    ),
                     "training_eligible": False,
                     "paper_only": True,
                     "registry_join_status": "UNMATCHED",
                 })
     return rows
+
+
+def team_totals_h2_coverage(payload, rows):
+    """Record both teams' observable second-half totals; never invent prices."""
+    home, away = payload.get("home_team"), payload.get("away_team")
+    returned = any(
+        market.get("key") == "team_totals_h2"
+        for book in payload.get("bookmakers", [])
+        for market in book.get("markets", [])
+    )
+    teams = {}
+    for side, name in (("home", home), ("away", away)):
+        matched = [
+            row for row in rows
+            if row["market"] == "team_totals_h2"
+            and row["team_total_team"] == name
+            and row["line"] is not None
+            and row["outcome_name"] in ("Over", "Under")
+        ] if name is not None else []
+        teams[side] = {
+            "name": name,
+            "status": ("available" if matched else "not_returned" if not returned else "no_usable_quote"),
+            "quotes": len(matched),
+        }
+    return {
+        "requested": "team_totals_h2" in MARKETS,
+        "market_returned": returned,
+        "teams": teams,
+    }
 
 
 def live_fetch(event_id, sport, regions, markets, key, *, clock=None):
@@ -222,6 +264,7 @@ def main():
     if args.event_id and payload.get("id") != args.event_id:
         raise ValueError("Event ID mismatch")
     rows = normalize(payload, captured_at, q2, q3, args.latency_seconds)
+    team_totals_coverage = team_totals_h2_coverage(payload, rows)
     registry = load_json(args.out, {"schema_version": 1, "records": []})
     existing = {hashlib.sha256(json.dumps(r, sort_keys=True).encode()).hexdigest() for r in registry["records"]}
     for row in rows:
@@ -229,8 +272,17 @@ def main():
         if identity not in existing:
             registry["records"].append(row)
             existing.add(identity)
+    # Append metadata about a market request even if no book returned a quote.
+    registry.setdefault("market_attempts", []).append({
+        "event_id": payload["id"],
+        "captured_at_utc": iso(captured_at),
+        "requested_markets": list(MARKETS),
+        "team_totals_h2": team_totals_coverage,
+        "paper_only": True,
+    })
     atomic_json(args.out, registry)
     print(json.dumps({"event_id": payload["id"], "quotes": len(rows),
+                      "team_totals_h2": team_totals_coverage,
                       "timing_eligible": sum(r["timing_eligible"] for r in rows),
                       "registry_records": len(registry["records"]),
                       "mode": "paper_only", "training_enabled": False}, indent=2))
