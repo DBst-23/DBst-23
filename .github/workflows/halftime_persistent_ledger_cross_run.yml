@@ -1,82 +1,134 @@
-name: Halftime persistent ledger cross-run proof (NO API calls)
+name: Halftime persistent ledger cross-run proof (TEST WRITES ONLY, NO API calls)
 on:
   workflow_dispatch:
     inputs:
       phase:
-        description: 'Run A = reserve; Run B = verify duplicate denial'
+        description: 'Run A reserve; run B verify with the SAME test_id'
         required: true
         type: choice
         options: [reserve, verify]
       test_id:
-        description: 'Same unique identifier for both runs (letters/numbers/hyphens)'
+        description: 'Unique 8-64 letters/numbers/hyphens; use same ID for both runs'
         required: true
         type: string
 permissions:
   contents: read
+concurrency:
+  group: sharpedge-crossrun-${{ inputs.test_id }}
+  cancel-in-progress: false
 jobs:
   cross-run:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     environment: odds-ledger-test
     env:
-      SHARPEDGE_ODDS_POSTGRES_DSN: ${{ secrets.NEON_DATABASE_URL }}
+      SHARPEDGE_ODDS_POSTGRES_DSN: ${{ secrets.SHARPEDGE_ODDS_POSTGRES_DSN }}
       TEST_PHASE: ${{ inputs.phase }}
       TEST_ID: ${{ inputs.test_id }}
     steps:
+      - name: Fail closed unless using PR 53 development branch
+        shell: bash
+        run: |
+          if [ "$GITHUB_REF" != "refs/heads/step-2l2-halftime-odds-paper-bridge" ]; then
+            echo "FAIL CLOSED: select step-2l2-halftime-odds-paper-bridge. No database operations performed."
+            exit 1
+          fi
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - run: python -m pip install 'psycopg[binary]>=3.1,<4'
-      - name: Verify persistent reservation across separate workflow runs
+      - name: Install PostgreSQL driver (no Odds API)
+        run: python -m pip install 'psycopg[binary]>=3.1,<4'
+      - name: Verify durable test-only reservation in isolated schema
+        shell: bash
         run: |
           python - <<'PY'
-          import os, re, sys
+          import os
+          import re
+          import sys
           import psycopg
           from scripts.odds import persistent_credit_ledger as ledger
 
           dsn = os.environ.get("SHARPEDGE_ODDS_POSTGRES_DSN", "").strip()
-          phase = os.environ["TEST_PHASE"]
-          test_id = os.environ["TEST_ID"]
+          phase = os.environ.get("TEST_PHASE", "")
+          test_id = os.environ.get("TEST_ID", "")
           if not dsn:
-              sys.exit("FAIL CLOSED: configure SHARPEDGE_ODDS_POSTGRES_DSN secret in odds-ledger-test environment")
+              sys.exit("FAIL CLOSED: configured GitHub DSN secret unavailable")
+          if phase not in ("reserve", "verify"):
+              sys.exit("FAIL CLOSED: invalid phase")
           if not re.fullmatch(r"[A-Za-z0-9-]{8,64}", test_id):
-              sys.exit("Invalid test_id: use 8-64 letters, numbers or hyphens")
-          budget_id = "cross-run-proof-" + test_id
-          request_id = ledger.request_identity("basketball_nba", "TEST_EVENT_" + test_id, "us", ("totals_h2", "spreads_h2", "h2h_h2"))
-          with psycopg.connect(dsn, connect_timeout=5, sslmode="require") as conn:
-              if phase == "reserve":
-                  # A fresh test_id must not be silently reused or reset.
+              sys.exit("FAIL CLOSED: test_id must use 8-64 letters/numbers/hyphens")
+
+          # Isolated test schema, NOT the production ledger's public tables.
+          # No external HTTP/API requests in either phase. These are dummy credits.
+          budget_id = "ci-crossrun-" + test_id
+          request_id = ledger.request_identity(
+              "basketball_nba",
+              "CI_DUMMY_EVENT_" + test_id,
+              "us",
+              ("totals_h2", "spreads_h2", "h2h_h2"),
+          )
+          try:
+              # No unsupported startup options: safe with Neon pooled URLs.
+              with psycopg.connect(dsn, connect_timeout=8, sslmode="require") as conn:
                   with conn.transaction():
                       with conn.cursor() as cur:
-                          cur.execute(ledger.SCHEMA)
-                          cur.execute("INSERT INTO sharpedge_odds_budget (budget_id, cap) VALUES (%s, 30) ON CONFLICT DO NOTHING", (budget_id,))
-                          cur.execute("SELECT reserved FROM sharpedge_odds_budget WHERE budget_id = %s", (budget_id,))
-                          if cur.fetchone()[0] != 0:
-                              sys.exit("Test ID already used; choose a fresh test_id")
-                  ledger.reserve(conn, budget_id, request_id, 20, 30)
-                  print("RUN A PASS: 20 credits reserved in persistent database. Run B with same test_id on NEW workflow run.")
-              elif phase == "verify":
-                  with conn.cursor() as cur:
-                      cur.execute("SELECT cap, reserved FROM sharpedge_odds_budget WHERE budget_id = %s", (budget_id,))
-                      row = cur.fetchone()
-                      if row != (30, 20):
-                          sys.exit(f"RUN B FAIL: expected persisted budget (30,20), found {row}")
-                  try:
-                      ledger.reserve(conn, budget_id, request_id, 20, 30)
-                  except ledger.ReservationDenied as exc:
-                      if "Duplicate" not in str(exc):
-                          raise
-                  else:
-                      sys.exit("RUN B FAIL: duplicate reservation accepted")
-                  with conn.cursor() as cur:
-                      cur.execute("SELECT COUNT(*), COALESCE(SUM(credits),0) FROM sharpedge_odds_reservations WHERE budget_id = %s", (budget_id,))
-                      counts = cur.fetchone()
-                      cur.execute("SELECT reserved FROM sharpedge_odds_budget WHERE budget_id = %s", (budget_id,))
-                      reserved = cur.fetchone()[0]
-                  if counts != (1, 20) or reserved != 20:
-                      sys.exit(f"RUN B FAIL: reservations={counts}, reserved={reserved}")
-                  print("RUN B PASS: persisted across independent Actions runs; duplicate rejected; one reservation, 20 credits.")
+                          if phase == "reserve":
+                              cur.execute("CREATE SCHEMA IF NOT EXISTS sharpedge_ci_crossrun")
+                          # Transaction-scoped search_path isolates unqualified ledger SQL.
+                          cur.execute("SET LOCAL search_path TO sharpedge_ci_crossrun, pg_catalog")
+                          if phase == "reserve":
+                              for statement in ledger.SCHEMA.split(";"):
+                                  if statement.strip():
+                                      cur.execute(statement)
+                              cur.execute(
+                                  "INSERT INTO sharpedge_odds_budget (budget_id, cap) "
+                                  "VALUES (%s, 30) ON CONFLICT DO NOTHING RETURNING budget_id",
+                                  (budget_id,),
+                              )
+                              if cur.fetchone() != (budget_id,):
+                                  raise RuntimeError("Test ID already exists; choose a fresh ID")
+                              ledger.reserve(conn, budget_id, request_id, 20, 30)
+                              cur.execute(
+                                  "SELECT cap, reserved FROM sharpedge_odds_budget WHERE budget_id = %s",
+                                  (budget_id,),
+                              )
+                              if cur.fetchone() != (30, 20):
+                                  raise RuntimeError("Run A budget invariant failed")
+                          else:
+                              cur.execute(
+                                  "SELECT cap, reserved FROM sharpedge_odds_budget WHERE budget_id = %s",
+                                  (budget_id,),
+                              )
+                              if cur.fetchone() != (30, 20):
+                                  raise RuntimeError("Run B: persisted budget missing or unexpected")
+                              try:
+                                  ledger.reserve(conn, budget_id, request_id, 20, 30)
+                              except ledger.ReservationDenied as exc:
+                                  if str(exc) != "Duplicate paid request":
+                                      raise RuntimeError("Run B: unexpected denial")
+                              else:
+                                  raise RuntimeError("Run B: duplicate reservation accepted")
+                              cur.execute(
+                                  "SELECT COUNT(*), COALESCE(SUM(credits), 0) "
+                                  "FROM sharpedge_odds_reservations WHERE budget_id = %s",
+                                  (budget_id,),
+                              )
+                              if cur.fetchone() != (1, 20):
+                                  raise RuntimeError("Run B: duplicate count or credits mismatch")
+                              cur.execute(
+                                  "SELECT reserved FROM sharpedge_odds_budget WHERE budget_id = %s",
+                                  (budget_id,),
+                              )
+                              if cur.fetchone() != (20,):
+                                  raise RuntimeError("Run B: budget mutated unexpectedly")
+              if phase == "reserve":
+                  print("RUN A PASS: one test-only reservation committed in isolated schema.")
+                  print("Next: run verify with identical test_id in a SEPARATE workflow run.")
               else:
-                  sys.exit("Invalid phase")
+                  print("RUN B PASS: persisted test reservation; duplicate denied; zero paid API calls.")
+          except psycopg.Error:
+              sys.exit("FAIL: PostgreSQL operation failed; connection details redacted.")
+          except RuntimeError as exc:
+              sys.exit("FAIL: " + str(exc))
           PY
