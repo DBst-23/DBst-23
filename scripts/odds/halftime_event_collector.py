@@ -104,7 +104,7 @@ def normalize(payload, captured_at, q2_end, q3_start, latency_seconds):
     return rows
 
 
-def live_fetch(event_id, sport, regions, markets, key):
+def live_fetch(event_id, sport, regions, markets, key, *, clock=None):
     url = BASE + "/sports/" + urllib.parse.quote(sport, safe="") + "/events/" + urllib.parse.quote(event_id, safe="") + "/odds"
     query = urllib.parse.urlencode({
         "apiKey": key, "regions": regions, "markets": ",".join(markets),
@@ -114,8 +114,13 @@ def live_fetch(event_id, sport, regions, markets, key):
     try:
         with urllib.request.urlopen(request, timeout=20) as response:
             body = response.read()
+            # Timestamp AFTER the full HTTP response body arrives, not before the request.
+            # An injected clock supports deterministic offline boundary tests.
+            received_at = clock() if clock is not None else dt.datetime.now(UTC)
+            if received_at.tzinfo is None:
+                raise ValueError("Response-receipt clock must be timezone-aware")
             headers = dict(response.headers.items())
-            return json.loads(body), headers
+            return json.loads(body), headers, received_at.astimezone(UTC)
     except urllib.error.HTTPError as error:
         raise RuntimeError("Odds API HTTP " + str(error.code)) from None
 
@@ -157,7 +162,6 @@ def main():
     q2, q3 = timestamp(args.q2_end), timestamp(args.q3_start)
     if bool(q2) != bool(q3) or (q2 and q2 >= q3):
         p.error("Supply both valid licensed Q2-end and Q3-start timestamps, or neither")
-    now = dt.datetime.now(UTC)
     if args.live:
         if os.getenv("SHARPEDGE_ALLOW_PAID_ODDS") != "YES":
             p.error("Paid request disabled: set SHARPEDGE_ALLOW_PAID_ODDS=YES explicitly")
@@ -183,7 +187,7 @@ def main():
         # No automatic retry. A failed/ambiguous HTTP request consumes its
         # reservation; never refund credits based on uncertain provider billing.
         try:
-            payload, headers = live_fetch(args.event_id, args.sport, args.regions, MARKETS, key)
+            payload, headers, captured_at = live_fetch(args.event_id, args.sport, args.regions, MARKETS, key)
         except Exception:
             with psycopg.connect(os.environ["SHARPEDGE_ODDS_POSTGRES_DSN"], connect_timeout=5) as connection:
                 credit_ledger.mark_result(connection, budget_id, call_id, "unknown")
@@ -192,9 +196,11 @@ def main():
             credit_ledger.mark_result(connection, budget_id, call_id, "requested")
     else:
         payload = load_json(args.fixture, None)
+        # Fixture-only mode has no network response; capture its local load time.
+        captured_at = dt.datetime.now(UTC)
     if args.event_id and payload.get("id") != args.event_id:
         raise ValueError("Event ID mismatch")
-    rows = normalize(payload, now, q2, q3, args.latency_seconds)
+    rows = normalize(payload, captured_at, q2, q3, args.latency_seconds)
     registry = load_json(args.out, {"schema_version": 1, "records": []})
     existing = {hashlib.sha256(json.dumps(r, sort_keys=True).encode()).hexdigest() for r in registry["records"]}
     for row in rows:
