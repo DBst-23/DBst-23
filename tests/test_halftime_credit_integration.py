@@ -55,6 +55,23 @@ class IntegrationTests(unittest.TestCase):
             collector.reserve_live_budget("evt2", "basketball_nba", "us", 20, 30, self.connect)
         self.assertEqual(self.db.reserved, 20)
 
+    def test_insufficient_pre_call_reservation_fails_without_connecting(self):
+        def prohibited_connect(*args, **kwargs):
+            self.fail("Should not connect to a database if charge is under-reserved")
+        with self.assertRaises(collector.credit_ledger.ReservationDenied):
+            collector.reserve_live_budget(
+                "evt", "basketball_nba", "us", 2, 30, prohibited_connect,
+            )
+        self.assertEqual(self.db.reserved, 0)
+
+    def test_multiple_regions_multiply_required_credit_hold(self):
+        def prohibited_connect(*args, **kwargs):
+            self.fail("Should not connect to a database if region hold is insufficient")
+        with self.assertRaises(collector.credit_ledger.ReservationDenied):
+            collector.reserve_live_budget(
+                "evt", "basketball_nba", "us,uk", 3, 30, prohibited_connect,
+            )
+
     def test_missing_shared_database_fails_closed(self):
         del os.environ["SHARPEDGE_ODDS_POSTGRES_DSN"]
         with self.assertRaises(collector.credit_ledger.ReservationDenied):
