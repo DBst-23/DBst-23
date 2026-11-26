@@ -106,7 +106,8 @@ def quote_coverage(payload, expected_event):
                     sides[side].add(name)
     both = all(sides[name] == {"Over", "Under"} for name in (HOME, AWAY))
     partial = any(sides[name] for name in (HOME, AWAY))
-    status = "both_teams" if both else "partial" if partial else "not_returned"
+    status = ("both_teams" if both else "partial" if partial
+              else "market_returned_unparsed" if found_market else "not_returned")
     return {"status": status, "market_found": found_market,
             "home_over_under": sorted(sides[HOME]),
             "away_over_under": sorted(sides[AWAY])}
