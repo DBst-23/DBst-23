@@ -1,0 +1,24 @@
+name: NBA one-credit team-total probe safety tests (NO NETWORK)
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/odds/one_credit_teamtotals_probe.py
+      - tests/test_one_credit_teamtotals_probe.py
+      - .github/workflows/one_credit_teamtotals_probe_offline_ci.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  offline-safety:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile and run unit tests, no secrets, no provider calls
+        run: |
+          python -m py_compile scripts/odds/one_credit_teamtotals_probe.py tests/test_one_credit_teamtotals_probe.py
+          python -m unittest discover -s tests -p 'test_one_credit_teamtotals_probe.py' -v
