@@ -48,6 +48,7 @@ class RealPostgresTests(unittest.TestCase):
 
     def tearDown(self):
         with self.conn.transaction():
+            self.conn.execute("DELETE FROM sharpedge_odds_usage_audit WHERE budget_id = %s", (self.budget,))
             self.conn.execute("DELETE FROM sharpedge_odds_reservations WHERE budget_id = %s", (self.budget,))
             self.conn.execute("DELETE FROM sharpedge_odds_budget WHERE budget_id = %s", (self.budget,))
 
@@ -94,6 +95,72 @@ class RealPostgresTests(unittest.TestCase):
             with self.assertRaisesRegex(ledger.ReservationDenied, "Duplicate"):
                 ledger.reserve(conn, self.budget, "persist", 20, 30)
         self.assertEqual(self.snapshot(), (20, ["persist"]))
+
+
+    def test_usage_report_is_durable_and_conservative(self):
+        # No API call: reported 2 credits against a 3-credit reservation.
+        with psycopg.connect(DSN) as conn:
+            ledger.reserve(conn, self.budget, "usage-test", 3, 30)
+        with psycopg.connect(DSN) as conn:
+            self.assertTrue(ledger.reconcile_usage(
+                conn, self.budget, "usage-test",
+                {"charge": 2, "used": 40, "remaining": 960},
+            ))
+        with psycopg.connect(DSN) as conn:
+            row = conn.execute(
+                "SELECT reserved_credits, reported_charge, provider_used, provider_remaining "
+                "FROM sharpedge_odds_usage_audit WHERE budget_id=%s AND request_id=%s",
+                (self.budget, "usage-test"),
+            ).fetchone()
+            status = conn.execute(
+                "SELECT status FROM sharpedge_odds_reservations "
+                "WHERE budget_id=%s AND request_id=%s",
+                (self.budget, "usage-test"),
+            ).fetchone()
+        self.assertEqual(row, (3, 2, 40, 960))
+        self.assertEqual(status, ("requested",))
+        self.assertEqual(self.snapshot()[0], 3)  # No automatic budget refund.
+        with psycopg.connect(DSN) as conn:
+            with self.assertRaises(ledger.ReservationDenied):
+                ledger.reconcile_usage(
+                    conn, self.budget, "usage-test",
+                    {"charge": 2, "used": 40, "remaining": 960},
+                )
+
+    def test_usage_exceeding_reserved_ceiling_is_denied_atomically(self):
+        with psycopg.connect(DSN) as conn:
+            ledger.reserve(conn, self.budget, "over-billed", 3, 30)
+        with psycopg.connect(DSN) as conn:
+            with self.assertRaises(ledger.ReservationDenied):
+                ledger.reconcile_usage(
+                    conn, self.budget, "over-billed",
+                    {"charge": 4, "used": 40, "remaining": 960},
+                )
+        with psycopg.connect(DSN) as conn:
+            count = conn.execute(
+                "SELECT COUNT(*) FROM sharpedge_odds_usage_audit "
+                "WHERE budget_id=%s AND request_id=%s",
+                (self.budget, "over-billed"),
+            ).fetchone()[0]
+            status = conn.execute(
+                "SELECT status FROM sharpedge_odds_reservations "
+                "WHERE budget_id=%s AND request_id=%s",
+                (self.budget, "over-billed"),
+            ).fetchone()[0]
+        self.assertEqual(count, 0)
+        self.assertEqual(status, "reserved")
+        self.assertEqual(self.snapshot()[0], 3)
+
+    def test_invalid_usage_report_has_no_side_effects(self):
+        with psycopg.connect(DSN) as conn:
+            ledger.reserve(conn, self.budget, "invalid-header", 3, 30)
+        with psycopg.connect(DSN) as conn:
+            with self.assertRaises(ledger.ReservationDenied):
+                ledger.reconcile_usage(
+                    conn, self.budget, "invalid-header",
+                    {"charge": None, "used": 40, "remaining": 960},
+                )
+        self.assertEqual(self.snapshot()[0], 3)
 
 
 if __name__ == "__main__": unittest.main()
