@@ -72,6 +72,21 @@ class IntegrationTests(unittest.TestCase):
                 "evt", "basketball_nba", "us,uk", 3, 30, prohibited_connect,
             )
 
+    def test_new_team_total_market_requires_four_credit_hold(self):
+        def prohibited_connect(*args, **kwargs):
+            self.fail("Under-reserved request must not connect")
+        with self.assertRaises(collector.credit_ledger.ReservationDenied):
+            collector.reserve_live_budget(
+                "team-totals-event", "basketball_nba", "us", 3, 30, prohibited_connect,
+            )
+        self.assertEqual(self.db.reserved, 0)
+
+    def test_exact_four_credit_hold_is_accepted(self):
+        collector.reserve_live_budget(
+            "team-totals-event", "basketball_nba", "us", 4, 30, self.connect,
+        )
+        self.assertEqual(self.db.reserved, 4)
+
     def test_missing_shared_database_fails_closed(self):
         del os.environ["SHARPEDGE_ODDS_POSTGRES_DSN"]
         with self.assertRaises(collector.credit_ledger.ReservationDenied):
