@@ -75,6 +75,11 @@ class ProbeUnitTests(unittest.TestCase):
         )
         self.assertEqual(result["status"], "not_returned")
 
+    def test_returned_market_without_team_attribution_is_not_false_absence(self):
+        result = probe.quote_coverage(self.make_payload(home=False, away=False), self.event())
+        self.assertEqual(result["status"], "market_returned_unparsed")
+        self.assertTrue(result["market_found"])
+
     def test_wrong_bookmaker_rejected(self):
         payload = self.make_payload()
         payload["bookmakers"][0]["key"] = "otherbook"
