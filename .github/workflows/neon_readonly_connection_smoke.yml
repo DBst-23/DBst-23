@@ -26,21 +26,35 @@ jobs:
               sys.exit("FAIL CLOSED: SHARPEDGE_ODDS_POSTGRES_DSN secret unavailable to this job (check repository/environment scope)")
           try:
               # Read-only session; no schema changes, writes, or external odds API calls.
+              # Neon pooled URLs use PgBouncer: avoid unsupported startup options.
+              # Enforce read-only at the transaction level, not the session level.
               with psycopg.connect(
                   dsn,
                   connect_timeout=8,
                   sslmode="require",
-                  options="-c default_transaction_read_only=on -c statement_timeout=10000",
+                  autocommit=True,
               ) as conn:
                   with conn.cursor() as cur:
-                      cur.execute("SELECT 1")
-                      if cur.fetchone() != (1,):
-                          sys.exit("FAIL: unexpected SELECT 1 response")
+                      cur.execute("BEGIN TRANSACTION READ ONLY")
+                      try:
+                          cur.execute("SELECT 1")
+                          if cur.fetchone() != (1,):
+                              sys.exit("FAIL: unexpected SELECT 1 response")
+                      finally:
+                          cur.execute("ROLLBACK")
               print("PASS: Neon PostgreSQL connection established; SELECT 1 returned 1 (read-only).")
           except Exception as exc:
               # Classify by exception type only: NEVER print exception text, DSN, hostname or credentials.
               if isinstance(exc, psycopg.OperationalError):
-                  category = "CONNECTION_OR_AUTHENTICATION"
+                  state = exc.sqlstate
+                  if state in ("28P01", "28000"):
+                      category = "POSTGRES_AUTHENTICATION"
+                  elif state == "3D000":
+                      category = "DATABASE_NOT_FOUND"
+                  elif state == "08P01":
+                      category = "POOLER_OR_PROTOCOL"
+                  else:
+                      category = "NETWORK_TLS_STARTUP_OR_AUTHENTICATION"
               elif isinstance(exc, psycopg.errors.InsufficientPrivilege):
                   category = "DATABASE_PERMISSION"
               elif isinstance(exc, psycopg.Error):
