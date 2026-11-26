@@ -8,6 +8,9 @@ on:
       - 'scripts/odds/halftime_event_collector.py'
       - 'tests/test_halftime_event_collector.py'
       - 'scripts/odds/persistent_credit_ledger.py'
+      - 'scripts/odds/odds_credit_accounting.py'
+      - 'tests/test_odds_credit_accounting.py'
+      - 'tests/test_halftime_credit_integration.py'
       - 'tests/test_persistent_credit_ledger.py'
       - '.github/workflows/halftime-collector-tests.yml'
   workflow_dispatch:
@@ -25,6 +28,6 @@ jobs:
         with:
           python-version: '3.11'
       - name: Compile collector and tests
-        run: python -m py_compile scripts/odds/halftime_event_collector.py tests/test_halftime_event_collector.py scripts/odds/persistent_credit_ledger.py tests/test_persistent_credit_ledger.py
+        run: python -m py_compile scripts/odds/halftime_event_collector.py tests/test_halftime_event_collector.py scripts/odds/persistent_credit_ledger.py tests/test_persistent_credit_ledger.py scripts/odds/odds_credit_accounting.py tests/test_odds_credit_accounting.py tests/test_halftime_credit_integration.py
       - name: Run offline tests (no secrets, no API calls)
-        run: python -m unittest discover -s tests -p 'test_*credit_ledger.py' -v && python -m unittest discover -s tests -p 'test_halftime_event_collector.py' -v
+        run: python -m unittest discover -s tests -p 'test_*credit_ledger.py' -v && python -m unittest discover -s tests -p 'test_odds_credit_accounting.py' -v && python -m unittest discover -s tests -p 'test_halftime_credit_integration.py' -v && python -m unittest discover -s tests -p 'test_halftime_event_collector.py' -v
