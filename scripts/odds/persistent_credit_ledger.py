@@ -83,10 +83,13 @@ def mark_result(connection, budget_id, request_id, status):
         raise ValueError("Invalid status")
     with connection.transaction():
         with connection.cursor() as cur:
-            cur.execute("UPDATE sharpedge_odds_reservations SET status = %s WHERE budget_id = %s AND request_id = %s",
-                        (status, budget_id, request_id))
+            cur.execute(
+                "UPDATE sharpedge_odds_reservations SET status = %s "
+                "WHERE budget_id = %s AND request_id = %s AND status = 'reserved'",
+                (status, budget_id, request_id),
+            )
             if cur.rowcount != 1:
-                raise ReservationDenied("Unknown reservation")
+                raise ReservationDenied("Unknown or already finalized reservation")
 
 def reconcile_usage(connection, budget_id, request_id, report):
     """Append one validated provider usage report and finish the reservation.
