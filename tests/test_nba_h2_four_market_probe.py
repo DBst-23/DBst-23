@@ -43,6 +43,8 @@ class ProbeSafety(TestCase):
         self.assertEqual(found, set(probe.MARKETS))
         self.assertTrue(all(result[key]["market_returned"] for key in probe.MARKETS))
         self.assertEqual(result["team_totals_h2"]["usable_selections"], 2)
+        self.assertEqual(result["team_totals_h2"]["home_usable_selections"], 1)
+        self.assertEqual(result["team_totals_h2"]["away_usable_selections"], 1)
 
     def test_team_total_not_returned_is_not_fabricated(self):
         result, found = probe.summarize_odds(
@@ -51,6 +53,8 @@ class ProbeSafety(TestCase):
         self.assertEqual(len(found), 3)
         self.assertFalse(result["team_totals_h2"]["market_returned"])
         self.assertEqual(result["team_totals_h2"]["usable_selections"], 0)
+        self.assertEqual(result["team_totals_h2"]["home_usable_selections"], 0)
+        self.assertEqual(result["team_totals_h2"]["away_usable_selections"], 0)
 
     def test_all_markets_missing(self):
         result, keys = probe.summarize_odds(
