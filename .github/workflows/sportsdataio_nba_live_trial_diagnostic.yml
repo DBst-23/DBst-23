@@ -1,0 +1,99 @@
+name: SportsDataIO NBA live matchup trial diagnostic (MANUAL / SCRAMBLED)
+on:
+  workflow_dispatch:
+    inputs:
+      game_date:
+        description: "NBA game date YYYY-MM-DD; leave blank for current New York date"
+        required: false
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: sportsdataio-nba-live-trial-diagnostic
+  cancel-in-progress: false
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    env:
+      SPORTSDATAIO_API_KEY: ${{ secrets.SPORTSDATAIO_API_KEY }}
+      REQUESTED_DATE: ${{ inputs.game_date }}
+    steps:
+      - name: Query live NBA games and in-game odds (trial metadata only)
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import datetime as dt
+          import json, os, re, sys, urllib.error, urllib.request
+          from zoneinfo import ZoneInfo
+
+          key = os.environ.get("SPORTSDATAIO_API_KEY", "").strip()
+          date = os.environ.get("REQUESTED_DATE", "").strip()
+          if not date:
+              date = dt.datetime.now(ZoneInfo("America/New_York")).strftime("%Y-%m-%d")
+          if not re.fullmatch(r"20[0-9]{2}-(0[1-9]|1[0-2])-([0-2][0-9]|3[01])", date):
+              print("SAFE STOP: invalid date (expected YYYY-MM-DD)")
+              sys.exit(2)
+          try:
+              dt.date.fromisoformat(date)
+          except ValueError:
+              print("SAFE STOP: impossible calendar date")
+              sys.exit(2)
+          if not key:
+              print("SAFE STOP: GitHub repository secret SPORTSDATAIO_API_KEY is missing or empty.")
+              sys.exit(2)
+
+          base = "https://api.sportsdata.io/v3/nba"
+          endpoints = [
+              ("live_games", f"{base}/scores/json/GamesByDate/{date}"),
+              ("live_game_odds", f"{base}/odds/json/LiveGameOddsByDate/{date}"),
+          ]
+          print("SPORTSDATAIO NBA LIVE TRIAL — diagnostic only")
+          print("Date (America/New_York):", date)
+          print("TRIAL WARNING: scores, stats and odds are scrambled; NO training/EV/betting eligibility.")
+          successes = 0
+          for label, url in endpoints:
+              req = urllib.request.Request(url, headers={
+                  "Ocp-Apim-Subscription-Key": key, "Accept": "application/json",
+                  "User-Agent": "SharpEdge-ReadOnly-Trial-Diagnostic/1",
+              })
+              result = {"feed": label, "status": "not_run", "http_status": None}
+              try:
+                  with urllib.request.urlopen(req, timeout=15) as response:
+                      body = response.read(2_000_001)
+                      if len(body) > 2_000_000:
+                          raise ValueError("Response exceeded size limit")
+                      payload = json.loads(body)
+                      result["http_status"] = response.status
+                  if not isinstance(payload, list):
+                      result["status"] = "unexpected_shape"
+                      result["shape"] = type(payload).__name__
+                  else:
+                      result["status"] = "accessible_scrambled_trial"
+                      result["item_count"] = len(payload)
+                      result["sample_field_names"] = sorted(payload[0].keys())[:50] if payload and isinstance(payload[0], dict) else []
+                      if label == "live_games":
+                          result["matchups"] = [
+                              {"game_id": g.get("GameID"),
+                               "away": g.get("AwayTeam"), "home": g.get("HomeTeam"),
+                               "status": g.get("Status"), "quarter_field_present": "Quarter" in g,
+                               "quarters_array_present": isinstance(g.get("Quarters"), list)}
+                              for g in payload[:25] if isinstance(g, dict)
+                          ]
+                      else:
+                          result["sample_containers"] = [
+                              {"game_id": g.get("GameID"),
+                               "field_names": sorted(g.keys())[:35]}
+                              for g in payload[:3] if isinstance(g, dict)
+                          ]
+                      successes += 1
+              except urllib.error.HTTPError as exc:
+                  result.update(status="access_denied_or_http_error", http_status=exc.code)
+              except Exception as exc:
+                  result.update(status="request_failed", error_type=type(exc).__name__)
+              # No keys, raw payloads, odds/prices, numeric scores or trial stats in logs.
+              print(json.dumps(result, sort_keys=True, default=str))
+          print(f"SUMMARY: accessible_feeds={successes}/2; no data certified for model use")
+          if successes == 0:
+              sys.exit(2)
+          PY
