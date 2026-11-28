@@ -1,0 +1,107 @@
+name: SharpEdge API-Sports NBA/Basketball live capability audit (MANUAL)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: sharpedge-apisports-live-capability-audit
+  cancel-in-progress: false
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    env:
+      API_SPORTS_KEY: ${{ secrets.API_SPORTS_KEY }}
+      APISPORTS_BASKETBALL_KEY: ${{ secrets.APISPORTS_BASKETBALL_KEY }}
+    steps:
+      - name: One-pass status and live NBA matchup diagnostic (no odds, no retries)
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import datetime as dt
+          import json, os, urllib.error, urllib.request
+          from collections import Counter
+          products = (
+              ("API-NBA v2", "https://v2.nba.api-sports.io", "API_SPORTS_KEY"),
+              ("API-Basketball v1", "https://v1.basketball.api-sports.io", "APISPORTS_BASKETBALL_KEY"),
+          )
+          def fetch(base, path, key):
+              req = urllib.request.Request(base + path, headers={
+                  "x-apisports-key": key, "Accept": "application/json",
+                  "User-Agent": "SharpEdge-API-Sports-ReadOnly-Capability-Audit/1",
+              })
+              try:
+                  with urllib.request.urlopen(req, timeout=15) as res:
+                      raw = res.read(1_000_001)
+                      if len(raw) > 1_000_000:
+                          return {"result": "oversize_response", "http": res.status}
+                      body = json.loads(raw)
+                      if not isinstance(body, dict):
+                          return {"result": "unexpected_shape", "http": res.status}
+                      if body.get("errors"):
+                          return {"result": "api_errors", "http": res.status,
+                                  "error_field_present": True}
+                      return {"result": "ok", "http": res.status, "data": body}
+              except urllib.error.HTTPError as e:
+                  return {"result": "http_error", "http": e.code}
+              except Exception as e:
+                  return {"result": "network_failure", "error_type": type(e).__name__}
+          print("SHARPEDGE API-SPORTS LIVE CAPABILITY AUDIT — NO ODDS OR PAID BETS")
+          print("UTC:", dt.datetime.now(dt.timezone.utc).isoformat())
+          for name, base, secret in products:
+              key = os.environ.get(secret, "").strip()
+              if not key:
+                  print(json.dumps({"product": name, "status": "NO_GITHUB_SECRET",
+                                    "secret_name": secret}))
+                  continue
+              status = fetch(base, "/status", key)
+              r = {"product": name, "status_http": status.get("http"),
+                   "status_result": status["result"]}
+              if status["result"] == "ok":
+                  v = status["data"].get("response") or {}
+                  sub = v.get("subscription") or {} if isinstance(v, dict) else {}
+                  req = v.get("requests") or {} if isinstance(v, dict) else {}
+                  # No account identity, billing email, credentials, or request body.
+                  r["subscription"] = {"plan": sub.get("plan"),
+                                       "active": sub.get("active")}
+                  r["quota"] = {"current": req.get("current"),
+                                "limit_day": req.get("limit_day")}
+              print(json.dumps(r, default=str))
+              # NBA product supports live=all; Basketball v1 also supports live=all.
+              live = fetch(base, "/games?live=all", key)
+              summary = {"product": name, "endpoint": "/games?live=all",
+                         "http": live.get("http"), "result": live["result"],
+                         "training_eligible": False}
+              if live["result"] == "ok":
+                  body = live["data"]
+                  rows = body.get("response")
+                  summary["result_count"] = body.get("results")
+                  if isinstance(rows, list):
+                      summary["records"] = len(rows)
+                      summary["top_level_field_names"] = sorted({
+                          str(k) for g in rows[:10] if isinstance(g, dict) for k in g.keys()
+                      })[:35]
+                      statuses = Counter()
+                      matches = []
+                      for game in rows[:30]:
+                          if not isinstance(game, dict):
+                              continue
+                          st = game.get("status")
+                          code = (st.get("short") if isinstance(st, dict) else st)
+                          if code is not None:
+                              statuses[str(code)[:15]] += 1
+                          teams = game.get("teams") or {}
+                          if isinstance(teams, dict):
+                              home = teams.get("home") or {}
+                              away = teams.get("visitors") or teams.get("away") or {}
+                              home_name = home.get("name") if isinstance(home, dict) else None
+                              away_name = away.get("name") if isinstance(away, dict) else None
+                              if isinstance(home_name, str) and isinstance(away_name, str):
+                                  matches.append({"home": home_name[:60],
+                                                  "away": away_name[:60],
+                                                  "status": str(code)[:15]})
+                      summary["status_counts"] = dict(statuses)
+                      summary["matchups"] = matches[:12]
+              print(json.dumps(summary, default=str))
+          print("DONE: Provider access and live schema only; no odds requests; no model inputs accepted.")
+          PY
