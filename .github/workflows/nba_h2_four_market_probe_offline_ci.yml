@@ -1,0 +1,24 @@
+name: NBA H2 four-market probe OFFLINE SAFETY (NO API)
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/odds/nba_h2_four_market_probe.py
+      - tests/test_nba_h2_four_market_probe.py
+      - .github/workflows/nba_h2_four_market_probe_offline_ci.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  offline-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile and run tests without secrets or network
+        run: |
+          python -m py_compile scripts/odds/nba_h2_four_market_probe.py tests/test_nba_h2_four_market_probe.py
+          python -m unittest discover -s tests -p 'test_nba_h2_four_market_probe.py' -v
