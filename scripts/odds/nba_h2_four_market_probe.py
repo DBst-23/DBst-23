@@ -94,6 +94,9 @@ def summarize_odds(payload, game):
     returned = set()
     report = {market: {"market_returned": False, "usable_selections": 0}
               for market in MARKETS}
+    # Aggregate only coverage counts for each team; never publish licensed prices.
+    report["team_totals_h2"]["home_usable_selections"] = 0
+    report["team_totals_h2"]["away_usable_selections"] = 0
     for book in books:
         markets = book.get("markets")
         if not isinstance(markets, list):
@@ -122,6 +125,11 @@ def summarize_odds(payload, game):
                             or outcome.get("name") not in ("Over", "Under")):
                         continue
                 report[key]["usable_selections"] += 1
+                if key == "team_totals_h2":
+                    field = ("home_usable_selections"
+                             if outcome["description"] == game["home_team"]
+                             else "away_usable_selections")
+                    report[key][field] += 1
     # Distinguish a market absent from one present but unparseable.
     return report, returned
 
@@ -278,6 +286,9 @@ def run(argv=None):
         row = report[market]
         print(f"{market}: {'RETURNED' if row['market_returned'] else 'NOT RETURNED'}; "
               f"usable selections={row['usable_selections']}")
+    tt = report["team_totals_h2"]
+    print(f"Team totals coverage: HOME={tt['home_usable_selections']}, "
+          f"AWAY={tt['away_usable_selections']} usable Over/Under selections.")
     print(f"Response received UTC={captured.isoformat()}; research only.")
     print("Prices deliberately withheld from PUBLIC GitHub logs; no training or bets.")
 
