@@ -1,0 +1,24 @@
+name: SportsDataIO LiveOdds schema privacy tests (OFFLINE)
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/sportsdataio_liveodds_shape_audit.py
+      - tests/test_sportsdataio_liveodds_shape_audit.py
+      - .github/workflows/sportsdataio_liveodds_schema_offline_ci.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  no-network-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Verify no values are emitted in schema reports
+        run: |
+          python -m py_compile scripts/sportsdataio_liveodds_shape_audit.py tests/test_sportsdataio_liveodds_shape_audit.py
+          python -m unittest discover -s tests -p 'test_sportsdataio_liveodds_shape_audit.py' -v
