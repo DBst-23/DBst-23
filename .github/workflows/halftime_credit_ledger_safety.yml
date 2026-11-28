@@ -1,0 +1,45 @@
+name: Halftime credit ledger safety tests (offline)
+on:
+  push:
+    branches: [step-2l2-halftime-odds-paper-bridge]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  offline-and-postgres:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: sharpedge_test
+          POSTGRES_PASSWORD: local_test_only
+          POSTGRES_DB: sharpedge_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd=pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install PostgreSQL driver
+        run: python -m pip install 'psycopg[binary]>=3.1,<4'
+      - name: Run simulated ledger and collector tests
+        run: python -m unittest discover -s tests -p 'test_*credit*.py' -v
+      - name: Run real PostgreSQL independent-process race tests
+        env:
+          SHARPEDGE_TEST_POSTGRES_DSN: postgresql://sharpedge_test:local_test_only@127.0.0.1:5432/sharpedge_test
+        run: python -m unittest discover -s tests -p 'test_postgres_credit_concurrency.py' -v
+      - name: Assert live paid path stays locked
+        run: |
+          if SHARPEDGE_ALLOW_PAID_ODDS=YES python scripts/odds/halftime_event_collector.py --live --event-id TEST_NO_NETWORK > /tmp/locked.out 2>&1; then
+            echo 'ERROR: paid collector unexpectedly succeeded'; exit 1
+          fi
+          grep -q 'Paid mode locked' /tmp/locked.out
