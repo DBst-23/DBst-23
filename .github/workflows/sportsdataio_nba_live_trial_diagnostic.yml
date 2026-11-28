@@ -19,6 +19,12 @@ jobs:
       SPORTSDATAIO_API_KEY: ${{ secrets.SPORTSDATAIO_API_KEY }}
       REQUESTED_DATE: ${{ inputs.game_date }}
     steps:
+      - uses: actions/checkout@v4
+      - name: Run no-network LiveOdds structure privacy tests
+        shell: bash
+        run: |
+          python3 -m py_compile scripts/sportsdataio_liveodds_shape_audit.py tests/test_sportsdataio_liveodds_shape_audit.py
+          python3 -m unittest discover -s tests -p 'test_sportsdataio_liveodds_shape_audit.py' -v
       - name: Query live NBA games and in-game odds (trial metadata only)
         shell: bash
         run: |
@@ -26,6 +32,7 @@ jobs:
           import datetime as dt
           import json, os, re, sys, urllib.error, urllib.request
           from zoneinfo import ZoneInfo
+          from scripts.sportsdataio_liveodds_shape_audit import structural_audit
 
           key = os.environ.get("SPORTSDATAIO_API_KEY", "").strip()
           date = os.environ.get("REQUESTED_DATE", "").strip()
@@ -82,10 +89,10 @@ jobs:
                           ]
                       else:
                           result["sample_containers"] = [
-                              {"game_id": g.get("GameID"),
-                               "field_names": sorted(g.keys())[:35]}
+                              {"field_names": sorted(g.keys())[:35]}
                               for g in payload[:3] if isinstance(g, dict)
                           ]
+                          result["nested_liveodds_structure"] = structural_audit(payload)
                       successes += 1
               except urllib.error.HTTPError as exc:
                   result.update(status="access_denied_or_http_error", http_status=exc.code)
