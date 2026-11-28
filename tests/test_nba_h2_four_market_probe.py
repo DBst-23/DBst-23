@@ -137,12 +137,16 @@ class ProbeSafety(TestCase):
                 [GAME], {"x-requests-last": "0", "x-requests-remaining": "10"},
                 dt.datetime(2026, 11, 28, 7, 0, tzinfo=dt.timezone.utc)
             )) as fetch:
-                with mock.patch.object(probe, "reserve_single_pilot") as reserve:
-                    with self.assertRaises(probe.SafeStop):
-                        probe.run(["--phase", "probe", "--event-id", GAME["id"],
-                                   "--confirmation", probe.CONFIRMATION])
-                    self.assertEqual(fetch.call_count, 1)
-                    reserve.assert_not_called()
+                with mock.patch.object(probe.dt, "datetime", wraps=dt.datetime) as mocked:
+                    mocked.now.return_value = dt.datetime(
+                        2026, 11, 28, 7, 0, tzinfo=dt.timezone.utc
+                    )
+                    with mock.patch.object(probe, "reserve_single_pilot") as reserve:
+                        with self.assertRaises(probe.SafeStop):
+                            probe.run(["--phase", "probe", "--event-id", GAME["id"],
+                                       "--confirmation", probe.CONFIRMATION])
+                        self.assertEqual(fetch.call_count, 1)
+                        reserve.assert_not_called()
 
     def test_refuses_if_provider_remaining_quota_below_four(self):
         with mock.patch.dict("os.environ", {"ODDS_API_KEY": "DUMMY_KEY"}):
